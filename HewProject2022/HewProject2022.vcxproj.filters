@@ -1,17 +1,384 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="ソース ファイル">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{3395d61d-fbb9-475a-a2a7-6fd5e1a176d5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ヘッダー ファイル">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    <Filter Include="Game">
+      <UniqueIdentifier>{dc0008c0-fab4-4d0c-ba26-eab631b68fa9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="リソース ファイル">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="Engine\Runtime">
+      <UniqueIdentifier>{0c798ca3-231b-4a4e-8987-07b6d80bad8c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Shader">
+      <UniqueIdentifier>{7d6ba370-d4de-4461-9547-91e9669e108a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Runtime\Window">
+      <UniqueIdentifier>{7492a1bf-4c2d-4ff1-af70-cc6f78cade91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Runtime\Tools">
+      <UniqueIdentifier>{488433c1-1361-457c-ab56-3dd86b9b93d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Runtime\Graphics">
+      <UniqueIdentifier>{94a5dbfb-9777-4dcd-b44e-596e8e4b9b20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Runtime\Core">
+      <UniqueIdentifier>{df7cc42a-8715-4af8-abe9-e0f5d12b84e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Runtime\Core\Info">
+      <UniqueIdentifier>{e5269adf-46a4-43a6-85cb-e71451c2ec31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Runtime\Core\Renderer">
+      <UniqueIdentifier>{27bff001-1e13-4f44-bdea-fedb5720829f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Runtime\Core\Math">
+      <UniqueIdentifier>{8e2bdf9d-c5b7-4ed3-94e8-ef31c9e26aca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\SceneManager">
+      <UniqueIdentifier>{c96572b2-405c-498c-b25c-5b97cc763d84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Math">
+      <UniqueIdentifier>{de9e617c-1271-4f59-97b6-57903212e395}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Input">
+      <UniqueIdentifier>{d166e28d-5a9d-4d7a-bf35-6832b75762dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Create">
+      <UniqueIdentifier>{cf7daaef-0c2d-4416-bb8f-3a76172947cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Create\Private">
+      <UniqueIdentifier>{aeed6feb-26ba-4c3e-87b0-7a834cf107b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Create\Public">
+      <UniqueIdentifier>{36fe4d3a-b80f-4ea4-be47-9e4e2f90c91d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Component">
+      <UniqueIdentifier>{2ad4e5a6-65fa-4cda-9838-36eb98828ebc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Component\Private">
+      <UniqueIdentifier>{220a45e5-27e3-4764-a133-b19c08cc5a3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Component\Public">
+      <UniqueIdentifier>{2f0199a2-f937-40e9-b6f0-de4d49b6a20a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Math\Public">
+      <UniqueIdentifier>{0167d119-865a-4f85-82c2-2bf5c8b259df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Math\Private">
+      <UniqueIdentifier>{0b3c6139-745c-4845-98cf-abcc15e6be7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameObject">
+      <UniqueIdentifier>{2ba0e73e-30d4-44b1-ab65-c6859b3a1ea0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Scene">
+      <UniqueIdentifier>{4dbde817-86e3-46e8-adc9-a64d8aa69fa6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Runtime\DirectTex">
+      <UniqueIdentifier>{ebcf8527-9d30-4524-b80f-5142f33347a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Runtime\DirectTex\TextureLoader">
+      <UniqueIdentifier>{5da69a3b-6c2e-4ce8-8c28-642a1e42c835}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Runtime\Core\Object">
+      <UniqueIdentifier>{da89290e-c918-4c07-8b5e-4f4556f3ae4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameName">
+      <UniqueIdentifier>{3525c8a5-19b8-42d6-ad04-d339c4edfdc7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameName\Scene">
+      <UniqueIdentifier>{b775f2fa-c20d-4807-b23b-dca813f46d7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameName\Scene\Title">
+      <UniqueIdentifier>{5f78f9e5-d597-4b05-80ba-e79a622d88c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameName\Scene\MainGame">
+      <UniqueIdentifier>{ce91e3ea-2bf7-4977-b185-3d9e535b3fe5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameName\Object">
+      <UniqueIdentifier>{c2238518-3581-4c84-9bac-f458ee20fdfb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameName\Object\Charactor">
+      <UniqueIdentifier>{bbb43f8d-e1cd-410a-b5a7-dd5753e64082}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameName\Object\UI">
+      <UniqueIdentifier>{ac2d9210-c109-426f-ad71-88bfd5c8b8d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameName\Object\Actor">
+      <UniqueIdentifier>{f43e45ea-29b6-434e-a5c3-4f8d5aaed72f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameName\Object\Effect">
+      <UniqueIdentifier>{f89b9f6c-8ee9-4abd-82ac-b4bbdaeab00e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Runtime\Core\Data">
+      <UniqueIdentifier>{350e7a33-07ac-452a-9c30-d21da75f27a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Data">
+      <UniqueIdentifier>{f37b136d-0e5c-46e9-a0a9-8124180c9fe9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Runtime\Core\Data\Sprite">
+      <UniqueIdentifier>{e5463d5d-c1e3-4c29-be49-fda2fe542699}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Runtime\Core\Data\vsShader">
+      <UniqueIdentifier>{3d51fb6a-03ae-4663-8424-477d5e467fb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Runtime\Core\Data\psShader">
+      <UniqueIdentifier>{05e2475c-1ee1-442e-b6fd-20f016fe38a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameObject\public">
+      <UniqueIdentifier>{7bd44323-7bae-4413-b319-cb17ba925bb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameObject\private">
+      <UniqueIdentifier>{89b166fa-9ddb-4dc3-8b09-a4171304745f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object">
+      <UniqueIdentifier>{f6ad6b6b-6d02-44cc-8ec0-8a26c5ecfd40}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Shader\psvsCommon.hlsl">
+      <Filter>Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="Shader\vs_2DSprite.hlsl">
+      <Filter>Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="Shader\ConstantBuffer.hlsl">
+      <Filter>Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="Shader\ps_2DSprite.hlsl">
+      <Filter>Shader</Filter>
+    </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Engine\Runtime\Application.cpp">
+      <Filter>Engine\Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Runtime\Engine.cpp">
+      <Filter>Engine\Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Runtime\WinMain.cpp">
+      <Filter>Engine\Runtime</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Runtime\Window\WindowCallBack.cpp">
+      <Filter>Engine\Runtime\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Runtime\Window\Window.cpp">
+      <Filter>Engine\Runtime\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Runtime\Tools\SystemTimer.cpp">
+      <Filter>Engine\Runtime\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Runtime\Tools\FileSystem.cpp">
+      <Filter>Engine\Runtime\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Runtime\Tools\Log.cpp">
+      <Filter>Engine\Runtime\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Runtime\Graphics\Shader.cpp">
+      <Filter>Engine\Runtime\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Runtime\Graphics\DirectXGraphics.cpp">
+      <Filter>Engine\Runtime\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Runtime\Core\Shape.cpp">
+      <Filter>Engine\Runtime\Core\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Runtime\Core\TransformMatrix.cpp">
+      <Filter>Engine\Runtime\Core\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\SceneManager\SceneManager.cpp">
+      <Filter>Engine\SceneManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Input\Input.cpp">
+      <Filter>Engine\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Create\GameObject.cpp">
+      <Filter>Engine\Create\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Create\Scene.cpp">
+      <Filter>Engine\Create\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Component\Transform.cpp">
+      <Filter>Engine\Component\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Component\SpriteRenderer.cpp">
+      <Filter>Engine\Component\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Math\Color.cpp">
+      <Filter>Engine\Math\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Math\CRect.cpp">
+      <Filter>Engine\Math\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Math\Vector2.cpp">
+      <Filter>Engine\Math\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Math\Vector3.cpp">
+      <Filter>Engine\Math\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\SampleScene.cpp">
+      <Filter>Game\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="directxtex\include\DDSTextureLoader.cpp">
+      <Filter>Engine\Runtime\DirectTex\TextureLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="directxtex\include\WICTextureLoader.cpp">
+      <Filter>Engine\Runtime\DirectTex\TextureLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Runtime\Core\Object.cpp">
+      <Filter>Engine\Runtime\Core\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Data\DataArray.cpp">
+      <Filter>Engine\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Runtime\Core\Sprite.cpp">
+      <Filter>Engine\Runtime\Core\Data\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Runtime\Core\vsShader.cpp">
+      <Filter>Engine\Runtime\Core\Data\vsShader</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Runtime\Core\psShader.cpp">
+      <Filter>Engine\Runtime\Core\Data\psShader</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameObject\Camera.cpp">
+      <Filter>Game\GameObject\private</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameObject\Actor.cpp">
+      <Filter>Game\GameObject\private</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameObject\Character.cpp">
+      <Filter>Game\GameObject\private</Filter>
+    </ClCompile>
+    <ClCompile Include="Test.cpp">
+      <Filter>Game\Object</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Engine\Runtime\Application.h">
+      <Filter>Engine\Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Runtime\Engine.h">
+      <Filter>Engine\Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Runtime\Window\Window.h">
+      <Filter>Engine\Runtime\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Runtime\Window\WindowCallBack.h">
+      <Filter>Engine\Runtime\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Runtime\Tools\SystemTimer.h">
+      <Filter>Engine\Runtime\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Runtime\Tools\FileSystem.h">
+      <Filter>Engine\Runtime\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Runtime\Tools\Log.h">
+      <Filter>Engine\Runtime\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Runtime\Tools\macro.h">
+      <Filter>Engine\Runtime\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Runtime\Graphics\DirectXGraphics.h">
+      <Filter>Engine\Runtime\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Runtime\Graphics\Shader.h">
+      <Filter>Engine\Runtime\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Runtime\Core\InputInfo.h">
+      <Filter>Engine\Runtime\Core\Info</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Runtime\Core\Renderer.h">
+      <Filter>Engine\Runtime\Core\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Runtime\Core\Shape.h">
+      <Filter>Engine\Runtime\Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Runtime\Core\TransformMatrix.h">
+      <Filter>Engine\Runtime\Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\SceneManager\SceneManager.h">
+      <Filter>Engine\SceneManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Input\Input.h">
+      <Filter>Engine\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Create\Scene.h">
+      <Filter>Engine\Create\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Create\GameObject.h">
+      <Filter>Engine\Create\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Component\Transform.h">
+      <Filter>Engine\Component\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Math\Color.h">
+      <Filter>Engine\Math\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Math\CRect.h">
+      <Filter>Engine\Math\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Math\Vector2.h">
+      <Filter>Engine\Math\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Math\Vector3.h">
+      <Filter>Engine\Math\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\SampleScene.h">
+      <Filter>Game\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="directxtex\include\DDSTextureLoader.h">
+      <Filter>Engine\Runtime\DirectTex\TextureLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="directxtex\include\WICTextureLoader.h">
+      <Filter>Engine\Runtime\DirectTex\TextureLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="directxtex\include\DirectXTex.h">
+      <Filter>Engine\Runtime\DirectTex</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Runtime\Core\Object.h">
+      <Filter>Engine\Runtime\Core\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Data\DataArray.h">
+      <Filter>Engine\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Runtime\Core\Sprite.h">
+      <Filter>Engine\Runtime\Core\Data\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Runtime\Core\Data.h">
+      <Filter>Engine\Runtime\Core\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Runtime\Core\vsShader.h">
+      <Filter>Engine\Runtime\Core\Data\vsShader</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Component\SpriteRenderer.h">
+      <Filter>Engine\Component\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Runtime\Core\psShader.h">
+      <Filter>Engine\Runtime\Core\Data\psShader</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameObject\Camera.h">
+      <Filter>Game\GameObject\public</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameObject\Actor.h">
+      <Filter>Game\GameObject\public</Filter>
+    </ClInclude>
+    <ClInclude Include="ydmEngine.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameObject\Character.h">
+      <Filter>Game\GameObject\public</Filter>
+    </ClInclude>
+    <ClInclude Include="Test.h">
+      <Filter>Game\Object</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="README.txt">
+      <Filter>GameName</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="directxtex\include\DirectXTex.inl">
+      <Filter>Engine\Runtime\DirectTex</Filter>
+    </None>
   </ItemGroup>
 </Project>

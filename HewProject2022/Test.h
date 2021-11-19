@@ -1,11 +1,12 @@
 #pragma once
 #include "ydmEngine.h"
 using Create::Actor;
+using Create::Character;
 using GameEngine::Input;
 
 namespace GamePlay
 {
-	class Test : public Actor
+	class Test : public Character
 	{
 	private:
 		float m_Speed;

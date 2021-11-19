@@ -6,6 +6,7 @@
 //*****************************************************************************
 #include "SceneManager.h"
 #include "../../Game/Scene/SampleScene.h"
+#include "../../StageTestScene.h"
 #include "../Runtime/Tools/Log.h"
 
 //-----------------------------------------------------------------------------
@@ -25,7 +26,8 @@ std::map<std::string, Create::Scene*> GameEngine::SceneManager::SceneList;
 GameEngine::SceneManager::SceneManager()
 {
 	CreateScene("SampleScene", new GamePlay::SampleScene);
-	NextScene = SceneList["SampleScene"];
+	CreateScene("StageTestScene", new StageTestScene);
+	NextScene = SceneList["StageTestScene"];
 }
 
 //==============================================================================

@@ -69,6 +69,32 @@ void Create::Scene::Destroy(std::string in_ObjectName)
 }
 
 //==============================================================================
+//!	@fn		SetCamera
+//!	@brief	シーンにカメラをセットする
+//!	@param	
+//!	@retval	
+//==============================================================================
+void Create::Scene::SetCamera()
+{
+	camera->Start();
+	ObjectArray.insert(std::make_pair(camera->ToString(), camera));
+}
+
+//==============================================================================
+//!	@fn		SetCamera
+//!	@brief	シーンにカメラをセットする
+//!	@param	カメラ
+//!	@retval	
+//==============================================================================
+void Create::Scene::SetCamera(Camera* out_Camera)
+{
+	camera = out_Camera;
+	camera->Start();
+	ObjectArray.insert(std::make_pair(camera->ToString(), camera));
+
+}
+
+//==============================================================================
 //!	@fn		GetState
 //!	@brief	シーン状態取得
 //!	@param

@@ -21,6 +21,7 @@ namespace Create
 		Transform transform;
 
 	public:
+		GameObject();
 		GameObject(std::string in_name);
 
 		Transform GetTransform();

@@ -38,16 +38,7 @@ bool Create::Camera::Start()
 //==============================================================================
 bool Create::Camera::Update()
 {
-	TransformMatrix* transformMatrix = TransformMatrix::Instance();
-
-	DirectX::XMFLOAT3 Pos =
-	{
-		transform.Position.x,
-		transform.Position.y,
-		0.0f
-	};
-	transformMatrix->SetCameraPosition(Pos);
-
+	SetCameraPos();
 	return true;
 }
 
@@ -59,4 +50,22 @@ bool Create::Camera::Update()
 Math::Color* Create::Camera::GetBackgroundColor()
 {
 	return &BackgroundColor;
+}
+
+//==============================================================================
+//!	@fn		SetCameraPos
+//!	@brief	カメラの座標更新
+//!	@param	
+//==============================================================================
+void Create::Camera::SetCameraPos()
+{
+	TransformMatrix* transformMatrix = TransformMatrix::Instance();
+
+	DirectX::XMFLOAT3 Pos =
+	{
+		transform.Position.x,
+		transform.Position.y,
+		0.0f
+	};
+	transformMatrix->SetCameraPosition(Pos);
 }

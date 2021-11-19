@@ -133,6 +133,18 @@
     <Filter Include="Game\Object">
       <UniqueIdentifier>{f6ad6b6b-6d02-44cc-8ec0-8a26c5ecfd40}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameName\Object\Map">
+      <UniqueIdentifier>{e70e4044-d341-4464-b76b-0ffc0295cc6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameName\Object\Camera">
+      <UniqueIdentifier>{238be73b-fc97-4214-9e80-799002123215}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\Test">
+      <UniqueIdentifier>{8383f8bd-d990-46f4-bb59-58c59920f805}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\BackGround">
+      <UniqueIdentifier>{84c32d85-3d8d-42a4-a32c-6aa3ddb9d8cc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Shader\psvsCommon.hlsl">
@@ -248,9 +260,20 @@
     <ClCompile Include="Game\GameObject\Character.cpp">
       <Filter>Game\GameObject\private</Filter>
     </ClCompile>
-    <ClCompile Include="Test.cpp">
-      <Filter>Game\Object</Filter>
+    <ClCompile Include="StageTestScene.cpp">
+      <Filter>Game\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>GameName\Object\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Tile.cpp">
+      <Filter>GameName\Object\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="MainCamera.cpp" />
+    <ClCompile Include="Test.cpp">
+      <Filter>Game\Object\Test</Filter>
+    </ClCompile>
+    <ClCompile Include="BackGround.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Runtime\Application.h">
@@ -367,9 +390,20 @@
     <ClInclude Include="Game\GameObject\Character.h">
       <Filter>Game\GameObject\public</Filter>
     </ClInclude>
-    <ClInclude Include="Test.h">
-      <Filter>Game\Object</Filter>
+    <ClInclude Include="StageTestScene.h">
+      <Filter>Game\Scene</Filter>
     </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>GameName\Object\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Tile.h">
+      <Filter>GameName\Object\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="MainCamera.h" />
+    <ClInclude Include="Test.h">
+      <Filter>Game\Object\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="BackGround.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="README.txt">

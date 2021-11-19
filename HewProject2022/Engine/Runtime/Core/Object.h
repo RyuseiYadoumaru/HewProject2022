@@ -20,11 +20,8 @@ namespace Create
 		std::string name;
 
 	public:
-
 		virtual bool Start();
-
 		virtual bool Update();
-
 		virtual bool End();
 
 		std::string ToString() const;

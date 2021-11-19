@@ -17,13 +17,11 @@ namespace Create
 {
 	class  Camera : public GameObject
 	{
-	protected:
+	public:
 		Math::Color BackgroundColor;
 
 	public:
-
 		Camera(std::string in_name);
-
 
 		bool Start() override;
 
@@ -31,6 +29,9 @@ namespace Create
 
 	public:
 		Math::Color* GetBackgroundColor();
+
+	protected:
+		void SetCameraPos();
 
 	};
 }

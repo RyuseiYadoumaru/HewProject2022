@@ -21,6 +21,7 @@ namespace Create
 
 
 	public:
+		Actor();
 		Actor(std::string in_Name);
 		bool Start() override;
 		bool Update() override;

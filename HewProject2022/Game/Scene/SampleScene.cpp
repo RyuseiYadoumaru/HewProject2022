@@ -5,7 +5,7 @@ using namespace Create;
 bool GamePlay::SampleScene::Start()
 {
 	Hanamaru = make_shared<Test>("‚Í‚È‚Ü‚é");
-	camera = make_shared<Camera>("MainCamera");
+	SetCamera();
 	camera->GetBackgroundColor()->Set(0.3f, 1.0f, 0.8f, 1.0f);
 	Instance(Hanamaru.get());
 

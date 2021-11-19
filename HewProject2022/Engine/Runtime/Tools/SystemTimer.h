@@ -9,17 +9,6 @@
 
 class SystemTimer
 {
-private:
-
-	SYSTEMTIME m_SystemLocalTime;
-
-	float m_SystemStartTime;
-	float m_SaveTime;
-
-	UINT m_SystemCounter;
-
-	float m_WaitTime;
-	float m_NowFPS;
 
 public:
 
@@ -33,6 +22,18 @@ public:
 	float GetSystemTime();
 	float GetNowFPS();
 	float GetNowFPS(int in_Interval);
+
+private:
+
+	SYSTEMTIME m_SystemLocalTime;
+
+	float m_SystemStartTime;
+	float m_SaveTime;
+
+	UINT m_SystemCounter;
+
+	float m_WaitTime;
+	float m_NowFPS;
 
 private:
 

@@ -24,18 +24,24 @@ namespace GameEngine
 		std::string VertexShaderName;
 		std::string PixcelShaderName;
 
-	private:
-		Math::CRect Rect;
-		Sprite sprite;
-		XMFLOAT4X4* WorldMatrix;
-
-
 	public:
 		SpriteRenderer(XMFLOAT4X4* in_WorldMatrix);
 
 		bool Init() override;
 		bool Render() override;
 		void Release() override;
+
+	public:
+		void SetSize(float& in_X, float& in_Y);
+		void SetSize(float in_X, float in_Y);
+		void SetSize(float& in_Size);
+
+		Math::Vector2 GetSize();
+	private:
+		Math::Vector2 Size;
+		Math::CRect Rect;
+		Sprite sprite;
+		XMFLOAT4X4* WorldMatrix;
 
 	private:
 		static const UINT VERTEX_NUM;

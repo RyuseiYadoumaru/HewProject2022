@@ -29,6 +29,7 @@ GameEngine::SpriteRenderer::SpriteRenderer(XMFLOAT4X4* in_WorldMatrix) : Rendere
 	PixcelShaderName = "ps_2DSprite";
 	WorldMatrix = in_WorldMatrix;
 
+	Size.Set(0.0f, 0.0f);
 }
 
 //==============================================================================
@@ -55,8 +56,16 @@ bool GameEngine::SpriteRenderer::Init()
 
 	/****	SRV生成		****/
 	sprite.Set(DataArray::GetSpriteData(SpriteName));
+	if (Size.x > 0.0f && Size.y > 0.0f)
+	{
+		Rect.Set(Size.x, Size.y);
+	}
+	else
+	{
+		Rect.Set(sprite.GetSize().x, sprite.GetSize().y);
+		Size.Set(sprite.GetSize().x, sprite.GetSize().y);
 
-	Rect.Set(sprite.GetSize().x, sprite.GetSize().y);
+	}
 
 	/****	頂点座標	****/
 	VERTEX vertex[VERTEX_NUM] =
@@ -157,4 +166,46 @@ void GameEngine::SpriteRenderer::Release()
 		VertexBuffer->Release();
 		VertexBuffer = nullptr;
 	}
+}
+
+//==============================================================================
+//!	@fn		SetSize
+//!	@brief　画像サイズ任意設定
+//!	@param	横幅
+//!	@param	縦幅
+//==============================================================================
+void GameEngine::SpriteRenderer::SetSize(float& in_X, float& in_Y)
+{
+	Size.Set(in_X, in_Y);
+}
+
+//==============================================================================
+//!	@fn		SetSize
+//!	@brief　画像サイズ任意設定
+//!	@param	横幅
+//!	@param	縦幅
+//==============================================================================
+void GameEngine::SpriteRenderer::SetSize(float in_X, float in_Y)
+{
+	Size.Set(in_X, in_Y);
+}
+
+//==============================================================================
+//!	@fn		SetSize
+//!	@brief　画像サイズ任意設定
+//!	@param	横幅、縦幅
+//==============================================================================
+void GameEngine::SpriteRenderer::SetSize(float& in_Size)
+{
+	Size.Set(in_Size, in_Size);
+}
+
+//==============================================================================
+//!	@fn		GetSize
+//!	@brief　画像サイズ取得
+//!	@param	横幅、縦幅
+//==============================================================================
+Math::Vector2 GameEngine::SpriteRenderer::GetSize()
+{
+	return Size;
 }

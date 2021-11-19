@@ -21,11 +21,8 @@ namespace Create
 		enum  STATE
 		{
 			START,
-
 			PLAY,
-
 			END
-
 		};
 
 	public:
@@ -36,8 +33,6 @@ namespace Create
 		virtual bool End() = 0;
 		virtual bool Render();
 
-		void Instance(Object* in_Object);
-		void Destroy(std::string in_ObjectName);
 
 		STATE GetState() const;
 		void SetState(const STATE in_State);
@@ -46,11 +41,16 @@ namespace Create
 		static STATE State;
 
 	protected:
-		std::shared_ptr<Camera> camera;
+		Camera* camera;
 		std::map<std::string, Object*> ObjectArray;
 
 
 	protected:
+		void Instance(Object* in_Object);
+		void Destroy(std::string in_ObjectName);
+		void SetCamera();
+		void SetCamera(Camera* out_Camera);
+
 		bool ClearDisplay();
 		bool SwapChain();
 	};

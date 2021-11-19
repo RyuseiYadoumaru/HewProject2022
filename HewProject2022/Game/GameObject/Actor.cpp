@@ -12,6 +12,16 @@
 //==============================================================================
 //!	@fn		Constructor
 //!	@brief	コンストラクタ
+//!	@param
+//==============================================================================
+Create::Actor::Actor() : GameObject()
+{
+	m_SpriteRenderer = std::make_shared<GameEngine::SpriteRenderer>(transform.GetAddress());
+}
+
+//==============================================================================
+//!	@fn		Constructor
+//!	@brief	コンストラクタ
 //!	@param	オブジェクト名前
 //==============================================================================
 Create::Actor::Actor(std::string in_Name) : GameObject(in_Name)

@@ -24,9 +24,13 @@ namespace Math
 	public:
 		CRect();
 		CRect(float in_SizeX, float in_SizeY);
+		CRect(float in_SizeX, float in_SizeY, Vector2& in_Position);
+		CRect(float in_SizeX, float in_SizeY, float in_PositoinX, float in_PositionY);
 
 	public:
 		void Set(float in_SizeX, float in_SizeY);
+		void Set(float in_SizeX, float in_SizeY, Vector2& in_Position);
+		void Set(float in_SizeX, float in_SizeY, float in_PositoinX, float in_PositionY);
 
 		Vector2 GetTopLeft() const { return TopLeft; };
 		Vector2 GetTopRight() const { return TopRight; };

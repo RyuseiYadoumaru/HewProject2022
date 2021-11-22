@@ -274,6 +274,9 @@
       <Filter>Game\Object\Test</Filter>
     </ClCompile>
     <ClCompile Include="BackGround.cpp" />
+    <ClCompile Include="Cell.cpp">
+      <Filter>GameName\Object\Map</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Runtime\Application.h">
@@ -404,6 +407,9 @@
       <Filter>Game\Object\Test</Filter>
     </ClInclude>
     <ClInclude Include="BackGround.h" />
+    <ClInclude Include="Cell.h">
+      <Filter>GameName\Object\Map</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="README.txt">

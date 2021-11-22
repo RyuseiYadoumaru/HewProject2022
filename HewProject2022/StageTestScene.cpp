@@ -9,7 +9,6 @@ bool StageTestScene::Start()
 	m_BackGruond = make_shared<BackGround>("BackGorund");
 
 	/*	オブジェクト初期化	*/
-	m_Test->transform.Scale.Set(0.2f, 0.1f, 0);
 	m_Map->Start();
 	m_Test->Start();
 	m_BackGruond->Start();
@@ -28,7 +27,8 @@ Scene::STATE StageTestScene::Update()
 	if (Input::GetKeyTrigger(PK_ENTER) == true)
 	{
 		//条件が当てはまったとき、ブロックが動く
-
+		//Vector2 Debug;
+		//m_Map->MoveMap(Debug);
 
 	}
 

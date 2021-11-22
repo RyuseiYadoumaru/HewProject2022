@@ -15,11 +15,16 @@ bool GamePlay::SampleScene::Start()
 
 Scene::STATE GamePlay::SampleScene::Update()
 {
-	camera->Update();
+	//camera->Update();
 
 	for (auto i : ObjectArray)
 	{
 		i.second->Update();
+	}
+
+	if (Input::GetKeyTrigger(PK_3) == true)
+	{
+		ObjectArray.clear();
 	}
 
 	if (Input::GetKeyTrigger(PK_F2) == true)
@@ -43,6 +48,7 @@ bool GamePlay::SampleScene::End()
 		i.second->End();
 	}
 
+	delete camera;
 	ObjectArray.clear();
 	return true;
 }

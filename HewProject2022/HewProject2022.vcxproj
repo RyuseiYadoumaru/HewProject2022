@@ -192,6 +192,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BackGround.cpp" />
+    <ClCompile Include="Cell.cpp" />
     <ClCompile Include="directxtex\include\DDSTextureLoader.cpp" />
     <ClCompile Include="directxtex\include\WICTextureLoader.cpp" />
     <ClCompile Include="Engine\Component\SpriteRenderer.cpp" />
@@ -233,6 +234,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BackGround.h" />
+    <ClInclude Include="Cell.h" />
     <ClInclude Include="directxtex\include\DDSTextureLoader.h" />
     <ClInclude Include="directxtex\include\DirectXTex.h" />
     <ClInclude Include="directxtex\include\WICTextureLoader.h" />

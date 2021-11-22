@@ -1,10 +1,11 @@
 #pragma once
 #include "ydmEngine.h"
+#include "Cell.h"
 using Math::Vector2;
 using Create::Actor;
 
-#define TILE_WIDTH	(float)(50)
-#define TILE_HEIGHT	(float)(50)
+#define TILE_WIDTH	(float)(70)
+#define TILE_HEIGHT	(float)(70)
 
 enum MAPOBJ
 {
@@ -21,12 +22,14 @@ public:
 	bool Start() override;
 
 public:
-	void SetCell(float& in_X, float& in_Y);
 	void SetCell(float in_X, float in_Y);
+	MAPOBJ GetKind() const;
+	void SetKind(MAPOBJ in_MapObj);
 
 private:
 	MAPOBJ m_Kind;
-	Vector2 m_Cell;	//セル位置
+	Cell m_Cell;
+	//Vector2 m_Cell;	//セル位置
 
 };
 

@@ -76,6 +76,7 @@ void Create::Scene::Destroy(std::string in_ObjectName)
 //==============================================================================
 void Create::Scene::SetCamera()
 {
+	camera = new Camera("MainCamera");
 	camera->Start();
 	ObjectArray.insert(std::make_pair(camera->ToString(), camera));
 }

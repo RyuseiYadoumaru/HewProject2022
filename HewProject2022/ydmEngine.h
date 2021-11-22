@@ -60,6 +60,8 @@
 #include <list>
 #include <iostream>
 #include <memory>
+#include <cmath>
+#include <cstdlib>
 
 //==============================================================================
 //!	@region	DirectX

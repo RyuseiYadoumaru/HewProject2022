@@ -7,10 +7,11 @@ GamePlay::Test::Test(string in_Name) : Character(in_Name)
 bool GamePlay::Test::Start()
 {
 	m_Speed = 10.0f;
-	m_SpriteRenderer->SpriteName = "‚Í‚È‚Ü‚é‚¿‚á‚ñ";
+	m_SpriteRenderer->SpriteName = "player";
 	m_SpriteRenderer->Init();
 
-	transform.Position.Set(1000.0f, 1250.0f, 0.0f);
+	transform.Position.Set(0.0f, 0.0f, 0.0f);
+	transform.Scale.Set(0.75f, 0.75f, 0.75f);
 	return true;
 }
 

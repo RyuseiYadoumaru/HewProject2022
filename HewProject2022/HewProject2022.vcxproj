@@ -192,7 +192,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BackGround.cpp" />
-    <ClCompile Include="Cell.cpp" />
     <ClCompile Include="directxtex\include\DDSTextureLoader.cpp" />
     <ClCompile Include="directxtex\include\WICTextureLoader.cpp" />
     <ClCompile Include="Engine\Component\SpriteRenderer.cpp" />
@@ -228,13 +227,14 @@
     <ClCompile Include="Game\Scene\SampleScene.cpp" />
     <ClCompile Include="MainCamera.cpp" />
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="MoveColumnInfo.cpp" />
     <ClCompile Include="StageTestScene.cpp" />
     <ClCompile Include="Test.cpp" />
     <ClCompile Include="Tile.cpp" />
+    <ClCompile Include="TileColumn.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BackGround.h" />
-    <ClInclude Include="Cell.h" />
     <ClInclude Include="directxtex\include\DDSTextureLoader.h" />
     <ClInclude Include="directxtex\include\DirectXTex.h" />
     <ClInclude Include="directxtex\include\WICTextureLoader.h" />
@@ -274,9 +274,11 @@
     <ClInclude Include="Game\Scene\SampleScene.h" />
     <ClInclude Include="MainCamera.h" />
     <ClInclude Include="Map.h" />
+    <ClInclude Include="MoveColumnInfo.h" />
     <ClInclude Include="StageTestScene.h" />
     <ClInclude Include="Test.h" />
     <ClInclude Include="Tile.h" />
+    <ClInclude Include="TileColumn.h" />
     <ClInclude Include="ydmEngine.h" />
   </ItemGroup>
   <ItemGroup>

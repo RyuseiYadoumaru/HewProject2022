@@ -2,6 +2,7 @@
 
 bool StageTestScene::Start()
 {
+	cout << "ステージテストシーン" << endl;
 	/*	オブジェクト生成	*/
 	m_Map = make_shared<Map>();
 	m_Test = make_shared<GamePlay::Test>("Hanamaru");
@@ -24,13 +25,35 @@ Scene::STATE StageTestScene::Update()
 {
 
 	/*	ブロック挙動	*/
-	if (Input::GetKeyTrigger(PK_ENTER) == true)
+	if (Input::GetKeyTrigger(PK_ENTER) == true && m_Map->GetisMove() == false)
 	{
-		//条件が当てはまったとき、ブロックが動く
-		//Vector2 Debug;
-		//m_Map->MoveMap(Debug);
+		m_Map->MoveSwicthON();
+		Tile* Debug = m_Map->m_TileColumnList[24].mp_Column[0];
+		m_Map->MoveMap(Debug);
 
 	}
+	/*	ブロック挙動	*/
+	if (Input::GetKeyTrigger(PK_1) == true && m_Map->GetisMove() == false)
+	{
+		m_Map->MoveSwicthON();
+		Tile* Debug = m_Map->m_TileColumnList[26].mp_Column[1];
+		m_Map->MoveMap(Debug);
+	}
+	/*	ブロック挙動	*/
+	if (Input::GetKeyTrigger(PK_2) == true && m_Map->GetisMove() == false)
+	{
+		m_Map->MoveSwicthON();
+		Tile* Debug = m_Map->m_TileColumnList[31].mp_Column[4];
+		m_Map->MoveMap(Debug);
+	}
+	/*	ブロック挙動	*/
+	if (Input::GetKeyTrigger(PK_3) == true && m_Map->GetisMove() == false)
+	{
+		m_Map->MoveSwicthON();
+		Tile* Debug = m_Map->m_TileColumnList[23].mp_Column[0];
+		m_Map->MoveMap(Debug);
+	}
+
 
 	m_Test->Update();
 	m_Map->Update();

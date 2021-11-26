@@ -145,6 +145,12 @@
     <Filter Include="Game\Object\BackGround">
       <UniqueIdentifier>{84c32d85-3d8d-42a4-a32c-6aa3ddb9d8cc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameName\Object\Camera\MainCamera">
+      <UniqueIdentifier>{30c144ae-9517-4642-8275-8af5af26ba9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ScriptClass">
+      <UniqueIdentifier>{6e7f3e1a-380b-44ab-8496-2ead13de20a4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Shader\psvsCommon.hlsl">
@@ -269,12 +275,19 @@
     <ClCompile Include="Tile.cpp">
       <Filter>GameName\Object\Map</Filter>
     </ClCompile>
-    <ClCompile Include="MainCamera.cpp" />
     <ClCompile Include="Test.cpp">
       <Filter>Game\Object\Test</Filter>
     </ClCompile>
-    <ClCompile Include="BackGround.cpp" />
-    <ClCompile Include="Cell.cpp">
+    <ClCompile Include="BackGround.cpp">
+      <Filter>Game\Object\BackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="MainCamera.cpp">
+      <Filter>GameName\Object\Camera\MainCamera</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveColumnInfo.cpp">
+      <Filter>GameName\Object\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="TileColumn.cpp">
       <Filter>GameName\Object\Map</Filter>
     </ClCompile>
   </ItemGroup>
@@ -402,12 +415,19 @@
     <ClInclude Include="Tile.h">
       <Filter>GameName\Object\Map</Filter>
     </ClInclude>
-    <ClInclude Include="MainCamera.h" />
     <ClInclude Include="Test.h">
       <Filter>Game\Object\Test</Filter>
     </ClInclude>
-    <ClInclude Include="BackGround.h" />
-    <ClInclude Include="Cell.h">
+    <ClInclude Include="BackGround.h">
+      <Filter>Game\Object\BackGround</Filter>
+    </ClInclude>
+    <ClInclude Include="MainCamera.h">
+      <Filter>GameName\Object\Camera\MainCamera</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveColumnInfo.h">
+      <Filter>GameName\Object\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="TileColumn.h">
       <Filter>GameName\Object\Map</Filter>
     </ClInclude>
   </ItemGroup>

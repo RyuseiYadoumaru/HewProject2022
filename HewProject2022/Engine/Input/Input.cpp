@@ -143,6 +143,16 @@ void GameEngine::Input::KeyUpdate()
 
 
 	/****	キー情報を取得	****/
+	gKeys[PK_0] = GetAsyncKeyState(PK_0);				//0
+	gKeys[PK_1] = GetAsyncKeyState(PK_1);				//1
+	gKeys[PK_2] = GetAsyncKeyState(PK_2);				//2
+	gKeys[PK_3] = GetAsyncKeyState(PK_3);				//3
+	gKeys[PK_4] = GetAsyncKeyState(PK_4);				//4
+	gKeys[PK_5] = GetAsyncKeyState(PK_5);				//5
+	gKeys[PK_6] = GetAsyncKeyState(PK_6);				//6
+	gKeys[PK_7] = GetAsyncKeyState(PK_7);				//7
+	gKeys[PK_8] = GetAsyncKeyState(PK_8);				//8
+	gKeys[PK_9] = GetAsyncKeyState(PK_9);				//9
 	gKeys[PK_F1] = GetAsyncKeyState(PK_F1);				//F1
 	gKeys[PK_F2] = GetAsyncKeyState(PK_F2);				//F2
 	gKeys[PK_F3] = GetAsyncKeyState(PK_F3);				//F3
@@ -176,8 +186,8 @@ void GameEngine::Input::KeyUpdate()
 		(g_PadState.Gamepad.sThumbLY < XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE&&
 			g_PadState.Gamepad.sThumbLY > -XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE))
 	{
-		g_PadState.Gamepad.sThumbLX = 0.0f;
-		g_PadState.Gamepad.sThumbLY = 0.0f;
+		g_PadState.Gamepad.sThumbLX = (SHORT)0.0f;
+		g_PadState.Gamepad.sThumbLY = (SHORT)0.0f;
 	}
 
 	/*	右スティック入力なし	*/
@@ -186,8 +196,8 @@ void GameEngine::Input::KeyUpdate()
 		(g_PadState.Gamepad.sThumbRY < XINPUT_GAMEPAD_RIGHT_THUMB_DEADZONE&&
 			g_PadState.Gamepad.sThumbRY > -XINPUT_GAMEPAD_RIGHT_THUMB_DEADZONE))
 	{
-		g_PadState.Gamepad.sThumbRX = 0.0f;
-		g_PadState.Gamepad.sThumbRY = 0.0f;
+		g_PadState.Gamepad.sThumbRX = (SHORT)0.0f;
+		g_PadState.Gamepad.sThumbRY = (SHORT)0.0f;
 	}
 
 }

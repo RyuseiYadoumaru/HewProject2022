@@ -1,11 +1,13 @@
 #pragma once
 #include "ydmEngine.h"
 #include "Tile.h"
-#include "Cell.h"
+#include "TileColumn.h"
+#include "MoveColumnInfo.h"
 
 using Create::GameObject;
 
 #define MAPSIZE_WIDTH	(unsigned int)(100)
+#define COLUMN_NUM		(MAPSIZE_WIDTH)
 #define MAPSIZE_HEIGHT	(unsigned int)(20)
 
 class Map : public GameObject
@@ -16,30 +18,39 @@ public:
 	bool Start() override;
 	bool Update() override;
 	bool End() override;
-
 	bool Render();
 
 public:
-	bool MoveMap(Vector2& in_Cell);		//マップ移動処理
+	bool MoveMap(Tile* in_StandardTile);		//マップ移動処理
+	void MoveSwicthON() { m_isMove = true; }	//移動処理起動
+	void MoveSwicthOFF() { m_isMove = false; }	//移動処理終了
+	bool GetisMove()const { return m_isMove; }	//移動フラグ取得
+
+	TileColumn m_TileColumnList[COLUMN_NUM];	//1列タイルリスト
 
 private:
-	map<float, shared_ptr<Tile>> m_TileList;
+	bool m_isMove;			//マップ移動フラグ
+	bool m_isReturnMove;	//マップ移動戻すフラグ
 	char* m_MapChip;
-	float m_Speed;
+	float m_MoveTime;	//移動時間(1000ms = 1s)
 
-	Cell m_TargetCell;
+	vector<MoveColumnInfo> m_MoveFrontColumnList;	//移動列格納配列(前)
+	vector<MoveColumnInfo> m_MoveBackColumnList;	//移動列格納配列(後)
+	vector<MoveColumnInfo> m_SaveMoveColumnList;	//移動列保存配列
 
-
-	map<float, Tile*> m_StandardColorTileList;		//基準となる色ブロック
-	vector<float> m_MoveCellList;		//移動列を格納
-	map<float, float> m_CellVectorY;	//それぞれに対応する移動量を作成
 private:
+	void CreateTile(Vector2& in_Position, string FileName, MAPOBJ in_MapObj);		//タイル生成する	
+	bool MoveTile();		//移動処理
 
-	void CreateTile(Vector2& in_Position, Vector2& Cell, string FileName, MAPOBJ in_MapObj);		//タイル生成する	
-	bool SelectMoveCell();	//移動するセルを決める
-	void SetCellVector();
-	void MoveTile();		//移動処理
+	/*	移動列設定	*/
+	void SetMoveFrontColumn(Tile& in_StandardTile);
+	void SetMoveBackColumn(Tile& in_StandardTile);
+	bool SetSaveColumn();
 
+	bool MoveFrontColumn();		//前列移動
+	bool MoveBackColumn();		//後列移動
+	bool ReturnMoveColumn();	//列移動戻す
+	void ResetColumnPos(vector<MoveColumnInfo>* out_ResetColumn);		//移動列リセット
 
 };
 

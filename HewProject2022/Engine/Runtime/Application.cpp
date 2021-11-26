@@ -20,8 +20,12 @@
 const char*	Application::WINDOW_TITLE = "ゲームタイトル";
 const char*	Application::WINDOW_CLASS_NAME = "GameName";
 
-const uint32_t	Application::SCREEN_WIDTH = 1920;
-const uint32_t	Application::SCREEN_HEIGHT = 1080;
+//const uint32_t	Application::SCREEN_WIDTH = 1920;
+//const uint32_t	Application::SCREEN_HEIGHT = 1080;
+//const uint32_t	Application::SCREEN_WIDTH = 500;
+//const uint32_t	Application::SCREEN_HEIGHT = 500;
+const uint32_t	Application::SCREEN_WIDTH = 1280;
+const uint32_t	Application::SCREEN_HEIGHT = 720;
 
 const float		Application::FPS = 60.0f;
 
@@ -62,6 +66,13 @@ bool Application::Init(HINSTANCE hInstance)
 {
 	//メモリリーク検出
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+
+
+	// コンソールを割り当てる
+	AllocConsole();
+
+	// 標準出力の割り当て
+	freopen_s(&fp, "CON", "w", stdout);
 
 	Window* window = Window::Instance();
 
@@ -152,8 +163,14 @@ bool Application::MainLoop()
 //==============================================================================
 void Application::Uninit()
 {
+	/*	DirectX解放	*/
 	DirectXGraphics* DirectXGraphic = DirectXGraphics::Instance();
 	DirectXGraphic->Uninit();
+
+	/*	標準出力クローズ	*/
+	fclose(fp);
+	/*	コンソール解放	*/
+	::FreeConsole();
 }
 
 //==============================================================================

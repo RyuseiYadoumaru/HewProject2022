@@ -23,14 +23,6 @@ public:
 
 	static const float			FPS;						// フレームカウント
 
-private:
-
-	HWND m_hWnd;				//Windowsハンドル
-	HINSTANCE m_hInstance;		//アプリケーション実体
-
-	HRESULT hr;					//終了ステータス
-	BOOL isSucceed;				//処理正常終了
-
 public:
 
 	Application();
@@ -45,6 +37,16 @@ public:
 
 
 	HWND GetHandle() const;
+
+private:
+
+	HWND m_hWnd;				//Windowsハンドル
+	HINSTANCE m_hInstance;		//アプリケーション実体
+
+	HRESULT hr;					//終了ステータス
+	BOOL isSucceed;				//処理正常終了
+
+	FILE* fp;					//ファイル操作用
 
 
 };

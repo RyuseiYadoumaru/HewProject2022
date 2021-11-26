@@ -63,6 +63,17 @@ bool SystemTimer::SystemWait(const float FPS)
 	return true;
 }
 
+//==============================================================================
+//!	@fn		DeltaTime
+//!	@brief	デルタタイム取得
+//!	@param	
+//!	@retval	デルタタイム
+//==============================================================================
+float SystemTimer::DeltaTime()
+{
+
+	return (float)(GetSystemTime() - m_SaveTime) / 1000.0f;
+}
 
 //==============================================================================
 //!	@fn		GetSystemCurrentTime

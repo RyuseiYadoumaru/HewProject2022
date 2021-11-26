@@ -27,5 +27,9 @@ namespace GameEngine
 
 		static void KeyUpdate();
 
+	private:
+		static BYTE m_KeyState[256];
+		static BYTE m_OldKeyState[256];
+
 	};
 }

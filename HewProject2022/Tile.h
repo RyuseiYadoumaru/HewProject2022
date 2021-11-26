@@ -1,7 +1,7 @@
 #pragma once
 #include "ydmEngine.h"
-#include "Cell.h"
 using Math::Vector2;
+using Math::Vector3;
 using Create::Actor;
 
 #define TILE_WIDTH	(float)(70)
@@ -22,14 +22,17 @@ public:
 	bool Start() override;
 
 public:
-	void SetCell(float in_X, float in_Y);
 	MAPOBJ GetKind() const;
 	void SetKind(MAPOBJ in_MapObj);
+	void SetColumn(float in_Column);
+	void SetStartPosition(Vector3& in_Position);
+	Vector3 GetStartPosition() const;
+	float GetMyColumn() const;
 
 private:
 	MAPOBJ m_Kind;
-	Cell m_Cell;
-	//Vector2 m_Cell;	//ƒZƒ‹ˆÊ’u
+	float m_MyColumn;	//Š‘®—ñ
+	Vector3 m_StartPosition;	//‰ŠúÀ•W
 
 };
 

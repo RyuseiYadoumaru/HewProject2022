@@ -18,6 +18,7 @@ public:
 
 	bool SystemWait(const float FPS);
 
+	float DeltaTime();
 	float GetSystemCurrentTime() const;
 	float GetSystemTime();
 	float GetNowFPS();

@@ -13,6 +13,7 @@
 //==============================================================================
 #include "Engine/Component/SpriteRenderer.h"
 #include "Engine/Component/Transform.h"
+#include "Engine/Component/BoxCollider2D.h"
 #include "Engine/Data/DataArray.h"
 #include "Engine/Input/Input.h"
 #include "Engine/SceneManager/SceneManager.h"

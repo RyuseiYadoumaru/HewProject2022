@@ -194,6 +194,7 @@
     <ClCompile Include="BackGround.cpp" />
     <ClCompile Include="directxtex\include\DDSTextureLoader.cpp" />
     <ClCompile Include="directxtex\include\WICTextureLoader.cpp" />
+    <ClCompile Include="Engine\Component\BoxCollider2D.cpp" />
     <ClCompile Include="Engine\Component\SpriteRenderer.cpp" />
     <ClCompile Include="Engine\Component\Transform.cpp" />
     <ClCompile Include="Engine\Create\GameObject.cpp" />
@@ -242,6 +243,7 @@
     <ClInclude Include="directxtex\include\DDSTextureLoader.h" />
     <ClInclude Include="directxtex\include\DirectXTex.h" />
     <ClInclude Include="directxtex\include\WICTextureLoader.h" />
+    <ClInclude Include="Engine\Component\BoxCollider2D.h" />
     <ClInclude Include="Engine\Component\SpriteRenderer.h" />
     <ClInclude Include="Engine\Component\Transform.h" />
     <ClInclude Include="Engine\Create\GameObject.h" />

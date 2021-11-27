@@ -308,6 +308,9 @@
     <ClCompile Include="ResultScene.cpp">
       <Filter>GameName\Scene\Result</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\Component\BoxCollider2D.cpp">
+      <Filter>Engine\Component\Private</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Runtime\Application.h">
@@ -459,6 +462,9 @@
     </ClInclude>
     <ClInclude Include="ResultScene.h">
       <Filter>GameName\Scene\Result</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Component\BoxCollider2D.h">
+      <Filter>Engine\Component\Public</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -55,11 +55,11 @@ bool Map::Start()
 			switch (m_MapChip[MAPSIZE_WIDTH * y + x])
 			{
 			case NB:
-				CreateTile(Pos, "NormalBlock", MAPOBJ::NB);
+				CreateTile(Pos, "wh2", MAPOBJ::NB);
 				break;
 
 			case CB:
-				CreateTile(Pos, "ColorBlock", MAPOBJ::CB);
+				CreateTile(Pos, "red3", MAPOBJ::CB);
 				break;
 
 			case NO:

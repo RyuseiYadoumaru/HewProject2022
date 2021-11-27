@@ -4,6 +4,9 @@
 #include "Test.h"
 #include "BackGround.h"
 #include "MainCamera.h"
+#include "Player.h"
+#include "Sound.h"
+
 using Create::Scene;
 
 /****	ステージシーン	****/
@@ -20,7 +23,7 @@ public:
 private:
 	shared_ptr<MainCamera> m_MainCamera;
 	shared_ptr<Map> m_Map;
-	shared_ptr<GamePlay::Test> m_Test;
+	shared_ptr<Player> m_ProtPlayer;
 	shared_ptr<BackGround> m_BackGruond;
 
 };

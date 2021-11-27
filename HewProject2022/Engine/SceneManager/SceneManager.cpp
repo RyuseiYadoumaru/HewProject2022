@@ -5,8 +5,11 @@
 //!	@author	YadoumaruRyusei
 //*****************************************************************************
 #include "SceneManager.h"
+#include "../Runtime/Tools/Log.h"
 #include "../../Game/Scene/SampleScene.h"
 #include "../../StageTestScene.h"
+#include "../../TitleScene.h"
+#include "../../ResultScene.h"
 #include "../Runtime/Tools/Log.h"
 
 //-----------------------------------------------------------------------------
@@ -25,9 +28,11 @@ std::map<std::string, Create::Scene*> GameEngine::SceneManager::SceneList;
 //==============================================================================
 GameEngine::SceneManager::SceneManager()
 {
+	CreateScene("TitleScene", new GamePlay::TitleScene);
+	CreateScene("ResultScene", new GamePlay::ResultScene);
 	CreateScene("SampleScene", new GamePlay::SampleScene);
 	CreateScene("StageTestScene", new StageTestScene);
-	NextScene = SceneList["StageTestScene"];
+	NextScene = SceneList["TitleScene"];
 }
 
 //==============================================================================

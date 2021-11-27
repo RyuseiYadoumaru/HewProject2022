@@ -228,10 +228,14 @@
     <ClCompile Include="MainCamera.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="MoveColumnInfo.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="ResultScene.cpp" />
+    <ClCompile Include="Sound.cpp" />
     <ClCompile Include="StageTestScene.cpp" />
     <ClCompile Include="Test.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TileColumn.cpp" />
+    <ClCompile Include="TitleScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BackGround.h" />
@@ -275,10 +279,14 @@
     <ClInclude Include="MainCamera.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="MoveColumnInfo.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="ResultScene.h" />
+    <ClInclude Include="Sound.h" />
     <ClInclude Include="StageTestScene.h" />
     <ClInclude Include="Test.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TileColumn.h" />
+    <ClInclude Include="TitleScene.h" />
     <ClInclude Include="ydmEngine.h" />
   </ItemGroup>
   <ItemGroup>

@@ -151,6 +151,12 @@
     <Filter Include="Game\ScriptClass">
       <UniqueIdentifier>{6e7f3e1a-380b-44ab-8496-2ead13de20a4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\Sound">
+      <UniqueIdentifier>{231f22d2-5bee-4bad-9160-f92e94c64df4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameName\Scene\Result">
+      <UniqueIdentifier>{957429cc-c006-41b0-b835-9abdbd27da6d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Shader\psvsCommon.hlsl">
@@ -289,6 +295,18 @@
     </ClCompile>
     <ClCompile Include="TileColumn.cpp">
       <Filter>GameName\Object\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>GameName\Object\Charactor</Filter>
+    </ClCompile>
+    <ClCompile Include="Sound.cpp">
+      <Filter>Engine\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleScene.cpp">
+      <Filter>GameName\Scene\Title</Filter>
+    </ClCompile>
+    <ClCompile Include="ResultScene.cpp">
+      <Filter>GameName\Scene\Result</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -429,6 +447,18 @@
     </ClInclude>
     <ClInclude Include="TileColumn.h">
       <Filter>GameName\Object\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>GameName\Object\Charactor</Filter>
+    </ClInclude>
+    <ClInclude Include="Sound.h">
+      <Filter>Engine\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleScene.h">
+      <Filter>GameName\Scene\Title</Filter>
+    </ClInclude>
+    <ClInclude Include="ResultScene.h">
+      <Filter>GameName\Scene\Result</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -83,5 +83,5 @@ void MoveColumnInfo::SetStandardTile(Tile* in_Standard)
 /****	ƒŠƒZƒbƒgŽž‚ÌˆÚ“®—Ê	****/
 float MoveColumnInfo::ResetMoveValue()
 {
-	return 	m_StandardTile->GetStartPosition().y - m_StandardTile->transform.Position.y;
+	return 	m_StandardTile->GetStartPosition().y - m_StandardTile->transform->Position.y;
 }

@@ -35,7 +35,7 @@ Window::~Window()
 //!	@param	
 //!	@retval	インスタンス
 //==============================================================================
-Window * Window::Instance()
+Window* Window::Instance()
 {
 	static Window Instance;
 	return &Instance;

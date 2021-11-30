@@ -32,7 +32,7 @@ GameEngine::SceneManager::SceneManager()
 	CreateScene("ResultScene", new GamePlay::ResultScene);
 	CreateScene("SampleScene", new GamePlay::SampleScene);
 	CreateScene("StageTestScene", new StageTestScene);
-	NextScene = SceneList["TitleScene"];
+	NextScene = SceneList["SampleScene"];
 }
 
 //==============================================================================

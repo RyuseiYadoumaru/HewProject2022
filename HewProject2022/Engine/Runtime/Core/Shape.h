@@ -7,7 +7,8 @@
 #pragma once
 
 #include "../../Math/Vector2.h"
-
+#include <DirectXMath.h>
+#include "../../Runtime/Graphics/Shader.h"
 
 class Shape
 {

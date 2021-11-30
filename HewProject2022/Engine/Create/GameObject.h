@@ -9,22 +9,85 @@
 #pragma once
 #include "../Runtime/Core/Object.h"
 #include "../Component/Transform.h"
+#include "../../Engine/Component/SpriteRenderer.h"
+#include "../Component/Component.h"
 #include <DirectXMath.h>
+#include <list>
 
 using GameEngine::Transform;
+using GameEngine::Component;
+
+namespace GameEngine
+{
+	class Component;
+}
 
 namespace Create
 {
 	class GameObject : public Object
 	{
 	public:
-		Transform transform;
+		Transform* transform;
+		std::list<Component*> ComponentList;
 
 	public:
 		GameObject();
 		GameObject(std::string in_name);
 
 		Transform GetTransform();
+		std::string GetName() { return name; }
+		int GetId()const { return id; }
+
+		auto GetComponentList() { return ComponentList.begin(); }
+
+
+
+	public:
+		//==============================================================================
+		//!	@fn		GetComponent
+		//!	@brief	コンポーネントリストから取得する
+		//!	@note	ない場合nullptrを返す
+		//!	@retval	Component
+		//==============================================================================
+		template<class T>
+		T* GetComponent()
+		{
+			for (auto com : ComponentList)
+			{
+				T* Buff = dynamic_cast<T*> (com);
+				if (Buff != nullptr) return Buff;
+			}
+
+			return nullptr;
+		}
+
+		//==============================================================================
+		//!	@fn		AddComponent
+		//!	@brief	コンポーネントリスト追加
+		//!	@note	コンポーネントクラスじゃない場合nullptrを返す
+		//!	@retval	Component
+		//==============================================================================
+		//template<class T>
+		//T* AddComponent()
+		//{
+		//	T* Buff = new T();
+
+		//	Buff->SetOwner(this);
+		//	ComponentList.push_front(Buff);
+		//	Buff->Init();
+		//	return Buff;
+		//}
+		template<class T, class... In>
+		T* AddComponent(In... arg)
+		{
+			T* Buff = new T();
+
+			Buff->SetOwner(this);
+			ComponentList.push_back(Buff);
+			Buff->Init(arg...);
+			return Buff;
+		}
+
 
 	};
 }

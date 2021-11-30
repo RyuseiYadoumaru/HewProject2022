@@ -46,14 +46,18 @@ bool Create::Scene::Render()
 //==============================================================================
 //!	@fn		Instance
 //!	@brief	シーンにオブジェクトを生成する
-//!	@param	オブジェクト
+//!	@param	ゲームオブジェクト
 //!	@retval	
 //==============================================================================
-void Create::Scene::Instance(Object* out_Object)
+void Create::Scene::Instance(GameObject* out_Object)
 {
 	out_Object->Active = true;
 	out_Object->Start();
 	ObjectArray.insert(std::make_pair(out_Object->ToString(), out_Object));
+	for (auto Obj : out_Object->ComponentList)
+	{
+		ComponentArray.push_back(Obj);
+	}
 }
 
 //==============================================================================
@@ -65,6 +69,25 @@ void Create::Scene::Instance(Object* out_Object)
 void Create::Scene::Destroy(std::string in_ObjectName)
 {
 	ObjectArray[in_ObjectName]->Active = false;
+
+
+
+	auto itr = ComponentArray.begin();
+	for (auto Com : ComponentArray)
+	{
+		if (itr == ComponentArray.end()) break;
+
+		if (Com->GetOwner()->GetName() == in_ObjectName &&
+			Com->GetOwner()->GetId() == ObjectArray[in_ObjectName]->GetId())
+		{
+			itr = ComponentArray.erase(itr);
+		}
+		else
+		{
+			itr++;
+		}
+
+	}
 	ObjectArray.erase(in_ObjectName);
 }
 
@@ -79,6 +102,11 @@ void Create::Scene::SetCamera()
 	camera = new Camera("MainCamera");
 	camera->Start();
 	ObjectArray.insert(std::make_pair(camera->ToString(), camera));
+	for (auto Obj : camera->ComponentList)
+	{
+		ComponentArray.push_back(Obj);
+	}
+
 }
 
 //==============================================================================
@@ -92,7 +120,50 @@ void Create::Scene::SetCamera(Camera* out_Camera)
 	camera = out_Camera;
 	camera->Start();
 	ObjectArray.insert(std::make_pair(camera->ToString(), camera));
+	for (auto Obj : out_Camera->ComponentList)
+	{
+		ComponentArray.push_back(Obj);
+	}
+}
 
+//==============================================================================
+//!	@fn		SystemUpdate
+//!	@brief	ゲームに登場する全てのシステムを更新する
+//!	@retval	
+//==============================================================================
+void Create::Scene::SystemUpdate()
+{
+	for (auto System : ComponentArray)
+	{
+		System->Update();
+	}
+}
+
+//==============================================================================
+//!	@fn		ObjectUpdate
+//!	@brief	ゲームに登場する全てのオブジェクトの更新する
+//!	@retval	
+//==============================================================================
+void Create::Scene::ObjectUpdate()
+{
+	for (auto Object : ObjectArray)
+	{
+		Object.second->Update();
+	}
+}
+
+//==============================================================================
+//!	@fn		ObjectEnd
+//!	@brief	ゲームに登場する全てのオブジェクトの終了処理をする
+//!	@retval	
+//==============================================================================
+void Create::Scene::ObjectEnd()
+{
+	for (auto Object : ObjectArray)
+	{
+		Object.second->End();
+
+	}
 }
 
 //==============================================================================

@@ -157,6 +157,18 @@
     <Filter Include="GameName\Scene\Result">
       <UniqueIdentifier>{957429cc-c006-41b0-b835-9abdbd27da6d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\Component\Public\Physics2D">
+      <UniqueIdentifier>{86133024-cb28-40f1-b5a0-15b24217f2aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Component\Private\Physics2D">
+      <UniqueIdentifier>{f1d8c73b-8154-4f51-8f87-59ee62fae54e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Component\Private\Renderer">
+      <UniqueIdentifier>{473399f6-55c8-4de7-b8a8-3886be80a7f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Component\Public\Renderer">
+      <UniqueIdentifier>{ffd7778e-3cef-47fb-8235-61145750d71b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Shader\psvsCommon.hlsl">
@@ -169,6 +181,12 @@
       <Filter>Shader</Filter>
     </FxCompile>
     <FxCompile Include="Shader\ps_2DSprite.hlsl">
+      <Filter>Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="Shader\vs_Debug.hlsl">
+      <Filter>Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="Shader\ps_Debug.hlsl">
       <Filter>Shader</Filter>
     </FxCompile>
   </ItemGroup>
@@ -222,9 +240,6 @@
       <Filter>Engine\Create\Private</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Component\Transform.cpp">
-      <Filter>Engine\Component\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Component\SpriteRenderer.cpp">
       <Filter>Engine\Component\Private</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Math\Color.cpp">
@@ -308,8 +323,14 @@
     <ClCompile Include="ResultScene.cpp">
       <Filter>GameName\Scene\Result</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Component\BoxCollider2D.cpp">
-      <Filter>Engine\Component\Private</Filter>
+    <ClCompile Include="Test2.cpp">
+      <Filter>Game\Object\Test</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Component\SpriteRenderer.cpp">
+      <Filter>Engine\Component\Private\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Component\Physics\BoxCollider2D.cpp">
+      <Filter>Engine\Component\Private\Physics2D</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -409,9 +430,6 @@
     <ClInclude Include="Engine\Runtime\Core\vsShader.h">
       <Filter>Engine\Runtime\Core\Data\vsShader</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Component\SpriteRenderer.h">
-      <Filter>Engine\Component\Public</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\Runtime\Core\psShader.h">
       <Filter>Engine\Runtime\Core\Data\psShader</Filter>
     </ClInclude>
@@ -463,8 +481,17 @@
     <ClInclude Include="ResultScene.h">
       <Filter>GameName\Scene\Result</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Component\BoxCollider2D.h">
-      <Filter>Engine\Component\Public</Filter>
+    <ClInclude Include="Test2.h">
+      <Filter>Game\Object\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Component\Component.h">
+      <Filter>Engine\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Component\SpriteRenderer.h">
+      <Filter>Engine\Component\Public\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Component\Physics\BoxCollider2D.h">
+      <Filter>Engine\Component\Public\Physics2D</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -14,10 +14,10 @@ namespace Create
 	class Object
 	{
 	public:
-		bool Active;
+		static int ObjectNum;
 
-	protected:
-		std::string name;
+	public:
+		bool Active;
 
 	public:
 		virtual bool Start();
@@ -25,6 +25,10 @@ namespace Create
 		virtual bool End();
 
 		std::string ToString() const;
+
+	protected:
+		std::string name;
+		int id;
 
 	};
 

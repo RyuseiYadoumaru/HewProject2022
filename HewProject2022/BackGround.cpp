@@ -8,13 +8,13 @@ bool BackGround::Start()
 {
 
 	m_SpriteRenderer->SpriteName = "Background";
-	transform.Scale.Set(10.0f, 10.0f, 0.0f);
+	transform->Scale.Set(10.0f, 10.0f, 0.0f);
 	m_SpriteRenderer->Init();
 	/*	”wŒi‚Ì¶ã‚ðÀ•W0‚É‚·‚é	*/
-	float PosX = m_SpriteRenderer->GetSize().x * transform.Scale.x;
-	float PosY = m_SpriteRenderer->GetSize().y * transform.Scale.y;
+	float PosX = m_SpriteRenderer->GetSize().x * transform->Scale.x;
+	float PosY = m_SpriteRenderer->GetSize().y * transform->Scale.y;
 	//^‚ñ’†‚ª’†S
-	transform.Position.x = PosX;
-	transform.Position.x = PosY;
+	transform->Position.x = PosX;
+	transform->Position.x = PosY;
 	return true;
 }

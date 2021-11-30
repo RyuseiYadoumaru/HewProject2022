@@ -138,7 +138,7 @@ bool GameEngine::SpriteRenderer::Render()
 
 
 	/****	頂点レイアウトセット	****/
-	DataArray* daa = DataArray::Instance();
+	//DataArray* daa = DataArray::Instance();
 	deviceContext->IASetInputLayout(vertexShader.GetInputLayout());
 
 	deviceContext->VSSetShader(vertexShader.GetVertexShader(), nullptr, 0);		// 頂点シェーダーをセット

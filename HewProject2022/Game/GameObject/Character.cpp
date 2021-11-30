@@ -16,7 +16,9 @@
 //==============================================================================
 Create::Character::Character(std::string in_Name) : GameObject(in_Name)
 {
-	m_SpriteRenderer = std::make_shared<GameEngine::SpriteRenderer>(transform.GetAddress());
+	m_SpriteRenderer = std::make_shared<GameEngine::SpriteRenderer>(transform->GetAddress());
+	//m_2DBoxCollider = std::make_shared<GameEngine::BoxCollider2D>();
+
 }
 
 //==============================================================================
@@ -30,6 +32,8 @@ Create::Character::Character(std::string in_Name) : GameObject(in_Name)
 bool Create::Character::Start()
 {
 	m_SpriteRenderer->Init();
+	AddComponent<GameEngine::BoxCollider2D>(m_SpriteRenderer->GetSize());
+	//m_2DBoxCollider->Init(this, m_SpriteRenderer->GetSize());
 	return true;
 }
 
@@ -38,12 +42,14 @@ bool Create::Character::Start()
 //!	@brief	更新
 //!	@note	新しく処理を書きたいといはオーバーライドしてください
 //!	@note	ここにトランスフォームの更新処理を必ず記述してください
+//!	@note	ここにコライダの更新処理を必ず記述してください
 //!	@note	今後記述しなくていいようにする予定です
 //!	@retval	true:正常終了　false:異常終了
 //==============================================================================
 bool Create::Character::Update()
 {
-	transform.Update();
+	//transform->Update();
+	//m_2DBoxCollider->Update();
 	return true;
 }
 

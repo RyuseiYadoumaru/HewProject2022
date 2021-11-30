@@ -32,7 +32,7 @@ private:
 	bool m_isMove;			//マップ移動フラグ
 	bool m_isReturnMove;	//マップ移動戻すフラグ
 	char* m_MapChip;
-	float m_MoveTime;	//移動時間(1000ms = 1s)
+	float m_MoveTime;		//移動時間(1000ms = 1s)
 
 	vector<MoveColumnInfo> m_MoveFrontColumnList;	//移動列格納配列(前)
 	vector<MoveColumnInfo> m_MoveBackColumnList;	//移動列格納配列(後)

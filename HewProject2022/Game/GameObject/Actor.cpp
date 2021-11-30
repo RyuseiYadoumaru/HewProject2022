@@ -16,7 +16,7 @@
 //==============================================================================
 Create::Actor::Actor() : GameObject()
 {
-	m_SpriteRenderer = std::make_shared<GameEngine::SpriteRenderer>(transform.GetAddress());
+	m_SpriteRenderer = std::make_shared<GameEngine::SpriteRenderer>(transform->GetAddress());
 }
 
 //==============================================================================
@@ -26,7 +26,7 @@ Create::Actor::Actor() : GameObject()
 //==============================================================================
 Create::Actor::Actor(std::string in_Name) : GameObject(in_Name)
 {
-	m_SpriteRenderer = std::make_shared<GameEngine::SpriteRenderer>(transform.GetAddress());
+	m_SpriteRenderer = std::make_shared<GameEngine::SpriteRenderer>(transform->GetAddress());
 }
 
 //==============================================================================
@@ -53,7 +53,7 @@ bool Create::Actor::Start()
 //==============================================================================
 bool Create::Actor::Update()
 {
-	transform.Update();
+	transform->Update();
 	return true;
 }
 

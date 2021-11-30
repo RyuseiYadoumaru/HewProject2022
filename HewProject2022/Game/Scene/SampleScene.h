@@ -1,6 +1,7 @@
 #pragma once
 #include "../../ydmEngine.h"
 #include "../../Test.h"
+#include "../../Test2.h"
 using Create::Actor;
 using GameEngine::Input;
 
@@ -10,6 +11,9 @@ namespace GamePlay
 	{
 	private:
 		shared_ptr<Test> Hanamaru;
+		//Test* Player;
+		//Test2* Block;
+		shared_ptr<Test2> Teee;
 	public:
 		bool Start() override;
 

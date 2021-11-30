@@ -49,7 +49,7 @@ bool DataArray::Init()
 	/****	vsShaderData	****/
 	std::vector<std::string> vsShaderNameList;
 
-	vsShaderNameList = { "vs_2DSprite.hlsl" };
+	vsShaderNameList = { "vs_2DSprite.hlsl", "vs_Debug.hlsl" };
 	for (auto Now : vsShaderNameList)
 	{
 		std::string vsShaderName = FileSystem::GetFileName_NotExt(Now.c_str());
@@ -61,7 +61,7 @@ bool DataArray::Init()
 	/****	psShaderData	****/
 	std::vector<std::string> psShaderNameList;
 
-	psShaderNameList = { "ps_2DSprite.hlsl" };
+	psShaderNameList = { "ps_2DSprite.hlsl", "ps_Debug.hlsl" };
 	for (auto Now : psShaderNameList)
 	{
 		std::string psShaderName = FileSystem::GetFileName_NotExt(Now.c_str());

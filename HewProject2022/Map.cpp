@@ -95,7 +95,7 @@ bool Map::Update()
 	{
 		for (auto now : m_TileColumnList[Column].mp_Column)
 		{
-			now->transform.Update();
+			now->transform->Update();
 		}
 	}
 	return true;
@@ -117,7 +117,6 @@ bool Map::Render()
 		{
 			now->Render();
 		}
-
 	}
 	return true;
 }
@@ -216,9 +215,9 @@ void Map::SetMoveFrontColumn(Tile& in_StandardTile)
 
 		/*	移動量格納	*/
 		//移動量計算する： 移動量 = 目標タイル座標Y - 基準タイル座標Y
-		float StandardPosY = m_TileColumnList[SearchColumn].GetStandardTile()->transform.Position.y;
+		float StandardPosY = m_TileColumnList[SearchColumn].GetStandardTile()->transform->Position.y;
 
-		float Val = in_StandardTile.transform.Position.y - StandardPosY;
+		float Val = in_StandardTile.transform->Position.y - StandardPosY;
 		MoveVal.push_back(Val);
 
 		SearchColumn++;		//確認列を進める
@@ -277,9 +276,9 @@ void Map::SetMoveBackColumn(Tile& in_StandardTile)
 
 		/*	移動量格納	*/
 		//移動量計算する： 移動量 = 目標タイル座標Y - 基準タイル座標Y
-		float StandardPosY = m_TileColumnList[SearchColumn].GetStandardTile()->transform.Position.y;
+		float StandardPosY = m_TileColumnList[SearchColumn].GetStandardTile()->transform->Position.y;
 
-		float Val = in_StandardTile.transform.Position.y - StandardPosY;
+		float Val = in_StandardTile.transform->Position.y - StandardPosY;
 		MoveVal.push_back(Val);
 
 		SearchColumn--;		//確認列を進める

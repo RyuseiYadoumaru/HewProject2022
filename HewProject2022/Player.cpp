@@ -22,7 +22,7 @@ bool Player::Start()
 	m_SpriteRenderer->SpriteName = "dog";
 	m_SpriteRenderer->Init();
 
-	transform.Position.Set(0.0f, 0.0f, 0.0f);
+	transform->Position.Set(0.0f, 0.0f, 0.0f);
 	//transform.Scale.x -= 0.9f;
 	//transform.Scale.y -= 0.9f;
 
@@ -32,7 +32,7 @@ bool Player::Start()
 void Player::SpeedControl()
 {
 	//移動処理
-	transform.Position.x += m_moveSpeed.x; //* SystemTimer::DeltaTime();// * GameTimer_GetDeltaTime(); // ※ここにデルタタイム使いたい
+	transform->Position.x += m_moveSpeed.x; //* SystemTimer::DeltaTime();// * GameTimer_GetDeltaTime(); // ※ここにデルタタイム使いたい
 
 	// 摩擦による減速
 		// moveSpeedXが：
@@ -77,14 +77,14 @@ void Player::Move()
 	if (Input::GetKeyPress(PK_D) == true)
 	{
 		Accelerate(CHAR_MOVE_RIGHT);
-		transform.Position.x += m_moveSpeed.x;
+		transform->Position.x += m_moveSpeed.x;
 	}
 
 	//左方向移動
 	if (Input::GetKeyPress(PK_A) == true)
 	{
 		Accelerate(CHAR_MOVE_LEFT);
-		transform.Position.x += m_moveSpeed.x;
+		transform->Position.x += m_moveSpeed.x;
 	}
 }
 
@@ -99,11 +99,11 @@ void Player::Jump()
 		Sound::Sound_Play(SOUND_LABEL_SE000);//ジャンプ効果音再生
 	}
 
-	transform.Position.y += m_jumpForce;//ここにデルタタイム？
+	transform->Position.y += m_jumpForce;//ここにデルタタイム？
 	m_jumpForce += CHAR_GRAVITY;//徐々に重力が加算され、ジャンプ力が弱まっていく
 
-	if (transform.Position.y > 0) { //着地
-		transform.Position.y = 0;
+	if (transform->Position.y > 0) { //着地
+		transform->Position.y = 0;
 		m_jumpFlg = false;
 	}
 }
@@ -116,7 +116,7 @@ bool Player::Update()
 
 	Move();
 	Jump();
-	transform.Update();
+	transform->Update();
 
 	return true;
 }

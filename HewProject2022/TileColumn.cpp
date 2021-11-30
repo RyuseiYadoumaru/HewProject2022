@@ -45,7 +45,7 @@ void TileColumn::Move(float in_Vector)
 	//c‚ÌˆÚ“®‚Ì‚Ý
 	for (auto Tile : mp_Column)
 	{
-		Tile->transform.Position.y += in_Vector;
+		Tile->transform->Position.y += in_Vector;
 	}
 }
 
@@ -58,7 +58,7 @@ bool TileColumn::SetPosition(Vector2& in_Position)
 		return false;
 	}
 	//Œã‚ë‚Ì”z—ñ‚ÉÀ•W‚ð‘ã“ü‚·‚é
-	mp_Column.back()->transform.Position.Set(in_Position.x, in_Position.y, 0.0f);
+	mp_Column.back()->transform->Position.Set(in_Position.x, in_Position.y, 0.0f);
 	Vector3 Start;
 	Start.x = in_Position.x;
 	Start.y = in_Position.y;

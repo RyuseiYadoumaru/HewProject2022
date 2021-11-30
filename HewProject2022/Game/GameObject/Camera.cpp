@@ -63,8 +63,8 @@ void Create::Camera::SetCameraPos()
 
 	DirectX::XMFLOAT3 Pos =
 	{
-		transform.Position.x,
-		transform.Position.y,
+		transform->Position.x,
+		transform->Position.y,
 		0.0f
 	};
 	transformMatrix->SetCameraPosition(Pos);

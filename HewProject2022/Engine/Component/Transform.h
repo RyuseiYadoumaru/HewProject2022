@@ -6,13 +6,14 @@
 //!	@author	YadoumaruRyusei
 //*****************************************************************************
 #pragma once
+#include "Component.h"
 #include "../Math/Vector3.h"
 #include "../Runtime/Core/TransformMatrix.h"
 
 namespace GameEngine
 {
 
-	class Transform
+	class Transform : public Component
 	{
 
 	public:
@@ -24,7 +25,7 @@ namespace GameEngine
 	public:
 
 		Transform();
-		bool Update();
+		bool Update() override;
 		XMFLOAT4X4 Get() const;
 		XMFLOAT4X4* GetAddress();
 

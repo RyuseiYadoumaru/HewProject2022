@@ -17,6 +17,8 @@ Create::GameObject::GameObject()
 {
 	Active = true;
 	name = "NoName";
+	id = ObjectNum + 99;
+	transform = AddComponent<GameEngine::Transform>();
 }
 
 //==============================================================================
@@ -28,6 +30,8 @@ Create::GameObject::GameObject(std::string in_Name)
 {
 	Active = true;
 	name = in_Name;
+	transform = AddComponent<GameEngine::Transform>();
+
 }
 
 //==============================================================================
@@ -38,5 +42,5 @@ Create::GameObject::GameObject(std::string in_Name)
 //==============================================================================
 Transform Create::GameObject::GetTransform()
 {
-	return transform;
+	return *transform;
 }

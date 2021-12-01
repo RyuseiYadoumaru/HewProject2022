@@ -219,6 +219,7 @@
     <ClCompile Include="directxtex\include\DDSTextureLoader.cpp" />
     <ClCompile Include="directxtex\include\WICTextureLoader.cpp" />
     <ClCompile Include="Engine\Component\Physics\BoxCollider2D.cpp" />
+    <ClCompile Include="Engine\Component\Physics\Rigidbody2d.cpp" />
     <ClCompile Include="Engine\Component\SpriteRenderer.cpp" />
     <ClCompile Include="Engine\Component\Transform.cpp" />
     <ClCompile Include="Engine\Create\GameObject.cpp" />
@@ -239,6 +240,7 @@
     <ClCompile Include="Engine\Runtime\Engine.cpp" />
     <ClCompile Include="Engine\Runtime\Graphics\DirectXGraphics.cpp" />
     <ClCompile Include="Engine\Runtime\Graphics\Shader.cpp" />
+    <ClCompile Include="Engine\Runtime\Sound\Sound.cpp" />
     <ClCompile Include="Engine\Runtime\Tools\FileSystem.cpp" />
     <ClCompile Include="Engine\Runtime\Tools\Log.cpp" />
     <ClCompile Include="Engine\Runtime\Tools\SystemTimer.cpp" />
@@ -254,8 +256,8 @@
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="MoveColumnInfo.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="ProtScene.cpp" />
     <ClCompile Include="ResultScene.cpp" />
-    <ClCompile Include="Sound.cpp" />
     <ClCompile Include="StageTestScene.cpp" />
     <ClCompile Include="Test.cpp" />
     <ClCompile Include="Test2.cpp" />
@@ -270,6 +272,7 @@
     <ClInclude Include="directxtex\include\WICTextureLoader.h" />
     <ClInclude Include="Engine\Component\Component.h" />
     <ClInclude Include="Engine\Component\Physics\BoxCollider2D.h" />
+    <ClInclude Include="Engine\Component\Physics\Rigidbody2d.h" />
     <ClInclude Include="Engine\Component\SpriteRenderer.h" />
     <ClInclude Include="Engine\Component\Transform.h" />
     <ClInclude Include="Engine\Create\GameObject.h" />
@@ -293,6 +296,7 @@
     <ClInclude Include="Engine\Runtime\Engine.h" />
     <ClInclude Include="Engine\Runtime\Graphics\DirectXGraphics.h" />
     <ClInclude Include="Engine\Runtime\Graphics\Shader.h" />
+    <ClInclude Include="Engine\Runtime\Sound\Sound.h" />
     <ClInclude Include="Engine\Runtime\Tools\FileSystem.h" />
     <ClInclude Include="Engine\Runtime\Tools\Log.h" />
     <ClInclude Include="Engine\Runtime\Tools\macro.h" />
@@ -308,8 +312,9 @@
     <ClInclude Include="Map.h" />
     <ClInclude Include="MoveColumnInfo.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="ProtScene.h" />
     <ClInclude Include="ResultScene.h" />
-    <ClInclude Include="Sound.h" />
+    <ClInclude Include="SceneList.h" />
     <ClInclude Include="StageTestScene.h" />
     <ClInclude Include="Test.h" />
     <ClInclude Include="Test2.h" />

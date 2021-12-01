@@ -1,5 +1,5 @@
 //*****************************************************************************
-//!	@file	Engine/Component/BaxColliuder2D.cpp
+//!	@file	Engine/Component/Physics/BaxColliuder2D.cpp
 //!	@brief	
 //!	@note	2Dボックスコライダ
 //!	@note	コライダ
@@ -102,14 +102,10 @@ void BoxCollider2D::Init(Math::Vector2 in_Size)
 //!	@fn		Update
 //!	@brief　更新
 //!	@param	オブジェクトサイズ
+//!	@retval	true:正常終了　false:異常終了
 //==============================================================================
 bool BoxCollider2D::Update()
 {
-	/*	当たり判定初期化	*/
-	PushBack.x = 0;
-	PushBack.y = 0;
-	isHit = false;
-	HitObject.clear();
 
 	//サイズの半分の長さを求める(更新)
 	CenterLength.x = (m_ObjectSize.x * Owner->transform->Scale.x) / 2.0f;
@@ -127,6 +123,9 @@ bool BoxCollider2D::Update()
 	//コライダーに値を再セットで更新
 	//（横サイズ、縦サイズ、Owner.X座標、Owner.Y座標）
 	Rect.Set(CenterLength.x * 2, CenterLength.y * 2, CenterPos.x, CenterPos.y);
+
+	/****	当たり判定	****/
+	HitCheck();
 
 	return true;
 
@@ -182,7 +181,6 @@ void GameEngine::BoxCollider2D::Debug()
 	deviceContext->IASetPrimitiveTopology((D3D11_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP));
 
 	/****	頂点レイアウトセット	****/
-	//DataArray* daa = DataArray::Instance();
 	deviceContext->IASetInputLayout(vertexShader.GetInputLayout());
 
 	deviceContext->VSSetShader(vertexShader.GetVertexShader(), nullptr, 0);		// 頂点シェーダーをセット
@@ -197,66 +195,14 @@ void GameEngine::BoxCollider2D::Debug()
 //!	@brief　当たり判定処理
 //!	@param	判定オブジェクト
 //==============================================================================
-bool BoxCollider2D::HitCheckBox(BoxCollider2D& in_ObjCollider)
+void BoxCollider2D::HitCheckBox(BoxCollider2D& in_ObjCollider)
 {
-	Vector2 Distance;
-	Vector2 HalfTotalLength;
+	/*	リスト初期化	*/
+	InitList();
 
-	//アクティブ出ないならisHitをfalseに
-	if (isActive == false || in_ObjCollider.isActive == false)
-	{
-		isHit = false;
-		return isHit;
-	}
+	/*	チェックオブジェクト追加	*/
+	m_CheckList.push_back(in_ObjCollider);
 
-	/*	当たり判定	*/
-	//相手の中心座標ー自分の中心座標
-	Distance.x = fabsf(in_ObjCollider.CenterPos.x - CenterPos.x);
-	Distance.y = fabsf(in_ObjCollider.CenterPos.y - CenterPos.y);
-
-	/*	Boxの縦/横長さ	*/
-	HalfTotalLength.x = CenterLength.x + in_ObjCollider.CenterLength.x;
-	HalfTotalLength.y = CenterLength.y + in_ObjCollider.CenterLength.y;
-
-	/*	衝突判定	*/
-	if (Distance.x < HalfTotalLength.x &&
-		Distance.y < HalfTotalLength.y)
-	{
-		isHit = true;//衝突
-		Keep_Position.x = Owner->transform->Position.x;
-		Keep_Position.y = Owner->transform->Position.y;
-	}
-	else
-	{
-		isHit = false;//非衝突
-		return isHit;
-	}
-
-	/*	押し戻し値計算	*/
-	//オブジェクト左辺 - プレイヤー右辺
-	float dx1 = (in_ObjCollider.CenterPos.x - in_ObjCollider.CenterLength.x) - (CenterPos.x + CenterLength.x);
-	//オブジェクト右辺 - プレイヤー左辺
-	float dx2 = (in_ObjCollider.CenterPos.x + in_ObjCollider.CenterLength.x) - (CenterPos.x - CenterLength.x);
-	//オブジェクト上辺 - プレイヤー下辺
-	float dy1 = (in_ObjCollider.CenterPos.y - in_ObjCollider.CenterLength.y) - (CenterPos.y + CenterLength.y);
-	//オブジェクト下辺 - プレイヤー上辺
-	float dy2 = (in_ObjCollider.CenterPos.y + in_ObjCollider.CenterLength.y) - (CenterPos.y - CenterLength.y);
-
-	PushBack.x = fabsf(dx1) < fabsf(dx2) ? dx1 : dx2;
-	PushBack.y = fabsf(dy1) < fabsf(dy2) ? dy1 : dy2;
-
-	if (fabsf(PushBack.x) < fabsf(PushBack.y))
-	{
-		PushBack.y = 0.0f;
-	}
-	else
-	{
-		PushBack.x = 0.0f;
-	}
-
-	//ここまだできてない->すこしできた
-	HitObject = in_ObjCollider.Owner->GetName();
-	return isHit;
 }
 
 //==============================================================================
@@ -266,28 +212,62 @@ bool BoxCollider2D::HitCheckBox(BoxCollider2D& in_ObjCollider)
 //==============================================================================
 void BoxCollider2D::PushBackObject()
 {
+	/*	当たり判定確認	*/
+	if (isActive == false || isHit == false)
+	{
+		return;
+	}
+
+	/*	押し戻し処理計算	*/
+	Vector2 PushBack;
+	for (auto Now : m_PushBackList)
+	{
+		PushBack.x += Now.x;
+		PushBack.y += Now.y;
+	}
+
+	/*	押し戻し処理	*/
 	Owner->transform->Position.x += PushBack.x;
 	Owner->transform->Position.y += PushBack.y;
 
+
+	/*	中心点座標更新	*/
+	CenterPos.x = Owner->transform->Position.x + (Offset.x * CenterLength.x);
+	CenterPos.y = Owner->transform->Position.y + (Offset.y * CenterLength.y);
+
 	//コライダーに値を再セットで更新
 	//（横サイズ、縦サイズ、Owner.X座標、Owner.Y座標）
-	//m_CRect.Set(CenterLength.x * 2, CenterLength.y * 2, Owner->transform->Position.x, Owner->transform->Position.y);
-	Rect.Set(CenterLength.x * 2, CenterLength.y * 2, Keep_Position.x, Keep_Position.y);
+	Rect.Set(CenterLength.x * 2, CenterLength.y * 2, CenterPos.x, CenterPos.y);
+
 }
 
-
+//==============================================================================
+//!	@fn		SetOffset
+//!	@brief　オフセット設定
+//!	@param	OffsetX, OffsetY
+//==============================================================================
 void BoxCollider2D::SetOffset(float in_OffsetX, float in_OffsetY)
 {
 	Offset.x = in_OffsetX;
 	Offset.y = in_OffsetY;
 }
 
+//==============================================================================
+//!	@fn		SetisActive
+//!	@brief　アクティブ設定
+//!	@param	フラグ
+//==============================================================================
 void BoxCollider2D::SetisActive(bool in_isActive)
 {
 	isActive = in_isActive;
 
 }
 
+//==============================================================================
+//!	@fn		GetisActive
+//!	@brief　アクティブ取得
+//!	@retval	アクティブフラグ
+//==============================================================================
 bool BoxCollider2D::GetisActive()
 {
 	return isActive;
@@ -297,4 +277,85 @@ bool BoxCollider2D::GetisActive()
 std::string BoxCollider2D::GetHitObject()
 {
 	return HitObject;
+}
+
+//==============================================================================
+//!	@fn		HitCheck
+//!	@brief　当たり判定を調べる
+//!	@param	
+//==============================================================================
+void GameEngine::BoxCollider2D::HitCheck()
+{
+	Vector2 Distance;
+	Vector2 HalfTotalLength;
+	isHit = false;
+
+	//アクティブ出ないならisHitをfalseに
+	if (isActive == false)
+	{
+		isHit = false;
+		return;
+	}
+
+	/*	当たり判定	*/
+	for (auto Check : m_CheckList)
+	{
+		//相手の中心座標ー自分の中心座標
+		Distance.x = fabsf(Check.CenterPos.x - CenterPos.x);
+		Distance.y = fabsf(Check.CenterPos.y - CenterPos.y);
+
+		/*	Boxの縦/横長さ	*/
+		HalfTotalLength.x = CenterLength.x + Check.CenterLength.x;
+		HalfTotalLength.y = CenterLength.y + Check.CenterLength.y;
+
+		/*	衝突判定	*/
+		if (Distance.x < HalfTotalLength.x &&
+			Distance.y < HalfTotalLength.y)
+		{
+			/*	衝突	*/
+			isHit = true;
+
+			/*	押し戻し値計算	*/
+			//オブジェクト左辺 - プレイヤー右辺
+			float dx1 = (Check.CenterPos.x - Check.CenterLength.x) - (CenterPos.x + CenterLength.x);
+			//オブジェクト右辺 - プレイヤー左辺
+			float dx2 = (Check.CenterPos.x + Check.CenterLength.x) - (CenterPos.x - CenterLength.x);
+			//オブジェクト上辺 - プレイヤー下辺
+			float dy1 = (Check.CenterPos.y - Check.CenterLength.y) - (CenterPos.y + CenterLength.y);
+			//オブジェクト下辺 - プレイヤー上辺
+			float dy2 = (Check.CenterPos.y + Check.CenterLength.y) - (CenterPos.y - CenterLength.y);
+
+			Vector2 PushBack;
+
+			PushBack.x = fabsf(dx1) < fabsf(dx2) ? dx1 : dx2;
+			PushBack.y = fabsf(dy1) < fabsf(dy2) ? dy1 : dy2;
+			if (fabsf(PushBack.x) < fabsf(PushBack.y))
+			{
+				PushBack.y = 0.0f;
+			}
+			else
+			{
+				PushBack.x = 0.0f;
+			}
+
+			/*	押し戻し値格納	*/
+			m_PushBackList.push_back(PushBack);
+
+			/*	ヒットオブジェクト格納	*/
+			m_HitObjectList.push_back(Check.Owner->GetName());
+		}
+	}
+
+}
+
+//==============================================================================
+//!	@fn		InitList
+//!	@brief　リスト初期化
+//!	@param	
+//==============================================================================
+void GameEngine::BoxCollider2D::InitList()
+{
+	m_CheckList.clear();
+	m_HitObjectList.clear();
+	m_PushBackList.clear();
 }

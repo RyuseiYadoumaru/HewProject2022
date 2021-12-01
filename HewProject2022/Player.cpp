@@ -1,5 +1,4 @@
 #include "Player.h"
-#include "Sound.h"
 #include "ydmEngine.h"
 
 Player::Player(string in_Name) :Character(in_Name)
@@ -19,13 +18,18 @@ bool Player::Start()
 	//ジャンプフラグ
 	m_jumpFlg = false;
 
-	m_SpriteRenderer->SpriteName = "dog";
+	/*	スプライト初期化	*/
+	m_SpriteRenderer->SpriteName = "player";
 	m_SpriteRenderer->Init();
 
 	transform->Position.Set(0.0f, 0.0f, 0.0f);
-	//transform.Scale.x -= 0.9f;
-	//transform.Scale.y -= 0.9f;
+	transform->Scale.Set(0.7f, 0.7f, 0.7f);
 
+	/*	リジットボディーコンポーネント	*/
+	AddComponent<GameEngine::Rigidbody2d>();
+
+	/*	ボックスコライダコンポーネント	*/
+	AddComponent<GameEngine::BoxCollider2D>(m_SpriteRenderer->GetSize());
 	return true;
 }
 
@@ -116,7 +120,5 @@ bool Player::Update()
 
 	Move();
 	Jump();
-	transform->Update();
-
 	return true;
 }

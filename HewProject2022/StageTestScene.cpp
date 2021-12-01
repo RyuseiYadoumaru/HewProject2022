@@ -19,10 +19,6 @@ bool StageTestScene::Start()
 	m_MainCamera->BackgroundColor = Math::Color::Blue;
 	m_MainCamera->Focus(m_ProtPlayer.get());
 
-	/*　サウンド初期化　*/
-	Sound::Sound_Init();
-
-
 	/*　BGＭ再生　*/
 	Sound::Sound_Play(SOUND_LABEL_BGM000);
 
@@ -76,8 +72,6 @@ Scene::STATE StageTestScene::Update()
 
 bool StageTestScene::End()
 {
-	Sound::Sound_Release();
-
 	return true;
 }
 

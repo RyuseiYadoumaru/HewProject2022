@@ -5,7 +5,6 @@
 #include "BackGround.h"
 #include "MainCamera.h"
 #include "Player.h"
-#include "Sound.h"
 
 using Create::Scene;
 

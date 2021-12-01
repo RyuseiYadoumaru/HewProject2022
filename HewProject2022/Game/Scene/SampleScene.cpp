@@ -20,34 +20,14 @@ bool GamePlay::SampleScene::Start()
 Scene::STATE GamePlay::SampleScene::Update()
 {
 
-	BoxCollider2D* Col = Hanamaru->GetComponent<BoxCollider2D>();
-	BoxCollider2D* Col2 = Teee->GetComponent<BoxCollider2D>();
 	/****	オブジェクト更新	****/
 	ObjectUpdate();
 
-	/****	システム更新	****/
-	SystemUpdate();
-	if (Col->HitCheckBox(*Col2))
-	{
-		Col->PushBackObject();
-	}
+	/*	当たり判定処理	*/
+	BoxCollider2D* Col = Hanamaru->GetComponent<BoxCollider2D>();
+	BoxCollider2D* Col2 = Teee->GetComponent<BoxCollider2D>();
+	Col->HitCheckBox(*Col2);
 
-
-	//if (Player->GetCollider()->HitCheckBox(*Block->GetCollider()))
-	//{
-	//	Player->GetCollider()->PushBackObject();
-	//}
-
-
-
-	//if (Hanamaru->GetCollider()->HitCheckBox(*Teee->GetCollider()))
-	//{
-	//	Hanamaru->GetCollider()->PushBackObject();
-	//}
-
-
-
-	camera->Update();
 
 	if (Input::GetKeyTrigger(PK_3) == true)
 	{
@@ -64,9 +44,9 @@ Scene::STATE GamePlay::SampleScene::Update()
 		Destroy("はなまる");
 	}
 
-	//Hanamaru->GetCollider()->Update();
 
-
+	/****	システム更新	****/
+	SystemUpdate();
 
 	return PLAY;
 }

@@ -13,6 +13,7 @@
 #include "Tools/Log.h"
 #include "../Input/Input.h"
 #include "../Data/DataArray.h"
+#include "Sound/Sound.h"
 
 //==============================================================================
 //!	@fn		Constructor
@@ -81,6 +82,9 @@ bool GameEngine::Engine::Init()
 		Log::LogError(App->GetHandle(), "データの初期化に失敗しました");
 		return false;
 	}
+
+	/****	サウンド初期化	****/
+	Sound::Sound_Init();
 	return true;
 }
 //==============================================================================
@@ -127,6 +131,13 @@ bool GameEngine::Engine::Update()
 //==============================================================================
 bool GameEngine::Engine::Uninit()
 {
+
+	/****	シーンマネージャー解放	****/
+	sceneManager.Releace();
+
+	/****	サウンド解放	****/
+	Sound::Sound_Release();
+
 	return true;
 }
 

@@ -14,9 +14,11 @@
 #include "Engine/Component/SpriteRenderer.h"
 #include "Engine/Component/Transform.h"
 #include "Engine/Component//Physics/BoxCollider2D.h"
+#include "Engine/Component/Physics/Rigidbody2d.h"
 #include "Engine/Data/DataArray.h"
 #include "Engine/Input/Input.h"
 #include "Engine/SceneManager/SceneManager.h"
+#include "Engine/Runtime/Sound/Sound.h"
 
 //==============================================================================
 //!	@region	Math

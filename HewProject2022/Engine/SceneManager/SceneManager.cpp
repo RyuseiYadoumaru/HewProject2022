@@ -6,10 +6,7 @@
 //*****************************************************************************
 #include "SceneManager.h"
 #include "../Runtime/Tools/Log.h"
-#include "../../Game/Scene/SampleScene.h"
-#include "../../StageTestScene.h"
-#include "../../TitleScene.h"
-#include "../../ResultScene.h"
+#include "../../SceneList.h"
 #include "../Runtime/Tools/Log.h"
 
 //-----------------------------------------------------------------------------
@@ -32,7 +29,8 @@ GameEngine::SceneManager::SceneManager()
 	CreateScene("ResultScene", new GamePlay::ResultScene);
 	CreateScene("SampleScene", new GamePlay::SampleScene);
 	CreateScene("StageTestScene", new StageTestScene);
-	NextScene = SceneList["SampleScene"];
+	CreateScene("ProtScene", new ProtScene);
+	NextScene = SceneList["ProtScene"];
 }
 
 //==============================================================================
@@ -100,6 +98,20 @@ bool GameEngine::SceneManager::SetUp()
 
 	/****	シーン状態変更	****/
 	scene->SetState(Create::Scene::PLAY);
+
+	return true;
+}
+
+//==============================================================================
+//!	@fn		Releace
+//!	@brief	シーンマネージャー解放処理
+//!	@param	
+//!	@retval	true:正常終了　false:異常終了
+//==============================================================================
+bool GameEngine::SceneManager::Releace()
+{
+	SceneList.clear();
+	delete NextScene;
 
 	return true;
 }

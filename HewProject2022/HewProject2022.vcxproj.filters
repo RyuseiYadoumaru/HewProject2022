@@ -148,12 +148,6 @@
     <Filter Include="GameName\Object\Camera\MainCamera">
       <UniqueIdentifier>{30c144ae-9517-4642-8275-8af5af26ba9e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\ScriptClass">
-      <UniqueIdentifier>{6e7f3e1a-380b-44ab-8496-2ead13de20a4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Engine\Sound">
-      <UniqueIdentifier>{231f22d2-5bee-4bad-9160-f92e94c64df4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="GameName\Scene\Result">
       <UniqueIdentifier>{957429cc-c006-41b0-b835-9abdbd27da6d}</UniqueIdentifier>
     </Filter>
@@ -168,6 +162,9 @@
     </Filter>
     <Filter Include="Engine\Component\Public\Renderer">
       <UniqueIdentifier>{ffd7778e-3cef-47fb-8235-61145750d71b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Runtime\Sound">
+      <UniqueIdentifier>{231f22d2-5bee-4bad-9160-f92e94c64df4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -314,9 +311,6 @@
     <ClCompile Include="Player.cpp">
       <Filter>GameName\Object\Charactor</Filter>
     </ClCompile>
-    <ClCompile Include="Sound.cpp">
-      <Filter>Engine\Sound</Filter>
-    </ClCompile>
     <ClCompile Include="TitleScene.cpp">
       <Filter>GameName\Scene\Title</Filter>
     </ClCompile>
@@ -331,6 +325,15 @@
     </ClCompile>
     <ClCompile Include="Engine\Component\Physics\BoxCollider2D.cpp">
       <Filter>Engine\Component\Private\Physics2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Component\Physics\Rigidbody2d.cpp">
+      <Filter>Engine\Component\Private\Physics2D</Filter>
+    </ClCompile>
+    <ClCompile Include="ProtScene.cpp">
+      <Filter>Game\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Runtime\Sound\Sound.cpp">
+      <Filter>Engine\Runtime\Sound</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -472,9 +475,6 @@
     <ClInclude Include="Player.h">
       <Filter>GameName\Object\Charactor</Filter>
     </ClInclude>
-    <ClInclude Include="Sound.h">
-      <Filter>Engine\Sound</Filter>
-    </ClInclude>
     <ClInclude Include="TitleScene.h">
       <Filter>GameName\Scene\Title</Filter>
     </ClInclude>
@@ -492,6 +492,18 @@
     </ClInclude>
     <ClInclude Include="Engine\Component\Physics\BoxCollider2D.h">
       <Filter>Engine\Component\Public\Physics2D</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Component\Physics\Rigidbody2d.h">
+      <Filter>Engine\Component\Public\Physics2D</Filter>
+    </ClInclude>
+    <ClInclude Include="ProtScene.h">
+      <Filter>Game\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Runtime\Sound\Sound.h">
+      <Filter>Engine\Runtime\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneList.h">
+      <Filter>Engine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

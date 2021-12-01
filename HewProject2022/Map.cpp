@@ -121,6 +121,28 @@ bool Map::Render()
 	return true;
 }
 
+/****	マップ当たり判定	****/
+bool Map::HitCheckMap(GameObject& in_GameObject)
+{
+	/*	ヒットチェックオブジェクト	*/
+	BoxCollider2D* CheckObject = in_GameObject.GetComponent<BoxCollider2D>();
+
+	/*	当たり判定	*/
+	for (int column = 0; column < COLUMN_NUM; ++column)
+	{
+		TileColumn& Search = m_TileColumnList[column];
+		for (auto NowTile : Search.mp_Column)
+		{
+			BoxCollider2D* TileCol = NowTile->GetComponent<BoxCollider2D>();
+
+			CheckObject->HitCheckBox(*TileCol);
+		}
+	}
+
+	return true;
+
+}
+
 /****	マップ挙動	****/
 bool Map::MoveMap(Tile* in_StandardTile)
 {
@@ -146,6 +168,11 @@ bool Map::MoveMap(Tile* in_StandardTile)
 	SetMoveBackColumn(*in_StandardTile);	//後
 
 	return true;
+}
+
+/****	コライダ	****/
+void Map::DebugCollider()
+{
 }
 
 

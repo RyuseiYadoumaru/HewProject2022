@@ -19,7 +19,6 @@ namespace Create
 	{
 	protected:
 		std::shared_ptr<GameEngine::SpriteRenderer> m_SpriteRenderer;
-		//std::shared_ptr<GameEngine::BoxCollider2D> m_2DBoxCollider;
 
 	public:
 		Character(std::string in_Name);
@@ -32,9 +31,6 @@ namespace Create
 		void Sprite(std::string in_SpriteName);
 		void Vertex(std::string in_VertexName);
 		void Pixcel(std::string in_PixcelName);
-
-		//デバッグ用
-		//GameEngine::BoxCollider2D* GetCollider() { return m_2DBoxCollider.get(); }
 
 	};
 }

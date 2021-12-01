@@ -83,7 +83,7 @@ namespace Create
 			T* Buff = new T();
 
 			Buff->SetOwner(this);
-			ComponentList.push_back(Buff);
+			ComponentList.push_front(Buff);
 			Buff->Init(arg...);
 			return Buff;
 		}

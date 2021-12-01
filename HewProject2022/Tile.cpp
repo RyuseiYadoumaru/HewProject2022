@@ -1,10 +1,16 @@
 #include "Tile.h"
 
+
 /****	初期化	****/
 bool Tile::Start()
 {
+	/*	スプライト初期化	*/
 	m_SpriteRenderer->SetSize(TILE_WIDTH, TILE_HEIGHT);
 	m_SpriteRenderer->Init();
+
+	/*	ボックスコライダコンポーネント	*/
+	AddComponent<BoxCollider2D>(m_SpriteRenderer->GetSize());
+
 	return true;
 }
 

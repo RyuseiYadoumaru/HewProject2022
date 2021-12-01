@@ -21,12 +21,17 @@ public:
 	bool Render();
 
 public:
+
+	bool HitCheckMap(GameObject& in_GameObject);
 	bool MoveMap(Tile* in_StandardTile);		//マップ移動処理
 	void MoveSwicthON() { m_isMove = true; }	//移動処理起動
 	void MoveSwicthOFF() { m_isMove = false; }	//移動処理終了
 	bool GetisMove()const { return m_isMove; }	//移動フラグ取得
 
 	TileColumn m_TileColumnList[COLUMN_NUM];	//1列タイルリスト
+
+public:
+	void DebugCollider();
 
 private:
 	bool m_isMove;			//マップ移動フラグ

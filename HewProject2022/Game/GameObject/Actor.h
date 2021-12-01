@@ -19,7 +19,6 @@ namespace Create
 	protected:
 		std::shared_ptr<GameEngine::SpriteRenderer> m_SpriteRenderer;
 
-
 	public:
 		Actor();
 		Actor(std::string in_Name);

@@ -1,11 +1,12 @@
 //*****************************************************************************
-//!	@file	Engine/Component/BaxColliuder2D.h
+//!	@file	Engine/Component/Physics/BaxColliuder2D.h
 //!	@brief	
 //!	@note	2Dボックスコライダ
 //!	@note	コライダ
 //!	@author	YoshidaKouki
 //*****************************************************************************
 #pragma once
+#include <vector>
 #include "../Component.h"
 #include "../../Math/CRect.h"
 #include "../../Create/GameObject.h"
@@ -24,9 +25,9 @@ namespace GameEngine
 		bool Update() override;		//更新
 		void Debug();
 
-		bool HitCheckBox(BoxCollider2D &in_objcollider);		//当たり判定
-		//押し戻し処理
-		void PushBackObject();
+		void HitCheckBox(BoxCollider2D &in_objcollider);		//当たり判定
+
+		void PushBackObject();//押し戻し処理
 
 		void SetOffset(float in_OffsetX, float in_OffsetY);		//オフセット設定
 		void SetisActive(bool in_isactive);					//アクティブ有効設定
@@ -34,10 +35,6 @@ namespace GameEngine
 
 		std::string GetHitObject();
 
-
-		//流れ↓
-		//SpriteRendererのgetsizeで画像のサイズを読み取る->格納//保留
-		//CRectのset()関数でそのサイズの四角形を生成
 	private:
 		Math::Vector2 CenterPos;	//中心点座標
 		Math::Vector2 CenterLength;	//中心点から各辺への直線距離
@@ -52,9 +49,14 @@ namespace GameEngine
 
 		std::string HitObject;
 
-		Math::Vector2 PushBack;	//押し戻し
+		std::vector<BoxCollider2D> m_CheckList;
+		std::vector<Math::Vector2> m_PushBackList;
+		std::vector<std::string > m_HitObjectList;
 
-		Math::Vector2 Keep_Position;
+
+	private:
+		void HitCheck();
+		void InitList();
 
 	private:
 		struct VERTEX_RECT
@@ -64,8 +66,6 @@ namespace GameEngine
 		};
 
 		ID3D11Buffer* VertexBuffer = nullptr;
-
-
 		vsShader vertexShader;
 		psShader pixcelShader;
 	};

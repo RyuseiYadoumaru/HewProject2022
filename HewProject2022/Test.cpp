@@ -8,17 +8,14 @@ bool GamePlay::Test::Start()
 {
 	m_Speed = 30.0f;
 	m_SpriteRenderer->SpriteName = "player";
-	m_SpriteRenderer->VertexShaderName = "vs_2DSprite";
-	m_SpriteRenderer->PixcelShaderName = "ps_2DSprite";
+
 	m_SpriteRenderer->Init();
 
 	transform->Position.Set(-100.0f, -100.0f, 0.0f);
 	transform->Scale.Set(0.75f, 0.75f, 0.75f);
 
+	AddComponent<GameEngine::Rigidbody2d>();
 	AddComponent<GameEngine::BoxCollider2D>(m_SpriteRenderer->GetSize());
-
-
-	//m_2DBoxCollider->Init(this, m_SpriteRenderer->GetSize());
 	return true;
 }
 
@@ -45,9 +42,5 @@ bool GamePlay::Test::Update()
 
 	BoxCollider2D* c = GetComponent<BoxCollider2D>();
 
-	//c->Update();
-	//transform->Update();
-
-	//m_2DBoxCollider->Update();
 	return true;
 }

@@ -32,6 +32,9 @@ namespace GameEngine
 
 		bool SetUp();
 
+	public:
+		bool Releace();
+
 	};
 }
 

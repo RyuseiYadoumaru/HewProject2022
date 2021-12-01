@@ -12,6 +12,15 @@ using Create::Character;
 
 class Player : public Character
 {
+public:
+	Player(string in_Name);
+	bool Start()override;
+	void SpeedControl();
+	void Accelerate(float direction);
+	void Move();
+	void Jump();
+	bool Update() override;
+
 private:
 
 	Vector2 m_moveSpeed;// 移動速度XY
@@ -21,14 +30,6 @@ private:
 	float m_jumpForce;// ジャンプ力
 	bool m_jumpFlg;//ジャンプフラグ
 
-public:
-	Player(string in_Name);
-	bool Start()override;
-	void SpeedControl();
-	void Accelerate(float direction);
-	void Move();
-	void Jump();
-	bool Update() override;
 };
 
 

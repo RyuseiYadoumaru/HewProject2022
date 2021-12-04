@@ -106,10 +106,14 @@ void Player::Jump()
 	transform->Position.y += m_jumpForce;//ここにデルタタイム？
 	m_jumpForce += CHAR_GRAVITY;//徐々に重力が加算され、ジャンプ力が弱まっていく
 
-	if (transform->Position.y > 0) { //着地
-		transform->Position.y = 0;
-		m_jumpFlg = false;
-	}
+
+	//Y座標を0に固定する
+	//地面についたときにJampFlgをfalseにする処理を追記する
+	//if (transform->Position.y > 0) 
+	//{ //着地
+	//	transform->Position.y = 0;
+	//	m_jumpFlg = false;
+	//}
 }
 
 bool Player::Update()
@@ -121,4 +125,9 @@ bool Player::Update()
 	Move();
 	Jump();
 	return true;
+}
+
+void Player::Debug()
+{
+	GetComponent<BoxCollider2D>()->Debug();
 }

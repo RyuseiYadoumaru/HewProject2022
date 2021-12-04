@@ -30,6 +30,7 @@ Scene::STATE ProtScene::Update()
 	/****	オブジェクト更新	****/
 	ObjectUpdate();
 
+
 	/****	マップ当たり判定	****/
 	m_Map->HitCheckMap(*m_Player);
 
@@ -57,6 +58,9 @@ bool ProtScene::Render()
 	m_Player->Render();
 	m_Map->Render();
 
+	/****	コライダ描画	****/
+	m_Map->DebugCollider();
+	m_Player->Debug();
 	/****	画面描画	****/
 	SwapChain();
 

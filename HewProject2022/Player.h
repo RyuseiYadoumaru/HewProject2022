@@ -21,6 +21,7 @@ public:
 	void Jump();
 	bool Update() override;
 
+	void Debug()override;
 private:
 
 	Vector2 m_moveSpeed;// ˆÚ“®‘¬“xXY

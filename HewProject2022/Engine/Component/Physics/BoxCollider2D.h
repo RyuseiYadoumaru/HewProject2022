@@ -56,7 +56,6 @@ namespace GameEngine
 
 	private:
 		void HitCheck();
-		void InitList();
 
 	private:
 		struct VERTEX_RECT

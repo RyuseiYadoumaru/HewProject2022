@@ -106,6 +106,8 @@ void BoxCollider2D::Init(Math::Vector2 in_Size)
 //==============================================================================
 bool BoxCollider2D::Update()
 {
+	//当たっているオブジェクトを初期化する
+	m_HitObjectList.clear();
 
 	//サイズの半分の長さを求める(更新)
 	CenterLength.x = (m_ObjectSize.x * Owner->transform->Scale.x) / 2.0f;
@@ -197,9 +199,6 @@ void GameEngine::BoxCollider2D::Debug()
 //==============================================================================
 void BoxCollider2D::HitCheckBox(BoxCollider2D& in_ObjCollider)
 {
-	/*	リスト初期化	*/
-	InitList();
-
 	/*	チェックオブジェクト追加	*/
 	m_CheckList.push_back(in_ObjCollider);
 
@@ -210,6 +209,7 @@ void BoxCollider2D::HitCheckBox(BoxCollider2D& in_ObjCollider)
 //!	@brief　押し戻し処理
 //!	@param
 //==============================================================================
+#include<iostream>
 void BoxCollider2D::PushBackObject()
 {
 	/*	当たり判定確認	*/
@@ -217,14 +217,18 @@ void BoxCollider2D::PushBackObject()
 	{
 		return;
 	}
-
 	/*	押し戻し処理計算	*/
 	Vector2 PushBack;
+	//std::cout << "押し戻し計算\n";
 	for (auto Now : m_PushBackList)
 	{
+		//std::cout << "X:" << Now.x << " Y:" << Now.y << std::endl;
 		PushBack.x += Now.x;
 		PushBack.y += Now.y;
 	}
+
+	//押し戻しリストを使用したので初期化する
+	m_PushBackList.clear();
 
 	/*	押し戻し処理	*/
 	Owner->transform->Position.x += PushBack.x;
@@ -234,6 +238,8 @@ void BoxCollider2D::PushBackObject()
 	/*	中心点座標更新	*/
 	CenterPos.x = Owner->transform->Position.x + (Offset.x * CenterLength.x);
 	CenterPos.y = Owner->transform->Position.y + (Offset.y * CenterLength.y);
+
+
 
 	//コライダーに値を再セットで更新
 	//（横サイズ、縦サイズ、Owner.X座標、Owner.Y座標）
@@ -346,16 +352,7 @@ void GameEngine::BoxCollider2D::HitCheck()
 		}
 	}
 
-}
-
-//==============================================================================
-//!	@fn		InitList
-//!	@brief　リスト初期化
-//!	@param	
-//==============================================================================
-void GameEngine::BoxCollider2D::InitList()
-{
+	//チェックオブジェクトを使用したので初期化する
 	m_CheckList.clear();
-	m_HitObjectList.clear();
-	m_PushBackList.clear();
+
 }

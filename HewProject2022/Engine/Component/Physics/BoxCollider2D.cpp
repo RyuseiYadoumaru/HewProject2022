@@ -300,14 +300,11 @@ void GameEngine::BoxCollider2D::HitCheck()
 			/*	押し戻し処理	*/
 			FixPosition += PushBack;
 			CreateCollider(FixPosition);
-			//m_PushBackList.push_back(PushBack);
 
 			/*	ヒットオブジェクト格納	*/
 			m_HitObjectList.push_back(Check.Owner->GetName());
 		}
 	}
-
-
 	//チェックオブジェクトを使用したので初期化する
 	m_CheckList.clear();
 

@@ -7,10 +7,6 @@
 
 using Create::GameObject;
 
-#define MAPSIZE_WIDTH	(unsigned int)(100)
-#define COLUMN_NUM		(MAPSIZE_WIDTH)
-#define MAPSIZE_HEIGHT	(unsigned int)(20)
-
 class Map : public GameObject
 {
 public:
@@ -41,7 +37,9 @@ public:
 	void MoveSwicthOFF() { m_isMove = false; }	//移動処理終了
 	bool GetisMove()const { return m_isMove; }	//移動フラグ取得
 
-	TileColumn m_TileColumnList[COLUMN_NUM];	//1列タイルリスト
+	string m_MapDataName;
+	vector<TileColumn> m_TileColumnList;		//1列のタイルリスト
+	//TileColumn m_TileColumnList[COLUMN_NUM];	//1列タイルリスト
 	vector<Tile*> m_TileList;					//全てのタイルリスト
 public:
 	void DebugCollider();
@@ -49,12 +47,12 @@ public:
 private:
 	bool m_isMove;			//マップ移動フラグ
 	bool m_isReturnMove;	//マップ移動戻すフラグ
-	char* m_MapChip;
 	float m_MoveTime;		//移動時間(1000ms = 1s)
 
 	vector<MoveColumnInfo> m_MoveFrontColumnList;	//移動列格納配列(前)
 	vector<MoveColumnInfo> m_MoveBackColumnList;	//移動列格納配列(後)
 	vector<MoveColumnInfo> m_SaveMoveColumnList;	//移動列保存配列
+	MapData m_Mapdata;
 
 	Tile* mp_StandardTile;
 private:

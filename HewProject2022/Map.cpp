@@ -2,43 +2,21 @@
 #include "Engine/Create/Scene.h"
 using Math::Vector3;
 
-#pragma region Debug
-
-static char DebugMap[MAPSIZE_HEIGHT][MAPSIZE_WIDTH]
-{
-{NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO},
-{NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO},
-{NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO},
-{NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO},
-{NO,NO,NO,NO,NO,NO,NO,NO,NO,C1,C1,C1,C1,C1,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO},
-{NO,NO,NO,NO,NO,NO,NO,NO,NO,NB,NB,NB,NB,NB,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NB,NB,NB,NB,NB,NB,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO},
-{NO,NO,NO,NO,NO,NO,NO,NO,NO,NB,NB,NB,NB,NB,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NB,NB,NB,NB,NB,NB,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO},
-{NO,NO,NO,NO,NO,NO,NO,NO,NO,NB,NB,NB,NB,NB,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NB,NB,NB,NB,NB,NB,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO},
-{NO,NO,NO,NO,NO,NO,NO,NO,NO,NB,NB,NB,NB,NB,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NB,NB,NB,NB,NB,NB,NO,NO,NO,NO,NO,C1,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO},
-{NO,NO,NO,NO,NO,NO,NO,NO,NO,NB,NB,NB,NB,NB,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NB,NB,NB,NB,NB,NB,NO,NO,NO,NO,NO,NB,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO},
-{NO,NO,NO,NO,NO,NO,NO,NO,NO,NB,NB,NB,NB,NB,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NB,NB,NB,NB,NB,NB,NO,NO,NO,NO,C1,NB,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO},
-{NB,NB,NB,NB,NB,NB,NB,NB,C1,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,C1,NB,NB,NB,C1,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,C1,C2,C1,C2,C1,C2,NB,NB,NB,NB,NB,NB,NB,NB,NB,C2,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB},
-{NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,C1,NB,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,C2,C1,C2,C1,C2,C1,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NO,NO,NO,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB},
-{NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,C1,NB,NB,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NO,C2,C2,C2,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB},
-{NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,C1,NB,NB,NB,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NO,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,C2,NB,C1,C1,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB},
-{NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,C1,C1,C1,C1,C1,C1,C1,C1,C1,C1,C1,C1,C1,C1,C1,C1,C1,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB},
-{NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB},
-{NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB},
-{NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB},
-{NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB,NB}
-};
-#pragma endregion static char DebugMap(デバッグ用)
 
 Map::Map()
 {
-	m_MapChip = &DebugMap[0][0];
+	m_MapDataName = "ProtMap";
 	m_isMove = false;
 	m_isReturnMove = false;
 	m_MoveTime = 100.0f / 100.0f;
 }
 
-Map::Map(std::string in_MapDataName)
+Map::Map(std::string in_MapDataName) : GameObject(in_MapDataName)
 {
+	m_MapDataName = in_MapDataName;
+	m_isMove = false;
+	m_isReturnMove = false;
+	m_MoveTime = 100.0f / 100.0f;
 
 
 }
@@ -47,6 +25,7 @@ Map::Map(std::string in_MapDataName)
 bool Map::Start()
 {
 	/*	マップロード	*/
+	m_Mapdata.Load(m_MapDataName);
 
 	/*	マップ生成	*/
 	CreateMap();
@@ -71,7 +50,7 @@ bool Map::Update()
 	}
 
 	/*	Transform更新	*/
-	for (int Column = 0; Column < COLUMN_NUM; Column++)
+	for (int Column = 0; Column < m_Mapdata.GetSize().x; Column++)
 	{
 		for (auto now : m_TileColumnList[Column].mp_Column)
 		{
@@ -84,7 +63,10 @@ bool Map::Update()
 /****	終了処理	****/
 bool Map::End()
 {
-	m_TileColumnList->Clear();
+	for (auto List : m_TileColumnList)
+	{
+		List.Clear();
+	}
 	return true;
 }
 
@@ -92,7 +74,7 @@ bool Map::Render()
 {
 
 	Create::Camera* camera = Create::Scene::GetCamera();
-	for (int Column = 0; Column < COLUMN_NUM; Column++)
+	for (int Column = 0; Column < m_Mapdata.GetSize().x; Column++)
 	{
 		for (auto now : m_TileColumnList[Column].mp_Column)
 		{
@@ -114,7 +96,7 @@ bool Map::HitCheckMap(GameObject& in_GameObject)
 	BoxCollider2D* CheckObject = in_GameObject.GetComponent<BoxCollider2D>();
 	Create::Camera* camera = Create::Scene::GetCamera();
 	/*	当たり判定	*/
-	for (int column = 0; column < COLUMN_NUM; ++column)
+	for (int column = 0; column < m_Mapdata.GetSize().x; ++column)
 	{
 		TileColumn& Search = m_TileColumnList[column];
 		for (auto NowTile : Search.mp_Column)
@@ -164,7 +146,7 @@ bool Map::MoveMap(Tile* in_StandardTile)
 void Map::DebugCollider()
 {
 	/*	描画	*/
-	for (int column = 0; column < COLUMN_NUM; ++column)
+	for (int column = 0; column < m_Mapdata.GetSize().x; ++column)
 	{
 		TileColumn& Search = m_TileColumnList[column];
 		for (auto NowTile : Search.mp_Column)
@@ -181,11 +163,18 @@ void Map::DebugCollider()
 /****	マップ生成処理	****/
 void Map::CreateMap()
 {
+	/****	マップサイズ決定	****/
+	m_TileColumnList.resize(m_Mapdata.GetSize().x);
+
 	/****	ブロック情報読込	****/
 	Vector2 Pos;
-	for (int y = 0; y < MAPSIZE_HEIGHT; y++)
+
+	int MapWidth = m_Mapdata.GetSize().x;
+	int MapHeight = m_Mapdata.GetSize().y;
+	vector<vector<char>> MapChip = *m_Mapdata.GetMapData();
+	for (int y = 0; y < MapHeight; y++)
 	{
-		for (int x = 0; x < MAPSIZE_WIDTH; x++)
+		for (int x = 0; x < MapWidth; x++)
 		{
 			/*	座標設定	*/
 			float PosX = TILE_WIDTH * x;
@@ -193,7 +182,7 @@ void Map::CreateMap()
 			Pos.Set(PosX, PosY);
 
 			/*	ブロック生成	*/
-			switch (m_MapChip[MAPSIZE_WIDTH * y + x])
+			switch (MapChip[y][x])
 			{
 			case NB:
 				CreateTile(Pos, "wh2", MAPOBJ::NB);
@@ -216,6 +205,8 @@ void Map::CreateMap()
 			}
 		}
 	}
+
+
 
 }
 

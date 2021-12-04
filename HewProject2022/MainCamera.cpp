@@ -7,6 +7,7 @@ MainCamera::MainCamera(string in_Name) : Camera(in_Name)
 }
 bool MainCamera::Start()
 {
+	BackgroundColor = Math::Color::Gray;
 	return true;
 }
 

@@ -6,7 +6,7 @@ bool ProtScene::Start()
 {
 	cout << "プロトタイプシーン" << endl;
 	/*	オブジェクト生成	*/
-	m_Map = make_shared<Map>();
+	m_Map = make_shared<Map>("ProtMap");
 	m_Player = make_shared<Player>("Player");
 	m_MainCamera = make_shared<MainCamera>("MainCamera");
 	m_BackGruond = make_shared<BackGround>("BackGorund");
@@ -34,7 +34,7 @@ Scene::STATE ProtScene::Update()
 	if (Input::GetKeyTrigger(PK_1))
 	{
 		m_Map->MoveSwicthON();
-		Tile* Debug = m_Map->m_TileColumnList[24].mp_Column[0];
+		Tile* Debug = m_Map->m_TileColumnList[8].mp_Column[0];
 		m_Map->MoveMap(Debug);
 	}
 
@@ -42,7 +42,7 @@ Scene::STATE ProtScene::Update()
 	if (Input::GetKeyTrigger(PK_3) == true && m_Map->GetisMove() == false)
 	{
 		m_Map->MoveSwicthON();
-		Tile* Debug = m_Map->m_TileColumnList[23].mp_Column[0];
+		Tile* Debug = m_Map->m_TileColumnList[7].mp_Column[0];
 		m_Map->MoveMap(Debug);
 	}
 

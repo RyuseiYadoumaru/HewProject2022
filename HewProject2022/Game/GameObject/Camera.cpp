@@ -9,6 +9,7 @@
 #include "Camera.h"
 
 #include "../../Engine/Runtime/Core/TransformMatrix.h"
+#include "../../Engine/Runtime/Application.h"
 
 //==============================================================================
 //!	@fn		Constructor
@@ -53,12 +54,55 @@ Math::Color* Create::Camera::GetBackgroundColor()
 }
 
 //==============================================================================
+//!	@fn		GetLeft
+//!	@brief	左端座標
+//!	@param	左
+//==============================================================================
+float Create::Camera::GetLeft()
+{
+	float Pos = transform->Position.x - ((float)Application::SCREEN_WIDTH / 2.0f);
+	return Pos;
+}
+
+//==============================================================================
+//!	@fn		GetRight
+//!	@brief	右端座標
+//!	@param	右
+//==============================================================================
+float Create::Camera::GetRight()
+{
+	return transform->Position.x + ((float)Application::SCREEN_WIDTH / 2.0f);
+}
+
+//==============================================================================
+//!	@fn		GetTop
+//!	@brief	上座標
+//!	@param	上
+//==============================================================================
+float Create::Camera::GetTop()
+{
+	return transform->Position.y - ((float)Application::SCREEN_HEIGHT / 2.0f);
+}
+
+//==============================================================================
+//!	@fn		GetButtom
+//!	@brief	下座標
+//!	@param	下
+//==============================================================================
+float Create::Camera::GetButtom()
+{
+	return transform->Position.y + ((float)Application::SCREEN_HEIGHT / 2.0f);
+}
+
+//==============================================================================
 //!	@fn		SetCameraPos
 //!	@brief	カメラの座標更新
 //!	@param	
 //==============================================================================
 void Create::Camera::SetCameraPos()
 {
+
+	/*	行列変換	*/
 	TransformMatrix* transformMatrix = TransformMatrix::Instance();
 
 	DirectX::XMFLOAT3 Pos =

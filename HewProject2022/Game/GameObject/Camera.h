@@ -13,6 +13,8 @@
 #include "../../Engine/Math/CRect.h"
 #include <DirectXMath.h>
 
+//left right top buttom
+
 namespace Create
 {
 	class  Camera : public GameObject
@@ -20,15 +22,20 @@ namespace Create
 	public:
 		Math::Color BackgroundColor;
 
+
 	public:
 		Camera(std::string in_name);
 
 		bool Start() override;
-
 		bool Update() override;
 
 	public:
 		Math::Color* GetBackgroundColor();
+
+		float GetLeft();
+		float GetRight();
+		float GetTop();
+		float GetButtom();
 
 	protected:
 		void SetCameraPos();

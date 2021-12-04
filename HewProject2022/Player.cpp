@@ -22,8 +22,9 @@ bool Player::Start()
 	m_SpriteRenderer->SpriteName = "player";
 	m_SpriteRenderer->Init();
 
-	transform->Position.Set(0.0f, 0.0f, 0.0f);
-	transform->Scale.Set(0.7f, 0.7f, 0.7f);
+	transform->Position.Set(0.0f, 1000.0f, 0.0f);
+	transform->Scale.Set(0.6f, 0.6f, 0.6f);
+
 
 	/*	リジットボディーコンポーネント	*/
 	AddComponent<GameEngine::Rigidbody2d>();
@@ -105,6 +106,11 @@ void Player::Jump()
 
 	transform->Position.y += m_jumpForce;//ここにデルタタイム？
 	m_jumpForce += CHAR_GRAVITY;//徐々に重力が加算され、ジャンプ力が弱まっていく
+
+	if (GetComponent<BoxCollider2D>()->GetisHit() == true) {//着地したら
+		m_jumpForce = 0;
+		m_jumpFlg = false;
+	}
 
 
 	//Y座標を0に固定する

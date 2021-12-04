@@ -6,6 +6,7 @@
 //*****************************************************************************
 
 #include "Vector2.h"
+#include "Vector3.h"
 
 //==============================================================================
 //!	@fn		Constructor
@@ -42,6 +43,20 @@ Math::Vector2& Math::Vector2::operator=(Vector2& in_V2)
 
 	return *this;
 }
+
+//==============================================================================
+//!	@fn		operator
+//!	@brief	‘ã“ü‰‰Zq
+//!	@param	Vector3
+//!	@retval	Vector2
+//==============================================================================
+Math::Vector2& Math::Vector2::operator=(Vector3 & in_V3)
+{
+	x = in_V3.x;
+	y = in_V3.y;
+
+	return *this;
+}
 //==============================================================================
 //!	@fn		operator
 //!	@brief	‘ã“ü‰‰Zq
@@ -67,6 +82,13 @@ Math::Vector2 Math::Vector2::operator+(const Vector2 in_V2)
 	return Vector2(x + in_V2.x, y + in_V2.y);
 }
 
+Math::Vector2& Math::Vector2::operator+=(const Vector2 in_V2)
+{
+	x += in_V2.x;
+	y += in_V2.y;
+	return *this;
+}
+
 //==============================================================================
 //!	@fn		operator
 //!	@brief	Zp‰‰ZqiŒ¸Zj
@@ -76,6 +98,13 @@ Math::Vector2 Math::Vector2::operator+(const Vector2 in_V2)
 Math::Vector2 Math::Vector2::operator-(const Vector2 in_V2)
 {
 	return Vector2(x - in_V2.x, y - in_V2.y);
+}
+
+Math::Vector2 & Math::Vector2::operator-=(const Vector2 in_V2)
+{
+	x -= in_V2.x;
+	y -= in_V2.y;
+	return *this;
 }
 
 //==============================================================================
@@ -89,6 +118,13 @@ Math::Vector2 Math::Vector2::operator*(const Vector2 in_V2)
 	return Vector2(x * in_V2.x, y * in_V2.y);
 }
 
+Math::Vector2& Math::Vector2::operator*=(const Vector2 in_V2)
+{
+	x *= in_V2.x;
+	y *= in_V2.y;
+	return *this;
+}
+
 //==============================================================================
 //!	@fn		operator
 //!	@brief	Zp‰‰Zqi™Zj
@@ -98,6 +134,13 @@ Math::Vector2 Math::Vector2::operator*(const Vector2 in_V2)
 Math::Vector2 Math::Vector2::operator/(const Vector2 in_V2)
 {
 	return Vector2(x / in_V2.x, y / in_V2.y);
+}
+
+Math::Vector2& Math::Vector2::operator/=(const Vector2 in_V2)
+{
+	x /= in_V2.x;
+	y /= in_V2.y;
+	return *this;
 }
 
 //==============================================================================

@@ -14,6 +14,7 @@
 #include <string>
 #include <memory>
 
+using GameEngine::Component;
 namespace Create
 {
 	class Scene
@@ -38,32 +39,21 @@ namespace Create
 		STATE GetState() const;
 		void SetState(const STATE in_State);
 
+	public:
+
+		static Camera* GetCamera() { return camera; }
+
 	protected:
 		static STATE State;
 
 	protected:
-		Camera* camera;
-		std::map<std::string, GameObject*> ObjectArray;
-		std::vector<GameEngine::Component*> ComponentArray;
+		static Camera* camera;
+		static std::map<std::string, GameObject*> ObjectArray;
+		static std::map<std::string, std::vector<Component*>> ComponenArray;
 
+		int ObjectCnt;
 
 	protected:
-
-
-		template<class T>
-		T* Instance(std::string in_Name)
-		{
-			T* Instance = new T(in_Name);
-			ObjectArray.insert(std::make_pair(Instance->ToString(), Instance));
-			Instance->Active = true;
-			Instance->Start();
-			for (auto Obj : Instance->ComponentList)
-			{
-				ComponentArray.push_back(Obj);
-			}
-
-			return Instance;
-		}
 
 		void Instance(GameObject* in_Object);
 		void Destroy(std::string in_ObjectName);
@@ -76,6 +66,8 @@ namespace Create
 
 		bool ClearDisplay();
 		bool SwapChain();
+
+		bool Releace();
 	};
 }
 

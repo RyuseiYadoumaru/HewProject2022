@@ -22,6 +22,17 @@ public:
 
 public:
 
+	void SystemUpdate()
+	{
+		for (auto i : m_TileList)
+		{
+			for (auto system : i->ComponentList)
+			{
+				system->Update();
+			}
+		}
+	}
+
 	bool HitCheckMap(GameObject& in_GameObject);
 	bool MoveMap(Tile* in_StandardTile);		//マップ移動処理
 	void MoveSwicthON() { m_isMove = true; }	//移動処理起動
@@ -29,7 +40,7 @@ public:
 	bool GetisMove()const { return m_isMove; }	//移動フラグ取得
 
 	TileColumn m_TileColumnList[COLUMN_NUM];	//1列タイルリスト
-
+	vector<Tile*> m_TileList;					//全てのタイルリスト
 public:
 	void DebugCollider();
 
@@ -44,8 +55,10 @@ private:
 	vector<MoveColumnInfo> m_SaveMoveColumnList;	//移動列保存配列
 
 private:
+	void CreateMap();
 	void CreateTile(Vector2& in_Position, string FileName, MAPOBJ in_MapObj);		//タイル生成する	
 	bool MoveTile();		//移動処理
+
 
 	/*	移動列設定	*/
 	void SetMoveFrontColumn(Tile& in_StandardTile);

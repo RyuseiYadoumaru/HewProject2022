@@ -6,6 +6,7 @@
 //*****************************************************************************
 
 #include "Vector3.h"
+#include "Vector2.h"
 
 //==============================================================================
 //!	@fn		Constructor
@@ -45,6 +46,34 @@ Math::Vector3& Math::Vector3::operator=(Vector3& in_V3)
 	return *this;
 }
 
+
+//==============================================================================
+//!	@fn		operator
+//!	@brief	‘ã“ü‰‰Zq
+//!	@param	Vector
+//==============================================================================
+Math::Vector3& Math::Vector3::operator=(Vector2& in_V2)
+{
+	x = in_V2.x;
+	y = in_V2.y;
+
+	return *this;
+}
+
+//==============================================================================
+//!	@fn		operator
+//!	@brief	‘ã“ü‰‰Zq
+//!	@param	XMFLOAT3
+//!	@retval	Vector3
+//==============================================================================
+Math::Vector3& Math::Vector3::operator=(XMFLOAT3 in_F3)
+{
+	x = in_F3.x;
+	y = in_F3.y;
+
+	return *this;
+}
+
 //==============================================================================
 //!	@fn		operator
 //!	@brief	Zp‰‰Zqi‰ÁZj
@@ -55,6 +84,15 @@ Math::Vector3 Math::Vector3::operator+(const Vector3 in_V3)
 	return Vector3(x + in_V3.x, y + in_V3.y, z + in_V3.z);
 }
 
+Math::Vector3& Math::Vector3::operator+=(const Vector3 in_V3)
+{
+	x += in_V3.x;
+	y += in_V3.y;
+	z += in_V3.z;
+	return *this;
+}
+
+
 //==============================================================================
 //!	@fn		operator
 //!	@brief	Zp‰‰ZqiŒ¸Zj
@@ -63,6 +101,14 @@ Math::Vector3 Math::Vector3::operator+(const Vector3 in_V3)
 Math::Vector3 Math::Vector3::operator-(const Vector3 in_V3)
 {
 	return Vector3(x - in_V3.x, y - in_V3.y, z - in_V3.z);
+}
+
+Math::Vector3 & Math::Vector3::operator-=(const Vector3 in_V3)
+{
+	x -= in_V3.x;
+	y -= in_V3.y;
+	z -= in_V3.z;
+	return *this;
 }
 
 //==============================================================================
@@ -75,6 +121,14 @@ Math::Vector3 Math::Vector3::operator*(const Vector3 in_V3)
 	return Vector3(x * in_V3.x, y * in_V3.y, z * in_V3.z);
 }
 
+Math::Vector3& Math::Vector3::operator*=(const Vector3 in_V3)
+{
+	x *= in_V3.x;
+	y *= in_V3.y;
+	z *= in_V3.z;
+	return *this;
+}
+
 //==============================================================================
 //!	@fn		operator
 //!	@brief	Zp‰‰Zqi™Zj
@@ -83,6 +137,14 @@ Math::Vector3 Math::Vector3::operator*(const Vector3 in_V3)
 Math::Vector3 Math::Vector3::operator/(const Vector3 in_V3)
 {
 	return Vector3(x / in_V3.x, y / in_V3.y, z / in_V3.z);
+}
+
+Math::Vector3& Math::Vector3::operator/=(const Vector3 in_V3)
+{
+	x /= in_V3.x;
+	y /= in_V3.y;
+	z /= in_V3.z;
+	return *this;
 }
 
 //==============================================================================

@@ -33,6 +33,11 @@ namespace GameEngine
 		void SetisActive(bool in_isactive);					//アクティブ有効設定
 		bool GetisActive();
 
+		//三木原追加
+		bool GetisHit() {
+			return isHit;
+		}
+
 		std::string GetHitObject();
 
 	private:
@@ -53,9 +58,12 @@ namespace GameEngine
 		std::vector<Math::Vector2> m_PushBackList;
 		std::vector<std::string > m_HitObjectList;
 
+		Math::Vector2 FixPosition;
 
 	private:
 		void HitCheck();
+		void CreateCollider();
+		void CreateCollider(Math::Vector2& Pos);
 
 	private:
 		struct VERTEX_RECT

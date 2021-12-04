@@ -9,7 +9,7 @@
 
 #pragma once
 #include "../../Engine/Create/GameObject.h"
-#include "../../Engine/Component/SpriteRenderer.h"
+#include "../../Engine/Component/Physics/BoxCollider2D.h"
 #include <memory>
 
 namespace Create

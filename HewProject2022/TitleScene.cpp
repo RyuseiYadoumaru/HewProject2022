@@ -7,45 +7,41 @@ bool GamePlay::TitleScene::Start()
 	//オブジェクト生成 初期化
 	m_TitleText = make_shared<Actor>("TitleText");
 	m_TitleText->Sprite("タイトル");
-	m_TitleText->Start();
 
-	//camera = make_shared<Camera>("MainCamera");
-	SetCamera();//これじゃダメ？
+	Instance(m_TitleText.get());
+
+	/*	カメラ設定	*/
+	SetCamera();
 	camera->GetBackgroundColor()->Set(1.0f, 1.0f, 1.0f, 1.0f);
-	for (auto i : ObjectArray)
-	{
-		i.second->Start();
-	}
+
 	return true;
 }
 
 Scene::STATE GamePlay::TitleScene::Update()
 {
-	camera->Update();
+	/****	オブジェクト更新	****/
+	ObjectUpdate();
 
 
-
-	for (auto i : ObjectArray)
-	{
-		i.second->Update();
-	}
-
+	/****	ロードシーン	****/
 	if (Input::GetKeyTrigger(PK_ENTER) == true)//エンター押すと次のシーンへ移動
 	{
-		GameEngine::SceneManager::LoadScene("StageTestScene");
+		GameEngine::SceneManager::LoadScene("ProtScene");
 	}
 
+	/****	システム更新	****/
+	SystemUpdate();
 	return PLAY;
 }
 
 bool GamePlay::TitleScene::End()
 {
-	/****	絶対いる	****/
-	for (auto i : ObjectArray)
-	{
-		i.second->End();
-	}
-	ObjectArray.clear();
+	/*	オブジェクト終了処理	*/
+	ObjectEnd();
+
+	/*	解放処理	*/
+	Releace();
+
 	return true;
 }
 
@@ -54,7 +50,7 @@ bool GamePlay::TitleScene::Render()
 	/****	画面クリア	****/
 	ClearDisplay();
 
-	//Hanamaru->Render();
+	/****	オブジェクト描画	****/
 	m_TitleText->Render();
 
 	/****	画面描画	****/

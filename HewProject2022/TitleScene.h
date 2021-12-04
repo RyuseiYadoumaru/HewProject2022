@@ -13,11 +13,8 @@ namespace GamePlay
 
 	public:
 		bool Start() override;
-
 		STATE Update() override;
-
 		bool End() override;
-
 		bool Render() override;
 	};
 }

@@ -31,7 +31,7 @@ Scene::STATE ProtScene::Update()
 	ObjectUpdate();
 
 	/****	ブロック移動	****/
-	if (Input::GetKeyTrigger(PK_ENTER))
+	if (Input::GetKeyTrigger(PK_1))
 	{
 		m_Map->MoveSwicthON();
 		Tile* Debug = m_Map->m_TileColumnList[24].mp_Column[0];
@@ -46,6 +46,11 @@ Scene::STATE ProtScene::Update()
 		m_Map->MoveMap(Debug);
 	}
 
+	/****	ロードシーン	****/
+	if (Input::GetKeyTrigger(PK_ENTER) == true)//エンター押すと次のシーンへ移動
+	{
+		GameEngine::SceneManager::LoadScene("ResultScene");
+	}
 	/****	マップ当たり判定	****/
 	m_Map->HitCheckMap(*m_Player);
 
@@ -87,5 +92,5 @@ bool ProtScene::Render()
 	/****	画面描画	****/
 	SwapChain();
 
-	return false;
+	return true;
 }

@@ -41,6 +41,7 @@ Create::Actor::Actor(std::string in_Name) : GameObject(in_Name)
 bool Create::Actor::Start()
 {
 	m_SpriteRenderer->Init();
+	AddComponent<GameEngine::BoxCollider2D>(m_SpriteRenderer->GetSize());
 	return true;
 }
 
@@ -48,13 +49,10 @@ bool Create::Actor::Start()
 //!	@fn		Update
 //!	@brief	更新
 //!	@note	新しく処理を書きたいといはオーバーライドしてください
-//!	@note	ここにトランスフォームの更新処理を必ず記述してください
-//!	@note	今後記述しなくていいようにする予定です
 //!	@retval	true:正常終了　false:異常終了
 //==============================================================================
 bool Create::Actor::Update()
 {
-	transform->Update();
 	return true;
 }
 

@@ -22,8 +22,8 @@ bool Player::Start()
 	m_SpriteRenderer->SpriteName = "player";
 	m_SpriteRenderer->Init();
 
-	transform->Position.Set(0.0f, 1000.0f, 0.0f);
-	transform->Scale.Set(0.6f, 0.6f, 0.6f);
+	transform->Position.Set(0.0f, 500.0f, 0.0f);
+	transform->Scale.Set(0.55f, 0.55f, 0.55f);
 
 
 	/*	リジットボディーコンポーネント	*/

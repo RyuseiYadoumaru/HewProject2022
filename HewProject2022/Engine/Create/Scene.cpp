@@ -76,25 +76,31 @@ void Create::Scene::Destroy(std::string in_ObjectName)
 {
 	ObjectArray[in_ObjectName]->Active = false;
 
+#if 0
+	ComponenArray2[in_ObjectName].clear();
+	auto itr = ComponentArray2.begin();
+	for (auto Com : ComponentArray)
+	{
+		if (itr == ComponentArray.end()) break;
+
+		if (Com->GetOwner()->GetName() == in_ObjectName &&
+			Com->GetOwner()->GetId() == ObjectArray[in_ObjectName]->GetId())
+		{
+			itr = ComponentArray.erase(itr);
+		}
+		else
+		{
+			itr++;
+		}
+
+	}
+#else
+
 	ComponenArray.erase(in_ObjectName);
-	//ComponenArray2[in_ObjectName].clear();
-	//auto itr = ComponentArray2.begin();
-	//for (auto Com : ComponentArray)
-	//{
-	//	if (itr == ComponentArray.end()) break;
-
-	//	if (Com->GetOwner()->GetName() == in_ObjectName &&
-	//		Com->GetOwner()->GetId() == ObjectArray[in_ObjectName]->GetId())
-	//	{
-	//		itr = ComponentArray.erase(itr);
-	//	}
-	//	else
-	//	{
-	//		itr++;
-	//	}
-
-	//}
 	ObjectArray.erase(in_ObjectName);
+
+#endif // 0
+
 	ObjectCnt--;
 }
 

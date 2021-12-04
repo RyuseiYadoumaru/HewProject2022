@@ -23,7 +23,7 @@ bool MainCamera::Update()
 	{
 
 		transform->Position.x = p_FocusObject->transform->Position.x;
-		transform->Position.y = p_FocusObject->transform->Position.y;
+		transform->Position.y = p_FocusObject->transform->Position.y - 200.0f;
 	}
 	SetCameraPos();
 	return true;

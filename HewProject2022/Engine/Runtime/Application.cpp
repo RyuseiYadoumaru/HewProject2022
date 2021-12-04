@@ -20,12 +20,16 @@
 const char*	Application::WINDOW_TITLE = "ゲームタイトル";
 const char*	Application::WINDOW_CLASS_NAME = "GameName";
 
-//const uint32_t	Application::SCREEN_WIDTH = 1920;
-//const uint32_t	Application::SCREEN_HEIGHT = 1080;
-//const uint32_t	Application::SCREEN_WIDTH = 500;
-//const uint32_t	Application::SCREEN_HEIGHT = 500;
+#if 1
+const uint32_t	Application::SCREEN_WIDTH = 1920;
+const uint32_t	Application::SCREEN_HEIGHT = 1080;
+
+#else
 const uint32_t	Application::SCREEN_WIDTH = 1280;
 const uint32_t	Application::SCREEN_HEIGHT = 720;
+
+#endif // 1
+
 
 const float		Application::FPS = 60.0f;
 

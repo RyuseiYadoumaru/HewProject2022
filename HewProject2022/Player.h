@@ -1,5 +1,6 @@
 #pragma once
 #include"ydmEngine.h"
+#include "Tile.h"
 
 #define CHAR_MOVE_RIGHT 1.0f
 #define CHAR_MOVE_LEFT -1.0f
@@ -24,6 +25,10 @@ public:
 	void Debug()override;
 
 	float m_jumpForce;// ジャンプ力
+public:
+
+	void SearchLandingTile();
+
 private:
 
 	Vector2 m_moveSpeed;// 移動速度XY
@@ -32,6 +37,8 @@ private:
 	float m_stopForceX;// 停止力X　→　摩擦力的なもの
 
 	bool m_jumpFlg;//ジャンプフラグ
+
+	Tile* m_LandingTile;
 
 };
 

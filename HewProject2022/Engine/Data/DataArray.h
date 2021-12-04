@@ -8,6 +8,7 @@
 #include "../Runtime/Core/Sprite.h"
 #include "../Runtime/Core/vsShader.h"
 #include "../Runtime/Core/psShader.h"
+#include "../Runtime/Core/MapData.h"
 
 #include <map>
 #include <vector>

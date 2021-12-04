@@ -4,6 +4,7 @@
 #include "TileColumn.h"
 #include "MoveColumnInfo.h"
 
+
 using Create::GameObject;
 
 #define MAPSIZE_WIDTH	(unsigned int)(100)
@@ -14,6 +15,7 @@ class Map : public GameObject
 {
 public:
 	Map();
+	Map(std::string in_MapDataName);
 
 	bool Start() override;
 	bool Update() override;
@@ -54,11 +56,13 @@ private:
 	vector<MoveColumnInfo> m_MoveBackColumnList;	//移動列格納配列(後)
 	vector<MoveColumnInfo> m_SaveMoveColumnList;	//移動列保存配列
 
+	Tile* mp_StandardTile;
 private:
 	void CreateMap();
 	void CreateTile(Vector2& in_Position, string FileName, MAPOBJ in_MapObj);		//タイル生成する	
 	bool MoveTile();		//移動処理
 
+	//void SearchStandardTile(Vector3);
 
 	/*	移動列設定	*/
 	void SetMoveFrontColumn(Tile& in_StandardTile);

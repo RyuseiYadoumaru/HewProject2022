@@ -137,3 +137,10 @@ void Player::Debug()
 {
 	GetComponent<BoxCollider2D>()->Debug();
 }
+
+/****	æ‚Á‚Ä‚¢‚éƒ^ƒCƒ‹‚ğ’²‚×‚é	****/
+void Player::SearchLandingTile()
+{
+
+
+}

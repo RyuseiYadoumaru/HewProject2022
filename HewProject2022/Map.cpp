@@ -37,9 +37,17 @@ Map::Map()
 	m_MoveTime = 100.0f / 100.0f;
 }
 
+Map::Map(std::string in_MapDataName)
+{
+
+
+}
+
 /****	初期化	****/
 bool Map::Start()
 {
+	/*	マップロード	*/
+
 	/*	マップ生成	*/
 	CreateMap();
 

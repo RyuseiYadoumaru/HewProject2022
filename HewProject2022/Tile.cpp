@@ -16,6 +16,10 @@ bool Tile::Start()
 	{
 		tag = ColorBlock;
 	}
+	else if (m_Kind == NB)
+	{
+		tag = NormalBlock;
+	}
 
 	return true;
 }

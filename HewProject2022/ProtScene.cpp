@@ -30,11 +30,28 @@ Scene::STATE ProtScene::Update()
 	/****	オブジェクト更新	****/
 	ObjectUpdate();
 
+	/****	ブロック移動	****/
+	if (Input::GetKeyTrigger(PK_ENTER))
+	{
+		m_Map->MoveSwicthON();
+		Tile* Debug = m_Map->m_TileColumnList[24].mp_Column[0];
+		m_Map->MoveMap(Debug);
+	}
+
+	/*	ブロック挙動	*/
+	if (Input::GetKeyTrigger(PK_3) == true && m_Map->GetisMove() == false)
+	{
+		m_Map->MoveSwicthON();
+		Tile* Debug = m_Map->m_TileColumnList[23].mp_Column[0];
+		m_Map->MoveMap(Debug);
+	}
+
 	/****	マップ当たり判定	****/
 	m_Map->HitCheckMap(*m_Player);
 
 	/****	システム更新	****/
 	SystemUpdate();
+	m_Map->SystemUpdate();
 	return PLAY;
 }
 
@@ -43,6 +60,13 @@ bool ProtScene::End()
 {
 	/*	サウンドストップ	*/
 	Sound::Sound_Stop(SOUND_LABEL_BGM000);
+
+	/*	オブジェクト終了処理	*/
+	ObjectEnd();
+
+	/*	解放処理	*/
+	Releace();
+
 	return true;
 }
 
@@ -57,6 +81,9 @@ bool ProtScene::Render()
 	m_Player->Render();
 	m_Map->Render();
 
+	/****	コライダ描画	****/
+	//m_Map->DebugCollider();
+	m_Player->Debug();
 	/****	画面描画	****/
 	SwapChain();
 

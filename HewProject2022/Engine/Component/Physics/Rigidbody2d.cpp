@@ -17,8 +17,11 @@
 bool GameEngine::Rigidbody2d::Update()
 {
 	BoxCollider2D* Col = Owner->GetComponent<BoxCollider2D>();
+	if (Col != nullptr)
+	{
+		Col->PushBackObject();
+	}
 
-	Col->PushBackObject();
 
 	return true;
 }

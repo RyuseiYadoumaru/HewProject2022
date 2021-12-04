@@ -26,7 +26,9 @@ GameEngine::BoxCollider2D::BoxCollider2D()
 	isActive = true;
 	isHit = false;
 	Offset.Set(0.0f, 0.0f);
-	Size.Set(1.0f, 1.0f);
+	Size.Set(1.0f, 1.0f);//コライダーのサイズ設定
+	//三木原追加
+	//Size.Set(1.2f, 1.2f);
 }
 
 //==============================================================================
@@ -41,20 +43,9 @@ void BoxCollider2D::Init(Math::Vector2 in_Size)
 	/*	オブジェクトサイズ保存	*/
 	m_ObjectSize.Set(in_Size.x, in_Size.y);
 
-	//サイズの半分の長さを求める(初期値)
-	CenterLength.x = (m_ObjectSize.x * Owner->transform->Scale.x) / 2.0f;
-	CenterLength.y = (m_ObjectSize.y * Owner->transform->Scale.y) / 2.0f;
 
-	/*	コライダサイズ設定	*/
-	CenterLength.x *= Size.x;
-	CenterLength.y *= Size.y;
-
-	//センターposにtransformのpositionをいれて常に更新（初期値）
-	CenterPos.x = Owner->transform->Position.x + (Offset.x * CenterLength.x);
-	CenterPos.y = Owner->transform->Position.y + (Offset.y * CenterLength.y);
-
-	//四角形生成
-	Rect.Set(CenterLength.x * 2.0f, CenterLength.y * 2.0f, CenterPos.x, CenterPos.y);
+	/****	コライダ再生成	****/
+	CreateCollider();
 
 #pragma region Debug
 	/****	デバイス取得	****/
@@ -106,23 +97,11 @@ void BoxCollider2D::Init(Math::Vector2 in_Size)
 //==============================================================================
 bool BoxCollider2D::Update()
 {
+	//当たっているオブジェクトを初期化する
+	m_HitObjectList.clear();
 
-	//サイズの半分の長さを求める(更新)
-	CenterLength.x = (m_ObjectSize.x * Owner->transform->Scale.x) / 2.0f;
-	CenterLength.y = (m_ObjectSize.y * Owner->transform->Scale.y) / 2.0f;
-
-	/*	コライダサイズ設定	*/
-	CenterLength.x *= Size.x;
-	CenterLength.y *= Size.y;
-
-	/*	中心点座標更新	*/
-	//センターposにtransformのpositionをいれて常に更新（更新）
-	CenterPos.x = Owner->transform->Position.x + (Offset.x * CenterLength.x);
-	CenterPos.y = Owner->transform->Position.y + (Offset.y * CenterLength.y);
-
-	//コライダーに値を再セットで更新
-	//（横サイズ、縦サイズ、Owner.X座標、Owner.Y座標）
-	Rect.Set(CenterLength.x * 2, CenterLength.y * 2, CenterPos.x, CenterPos.y);
+	/****	コライダ再生成	****/
+	CreateCollider();
 
 	/****	当たり判定	****/
 	HitCheck();
@@ -148,7 +127,6 @@ void GameEngine::BoxCollider2D::Debug()
 		XMFLOAT3(Rect.GetTopLeft().x,	 Rect.GetTopLeft().y,	 0.0f),	XMFLOAT4(0.0f,1.0f,0.0f,1.0f),
 		XMFLOAT3(Rect.GetButtomRight().x,Rect.GetButtomRight().y,0.0f),	XMFLOAT4(0.0f,1.0f,0.0f,1.0f),
 		XMFLOAT3(Rect.GetTopRight().x,	 Rect.GetTopRight().y,	 0.0f),	XMFLOAT4(0.0f,1.0f,0.0f,1.0f)
-
 	};
 
 	/****	頂点データ更新	****/
@@ -197,9 +175,6 @@ void GameEngine::BoxCollider2D::Debug()
 //==============================================================================
 void BoxCollider2D::HitCheckBox(BoxCollider2D& in_ObjCollider)
 {
-	/*	リスト初期化	*/
-	InitList();
-
 	/*	チェックオブジェクト追加	*/
 	m_CheckList.push_back(in_ObjCollider);
 
@@ -210,34 +185,16 @@ void BoxCollider2D::HitCheckBox(BoxCollider2D& in_ObjCollider)
 //!	@brief　押し戻し処理
 //!	@param
 //==============================================================================
+#include<iostream>
 void BoxCollider2D::PushBackObject()
 {
-	/*	当たり判定確認	*/
-	if (isActive == false || isHit == false)
-	{
-		return;
-	}
 
-	/*	押し戻し処理計算	*/
-	Vector2 PushBack;
-	for (auto Now : m_PushBackList)
-	{
-		PushBack.x += Now.x;
-		PushBack.y += Now.y;
-	}
+	//当たり判定が複数個分加算されている
+	//1つ１つHitCheck＆PushBack処理をかけてあげるとうまくいくと思う！！！！！
+	//上手くいった！！！！
 
-	/*	押し戻し処理	*/
-	Owner->transform->Position.x += PushBack.x;
-	Owner->transform->Position.y += PushBack.y;
+	Owner->transform->Position = FixPosition;
 
-
-	/*	中心点座標更新	*/
-	CenterPos.x = Owner->transform->Position.x + (Offset.x * CenterLength.x);
-	CenterPos.y = Owner->transform->Position.y + (Offset.y * CenterLength.y);
-
-	//コライダーに値を再セットで更新
-	//（横サイズ、縦サイズ、Owner.X座標、Owner.Y座標）
-	Rect.Set(CenterLength.x * 2, CenterLength.y * 2, CenterPos.x, CenterPos.y);
 
 }
 
@@ -297,6 +254,9 @@ void GameEngine::BoxCollider2D::HitCheck()
 		return;
 	}
 
+	/*	座標を保存しておく	*/
+	FixPosition = Owner->transform->Position;
+
 	/*	当たり判定	*/
 	for (auto Check : m_CheckList)
 	{
@@ -327,7 +287,7 @@ void GameEngine::BoxCollider2D::HitCheck()
 
 			Vector2 PushBack;
 
-			PushBack.x = fabsf(dx1) < fabsf(dx2) ? dx1 : dx2;
+			PushBack.x = fabsf(dx1) < fabsf(dx2) ? dx1 : dx2;//:?: 条件演算子
 			PushBack.y = fabsf(dy1) < fabsf(dy2) ? dy1 : dy2;
 			if (fabsf(PushBack.x) < fabsf(PushBack.y))
 			{
@@ -338,24 +298,68 @@ void GameEngine::BoxCollider2D::HitCheck()
 				PushBack.x = 0.0f;
 			}
 
-			/*	押し戻し値格納	*/
-			m_PushBackList.push_back(PushBack);
+			/*	押し戻し処理	*/
+			FixPosition += PushBack;
+			CreateCollider(FixPosition);
+			//m_PushBackList.push_back(PushBack);
 
 			/*	ヒットオブジェクト格納	*/
 			m_HitObjectList.push_back(Check.Owner->GetName());
 		}
 	}
 
+
+	//チェックオブジェクトを使用したので初期化する
+	m_CheckList.clear();
+
 }
 
 //==============================================================================
-//!	@fn		InitList
-//!	@brief　リスト初期化
+//!	@fn		CreateCollider
+//!	@brief　コライダ生成
 //!	@param	
 //==============================================================================
-void GameEngine::BoxCollider2D::InitList()
+void GameEngine::BoxCollider2D::CreateCollider()
 {
-	m_CheckList.clear();
-	m_HitObjectList.clear();
-	m_PushBackList.clear();
+	//サイズの半分の長さを求める(更新)
+	CenterLength.x = (m_ObjectSize.x * Owner->transform->Scale.x) / 2.0f;
+	CenterLength.y = (m_ObjectSize.y * Owner->transform->Scale.y) / 2.0f;
+
+	/*	コライダサイズ設定	*/
+	CenterLength.x *= Size.x;
+	CenterLength.y *= Size.y;
+
+	/*	中心点座標更新	*/
+	//センターposにtransformのpositionをいれて常に更新（更新）
+	CenterPos.x = Owner->transform->Position.x + (Offset.x * CenterLength.x);
+	CenterPos.y = Owner->transform->Position.y + (Offset.y * CenterLength.y);
+
+	//コライダーに値を再セットで更新
+	//（横サイズ、縦サイズ、Owner.X座標、Owner.Y座標）
+	Rect.Set(CenterLength.x * 2, CenterLength.y * 2, CenterPos.x, CenterPos.y);
+}
+
+//==============================================================================
+//!	@fn		CreateCollider
+//!	@brief　コライダ生成
+//!	@param	XY座標
+//==============================================================================
+void GameEngine::BoxCollider2D::CreateCollider(Math::Vector2& Pos)
+{
+	//サイズの半分の長さを求める(更新)
+	CenterLength.x = (m_ObjectSize.x * Owner->transform->Scale.x) / 2.0f;
+	CenterLength.y = (m_ObjectSize.y * Owner->transform->Scale.y) / 2.0f;
+
+	/*	コライダサイズ設定	*/
+	CenterLength.x *= Size.x;
+	CenterLength.y *= Size.y;
+
+	/*	中心点座標更新	*/
+	//センターposにtransformのpositionをいれて常に更新（更新）
+	CenterPos.x = Pos.x + (Offset.x * CenterLength.x);
+	CenterPos.y = Pos.y + (Offset.y * CenterLength.y);
+
+	//コライダーに値を再セットで更新
+	//（横サイズ、縦サイズ、Owner.X座標、Owner.Y座標）
+	Rect.Set(CenterLength.x * 2, CenterLength.y * 2, CenterPos.x, CenterPos.y);
 }

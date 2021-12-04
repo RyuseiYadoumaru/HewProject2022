@@ -13,7 +13,9 @@
 // スタティック　メンバー
 //-----------------------------------------------------------------------------
 Create::Scene::STATE Create::Scene::State = Create::Scene::START;
-
+Create::Camera* Create::Scene::camera = nullptr;
+std::map<std::string, Create::GameObject*> Create::Scene::ObjectArray;
+std::map<std::string, std::vector<Component*>> Create::Scene::ComponenArray;
 
 //==============================================================================
 //!	@fn		Constructor
@@ -22,6 +24,7 @@ Create::Scene::STATE Create::Scene::State = Create::Scene::START;
 //==============================================================================
 Create::Scene::Scene()
 {
+	ObjectCnt = 0;
 }
 
 //==============================================================================
@@ -54,10 +57,13 @@ void Create::Scene::Instance(GameObject* out_Object)
 	out_Object->Active = true;
 	out_Object->Start();
 	ObjectArray.insert(std::make_pair(out_Object->ToString(), out_Object));
+	ComponenArray.insert(std::make_pair(out_Object->ToString(), std::vector<Component*>()));
 	for (auto Obj : out_Object->ComponentList)
 	{
-		ComponentArray.push_back(Obj);
+		ComponenArray[out_Object->ToString()].push_back(Obj);
 	}
+
+	ObjectCnt++;	//オブジェクト加算
 }
 
 //==============================================================================
@@ -70,25 +76,26 @@ void Create::Scene::Destroy(std::string in_ObjectName)
 {
 	ObjectArray[in_ObjectName]->Active = false;
 
+	ComponenArray.erase(in_ObjectName);
+	//ComponenArray2[in_ObjectName].clear();
+	//auto itr = ComponentArray2.begin();
+	//for (auto Com : ComponentArray)
+	//{
+	//	if (itr == ComponentArray.end()) break;
 
+	//	if (Com->GetOwner()->GetName() == in_ObjectName &&
+	//		Com->GetOwner()->GetId() == ObjectArray[in_ObjectName]->GetId())
+	//	{
+	//		itr = ComponentArray.erase(itr);
+	//	}
+	//	else
+	//	{
+	//		itr++;
+	//	}
 
-	auto itr = ComponentArray.begin();
-	for (auto Com : ComponentArray)
-	{
-		if (itr == ComponentArray.end()) break;
-
-		if (Com->GetOwner()->GetName() == in_ObjectName &&
-			Com->GetOwner()->GetId() == ObjectArray[in_ObjectName]->GetId())
-		{
-			itr = ComponentArray.erase(itr);
-		}
-		else
-		{
-			itr++;
-		}
-
-	}
+	//}
 	ObjectArray.erase(in_ObjectName);
+	ObjectCnt--;
 }
 
 //==============================================================================
@@ -102,10 +109,13 @@ void Create::Scene::SetCamera()
 	camera = new Camera("MainCamera");
 	camera->Start();
 	ObjectArray.insert(std::make_pair(camera->ToString(), camera));
+	ComponenArray.insert(std::make_pair(camera->ToString(), std::vector<Component*>()));
+
 	for (auto Obj : camera->ComponentList)
 	{
-		ComponentArray.push_back(Obj);
+		ComponenArray[camera->ToString()].push_back(Obj);
 	}
+	ObjectCnt++;
 
 }
 
@@ -120,10 +130,14 @@ void Create::Scene::SetCamera(Camera* out_Camera)
 	camera = out_Camera;
 	camera->Start();
 	ObjectArray.insert(std::make_pair(camera->ToString(), camera));
+	ComponenArray.insert(std::make_pair(out_Camera->ToString(), std::vector<Component*>()));
+
 	for (auto Obj : out_Camera->ComponentList)
 	{
-		ComponentArray.push_back(Obj);
+		ComponenArray[out_Camera->ToString()].push_back(Obj);
 	}
+	ObjectCnt++;
+
 }
 
 //==============================================================================
@@ -133,9 +147,13 @@ void Create::Scene::SetCamera(Camera* out_Camera)
 //==============================================================================
 void Create::Scene::SystemUpdate()
 {
-	for (auto System : ComponentArray)
+
+	for (auto Obj : ComponenArray)
 	{
-		System->Update();
+		for (auto System : Obj.second)
+		{
+			System->Update();
+		}
 	}
 }
 
@@ -223,6 +241,22 @@ bool Create::Scene::SwapChain()
 
 	/****	ダブルバッファ領域コピー	****/
 	SwapChain->Present(0, 0);
+
+	return true;
+}
+
+//==============================================================================
+//!	@fn		Releace
+//!	@brief	リリース処理
+//!	@param
+//!	@retval	true:正常終了　false:異常終了
+//==============================================================================
+bool Create::Scene::Releace()
+{
+	ObjectArray.clear();
+	ComponenArray.clear();
+	camera = nullptr;
+
 
 	return true;
 }

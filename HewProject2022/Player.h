@@ -21,13 +21,16 @@ public:
 	void Jump();
 	bool Update() override;
 
+	void Debug()override;
+
+	float m_jumpForce;// ジャンプ力
 private:
 
 	Vector2 m_moveSpeed;// 移動速度XY
 	float m_maxMoveSpeedX;// 最大移動速度
 	float m_accelForceX;// 加速度X
 	float m_stopForceX;// 停止力X　→　摩擦力的なもの
-	float m_jumpForce;// ジャンプ力
+
 	bool m_jumpFlg;//ジャンプフラグ
 
 };

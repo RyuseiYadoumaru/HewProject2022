@@ -17,7 +17,7 @@ bool StageTestScene::Start()
 	/*	カメラセット	*/
 	SetCamera(m_MainCamera.get());
 	m_MainCamera->BackgroundColor = Math::Color::Blue;
-	m_MainCamera->Focus(m_ProtPlayer.get());
+	//m_MainCamera->Focus(m_ProtPlayer.get());
 
 	/*　BGＭ再生　*/
 	Sound::Sound_Play(SOUND_LABEL_BGM000);
@@ -66,6 +66,8 @@ Scene::STATE StageTestScene::Update()
 	m_Map->Update();
 	m_BackGruond->Update();
 	m_MainCamera->Update();
+
+
 
 	return PLAY;
 }

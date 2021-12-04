@@ -10,7 +10,8 @@ using Create::Actor;
 enum MAPOBJ
 {
 	NB,	//ノーマルブロック
-	CB,	//カラーブロック
+	C1,	//カラーブロック1
+	C2,	//カラーブロック2
 
 	NO,	//何もない
 	MAX
@@ -21,6 +22,7 @@ class Tile : public Actor
 public:
 	bool Start() override;
 
+	void Debug() override;
 public:
 	MAPOBJ GetKind() const;
 	void SetKind(MAPOBJ in_MapObj);

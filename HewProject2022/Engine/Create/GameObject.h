@@ -38,9 +38,7 @@ namespace Create
 		std::string GetName() { return name; }
 		int GetId()const { return id; }
 
-		auto GetComponentList() { return ComponentList.begin(); }
-
-
+		virtual void Debug() {}
 
 	public:
 		//==============================================================================

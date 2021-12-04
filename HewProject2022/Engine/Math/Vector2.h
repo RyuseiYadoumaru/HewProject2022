@@ -9,6 +9,7 @@
 using DirectX::XMFLOAT2;
 namespace Math
 {
+	class Vector3;
 	class Vector2
 	{
 
@@ -23,11 +24,16 @@ namespace Math
 		Vector2(float in_X, float in_Y);
 
 		Vector2 &operator=(Vector2 &in_V2);
+		Vector2 &operator=(Vector3 &in_V3);
 		Vector2 &operator=(XMFLOAT2 in_F2);
 		Vector2 operator+(const Vector2 in_V2);
+		Vector2 &operator+=(const Vector2 in_V2);
 		Vector2 operator-(const Vector2 in_V2);
+		Vector2 &operator-=(const Vector2 in_V2);
 		Vector2 operator*(const Vector2 in_V2);
+		Vector2 &operator*=(const Vector2 in_V2);
 		Vector2 operator/(const Vector2 in_V2);
+		Vector2 &operator/=(const Vector2 in_V2);
 		bool operator!=(const Vector2 in_V2);
 		bool operator==(const Vector2 in_V2);
 

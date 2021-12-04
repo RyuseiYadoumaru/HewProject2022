@@ -14,6 +14,12 @@ bool Tile::Start()
 	return true;
 }
 
+/****	デバッグ機能	****/
+void Tile::Debug()
+{
+	GetComponent<BoxCollider2D>()->Debug();	//当たり判定描画
+}
+
 
 /****	種類取得	****/
 MAPOBJ Tile::GetKind() const

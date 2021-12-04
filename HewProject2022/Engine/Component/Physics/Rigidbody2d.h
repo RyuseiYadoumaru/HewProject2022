@@ -18,7 +18,6 @@ namespace GameEngine
 		bool Update() override;
 
 
-
 	};
 }
 

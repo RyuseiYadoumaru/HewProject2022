@@ -55,10 +55,11 @@ Scene::STATE GamePlay::SampleScene::Update()
 bool GamePlay::SampleScene::End()
 {
 	/****	オブジェクト終了処理	****/
+	/*	オブジェクト終了処理	*/
 	ObjectEnd();
 
-	delete camera;
-	ObjectArray.clear();
+	/*	解放処理	*/
+	Releace();
 	return true;
 }
 

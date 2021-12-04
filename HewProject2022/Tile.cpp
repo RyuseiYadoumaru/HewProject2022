@@ -11,6 +11,12 @@ bool Tile::Start()
 	/*	ボックスコライダコンポーネント	*/
 	AddComponent<BoxCollider2D>(m_SpriteRenderer->GetSize());
 
+	/*	タグ設定	*/
+	if (m_Kind != NB && m_Kind != NO)
+	{
+		tag = ColorBlock;
+	}
+
 	return true;
 }
 

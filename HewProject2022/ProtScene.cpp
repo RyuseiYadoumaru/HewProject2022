@@ -51,12 +51,13 @@ Scene::STATE ProtScene::Update()
 	{
 		GameEngine::SceneManager::LoadScene("ResultScene");
 	}
+
 	/****	マップ当たり判定	****/
 	m_Map->HitCheckMap(*m_Player);
 
 	/****	システム更新	****/
-	SystemUpdate();
 	m_Map->SystemUpdate();
+	SystemUpdate();
 	return PLAY;
 }
 

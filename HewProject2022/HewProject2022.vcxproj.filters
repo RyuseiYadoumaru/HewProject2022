@@ -166,6 +166,9 @@
     <Filter Include="Engine\Runtime\Sound">
       <UniqueIdentifier>{231f22d2-5bee-4bad-9160-f92e94c64df4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\Runtime\Core\Data\Tag">
+      <UniqueIdentifier>{5684e9a1-fb42-4bda-969e-519e31d561d8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Shader\psvsCommon.hlsl">
@@ -503,6 +506,12 @@
       <Filter>Engine\Runtime\Sound</Filter>
     </ClInclude>
     <ClInclude Include="SceneList.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Runtime\Core\Tag.h">
+      <Filter>Engine\Runtime\Core\Data\Tag</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Runtime\Core\TagList.h">
       <Filter>Engine</Filter>
     </ClInclude>
   </ItemGroup>

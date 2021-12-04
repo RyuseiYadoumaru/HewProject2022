@@ -193,6 +193,7 @@ void Map::CreateMap()
 
 			case C1:
 				CreateTile(Pos, "red3", MAPOBJ::C1);
+
 				break;
 
 			case C2:
@@ -216,15 +217,15 @@ void Map::CreateTile(Vector2& in_Position, string FileName, MAPOBJ in_MapObj)
 
 	int Column = (int)(in_Position.x / TILE_WIDTH);	//列
 
-	m_TileColumnList[Column].Add(new Tile);		//列にタイルを追加
+	m_TileColumnList[Column].Add(new Tile);				//列にタイルを追加
 	m_TileColumnList[Column].SetPosition(in_Position);	//座標設定
 	m_TileColumnList[Column].SetSprite(FileName);		//スプライト設定
 	m_TileColumnList[Column].SetKind(in_MapObj);		//種類設定
-	m_TileColumnList[Column].SetColumn((float)Column);			//列設定
+	m_TileColumnList[Column].SetColumn((float)Column);	//列設定
 	m_TileColumnList[Column].mp_Column.back()->Start();	//初期化
-
-	/*	タイルリストに保存	*/
+															/*	タイルリストに保存	*/
 	m_TileList.push_back(m_TileColumnList[Column].mp_Column.back());
+
 }
 
 /****	オブジェクト移動処理	****/

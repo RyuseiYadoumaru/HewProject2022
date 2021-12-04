@@ -11,6 +11,7 @@
 #include "../Component/Transform.h"
 #include "../../Engine/Component/SpriteRenderer.h"
 #include "../Component/Component.h"
+#include "../Runtime/Core/Tag.h"
 #include <DirectXMath.h>
 #include <list>
 
@@ -28,6 +29,7 @@ namespace Create
 	{
 	public:
 		Transform* transform;
+		Tag tag;
 		std::list<Component*> ComponentList;
 
 	public:

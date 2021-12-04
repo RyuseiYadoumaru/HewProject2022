@@ -19,6 +19,7 @@
 #include "Engine/Input/Input.h"
 #include "Engine/SceneManager/SceneManager.h"
 #include "Engine/Runtime/Sound/Sound.h"
+#include "Engine/Runtime/Core/TagList.h"
 
 //==============================================================================
 //!	@region	Math

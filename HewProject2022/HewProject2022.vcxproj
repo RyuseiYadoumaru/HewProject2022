@@ -291,6 +291,8 @@
     <ClInclude Include="Engine\Runtime\Core\Renderer.h" />
     <ClInclude Include="Engine\Runtime\Core\Shape.h" />
     <ClInclude Include="Engine\Runtime\Core\Sprite.h" />
+    <ClInclude Include="Engine\Runtime\Core\Tag.h" />
+    <ClInclude Include="Engine\Runtime\Core\TagList.h" />
     <ClInclude Include="Engine\Runtime\Core\TransformMatrix.h" />
     <ClInclude Include="Engine\Runtime\Core\vsShader.h" />
     <ClInclude Include="Engine\Runtime\Engine.h" />

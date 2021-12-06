@@ -32,7 +32,6 @@ private:
 	float m_stopForceX;// 停止力X　→　摩擦力的なもの
 
 	bool m_jumpFlg;//ジャンプフラグ
-
 };
 
 

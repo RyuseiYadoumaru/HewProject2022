@@ -37,6 +37,21 @@ namespace GameEngine
 		bool GetisHit() {
 			return isHit;
 		}
+		bool GetisHit_overBlock() {
+			return isHit_overBlock;
+		}
+		bool GetisHit_underBlock() {
+			return isHit_underBlock;
+		}
+		bool GetisHit_rightBlock() {
+			return isHit_rightBlock;
+		}
+		bool GetisHit_leftBlock() {
+			return isHit_leftBlock;
+		}
+		void SetisHit_underBlock(bool flg) {
+			isHit_underBlock = flg;
+		}
 
 		std::string GetHitObject();
 
@@ -52,6 +67,12 @@ namespace GameEngine
 		bool isActive;	//状態判定
 		bool isHit;	//ヒット判定
 
+		//三木原追加
+		bool isHit_overBlock; //自分より上のブロックとの当たり判定
+		bool isHit_underBlock; //自分より下のブロックとの当たり判定
+		bool isHit_rightBlock; //自分より右のブロックとの当たり判定
+		bool isHit_leftBlock; //自分より左のブロックとの当たり判定
+
 		std::string HitObject;
 
 		std::vector<BoxCollider2D> m_CheckList;
@@ -62,6 +83,7 @@ namespace GameEngine
 
 	private:
 		void HitCheck();
+
 		void CreateCollider();
 		void CreateCollider(Math::Vector2& Pos);
 

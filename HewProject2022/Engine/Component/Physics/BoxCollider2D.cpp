@@ -297,7 +297,7 @@ void GameEngine::BoxCollider2D::HitCheck()
 			//オブジェクト下辺 - プレイヤー上辺
 			float dy2 = (Check.CenterPos.y + Check.CenterLength.y) - (CenterPos.y - CenterLength.y);
 
-			//Vector2 PushBack;
+
 
 			PushBack.x = fabsf(dx1) < fabsf(dx2) ? dx1 : dx2;//:?: 条件演算子
 			PushBack.y = fabsf(dy1) < fabsf(dy2) ? dy1 : dy2;

@@ -19,7 +19,7 @@ bool ProtScene::Start()
 	m_MainCamera->Focus(m_Player.get());
 
 	/*Å@BGÇlçƒê∂Å@*/
-	Sound::Sound_Play(SOUND_LABEL_BGM000);
+	//Sound::Sound_Play(SOUND_LABEL_BGM000);
 
 	return true;
 }

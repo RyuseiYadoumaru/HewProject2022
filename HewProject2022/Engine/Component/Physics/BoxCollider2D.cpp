@@ -28,7 +28,10 @@ GameEngine::BoxCollider2D::BoxCollider2D()
 	Offset.Set(0.0f, 0.0f);
 	Size.Set(1.0f, 1.0f);//コライダーのサイズ設定
 	//三木原追加
-	//Size.Set(1.2f, 1.2f);
+	isHit_overBlock = false;
+	isHit_underBlock = false;
+	isHit_rightBlock = false;
+	isHit_leftBlock = false;
 }
 
 //==============================================================================
@@ -242,17 +245,27 @@ std::string BoxCollider2D::GetHitObject()
 //==============================================================================
 void GameEngine::BoxCollider2D::HitCheck()
 {
+	Vector2 PushBack;
 	Vector2 Distance;
 	Vector2 HalfTotalLength;
 	isHit = false;
+
+	isHit_overBlock = false;
+	//isHit_underBlock = false;//ここ！！！！！！！！！！！！！
+	isHit_rightBlock = false;
+	isHit_leftBlock = false;
 
 	//アクティブ出ないならisHitをfalseに
 	if (isActive == false)
 	{
 		isHit = false;
+
+		isHit_overBlock = false;
+		isHit_underBlock = false;
+		isHit_rightBlock = false;
+		isHit_leftBlock = false;
 		return;
 	}
-
 	/*	座標を保存しておく	*/
 	FixPosition = Owner->transform->Position;
 
@@ -284,7 +297,7 @@ void GameEngine::BoxCollider2D::HitCheck()
 			//オブジェクト下辺 - プレイヤー上辺
 			float dy2 = (Check.CenterPos.y + Check.CenterLength.y) - (CenterPos.y - CenterLength.y);
 
-			Vector2 PushBack;
+			//Vector2 PushBack;
 
 			PushBack.x = fabsf(dx1) < fabsf(dx2) ? dx1 : dx2;//:?: 条件演算子
 			PushBack.y = fabsf(dy1) < fabsf(dy2) ? dy1 : dy2;
@@ -301,13 +314,31 @@ void GameEngine::BoxCollider2D::HitCheck()
 			FixPosition += PushBack;
 			CreateCollider(FixPosition);
 
+			if (PushBack.y < 0) {
+				printf("着地!");
+				isHit_underBlock = true;
+			}
+			if (PushBack.y > 0) {
+				printf("頭ぶつけた!");
+				isHit_overBlock = true;
+			}
+			if (PushBack.x < 0) {
+				printf("右!");
+				isHit_rightBlock = true;
+			}
+			if (PushBack.x > 0) {
+				printf("左!");
+				isHit_leftBlock = true;
+			}
+
+			printf("\n");
+
 			/*	ヒットオブジェクト格納	*/
 			m_HitObjectList.push_back(Check.Owner->GetName());
 		}
 	}
 	//チェックオブジェクトを使用したので初期化する
 	m_CheckList.clear();
-
 }
 
 //==============================================================================

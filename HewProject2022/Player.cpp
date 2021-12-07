@@ -22,8 +22,8 @@ bool Player::Start()
 	m_SpriteRenderer->SpriteName = "player";
 	m_SpriteRenderer->Init();
 
-	transform->Position.Set(0.0f, 500.0f, 0.0f);
-	transform->Scale.Set(0.55f, 0.55f, 0.55f);
+	transform->Position.Set(2000.0f, 0.0f, 0.0f);
+	transform->Scale.Set(0.6f, 0.6f, 0.6f);
 
 
 	/*	リジットボディーコンポーネント	*/
@@ -79,18 +79,19 @@ void Player::Move()
 	SpeedControl();
 
 	//右方向移動
-	if (Input::GetKeyPress(PK_D) == true)
+	if (Input::GetKeyPress(PK_D) == true && GetComponent<BoxCollider2D>()->GetisHit_rightBlock() == false)
 	{
 		Accelerate(CHAR_MOVE_RIGHT);
 		transform->Position.x += m_moveSpeed.x;
 	}
 
 	//左方向移動
-	if (Input::GetKeyPress(PK_A) == true)
+	if (Input::GetKeyPress(PK_A) == true && GetComponent<BoxCollider2D>()->GetisHit_leftBlock() == false)
 	{
 		Accelerate(CHAR_MOVE_LEFT);
 		transform->Position.x += m_moveSpeed.x;
 	}
+
 }
 
 void Player::Jump()
@@ -99,27 +100,27 @@ void Player::Jump()
 	{
 
 		m_jumpFlg = true;
-		m_jumpForce = -15.0f;//ジャンプするために重力をマイナスにする
-
+		m_jumpForce = -20.0f;//ジャンプするために重力をマイナスにする
 		Sound::Sound_Play(SOUND_LABEL_SE000);//ジャンプ効果音再生
+		GetComponent<BoxCollider2D>()->SetisHit_underBlock(false);
 	}
 
-	transform->Position.y += m_jumpForce;//ここにデルタタイム？
-	m_jumpForce += CHAR_GRAVITY;//徐々に重力が加算され、ジャンプ力が弱まっていく
+	if (GetComponent<BoxCollider2D>()->GetisHit_underBlock() == true) {//着地したら
 
-	if (GetComponent<BoxCollider2D>()->GetisHit() == true) {//着地したら
 		m_jumpForce = 0;
 		m_jumpFlg = false;
 	}
 
+	if (GetComponent<BoxCollider2D>()->GetisHit_overBlock() == true) {//頭ぶつけたら
+		m_jumpForce = 0;
+	}
 
-	//Y座標を0に固定する
-	//地面についたときにJampFlgをfalseにする処理を追記する
-	//if (transform->Position.y > 0) 
-	//{ //着地
-	//	transform->Position.y = 0;
-	//	m_jumpFlg = false;
-	//}
+	if (GetComponent<BoxCollider2D>()->GetisHit() == false) {//宙に浮いてたら
+		GetComponent<BoxCollider2D>()->SetisHit_underBlock(false);
+	}
+
+	m_jumpForce += CHAR_GRAVITY;//徐々に重力が加算され、ジャンプ力が弱まっていく
+	transform->Position.y += m_jumpForce;//ここにデルタタイム？
 }
 
 bool Player::Update()
@@ -136,6 +137,10 @@ bool Player::Update()
 void Player::Debug()
 {
 	GetComponent<BoxCollider2D>()->Debug();
+
+	if (GetComponent<BoxCollider2D>()->GetisHit_underBlock() == false) {
+		std::cout << "        　　　　　　　浮いてます" << std::endl;
+	}
 }
 
 /****	乗っているタイルを調べる	****/

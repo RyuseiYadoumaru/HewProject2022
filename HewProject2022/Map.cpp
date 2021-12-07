@@ -17,8 +17,6 @@ Map::Map(std::string in_MapDataName) : GameObject(in_MapDataName)
 	m_isMove = false;
 	m_isReturnMove = false;
 	m_MoveTime = 100.0f / 100.0f;
-
-
 }
 
 /****	‰Šú‰»	****/

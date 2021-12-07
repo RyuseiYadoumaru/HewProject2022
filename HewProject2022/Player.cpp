@@ -22,9 +22,8 @@ bool Player::Start()
 	m_SpriteRenderer->SpriteName = "player";
 	m_SpriteRenderer->Init();
 
-	transform->Position.Set(2000.0f, 0.0f, 0.0f);
-	transform->Scale.Set(0.6f, 0.6f, 0.6f);
-
+	transform->Position.Set(0.0f, 500.0f, 0.0f);
+	transform->Scale.Set(0.55f, 0.55f, 0.55f);
 
 	/*	リジットボディーコンポーネント	*/
 	AddComponent<GameEngine::Rigidbody2d>();
@@ -98,7 +97,6 @@ void Player::Jump()
 {
 	if (Input::GetKeyTrigger(VK_SPACE) == true && m_jumpFlg == false)//小ジャンプ
 	{
-
 		m_jumpFlg = true;
 		m_jumpForce = -20.0f;//ジャンプするために重力をマイナスにする
 		Sound::Sound_Play(SOUND_LABEL_SE000);//ジャンプ効果音再生

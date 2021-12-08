@@ -31,6 +31,7 @@ Scene::STATE ProtScene::Update()
 	ObjectUpdate();
 
 	/****	ブロック移動	****/
+#if 0
 	if (Input::GetKeyTrigger(PK_1))
 	{
 		m_Map->MoveSwicthON();
@@ -46,6 +47,19 @@ Scene::STATE ProtScene::Update()
 		Tile* Debug = m_Map->m_TileColumnList[7].mp_Column[0];
 		m_Map->MoveMap(Debug);
 	}
+
+#else
+	m_Player->SearchLandingTile(&m_Map->m_TileList);
+
+	//m_Map->MoveSwicthON();
+	if (m_Player->GetComponent<BoxCollider2D>()->GetisHit_underBlock() == true)
+	{
+		cout << m_Player->mp_LandingTile->GetKind() << ":" << m_Player->mp_LandingTile->GetId().x;
+		m_Map->MoveMap(m_Player->mp_LandingTile);
+
+	}
+
+#endif // 0
 
 	/****	ロードシーン	****/
 	if (Input::GetKeyTrigger(PK_ENTER) == true)//エンター押すと次のシーンへ移動

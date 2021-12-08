@@ -29,7 +29,11 @@ public:
 	float m_jumpForce;// ジャンプ力
 public:
 
-	void SearchLandingTile(vector<TileColumn>* in_TileColumn);
+	void SearchLandingTile(vector<Tile*>* in_TileList);
+
+private:
+
+	void SearchTileList(vector<Tile*>* in_TileList, ID& in_Id);
 
 private:
 
@@ -40,6 +44,7 @@ private:
 
 	bool m_jumpFlg;//ジャンプフラグ
 
+public:	//デバッグ用　後でプライベートに戻す
 	Tile* mp_LandingTile;
 
 };

@@ -175,7 +175,7 @@ bool Math::Vector::operator!=(int in_I)
 //==============================================================================
 bool Math::Vector::operator==(const Vector in_V)
 {
-	return (*this == in_V);
+	return (this->x == in_V.x);
 }
 
 bool Math::Vector::operator==(float in_F)
@@ -240,6 +240,11 @@ bool Math::Vector::operator>(float in_F)
 
 bool Math::Vector::operator>(int in_I)
 {
+	if (this->x > in_I)
+	{
+		return true;
+	}
+	return false;
 	return (*this > in_I);
 }
 

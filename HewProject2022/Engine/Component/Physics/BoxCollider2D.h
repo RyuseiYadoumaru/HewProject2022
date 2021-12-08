@@ -41,8 +41,8 @@ namespace GameEngine
 		bool GetisHit_leftBlock() { return isHit_leftBlock; }
 		void SetisHit_underBlock(bool flg) { isHit_underBlock = flg; }
 
-		//vector<std::string> GetHitObject() { return m_HitObjectList; }
-		//vector<int> GetHitObjectId() { return m_HitObjectIdList; }
+		std::vector<std::string>& GetHitObject() { return m_HitObjectList; }
+		std::vector<ID> GetHitObjectId()& { return m_HitObjectIdList; }
 
 	private:
 		Math::Vector2 CenterPos;	//íÜêSì_ç¿ïW

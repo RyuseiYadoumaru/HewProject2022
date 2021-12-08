@@ -116,12 +116,15 @@ bool Map::HitCheckMap(GameObject& in_GameObject)
 /****	マップ挙動	****/
 bool Map::MoveMap(Tile* in_StandardTile)
 {
+	if (m_isMove == true) return true;
+
 	if (m_MoveFrontColumnList.empty() == false)
 	{
 		Log::LogError("Error MoveMap Function");
 		return false;
 	}
 
+	MoveSwicthON();
 	/*	普通のブロックに乗った時	*/
 	if (in_StandardTile->GetKind() == NB)
 	{

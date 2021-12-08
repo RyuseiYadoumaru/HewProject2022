@@ -20,6 +20,7 @@ namespace Create
 		bool Active;
 
 	public:
+		Object() { ObjectNum++; }
 		virtual bool Start();
 		virtual bool Update();
 		virtual bool End();

@@ -6,6 +6,7 @@ using Create::Actor;
 
 #define TILE_WIDTH	(float)(70)
 #define TILE_HEIGHT	(float)(70)
+#define TILE_ID		(7000)
 
 enum MAPOBJ
 {
@@ -20,8 +21,9 @@ enum MAPOBJ
 class Tile : public Actor
 {
 public:
-	bool Start() override;
+	Tile() { id = }
 
+	bool Start() override;
 	void Debug() override;
 public:
 	MAPOBJ GetKind() const;

@@ -18,6 +18,8 @@
 using GameEngine::Transform;
 using GameEngine::Component;
 
+#define GAMEOBJECT_ID	(99)
+
 namespace GameEngine
 {
 	class Component;

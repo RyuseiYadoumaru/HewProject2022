@@ -2,6 +2,8 @@
 #include"ydmEngine.h"
 #include "Tile.h"
 
+class TileColumn;
+
 #define CHAR_MOVE_RIGHT 1.0f
 #define CHAR_MOVE_LEFT -1.0f
 
@@ -27,7 +29,7 @@ public:
 	float m_jumpForce;// ジャンプ力
 public:
 
-	void SearchLandingTile();
+	void SearchLandingTile(vector<TileColumn>* in_TileColumn);
 
 private:
 
@@ -38,7 +40,7 @@ private:
 
 	bool m_jumpFlg;//ジャンプフラグ
 
-	Tile* m_LandingTile;
+	Tile* mp_LandingTile;
 
 };
 

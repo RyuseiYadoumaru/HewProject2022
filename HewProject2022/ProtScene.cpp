@@ -34,6 +34,7 @@ Scene::STATE ProtScene::Update()
 	if (Input::GetKeyTrigger(PK_1))
 	{
 		m_Map->MoveSwicthON();
+		//色ブロックの情報
 		Tile* Debug = m_Map->m_TileColumnList[8].mp_Column[0];
 		m_Map->MoveMap(Debug);
 	}

@@ -34,26 +34,15 @@ namespace GameEngine
 		bool GetisActive();
 
 		//三木原追加
-		bool GetisHit() {
-			return isHit;
-		}
-		bool GetisHit_overBlock() {
-			return isHit_overBlock;
-		}
-		bool GetisHit_underBlock() {
-			return isHit_underBlock;
-		}
-		bool GetisHit_rightBlock() {
-			return isHit_rightBlock;
-		}
-		bool GetisHit_leftBlock() {
-			return isHit_leftBlock;
-		}
-		void SetisHit_underBlock(bool flg) {
-			isHit_underBlock = flg;
-		}
+		bool GetisHit() { return isHit; }
+		bool GetisHit_overBlock() { return isHit_overBlock; }
+		bool GetisHit_underBlock() { return isHit_underBlock; }
+		bool GetisHit_rightBlock() { return isHit_rightBlock; }
+		bool GetisHit_leftBlock() { return isHit_leftBlock; }
+		void SetisHit_underBlock(bool flg) { isHit_underBlock = flg; }
 
-		std::string GetHitObject();
+		vector<std::string>& GetHitObject() { return m_HitObjectList; }
+		vector<int>& GetHitObjectId() { return m_HitObjectIdList; }
 
 	private:
 		Math::Vector2 CenterPos;	//中心点座標
@@ -73,11 +62,10 @@ namespace GameEngine
 		bool isHit_rightBlock; //自分より右のブロックとの当たり判定
 		bool isHit_leftBlock; //自分より左のブロックとの当たり判定
 
-		std::string HitObject;
-
-		std::vector<BoxCollider2D> m_CheckList;
-		std::vector<Math::Vector2> m_PushBackList;
-		std::vector<std::string > m_HitObjectList;
+		std::vector< BoxCollider2D > m_CheckList;
+		std::vector< Math::Vector2 > m_PushBackList;
+		std::vector< std::string > m_HitObjectList;
+		std::vector< int > m_HitObjectIdList;
 
 		Math::Vector2 FixPosition;
 

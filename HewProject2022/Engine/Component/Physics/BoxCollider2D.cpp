@@ -102,6 +102,7 @@ bool BoxCollider2D::Update()
 {
 	//当たっているオブジェクトを初期化する
 	m_HitObjectList.clear();
+	m_HitObjectIdList.clear();
 
 	/****	コライダ再生成	****/
 	CreateCollider();
@@ -232,11 +233,6 @@ bool BoxCollider2D::GetisActive()
 	return isActive;
 }
 
-/****	衝突したオブジェクトの名前取得	****/
-std::string BoxCollider2D::GetHitObject()
-{
-	return HitObject;
-}
 
 //==============================================================================
 //!	@fn		HitCheck
@@ -335,10 +331,12 @@ void GameEngine::BoxCollider2D::HitCheck()
 
 			/*	ヒットオブジェクト格納	*/
 			m_HitObjectList.push_back(Check.Owner->GetName());
+			m_HitObjectIdList.push_back(Check.Owner->GetId());
 		}
 	}
 	//チェックオブジェクトを使用したので初期化する
 	m_CheckList.clear();
+
 }
 
 //==============================================================================

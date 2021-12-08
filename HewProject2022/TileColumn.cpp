@@ -5,6 +5,7 @@ TileColumn::TileColumn()
 {
 	m_TileCnt = 0;
 	mp_Column.clear();
+	mp_StandardTile = nullptr;
 }
 
 

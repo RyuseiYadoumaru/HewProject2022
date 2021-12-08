@@ -1,5 +1,5 @@
 #include "Player.h"
-#include "ydmEngine.h"
+#include "TileColumn.h"
 
 Player::Player(string in_Name) :Character(in_Name)
 {
@@ -142,8 +142,20 @@ void Player::Debug()
 }
 
 /****	乗っているタイルを調べる	****/
-void Player::SearchLandingTile()
+void Player::SearchLandingTile(vector<TileColumn>* in_TileColumn)
 {
+	BoxCollider2D* Col = GetComponent<BoxCollider2D>();
+	if (Col->GetisHit_underBlock() == false)
+	{
+		return;
+	}
+
+	vector<int>& IdList = Col->GetHitObjectId();
+	/*	基準タイル条件	*/
+	//IDがタイルの中にあるやつ
+	//当たり判定の中で一番に下にあるタイルかつ
+	//当たり判定の中で一番X座標の絶対値が近いタイル
+
 
 
 }

@@ -228,6 +228,7 @@
     <ClCompile Include="Engine\Input\Input.cpp" />
     <ClCompile Include="Engine\Math\Color.cpp" />
     <ClCompile Include="Engine\Math\CRect.cpp" />
+    <ClCompile Include="Engine\Math\Vector.cpp" />
     <ClCompile Include="Engine\Math\Vector2.cpp" />
     <ClCompile Include="Engine\Math\Vector3.cpp" />
     <ClCompile Include="Engine\Runtime\Application.cpp" />
@@ -282,6 +283,7 @@
     <ClInclude Include="Engine\Input\Input.h" />
     <ClInclude Include="Engine\Math\Color.h" />
     <ClInclude Include="Engine\Math\CRect.h" />
+    <ClInclude Include="Engine\Math\Vector.h" />
     <ClInclude Include="Engine\Math\Vector2.h" />
     <ClInclude Include="Engine\Math\Vector3.h" />
     <ClInclude Include="Engine\Runtime\Application.h" />

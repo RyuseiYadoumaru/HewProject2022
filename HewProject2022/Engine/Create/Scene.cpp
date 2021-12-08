@@ -25,6 +25,7 @@ std::map<std::string, std::vector<Component*>> Create::Scene::ComponenArray;
 Create::Scene::Scene()
 {
 	ObjectCnt = 0;
+	Object::ObjectNum = 0;
 }
 
 //==============================================================================
@@ -93,7 +94,7 @@ void Create::Scene::Destroy(std::string in_ObjectName)
 			itr++;
 		}
 
-	}
+}
 #else
 
 	ComponenArray.erase(in_ObjectName);

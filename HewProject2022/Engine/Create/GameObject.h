@@ -40,7 +40,7 @@ namespace Create
 
 		Transform GetTransform();
 		std::string GetName() { return name; }
-		int GetId()const { return id; }
+		ID GetId()const { return id.x; }
 
 		virtual void Debug() {}
 

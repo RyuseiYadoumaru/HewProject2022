@@ -150,7 +150,7 @@ void Player::SearchLandingTile(vector<TileColumn>* in_TileColumn)
 		return;
 	}
 
-	vector<int>& IdList = Col->GetHitObjectId();
+	//vector<int> IdList = Col->GetHitObjectId();
 	/*	基準タイル条件	*/
 	//IDがタイルの中にあるやつ
 	//当たり判定の中で一番に下にあるタイルかつ

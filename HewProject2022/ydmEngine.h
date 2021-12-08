@@ -28,6 +28,7 @@
 //==============================================================================
 #include "Engine/Math/Vector3.h"
 #include "Engine/Math/Vector2.h"
+#include "Engine/Math/Vector.h"
 #include "Engine/Math/CRect.h"
 #include "Engine/Math/Color.h"
 

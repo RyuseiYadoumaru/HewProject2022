@@ -8,6 +8,8 @@
 
 #pragma once
 #include <string>
+#include "../../Math/Vector.h"
+typedef Math::Vector ID;
 
 namespace Create
 {
@@ -29,9 +31,8 @@ namespace Create
 
 	protected:
 		std::string name;
-		int id;
+		ID id;
 
 	};
 
 }
-

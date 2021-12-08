@@ -41,8 +41,8 @@ namespace GameEngine
 		bool GetisHit_leftBlock() { return isHit_leftBlock; }
 		void SetisHit_underBlock(bool flg) { isHit_underBlock = flg; }
 
-		vector<std::string>& GetHitObject() { return m_HitObjectList; }
-		vector<int>& GetHitObjectId() { return m_HitObjectIdList; }
+		//vector<std::string> GetHitObject() { return m_HitObjectList; }
+		//vector<int> GetHitObjectId() { return m_HitObjectIdList; }
 
 	private:
 		Math::Vector2 CenterPos;	//íÜêSì_ç¿ïW
@@ -65,7 +65,7 @@ namespace GameEngine
 		std::vector< BoxCollider2D > m_CheckList;
 		std::vector< Math::Vector2 > m_PushBackList;
 		std::vector< std::string > m_HitObjectList;
-		std::vector< int > m_HitObjectIdList;
+		std::vector< ID > m_HitObjectIdList;
 
 		Math::Vector2 FixPosition;
 

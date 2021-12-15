@@ -311,23 +311,23 @@ void GameEngine::BoxCollider2D::HitCheck()
 			CreateCollider(FixPosition);
 
 			if (PushBack.y < 0) {
-				printf("着地!");
+				//printf("着地!");
 				isHit_underBlock = true;
 			}
 			if (PushBack.y > 0) {
-				printf("頭ぶつけた!");
+				//printf("頭ぶつけた!");
 				isHit_overBlock = true;
 			}
 			if (PushBack.x < 0) {
-				printf("右!");
+				//printf("右!");
 				isHit_rightBlock = true;
 			}
 			if (PushBack.x > 0) {
-				printf("左!");
+				//printf("左!");
 				isHit_leftBlock = true;
 			}
 
-			printf("\n");
+			//printf("\n");
 
 			/*	ヒットオブジェクト格納	*/
 			m_HitObjectList.push_back(Check.Owner->GetName());

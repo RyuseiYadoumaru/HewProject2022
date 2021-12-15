@@ -175,6 +175,15 @@
     <Filter Include="GameName\Object\Actor\Map">
       <UniqueIdentifier>{e70e4044-d341-4464-b76b-0ffc0295cc6c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Script">
+      <UniqueIdentifier>{ae49d859-4695-4a71-8a03-61ff0743aaa5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Script\LandTile">
+      <UniqueIdentifier>{d5f467eb-ca50-48e2-a283-9e9eff81e521}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameName\Object\Actor\Map\Tile">
+      <UniqueIdentifier>{d62cc4da-0f9d-473a-9721-3395f3c1c132}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Shader\psvsCommon.hlsl">
@@ -299,9 +308,6 @@
     <ClCompile Include="Map.cpp">
       <Filter>GameName\Object\Actor\Map</Filter>
     </ClCompile>
-    <ClCompile Include="Tile.cpp">
-      <Filter>GameName\Object\Actor\Map</Filter>
-    </ClCompile>
     <ClCompile Include="Test.cpp">
       <Filter>Game\Object\Test</Filter>
     </ClCompile>
@@ -310,12 +316,6 @@
     </ClCompile>
     <ClCompile Include="MainCamera.cpp">
       <Filter>GameName\Object\Camera\MainCamera</Filter>
-    </ClCompile>
-    <ClCompile Include="MoveColumnInfo.cpp">
-      <Filter>GameName\Object\Actor\Map</Filter>
-    </ClCompile>
-    <ClCompile Include="TileColumn.cpp">
-      <Filter>GameName\Object\Actor\Map</Filter>
     </ClCompile>
     <ClCompile Include="TitleScene.cpp">
       <Filter>GameName\Scene\Title</Filter>
@@ -349,6 +349,24 @@
     </ClCompile>
     <ClCompile Include="Engine\Math\Vector.cpp">
       <Filter>Engine\Math\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="LandTile.cpp">
+      <Filter>Game\Script\LandTile</Filter>
+    </ClCompile>
+    <ClCompile Include="Tile.cpp">
+      <Filter>GameName\Object\Actor\Map\Tile</Filter>
+    </ClCompile>
+    <ClCompile Include="TileColumn.cpp">
+      <Filter>GameName\Object\Actor\Map\Tile</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveInfo.cpp">
+      <Filter>GameName\Object\Actor\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveInfoList.cpp">
+      <Filter>GameName\Object\Actor\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveManager.cpp">
+      <Filter>GameName\Object\Actor\Map</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -469,9 +487,6 @@
     <ClInclude Include="Map.h">
       <Filter>GameName\Object\Actor\Map</Filter>
     </ClInclude>
-    <ClInclude Include="Tile.h">
-      <Filter>GameName\Object\Actor\Map</Filter>
-    </ClInclude>
     <ClInclude Include="Test.h">
       <Filter>Game\Object\Test</Filter>
     </ClInclude>
@@ -480,12 +495,6 @@
     </ClInclude>
     <ClInclude Include="MainCamera.h">
       <Filter>GameName\Object\Camera\MainCamera</Filter>
-    </ClInclude>
-    <ClInclude Include="MoveColumnInfo.h">
-      <Filter>GameName\Object\Actor\Map</Filter>
-    </ClInclude>
-    <ClInclude Include="TileColumn.h">
-      <Filter>GameName\Object\Actor\Map</Filter>
     </ClInclude>
     <ClInclude Include="TitleScene.h">
       <Filter>GameName\Scene\Title</Filter>
@@ -531,6 +540,24 @@
     </ClInclude>
     <ClInclude Include="Engine\Math\Vector.h">
       <Filter>Engine\Math\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="LandTile.h">
+      <Filter>Game\Script\LandTile</Filter>
+    </ClInclude>
+    <ClInclude Include="TileColumn.h">
+      <Filter>GameName\Object\Actor\Map\Tile</Filter>
+    </ClInclude>
+    <ClInclude Include="Tile.h">
+      <Filter>GameName\Object\Actor\Map\Tile</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveInfo.h">
+      <Filter>GameName\Object\Actor\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveInfoList.h">
+      <Filter>GameName\Object\Actor\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveManager.h">
+      <Filter>GameName\Object\Actor\Map</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

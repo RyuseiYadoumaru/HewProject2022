@@ -43,14 +43,14 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -89,7 +89,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MultiProcessorCompilation>false</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -118,7 +118,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MultiProcessorCompilation>false</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -254,9 +254,12 @@
     <ClCompile Include="Game\GameObject\Camera.cpp" />
     <ClCompile Include="Game\GameObject\Character.cpp" />
     <ClCompile Include="Game\Scene\SampleScene.cpp" />
+    <ClCompile Include="LandTile.cpp" />
     <ClCompile Include="MainCamera.cpp" />
     <ClCompile Include="Map.cpp" />
-    <ClCompile Include="MoveColumnInfo.cpp" />
+    <ClCompile Include="MoveInfo.cpp" />
+    <ClCompile Include="MoveInfoList.cpp" />
+    <ClCompile Include="MoveManager.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="ProtScene.cpp" />
     <ClCompile Include="ResultScene.cpp" />
@@ -314,9 +317,12 @@
     <ClInclude Include="Game\GameObject\Camera.h" />
     <ClInclude Include="Game\GameObject\Character.h" />
     <ClInclude Include="Game\Scene\SampleScene.h" />
+    <ClInclude Include="LandTile.h" />
     <ClInclude Include="MainCamera.h" />
     <ClInclude Include="Map.h" />
-    <ClInclude Include="MoveColumnInfo.h" />
+    <ClInclude Include="MoveInfo.h" />
+    <ClInclude Include="MoveInfoList.h" />
+    <ClInclude Include="MoveManager.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="ProtScene.h" />
     <ClInclude Include="ResultScene.h" />

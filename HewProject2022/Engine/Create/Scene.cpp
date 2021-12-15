@@ -8,6 +8,7 @@
 
 #include "Scene.h"
 #include "../Runtime/Graphics/DirectXGraphics.h"
+using namespace Create;
 
 //-----------------------------------------------------------------------------
 // スタティック　メンバー
@@ -16,6 +17,25 @@ Create::Scene::STATE Create::Scene::State = Create::Scene::START;
 Create::Camera* Create::Scene::camera = nullptr;
 std::map<std::string, Create::GameObject*> Create::Scene::ObjectArray;
 std::map<std::string, std::vector<Component*>> Create::Scene::ComponenArray;
+
+//==============================================================================
+//!	@fn		Find
+//!	@brief	オブジェクト探索
+//!	@param	
+//!	@retval	オブジェクトアドレス（無かったらNULLを返す）
+//==============================================================================
+GameObject* Create::Scene::Find(ID& id)
+{
+	for (auto Obj : ObjectArray)
+	{
+		if (Obj.second->GetId() == id)
+		{
+			return Obj.second;
+		}
+	}
+
+	return nullptr;
+}
 
 //==============================================================================
 //!	@fn		Constructor
@@ -94,7 +114,7 @@ void Create::Scene::Destroy(std::string in_ObjectName)
 			itr++;
 		}
 
-}
+	}
 #else
 
 	ComponenArray.erase(in_ObjectName);

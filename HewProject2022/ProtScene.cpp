@@ -6,17 +6,21 @@ bool ProtScene::Start()
 {
 	cout << "プロトタイプシーン" << endl;
 	/*	オブジェクト生成	*/
-	m_Map = make_shared<Map>("ProtMap");
+	m_Map = make_shared<Map>("Test5");
 	m_Player = make_shared<Player>("Player");
 	m_MainCamera = make_shared<MainCamera>("MainCamera");
 	m_BackGruond = make_shared<BackGround>("BackGorund");
 
-	Instance(m_Player.get());
 	Instance(m_Map.get());
+	Instance(m_Player.get());
 	Instance(m_BackGruond.get());
 	/*	カメラ設定	*/
 	SetCamera(m_MainCamera.get());
 	m_MainCamera->Focus(m_Player.get());
+
+	/*	ギミック初期化	*/
+	//個々の部分かなり汚いけど許しておくれ
+	m_Player->m_LandTile.Init(m_Player.get(), &m_Map->m_TileColumnList);
 
 	/*　BGＭ再生　*/
 	//Sound::Sound_Play(SOUND_LABEL_BGM000);
@@ -27,48 +31,26 @@ bool ProtScene::Start()
 /****	更新	****/
 Scene::STATE ProtScene::Update()
 {
+	static int cnt = 0;
+	cnt++;
+	/*	フレームカウント	*/
+	cout << "\nフレーム" << cnt << endl;
+
+	/****	ブロック移動	****/
+	m_Map->CheckLandTile(&m_Player->m_LandTile);
+
 	/****	オブジェクト更新	****/
 	ObjectUpdate();
 
-	/****	ブロック移動	****/
-#if 0
-	if (Input::GetKeyTrigger(PK_1))
-	{
-		m_Map->MoveSwicthON();
-		//色ブロックの情報
-		Tile* Debug = m_Map->m_TileColumnList[8].mp_Column[0];
-		m_Map->MoveMap(Debug);
-	}
-
-	/*	ブロック挙動	*/
-	if (Input::GetKeyTrigger(PK_3) == true && m_Map->GetisMove() == false)
-	{
-		m_Map->MoveSwicthON();
-		Tile* Debug = m_Map->m_TileColumnList[7].mp_Column[0];
-		m_Map->MoveMap(Debug);
-	}
-
-#else
-	m_Player->SearchLandingTile(&m_Map->m_TileList);
-
-	//m_Map->MoveSwicthON();
-	if (m_Player->GetComponent<BoxCollider2D>()->GetisHit_underBlock() == true)
-	{
-		cout << m_Player->mp_LandingTile->GetKind() << ":" << m_Player->mp_LandingTile->GetId().x;
-		m_Map->MoveMap(m_Player->mp_LandingTile);
-
-	}
-
-#endif // 0
-
-	/****	ロードシーン	****/
-	if (Input::GetKeyTrigger(PK_ENTER) == true)//エンター押すと次のシーンへ移動
-	{
-		GameEngine::SceneManager::LoadScene("ResultScene");
-	}
-
 	/****	マップ当たり判定	****/
 	m_Map->HitCheckMap(*m_Player);
+
+	/****	ロードシーン	****/
+	if (Input::GetKeyTrigger(PK_ENTER) == true)		//エンター押すと次のシーンへ移動
+	{
+		GameEngine::SceneManager::LoadScene("ResultScene");
+
+	}
 
 	/****	システム更新	****/
 	m_Map->SystemUpdate();
@@ -103,8 +85,8 @@ bool ProtScene::Render()
 	m_Map->Render();
 
 	/****	コライダ描画	****/
-	//m_Map->DebugCollider();
-	m_Player->Debug();
+	//m_Map->Debug();
+	//m_Player->Debug();
 	/****	画面描画	****/
 	SwapChain();
 

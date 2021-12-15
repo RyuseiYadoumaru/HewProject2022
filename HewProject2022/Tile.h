@@ -25,6 +25,7 @@ public:
 
 	bool Start() override;
 	void Debug() override;
+
 public:
 	MAPOBJ GetKind() const;
 	void SetKind(MAPOBJ in_MapObj);
@@ -34,9 +35,8 @@ public:
 	float GetMyColumn() const;
 
 private:
-	MAPOBJ m_Kind;
-	float m_MyColumn;	//Š‘®—ñ
+	MAPOBJ m_Kind;				//í—Ş
+	float m_MyColumn;			//Š‘®—ñ
 	Vector3 m_StartPosition;	//‰ŠúÀ•W
-
 };
 

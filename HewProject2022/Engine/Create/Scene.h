@@ -28,6 +28,10 @@ namespace Create
 		};
 
 	public:
+		static GameObject* Find(ID& id);
+		static GameObject* Find(float id);
+
+	public:
 		Scene();
 
 		virtual bool Start() = 0;

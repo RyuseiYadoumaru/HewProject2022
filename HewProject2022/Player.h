@@ -1,6 +1,7 @@
 #pragma once
 #include"ydmEngine.h"
 #include "Tile.h"
+#include "LandTile.h"
 
 class TileColumn;
 
@@ -27,14 +28,9 @@ public:
 	void Debug()override;
 
 	float m_jumpForce;// ジャンプ力
-public:
 
-	void SearchLandingTile(vector<Tile*>* in_TileList);
-
-private:
-
-	void SearchTileList(vector<Tile*>* in_TileList, ID& in_Id);
-
+	//デバッグ（後でPrivateにする）
+	LandTile m_LandTile;
 private:
 
 	Vector2 m_moveSpeed;// 移動速度XY
@@ -43,9 +39,6 @@ private:
 	float m_stopForceX;// 停止力X　→　摩擦力的なもの
 
 	bool m_jumpFlg;//ジャンプフラグ
-
-public:	//デバッグ用　後でプライベートに戻す
-	Tile* mp_LandingTile;
 
 };
 

@@ -200,12 +200,12 @@ bool Math::Vector::operator<(const Vector in_V)
 
 bool Math::Vector::operator<(float in_F)
 {
-	return (*this < in_F);
+	return (this->x < in_F);
 }
 
 bool Math::Vector::operator<(int in_I)
 {
-	return (*this < in_I);
+	return (this->x < in_I);
 }
 
 bool Math::Vector::operator<=(const Vector in_V)
@@ -215,12 +215,12 @@ bool Math::Vector::operator<=(const Vector in_V)
 
 bool Math::Vector::operator<=(float in_F)
 {
-	return (*this <= in_F);
+	return (this->x <= in_F);
 }
 
 bool Math::Vector::operator<=(int in_I)
 {
-	return (*this <= in_I);
+	return (this->x <= in_I);
 }
 
 //==============================================================================
@@ -235,17 +235,12 @@ bool Math::Vector::operator>(const Vector in_V)
 
 bool Math::Vector::operator>(float in_F)
 {
-	return (*this > in_F);
+	return (this->x > in_F);
 }
 
 bool Math::Vector::operator>(int in_I)
 {
-	if (this->x > in_I)
-	{
-		return true;
-	}
-	return false;
-	return (*this > in_I);
+	return (this->x > in_I);
 }
 
 bool Math::Vector::operator>=(const Vector in_V)
@@ -255,12 +250,12 @@ bool Math::Vector::operator>=(const Vector in_V)
 
 bool Math::Vector::operator>=(float in_F)
 {
-	return (*this >= in_F);
+	return (this->x >= in_F);
 }
 
 bool Math::Vector::operator>=(int in_I)
 {
-	return (*this >= in_I);
+	return (this->x >= in_I);
 }
 
 

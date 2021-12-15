@@ -30,7 +30,6 @@ void Tile::Debug()
 	GetComponent<BoxCollider2D>()->Debug();	//“–‚½‚è”»’è•`‰æ
 }
 
-
 /****	Ží—ÞŽæ“¾	****/
 MAPOBJ Tile::GetKind() const
 {

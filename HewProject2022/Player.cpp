@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "TileColumn.h"
+#include "Map.h"
 
 Player::Player(string in_Name) :Character(in_Name)
 {
@@ -8,7 +9,7 @@ Player::Player(string in_Name) :Character(in_Name)
 bool Player::Start()
 {
 	//最高速度
-	m_maxMoveSpeedX = 15.0f;
+	m_maxMoveSpeedX = 7.5f;
 	//加速度
 	m_accelForceX = m_maxMoveSpeedX * 0.03f;
 	//摩擦力
@@ -17,9 +18,6 @@ bool Player::Start()
 	m_jumpForce = 0.0f;
 	//ジャンプフラグ
 	m_jumpFlg = false;
-
-	//着地タイル初期化
-	mp_LandingTile = nullptr;
 
 	/*	スプライト初期化	*/
 	m_SpriteRenderer->SpriteName = "player";
@@ -127,11 +125,20 @@ void Player::Jump()
 bool Player::Update()
 {
 	SystemTimer* Timer = SystemTimer::Instance();
-	XMFLOAT2 target;
-	target.y = 50.0f;
+	//XMFLOAT2 target;
+	//target.y = 50.0f;
 
-	Move();
-	Jump();
+	/*	アクション更新	*/
+	if (Map::SearchMoveObjectName(name) == false)
+	{
+		Move();
+		Jump();
+	}
+
+	/*	乗ってるタイル更新	*/
+	m_LandTile.Update();
+
+
 	return true;
 }
 
@@ -139,79 +146,7 @@ void Player::Debug()
 {
 	GetComponent<BoxCollider2D>()->Debug();
 
-	if (GetComponent<BoxCollider2D>()->GetisHit_underBlock() == false) {
-		std::cout << "        　　　　　　　浮いてます" << std::endl;
-	}
-}
-
-/****	乗っているタイルを調べる	****/
-void Player::SearchLandingTile(vector<Tile*>* in_TileList)
-{
-	/*	地面着地判定	*/
-	BoxCollider2D* Col = GetComponent<BoxCollider2D>();
-	if (Col->GetisHit_underBlock() == false)
-	{
-		return;
-	}
-
-	const vector<ID>& IdList = Col->GetHitObjectId();
-
-	/*	タイルオブジェクトID探索	*/
-	for (auto Id : IdList)
-	{
-		/*	タイルIDの時	*/
-		if (Id > TILE_ID)
-		{
-			SearchTileList(in_TileList, Id);
-		}
-	}
-
-	float u = IdList[0].x;
-	/*	基準タイル条件	*/
-	//IDがタイルの中にあるやつ
-	//当たり判定の中で一番に下にあるタイルかつ
-	//当たり判定の中で一番X座標の絶対値が近いタイル
-
-}
-
-/****	タイルリスト探索処理	****/
-void Player::SearchTileList(vector<Tile*>* in_TileList, ID& in_Id)
-{
-	Tile* tmp;
-	for (auto tile : *in_TileList)
-	{
-		/*	IDヒット	*/
-		if (in_Id == tile->GetId())
-		{
-			/*	中身が空じゃないとき	*/
-			if (mp_LandingTile != nullptr)
-			{
-				//判定を取る
-				//当たり判定の中で一番に下にあるタイルかつ
-				if (mp_LandingTile->transform->Position.y <= tile->transform->Position.y)
-				{
-					//当たり判定の中で一番X座標の絶対値が近いタイル
-					float NowDistanceX = fabsf(transform->Position.x - mp_LandingTile->transform->Position.x);
-					float JudgeDistanceX = fabsf(transform->Position.x - tile->transform->Position.x);
-
-					//当たり判定の中で1番X座標がプレイヤーと近いタイル
-					if (NowDistanceX > JudgeDistanceX)
-					{
-						mp_LandingTile = tile;
-					}
-				}
-
-			}
-
-			/*	着地タイルが未確定の時	*/
-			else
-			{
-				//無差別に代入する
-				mp_LandingTile = tile;
-			}
-
-
-		}
-	}
-
+	//if (GetComponent<BoxCollider2D>()->GetisHit_underBlock() == false) {
+	//	std::cout << "        　　　　　　　浮いてます" << std::endl;
+	//}
 }

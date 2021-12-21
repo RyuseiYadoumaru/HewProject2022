@@ -55,6 +55,11 @@ bool MoveManager::Update()
 		isFin = ResetMove();
 	}
 
+	else
+	{
+		isFin = true;
+	}
+
 	//I—¹‚Ì‚Ítrue‚ğ•Ô‚·
 	return isFin;
 }

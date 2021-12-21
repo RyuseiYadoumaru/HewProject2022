@@ -304,7 +304,8 @@ void Map::MoveUpdate()
 	if (m_MoveManager.empty() == false)
 	{
 		//配列の先頭から更新をかける
-		if (m_MoveManager.front()->Update() == true)
+		bool ret = m_MoveManager.front()->Update();
+		if (ret == true)
 		{
 			//移動が終わったら解放する
 			m_MoveManager.front().reset();
@@ -315,7 +316,7 @@ void Map::MoveUpdate()
 }
 
 /****	移動マネージャー追加	****/
-void Map::AddMoveManager(LandTile * in_LandTile)
+void Map::AddMoveManager(LandTile* in_LandTile)
 {
 
 	/*	移動リストの中身があるとき	*/

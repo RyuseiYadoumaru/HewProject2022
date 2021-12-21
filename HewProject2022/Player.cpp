@@ -138,6 +138,7 @@ bool Player::Update()
 	/*	乗ってるタイル更新	*/
 	m_LandTile.Update();
 
+	cout << m_LandTile.GetLandTile()->GetId().x << endl;
 
 	return true;
 }

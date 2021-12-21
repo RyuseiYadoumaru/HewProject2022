@@ -363,6 +363,7 @@
       <Filter>GameName\Object\Actor\Map</Filter>
     </ClCompile>
     <ClCompile Include="Fade.cpp" />
+    <ClCompile Include="..\SelectScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Runtime\Application.h">
@@ -549,6 +550,7 @@
       <Filter>GameName\Object\Actor\Map</Filter>
     </ClInclude>
     <ClInclude Include="Fade.h" />
+    <ClInclude Include="..\SelectScene.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="README.txt">

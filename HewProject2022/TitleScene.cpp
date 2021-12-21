@@ -26,7 +26,7 @@ Scene::STATE GamePlay::TitleScene::Update()
 	/****	ロードシーン	****/
 	if (Input::GetKeyTrigger(PK_ENTER) == true || Input::GetControllerTrigger(XINPUT_GAMEPAD_B))//エンター押すと次のシーンへ移動
 	{
-		GameEngine::SceneManager::LoadScene("ProtScene");
+		GameEngine::SceneManager::LoadScene("StageSelectScene");
 	}
 
 	/****	システム更新	****/

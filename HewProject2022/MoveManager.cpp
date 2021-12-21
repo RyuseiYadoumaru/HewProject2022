@@ -53,6 +53,11 @@ bool MoveManager::Update()
 		isFin = ResetMove();
 	}
 
+	else
+	{
+		isFin = true;
+	}
+
 	//I—¹‚Ì‚Ítrue‚ğ•Ô‚·
 	return isFin;
 }
@@ -191,7 +196,7 @@ bool MoveManager::ResetMove()
 {
 	if (Reset.Empty() == false)
 	{
- 		Reset.ResetAll();
+		Reset.ResetAll();
 	}
 	/*	ˆÚ“®—ñ‚ª‚È‚­‚È‚Á‚½‚ç	*/
 	if (Reset.Empty() == true)

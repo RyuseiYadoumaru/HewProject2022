@@ -52,6 +52,7 @@ bool MoveInfoList::ResetAll()
 		{
 			//‚à‚µˆÚ“®‚ªI‚í‚Á‚Ä‚¢‚½‚çíœ‚·‚é
 			itr = m_List.erase(itr);
+			//cout << Info
 		}
 		else
 		{

@@ -250,10 +250,10 @@
     <ClCompile Include="Engine\Runtime\Window\WindowCallBack.cpp" />
     <ClCompile Include="Engine\Runtime\WinMain.cpp" />
     <ClCompile Include="Engine\SceneManager\SceneManager.cpp" />
+    <ClCompile Include="Fade.cpp" />
     <ClCompile Include="Game\GameObject\Actor.cpp" />
     <ClCompile Include="Game\GameObject\Camera.cpp" />
     <ClCompile Include="Game\GameObject\Character.cpp" />
-    <ClCompile Include="Game\Scene\SampleScene.cpp" />
     <ClCompile Include="LandTile.cpp" />
     <ClCompile Include="MainCamera.cpp" />
     <ClCompile Include="Map.cpp" />
@@ -263,7 +263,6 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="ProtScene.cpp" />
     <ClCompile Include="ResultScene.cpp" />
-    <ClCompile Include="StageTestScene.cpp" />
     <ClCompile Include="Test.cpp" />
     <ClCompile Include="Test2.cpp" />
     <ClCompile Include="Tile.cpp" />
@@ -313,10 +312,10 @@
     <ClInclude Include="Engine\Runtime\Window\Window.h" />
     <ClInclude Include="Engine\Runtime\Window\WindowCallBack.h" />
     <ClInclude Include="Engine\SceneManager\SceneManager.h" />
+    <ClInclude Include="Fade.h" />
     <ClInclude Include="Game\GameObject\Actor.h" />
     <ClInclude Include="Game\GameObject\Camera.h" />
     <ClInclude Include="Game\GameObject\Character.h" />
-    <ClInclude Include="Game\Scene\SampleScene.h" />
     <ClInclude Include="LandTile.h" />
     <ClInclude Include="MainCamera.h" />
     <ClInclude Include="Map.h" />
@@ -327,7 +326,6 @@
     <ClInclude Include="ProtScene.h" />
     <ClInclude Include="ResultScene.h" />
     <ClInclude Include="SceneList.h" />
-    <ClInclude Include="StageTestScene.h" />
     <ClInclude Include="Test.h" />
     <ClInclude Include="Test2.h" />
     <ClInclude Include="Tile.h" />

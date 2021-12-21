@@ -10,10 +10,13 @@ bool ProtScene::Start()
 	m_Player = make_shared<Player>("Player");
 	m_MainCamera = make_shared<MainCamera>("MainCamera");
 	m_BackGruond = make_shared<BackGround>("BackGorund");
+	m_Fade = make_shared<Fade>("Black");
 
 	Instance(m_Map.get());
 	Instance(m_Player.get());
 	Instance(m_BackGruond.get());
+	Instance(m_Fade.get());
+
 	/*	カメラ設定	*/
 	SetCamera(m_MainCamera.get());
 	m_MainCamera->Focus(m_Player.get());
@@ -41,6 +44,7 @@ Scene::STATE ProtScene::Update()
 
 	/****	オブジェクト更新	****/
 	ObjectUpdate();
+	m_Fade->Update();
 
 	/****	マップ当たり判定	****/
 	m_Map->HitCheckMap(*m_Player);
@@ -49,7 +53,6 @@ Scene::STATE ProtScene::Update()
 	if (Input::GetKeyTrigger(PK_ENTER) == true)		//エンター押すと次のシーンへ移動
 	{
 		GameEngine::SceneManager::LoadScene("ResultScene");
-
 	}
 
 	/****	システム更新	****/
@@ -83,6 +86,7 @@ bool ProtScene::Render()
 	m_BackGruond->Render();
 	m_Player->Render();
 	m_Map->Render();
+	m_Fade->Render();
 
 	/****	コライダ描画	****/
 	//m_Map->Debug();

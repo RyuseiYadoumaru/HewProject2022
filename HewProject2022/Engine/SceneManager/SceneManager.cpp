@@ -25,11 +25,8 @@ std::map<std::string, Create::Scene*> GameEngine::SceneManager::SceneList;
 //==============================================================================
 GameEngine::SceneManager::SceneManager()
 {
-
 	CreateScene("TitleScene", new GamePlay::TitleScene);
 	CreateScene("ResultScene", new GamePlay::ResultScene);
-	CreateScene("SampleScene", new GamePlay::SampleScene);
-	CreateScene("StageTestScene", new StageTestScene);
 	CreateScene("ProtScene", new ProtScene);
 	NextScene = SceneList["TitleScene"];
 }

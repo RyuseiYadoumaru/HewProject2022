@@ -78,25 +78,34 @@ void Player::Move()
 {
 	SpeedControl();
 
-	//右方向移動
-	if (Input::GetKeyPress(PK_D) == true && GetComponent<BoxCollider2D>()->GetisHit_rightBlock() == false)
+	//コントローラ左右方向移動
+	if (Input::GetControllerLeftStick().x < 0.0f && GetComponent<BoxCollider2D>()->GetisHit_leftBlock() == false)
+	{
+		Accelerate(CHAR_MOVE_LEFT);
+		transform->Position.x += m_moveSpeed.x;
+	}
+	if (Input::GetControllerLeftStick().x > 0.0f && GetComponent<BoxCollider2D>()->GetisHit_rightBlock() == false)
 	{
 		Accelerate(CHAR_MOVE_RIGHT);
 		transform->Position.x += m_moveSpeed.x;
 	}
 
-	//左方向移動
+	//キーボード左右移動
 	if (Input::GetKeyPress(PK_A) == true && GetComponent<BoxCollider2D>()->GetisHit_leftBlock() == false)
 	{
 		Accelerate(CHAR_MOVE_LEFT);
 		transform->Position.x += m_moveSpeed.x;
 	}
-
+	if (Input::GetKeyPress(PK_D) == true && GetComponent<BoxCollider2D>()->GetisHit_rightBlock() == false)
+	{
+		Accelerate(CHAR_MOVE_RIGHT);
+		transform->Position.x += m_moveSpeed.x;
+	}
 }
 
 void Player::Jump()
 {
-	if (Input::GetKeyTrigger(VK_SPACE) == true && m_jumpFlg == false)//小ジャンプ
+	if (Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true || Input::GetKeyTrigger(VK_SPACE) == true && m_jumpFlg == false)//小ジャンプ
 	{
 		m_jumpFlg = true;
 		m_jumpForce = -20.0f;//ジャンプするために重力をマイナスにする

@@ -103,6 +103,28 @@ bool GameEngine::SpriteRenderer::Init()
 //==============================================================================
 bool GameEngine::SpriteRenderer::Render()
 {
+	/****	頂点座標	****/
+	VERTEX vertex[VERTEX_NUM] =
+	{
+		XMFLOAT3(Rect.GetButtomLeft().x, Rect.GetButtomLeft().y, 0.0f),	XMFLOAT4(Color.r,Color.g,Color.b,Color.a),	XMFLOAT2(0.0f,1.0f),
+		XMFLOAT3(Rect.GetTopLeft().x,	 Rect.GetTopLeft().y,	 0.0f),	XMFLOAT4(Color.r,Color.g,Color.b,Color.a),	XMFLOAT2(0.0f,0.0f),
+		XMFLOAT3(Rect.GetButtomRight().x,Rect.GetButtomRight().y,0.0f),	XMFLOAT4(Color.r,Color.g,Color.b,Color.a),	XMFLOAT2(1.0f,1.0f),
+		XMFLOAT3(Rect.GetTopRight().x,	 Rect.GetTopRight().y,	 0.0f),	XMFLOAT4(Color.r,Color.g,Color.b,Color.a),	XMFLOAT2(1.0f,0.0f)
+
+	};
+
+	/****	頂点データ更新	****/
+
+	DirectXGraphics::Instance()->GetDeviceContext()->UpdateSubresource
+	(
+		VertexBuffer,			// 更新対象のバッファ
+		0,						// インデックス(0)
+		NULL,					// 更新範囲(nullptr)
+		vertex,					// 反映データ
+		0,						// データの1行のサイズ(0)
+		0						// 1深度スライスのサイズ(0)
+	);
+
 	/****	デバイスコンテキスト取得	****/
 	ID3D11DeviceContext* deviceContext = DirectXGraphics::Instance()->GetDeviceContext();
 

@@ -269,9 +269,6 @@
     <ClCompile Include="Engine\Math\Vector3.cpp">
       <Filter>Engine\Math\Private</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Scene\SampleScene.cpp">
-      <Filter>Game\Scene</Filter>
-    </ClCompile>
     <ClCompile Include="directxtex\include\DDSTextureLoader.cpp">
       <Filter>Engine\Runtime\DirectTex\TextureLoader</Filter>
     </ClCompile>
@@ -301,9 +298,6 @@
     </ClCompile>
     <ClCompile Include="Game\GameObject\Character.cpp">
       <Filter>Game\GameObject\private</Filter>
-    </ClCompile>
-    <ClCompile Include="StageTestScene.cpp">
-      <Filter>Game\Scene</Filter>
     </ClCompile>
     <ClCompile Include="Map.cpp">
       <Filter>GameName\Object\Actor\Map</Filter>
@@ -368,6 +362,7 @@
     <ClCompile Include="MoveManager.cpp">
       <Filter>GameName\Object\Actor\Map</Filter>
     </ClCompile>
+    <ClCompile Include="Fade.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Runtime\Application.h">
@@ -439,9 +434,6 @@
     <ClInclude Include="Engine\Math\Vector3.h">
       <Filter>Engine\Math\Public</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scene\SampleScene.h">
-      <Filter>Game\Scene</Filter>
-    </ClInclude>
     <ClInclude Include="directxtex\include\DDSTextureLoader.h">
       <Filter>Engine\Runtime\DirectTex\TextureLoader</Filter>
     </ClInclude>
@@ -480,9 +472,6 @@
     </ClInclude>
     <ClInclude Include="Game\GameObject\Character.h">
       <Filter>Game\GameObject\public</Filter>
-    </ClInclude>
-    <ClInclude Include="StageTestScene.h">
-      <Filter>Game\Scene</Filter>
     </ClInclude>
     <ClInclude Include="Map.h">
       <Filter>GameName\Object\Actor\Map</Filter>
@@ -559,6 +548,7 @@
     <ClInclude Include="MoveManager.h">
       <Filter>GameName\Object\Actor\Map</Filter>
     </ClInclude>
+    <ClInclude Include="Fade.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="README.txt">

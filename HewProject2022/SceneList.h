@@ -6,8 +6,6 @@
 //*****************************************************************************
 #pragma once
 
-#include "Game/Scene/SampleScene.h"
-#include "StageTestScene.h"
 #include "TitleScene.h"
 #include "ResultScene.h"
 #include "ProtScene.h"

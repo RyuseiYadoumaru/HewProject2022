@@ -5,6 +5,7 @@
 #include "BackGround.h"
 #include "MainCamera.h"
 #include "Player.h"
+#include "Fade.h"
 
 using namespace Create;
 
@@ -24,6 +25,7 @@ namespace GamePlay
 		shared_ptr<Map> m_Map;
 		shared_ptr<Player> m_Player;
 		shared_ptr<BackGround> m_BackGruond;
+		shared_ptr<Fade> m_Fade;
 	};
 
 }

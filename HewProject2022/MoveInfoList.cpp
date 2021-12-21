@@ -31,7 +31,5 @@ bool MoveInfoList::MoveFront()
 		//æ“ª”z—ñ‚ğíœ‚·‚é
 		m_List.erase(m_List.begin());
 	}
-
-
 	return isFin;
 }

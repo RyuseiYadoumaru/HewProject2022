@@ -31,6 +31,12 @@ bool Player::Start()
 
 	/*	ボックスコライダコンポーネント	*/
 	AddComponent<GameEngine::BoxCollider2D>(m_SpriteRenderer->GetSize());
+
+	/*	ボックスコライダ設定	*/
+	BoxCollider2D* Col = GetComponent<BoxCollider2D>();
+	Col->SetSize(0.75f, 0.7f);
+	Col->SetOffset(0.25f, 0.3f);
+
 	return true;
 }
 
@@ -148,7 +154,7 @@ bool Player::Update()
 	m_LandTile.Update();
 
 	cout << m_LandTile.GetLandTile()->GetId().x << endl;
-
+	cout << m_LandTile.GetLandTile()->GetKind() << endl;
 	return true;
 }
 

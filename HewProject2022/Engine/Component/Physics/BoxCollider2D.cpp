@@ -213,6 +213,17 @@ void BoxCollider2D::SetOffset(float in_OffsetX, float in_OffsetY)
 }
 
 //==============================================================================
+//!	@fn		SetOffset
+//!	@brief　オフセット設定
+//!	@param	OffsetX, OffsetY
+//==============================================================================
+void GameEngine::BoxCollider2D::SetSize(float in_SizeX, float in_SizeY)
+{
+	Size.x = in_SizeX;
+	Size.y = in_SizeY;
+}
+
+//==============================================================================
 //!	@fn		SetisActive
 //!	@brief　アクティブ設定
 //!	@param	フラグ

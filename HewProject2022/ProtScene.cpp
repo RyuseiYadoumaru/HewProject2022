@@ -86,11 +86,14 @@ bool ProtScene::Render()
 	m_BackGruond->Render();
 	m_Player->Render();
 	m_Map->Render();
-	m_Fade->Render();
 
 	/****	コライダ描画	****/
-	//m_Map->Debug();
-	//m_Player->Debug();
+	m_Map->Debug();
+	m_Player->Debug();
+
+	/****	画面エフェクト	****/
+	m_Fade->Render();
+
 	/****	画面描画	****/
 	SwapChain();
 

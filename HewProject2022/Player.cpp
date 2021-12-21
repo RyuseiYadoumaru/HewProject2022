@@ -20,11 +20,11 @@ bool Player::Start()
 	m_jumpFlg = false;
 
 	/*	スプライト初期化	*/
-	m_SpriteRenderer->SpriteName = "player";
+	m_SpriteRenderer->SpriteName = "ch2";
 	m_SpriteRenderer->Init();
 
 	transform->Position.Set(0.0f, 500.0f, 0.0f);
-	transform->Scale.Set(0.55f, 0.55f, 0.55f);
+	transform->Scale.Set(0.12f, 0.12f, 0.12f);
 
 	/*	リジットボディーコンポーネント	*/
 	AddComponent<GameEngine::Rigidbody2d>();
@@ -99,7 +99,7 @@ void Player::Jump()
 	if (Input::GetKeyTrigger(VK_SPACE) == true && m_jumpFlg == false)//小ジャンプ
 	{
 		m_jumpFlg = true;
-		m_jumpForce = -20.0f;//ジャンプするために重力をマイナスにする
+		m_jumpForce = -15.0f;//ジャンプするために重力をマイナスにする
 		Sound::Sound_Play(SOUND_LABEL_SE000);//ジャンプ効果音再生
 		GetComponent<BoxCollider2D>()->SetisHit_underBlock(false);
 	}

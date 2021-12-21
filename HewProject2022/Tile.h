@@ -4,8 +4,8 @@ using Math::Vector2;
 using Math::Vector3;
 using Create::Actor;
 
-#define TILE_WIDTH	(float)(70)
-#define TILE_HEIGHT	(float)(70)
+#define TILE_WIDTH	(float)(80)
+#define TILE_HEIGHT	(float)(80)
 #define TILE_ID		(7000)
 
 enum MAPOBJ
@@ -13,6 +13,8 @@ enum MAPOBJ
 	NB,	//ノーマルブロック
 	C1,	//カラーブロック1
 	C2,	//カラーブロック2
+	C3,
+	GR,
 
 	NO,	//何もない
 	MAX

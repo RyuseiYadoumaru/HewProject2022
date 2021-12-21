@@ -255,11 +255,18 @@ void Map::CreateMap()
 
 			case C1:
 				CreateTile(Pos, "red3", MAPOBJ::C1);
-
 				break;
 
 			case C2:
 				CreateTile(Pos, "bu", MAPOBJ::C2);
+				break;
+
+			case C3:
+				CreateTile(Pos, "gr", MAPOBJ::C3);
+				break;
+
+			case GR:
+				CreateTile(Pos, "NormalBlock", MAPOBJ::GR);
 				break;
 
 			case NO:

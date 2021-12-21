@@ -13,8 +13,10 @@ bool MoveManager::Init(vector<TileColumn>* in_AllTile, LandTile* in_StandardTile
 	m_StandardTile = in_StandardTile;
 
 	/*	ノーマルブロックに乗ったとき	*/
-	if (m_StandardTile->GetLandTile()->tag == TagList::NormalBlock &&
-		m_StandardTile->GetSaveLandTile()->tag == TagList::ColorBlock)
+	if ((m_StandardTile->GetLandTile()->tag == TagList::Ground &&
+		m_StandardTile->GetSaveLandTile()->tag == TagList::ColorBlock) ||
+		(m_StandardTile->GetLandTile()->tag == TagList::Ground &&
+			m_StandardTile->GetSaveLandTile()->tag == TagList::NormalBlock))
 	{
 		//	リセット配列に格納する
 		SetResetList(in_AllTile);
@@ -191,10 +193,10 @@ bool MoveManager::ResetMove()
 {
 	if (Reset.Empty() == false)
 	{
- 		Reset.ResetAll();
+		Reset.ResetAll();
 	}
 	/*	移動列がなくなったら	*/
-	if (Reset.Empty() == true)
+	else if (Reset.Empty() == true)
 	{
 		//終了の時はtrueを返す
 		return true;

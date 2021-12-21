@@ -6,7 +6,7 @@ bool ProtScene::Start()
 {
 	cout << "プロトタイプシーン" << endl;
 	/*	オブジェクト生成	*/
-	m_Map = make_shared<Map>("Test5");
+	m_Map = make_shared<Map>("ProtMap");
 	m_Player = make_shared<Player>("Player");
 	m_MainCamera = make_shared<MainCamera>("MainCamera");
 	m_BackGruond = make_shared<BackGround>("BackGorund");

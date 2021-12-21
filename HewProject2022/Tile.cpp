@@ -12,13 +12,17 @@ bool Tile::Start()
 	AddComponent<BoxCollider2D>(m_SpriteRenderer->GetSize());
 
 	/*	É^ÉOê›íË	*/
-	if (m_Kind != NB && m_Kind != NO)
+	if (m_Kind != NB && m_Kind != NO && m_Kind != GR)
 	{
 		tag = ColorBlock;
 	}
 	else if (m_Kind == NB)
 	{
 		tag = NormalBlock;
+	}
+	else if (m_Kind == GR)
+	{
+		tag = Ground;
 	}
 
 	return true;

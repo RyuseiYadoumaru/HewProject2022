@@ -9,6 +9,7 @@
 enum TagList
 {
 	Default,
+	Ground,
 	NormalBlock,
 	ColorBlock,
 

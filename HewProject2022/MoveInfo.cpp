@@ -198,9 +198,7 @@ bool MoveInfo::FixMove(float TargetPosY)
 			cout << "最初の座標：" << TargetPosY << endl;
 			cout << "基準タイルの座標：" << mp_StandardTile->transform->Position.y << endl;
 			cout << "修正しました\n\n";
-
 		}
-
 	}
 
 	return isFix;

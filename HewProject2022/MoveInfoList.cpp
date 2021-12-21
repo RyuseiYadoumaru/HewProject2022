@@ -31,39 +31,5 @@ bool MoveInfoList::MoveFront()
 		//先頭配列を削除する
 		m_List.erase(m_List.begin());
 	}
-
-
 	return isFin;
-}
-
-/****	リセット処理	****/
-bool MoveInfoList::ResetAll()
-{
-	auto itr = m_List.begin();
-
-	//リセット処理は全てのオブジェクトを一括で移動させる
-	for (auto& Info : m_List)
-	{
-		bool ret = false;
-		ret = Info->Reset();
-
-		/*	削除処理	*/
-		if (ret == true)
-		{
-			//もし移動が終わっていたら削除する
-			itr = m_List.erase(itr);
-			//cout << Info
-		}
-		else
-		{
-			itr++;
-		}
-	}
-
-	if (m_List.empty() == true)
-	{
-		return true;
-	}
-
-	return false;
 }

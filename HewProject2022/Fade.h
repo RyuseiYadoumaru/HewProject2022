@@ -13,7 +13,8 @@ private:
 
 	float fadeSpeed;//フェードするスピード
 
-	enum FadeStatus {
+	enum FadeStatus
+	{
 		FADE_NO,
 		FADE_IN,
 		FADE_OUT

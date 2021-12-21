@@ -40,8 +40,8 @@ Math::CRect::CRect(float in_SizeX, float in_SizeY) : Shape()
 //==============================================================================
 Math::CRect::CRect(float in_SizeX, float in_SizeY, Math::Vector2& in_Position)
 {
-	Height = in_SizeX;
-	Width = in_SizeY;
+	Height = in_SizeY;
+	Width = in_SizeX;
 
 	Position = in_Position;
 	CreateRect();
@@ -56,8 +56,8 @@ Math::CRect::CRect(float in_SizeX, float in_SizeY, Math::Vector2& in_Position)
 //==============================================================================
 Math::CRect::CRect(float in_SizeX, float in_SizeY, float in_PositionX, float in_PositionY)
 {
-	Height = in_SizeX;
-	Width = in_SizeY;
+	Height = in_SizeY;
+	Width = in_SizeX;
 
 	Position.x = in_PositionX;
 	Position.y = in_PositionY;
@@ -73,8 +73,8 @@ Math::CRect::CRect(float in_SizeX, float in_SizeY, float in_PositionX, float in_
 //==============================================================================
 void Math::CRect::Set(float in_SizeX, float in_SizeY)
 {
-	Width = in_SizeX;
 	Height = in_SizeY;
+	Width = in_SizeX;
 
 	CreateRect();
 }
@@ -87,8 +87,8 @@ void Math::CRect::Set(float in_SizeX, float in_SizeY)
 //==============================================================================
 void Math::CRect::Set(float in_SizeX, float in_SizeY, Math::Vector2& in_Position)
 {
-	Height = in_SizeX;
-	Width = in_SizeY;
+	Height = in_SizeY;
+	Width = in_SizeX;
 
 	Position = in_Position;
 	CreateRect();
@@ -102,8 +102,8 @@ void Math::CRect::Set(float in_SizeX, float in_SizeY, Math::Vector2& in_Position
 //==============================================================================
 void Math::CRect::Set(float in_SizeX, float in_SizeY, float in_PositionX, float in_PositionY)
 {
-	Height = in_SizeX;
-	Width = in_SizeY;
+	Height = in_SizeY;
+	Width = in_SizeX;
 
 	Position.x = in_PositionX;
 	Position.y = in_PositionY;

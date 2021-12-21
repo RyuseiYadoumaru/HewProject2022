@@ -10,9 +10,7 @@ public:
 	MoveInfo();
 	MoveInfo(TileColumn* in_MoveColumn);
 	bool SearchTile(Tile* in_Search);	//タイル探索
-	bool SearchResetTile(Tile* in_Search);	//リセットタイル探索
 	bool Tick();	//移動再生
-	bool Reset();	//リセット移動
 
 	//移動アドレスセット
 	void SetColumn(TileColumn* in_Column) { mp_MoveColumn = in_Column; }
@@ -31,7 +29,6 @@ private:
 
 private:
 	void Start();		//初期化
-	void ResetStart();	//リセット初期化
 	void Move();	//移動処理
 	bool FixMove(float TargetPosY);	//修正処理
 };

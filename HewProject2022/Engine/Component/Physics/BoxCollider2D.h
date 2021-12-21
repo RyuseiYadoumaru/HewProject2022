@@ -30,6 +30,7 @@ namespace GameEngine
 		void PushBackObject();//押し戻し処理
 
 		void SetOffset(float in_OffsetX, float in_OffsetY);		//オフセット設定
+		void SetSize(float in_SizeX, float in_SizeY);			//サイズ設定
 		void SetisActive(bool in_isactive);					//アクティブ有効設定
 		bool GetisActive();
 

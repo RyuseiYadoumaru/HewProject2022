@@ -184,6 +184,12 @@
     <Filter Include="GameName\Object\Actor\Map\Tile">
       <UniqueIdentifier>{d62cc4da-0f9d-473a-9721-3395f3c1c132}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\ScreemEffect">
+      <UniqueIdentifier>{a6c080f1-160a-4cab-8e38-b1c9f7bed139}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ScreemEffect\Fade">
+      <UniqueIdentifier>{7e592d47-f3f1-4018-865c-392043e28e25}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Shader\psvsCommon.hlsl">
@@ -362,7 +368,9 @@
     <ClCompile Include="MoveManager.cpp">
       <Filter>GameName\Object\Actor\Map</Filter>
     </ClCompile>
-    <ClCompile Include="Fade.cpp" />
+    <ClCompile Include="Fade.cpp">
+      <Filter>Game\ScreemEffect\Fade</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Runtime\Application.h">
@@ -548,7 +556,9 @@
     <ClInclude Include="MoveManager.h">
       <Filter>GameName\Object\Actor\Map</Filter>
     </ClInclude>
-    <ClInclude Include="Fade.h" />
+    <ClInclude Include="Fade.h">
+      <Filter>Game\ScreemEffect\Fade</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="README.txt">

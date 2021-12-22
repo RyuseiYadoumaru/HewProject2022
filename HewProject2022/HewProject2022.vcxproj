@@ -218,10 +218,13 @@
     <ClCompile Include="BackGround.cpp" />
     <ClCompile Include="directxtex\include\DDSTextureLoader.cpp" />
     <ClCompile Include="directxtex\include\WICTextureLoader.cpp" />
+    <ClCompile Include="Engine\Component\Miscellaneous\Animator.cpp" />
     <ClCompile Include="Engine\Component\Physics\BoxCollider2D.cpp" />
     <ClCompile Include="Engine\Component\Physics\Rigidbody2d.cpp" />
     <ClCompile Include="Engine\Component\SpriteRenderer.cpp" />
     <ClCompile Include="Engine\Component\Transform.cpp" />
+    <ClCompile Include="Engine\Create\Animation.cpp" />
+    <ClCompile Include="Engine\Create\AnimationController.cpp" />
     <ClCompile Include="Engine\Create\GameObject.cpp" />
     <ClCompile Include="Engine\Create\Scene.cpp" />
     <ClCompile Include="Engine\Data\DataArray.cpp" />
@@ -261,6 +264,7 @@
     <ClCompile Include="MoveInfoList.cpp" />
     <ClCompile Include="MoveManager.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerAnim.cpp" />
     <ClCompile Include="ProtScene.cpp" />
     <ClCompile Include="ResultScene.cpp" />
     <ClCompile Include="SelectScene.cpp" />
@@ -277,10 +281,13 @@
     <ClInclude Include="directxtex\include\DirectXTex.h" />
     <ClInclude Include="directxtex\include\WICTextureLoader.h" />
     <ClInclude Include="Engine\Component\Component.h" />
+    <ClInclude Include="Engine\Component\Miscellaneous\Animator.h" />
     <ClInclude Include="Engine\Component\Physics\BoxCollider2D.h" />
     <ClInclude Include="Engine\Component\Physics\Rigidbody2d.h" />
     <ClInclude Include="Engine\Component\SpriteRenderer.h" />
     <ClInclude Include="Engine\Component\Transform.h" />
+    <ClInclude Include="Engine\Create\Animation.h" />
+    <ClInclude Include="Engine\Create\AnimationController.h" />
     <ClInclude Include="Engine\Create\GameObject.h" />
     <ClInclude Include="Engine\Create\Scene.h" />
     <ClInclude Include="Engine\Data\DataArray.h" />
@@ -326,6 +333,7 @@
     <ClInclude Include="MoveInfoList.h" />
     <ClInclude Include="MoveManager.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerAnim.h" />
     <ClInclude Include="ProtScene.h" />
     <ClInclude Include="ResultScene.h" />
     <ClInclude Include="SceneList.h" />

@@ -29,7 +29,10 @@ GameEngine::SpriteRenderer::SpriteRenderer() : Renderer()
 	VertexShaderName = "vs_2DSprite";
 	PixcelShaderName = "ps_2DSprite";
 	TexCoord.SetSize(1.0f, 1.0f);
-
+	UTiling = 0.0f;
+	VTiling = 0.0f;
+	TexCoord.SetSize(1.0f, 1.0f);
+	TexCoord.SetTiling(UTiling, VTiling);
 	Size.Set(0.0f, 0.0f);
 }
 

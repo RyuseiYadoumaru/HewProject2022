@@ -6,6 +6,7 @@
 //!	@author	YadoumaruRyusei
 //*****************************************************************************
 #pragma once
+#include <vector>
 
 #define ANIMATION_LOOP (-1)
 namespace Create
@@ -14,8 +15,8 @@ namespace Create
 	{
 	public:
 		Animation();
-		virtual void Init() = 0;
-
+		virtual void Init();
+		void Play(std::vector<int> in_AnimTable);
 	public:
 		int GetFrame() { return m_animationFrame; }   //ƒtƒŒ[ƒ€æ“¾
 		int GetKind() { return m_kind; }			//í—Ş”æ“¾

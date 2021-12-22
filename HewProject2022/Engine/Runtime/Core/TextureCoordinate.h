@@ -53,6 +53,12 @@ public:
 		TopV = in_V * SizeY; ButtomV = TopV + SizeY;
 	}
 
+	void SetTiling(float in_UTiling, float in_VTiling) {
+		LeftU = in_UTiling; RightU = LeftU + SizeX;
+		TopV = in_VTiling; ButtomV = TopV + SizeY;
+
+	}
+
 
 public:
 	float LeftU;

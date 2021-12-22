@@ -199,6 +199,9 @@
     <Filter Include="Engine\Runtime\Core\Data\TexCoord">
       <UniqueIdentifier>{6f534e71-91f0-4441-9d5a-adf67fbd7153}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameName\Object\Charactor\Player\Animation">
+      <UniqueIdentifier>{2e15be4c-292d-4bee-adb4-6faf3b58b9e6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Shader\psvsCommon.hlsl">
@@ -385,6 +388,18 @@
     </ClCompile>
     <ClCompile Include="Table.cpp">
       <Filter>GameName\Object\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Create\AnimationController.cpp">
+      <Filter>Engine\Create\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Create\Animation.cpp">
+      <Filter>Engine\Create\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerAnim.cpp">
+      <Filter>GameName\Object\Charactor\Player\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Component\Miscellaneous\Animator.cpp">
+      <Filter>Engine\Component\Private\Miscellaneous</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -582,6 +597,18 @@
     </ClInclude>
     <ClInclude Include="Engine\Runtime\Core\TextureCoordinate.h">
       <Filter>Engine\Runtime\Core\Data\TexCoord</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Create\AnimationController.h">
+      <Filter>Engine\Create\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Create\Animation.h">
+      <Filter>Engine\Create\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerAnim.h">
+      <Filter>GameName\Object\Charactor\Player\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Component\Miscellaneous\Animator.h">
+      <Filter>Engine\Component\Public\Miscellaneous</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -16,5 +16,6 @@
 //==============================================================================
 bool GameEngine::Animator::Update()
 {
-	return true;
+	Controller
+		return true;
 }

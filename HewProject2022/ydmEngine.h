@@ -40,6 +40,8 @@
 #include "Game/GameObject/Camera.h"
 #include "Engine/Create/GameObject.h"
 #include "Engine/Create/Scene.h"
+#include "Engine/Create/Animation.h"
+#include "Engine/Create/AnimationController.h"
 #include "Game/GameObject/Actor.h"
 #include "Game/GameObject/Character.h"
 

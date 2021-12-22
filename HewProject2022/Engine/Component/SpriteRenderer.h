@@ -15,6 +15,7 @@
 
 using DirectX::XMFLOAT4X4;
 
+
 namespace GameEngine
 {
 	class SpriteRenderer : public Renderer
@@ -24,6 +25,8 @@ namespace GameEngine
 		Math::Color Color;
 		std::string VertexShaderName;
 		std::string PixcelShaderName;
+		float UTiling;
+		float VTiling;
 
 	public:
 		SpriteRenderer();

@@ -401,6 +401,10 @@
     <ClCompile Include="Engine\Component\Miscellaneous\Animator.cpp">
       <Filter>Engine\Component\Private\Miscellaneous</Filter>
     </ClCompile>
+    <ClCompile Include="PlayerAnimController.cpp">
+      <Filter>GameName\Object\Charactor\Player\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Runtime\Application.h">
@@ -610,6 +614,10 @@
     <ClInclude Include="Engine\Component\Miscellaneous\Animator.h">
       <Filter>Engine\Component\Public\Miscellaneous</Filter>
     </ClInclude>
+    <ClInclude Include="PlayerAnimController.h">
+      <Filter>GameName\Object\Charactor\Player\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimTest.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="README.txt">

@@ -7,6 +7,7 @@
 //*****************************************************************************
 #pragma once
 #include <vector>
+#include <map>
 
 #define ANIMATION_LOOP (-1)
 namespace Create
@@ -16,16 +17,26 @@ namespace Create
 	public:
 		Animation();
 		virtual void Init();
-		void Play(std::vector<int> in_AnimTable);
+		void Play(std::string AnimName);
 	public:
-		int GetFrame() { return m_animationFrame; }   //フレーム取得
+		int GetFrame() { return m_animationFrame; }  //フレーム取得
 		int GetKind() { return m_kind; }			//種類数取得
+		int GetFrameMax() { return FrameMax; }		//フレーム最大数取得
+		int GetKindMax() { return KindMax; }		//種類最大数取得
 		float GetSpeed() { return m_speed; }		//スピード取得
+
+	protected:
+		void CreateAnimation(std::string in_Name, std::vector<int> in_AnimTable);
 
 	protected:
 		float m_speed;			// アニメーションスピード
 		int m_animationFrame;	// フレーム
 		int m_kind;				// アニメーションの種類
+
+		int FrameMax;			//フレームの最大数
+		int KindMax;			//種類最大数[
+
+		std::map<std::string, std::vector<int>> AnimationList;
 
 	private:
 		float m_time;	// 経過時間

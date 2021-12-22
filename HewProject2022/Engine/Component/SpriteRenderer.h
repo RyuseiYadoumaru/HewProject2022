@@ -40,8 +40,10 @@ namespace GameEngine
 		void SetSize(float& in_X, float& in_Y);
 		void SetSize(float in_X, float in_Y);
 		void SetSize(float& in_Size);
-
 		Math::Vector2 GetSize();
+
+		void SetTexSize(float in_X, float in_Y);
+
 	private:
 		Math::Vector2 Size;
 		Math::CRect Rect;

@@ -45,26 +45,40 @@ void Create::Animation::Init()
 //!	@param	アニメーションテーブル
 //!	@retva	
 //==============================================================================
-void Create::Animation::Play(std::vector<int> in_AnimTable)
+void Create::Animation::Play(std::string AnimName)
 {
-	// 種類設定 (DOWN,LEFT,RIGHT,UP)
-	m_kind = in_AnimTable[0];
+	//現在のアニメーション
+	std::vector<int> NowTable = AnimationList[AnimName];
+	// 種類設定
+	m_kind = NowTable[0];
 
 	// デルタタイムを取得し加算
 	SystemTimer* Timer = SystemTimer::Instance();
 	m_time += Timer->DeltaTime() * m_speed;
 
 	// アニメーションテーブル取得
-	int AnimationCounter = ((int)m_time % (sizeof(in_AnimTable) / sizeof(int))) + 1;
+	int AnimationCounter = ((int)m_time % (sizeof(NowTable) / sizeof(int))) + 1;
 
 	// アニメーションループ
-	if (in_AnimTable[AnimationCounter] == ANIMATION_LOOP)
+	if (NowTable[AnimationCounter] == ANIMATION_LOOP)
 	{
 		AnimationCounter = 1;
 		m_time = 0;
 	}
 
 	// アニメーションテーブル更新
-	m_animationFrame = in_AnimTable[AnimationCounter];
+	m_animationFrame = NowTable[AnimationCounter];
+
+}
+
+//==============================================================================
+//!	@fn		CreateAnimation
+//!	@brief	アニメーション生成
+//!	@param	アニメーションテーブル
+//!	@retva	
+//==============================================================================
+void Create::Animation::CreateAnimation(std::string in_Name, std::vector<int> in_AnimTable)
+{
+	AnimationList.insert(std::make_pair(in_Name, in_AnimTable));
 
 }

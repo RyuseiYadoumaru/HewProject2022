@@ -110,6 +110,9 @@ bool GameEngine::SpriteRenderer::Init()
 //==============================================================================
 bool GameEngine::SpriteRenderer::Update()
 {
+	/****	UV更新	****/
+	TexCoord.SetPattarn(UTiling, VTiling);
+
 	/****	頂点座標	****/
 	VERTEX vertex[VERTEX_NUM] =
 	{
@@ -248,4 +251,15 @@ void GameEngine::SpriteRenderer::SetSize(float& in_Size)
 Math::Vector2 GameEngine::SpriteRenderer::GetSize()
 {
 	return Size;
+}
+
+
+//==============================================================================
+//!	@fn		SetTexSize
+//!	@brief　テクスチャサイズ設定
+//!	@param	横幅、縦幅
+//==============================================================================
+void GameEngine::SpriteRenderer::SetTexSize(float in_X, float in_Y)
+{
+	TexCoord.SetSize(in_X, in_Y);
 }

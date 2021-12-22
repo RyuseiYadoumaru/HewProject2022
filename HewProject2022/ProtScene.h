@@ -7,6 +7,7 @@
 #include "Player.h"
 #include "Fade.h"
 #include "Table.h"
+#include "AnimTest.h"
 
 using namespace Create;
 
@@ -28,6 +29,7 @@ namespace GamePlay
 		shared_ptr<BackGround> m_BackGruond;
 		shared_ptr<Fade> m_Fade;
 		shared_ptr<Table> m_Table;
+		shared_ptr<AnimTest> m_AnimTest;
 	};
 
 }

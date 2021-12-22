@@ -29,3 +29,13 @@ int Create::AnimationController::GetFrame()
 {
 	return Anim->GetFrame();
 }
+
+int Create::AnimationController::GetKindMax()
+{
+	return Anim->GetKindMax();
+}
+
+int Create::AnimationController::GetFrameMax()
+{
+	return Anim->GetFrameMax();
+}

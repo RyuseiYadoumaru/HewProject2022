@@ -12,6 +12,7 @@ bool ProtScene::Start()
 	m_BackGruond = make_shared<BackGround>("BackGorund");
 	m_Fade = make_shared<Fade>("Black");
 	m_Table = make_shared<Table>("Table");
+	m_AnimTest = make_shared<AnimTest>("Animtest");
 
 	/*	インスタンス	*/
 	Instance(m_Map.get());
@@ -19,6 +20,7 @@ bool ProtScene::Start()
 	Instance(m_BackGruond.get());
 	Instance(m_Table.get());
 	Instance(m_Fade.get());
+	Instance(m_AnimTest.get());
 
 	/*	カメラ設定	*/
 	SetCamera(m_MainCamera.get());
@@ -90,6 +92,7 @@ bool ProtScene::Render()
 	m_Map->Render();
 	m_Table->Render();
 	m_Player->Render();
+	m_AnimTest->Render();
 
 	/****	コライダ描画	****/
 	//m_Map->Debug();

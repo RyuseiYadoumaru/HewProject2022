@@ -15,6 +15,7 @@
 #include "Engine/Component/Transform.h"
 #include "Engine/Component//Physics/BoxCollider2D.h"
 #include "Engine/Component/Physics/Rigidbody2d.h"
+#include "Engine/Component/Miscellaneous/Animator.h"
 #include "Engine/Data/DataArray.h"
 #include "Engine/Input/Input.h"
 #include "Engine/SceneManager/SceneManager.h"

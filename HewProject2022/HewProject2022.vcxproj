@@ -215,6 +215,7 @@
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AnimTest.cpp" />
     <ClCompile Include="BackGround.cpp" />
     <ClCompile Include="directxtex\include\DDSTextureLoader.cpp" />
     <ClCompile Include="directxtex\include\WICTextureLoader.cpp" />
@@ -265,6 +266,7 @@
     <ClCompile Include="MoveManager.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerAnim.cpp" />
+    <ClCompile Include="PlayerAnimController.cpp" />
     <ClCompile Include="ProtScene.cpp" />
     <ClCompile Include="ResultScene.cpp" />
     <ClCompile Include="SelectScene.cpp" />
@@ -276,6 +278,7 @@
     <ClCompile Include="TitleScene.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AnimTest.h" />
     <ClInclude Include="BackGround.h" />
     <ClInclude Include="directxtex\include\DDSTextureLoader.h" />
     <ClInclude Include="directxtex\include\DirectXTex.h" />
@@ -334,6 +337,7 @@
     <ClInclude Include="MoveManager.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerAnim.h" />
+    <ClInclude Include="PlayerAnimController.h" />
     <ClInclude Include="ProtScene.h" />
     <ClInclude Include="ResultScene.h" />
     <ClInclude Include="SceneList.h" />

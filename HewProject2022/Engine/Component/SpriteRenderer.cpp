@@ -10,6 +10,7 @@
 #include "../Runtime/Tools/Log.h"
 #include "../Runtime/Core/TransformMatrix.h"
 #include "../Data/DataArray.h"
+#include "../Create/GameObject.h"
 
 
 //-----------------------------------------------------------------------------
@@ -22,12 +23,12 @@ const UINT GameEngine::SpriteRenderer::VERTEX_NUM = 4;	//頂点数
 //!	@brief	コンストラクタ
 //!	@param	
 //==============================================================================
-GameEngine::SpriteRenderer::SpriteRenderer(XMFLOAT4X4* in_WorldMatrix) : Renderer()
+GameEngine::SpriteRenderer::SpriteRenderer() : Renderer()
 {
 	SpriteName = "Default";
 	VertexShaderName = "vs_2DSprite";
 	PixcelShaderName = "ps_2DSprite";
-	WorldMatrix = in_WorldMatrix;
+	TexCoord.SetSize(1.0f, 1.0f);
 
 	Size.Set(0.0f, 0.0f);
 }
@@ -41,6 +42,9 @@ GameEngine::SpriteRenderer::SpriteRenderer(XMFLOAT4X4* in_WorldMatrix) : Rendere
 bool GameEngine::SpriteRenderer::Init()
 {
 	bool sts = false;
+
+	/****	トランスフォーム取得	****/
+	WorldMatrix = Owner->transform->GetAddress();
 
 	/****	デバイス取得	****/
 	ID3D11Device* device = DirectXGraphics::Instance()->GetDevice();
@@ -70,10 +74,10 @@ bool GameEngine::SpriteRenderer::Init()
 	/****	頂点座標	****/
 	VERTEX vertex[VERTEX_NUM] =
 	{
-		XMFLOAT3(Rect.GetButtomLeft().x, Rect.GetButtomLeft().y, 0.0f),	XMFLOAT4(Color.r,Color.g,Color.b,Color.a),	XMFLOAT2(0.0f,1.0f),
-		XMFLOAT3(Rect.GetTopLeft().x,	 Rect.GetTopLeft().y,	 0.0f),	XMFLOAT4(Color.r,Color.g,Color.b,Color.a),	XMFLOAT2(0.0f,0.0f),
-		XMFLOAT3(Rect.GetButtomRight().x,Rect.GetButtomRight().y,0.0f),	XMFLOAT4(Color.r,Color.g,Color.b,Color.a),	XMFLOAT2(1.0f,1.0f),
-		XMFLOAT3(Rect.GetTopRight().x,	 Rect.GetTopRight().y,	 0.0f),	XMFLOAT4(Color.r,Color.g,Color.b,Color.a),	XMFLOAT2(1.0f,0.0f)
+		XMFLOAT3(Rect.GetButtomLeft().x, Rect.GetButtomLeft().y, 0.0f),	XMFLOAT4(Color.r,Color.g,Color.b,Color.a),	XMFLOAT2(TexCoord.LeftU, TexCoord.ButtomV),
+		XMFLOAT3(Rect.GetTopLeft().x,	 Rect.GetTopLeft().y,	 0.0f),	XMFLOAT4(Color.r,Color.g,Color.b,Color.a),	XMFLOAT2(TexCoord.LeftU, TexCoord.TopV),
+		XMFLOAT3(Rect.GetButtomRight().x,Rect.GetButtomRight().y,0.0f),	XMFLOAT4(Color.r,Color.g,Color.b,Color.a),	XMFLOAT2(TexCoord.RightU,TexCoord.ButtomV),
+		XMFLOAT3(Rect.GetTopRight().x,	 Rect.GetTopRight().y,	 0.0f),	XMFLOAT4(Color.r,Color.g,Color.b,Color.a),	XMFLOAT2(TexCoord.RightU,TexCoord.TopV)
 
 	};
 
@@ -96,20 +100,20 @@ bool GameEngine::SpriteRenderer::Init()
 }
 
 //==============================================================================
-//!	@fn		Render
-//!	@brief　描画
+//!	@fn		Update
+//!	@brief　更新
 //!	@param	
 //!	@retval	true:正常終了　false:異常終了
 //==============================================================================
-bool GameEngine::SpriteRenderer::Render()
+bool GameEngine::SpriteRenderer::Update()
 {
 	/****	頂点座標	****/
 	VERTEX vertex[VERTEX_NUM] =
 	{
-		XMFLOAT3(Rect.GetButtomLeft().x, Rect.GetButtomLeft().y, 0.0f),	XMFLOAT4(Color.r,Color.g,Color.b,Color.a),	XMFLOAT2(0.0f,1.0f),
-		XMFLOAT3(Rect.GetTopLeft().x,	 Rect.GetTopLeft().y,	 0.0f),	XMFLOAT4(Color.r,Color.g,Color.b,Color.a),	XMFLOAT2(0.0f,0.0f),
-		XMFLOAT3(Rect.GetButtomRight().x,Rect.GetButtomRight().y,0.0f),	XMFLOAT4(Color.r,Color.g,Color.b,Color.a),	XMFLOAT2(1.0f,1.0f),
-		XMFLOAT3(Rect.GetTopRight().x,	 Rect.GetTopRight().y,	 0.0f),	XMFLOAT4(Color.r,Color.g,Color.b,Color.a),	XMFLOAT2(1.0f,0.0f)
+		XMFLOAT3(Rect.GetButtomLeft().x, Rect.GetButtomLeft().y, 0.0f),	XMFLOAT4(Color.r,Color.g,Color.b,Color.a),	XMFLOAT2(TexCoord.LeftU, TexCoord.ButtomV),
+		XMFLOAT3(Rect.GetTopLeft().x,	 Rect.GetTopLeft().y,	 0.0f),	XMFLOAT4(Color.r,Color.g,Color.b,Color.a),	XMFLOAT2(TexCoord.LeftU, TexCoord.TopV),
+		XMFLOAT3(Rect.GetButtomRight().x,Rect.GetButtomRight().y,0.0f),	XMFLOAT4(Color.r,Color.g,Color.b,Color.a),	XMFLOAT2(TexCoord.RightU,TexCoord.ButtomV),
+		XMFLOAT3(Rect.GetTopRight().x,	 Rect.GetTopRight().y,	 0.0f),	XMFLOAT4(Color.r,Color.g,Color.b,Color.a),	XMFLOAT2(TexCoord.RightU,TexCoord.TopV)
 
 	};
 
@@ -124,7 +128,17 @@ bool GameEngine::SpriteRenderer::Render()
 		0,						// データの1行のサイズ(0)
 		0						// 1深度スライスのサイズ(0)
 	);
+	return true;
+}
 
+//==============================================================================
+//!	@fn		Render
+//!	@brief　描画
+//!	@param	
+//!	@retval	true:正常終了　false:異常終了
+//==============================================================================
+bool GameEngine::SpriteRenderer::Render()
+{
 	/****	デバイスコンテキスト取得	****/
 	ID3D11DeviceContext* deviceContext = DirectXGraphics::Instance()->GetDeviceContext();
 
@@ -179,15 +193,16 @@ bool GameEngine::SpriteRenderer::Render()
 //!	@fn		Release
 //!	@brief　解放処理
 //!	@param	
-//!	@retval	
+//!	@retval	true:正常終了　false:異常終了
 //==============================================================================
-void GameEngine::SpriteRenderer::Release()
+bool GameEngine::SpriteRenderer::Release()
 {
 	if (VertexBuffer != nullptr)
 	{
 		VertexBuffer->Release();
 		VertexBuffer = nullptr;
 	}
+	return true;
 }
 
 //==============================================================================

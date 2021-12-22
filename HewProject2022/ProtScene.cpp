@@ -11,10 +11,13 @@ bool ProtScene::Start()
 	m_MainCamera = make_shared<MainCamera>("MainCamera");
 	m_BackGruond = make_shared<BackGround>("BackGorund");
 	m_Fade = make_shared<Fade>("Black");
+	m_Table = make_shared<Table>("Table");
 
+	/*	インスタンス	*/
 	Instance(m_Map.get());
 	Instance(m_Player.get());
 	Instance(m_BackGruond.get());
+	Instance(m_Table.get());
 	Instance(m_Fade.get());
 
 	/*	カメラ設定	*/
@@ -84,12 +87,13 @@ bool ProtScene::Render()
 
 	/****	オブジェクト描画	****/
 	m_BackGruond->Render();
-	m_Player->Render();
 	m_Map->Render();
+	m_Table->Render();
+	m_Player->Render();
 
 	/****	コライダ描画	****/
-	m_Map->Debug();
-	m_Player->Debug();
+	//m_Map->Debug();
+	//m_Player->Debug();
 
 	/****	画面エフェクト	****/
 	m_Fade->Render();

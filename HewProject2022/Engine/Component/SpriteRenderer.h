@@ -9,6 +9,7 @@
 #include <DirectXMath.h>
 #include "../Runtime/Core/Renderer.h"
 #include "../Runtime/Core/Sprite.h"
+#include "../Runtime/Core/TextureCoordinate.h"
 #include "../Math/Color.h"
 #include "../Math/CRect.h"
 
@@ -25,11 +26,12 @@ namespace GameEngine
 		std::string PixcelShaderName;
 
 	public:
-		SpriteRenderer(XMFLOAT4X4* in_WorldMatrix);
+		SpriteRenderer();
 
 		bool Init() override;
+		bool Update() override;
 		bool Render() override;
-		void Release() override;
+		bool Release() override;
 
 	public:
 		void SetSize(float& in_X, float& in_Y);
@@ -42,6 +44,7 @@ namespace GameEngine
 		Math::CRect Rect;
 		Sprite sprite;
 		XMFLOAT4X4* WorldMatrix;
+		TextureCoordinate TexCoord;
 
 	private:
 		static const UINT VERTEX_NUM;

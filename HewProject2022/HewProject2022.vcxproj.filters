@@ -190,6 +190,15 @@
     <Filter Include="Game\ScreemEffect\Fade">
       <UniqueIdentifier>{7e592d47-f3f1-4018-865c-392043e28e25}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\Component\Public\Miscellaneous">
+      <UniqueIdentifier>{1b56d22c-7271-42c3-83e2-2b85b3570162}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Component\Private\Miscellaneous">
+      <UniqueIdentifier>{c446f3ef-f6f9-4c68-afdd-8c3326071215}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Runtime\Core\Data\TexCoord">
+      <UniqueIdentifier>{6f534e71-91f0-4441-9d5a-adf67fbd7153}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Shader\psvsCommon.hlsl">
@@ -370,6 +379,12 @@
     </ClCompile>
     <ClCompile Include="Fade.cpp">
       <Filter>Game\ScreemEffect\Fade</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectScene.cpp">
+      <Filter>GameName\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Table.cpp">
+      <Filter>GameName\Object\Actor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -556,7 +571,18 @@
     <ClInclude Include="MoveManager.h">
       <Filter>GameName\Object\Actor\Map</Filter>
     </ClInclude>
-    <ClInclude Include="Fade.h" />
+    <ClInclude Include="Fade.h">
+      <Filter>Game\ScreemEffect\Fade</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectScene.h">
+      <Filter>GameName\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Table.h">
+      <Filter>GameName\Object\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Runtime\Core\TextureCoordinate.h">
+      <Filter>Engine\Runtime\Core\Data\TexCoord</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="README.txt">

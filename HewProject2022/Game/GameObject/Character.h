@@ -17,7 +17,7 @@ namespace Create
 	class Character : public GameObject
 	{
 	protected:
-		std::shared_ptr<GameEngine::SpriteRenderer> m_SpriteRenderer;
+		GameEngine::SpriteRenderer* m_SpriteRenderer;
 
 	public:
 		Character(std::string in_Name);
@@ -30,7 +30,6 @@ namespace Create
 		void Sprite(std::string in_SpriteName);
 		void Vertex(std::string in_VertexName);
 		void Pixcel(std::string in_PixcelName);
-
 	};
 }
 

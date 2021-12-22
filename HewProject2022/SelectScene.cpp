@@ -76,7 +76,7 @@ Scene::STATE GamePlay::SelectScene::Update()
 		switch (m_stageNumber)
 		{
 		case STAGE_01:
-			GameEngine::SceneManager::LoadScene("ProtGameScene");
+			GameEngine::SceneManager::LoadScene("ProtScene");
 			break;
 		case STAGE_02:
 			GameEngine::SceneManager::LoadScene("TitleScene");

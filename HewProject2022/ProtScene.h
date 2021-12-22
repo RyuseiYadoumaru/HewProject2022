@@ -6,6 +6,7 @@
 #include "MainCamera.h"
 #include "Player.h"
 #include "Fade.h"
+#include "Table.h"
 
 using namespace Create;
 
@@ -26,6 +27,7 @@ namespace GamePlay
 		shared_ptr<Player> m_Player;
 		shared_ptr<BackGround> m_BackGruond;
 		shared_ptr<Fade> m_Fade;
+		shared_ptr<Table> m_Table;
 	};
 
 }

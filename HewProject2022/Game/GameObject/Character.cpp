@@ -16,8 +16,7 @@
 //==============================================================================
 Create::Character::Character(std::string in_Name) : GameObject(in_Name)
 {
-	m_SpriteRenderer = std::make_shared<GameEngine::SpriteRenderer>(transform->GetAddress());
-
+	m_SpriteRenderer = AddRenderer<GameEngine::SpriteRenderer>();
 }
 
 //==============================================================================

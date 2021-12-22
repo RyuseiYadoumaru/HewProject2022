@@ -11,6 +11,7 @@
 #include "../Tools/macro.h"
 #include "../Core/vsShader.h"
 #include "../Core/psShader.h"
+#include "../../Component/Component.h"
 
 #include <DirectXMath.h>
 #include <memory>
@@ -28,7 +29,7 @@ using DirectX::XMMATRIX;
 
 namespace GameEngine
 {
-	class Renderer
+	class Renderer : public Component
 	{
 
 	public:
@@ -49,8 +50,6 @@ namespace GameEngine
 
 	public:
 		Renderer() {}
-		virtual bool Init() = 0;
 		virtual bool Render() = 0;
-		virtual void Release() = 0;
 	};
 }

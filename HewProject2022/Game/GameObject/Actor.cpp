@@ -17,7 +17,7 @@
 //==============================================================================
 Create::Actor::Actor() : GameObject()
 {
-	m_SpriteRenderer = std::make_shared<GameEngine::SpriteRenderer>(transform->GetAddress());
+	m_SpriteRenderer = AddRenderer<GameEngine::SpriteRenderer>();
 }
 
 //==============================================================================
@@ -27,7 +27,7 @@ Create::Actor::Actor() : GameObject()
 //==============================================================================
 Create::Actor::Actor(std::string in_Name) : GameObject(in_Name)
 {
-	m_SpriteRenderer = std::make_shared<GameEngine::SpriteRenderer>(transform->GetAddress());
+	m_SpriteRenderer = AddRenderer<GameEngine::SpriteRenderer>();
 }
 
 //==============================================================================

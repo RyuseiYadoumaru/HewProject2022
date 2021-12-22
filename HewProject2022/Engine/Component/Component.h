@@ -19,6 +19,7 @@ namespace GameEngine
 	public:
 		virtual bool Init() { return true; }
 		virtual bool Update() { return true; }
+		virtual bool Release() { return true; }
 
 		void SetOwner(Create::GameObject* in) { this->Owner = in; }
 		Create::GameObject* GetOwner() { return Owner; }

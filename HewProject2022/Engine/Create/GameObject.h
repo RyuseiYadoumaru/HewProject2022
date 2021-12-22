@@ -69,16 +69,6 @@ namespace Create
 		//!	@note	コンポーネントクラスじゃない場合nullptrを返す
 		//!	@retval	Component
 		//==============================================================================
-		//template<class T>
-		//T* AddComponent()
-		//{
-		//	T* Buff = new T();
-
-		//	Buff->SetOwner(this);
-		//	ComponentList.push_front(Buff);
-		//	Buff->Init();
-		//	return Buff;
-		//}
 		template<class T, class... In>
 		T* AddComponent(In... arg)
 		{
@@ -87,6 +77,23 @@ namespace Create
 			Buff->SetOwner(this);
 			ComponentList.push_front(Buff);
 			Buff->Init(arg...);
+			return Buff;
+		}
+
+
+		//==============================================================================
+		//!	@fn		AddRenderer
+		//!	@brief	コンポーネントリスト追加
+		//!	@note	コンポーネントクラスじゃない場合nullptrを返す
+		//!	@retval	Component
+		//==============================================================================
+		template<class T>
+		T* AddRenderer()
+		{
+			T* Buff = new T();
+
+			Buff->SetOwner(this);
+			ComponentList.push_back(Buff);
 			return Buff;
 		}
 

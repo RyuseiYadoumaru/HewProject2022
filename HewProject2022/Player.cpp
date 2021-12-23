@@ -154,6 +154,7 @@ bool Player::Update()
 	/*	乗ってるタイル更新	*/
 	m_LandTile.Update();
 
+	cout << "プレイヤーが乗っているタイル\n";
 	cout << m_LandTile.GetLandTile()->GetId().x << endl;
 	cout << m_LandTile.GetLandTile()->GetKind() << endl;
 	return true;

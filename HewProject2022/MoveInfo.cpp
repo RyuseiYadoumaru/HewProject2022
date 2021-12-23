@@ -95,7 +95,7 @@ void MoveInfo::Move()
 	float VectorY = m_Speed * Timer->DeltaTime();
 
 	/*	ˆÚ“®ˆ—	*/
-	for (auto Tile : mp_MoveColumn->mp_TileList)
+	for (auto& Tile : mp_MoveColumn->mp_TileList)
 	{
 		//c‚ÌˆÚ“®‚Ì‚Ý
 		//‘S‚Ä‚Ìƒ^ƒCƒ‹‚ðˆÚ“®‚·‚é

@@ -85,7 +85,6 @@ bool Map::Start()
 /****	更新	****/
 bool Map::Update()
 {
-
 	/*	列移動の更新	*/
 	MoveUpdate();
 

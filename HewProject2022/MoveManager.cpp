@@ -35,8 +35,6 @@ bool MoveManager::Update()
 		isFin = Move();
 
 	}
-
-
 	else
 	{
 		isFin = true;

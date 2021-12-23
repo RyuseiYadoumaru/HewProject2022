@@ -13,7 +13,7 @@ void PlayerAnim::Init()
 
 
 	/*	スピード設定	*/
-	m_speed = 1.0f;
+	m_speed = 0.25f;
 
 	/*	表示テクスチャ初期化	*/
 	m_animationFrame = 0;

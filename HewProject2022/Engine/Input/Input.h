@@ -7,6 +7,7 @@
 
 #pragma once
 #include "../Runtime/Core/InputInfo.h"
+#include <map>
 #include <DirectXMath.h>
 
 namespace GameEngine
@@ -30,6 +31,10 @@ namespace GameEngine
 	private:
 		static BYTE m_KeyState[256];
 		static BYTE m_OldKeyState[256];
+
+	private:
+		static std::map<int, bool> m_GamePadState;
+		static std::map<int, bool> m_OldGamePadState;
 
 	};
 }

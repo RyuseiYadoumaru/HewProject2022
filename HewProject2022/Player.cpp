@@ -111,7 +111,8 @@ void Player::Move()
 
 void Player::Jump()
 {
-	if (Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true || Input::GetKeyTrigger(VK_SPACE) == true && m_jumpFlg == false)//小ジャンプ
+	if ((Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true || Input::GetKeyTrigger(VK_SPACE) == true)
+		&& m_jumpFlg == false)//小ジャンプ
 	{
 		m_jumpFlg = true;
 		m_jumpForce = -15.0f;//ジャンプするために重力をマイナスにする

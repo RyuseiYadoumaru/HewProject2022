@@ -7,6 +7,11 @@
 #include "Input.h"
 
 
+/****	スタティックメンバ変数	****/
+BYTE GameEngine::Input::m_KeyState[256];
+
+std::map<int, bool> GameEngine::Input::m_GamePadState;
+std::map<int, bool> GameEngine::Input::m_OldGamePadState;
 
 /****	グローバル変数	****/
 short gKeys[0xff];
@@ -14,6 +19,8 @@ short gOldKeys[0xff];
 
 XINPUT_STATE g_PadState;
 XINPUT_STATE g_OldPadState;
+
+
 bool isDown;
 
 
@@ -84,18 +91,19 @@ bool GameEngine::Input::GetControllerTrigger(int Xbuttom)
 {
 	if (g_PadState.Gamepad.wButtons & Xbuttom)
 	{
-		if (isDown == true)
+		m_GamePadState[Xbuttom] = true;
+
+		if (m_OldGamePadState[Xbuttom] == true)
 		{
 			return false;
 		}
-
-		isDown = true;
-		return true;
+		else
+		{
+			return true;
+		}
 	}
-
-	isDown = false;
+	m_GamePadState[Xbuttom] = false;
 	return false;
-
 }
 
 //==============================================================================
@@ -175,8 +183,22 @@ void GameEngine::Input::KeyUpdate()
 	gKeys[PK_SP] = GetAsyncKeyState(PK_SP);				//SPACE
 
 
+	/*	1フレーム前のキー情報取得	*/
+	m_OldGamePadState = m_GamePadState;
 
-	/*	パッド状態取得	*/
+	/****	パッド状態取得	****/
+
+	m_GamePadState[XINPUT_GAMEPAD_A] = false;
+	m_GamePadState[XINPUT_GAMEPAD_B] = false;
+	m_GamePadState[XINPUT_GAMEPAD_X] = false;
+	m_GamePadState[XINPUT_GAMEPAD_Y] = false;
+	m_GamePadState[XINPUT_GAMEPAD_DPAD_UP] = false;
+	m_GamePadState[XINPUT_GAMEPAD_DPAD_DOWN] = false;
+	m_GamePadState[XINPUT_GAMEPAD_DPAD_LEFT] = false;
+	m_GamePadState[XINPUT_GAMEPAD_DPAD_RIGHT] = false;
+	m_GamePadState[XINPUT_GAMEPAD_START] = false;
+	m_GamePadState[XINPUT_GAMEPAD_BACK] = false;
+
 	XInputGetState(0, &g_PadState);
 	g_OldPadState = g_PadState;
 

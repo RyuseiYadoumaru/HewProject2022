@@ -132,5 +132,11 @@ bool MoveManager::Move()
 	}
 
 	//I—¹‚Ì‚Ítrue‚ğ•Ô‚·
-	return (isFrontFin && isBackFin);
+	if (isFrontFin == true && isBackFin == true)
+	{
+		return true;
+	}
+
+	return false;
+
 }

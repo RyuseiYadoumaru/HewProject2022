@@ -8,6 +8,8 @@
 #include "Fade.h"
 #include "Table.h"
 #include "AnimTest.h"
+#include "ScreenFx.h"
+#include "CameraFrame.h"
 
 using namespace Create;
 
@@ -30,6 +32,8 @@ namespace GamePlay
 		shared_ptr<Fade> m_Fade;
 		shared_ptr<Table> m_Table;
 		shared_ptr<AnimTest> m_AnimTest;
+		shared_ptr<ScreenFx> m_Screen;
+		shared_ptr<CameraFrame> m_CameraFrame;
 	};
 
 }

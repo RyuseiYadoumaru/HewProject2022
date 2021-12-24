@@ -9,6 +9,7 @@ class Table : public Actor
 public:
 	Table(string in_Name);
 	bool Start() override;
+	void Debug() override;
 
 };
 

@@ -19,10 +19,10 @@ void TileColumn::Add(Tile* in_Tile)
 /****	初期化	****/
 bool TileColumn::Init()
 {
-	//タイルリストの更新はタイルの生成時に行われている
-	/*	移動情報初期化	*/
-	//自分の列アドレスを送る
-	//m_MoveInfo.SetColumn(*this);
+	for (auto* tile : mp_TileList)
+	{
+		tile->Start();
+	}
 	return true;
 }
 

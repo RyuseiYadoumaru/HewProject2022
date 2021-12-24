@@ -23,7 +23,11 @@ enum MAPOBJ
 class Tile : public Actor
 {
 public:
-	Tile() { id += TILE_ID; }
+	Tile() {
+		id += TILE_ID;
+		m_Kind = GR;
+		m_MyColumn = -1;
+	}
 
 	bool Start() override;
 	void Debug() override;

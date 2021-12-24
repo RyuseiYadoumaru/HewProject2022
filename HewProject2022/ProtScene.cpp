@@ -13,6 +13,9 @@ bool ProtScene::Start()
 	m_Fade = make_shared<Fade>("Black");
 	m_Table = make_shared<Table>("Table");
 	m_AnimTest = make_shared<AnimTest>("Animtest");
+	m_Screen = make_shared<ScreenFx>("SFX");
+	m_CameraFrame = make_shared<CameraFrame>("CFX");
+
 
 	/*	インスタンス	*/
 	Instance(m_Map.get());
@@ -21,6 +24,8 @@ bool ProtScene::Start()
 	Instance(m_Table.get());
 	Instance(m_Fade.get());
 	Instance(m_AnimTest.get());
+	Instance(m_Screen.get());
+	Instance(m_CameraFrame.get());
 
 	/*	カメラ設定	*/
 	SetCamera(m_MainCamera.get());
@@ -53,6 +58,9 @@ Scene::STATE ProtScene::Update()
 
 	/****	マップ当たり判定	****/
 	m_Map->HitCheckMap(*m_Player);
+
+	/****	机ヒットチェック	****/
+	//m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_Table->GetComponent<BoxCollider2D>());
 
 	/****	ロードシーン	****/
 	if (Input::GetKeyTrigger(PK_ENTER) == true)		//エンター押すと次のシーンへ移動
@@ -97,9 +105,12 @@ bool ProtScene::Render()
 	/****	コライダ描画	****/
 	//m_Map->Debug();
 	//m_Player->Debug();
+	//m_Table->Debug();
 
 	/****	画面エフェクト	****/
 	m_Fade->Render();
+	m_Screen->Render();
+	m_CameraFrame->Render();
 
 	/****	画面描画	****/
 	SwapChain();

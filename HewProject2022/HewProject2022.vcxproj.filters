@@ -175,20 +175,8 @@
     <Filter Include="GameName\Object\Actor\Map">
       <UniqueIdentifier>{e70e4044-d341-4464-b76b-0ffc0295cc6c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Script">
-      <UniqueIdentifier>{ae49d859-4695-4a71-8a03-61ff0743aaa5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\Script\LandTile">
-      <UniqueIdentifier>{d5f467eb-ca50-48e2-a283-9e9eff81e521}</UniqueIdentifier>
-    </Filter>
     <Filter Include="GameName\Object\Actor\Map\Tile">
       <UniqueIdentifier>{d62cc4da-0f9d-473a-9721-3395f3c1c132}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\ScreemEffect">
-      <UniqueIdentifier>{a6c080f1-160a-4cab-8e38-b1c9f7bed139}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\ScreemEffect\Fade">
-      <UniqueIdentifier>{7e592d47-f3f1-4018-865c-392043e28e25}</UniqueIdentifier>
     </Filter>
     <Filter Include="Engine\Component\Public\Miscellaneous">
       <UniqueIdentifier>{1b56d22c-7271-42c3-83e2-2b85b3570162}</UniqueIdentifier>
@@ -202,26 +190,24 @@
     <Filter Include="GameName\Object\Charactor\Player\Animation">
       <UniqueIdentifier>{2e15be4c-292d-4bee-adb4-6faf3b58b9e6}</UniqueIdentifier>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <FxCompile Include="Shader\psvsCommon.hlsl">
-      <Filter>Shader</Filter>
-    </FxCompile>
-    <FxCompile Include="Shader\vs_2DSprite.hlsl">
-      <Filter>Shader</Filter>
-    </FxCompile>
-    <FxCompile Include="Shader\ConstantBuffer.hlsl">
-      <Filter>Shader</Filter>
-    </FxCompile>
-    <FxCompile Include="Shader\ps_2DSprite.hlsl">
-      <Filter>Shader</Filter>
-    </FxCompile>
-    <FxCompile Include="Shader\vs_Debug.hlsl">
-      <Filter>Shader</Filter>
-    </FxCompile>
-    <FxCompile Include="Shader\ps_Debug.hlsl">
-      <Filter>Shader</Filter>
-    </FxCompile>
+    <Filter Include="GameName\Object\Actor\Road">
+      <UniqueIdentifier>{0d8dadc9-bf53-455a-b4b8-58e8be3e79fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Script">
+      <UniqueIdentifier>{ae49d859-4695-4a71-8a03-61ff0743aaa5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Script\LandTile">
+      <UniqueIdentifier>{d5f467eb-ca50-48e2-a283-9e9eff81e521}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameName\Object\ScreemEffect">
+      <UniqueIdentifier>{a6c080f1-160a-4cab-8e38-b1c9f7bed139}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameName\Object\ScreemEffect\Fade">
+      <UniqueIdentifier>{7e592d47-f3f1-4018-865c-392043e28e25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameName\Object\ScreemEffect\Frame">
+      <UniqueIdentifier>{4db93655-f105-42ab-91a9-095f4cc30204}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Runtime\Application.cpp">
@@ -381,13 +367,10 @@
       <Filter>GameName\Object\Actor\Map</Filter>
     </ClCompile>
     <ClCompile Include="Fade.cpp">
-      <Filter>Game\ScreemEffect\Fade</Filter>
+      <Filter>GameName\Object\ScreemEffect\Fade</Filter>
     </ClCompile>
     <ClCompile Include="SelectScene.cpp">
       <Filter>GameName\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Table.cpp">
-      <Filter>GameName\Object\Actor</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Create\AnimationController.cpp">
       <Filter>Engine\Create\Private</Filter>
@@ -404,7 +387,18 @@
     <ClCompile Include="PlayerAnimController.cpp">
       <Filter>GameName\Object\Charactor\Player\Animation</Filter>
     </ClCompile>
-    <ClCompile Include="AnimTest.cpp" />
+    <ClCompile Include="Table.cpp">
+      <Filter>GameName\Object\Actor\Road</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimTest.cpp">
+      <Filter>Game\Object\Test</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenFx.cpp">
+      <Filter>GameName\Object\ScreemEffect\Frame</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraFrame.cpp">
+      <Filter>GameName\Object\ScreemEffect\Frame</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Runtime\Application.h">
@@ -591,13 +585,10 @@
       <Filter>GameName\Object\Actor\Map</Filter>
     </ClInclude>
     <ClInclude Include="Fade.h">
-      <Filter>Game\ScreemEffect\Fade</Filter>
+      <Filter>GameName\Object\ScreemEffect\Fade</Filter>
     </ClInclude>
     <ClInclude Include="SelectScene.h">
       <Filter>GameName\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Table.h">
-      <Filter>GameName\Object\Actor</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Runtime\Core\TextureCoordinate.h">
       <Filter>Engine\Runtime\Core\Data\TexCoord</Filter>
@@ -617,7 +608,18 @@
     <ClInclude Include="PlayerAnimController.h">
       <Filter>GameName\Object\Charactor\Player\Animation</Filter>
     </ClInclude>
-    <ClInclude Include="AnimTest.h" />
+    <ClInclude Include="Table.h">
+      <Filter>GameName\Object\Actor\Road</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimTest.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenFx.h">
+      <Filter>GameName\Object\ScreemEffect\Frame</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraFrame.h">
+      <Filter>GameName\Object\ScreemEffect\Frame</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="README.txt">
@@ -628,5 +630,28 @@
     <None Include="directxtex\include\DirectXTex.inl">
       <Filter>Engine\Runtime\DirectTex</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Shader\ps_2DSprite.hlsl">
+      <Filter>Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="Shader\ps_Debug.hlsl">
+      <Filter>Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="Shader\vs_2DSprite.hlsl">
+      <Filter>Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="Shader\vs_Debug.hlsl">
+      <Filter>Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="Shader\vs_Ui.hlsl">
+      <Filter>Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="Shader\ConstantBuffer.hlsl">
+      <Filter>Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="Shader\psvsCommon.hlsl">
+      <Filter>Shader</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>

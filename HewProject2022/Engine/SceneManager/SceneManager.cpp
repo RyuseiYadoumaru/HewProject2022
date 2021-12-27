@@ -30,7 +30,7 @@ GameEngine::SceneManager::SceneManager()
 	CreateScene("ProtScene", new ProtScene);
 	//ŽO–ØŒ´’Ç‰Á
 	CreateScene("StageSelectScene", new GamePlay::SelectScene);
-	NextScene = SceneList["TitleScene"];
+	NextScene = SceneList["ProtScene"];
 }
 
 //==============================================================================

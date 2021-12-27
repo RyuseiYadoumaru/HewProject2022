@@ -193,7 +193,17 @@ bool Map::CheckLandTile(LandTile* in_LandTile)
 		//保存しない
 		return true;
 	}
+
 	/*	チェック	*/
+	if (in_LandTile->GetSaveLandTile() == nullptr)
+	{
+		//デフォルト1発目のタイルに乗った時
+		/*	移動マネージャー追加	*/
+		AddMoveManager(in_LandTile);
+		return true;
+
+
+	}
 	if (in_LandTile->GetLandTile()->GetKind() == in_LandTile->GetSaveLandTile()->GetKind() &&
 		in_LandTile->GetLandTile()->transform->Position.y == in_LandTile->GetSaveLandTile()->transform->Position.y)
 	{
@@ -201,6 +211,7 @@ bool Map::CheckLandTile(LandTile* in_LandTile)
 		//動くことがないので探索しない
 		return true;
 	}
+
 	/*	移動マネージャー追加	*/
 	AddMoveManager(in_LandTile);
 
@@ -274,7 +285,7 @@ void Map::CreateMap()
 				break;
 
 			case GR:
-				CreateTile(Pos, "NormalBlock", MAPOBJ::GR);
+				//CreateTile(Pos, "NormalBlock", MAPOBJ::GR);
 				break;
 
 			case NO:

@@ -145,9 +145,6 @@
     <Filter Include="Game\Script">
       <UniqueIdentifier>{ae49d859-4695-4a71-8a03-61ff0743aaa5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Script\LandTile">
-      <UniqueIdentifier>{d5f467eb-ca50-48e2-a283-9e9eff81e521}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\Object\Test\AnimationTest">
       <UniqueIdentifier>{2e15be4c-292d-4bee-adb4-6faf3b58b9e6}</UniqueIdentifier>
     </Filter>
@@ -169,15 +166,6 @@
     <Filter Include="TOYALINE\Object">
       <UniqueIdentifier>{c2238518-3581-4c84-9bac-f458ee20fdfb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TOYALINE\Object\Charactor">
-      <UniqueIdentifier>{bbb43f8d-e1cd-410a-b5a7-dd5753e64082}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\Object\Charactor\Player">
-      <UniqueIdentifier>{ee96fa9b-fe48-4196-9909-0b09c22a3ad4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\Object\Charactor\Player\Animation">
-      <UniqueIdentifier>{f3a4d433-624b-4765-8f0b-5eede4cf2672}</UniqueIdentifier>
-    </Filter>
     <Filter Include="TOYALINE\Object\UI">
       <UniqueIdentifier>{ac2d9210-c109-426f-ad71-88bfd5c8b8d6}</UniqueIdentifier>
     </Filter>
@@ -189,9 +177,6 @@
     </Filter>
     <Filter Include="TOYALINE\Object\Actor\Map\Tile">
       <UniqueIdentifier>{d62cc4da-0f9d-473a-9721-3395f3c1c132}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\Object\Actor\Road">
-      <UniqueIdentifier>{0d8dadc9-bf53-455a-b4b8-58e8be3e79fe}</UniqueIdentifier>
     </Filter>
     <Filter Include="TOYALINE\Object\Effect">
       <UniqueIdentifier>{f89b9f6c-8ee9-4abd-82ac-b4bbdaeab00e}</UniqueIdentifier>
@@ -210,6 +195,27 @@
     </Filter>
     <Filter Include="TOYALINE\Object\ScreemEffect\Frame">
       <UniqueIdentifier>{4db93655-f105-42ab-91a9-095f4cc30204}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\World1">
+      <UniqueIdentifier>{0d31dff2-2c2b-484b-9d86-e8845217cf98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\World1\Road">
+      <UniqueIdentifier>{9fc73a66-2316-402b-8b8d-04bc5f0d52eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\World1\Object">
+      <UniqueIdentifier>{e1396a4d-1a71-447d-9c81-473902a8dc69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Script">
+      <UniqueIdentifier>{ab90ee41-d302-4a34-8c33-4b2f9ac76e57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Script\LandTile">
+      <UniqueIdentifier>{d5f467eb-ca50-48e2-a283-9e9eff81e521}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Object\Player">
+      <UniqueIdentifier>{ee96fa9b-fe48-4196-9909-0b09c22a3ad4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Object\Player\Animation">
+      <UniqueIdentifier>{f3a4d433-624b-4765-8f0b-5eede4cf2672}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -346,13 +352,13 @@
       <Filter>Engine\Runtime\Core\Data\MapData</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>TOYALINE\Object\Charactor\Player</Filter>
+      <Filter>TOYALINE\Object\Player</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Math\Vector.cpp">
       <Filter>Engine\Math\Private</Filter>
     </ClCompile>
     <ClCompile Include="LandTile.cpp">
-      <Filter>Game\Script\LandTile</Filter>
+      <Filter>TOYALINE\Script\LandTile</Filter>
     </ClCompile>
     <ClCompile Include="Tile.cpp">
       <Filter>TOYALINE\Object\Actor\Map\Tile</Filter>
@@ -384,9 +390,6 @@
     <ClCompile Include="Engine\Component\Miscellaneous\Animator.cpp">
       <Filter>Engine\Component\Private\Miscellaneous</Filter>
     </ClCompile>
-    <ClCompile Include="Table.cpp">
-      <Filter>TOYALINE\Object\Actor\Road</Filter>
-    </ClCompile>
     <ClCompile Include="AnimTest.cpp">
       <Filter>Game\Object\Test</Filter>
     </ClCompile>
@@ -399,11 +402,18 @@
     <ClCompile Include="DefaultAnim.cpp">
       <Filter>Game\Object\Test\AnimationTest</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerAnim.cpp" />
     <ClCompile Include="DefaultAnimController.cpp">
       <Filter>Game\Object\Test\AnimationTest</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerAnimController.cpp" />
+    <ClCompile Include="Table.cpp">
+      <Filter>TOYALINE\World1\Road</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerAnim.cpp">
+      <Filter>TOYALINE\Object\Player\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerAnimController.cpp">
+      <Filter>TOYALINE\Object\Player\Animation</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Runtime\Application.h">
@@ -566,13 +576,13 @@
       <Filter>Engine\Runtime\Core\Data\MapData</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>TOYALINE\Object\Charactor\Player</Filter>
+      <Filter>TOYALINE\Object\Player</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Math\Vector.h">
       <Filter>Engine\Math\Public</Filter>
     </ClInclude>
     <ClInclude Include="LandTile.h">
-      <Filter>Game\Script\LandTile</Filter>
+      <Filter>TOYALINE\Script\LandTile</Filter>
     </ClInclude>
     <ClInclude Include="TileColumn.h">
       <Filter>TOYALINE\Object\Actor\Map\Tile</Filter>
@@ -607,9 +617,6 @@
     <ClInclude Include="Engine\Component\Miscellaneous\Animator.h">
       <Filter>Engine\Component\Public\Miscellaneous</Filter>
     </ClInclude>
-    <ClInclude Include="Table.h">
-      <Filter>TOYALINE\Object\Actor\Road</Filter>
-    </ClInclude>
     <ClInclude Include="AnimTest.h">
       <Filter>Game</Filter>
     </ClInclude>
@@ -622,11 +629,18 @@
     <ClInclude Include="DefaultAnim.h">
       <Filter>Game\Object\Test\AnimationTest</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerAnim.h" />
     <ClInclude Include="DefaultAnimController.h">
       <Filter>Game\Object\Test\AnimationTest</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerAnimController.h" />
+    <ClInclude Include="Table.h">
+      <Filter>TOYALINE\World1\Road</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerAnim.h">
+      <Filter>TOYALINE\Object\Player\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerAnimController.h">
+      <Filter>TOYALINE\Object\Player\Animation</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="README.txt">

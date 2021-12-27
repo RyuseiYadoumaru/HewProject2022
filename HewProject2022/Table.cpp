@@ -6,19 +6,38 @@ Table::Table(string in_Name) : Actor(in_Name)
 
 bool Table::Start()
 {
+
+#if 1
 	/*	スプライト初期化	*/
-	m_SpriteRenderer->SpriteName = "Table";
+	m_SpriteRenderer->SpriteName = "desk";
 	m_SpriteRenderer->Init();
-	m_SpriteRenderer->Color.Set(0.8f, 0.6f, 0.3f, 1.0f);
 
-	transform->Scale.Set(10.0f, 4.0f, 4.0f);
-	transform->Position.Set(350.0f, 1000.0f, 0.0f);
-
-
+	//奥行きなし設定
+	transform->Scale.Set(2.0f, 2.0f, 1.0f);
+	transform->Position.Set(765.0f, 1070.0f, 0.0f);
 	/*	ボックスコライダコンポーネント	*/
 	GameEngine::BoxCollider2D* col = AddComponent<GameEngine::BoxCollider2D>(m_SpriteRenderer->GetSize());
+
+	//奥行きなし設定
 	col->SetSize(0.97f, 0.3f);
-	col->SetOffset(0.0f, -0.5f);
+	col->SetOffset(0.0f, -0.725f);
+#else
+
+	/*	スプライト初期化	*/
+	m_SpriteRenderer->SpriteName = "desk_2";
+	m_SpriteRenderer->Init();
+
+	//奥行きあり設定
+	transform->Scale.Set(2.0f, 2.0f, 1.0f);
+	transform->Position.Set(800.0f, 1170.0f, 0.0f);
+
+
+	//奥行きあり設定
+	GameEngine::BoxCollider2D* col = AddComponent<GameEngine::BoxCollider2D>(m_SpriteRenderer->GetSize());
+	col->SetSize(0.97f, 0.3f);
+	col->SetOffset(-0.025f, -2.05f);
+
+#endif
 
 	return true;
 }

@@ -60,7 +60,7 @@ Scene::STATE ProtScene::Update()
 	m_Map->HitCheckMap(*m_Player);
 
 	/****	机ヒットチェック	****/
-	//m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_Table->GetComponent<BoxCollider2D>());
+	m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_Table->GetComponent<BoxCollider2D>());
 
 	/****	ロードシーン	****/
 	if (Input::GetKeyTrigger(PK_ENTER) == true)		//エンター押すと次のシーンへ移動
@@ -96,9 +96,9 @@ bool ProtScene::Render()
 	ClearDisplay();
 
 	/****	オブジェクト描画	****/
-	m_BackGruond->Render();
-	m_Map->Render();
+	//m_BackGruond->Render();
 	m_Table->Render();
+	m_Map->Render();
 	m_Player->Render();
 	m_AnimTest->Render();
 

@@ -22,9 +22,8 @@ bool LandTile::Init(GameObject* in_Owner, vector<TileColumn>* in_NowMap)
 	mp_NowMap = in_NowMap;
 
 	//乗っているタイル初期化
-	mp_LandingTile = mp_NowMap->at(0).mp_TileList.at(0);
-	mp_SaveLandingTile = mp_LandingTile;
-	NowColumn = mp_LandingTile->GetMyColumn();
+	LandTileInit();
+
 
 	return true;
 }
@@ -42,6 +41,10 @@ bool LandTile::Update()
 	{
 		isChange = false;
 	}
+	//else if (mp_SaveLandingTile == nullptr && mp_LandingTile != nullptr)
+	//{
+	//	mp_SaveLandingTile = mp_LandingTile;
+	//}
 	return true;
 }
 
@@ -59,7 +62,6 @@ void LandTile::SearchLandingTile()
 	{
 		return;
 	}
-
 	/*	前フレームのタイルを保存	*/
 	mp_SaveLandingTile = mp_LandingTile;
 
@@ -83,6 +85,16 @@ void LandTile::SearchLandingTile()
 
 			//乗ってるタイル確定
 			SetLandTile(tmp);
+			m_isLandTile = true;
+		}
+
+		/*	普通オブジェクト	*/
+		else
+		{
+			//乗ってるタイル初期化
+			LandTileInit();
+			//探索終了
+			break;
 		}
 	}
 
@@ -116,15 +128,37 @@ void LandTile::SetLandTile(Tile* in_JudgeTile)
 	float ButtomPos = col->GetCenterPos().y + col->GetCenterLength().y;
 	if (ButtomPos < in_JudgeTile->transform->Position.y)
 	{
-		//当たり判定の中で一番X座標の絶対値が近いタイル
-		float NowDistanceX = fabsf(Owner->transform->Position.x - mp_LandingTile->transform->Position.x);
-		float JudgeDistanceX = fabsf(Owner->transform->Position.x - in_JudgeTile->transform->Position.x);
+		//nullptrじゃないときは判定を取る
+		if (mp_LandingTile != nullptr)
+		{
+			//当たり判定の中で一番X座標の絶対値が近いタイル
+			float NowDistanceX = fabsf(Owner->transform->Position.x - mp_LandingTile->transform->Position.x);
+			float JudgeDistanceX = fabsf(Owner->transform->Position.x - in_JudgeTile->transform->Position.x);
 
-		//当たり判定の中で1番X座標がプレイヤーと近いタイル
-		if (NowDistanceX > JudgeDistanceX)
+			//当たり判定の中で1番X座標がプレイヤーと近いタイル
+			if (NowDistanceX > JudgeDistanceX)
+			{
+				mp_LandingTile = in_JudgeTile;
+			}
+		}
+
+		//nullptrの時は直接代入
+		else
 		{
 			mp_LandingTile = in_JudgeTile;
+			mp_SaveLandingTile = nullptr;
 		}
+
 	}
 
+}
+
+
+/****	乗ってるタイル初期化	****/
+void LandTile::LandTileInit()
+{
+	m_isLandTile = false;
+	mp_LandingTile = nullptr;
+	mp_SaveLandingTile = mp_LandingTile;
+	NowColumn = NULL;
 }

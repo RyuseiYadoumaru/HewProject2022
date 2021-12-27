@@ -17,11 +17,13 @@ public:
 	int GetOwnerID() const { return (int)Owner->GetId().x; }
 	Tile* GetLandTile() { return mp_LandingTile; }
 	Tile* GetSaveLandTile() { return mp_SaveLandingTile; }
+	bool GetisLandTile()const { return m_isLandTile; }
 
 private:
 	void SearchLandingTile();
 	Tile* FindTile(ID& in_Id);
 	void SetLandTile(Tile* in_JudgeTile);
+	void LandTileInit();
 
 private:
 	GameObject* Owner;
@@ -33,6 +35,7 @@ private:
 
 	int NowColumn;		//現在の列	
 	bool isChange;		//タイル変更フラグ
+	bool m_isLandTile;	//タイル乗ってるフラグ
 
 	string OwnerName;	//オーナー名前
 

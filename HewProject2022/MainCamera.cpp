@@ -7,12 +7,13 @@ MainCamera::MainCamera(string in_Name) : Camera(in_Name)
 }
 bool MainCamera::Start()
 {
-	BackgroundColor = Math::Color::Gray;
+	BackgroundColor.Set(32.0f, 56.0f, 96.0f, 1.0f);
 	return true;
 }
 
 bool MainCamera::Update()
 {
+
 	if (p_FocusObject == nullptr)
 	{
 		if (Input::GetKeyPress(PK_RIGHT)) transform->Position.x += 10;

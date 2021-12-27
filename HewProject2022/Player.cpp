@@ -11,9 +11,9 @@ bool Player::Start()
 	//最高速度
 	m_maxMoveSpeedX = 2.0f;
 	//加速度
-	m_accelForceX = m_maxMoveSpeedX * 0.05f;
+	m_accelForceX = m_maxMoveSpeedX * 0.1f;
 	//摩擦力
-	m_stopForceX = m_accelForceX * 0.95f;
+	m_stopForceX = m_accelForceX * 0.7f;
 	//ジャンプ力
 	m_jumpForce = 0.0f;
 	//ジャンプフラグ
@@ -24,7 +24,7 @@ bool Player::Start()
 	m_SpriteRenderer->SpriteName = "Character_2";
 	m_SpriteRenderer->Init();
 
-	transform->Position.Set(0.0f, 500.0f, 0.0f);
+	transform->Position.Set(100.0f, 200.0f, 0.0f);
 	transform->Scale.Set(0.07f, 0.07f, 0.07f);
 
 	/*	リジットボディーコンポーネント	*/
@@ -35,8 +35,8 @@ bool Player::Start()
 
 	/*	ボックスコライダ設定	*/
 	BoxCollider2D* Col = GetComponent<BoxCollider2D>();
-	Col->SetSize(0.75f, 0.7f);
-	Col->SetOffset(0.25f, 0.3f);
+	Col->SetSize(0.5f, 0.65f);
+	Col->SetOffset(0.2f, 0.1f);
 
 	/*	アニメーションコンポーネント	*/
 	AddComponent<Animator>(&m_PlayerAnimController);
@@ -166,9 +166,12 @@ bool Player::Update()
 	/*	乗ってるタイル更新	*/
 	m_LandTile.Update();
 
-	cout << "プレイヤーが乗っているタイル\n";
-	cout << m_LandTile.GetLandTile()->GetId().x << endl;
-	cout << m_LandTile.GetLandTile()->GetKind() << endl;
+	if (m_LandTile.GetisLandTile() == true)
+	{
+		cout << "プレイヤーが乗っているタイル\n";
+		cout << m_LandTile.GetLandTile()->GetId().x << endl;
+		cout << m_LandTile.GetLandTile()->GetKind() << endl;
+	}
 	return true;
 }
 

@@ -127,8 +127,8 @@ bool Math::Color::operator==(const Color in_C)
 //==============================================================================
 void Math::Color::Set(float in_R, float in_G, float in_B, float in_A)
 {
-	r = in_R;
-	g = in_G;
-	b = in_B;
+	r = in_R / 255.0f;
+	g = in_G / 255.0f;
+	b = in_B / 255.0f;
 	a = in_A;
 }

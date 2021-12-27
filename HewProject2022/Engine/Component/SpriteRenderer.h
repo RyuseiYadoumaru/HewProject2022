@@ -27,6 +27,7 @@ namespace GameEngine
 		std::string PixcelShaderName;
 		float UTiling;
 		float VTiling;
+		bool Flip;
 
 	public:
 		SpriteRenderer();
@@ -53,6 +54,9 @@ namespace GameEngine
 
 	private:
 		static const UINT VERTEX_NUM;
+
+	private:
+		bool m_saveFlip;
 	};
 }
 

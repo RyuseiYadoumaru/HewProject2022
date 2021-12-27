@@ -10,8 +10,43 @@
 #include <map>
 
 #define ANIMATION_LOOP (-1)
+
+namespace
+{
+	class AnimationTable
+	{
+	public:
+		std::vector<int> m_Frame;
+		std::vector<int> m_Kind;
+
+	public:
+		/****	アニメーション種類セット	****/
+		template<class... INT>
+		void SetKind(INT... kind)
+		{
+			//可変配列の中身をCopyする
+			for (int k : std::initializer_list<int>{ kind... })
+			{
+				m_Kind.push_back(k);
+			}
+		}
+
+		/*	アニメーションフレームセット	*/
+		template<class... INT>
+		void SetFrame(INT... frame)
+		{
+			//可変配列の中身をCopyする
+			for (int k : std::initializer_list<int>{ frame... })
+			{
+				m_Frame.push_back(k);
+			}
+		}
+	};
+}
+
 namespace Create
 {
+
 	class Animation
 	{
 	public:
@@ -26,7 +61,8 @@ namespace Create
 		float GetSpeed() { return m_speed; }		//スピード取得
 
 	protected:
-		void CreateAnimation(std::string in_Name, std::vector<int> in_AnimTable);
+		//void CreateAnimation(std::string in_Name, std::vector<int> in_AnimTable);
+		void CreateAnimation(std::string in_Name, ::AnimationTable in_AnimTable);
 
 	protected:
 		float m_speed;			// アニメーションスピード
@@ -34,9 +70,10 @@ namespace Create
 		int m_kind;				// アニメーションの種類
 
 		int FrameMax;			//フレームの最大数
-		int KindMax;			//種類最大数[
+		int KindMax;			//種類最大数
 
 		std::map<std::string, std::vector<int>> AnimationList;
+		std::map<std::string, ::AnimationTable> AnimationTableList;
 
 	private:
 		float m_time;	// 経過時間

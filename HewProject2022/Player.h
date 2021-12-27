@@ -2,6 +2,7 @@
 #include"ydmEngine.h"
 #include "Tile.h"
 #include "LandTile.h"
+#include "PlayerAnimController.h"
 
 class TileColumn;
 
@@ -39,6 +40,9 @@ private:
 	float m_stopForceX;// 停止力X　→　摩擦力的なもの
 
 	bool m_jumpFlg;//ジャンプフラグ
+
+private:
+	PlayerAnimController m_PlayerAnimController;
 
 };
 

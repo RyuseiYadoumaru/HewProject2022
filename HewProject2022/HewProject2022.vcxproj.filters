@@ -82,33 +82,6 @@
     <Filter Include="Engine\Runtime\Core\Object">
       <UniqueIdentifier>{da89290e-c918-4c07-8b5e-4f4556f3ae4f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameName">
-      <UniqueIdentifier>{3525c8a5-19b8-42d6-ad04-d339c4edfdc7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameName\Scene">
-      <UniqueIdentifier>{b775f2fa-c20d-4807-b23b-dca813f46d7b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameName\Scene\Title">
-      <UniqueIdentifier>{5f78f9e5-d597-4b05-80ba-e79a622d88c7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameName\Scene\MainGame">
-      <UniqueIdentifier>{ce91e3ea-2bf7-4977-b185-3d9e535b3fe5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameName\Object">
-      <UniqueIdentifier>{c2238518-3581-4c84-9bac-f458ee20fdfb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameName\Object\Charactor">
-      <UniqueIdentifier>{bbb43f8d-e1cd-410a-b5a7-dd5753e64082}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameName\Object\UI">
-      <UniqueIdentifier>{ac2d9210-c109-426f-ad71-88bfd5c8b8d6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameName\Object\Actor">
-      <UniqueIdentifier>{f43e45ea-29b6-434e-a5c3-4f8d5aaed72f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameName\Object\Effect">
-      <UniqueIdentifier>{f89b9f6c-8ee9-4abd-82ac-b4bbdaeab00e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Engine\Runtime\Core\Data">
       <UniqueIdentifier>{350e7a33-07ac-452a-9c30-d21da75f27a6}</UniqueIdentifier>
     </Filter>
@@ -133,20 +106,11 @@
     <Filter Include="Game\Object">
       <UniqueIdentifier>{f6ad6b6b-6d02-44cc-8ec0-8a26c5ecfd40}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameName\Object\Camera">
-      <UniqueIdentifier>{238be73b-fc97-4214-9e80-799002123215}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\Object\Test">
       <UniqueIdentifier>{8383f8bd-d990-46f4-bb59-58c59920f805}</UniqueIdentifier>
     </Filter>
     <Filter Include="Game\Object\BackGround">
       <UniqueIdentifier>{84c32d85-3d8d-42a4-a32c-6aa3ddb9d8cc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameName\Object\Camera\MainCamera">
-      <UniqueIdentifier>{30c144ae-9517-4642-8275-8af5af26ba9e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameName\Scene\Result">
-      <UniqueIdentifier>{957429cc-c006-41b0-b835-9abdbd27da6d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Engine\Component\Public\Physics2D">
       <UniqueIdentifier>{86133024-cb28-40f1-b5a0-15b24217f2aa}</UniqueIdentifier>
@@ -169,15 +133,6 @@
     <Filter Include="Engine\Runtime\Core\Data\MapData">
       <UniqueIdentifier>{1a012ea4-931c-4d11-8010-d63ddfb7cac2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameName\Object\Charactor\Player">
-      <UniqueIdentifier>{ee96fa9b-fe48-4196-9909-0b09c22a3ad4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameName\Object\Actor\Map">
-      <UniqueIdentifier>{e70e4044-d341-4464-b76b-0ffc0295cc6c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameName\Object\Actor\Map\Tile">
-      <UniqueIdentifier>{d62cc4da-0f9d-473a-9721-3395f3c1c132}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Engine\Component\Public\Miscellaneous">
       <UniqueIdentifier>{1b56d22c-7271-42c3-83e2-2b85b3570162}</UniqueIdentifier>
     </Filter>
@@ -187,25 +142,73 @@
     <Filter Include="Engine\Runtime\Core\Data\TexCoord">
       <UniqueIdentifier>{6f534e71-91f0-4441-9d5a-adf67fbd7153}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameName\Object\Charactor\Player\Animation">
-      <UniqueIdentifier>{2e15be4c-292d-4bee-adb4-6faf3b58b9e6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameName\Object\Actor\Road">
-      <UniqueIdentifier>{0d8dadc9-bf53-455a-b4b8-58e8be3e79fe}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\Script">
       <UniqueIdentifier>{ae49d859-4695-4a71-8a03-61ff0743aaa5}</UniqueIdentifier>
     </Filter>
     <Filter Include="Game\Script\LandTile">
       <UniqueIdentifier>{d5f467eb-ca50-48e2-a283-9e9eff81e521}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameName\Object\ScreemEffect">
+    <Filter Include="Game\Object\Test\AnimationTest">
+      <UniqueIdentifier>{2e15be4c-292d-4bee-adb4-6faf3b58b9e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE">
+      <UniqueIdentifier>{3525c8a5-19b8-42d6-ad04-d339c4edfdc7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Scene">
+      <UniqueIdentifier>{b775f2fa-c20d-4807-b23b-dca813f46d7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Scene\Title">
+      <UniqueIdentifier>{5f78f9e5-d597-4b05-80ba-e79a622d88c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Scene\MainGame">
+      <UniqueIdentifier>{ce91e3ea-2bf7-4977-b185-3d9e535b3fe5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Scene\Result">
+      <UniqueIdentifier>{957429cc-c006-41b0-b835-9abdbd27da6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Object">
+      <UniqueIdentifier>{c2238518-3581-4c84-9bac-f458ee20fdfb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Object\Charactor">
+      <UniqueIdentifier>{bbb43f8d-e1cd-410a-b5a7-dd5753e64082}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Object\Charactor\Player">
+      <UniqueIdentifier>{ee96fa9b-fe48-4196-9909-0b09c22a3ad4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Object\Charactor\Player\Animation">
+      <UniqueIdentifier>{f3a4d433-624b-4765-8f0b-5eede4cf2672}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Object\UI">
+      <UniqueIdentifier>{ac2d9210-c109-426f-ad71-88bfd5c8b8d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Object\Actor">
+      <UniqueIdentifier>{f43e45ea-29b6-434e-a5c3-4f8d5aaed72f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Object\Actor\Map">
+      <UniqueIdentifier>{e70e4044-d341-4464-b76b-0ffc0295cc6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Object\Actor\Map\Tile">
+      <UniqueIdentifier>{d62cc4da-0f9d-473a-9721-3395f3c1c132}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Object\Actor\Road">
+      <UniqueIdentifier>{0d8dadc9-bf53-455a-b4b8-58e8be3e79fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Object\Effect">
+      <UniqueIdentifier>{f89b9f6c-8ee9-4abd-82ac-b4bbdaeab00e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Object\Camera">
+      <UniqueIdentifier>{238be73b-fc97-4214-9e80-799002123215}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Object\Camera\MainCamera">
+      <UniqueIdentifier>{30c144ae-9517-4642-8275-8af5af26ba9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Object\ScreemEffect">
       <UniqueIdentifier>{a6c080f1-160a-4cab-8e38-b1c9f7bed139}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameName\Object\ScreemEffect\Fade">
+    <Filter Include="TOYALINE\Object\ScreemEffect\Fade">
       <UniqueIdentifier>{7e592d47-f3f1-4018-865c-392043e28e25}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameName\Object\ScreemEffect\Frame">
+    <Filter Include="TOYALINE\Object\ScreemEffect\Frame">
       <UniqueIdentifier>{4db93655-f105-42ab-91a9-095f4cc30204}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -304,7 +307,7 @@
       <Filter>Game\GameObject\private</Filter>
     </ClCompile>
     <ClCompile Include="Map.cpp">
-      <Filter>GameName\Object\Actor\Map</Filter>
+      <Filter>TOYALINE\Object\Actor\Map</Filter>
     </ClCompile>
     <ClCompile Include="Test.cpp">
       <Filter>Game\Object\Test</Filter>
@@ -313,13 +316,13 @@
       <Filter>Game\Object\BackGround</Filter>
     </ClCompile>
     <ClCompile Include="MainCamera.cpp">
-      <Filter>GameName\Object\Camera\MainCamera</Filter>
+      <Filter>TOYALINE\Object\Camera\MainCamera</Filter>
     </ClCompile>
     <ClCompile Include="TitleScene.cpp">
-      <Filter>GameName\Scene\Title</Filter>
+      <Filter>TOYALINE\Scene\Title</Filter>
     </ClCompile>
     <ClCompile Include="ResultScene.cpp">
-      <Filter>GameName\Scene\Result</Filter>
+      <Filter>TOYALINE\Scene\Result</Filter>
     </ClCompile>
     <ClCompile Include="Test2.cpp">
       <Filter>Game\Object\Test</Filter>
@@ -343,7 +346,7 @@
       <Filter>Engine\Runtime\Core\Data\MapData</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>GameName\Object\Charactor\Player</Filter>
+      <Filter>TOYALINE\Object\Charactor\Player</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Math\Vector.cpp">
       <Filter>Engine\Math\Private</Filter>
@@ -352,25 +355,25 @@
       <Filter>Game\Script\LandTile</Filter>
     </ClCompile>
     <ClCompile Include="Tile.cpp">
-      <Filter>GameName\Object\Actor\Map\Tile</Filter>
+      <Filter>TOYALINE\Object\Actor\Map\Tile</Filter>
     </ClCompile>
     <ClCompile Include="TileColumn.cpp">
-      <Filter>GameName\Object\Actor\Map\Tile</Filter>
+      <Filter>TOYALINE\Object\Actor\Map\Tile</Filter>
     </ClCompile>
     <ClCompile Include="MoveInfo.cpp">
-      <Filter>GameName\Object\Actor\Map</Filter>
+      <Filter>TOYALINE\Object\Actor\Map</Filter>
     </ClCompile>
     <ClCompile Include="MoveInfoList.cpp">
-      <Filter>GameName\Object\Actor\Map</Filter>
+      <Filter>TOYALINE\Object\Actor\Map</Filter>
     </ClCompile>
     <ClCompile Include="MoveManager.cpp">
-      <Filter>GameName\Object\Actor\Map</Filter>
+      <Filter>TOYALINE\Object\Actor\Map</Filter>
     </ClCompile>
     <ClCompile Include="Fade.cpp">
-      <Filter>GameName\Object\ScreemEffect\Fade</Filter>
+      <Filter>TOYALINE\Object\ScreemEffect\Fade</Filter>
     </ClCompile>
     <ClCompile Include="SelectScene.cpp">
-      <Filter>GameName\Scene</Filter>
+      <Filter>TOYALINE\Scene</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Create\AnimationController.cpp">
       <Filter>Engine\Create\Private</Filter>
@@ -378,27 +381,29 @@
     <ClCompile Include="Engine\Create\Animation.cpp">
       <Filter>Engine\Create\Private</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerAnim.cpp">
-      <Filter>GameName\Object\Charactor\Player\Animation</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\Component\Miscellaneous\Animator.cpp">
       <Filter>Engine\Component\Private\Miscellaneous</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerAnimController.cpp">
-      <Filter>GameName\Object\Charactor\Player\Animation</Filter>
-    </ClCompile>
     <ClCompile Include="Table.cpp">
-      <Filter>GameName\Object\Actor\Road</Filter>
+      <Filter>TOYALINE\Object\Actor\Road</Filter>
     </ClCompile>
     <ClCompile Include="AnimTest.cpp">
       <Filter>Game\Object\Test</Filter>
     </ClCompile>
     <ClCompile Include="ScreenFx.cpp">
-      <Filter>GameName\Object\ScreemEffect\Frame</Filter>
+      <Filter>TOYALINE\Object\ScreemEffect\Frame</Filter>
     </ClCompile>
     <ClCompile Include="CameraFrame.cpp">
-      <Filter>GameName\Object\ScreemEffect\Frame</Filter>
+      <Filter>TOYALINE\Object\ScreemEffect\Frame</Filter>
     </ClCompile>
+    <ClCompile Include="DefaultAnim.cpp">
+      <Filter>Game\Object\Test\AnimationTest</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerAnim.cpp" />
+    <ClCompile Include="DefaultAnimController.cpp">
+      <Filter>Game\Object\Test\AnimationTest</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerAnimController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Runtime\Application.h">
@@ -510,7 +515,7 @@
       <Filter>Game\GameObject\public</Filter>
     </ClInclude>
     <ClInclude Include="Map.h">
-      <Filter>GameName\Object\Actor\Map</Filter>
+      <Filter>TOYALINE\Object\Actor\Map</Filter>
     </ClInclude>
     <ClInclude Include="Test.h">
       <Filter>Game\Object\Test</Filter>
@@ -519,13 +524,13 @@
       <Filter>Game\Object\BackGround</Filter>
     </ClInclude>
     <ClInclude Include="MainCamera.h">
-      <Filter>GameName\Object\Camera\MainCamera</Filter>
+      <Filter>TOYALINE\Object\Camera\MainCamera</Filter>
     </ClInclude>
     <ClInclude Include="TitleScene.h">
-      <Filter>GameName\Scene\Title</Filter>
+      <Filter>TOYALINE\Scene\Title</Filter>
     </ClInclude>
     <ClInclude Include="ResultScene.h">
-      <Filter>GameName\Scene\Result</Filter>
+      <Filter>TOYALINE\Scene\Result</Filter>
     </ClInclude>
     <ClInclude Include="Test2.h">
       <Filter>Game\Object\Test</Filter>
@@ -561,7 +566,7 @@
       <Filter>Engine\Runtime\Core\Data\MapData</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>GameName\Object\Charactor\Player</Filter>
+      <Filter>TOYALINE\Object\Charactor\Player</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Math\Vector.h">
       <Filter>Engine\Math\Public</Filter>
@@ -570,25 +575,25 @@
       <Filter>Game\Script\LandTile</Filter>
     </ClInclude>
     <ClInclude Include="TileColumn.h">
-      <Filter>GameName\Object\Actor\Map\Tile</Filter>
+      <Filter>TOYALINE\Object\Actor\Map\Tile</Filter>
     </ClInclude>
     <ClInclude Include="Tile.h">
-      <Filter>GameName\Object\Actor\Map\Tile</Filter>
+      <Filter>TOYALINE\Object\Actor\Map\Tile</Filter>
     </ClInclude>
     <ClInclude Include="MoveInfo.h">
-      <Filter>GameName\Object\Actor\Map</Filter>
+      <Filter>TOYALINE\Object\Actor\Map</Filter>
     </ClInclude>
     <ClInclude Include="MoveInfoList.h">
-      <Filter>GameName\Object\Actor\Map</Filter>
+      <Filter>TOYALINE\Object\Actor\Map</Filter>
     </ClInclude>
     <ClInclude Include="MoveManager.h">
-      <Filter>GameName\Object\Actor\Map</Filter>
+      <Filter>TOYALINE\Object\Actor\Map</Filter>
     </ClInclude>
     <ClInclude Include="Fade.h">
-      <Filter>GameName\Object\ScreemEffect\Fade</Filter>
+      <Filter>TOYALINE\Object\ScreemEffect\Fade</Filter>
     </ClInclude>
     <ClInclude Include="SelectScene.h">
-      <Filter>GameName\Scene</Filter>
+      <Filter>TOYALINE\Scene</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Runtime\Core\TextureCoordinate.h">
       <Filter>Engine\Runtime\Core\Data\TexCoord</Filter>
@@ -599,31 +604,33 @@
     <ClInclude Include="Engine\Create\Animation.h">
       <Filter>Engine\Create\Public</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerAnim.h">
-      <Filter>GameName\Object\Charactor\Player\Animation</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\Component\Miscellaneous\Animator.h">
       <Filter>Engine\Component\Public\Miscellaneous</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerAnimController.h">
-      <Filter>GameName\Object\Charactor\Player\Animation</Filter>
-    </ClInclude>
     <ClInclude Include="Table.h">
-      <Filter>GameName\Object\Actor\Road</Filter>
+      <Filter>TOYALINE\Object\Actor\Road</Filter>
     </ClInclude>
     <ClInclude Include="AnimTest.h">
       <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="ScreenFx.h">
-      <Filter>GameName\Object\ScreemEffect\Frame</Filter>
+      <Filter>TOYALINE\Object\ScreemEffect\Frame</Filter>
     </ClInclude>
     <ClInclude Include="CameraFrame.h">
-      <Filter>GameName\Object\ScreemEffect\Frame</Filter>
+      <Filter>TOYALINE\Object\ScreemEffect\Frame</Filter>
     </ClInclude>
+    <ClInclude Include="DefaultAnim.h">
+      <Filter>Game\Object\Test\AnimationTest</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerAnim.h" />
+    <ClInclude Include="DefaultAnimController.h">
+      <Filter>Game\Object\Test\AnimationTest</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerAnimController.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="README.txt">
-      <Filter>GameName</Filter>
+      <Filter>TOYALINE</Filter>
     </Text>
   </ItemGroup>
   <ItemGroup>

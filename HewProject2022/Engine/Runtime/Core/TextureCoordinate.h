@@ -59,7 +59,6 @@ public:
 
 	}
 
-
 public:
 	float LeftU;
 	float RightU;

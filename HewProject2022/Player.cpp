@@ -9,22 +9,23 @@ Player::Player(string in_Name) :Character(in_Name)
 bool Player::Start()
 {
 	//最高速度
-	m_maxMoveSpeedX = 7.5f;
+	m_maxMoveSpeedX = 2.0f;
 	//加速度
-	m_accelForceX = m_maxMoveSpeedX * 0.03f;
+	m_accelForceX = m_maxMoveSpeedX * 0.05f;
 	//摩擦力
-	m_stopForceX = m_accelForceX * 0.8f;
+	m_stopForceX = m_accelForceX * 0.95f;
 	//ジャンプ力
 	m_jumpForce = 0.0f;
 	//ジャンプフラグ
 	m_jumpFlg = false;
 
+
 	/*	スプライト初期化	*/
-	m_SpriteRenderer->SpriteName = "ch2";
+	m_SpriteRenderer->SpriteName = "Character_2";
 	m_SpriteRenderer->Init();
 
 	transform->Position.Set(0.0f, 500.0f, 0.0f);
-	transform->Scale.Set(0.12f, 0.12f, 0.12f);
+	transform->Scale.Set(0.07f, 0.07f, 0.07f);
 
 	/*	リジットボディーコンポーネント	*/
 	AddComponent<GameEngine::Rigidbody2d>();
@@ -37,6 +38,8 @@ bool Player::Start()
 	Col->SetSize(0.75f, 0.7f);
 	Col->SetOffset(0.25f, 0.3f);
 
+	/*	アニメーションコンポーネント	*/
+	AddComponent<Animator>(&m_PlayerAnimController);
 	return true;
 }
 
@@ -54,6 +57,9 @@ void Player::SpeedControl()
 		m_moveSpeed.x -= m_stopForceX;
 
 		if (m_moveSpeed.x < 0.0f) { // 減速しすぎてマイナスになったら
+			//待機アニメーション
+			m_PlayerAnimController.AnimState = PlayerAnimController::PLAYER_IDLE;
+			m_SpriteRenderer->Flip = false;
 			m_moveSpeed.x = 0.0f;  // 停止させる
 		}
 	}
@@ -61,6 +67,9 @@ void Player::SpeedControl()
 		m_moveSpeed.x += m_stopForceX;
 
 		if (m_moveSpeed.x > 0.0f) { // 減速しすぎてプラスになったら
+			//待機アニメーション
+			m_PlayerAnimController.AnimState = PlayerAnimController::PLAYER_IDLE;
+			m_SpriteRenderer->Flip = true;
 			m_moveSpeed.x = 0.0f;  // 停止させる
 		}
 	}
@@ -85,34 +94,32 @@ void Player::Move()
 	SpeedControl();
 
 	//コントローラ左右方向移動
-	if (Input::GetControllerLeftStick().x < 0.0f && GetComponent<BoxCollider2D>()->GetisHit_leftBlock() == false)
+	if ((Input::GetControllerLeftStick().x < 0.0f || Input::GetKeyPress(PK_A) == true) &&
+		GetComponent<BoxCollider2D>()->GetisHit_leftBlock() == false)
 	{
 		Accelerate(CHAR_MOVE_LEFT);
 		transform->Position.x += m_moveSpeed.x;
-	}
-	if (Input::GetControllerLeftStick().x > 0.0f && GetComponent<BoxCollider2D>()->GetisHit_rightBlock() == false)
-	{
-		Accelerate(CHAR_MOVE_RIGHT);
-		transform->Position.x += m_moveSpeed.x;
+		//歩くアニメーション
+		m_PlayerAnimController.AnimState = PlayerAnimController::PLAYER_WALK;
+		m_SpriteRenderer->Flip = true;	//テクスチャフリップ
 	}
 
-	//キーボード左右移動
-	if (Input::GetKeyPress(PK_A) == true && GetComponent<BoxCollider2D>()->GetisHit_leftBlock() == false)
+	if ((Input::GetControllerLeftStick().x > 0.0f || Input::GetKeyPress(PK_D) == true) &&
+		GetComponent<BoxCollider2D>()->GetisHit_rightBlock() == false)
 	{
-		Accelerate(CHAR_MOVE_LEFT);
-		transform->Position.x += m_moveSpeed.x;
-	}
-	if (Input::GetKeyPress(PK_D) == true && GetComponent<BoxCollider2D>()->GetisHit_rightBlock() == false)
-	{
+
 		Accelerate(CHAR_MOVE_RIGHT);
 		transform->Position.x += m_moveSpeed.x;
+		//歩くアニメーション
+		m_PlayerAnimController.AnimState = PlayerAnimController::PLAYER_WALK;
+		m_SpriteRenderer->Flip = false;	//テクスチャフリップ
 	}
 }
 
 void Player::Jump()
 {
-	if ((Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true || Input::GetKeyTrigger(VK_SPACE) == true)
-		&& m_jumpFlg == false)//小ジャンプ
+	if ((Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true || Input::GetKeyTrigger(VK_SPACE) == true) &&
+		m_jumpFlg == false)//小ジャンプ
 	{
 		m_jumpFlg = true;
 		m_jumpForce = -15.0f;//ジャンプするために重力をマイナスにする
@@ -124,6 +131,8 @@ void Player::Jump()
 
 		m_jumpForce = 0;
 		m_jumpFlg = false;
+		//m_PlayerAnimController.AnimState = PlayerAnimController::PLAYER_IDLE;
+
 	}
 
 	if (GetComponent<BoxCollider2D>()->GetisHit_overBlock() == true) {//頭ぶつけたら
@@ -131,6 +140,9 @@ void Player::Jump()
 	}
 
 	if (GetComponent<BoxCollider2D>()->GetisHit() == false) {//宙に浮いてたら
+		//ジャンプアニメーション
+		m_PlayerAnimController.AnimState = PlayerAnimController::PLAYER_JUMP;
+
 		GetComponent<BoxCollider2D>()->SetisHit_underBlock(false);
 	}
 

@@ -4,29 +4,29 @@ bool PlayerAnimController::Init()
 {
 	Anim = make_shared<PlayerAnim>();
 	Anim->Init();
-	AnimState = P_LEFT;
+	AnimState = PLAYER_IDLE;
 
 	return true;
+
 }
 
 void PlayerAnimController::Update()
 {
 	switch (AnimState)
 	{
-	case P_LEFT:
-		Anim->Play("LeftWalk");
+	case PLAYER_WALK:
+		Anim->Play("Walk");
 		break;
 
-	case P_RIGHT:
-		Anim->Play("RightWalk");
+	case PLAYER_IDLE:
+		Anim->Play("Idle");
 		break;
 
-	case P_UP:
-		Anim->Play("UpWalk");
+	case PLAYER_DOWN:
 		break;
 
-	case P_DOWN:
-		Anim->Play("DownWalk");
+	case PLAYER_JUMP:
+		Anim->Play("Jump");
 		break;
 
 	default:

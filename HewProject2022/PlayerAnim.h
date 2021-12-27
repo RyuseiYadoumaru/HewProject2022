@@ -1,30 +1,36 @@
 #pragma once
 #include "ydmEngine.h"
 
-/* 方向 */
-enum KIND
+using Create::Animation;
+
+
+
+/****	アニメーション	****/
+class PlayerAnim : public Animation
 {
-	DOWN,  // 下方向
-	LEFT,  // 左方向
-	RIGHT, // 右方向
-	UP,    // 上方向
+public:
+	/*	種類	*/
+	enum KIND
+	{
+		IDLE,
+		WALK,
+		JUMP,
+		DOWN,
+		KIND_MAX
+	};
 
-	KIND_MAX
-};
+	/*	パターン	*/
+	enum FRAME
+	{
+		ANIM_1,
+		ANIM_2,
+		ANIM_3,
+		ANIM_4,
 
-/* パターン */
-enum FRAME
-{
-	ANIM_1, // アニメーション1
-	ANIM_2, // アニメーション2
-	ANIM_3, // アニメーション3
+		ANIM_MAX
+	};
 
-	FRAME_MAX
 
-};
-
-class PlayerAnim : public Create::Animation
-{
 public:
 	void Init() override;
 

@@ -1,23 +1,19 @@
 #pragma once
 #include "ydmEngine.h"
 #include "PlayerAnim.h"
-
-using Create::AnimationController;
-
-
-enum
+class PlayerAnimController : public Create::AnimationController
 {
-	P_LEFT,
-	P_RIGHT,
-	P_UP,
-	P_DOWN
-};
+public:
+	enum
+	{
+		PLAYER_WALK,
+		PLAYER_IDLE,
+		PLAYER_JUMP,
+		PLAYER_DOWN,
+	};
 
-class PlayerAnimController : public AnimationController
-{
 public:
 	bool Init() override;
 	void Update() override;
-
 };
 

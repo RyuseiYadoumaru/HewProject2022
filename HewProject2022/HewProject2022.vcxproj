@@ -196,7 +196,9 @@
     <ClCompile Include="MoveInfoList.cpp" />
     <ClCompile Include="MoveManager.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="DefaultAnim.cpp" />
     <ClCompile Include="PlayerAnim.cpp" />
+    <ClCompile Include="DefaultAnimController.cpp" />
     <ClCompile Include="PlayerAnimController.cpp" />
     <ClCompile Include="ProtScene.cpp" />
     <ClCompile Include="ResultScene.cpp" />
@@ -269,7 +271,9 @@
     <ClInclude Include="MoveInfoList.h" />
     <ClInclude Include="MoveManager.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="DefaultAnim.h" />
     <ClInclude Include="PlayerAnim.h" />
+    <ClInclude Include="DefaultAnimController.h" />
     <ClInclude Include="PlayerAnimController.h" />
     <ClInclude Include="ProtScene.h" />
     <ClInclude Include="ResultScene.h" />

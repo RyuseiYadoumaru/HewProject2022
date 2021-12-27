@@ -30,6 +30,7 @@ Create::Animation::Animation()
 //==============================================================================
 void Create::Animation::Init()
 {
+
 	/*	スピード設定	*/
 	m_speed = 1.0f;
 
@@ -48,9 +49,8 @@ void Create::Animation::Init()
 void Create::Animation::Play(std::string AnimName)
 {
 	//現在のアニメーション
-	std::vector<int> NowTable = AnimationList[AnimName];
-	// 種類設定
-	m_kind = NowTable[0];
+	std::vector<int> NowTable = AnimationTableList[AnimName].m_Frame;
+	std::vector<int> NowKind = AnimationTableList[AnimName].m_Kind;
 
 	// デルタタイムを取得し加算
 	SystemTimer* Timer = SystemTimer::Instance();
@@ -62,13 +62,15 @@ void Create::Animation::Play(std::string AnimName)
 	// アニメーションループ
 	if (NowTable[AnimationCounter] == ANIMATION_LOOP)
 	{
-		AnimationCounter = 1;
+		AnimationCounter = 0;
 		m_time = 0;
 	}
 
+	//アニメーション種類更新
+	m_kind = NowKind[AnimationCounter];
+
 	// アニメーションテーブル更新
 	m_animationFrame = NowTable[AnimationCounter];
-
 }
 
 //==============================================================================
@@ -77,8 +79,13 @@ void Create::Animation::Play(std::string AnimName)
 //!	@param	アニメーションテーブル
 //!	@retva	
 //==============================================================================
-void Create::Animation::CreateAnimation(std::string in_Name, std::vector<int> in_AnimTable)
-{
-	AnimationList.insert(std::make_pair(in_Name, in_AnimTable));
+//void Create::Animation::CreateAnimation(std::string in_Name, std::vector<int> in_AnimTable)
+//{
+//	AnimationList.insert(std::make_pair(in_Name, in_AnimTable));
+//
+//}
 
+void Create::Animation::CreateAnimation(std::string in_Name, ::AnimationTable in_AnimTable)
+{
+	AnimationTableList.insert(std::make_pair(in_Name, in_AnimTable));
 }

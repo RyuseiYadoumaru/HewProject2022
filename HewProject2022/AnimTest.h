@@ -1,6 +1,6 @@
 #pragma once
 #include "ydmEngine.h"
-#include "PlayerAnimController.h"
+#include "DefaultAnimController.h"
 using Create::Character;
 
 class AnimTest : public Character
@@ -10,7 +10,7 @@ public:
 	bool Start()override;
 	bool Update() override;
 
-	PlayerAnimController P_AnimController;
+	DefaultAnimController P_AnimController;
 
 };
 

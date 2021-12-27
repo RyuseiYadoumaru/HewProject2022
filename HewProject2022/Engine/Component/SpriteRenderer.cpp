@@ -34,6 +34,8 @@ GameEngine::SpriteRenderer::SpriteRenderer() : Renderer()
 	TexCoord.SetSize(1.0f, 1.0f);
 	TexCoord.SetTiling(UTiling, VTiling);
 	Size.Set(0.0f, 0.0f);
+	Flip = false;
+	m_saveFlip = Flip;
 }
 
 //==============================================================================
@@ -114,14 +116,21 @@ bool GameEngine::SpriteRenderer::Update()
 	TexCoord.SetPattarn(UTiling, VTiling);
 
 	/****	頂点座標	****/
-	VERTEX vertex[VERTEX_NUM] =
+	VERTEX vertex[VERTEX_NUM];
+	if (Flip == false)
 	{
-		XMFLOAT3(Rect.GetButtomLeft().x, Rect.GetButtomLeft().y, 0.0f),	XMFLOAT4(Color.r,Color.g,Color.b,Color.a),	XMFLOAT2(TexCoord.LeftU, TexCoord.ButtomV),
-		XMFLOAT3(Rect.GetTopLeft().x,	 Rect.GetTopLeft().y,	 0.0f),	XMFLOAT4(Color.r,Color.g,Color.b,Color.a),	XMFLOAT2(TexCoord.LeftU, TexCoord.TopV),
-		XMFLOAT3(Rect.GetButtomRight().x,Rect.GetButtomRight().y,0.0f),	XMFLOAT4(Color.r,Color.g,Color.b,Color.a),	XMFLOAT2(TexCoord.RightU,TexCoord.ButtomV),
-		XMFLOAT3(Rect.GetTopRight().x,	 Rect.GetTopRight().y,	 0.0f),	XMFLOAT4(Color.r,Color.g,Color.b,Color.a),	XMFLOAT2(TexCoord.RightU,TexCoord.TopV)
-
-	};
+		vertex[0] = { XMFLOAT3(Rect.GetButtomLeft().x, Rect.GetButtomLeft().y, 0.0f),	XMFLOAT4(Color.r, Color.g, Color.b, Color.a), XMFLOAT2(TexCoord.LeftU, TexCoord.ButtomV) };
+		vertex[1] = { XMFLOAT3(Rect.GetTopLeft().x,	 Rect.GetTopLeft().y,	 0.0f),		XMFLOAT4(Color.r,Color.g,Color.b,Color.a),	XMFLOAT2(TexCoord.LeftU, TexCoord.TopV) };
+		vertex[2] = { XMFLOAT3(Rect.GetButtomRight().x,Rect.GetButtomRight().y,0.0f),	XMFLOAT4(Color.r,Color.g,Color.b,Color.a),	XMFLOAT2(TexCoord.RightU,TexCoord.ButtomV) };
+		vertex[3] = { XMFLOAT3(Rect.GetTopRight().x,	 Rect.GetTopRight().y,	 0.0f),	XMFLOAT4(Color.r,Color.g,Color.b,Color.a),	XMFLOAT2(TexCoord.RightU,TexCoord.TopV) };
+	}
+	else
+	{
+		vertex[0] = { XMFLOAT3(Rect.GetButtomLeft().x, Rect.GetButtomLeft().y, 0.0f), XMFLOAT4(Color.r, Color.g, Color.b, Color.a), XMFLOAT2(TexCoord.RightU, TexCoord.ButtomV) };
+		vertex[1] = { XMFLOAT3(Rect.GetTopLeft().x,	 Rect.GetTopLeft().y,	 0.0f),	XMFLOAT4(Color.r,Color.g,Color.b,Color.a),		XMFLOAT2(TexCoord.RightU, TexCoord.TopV) };
+		vertex[2] = { XMFLOAT3(Rect.GetButtomRight().x,Rect.GetButtomRight().y,0.0f),	XMFLOAT4(Color.r,Color.g,Color.b,Color.a),	XMFLOAT2(TexCoord.LeftU,TexCoord.ButtomV) };
+		vertex[3] = { XMFLOAT3(Rect.GetTopRight().x,	 Rect.GetTopRight().y,	 0.0f),	XMFLOAT4(Color.r,Color.g,Color.b,Color.a),	XMFLOAT2(TexCoord.LeftU,TexCoord.TopV) };
+	}
 
 	/****	頂点データ更新	****/
 

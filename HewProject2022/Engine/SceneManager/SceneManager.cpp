@@ -29,8 +29,45 @@ GameEngine::SceneManager::SceneManager()
 	CreateScene("ResultScene", new GamePlay::ResultScene);
 	CreateScene("ProtScene", new ProtScene);
 	//ŽO–ØŒ´’Ç‰Á
-	CreateScene("StageSelectScene", new GamePlay::SelectScene);
-	NextScene = SceneList["ProtScene"];
+	CreateScene("WorldSelectScene", new GamePlay::SelectScene);
+	CreateScene("World1StageSelectScene", new GamePlay::World1StageSelectScene);
+	CreateScene("World2StageSelectScene", new GamePlay::World2StageSelectScene);
+	CreateScene("World3StageSelectScene", new GamePlay::World3StageSelectScene);
+	CreateScene("World4StageSelectScene", new GamePlay::World4StageSelectScene);
+	CreateScene("World5StageSelectScene", new GamePlay::World5StageSelectScene);
+	CreateScene("World6StageSelectScene", new GamePlay::World6StageSelectScene);
+	CreateScene("Stage1", new GamePlay::Stage1Scene);
+	CreateScene("Stage2", new GamePlay::Stage2Scene);
+	CreateScene("Stage3", new GamePlay::Stage3Scene);
+	CreateScene("Stage4", new GamePlay::Stage4Scene);
+	CreateScene("Stage5", new GamePlay::Stage5Scene);
+	CreateScene("Stage6", new GamePlay::Stage6Scene);
+	CreateScene("Stage7", new GamePlay::Stage7Scene);
+	CreateScene("Stage8", new GamePlay::Stage8Scene);
+	CreateScene("Stage9", new GamePlay::Stage9Scene);
+	CreateScene("Stage10", new GamePlay::Stage10Scene);
+	CreateScene("Stage11", new GamePlay::Stage11Scene);
+	CreateScene("Stage12", new GamePlay::Stage12Scene);
+	CreateScene("Stage13", new GamePlay::Stage13Scene);
+	CreateScene("Stage14", new GamePlay::Stage14Scene);
+	CreateScene("Stage15", new GamePlay::Stage15Scene);
+	CreateScene("Stage16", new GamePlay::Stage16Scene);
+	CreateScene("Stage17", new GamePlay::Stage17Scene);
+	CreateScene("Stage18", new GamePlay::Stage18Scene);
+	CreateScene("Stage19", new GamePlay::Stage19Scene);
+	CreateScene("Stage20", new GamePlay::Stage20Scene);
+	CreateScene("Stage21", new GamePlay::Stage21Scene);
+	CreateScene("Stage22", new GamePlay::Stage22Scene);
+	CreateScene("Stage23", new GamePlay::Stage23Scene);
+	CreateScene("Stage24", new GamePlay::Stage24Scene);
+	CreateScene("Stage25", new GamePlay::Stage25Scene);
+	CreateScene("Stage26", new GamePlay::Stage26Scene);
+	CreateScene("Stage27", new GamePlay::Stage27Scene);
+	CreateScene("Stage28", new GamePlay::Stage28Scene);
+	CreateScene("Stage29", new GamePlay::Stage29Scene);
+	CreateScene("Stage30", new GamePlay::Stage30Scene);
+
+	NextScene = SceneList["TitleScene"];
 }
 
 //==============================================================================

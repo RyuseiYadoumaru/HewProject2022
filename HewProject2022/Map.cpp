@@ -284,6 +284,13 @@ void Map::CreateMap()
 				CreateTile(Pos, "gr", MAPOBJ::C3);
 				break;
 
+			case C4:
+				CreateTile(Pos, "or", MAPOBJ::C4);
+				break;
+			case C5:
+				CreateTile(Pos, "ye", MAPOBJ::C5);
+				break;
+
 			case GR:
 				//CreateTile(Pos, "NormalBlock", MAPOBJ::GR);
 				break;

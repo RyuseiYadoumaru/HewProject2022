@@ -151,18 +151,6 @@
     <Filter Include="TOYALINE">
       <UniqueIdentifier>{3525c8a5-19b8-42d6-ad04-d339c4edfdc7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TOYALINE\Scene">
-      <UniqueIdentifier>{b775f2fa-c20d-4807-b23b-dca813f46d7b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\Scene\Title">
-      <UniqueIdentifier>{5f78f9e5-d597-4b05-80ba-e79a622d88c7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\Scene\MainGame">
-      <UniqueIdentifier>{ce91e3ea-2bf7-4977-b185-3d9e535b3fe5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\Scene\Result">
-      <UniqueIdentifier>{957429cc-c006-41b0-b835-9abdbd27da6d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="TOYALINE\Object">
       <UniqueIdentifier>{c2238518-3581-4c84-9bac-f458ee20fdfb}</UniqueIdentifier>
     </Filter>
@@ -217,9 +205,6 @@
     <Filter Include="TOYALINE\Object\Player\Animation">
       <UniqueIdentifier>{f3a4d433-624b-4765-8f0b-5eede4cf2672}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameName\Scene\Stage">
-      <UniqueIdentifier>{94ae6283-dae4-40a4-9d0b-34800253cf47}</UniqueIdentifier>
-    </Filter>
     <Filter Include="GameName\Scene\Stage\World1">
       <UniqueIdentifier>{704f07f3-6a0e-4ed0-9fd6-9c2deaff316a}</UniqueIdentifier>
     </Filter>
@@ -238,8 +223,50 @@
     <Filter Include="GameName\Scene\Stage\World6">
       <UniqueIdentifier>{523cb1c5-4f6f-40ed-ae4e-cb06775b2900}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameName\Scene\WorldStageSelectScene">
-      <UniqueIdentifier>{85b14301-5624-4595-9dbd-45861f03aa38}</UniqueIdentifier>
+    <Filter Include="TOYALINE\World1\Scene">
+      <UniqueIdentifier>{c831829e-2dd1-457c-976d-36a6338d4b89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\World2">
+      <UniqueIdentifier>{969bb4e7-6325-40b8-8ead-ac2684ec6288}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\World2\Scene">
+      <UniqueIdentifier>{c58eab8a-34a7-4bca-bc93-1201900e73f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\World3">
+      <UniqueIdentifier>{31aa29ad-0e1f-4d44-b772-23ddf99606f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\World3\Scene">
+      <UniqueIdentifier>{0a1d7490-0f77-4517-9740-5187f13ad396}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\World4">
+      <UniqueIdentifier>{6e493f1a-c24d-4a80-b240-ff7289ceadbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\World4\Scene">
+      <UniqueIdentifier>{478efb96-d714-4ff5-bf1c-8511f903bc5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\World5">
+      <UniqueIdentifier>{b4767890-2839-4395-a866-1f06425dc453}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\World5\Scene">
+      <UniqueIdentifier>{6068bf4b-1259-4355-9c3a-5bbb0f1c62c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\World6">
+      <UniqueIdentifier>{8771b7af-35f4-4169-87e0-b58e60dbfecd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\World6\Scene">
+      <UniqueIdentifier>{5c9def62-f638-4b5a-9855-48078f96f02c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\StageSelect">
+      <UniqueIdentifier>{999dd4e8-5d73-4e1f-9435-8db426486776}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\WorldSelectScene">
+      <UniqueIdentifier>{d4c44244-0df3-4d9b-8900-ea1f91a1c13b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\TitleScene">
+      <UniqueIdentifier>{0b0598a4-11af-4528-8b39-fc3ba654aa92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Result">
+      <UniqueIdentifier>{957429cc-c006-41b0-b835-9abdbd27da6d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -348,11 +375,8 @@
     <ClCompile Include="MainCamera.cpp">
       <Filter>TOYALINE\Object\Camera\MainCamera</Filter>
     </ClCompile>
-    <ClCompile Include="TitleScene.cpp">
-      <Filter>TOYALINE\Scene\Title</Filter>
-    </ClCompile>
     <ClCompile Include="ResultScene.cpp">
-      <Filter>TOYALINE\Scene\Result</Filter>
+      <Filter>TOYALINE\Result</Filter>
     </ClCompile>
     <ClCompile Include="Test2.cpp">
       <Filter>Game\Object\Test</Filter>
@@ -401,9 +425,6 @@
     </ClCompile>
     <ClCompile Include="Fade.cpp">
       <Filter>TOYALINE\Object\ScreemEffect\Fade</Filter>
-    </ClCompile>
-    <ClCompile Include="SelectScene.cpp">
-      <Filter>TOYALINE\Scene</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Create\AnimationController.cpp">
       <Filter>Engine\Create\Private</Filter>
@@ -530,22 +551,28 @@
       <Filter>GameName\Scene\Stage\World6</Filter>
     </ClCompile>
     <ClCompile Include="World1StageSelectScene.cpp">
-      <Filter>GameName\Scene\WorldStageSelectScene</Filter>
+      <Filter>TOYALINE\StageSelect</Filter>
     </ClCompile>
     <ClCompile Include="World2StageSelectScene.cpp">
-      <Filter>GameName\Scene\WorldStageSelectScene</Filter>
+      <Filter>TOYALINE\StageSelect</Filter>
     </ClCompile>
     <ClCompile Include="World3StageSelectScene.cpp">
-      <Filter>GameName\Scene\WorldStageSelectScene</Filter>
+      <Filter>TOYALINE\StageSelect</Filter>
     </ClCompile>
     <ClCompile Include="World4StageSelectScene.cpp">
-      <Filter>GameName\Scene\WorldStageSelectScene</Filter>
+      <Filter>TOYALINE\StageSelect</Filter>
     </ClCompile>
     <ClCompile Include="World5StageSelectScene.cpp">
-      <Filter>GameName\Scene\WorldStageSelectScene</Filter>
+      <Filter>TOYALINE\StageSelect</Filter>
     </ClCompile>
     <ClCompile Include="World6StageSelectScene.cpp">
-      <Filter>GameName\Scene\WorldStageSelectScene</Filter>
+      <Filter>TOYALINE\StageSelect</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectScene.cpp">
+      <Filter>TOYALINE\WorldSelectScene</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleScene.cpp">
+      <Filter>TOYALINE\TitleScene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -669,11 +696,8 @@
     <ClInclude Include="MainCamera.h">
       <Filter>TOYALINE\Object\Camera\MainCamera</Filter>
     </ClInclude>
-    <ClInclude Include="TitleScene.h">
-      <Filter>TOYALINE\Scene\Title</Filter>
-    </ClInclude>
     <ClInclude Include="ResultScene.h">
-      <Filter>TOYALINE\Scene\Result</Filter>
+      <Filter>TOYALINE\Result</Filter>
     </ClInclude>
     <ClInclude Include="Test2.h">
       <Filter>Game\Object\Test</Filter>
@@ -735,9 +759,6 @@
     <ClInclude Include="Fade.h">
       <Filter>TOYALINE\Object\ScreemEffect\Fade</Filter>
     </ClInclude>
-    <ClInclude Include="SelectScene.h">
-      <Filter>TOYALINE\Scene</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\Runtime\Core\TextureCoordinate.h">
       <Filter>Engine\Runtime\Core\Data\TexCoord</Filter>
     </ClInclude>
@@ -775,6 +796,123 @@
       <Filter>TOYALINE\Object\Player\Animation</Filter>
     </ClInclude>
     <ClInclude Include="AnimTest.h" />
+    <ClInclude Include="Stage1.h">
+      <Filter>TOYALINE\World1\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage5.h">
+      <Filter>TOYALINE\World1\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage4.h">
+      <Filter>TOYALINE\World1\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage3.h">
+      <Filter>TOYALINE\World1\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage2.h">
+      <Filter>TOYALINE\World1\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage6.h">
+      <Filter>TOYALINE\World2\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage7.h">
+      <Filter>TOYALINE\World2\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage8.h">
+      <Filter>TOYALINE\World2\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage9.h">
+      <Filter>TOYALINE\World2\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage10.h">
+      <Filter>TOYALINE\World2\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage11.h">
+      <Filter>TOYALINE\World3\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage12.h">
+      <Filter>TOYALINE\World3\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage13.h">
+      <Filter>TOYALINE\World3\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage14.h">
+      <Filter>TOYALINE\World3\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage15.h">
+      <Filter>TOYALINE\World3\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage16.h">
+      <Filter>TOYALINE\World4\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage17.h">
+      <Filter>TOYALINE\World4\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage18.h">
+      <Filter>TOYALINE\World4\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage19.h">
+      <Filter>TOYALINE\World4\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage20.h">
+      <Filter>TOYALINE\World4\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage21.h">
+      <Filter>TOYALINE\World5\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage22.h">
+      <Filter>TOYALINE\World5\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage23.h">
+      <Filter>TOYALINE\World5\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage24.h">
+      <Filter>TOYALINE\World5\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage25.h">
+      <Filter>TOYALINE\World5\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage26.h">
+      <Filter>TOYALINE\World6\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage27.h">
+      <Filter>TOYALINE\World6\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage28.h">
+      <Filter>TOYALINE\World6\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage29.h">
+      <Filter>TOYALINE\World6\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage30.h">
+      <Filter>TOYALINE\World6\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="World1StageSelectScene.h">
+      <Filter>TOYALINE\StageSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="World2StageSelectScene.h">
+      <Filter>TOYALINE\StageSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="World3StageSelectScene.h">
+      <Filter>TOYALINE\StageSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="World4StageSelectScene.h">
+      <Filter>TOYALINE\StageSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="World5StageSelectScene.h">
+      <Filter>TOYALINE\StageSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="World6StageSelectScene.h">
+      <Filter>TOYALINE\StageSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="StageList.h">
+      <Filter>TOYALINE\StageSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectScene.h">
+      <Filter>TOYALINE\WorldSelectScene</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleScene.h">
+      <Filter>TOYALINE\TitleScene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="README.txt">

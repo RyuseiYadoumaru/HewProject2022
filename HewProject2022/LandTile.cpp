@@ -41,10 +41,6 @@ bool LandTile::Update()
 	{
 		isChange = false;
 	}
-	//else if (mp_SaveLandingTile == nullptr && mp_LandingTile != nullptr)
-	//{
-	//	mp_SaveLandingTile = mp_LandingTile;
-	//}
 	return true;
 }
 

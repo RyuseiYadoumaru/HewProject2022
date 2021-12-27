@@ -202,6 +202,30 @@
     <Filter Include="GameName\Object\Charactor\Player\Animation">
       <UniqueIdentifier>{2e15be4c-292d-4bee-adb4-6faf3b58b9e6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameName\Scene\Stage">
+      <UniqueIdentifier>{94ae6283-dae4-40a4-9d0b-34800253cf47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameName\Scene\Stage\World1">
+      <UniqueIdentifier>{704f07f3-6a0e-4ed0-9fd6-9c2deaff316a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameName\Scene\Stage\World2">
+      <UniqueIdentifier>{d240f899-1752-45cd-a160-d27ba25771c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameName\Scene\Stage\World3">
+      <UniqueIdentifier>{e1fb8ded-43b3-48e9-abf7-05b38e2c40fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameName\Scene\Stage\World4">
+      <UniqueIdentifier>{b9dd555a-a1cd-4beb-9149-919902f03d20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameName\Scene\Stage\World5">
+      <UniqueIdentifier>{8e2163c8-d5ae-40f1-8534-5a2b2189db9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameName\Scene\Stage\World6">
+      <UniqueIdentifier>{523cb1c5-4f6f-40ed-ae4e-cb06775b2900}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameName\Scene\WorldStageSelectScene">
+      <UniqueIdentifier>{85b14301-5624-4595-9dbd-45861f03aa38}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Shader\psvsCommon.hlsl">
@@ -405,6 +429,114 @@
       <Filter>GameName\Object\Charactor\Player\Animation</Filter>
     </ClCompile>
     <ClCompile Include="AnimTest.cpp" />
+    <ClCompile Include="Stage1.cpp">
+      <Filter>GameName\Scene\Stage\World1</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage2.cpp">
+      <Filter>GameName\Scene\Stage\World1</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage3.cpp">
+      <Filter>GameName\Scene\Stage\World1</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage4.cpp">
+      <Filter>GameName\Scene\Stage\World1</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage5.cpp">
+      <Filter>GameName\Scene\Stage\World1</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage6.cpp">
+      <Filter>GameName\Scene\Stage\World2</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage7.cpp">
+      <Filter>GameName\Scene\Stage\World2</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage8.cpp">
+      <Filter>GameName\Scene\Stage\World2</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage9.cpp">
+      <Filter>GameName\Scene\Stage\World2</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage10.cpp">
+      <Filter>GameName\Scene\Stage\World2</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage11.cpp">
+      <Filter>GameName\Scene\Stage\World3</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage12.cpp">
+      <Filter>GameName\Scene\Stage\World3</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage13.cpp">
+      <Filter>GameName\Scene\Stage\World3</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage14.cpp">
+      <Filter>GameName\Scene\Stage\World3</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage15.cpp">
+      <Filter>GameName\Scene\Stage\World3</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage16.cpp">
+      <Filter>GameName\Scene\Stage\World4</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage17.cpp">
+      <Filter>GameName\Scene\Stage\World4</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage18.cpp">
+      <Filter>GameName\Scene\Stage\World4</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage19.cpp">
+      <Filter>GameName\Scene\Stage\World4</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage20.cpp">
+      <Filter>GameName\Scene\Stage\World4</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage21.cpp">
+      <Filter>GameName\Scene\Stage\World5</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage22.cpp">
+      <Filter>GameName\Scene\Stage\World5</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage23.cpp">
+      <Filter>GameName\Scene\Stage\World5</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage24.cpp">
+      <Filter>GameName\Scene\Stage\World5</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage25.cpp">
+      <Filter>GameName\Scene\Stage\World5</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage26.cpp">
+      <Filter>GameName\Scene\Stage\World6</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage27.cpp">
+      <Filter>GameName\Scene\Stage\World6</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage28.cpp">
+      <Filter>GameName\Scene\Stage\World6</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage29.cpp">
+      <Filter>GameName\Scene\Stage\World6</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage30.cpp">
+      <Filter>GameName\Scene\Stage\World6</Filter>
+    </ClCompile>
+    <ClCompile Include="World1StageSelectScene.cpp">
+      <Filter>GameName\Scene\WorldStageSelectScene</Filter>
+    </ClCompile>
+    <ClCompile Include="World2StageSelectScene.cpp">
+      <Filter>GameName\Scene\WorldStageSelectScene</Filter>
+    </ClCompile>
+    <ClCompile Include="World3StageSelectScene.cpp">
+      <Filter>GameName\Scene\WorldStageSelectScene</Filter>
+    </ClCompile>
+    <ClCompile Include="World4StageSelectScene.cpp">
+      <Filter>GameName\Scene\WorldStageSelectScene</Filter>
+    </ClCompile>
+    <ClCompile Include="World5StageSelectScene.cpp">
+      <Filter>GameName\Scene\WorldStageSelectScene</Filter>
+    </ClCompile>
+    <ClCompile Include="World6StageSelectScene.cpp">
+      <Filter>GameName\Scene\WorldStageSelectScene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Runtime\Application.h">
@@ -618,6 +750,117 @@
       <Filter>GameName\Object\Charactor\Player\Animation</Filter>
     </ClInclude>
     <ClInclude Include="AnimTest.h" />
+    <ClInclude Include="StageList.h">
+      <Filter>GameName\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage1.h">
+      <Filter>GameName\Scene\Stage\World1</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage2.h">
+      <Filter>GameName\Scene\Stage\World1</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage3.h">
+      <Filter>GameName\Scene\Stage\World1</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage4.h">
+      <Filter>GameName\Scene\Stage\World1</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage5.h">
+      <Filter>GameName\Scene\Stage\World1</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage6.h">
+      <Filter>GameName\Scene\Stage\World2</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage7.h">
+      <Filter>GameName\Scene\Stage\World2</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage8.h">
+      <Filter>GameName\Scene\Stage\World2</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage9.h">
+      <Filter>GameName\Scene\Stage\World2</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage10.h">
+      <Filter>GameName\Scene\Stage\World2</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage11.h">
+      <Filter>GameName\Scene\Stage\World3</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage12.h">
+      <Filter>GameName\Scene\Stage\World3</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage13.h">
+      <Filter>GameName\Scene\Stage\World3</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage14.h">
+      <Filter>GameName\Scene\Stage\World3</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage15.h">
+      <Filter>GameName\Scene\Stage\World3</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage16.h">
+      <Filter>GameName\Scene\Stage\World4</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage17.h">
+      <Filter>GameName\Scene\Stage\World4</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage18.h">
+      <Filter>GameName\Scene\Stage\World4</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage19.h">
+      <Filter>GameName\Scene\Stage\World4</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage20.h">
+      <Filter>GameName\Scene\Stage\World4</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage21.h">
+      <Filter>GameName\Scene\Stage\World5</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage22.h">
+      <Filter>GameName\Scene\Stage\World5</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage23.h">
+      <Filter>GameName\Scene\Stage\World5</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage24.h">
+      <Filter>GameName\Scene\Stage\World5</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage25.h">
+      <Filter>GameName\Scene\Stage\World5</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage26.h">
+      <Filter>GameName\Scene\Stage\World6</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage27.h">
+      <Filter>GameName\Scene\Stage\World6</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage28.h">
+      <Filter>GameName\Scene\Stage\World6</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage29.h">
+      <Filter>GameName\Scene\Stage\World6</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage30.h">
+      <Filter>GameName\Scene\Stage\World6</Filter>
+    </ClInclude>
+    <ClInclude Include="World6StageSelectScene.h">
+      <Filter>GameName\Scene\WorldStageSelectScene</Filter>
+    </ClInclude>
+    <ClInclude Include="World1StageSelectScene.h">
+      <Filter>GameName\Scene\WorldStageSelectScene</Filter>
+    </ClInclude>
+    <ClInclude Include="World2StageSelectScene.h">
+      <Filter>GameName\Scene\WorldStageSelectScene</Filter>
+    </ClInclude>
+    <ClInclude Include="World3StageSelectScene.h">
+      <Filter>GameName\Scene\WorldStageSelectScene</Filter>
+    </ClInclude>
+    <ClInclude Include="World4StageSelectScene.h">
+      <Filter>GameName\Scene\WorldStageSelectScene</Filter>
+    </ClInclude>
+    <ClInclude Include="World5StageSelectScene.h">
+      <Filter>GameName\Scene\WorldStageSelectScene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="README.txt">

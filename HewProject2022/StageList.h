@@ -1,0 +1,17 @@
+#pragma once
+enum STAGE_NUMBER {
+	STAGE_01,
+	STAGE_02,
+	STAGE_03,
+	STAGE_04,
+	STAGE_05,
+};
+
+enum WORLD_NUMBER {
+	WORLD_01,
+	WORLD_02,
+	WORLD_03,
+	WORLD_04,
+	WORLD_05,
+	WORLD_06,
+};

@@ -109,7 +109,7 @@ bool Application::Init(HINSTANCE hInstance)
 	/****	DirectX11‰Šú‰»	****/
 	DirectXGraphics* DirectXGraphic = DirectXGraphics::Instance();
 
-	bool sts = DirectXGraphic->Init(window->GetHandle(), SCREEN_WIDTH, SCREEN_HEIGHT, false);
+	bool sts = DirectXGraphic->Init(window->GetHandle(), SCREEN_WIDTH, SCREEN_HEIGHT, true);
 	if (sts == false)
 	{
 		Log::LogError(window->GetHandle(), "DirectX‚Ì‰Šú‰»‚É¸”s‚µ‚Ü‚µ‚½");

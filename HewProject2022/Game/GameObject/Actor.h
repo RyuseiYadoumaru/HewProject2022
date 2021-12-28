@@ -28,6 +28,7 @@ namespace Create
 
 		virtual bool Render();
 
+		void SetSize(float in_SizeX, float in_SizeY);
 		void Sprite(std::string in_SpriteName);
 		void Vertex(std::string in_VertexName);
 		void Pixcel(std::string in_PixcelName);

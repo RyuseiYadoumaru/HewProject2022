@@ -16,6 +16,44 @@ bool GamePlay::Stage4Scene::Start()
 	m_ScreenEffect = make_shared<ScreenFx>("SFX");
 	m_CameraFrame = make_shared<CameraFrame>("CFX");
 
+	/*	背景初期化	*/
+	m_BackGround = make_shared<Actor>("Wall");
+#if 1
+	//m_BackGround->Vertex("vs_Ui");
+	m_BackGround->Sprite("Back_4");
+	//m_BackGround->SetSize(1920.0f * 3, 1080.0f * 3);
+	Instance(m_BackGround.get());
+	m_BackGround->transform->Scale.Set(5.0f, 5.0f, 5.0f);
+	m_BackGround->transform->Position.Set((1920.0f / 2.0f) * 3.0f, 1080.0f / 2.0f * 1.8f, 0.0f);
+
+#else
+	m_BackGround->Sprite("Living");
+	Instance(m_BackGround.get());
+	m_BackGround->transform->Scale.Set(5.0f, 5.0f, 10.0f);
+	m_BackGround->transform->Position.Set((1920 / 2) * 4, (1080.0f / 2) * 1.7, 0.0f);
+#endif // 0
+
+	/*	装飾品	*/
+	//窓
+	m_Window = make_shared<Actor>("Window");
+	m_Window->Sprite("Window");
+	Instance(m_Window.get());
+	m_Window->transform->Scale.Set(4.5f, 4.5f, 1.0f);
+	m_Window->transform->Position.Set(-200.0f, 950.0f, 0.0f);
+
+	//アクアリウム
+	m_Aquarium = make_shared<Actor>("Aquarium");
+	m_Aquarium->Sprite("Aquarium");
+	Instance(m_Aquarium.get());
+	m_Aquarium->transform->Position.Set(2750.0f, 750.0f, 0.0f);
+	m_Aquarium->transform->Scale.Set(4.5f, 4.5f, 3.0f);
+
+	//ドア
+	m_Door = make_shared<Actor>("door");
+	m_Door->Sprite("door");
+	Instance(m_Door.get());
+	m_Door->transform->Position.Set(5500.0f, 950.0f, 0.0f);
+	m_Door->transform->Scale.Set(4.5f, 4.5f, 3.0f);
 
 	//オブジェクト生成 初期化
 	m_stage4 = make_shared<Actor>("Stage-04");
@@ -98,6 +136,14 @@ bool GamePlay::Stage4Scene::Render()
 	/****	画面クリア	****/
 	ClearDisplay();
 
+	/****	背景	****/
+	m_BackGround->Render();
+
+	/****	装飾品	****/
+	m_Window->Render();
+	m_Aquarium->Render();
+	m_Door->Render();
+
 	/****	オブジェクト描画	****/
 	m_TableStart->Render();
 	m_TableEnd->Render();
@@ -105,8 +151,6 @@ bool GamePlay::Stage4Scene::Render()
 	m_Player->Render();
 	//m_stage4->Render();
 	//m_world1->Render();
-
-
 
 	/****	画面エフェクト	****/
 	m_Fade->Render();

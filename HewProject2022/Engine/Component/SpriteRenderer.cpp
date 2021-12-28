@@ -226,17 +226,6 @@ bool GameEngine::SpriteRenderer::Release()
 //!	@param	‰¡•
 //!	@param	c•
 //==============================================================================
-void GameEngine::SpriteRenderer::SetSize(float& in_X, float& in_Y)
-{
-	Size.Set(in_X, in_Y);
-}
-
-//==============================================================================
-//!	@fn		SetSize
-//!	@brief@‰æ‘œƒTƒCƒY”CˆÓİ’è
-//!	@param	‰¡•
-//!	@param	c•
-//==============================================================================
 void GameEngine::SpriteRenderer::SetSize(float in_X, float in_Y)
 {
 	Size.Set(in_X, in_Y);

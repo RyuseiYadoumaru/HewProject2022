@@ -38,7 +38,6 @@ namespace GameEngine
 		bool Release() override;
 
 	public:
-		void SetSize(float& in_X, float& in_Y);
 		void SetSize(float in_X, float in_Y);
 		void SetSize(float& in_Size);
 		Math::Vector2 GetSize();

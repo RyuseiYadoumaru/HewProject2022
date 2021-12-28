@@ -29,6 +29,14 @@ namespace GamePlay
 		shared_ptr<Table> m_TableStart;
 		shared_ptr<Table> m_TableEnd;
 
+		/*	背景	*/
+		shared_ptr<Actor> m_BackGround;
+
+		/*	装飾品	*/
+		shared_ptr<Actor> m_Window;
+		shared_ptr<Actor> m_Door;
+		shared_ptr<Actor> m_Aquarium;
+
 		/*	エフェクト	*/
 		shared_ptr<ScreenFx> m_ScreenEffect;
 		shared_ptr<CameraFrame> m_CameraFrame;

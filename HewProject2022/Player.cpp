@@ -19,7 +19,6 @@ bool Player::Start()
 	//ジャンプフラグ
 	m_jumpFlg = false;
 
-
 	/*	スプライト初期化	*/
 	m_SpriteRenderer->SpriteName = "Character_2";
 	m_SpriteRenderer->Init();

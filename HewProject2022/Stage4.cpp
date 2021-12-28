@@ -97,6 +97,11 @@ Scene::STATE GamePlay::Stage4Scene::Update()
 
 	/****	ブロック移動	****/
 	m_Map->CheckLandTile(&m_Player->m_LandTile);
+	if (m_Player->m_LandTile.GetisLandTile() == false ||
+		Input::GetControllerTrigger(XINPUT_GAMEPAD_X))
+	{
+		m_Map->MoveReset();
+	}
 
 	/****	オブジェクト更新	****/
 	ObjectUpdate();

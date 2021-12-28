@@ -29,6 +29,9 @@ public:
 	void Debug();
 	void SystemUpdate();
 
+	//三木原追加
+	void MoveReset();
+
 private:
 	void ColumnInit();			//列初期化
 	void ColumnUpdate();		//列更新
@@ -39,11 +42,10 @@ private:
 private:
 	void MoveUpdate();
 	void AddMoveManager(LandTile* in_LandTile);
-	//三木原追加
-	void MoveReset();
 	float m_ResetMoveValue;//リセット移動量
 	float m_ResetSpeed;//リセット速度
 	float m_ResetVectorY;
+	bool m_isReset = false;		//リセットフラグ
 
 public:
 	string m_MapDataName;

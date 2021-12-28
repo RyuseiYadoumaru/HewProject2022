@@ -4,6 +4,7 @@ using Math::Vector2;
 using Math::Vector3;
 using Create::Actor;
 
+#define TABLE_DISTANCE 5400
 class Table : public Actor
 {
 public:

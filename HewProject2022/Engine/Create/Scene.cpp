@@ -210,7 +210,6 @@ void Create::Scene::ObjectEnd()
 	for (auto Object : ObjectArray)
 	{
 		Object.second->End();
-		//Object.second->End();
 	}
 }
 

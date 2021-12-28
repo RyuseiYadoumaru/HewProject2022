@@ -13,8 +13,8 @@ bool Table::Start()
 	m_SpriteRenderer->Init();
 
 	//奥行きなし設定
-	transform->Scale.Set(2.0f, 2.0f, 1.0f);
-	transform->Position.Set(765.0f, 1070.0f, 0.0f);
+	transform->Scale.Set(3.0f, 3.0f, 1.0f);
+	transform->Position.Set(365.0f, 1225.0f, 0.0f);
 	/*	ボックスコライダコンポーネント	*/
 	GameEngine::BoxCollider2D* col = AddComponent<GameEngine::BoxCollider2D>(m_SpriteRenderer->GetSize());
 

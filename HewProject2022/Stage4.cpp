@@ -24,31 +24,60 @@ bool GamePlay::Stage4Scene::Start()
 	m_world1->Sprite("world-01");
 
 	/*	インスタンス	*/
+	Instance(m_Map.get());
+	Instance(m_Player.get());
+	Instance(m_TableStart.get());
+	Instance(m_TableEnd.get());
+	Instance(m_Fade.get());
+	Instance(m_ScreenEffect.get());
+	Instance(m_CameraFrame.get());
 	Instance(m_stage4.get());
 	Instance(m_world1.get());
 
+
+	/*	初期化	*/
+	m_TableEnd->transform->Position.x = TABLE_DISTANCE;
 	m_stage4->transform->Position.Set(0.0f, 0.0f, 0.0f);
 	m_world1->transform->Position.Set(-700.0f, -500.0f, 0.0f);
+
+	/*	ギミック初期化	*/
+	m_Player->m_LandTile.Init(m_Player.get(), &m_Map->m_TileColumnList);
+
 	/*	カメラ設定	*/
-	SetCamera();
-	camera->GetBackgroundColor()->Set(1.0f, 1.0f, 1.0f, 1.0f);
+	SetCamera(m_MainCamera.get());
+	m_MainCamera->Focus(m_Player.get());
 
 	return true;
 }
 
 Scene::STATE GamePlay::Stage4Scene::Update()
 {
+	/*	フレームカウント	*/
+	static int cnt = 0;
+	cnt++;
+	cout << "\nフレーム" << cnt << endl;
+
+	/****	ブロック移動	****/
+	m_Map->CheckLandTile(&m_Player->m_LandTile);
+
 	/****	オブジェクト更新	****/
 	ObjectUpdate();
 
+	/****	当たり判定	****/
+	m_Map->HitCheckMap(*m_Player);
+	m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_TableStart->GetComponent<BoxCollider2D>());
+	m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_TableEnd->GetComponent<BoxCollider2D>());
+
 
 	/****	ロードシーン	****/
-	if (Input::GetKeyTrigger(PK_ENTER) == true || Input::GetControllerTrigger(XINPUT_GAMEPAD_B))//エンター押すと次のシーンへ移動
-	{
-		GameEngine::SceneManager::LoadScene("ResultScene");
-	}
+	//if (Input::GetKeyTrigger(PK_ENTER) == true ||
+	//	Input::GetControllerTrigger(XINPUT_GAMEPAD_A))
+	//{
+	//	//GameEngine::SceneManager::LoadScene("ResultScene");
+	//}
 
 	/****	システム更新	****/
+	m_Map->SystemUpdate();
 	SystemUpdate();
 	return PLAY;
 }
@@ -70,8 +99,20 @@ bool GamePlay::Stage4Scene::Render()
 	ClearDisplay();
 
 	/****	オブジェクト描画	****/
-	m_stage4->Render();
-	m_world1->Render();
+	m_TableStart->Render();
+	m_TableEnd->Render();
+	m_Map->Render();
+	m_Player->Render();
+	//m_stage4->Render();
+	//m_world1->Render();
+
+
+
+	/****	画面エフェクト	****/
+	m_Fade->Render();
+	m_ScreenEffect->Render();
+	m_CameraFrame->Render();
+
 
 	/****	画面描画	****/
 	SwapChain();

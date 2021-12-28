@@ -56,10 +56,8 @@ Scene::STATE ProtScene::Update()
 	ObjectUpdate();
 	m_Fade->Update();
 
-	/****	マップ当たり判定	****/
+	/****	当たり判定	****/
 	m_Map->HitCheckMap(*m_Player);
-
-	/****	机ヒットチェック	****/
 	m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_Table->GetComponent<BoxCollider2D>());
 
 	/****	ロードシーン	****/

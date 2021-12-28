@@ -18,13 +18,16 @@ public:
 private:
 	MoveInfoList Front;
 	MoveInfoList Back;
+	MoveInfoList Reset;
 
 	LandTile* m_StandardTile;
 
 private:
 	void SetMoveList(vector<TileColumn>* in_AllTile);
+	void SetResetList(vector<TileColumn>* in_AllTile);
 
 	bool Move();
+	bool ResetMove();
 
 };
 

@@ -92,6 +92,10 @@ bool Map::Update()
 	/*	列更新	*/
 	ColumnUpdate();
 
+	//三木原追加
+	//列リセット
+	MoveReset();
+
 	return true;
 }
 
@@ -334,7 +338,6 @@ void Map::AddMoveManager(LandTile* in_LandTile)
 		}
 	}
 
-
 	/*	タイル保存	*/
 	cout << "タイル保存\n";
 	m_MoveManager.push_back(make_shared<MoveManager>());	//待機列に移動列を入れる
@@ -346,5 +349,33 @@ void Map::AddMoveManager(LandTile* in_LandTile)
 		m_MoveManager.back() == nullptr;
 		m_MoveManager.pop_back();
 
+	}
+}
+
+void Map::MoveReset()
+{
+	SystemTimer* Timer = SystemTimer::Instance();
+
+	if (Input::GetKeyTrigger(PK_3)) {
+
+		for (int i = 0; i < m_TileList.size(); i++) {
+
+			//スタート座標に戻るまで動く
+			if (m_TileList[i]->transform->Position.y >= m_TileList[i]->GetStartPosition().y) {
+				for (int j = 0; j < m_TileColumnList.size(); j++) {
+
+					//移動量・移動スピード計算
+					m_ResetMoveValue = m_TileList[j]->GetStartPosition().y - m_TileList[j]->transform->Position.y;
+					//m_ResetSpeed = m_ResetMoveValue / 0.8f;//ここの数字大きくすると、上手く初期座標に戻らない（原因は不明）
+					m_ResetSpeed = m_ResetMoveValue / 100.5f;//ここの数字大きくすると、上手く初期座標に戻らない（原因は不明）
+					m_ResetVectorY = m_ResetSpeed * Timer->DeltaTime();
+
+					//移動
+					m_TileList[i]->transform->Position.y += m_ResetVectorY;
+				}
+			}
+			//ごり押し
+			m_TileList[i]->transform->Position.y = m_TileList[i]->GetStartPosition().y;
+		}
 	}
 }

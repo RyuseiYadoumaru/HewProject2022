@@ -205,24 +205,6 @@
     <Filter Include="TOYALINE\Object\Player\Animation">
       <UniqueIdentifier>{f3a4d433-624b-4765-8f0b-5eede4cf2672}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameName\Scene\Stage\World1">
-      <UniqueIdentifier>{704f07f3-6a0e-4ed0-9fd6-9c2deaff316a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameName\Scene\Stage\World2">
-      <UniqueIdentifier>{d240f899-1752-45cd-a160-d27ba25771c6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameName\Scene\Stage\World3">
-      <UniqueIdentifier>{e1fb8ded-43b3-48e9-abf7-05b38e2c40fd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameName\Scene\Stage\World4">
-      <UniqueIdentifier>{b9dd555a-a1cd-4beb-9149-919902f03d20}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameName\Scene\Stage\World5">
-      <UniqueIdentifier>{8e2163c8-d5ae-40f1-8534-5a2b2189db9e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameName\Scene\Stage\World6">
-      <UniqueIdentifier>{523cb1c5-4f6f-40ed-ae4e-cb06775b2900}</UniqueIdentifier>
-    </Filter>
     <Filter Include="TOYALINE\World1\Scene">
       <UniqueIdentifier>{c831829e-2dd1-457c-976d-36a6338d4b89}</UniqueIdentifier>
     </Filter>
@@ -460,96 +442,6 @@
       <Filter>TOYALINE\Object\Player\Animation</Filter>
     </ClCompile>
     <ClCompile Include="AnimTest.cpp" />
-    <ClCompile Include="Stage1.cpp">
-      <Filter>GameName\Scene\Stage\World1</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage2.cpp">
-      <Filter>GameName\Scene\Stage\World1</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage3.cpp">
-      <Filter>GameName\Scene\Stage\World1</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage4.cpp">
-      <Filter>GameName\Scene\Stage\World1</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage5.cpp">
-      <Filter>GameName\Scene\Stage\World1</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage6.cpp">
-      <Filter>GameName\Scene\Stage\World2</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage7.cpp">
-      <Filter>GameName\Scene\Stage\World2</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage8.cpp">
-      <Filter>GameName\Scene\Stage\World2</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage9.cpp">
-      <Filter>GameName\Scene\Stage\World2</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage10.cpp">
-      <Filter>GameName\Scene\Stage\World2</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage11.cpp">
-      <Filter>GameName\Scene\Stage\World3</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage12.cpp">
-      <Filter>GameName\Scene\Stage\World3</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage13.cpp">
-      <Filter>GameName\Scene\Stage\World3</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage14.cpp">
-      <Filter>GameName\Scene\Stage\World3</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage15.cpp">
-      <Filter>GameName\Scene\Stage\World3</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage16.cpp">
-      <Filter>GameName\Scene\Stage\World4</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage17.cpp">
-      <Filter>GameName\Scene\Stage\World4</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage18.cpp">
-      <Filter>GameName\Scene\Stage\World4</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage19.cpp">
-      <Filter>GameName\Scene\Stage\World4</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage20.cpp">
-      <Filter>GameName\Scene\Stage\World4</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage21.cpp">
-      <Filter>GameName\Scene\Stage\World5</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage22.cpp">
-      <Filter>GameName\Scene\Stage\World5</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage23.cpp">
-      <Filter>GameName\Scene\Stage\World5</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage24.cpp">
-      <Filter>GameName\Scene\Stage\World5</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage25.cpp">
-      <Filter>GameName\Scene\Stage\World5</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage26.cpp">
-      <Filter>GameName\Scene\Stage\World6</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage27.cpp">
-      <Filter>GameName\Scene\Stage\World6</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage28.cpp">
-      <Filter>GameName\Scene\Stage\World6</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage29.cpp">
-      <Filter>GameName\Scene\Stage\World6</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage30.cpp">
-      <Filter>GameName\Scene\Stage\World6</Filter>
-    </ClCompile>
     <ClCompile Include="World1StageSelectScene.cpp">
       <Filter>TOYALINE\StageSelect</Filter>
     </ClCompile>
@@ -573,6 +465,96 @@
     </ClCompile>
     <ClCompile Include="TitleScene.cpp">
       <Filter>TOYALINE\TitleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage1.cpp">
+      <Filter>TOYALINE\World1\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage2.cpp">
+      <Filter>TOYALINE\World1\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage3.cpp">
+      <Filter>TOYALINE\World1\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage4.cpp">
+      <Filter>TOYALINE\World1\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage5.cpp">
+      <Filter>TOYALINE\World1\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage6.cpp">
+      <Filter>TOYALINE\World2\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage7.cpp">
+      <Filter>TOYALINE\World2\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage8.cpp">
+      <Filter>TOYALINE\World2\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage9.cpp">
+      <Filter>TOYALINE\World2\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage10.cpp">
+      <Filter>TOYALINE\World2\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage11.cpp">
+      <Filter>TOYALINE\World3\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage12.cpp">
+      <Filter>TOYALINE\World3\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage13.cpp">
+      <Filter>TOYALINE\World3\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage14.cpp">
+      <Filter>TOYALINE\World3\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage15.cpp">
+      <Filter>TOYALINE\World3\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage16.cpp">
+      <Filter>TOYALINE\World4\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage17.cpp">
+      <Filter>TOYALINE\World4\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage18.cpp">
+      <Filter>TOYALINE\World4\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage19.cpp">
+      <Filter>TOYALINE\World4\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage20.cpp">
+      <Filter>TOYALINE\World4\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage21.cpp">
+      <Filter>TOYALINE\World5\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage22.cpp">
+      <Filter>TOYALINE\World5\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage23.cpp">
+      <Filter>TOYALINE\World5\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage24.cpp">
+      <Filter>TOYALINE\World5\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage25.cpp">
+      <Filter>TOYALINE\World5\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage26.cpp">
+      <Filter>TOYALINE\World6\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage27.cpp">
+      <Filter>TOYALINE\World6\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage28.cpp">
+      <Filter>TOYALINE\World6\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage29.cpp">
+      <Filter>TOYALINE\World6\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage30.cpp">
+      <Filter>TOYALINE\World6\Scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

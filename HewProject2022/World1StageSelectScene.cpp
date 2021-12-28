@@ -124,12 +124,12 @@ Scene::STATE GamePlay::World1StageSelectScene::Update()
 
 bool GamePlay::World1StageSelectScene::End()
 {
-	/****	絶対いる	****/
-	for (auto i : ObjectArray)
-	{
-		i.second->End();
-	}
-	ObjectArray.clear();
+	/*	オブジェクト終了処理	*/
+	ObjectEnd();
+
+	/*	解放処理	*/
+	Releace();
+
 	return true;
 }
 

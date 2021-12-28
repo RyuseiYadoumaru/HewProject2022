@@ -4,12 +4,26 @@ using namespace Create;
 
 bool GamePlay::Stage4Scene::Start()
 {
+	cout << "１－４ゲームシーン" << endl;
+
+	/*	オブジェクト生成	*/
+	m_Map = make_shared<Map>("ProtMap");
+	m_Player = make_shared<Player>("Player");
+	m_MainCamera = make_shared<MainCamera>("MainCamera");
+	m_Fade = make_shared<Fade>("Black");
+	m_TableStart = make_shared<Table>("TableStart");
+	m_TableEnd = make_shared<Table>("TableEnd");
+	m_ScreenEffect = make_shared<ScreenFx>("SFX");
+	m_CameraFrame = make_shared<CameraFrame>("CFX");
+
+
 	//オブジェクト生成 初期化
 	m_stage4 = make_shared<Actor>("Stage-04");
 	m_world1 = make_shared<Actor>("World-01");
 	m_stage4->Sprite("stage-04");
 	m_world1->Sprite("world-01");
 
+	/*	インスタンス	*/
 	Instance(m_stage4.get());
 	Instance(m_world1.get());
 
@@ -41,12 +55,11 @@ Scene::STATE GamePlay::Stage4Scene::Update()
 
 bool GamePlay::Stage4Scene::End()
 {
-	/****	絶対いる	****/
-	for (auto i : ObjectArray)
-	{
-		i.second->End();
-	}
-	ObjectArray.clear();
+	/*	オブジェクト終了処理	*/
+	ObjectEnd();
+
+	/*	解放処理	*/
+	Releace();
 
 	return true;
 }

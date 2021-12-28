@@ -13,8 +13,8 @@ bool GamePlay::Stage1Scene::Start()
 	Instance(m_stage1.get());
 	Instance(m_world1.get());
 
-	m_stage1->transform->Position.Set(0.0f,0.0f,0.0f);
-	m_world1->transform->Position.Set(-700.0f,-500.0f,0.0f);
+	m_stage1->transform->Position.Set(0.0f, 0.0f, 0.0f);
+	m_world1->transform->Position.Set(-700.0f, -500.0f, 0.0f);
 	/*	カメラ設定	*/
 	SetCamera();
 	camera->GetBackgroundColor()->Set(1.0f, 1.0f, 1.0f, 1.0f);
@@ -41,12 +41,11 @@ Scene::STATE GamePlay::Stage1Scene::Update()
 
 bool GamePlay::Stage1Scene::End()
 {
-	/****	絶対いる	****/
-	for (auto i : ObjectArray)
-	{
-		i.second->End();
-	}
-	ObjectArray.clear();
+	/*	オブジェクト終了処理	*/
+	ObjectEnd();
+
+	/*	解放処理	*/
+	Releace();
 
 	return true;
 }

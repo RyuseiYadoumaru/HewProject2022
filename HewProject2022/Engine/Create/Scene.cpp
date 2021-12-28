@@ -77,7 +77,8 @@ void Create::Scene::Instance(GameObject* out_Object)
 {
 	out_Object->Active = true;
 	out_Object->Start();
-	ObjectArray.insert(std::make_pair(out_Object->ToString(), out_Object));
+	ObjectArray[out_Object->ToString()] = out_Object;
+	//ObjectArray.insert(std::make_pair(out_Object->ToString(), out_Object));
 	ComponenArray.insert(std::make_pair(out_Object->ToString(), std::vector<Component*>()));
 	for (auto Obj : out_Object->ComponentList)
 	{
@@ -96,6 +97,7 @@ void Create::Scene::Instance(GameObject* out_Object)
 void Create::Scene::Destroy(std::string in_ObjectName)
 {
 	ObjectArray[in_ObjectName]->Active = false;
+	//	ObjectArray[in_ObjectName]->Active = false;
 
 #if 0
 	ComponenArray2[in_ObjectName].clear();
@@ -135,7 +137,8 @@ void Create::Scene::SetCamera()
 {
 	camera = new Camera("MainCamera");
 	camera->Start();
-	ObjectArray.insert(std::make_pair(camera->ToString(), camera));
+	ObjectArray[camera->ToString()] = camera;
+	//	ObjectArray.insert(std::make_pair(camera->ToString(), camera));
 	ComponenArray.insert(std::make_pair(camera->ToString(), std::vector<Component*>()));
 
 	for (auto Obj : camera->ComponentList)
@@ -156,7 +159,8 @@ void Create::Scene::SetCamera(Camera* out_Camera)
 {
 	camera = out_Camera;
 	camera->Start();
-	ObjectArray.insert(std::make_pair(camera->ToString(), camera));
+	ObjectArray[camera->ToString()] = camera;
+	//ObjectArray.insert(std::make_pair(camera->ToString(), camera));
 	ComponenArray.insert(std::make_pair(out_Camera->ToString(), std::vector<Component*>()));
 
 	for (auto Obj : out_Camera->ComponentList)
@@ -174,7 +178,6 @@ void Create::Scene::SetCamera(Camera* out_Camera)
 //==============================================================================
 void Create::Scene::SystemUpdate()
 {
-
 	for (auto Obj : ComponenArray)
 	{
 		for (auto System : Obj.second)
@@ -191,7 +194,7 @@ void Create::Scene::SystemUpdate()
 //==============================================================================
 void Create::Scene::ObjectUpdate()
 {
-	for (auto Object : ObjectArray)
+	for (auto& Object : ObjectArray)
 	{
 		Object.second->Update();
 	}
@@ -207,7 +210,7 @@ void Create::Scene::ObjectEnd()
 	for (auto Object : ObjectArray)
 	{
 		Object.second->End();
-
+		//Object.second->End();
 	}
 }
 

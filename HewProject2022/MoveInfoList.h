@@ -10,6 +10,8 @@ public:
 	bool Empty();
 
 	bool MoveFront();
+	bool ResetAll();
+
 public:
 	vector<MoveInfo*> m_List;
 

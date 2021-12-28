@@ -39,14 +39,19 @@ private:
 private:
 	void MoveUpdate();
 	void AddMoveManager(LandTile* in_LandTile);
+	//三木原追加
+	void MoveReset();
+	float m_ResetMoveValue;//リセット移動量
+	float m_ResetSpeed;//リセット速度
+	float m_ResetVectorY;
 
 public:
 	string m_MapDataName;
 
 private:
 	MapData m_Mapdata;
-
-
+	//三木原追加
+	MoveInfo m_MoveInfo;
 public:
 	bool HitCheckMap(GameObject& in_GameObject);
 	bool CheckLandTile(LandTile* in_LandTile);

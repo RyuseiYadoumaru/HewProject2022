@@ -47,6 +47,28 @@ bool MoveInfo::SearchTile(Tile* in_Search)
 	return false;
 }
 
+/****	リセット探索処理	****/
+bool MoveInfo::SearchResetTile(Tile* in_Search)
+{
+	//引数のタイルが列の中にあるか調べる関数
+	for (auto tile : mp_MoveColumn->mp_TileList)
+	{
+		/*	同じブロックヒット	*/
+		if (tile->GetKind() == in_Search->GetKind())
+		{
+			//基準タイル決定
+			mp_StandardTile = tile;
+
+			//ターゲットタイルなし
+			mp_TargetTile = nullptr;
+
+			//初期化
+			ResetStart();
+			return true;
+		}
+	}
+	return false;
+}
 
 /****	移動処理	****/
 bool MoveInfo::Tick()
@@ -59,6 +81,16 @@ bool MoveInfo::Tick()
 	return FixMove(mp_TargetTile->transform->Position.y);
 }
 
+/****	リセット移動	****/
+bool MoveInfo::Reset()
+{
+	/*	移動処理	*/
+	Move();
+
+	/*	修正処理	*/
+	//	修正処理が終わったらtrueを返す
+	return FixMove(mp_StandardTile->GetStartPosition().y);
+}
 
 //-----------------------------------------------------------------------------
 // Private Function
@@ -85,6 +117,29 @@ void MoveInfo::Start()
 	//下降
 	else if (m_MoveValue > 0) m_isUp = false;
 
+}
+
+/***	リセット初期化	****/
+void MoveInfo::ResetStart()
+{
+	/*	エラーチェック	*/
+	if (mp_StandardTile == nullptr)
+	{
+		Log::LogError("リセット初期化に失敗しました");
+	}
+
+	/*	移動量設定	*/
+	//現在基準タイル座標
+	m_MoveValue = mp_StandardTile->GetStartPosition().y - mp_StandardTile->transform->Position.y;
+
+	/*	スピード設定	*/
+	m_Speed = m_MoveValue / MOVE_TIME;
+
+	/*	上昇フラグ設定	*/
+	//上昇
+	if (m_MoveValue < 0) m_isUp = true;
+	//下降
+	else if (m_MoveValue > 0) m_isUp = false;
 }
 
 /****	移動処理	****/

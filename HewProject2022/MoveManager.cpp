@@ -135,6 +135,39 @@ void MoveManager::SetMoveList(vector<TileColumn>* in_AllTile)
 
 }
 
+/****	リセットリスト作成	****/
+void MoveManager::SetResetList(vector<TileColumn>* in_AllTile)
+{
+	/****	前探索	****/
+	/*	スタート探索列	*/
+	int SearchColumn = m_StandardTile->GetLandTile()->GetMyColumn() + 1;
+
+	/*	探索処理	*/
+	while (in_AllTile->at(SearchColumn).m_MoveInfo->SearchResetTile(m_StandardTile->GetSaveLandTile()))
+	{
+		//1つの乗っていたタイルで探索する
+		//移動列格納
+		Reset.Add(in_AllTile->at(SearchColumn).m_MoveInfo.get());
+		//探索列更新
+		SearchColumn++;
+	}
+
+	/****	後探索	****/
+	/*	スタート探索列	*/
+	SearchColumn = m_StandardTile->GetLandTile()->GetMyColumn() - 1;
+	/*	探索処理	*/
+	while (in_AllTile->at(SearchColumn).m_MoveInfo->SearchResetTile(m_StandardTile->GetSaveLandTile()))
+	{
+		//1つの乗っていたタイルで探索する
+		//移動列格納
+		Reset.Add(in_AllTile->at(SearchColumn).m_MoveInfo.get());
+		//探索列更新
+		SearchColumn--;
+	}
+
+}
+
+
 /****	移動処理	****/
 bool MoveManager::Move()
 {

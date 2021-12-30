@@ -1,17 +1,17 @@
-#include "Table.h"
+#include "Cuhsion.h"
 
-Table::Table(string in_Name) : Actor(in_Name)
+Cuhsion::Cuhsion(string in_Name)
 {
 }
 
-bool Table::Start()
+bool Cuhsion::Start()
 {
 	/*	スプライト初期化	*/
-	m_SpriteRenderer->SpriteName = "desk_2";
+	m_SpriteRenderer->SpriteName = "cushion_2";
 	m_SpriteRenderer->Init();
 
 	/*	座標設定	*/
-	transform->Scale.Set(1.6f, 1.6f, 1.0f);
+	transform->Scale.Set(2.0f, 2.0f, 1.0f);
 	transform->Position.Set(-2630.0f, 320.0f, 0.0f);
 
 	/*	ボックスコライダコンポーネント	*/
@@ -22,9 +22,8 @@ bool Table::Start()
 	return true;
 }
 
-
-/****	デバッグ	****/
-void Table::Debug()
+void Cuhsion::Debug()
 {
 	GetComponent<GameEngine::BoxCollider2D>()->Debug();
+
 }

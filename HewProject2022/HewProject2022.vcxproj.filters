@@ -187,9 +187,6 @@
     <Filter Include="TOYALINE\World1">
       <UniqueIdentifier>{0d31dff2-2c2b-484b-9d86-e8845217cf98}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TOYALINE\World1\Road">
-      <UniqueIdentifier>{9fc73a66-2316-402b-8b8d-04bc5f0d52eb}</UniqueIdentifier>
-    </Filter>
     <Filter Include="TOYALINE\World1\Object">
       <UniqueIdentifier>{e1396a4d-1a71-447d-9c81-473902a8dc69}</UniqueIdentifier>
     </Filter>
@@ -249,6 +246,18 @@
     </Filter>
     <Filter Include="TOYALINE\Result">
       <UniqueIdentifier>{957429cc-c006-41b0-b835-9abdbd27da6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\World1\Road">
+      <UniqueIdentifier>{9fc73a66-2316-402b-8b8d-04bc5f0d52eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\World1\Road\Table">
+      <UniqueIdentifier>{2b30a6cd-1a75-4c44-9e4a-3c0d34aee8ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\World1\Road\Cuhsion">
+      <UniqueIdentifier>{eca3da19-be6d-482a-be85-78f697d30c1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\World1\Road\Chair">
+      <UniqueIdentifier>{0cf82172-424c-45b1-81c4-6db6cffb772f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -432,9 +441,6 @@
     <ClCompile Include="DefaultAnimController.cpp">
       <Filter>Game\Object\Test\AnimationTest</Filter>
     </ClCompile>
-    <ClCompile Include="Table.cpp">
-      <Filter>TOYALINE\World1\Road</Filter>
-    </ClCompile>
     <ClCompile Include="PlayerAnim.cpp">
       <Filter>TOYALINE\Object\Player\Animation</Filter>
     </ClCompile>
@@ -555,6 +561,15 @@
     </ClCompile>
     <ClCompile Include="Stage30.cpp">
       <Filter>TOYALINE\World6\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Table.cpp">
+      <Filter>TOYALINE\World1\Road\Table</Filter>
+    </ClCompile>
+    <ClCompile Include="Cuhsion.cpp">
+      <Filter>TOYALINE\World1\Road\Cuhsion</Filter>
+    </ClCompile>
+    <ClCompile Include="Chair.cpp">
+      <Filter>TOYALINE\World1\Road\Chair</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -768,9 +783,6 @@
     <ClInclude Include="DefaultAnimController.h">
       <Filter>Game\Object\Test\AnimationTest</Filter>
     </ClInclude>
-    <ClInclude Include="Table.h">
-      <Filter>TOYALINE\World1\Road</Filter>
-    </ClInclude>
     <ClInclude Include="PlayerAnim.h">
       <Filter>TOYALINE\Object\Player\Animation</Filter>
     </ClInclude>
@@ -894,6 +906,15 @@
     </ClInclude>
     <ClInclude Include="TitleScene.h">
       <Filter>TOYALINE\TitleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Table.h">
+      <Filter>TOYALINE\World1\Road\Table</Filter>
+    </ClInclude>
+    <ClInclude Include="Cuhsion.h">
+      <Filter>TOYALINE\World1\Road\Cuhsion</Filter>
+    </ClInclude>
+    <ClInclude Include="Chair.h">
+      <Filter>TOYALINE\World1\Road\Chair</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

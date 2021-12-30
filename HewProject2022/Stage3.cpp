@@ -18,27 +18,10 @@ bool GamePlay::Stage3Scene::Start()
 
 	/*	背景初期化	*/
 	m_BackGround = make_shared<Actor>("Wall");
-#if 1
-	//m_BackGround->Vertex("vs_Ui");
 	m_BackGround->Sprite("Wall");
 	Instance(m_BackGround.get());
-	//m_BackGround->transform->Scale.Set(1.066f, 1.066f, 1.0f);
-	//m_BackGround->transform->Position.Set((1920.0f / 2.0), (1080.0f / 2.0f) * 0.75f, 0.0f);
-	m_BackGround->transform->Position.Set(-40.0f, -40.0f, 0.0f);
+	m_BackGround->transform->Position.Set(-40.0f, -200.0f, 0.0f);
 
-#else
-	m_BackGround->Sprite("Living");
-	Instance(m_BackGround.get());
-	m_BackGround->transform->Scale.Set(5.0f, 5.0f, 10.0f);
-	m_BackGround->transform->Position.Set((1920 / 2) * 4, (1080.0f / 2) * 1.7, 0.0f);
-#endif // 0
-
-
-	//オブジェクト生成 初期化
-	m_stage3 = make_shared<Actor>("Stage-03");
-	m_world1 = make_shared<Actor>("World-01");
-	m_stage3->Sprite("stage-03");
-	m_world1->Sprite("world-01");
 
 	/*	インスタンス	*/
 	Instance(m_Map.get());
@@ -49,21 +32,16 @@ bool GamePlay::Stage3Scene::Start()
 	Instance(m_ScreenEffect.get());
 	Instance(m_CameraFrame.get());
 
-	Instance(m_stage3.get());
-	Instance(m_world1.get());
-
 	/*	初期化	*/
 	m_Player->transform->Position.Set(-2500.0f, -500.0f, 0.0f);
 	m_TableEnd->transform->Position.x = TABLE_DISTANCE;
-	m_stage3->transform->Position.Set(0.0f, 0.0f, 0.0f);
-	m_world1->transform->Position.Set(-700.0f, -500.0f, 0.0f);
 
 	/*	ギミック初期化	*/
 	m_Player->m_LandTile.Init(m_Player.get(), &m_Map->m_TileColumnList);
 
 	/*	カメラ設定	*/
 	SetCamera(m_MainCamera.get());
-	//m_MainCamera->Focus(m_Player.get());
+	m_MainCamera->Focus(m_Player.get());
 
 	return true;
 }
@@ -132,7 +110,7 @@ bool GamePlay::Stage3Scene::Render()
 	/****	デバッグ	****/
 	//m_Player->Debug();
 	//m_Map->Debug();
-	m_TableStart->Debug();
+	//m_TableStart->Debug();
 
 	/****	画面エフェクト	****/
 	m_Fade->Render();

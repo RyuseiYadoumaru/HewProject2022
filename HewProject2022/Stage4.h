@@ -4,7 +4,7 @@
 #include "MainCamera.h"
 #include "Player.h"
 #include "Fade.h"
-#include "Table.h"
+#include "Chair.h"
 #include "ScreenFx.h"
 #include "CameraFrame.h"
 
@@ -26,8 +26,8 @@ namespace GamePlay
 		shared_ptr<MainCamera> m_MainCamera;
 		shared_ptr<Map> m_Map;
 		shared_ptr<Player> m_Player;
-		shared_ptr<Table> m_TableStart;
-		shared_ptr<Table> m_TableEnd;
+		shared_ptr<Chair> m_ChairStart;
+		shared_ptr<Chair> m_ChairEnd;
 
 		/*	îwåi	*/
 		shared_ptr<Actor> m_BackGround;

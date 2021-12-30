@@ -30,12 +30,6 @@ namespace GamePlay
 		shared_ptr<CameraFrame> m_CameraFrame;
 		shared_ptr<Fade> m_Fade;
 
-
-
-		/*	テスト	*/
-		shared_ptr<Actor> m_stage3;//ステージ数表示の画像
-		shared_ptr<Actor> m_world1;//ワールド数表示のの画像
-
 	public:
 		bool Start() override;
 		STATE Update() override;

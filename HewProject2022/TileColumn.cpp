@@ -69,11 +69,7 @@ bool TileColumn::SetPosition(Vector2& in_Position)
 	}
 	//Œã‚ë‚Ì”z—ñ‚ÉÀ•W‚ð‘ã“ü‚·‚é
 	mp_TileList.back()->transform->Position.Set(in_Position.x, in_Position.y, 0.0f);
-	//Vector3 Start;
-	//Start.x = in_Position.x;
-	//Start.y = in_Position.y;
-	//Start.z = 0.0f;
-	//mp_TileList.back()->SetStartPosition(Start);
+
 	return true;
 
 }

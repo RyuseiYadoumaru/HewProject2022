@@ -9,19 +9,18 @@ bool Table::Start()
 
 #if 1
 	/*	スプライト初期化	*/
-	m_SpriteRenderer->SpriteName = "desk";
+	m_SpriteRenderer->SpriteName = "desk_2";
 	m_SpriteRenderer->Init();
 
 	//奥行きなし設定
-	transform->Scale.Set(3.0f, 3.0f, 1.0f);
-	//transform->Position.Set(365.0f, 1225.0f + 160, 0.0f);
-	transform->Position.Set(-2810.0f, 580.0f, 0.0f);
+	transform->Scale.Set(1.6f, 1.6f, 1.0f);
+	transform->Position.Set(-2630.0f, 320.0f, 0.0f);
 	/*	ボックスコライダコンポーネント	*/
 	GameEngine::BoxCollider2D* col = AddComponent<GameEngine::BoxCollider2D>(m_SpriteRenderer->GetSize());
 
 	//奥行きなし設定
-	col->SetSize(0.97f, 0.3f);
-	col->SetOffset(0.0f, -0.725f);
+	col->SetSize(1.0f, 0.3f);
+	col->SetOffset(-0.02f, -2.15f);
 #else
 
 	/*	スプライト初期化	*/

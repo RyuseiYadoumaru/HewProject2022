@@ -6,7 +6,7 @@ bool GamePlay::Stage3Scene::Start()
 {
 
 	/*	オブジェクト生成	*/
-	m_Map = make_shared<Map>("stage1-1");
+	m_Map = make_shared<Map>("MapSizeTest_3");
 	m_Player = make_shared<Player>("Player");
 	m_MainCamera = make_shared<MainCamera>("MainCamera");
 	m_Fade = make_shared<Fade>("Black");
@@ -20,8 +20,7 @@ bool GamePlay::Stage3Scene::Start()
 	m_BackGround = make_shared<Actor>("Wall");
 #if 1
 	//m_BackGround->Vertex("vs_Ui");
-	m_BackGround->Sprite("BackGround_World1");
-	m_BackGround->SetSize(7200, 1600);
+	m_BackGround->Sprite("Wall");
 	Instance(m_BackGround.get());
 	//m_BackGround->transform->Scale.Set(1.066f, 1.066f, 1.0f);
 	//m_BackGround->transform->Position.Set((1920.0f / 2.0), (1080.0f / 2.0f) * 0.75f, 0.0f);
@@ -64,7 +63,7 @@ bool GamePlay::Stage3Scene::Start()
 
 	/*	カメラ設定	*/
 	SetCamera(m_MainCamera.get());
-	m_MainCamera->Focus(m_Player.get());
+	//m_MainCamera->Focus(m_Player.get());
 
 	return true;
 }
@@ -133,7 +132,7 @@ bool GamePlay::Stage3Scene::Render()
 	/****	デバッグ	****/
 	//m_Player->Debug();
 	//m_Map->Debug();
-	//m_TableStart->Debug();
+	m_TableStart->Debug();
 
 	/****	画面エフェクト	****/
 	m_Fade->Render();

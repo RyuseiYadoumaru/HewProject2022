@@ -262,12 +262,6 @@ void Map::MoveReset()
 /****	列初期化	****/
 void Map::ColumnInit()
 {
-	for (auto& Column : m_TileColumnList)
-	{
-		Column.Init();
-		//Column.m_MoveInfo.SetColumn(&Column);
-	}
-
 	/*****	座標設定	****/
 	//マップの中心を基準にする
 	Vector3 SetPosition;
@@ -281,6 +275,12 @@ void Map::ColumnInit()
 	{
 		tile->transform->Position += SetPosition;
 	}
+	/*	初期化	*/
+	for (auto& Column : m_TileColumnList)
+	{
+		Column.Init();
+	}
+
 }
 
 /****	列更新	****/

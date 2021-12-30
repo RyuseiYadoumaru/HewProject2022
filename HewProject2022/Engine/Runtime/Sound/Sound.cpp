@@ -12,6 +12,7 @@ PARAM g_param[SOUND_LABEL_MAX] =
 {
 	{"assets/SoundData/BGM/sample000.wav", true},	// サンプルBGM（ループさせるのでtrue設定）
 	{"assets/SoundData/BGM/sample001.wav", true},	// サンプルBGM
+	{"assets/SoundData/BGM/sample001.wav", true},	// ワールド１BGM
 	{"assets/SoundData/SE/jump.wav", false},  		// サンプルSE（ループしないのでfalse設定）
 	{"assets/SoundData/SE/defend0.wav", false},		// サンプルSE
 	{"assets/SoundData/SE/defend1.wav", false},		// サンプルSE

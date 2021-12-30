@@ -7,7 +7,7 @@ bool GamePlay::Stage4Scene::Start()
 	cout << "１－４ゲームシーン" << endl;
 
 	/*	オブジェクト生成	*/
-	m_Map = make_shared<Map>("ProtMap");
+	m_Map = make_shared<Map>("stage2-5");
 	m_Player = make_shared<Player>("Player");
 	m_MainCamera = make_shared<MainCamera>("MainCamera");
 	m_Fade = make_shared<Fade>("Black");
@@ -23,7 +23,7 @@ bool GamePlay::Stage4Scene::Start()
 	m_BackGround->Sprite("Back_4");
 	//m_BackGround->SetSize(1920.0f * 3, 1080.0f * 3);
 	Instance(m_BackGround.get());
-	m_BackGround->transform->Scale.Set(5.0f, 5.0f, 5.0f);
+	m_BackGround->transform->Scale.Set(5.0f, 5.0f, 1.0f);
 	m_BackGround->transform->Position.Set((1920.0f / 2.0f) * 3.0f, 1080.0f / 2.0f * 1.8f, 0.0f);
 
 #else
@@ -74,6 +74,7 @@ bool GamePlay::Stage4Scene::Start()
 
 
 	/*	初期化	*/
+	m_Player->transform->Position.Set(-2000.0f, 0.0f, 0.0f);
 	m_TableEnd->transform->Position.x = TABLE_DISTANCE;
 	m_stage4->transform->Position.Set(0.0f, 0.0f, 0.0f);
 	m_world1->transform->Position.Set(-700.0f, -500.0f, 0.0f);

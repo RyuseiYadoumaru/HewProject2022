@@ -6,6 +6,7 @@ using Create::Actor;
 
 #define TILE_WIDTH	(float)(80)
 #define TILE_HEIGHT	(float)(80)
+#define TILE_FIXPOS (float)(8)	//ƒ^ƒCƒ‹‘«ê•â³’l
 #define TILE_ID		(7000)
 
 enum MAPOBJ

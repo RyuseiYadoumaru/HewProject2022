@@ -129,8 +129,11 @@ bool Map::Render()
 	Create::Camera* camera = Create::Scene::GetCamera();
 	for (int Column = 0; Column < m_Mapdata.GetSize().x; Column++)
 	{
-		for (auto now : m_TileColumnList[Column].mp_TileList)
+		int num = m_TileColumnList[Column].mp_TileList.size();
+		while (num != 0)
 		{
+			num--;
+			auto& now = m_TileColumnList[Column].mp_TileList[num];
 			if (now->transform->Position.x >= camera->GetLeft() - 100.0f&& now->transform->Position.x <= camera->GetRight() + 100.0f &&
 				now->transform->Position.y >= camera->GetTop() - 100.0f && now->transform->Position.y <= camera->GetButtom() + 100.0f)
 			{
@@ -265,9 +268,18 @@ void Map::ColumnInit()
 		//Column.m_MoveInfo.SetColumn(&Column);
 	}
 
+	/*****	座標設定	****/
+	//マップの中心を基準にする
+	Vector3 SetPosition;
+	int MapWidth = m_Mapdata.GetSize().x;
+	int MapHeight = m_Mapdata.GetSize().y;
+	SetPosition.x = transform->Position.x - ((MapWidth / 2.0f) * TILE_WIDTH);
+	SetPosition.y = transform->Position.y - ((MapHeight / 2.0f) * TILE_HEIGHT);
+
+	//全てのブロックに代入
 	for (auto& tile : m_TileList)
 	{
-		tile->transform->Position += transform->Position;
+		tile->transform->Position += SetPosition;
 	}
 }
 
@@ -299,33 +311,34 @@ void Map::CreateMap()
 		{
 			/*	座標設定	*/
 			float PosX = TILE_WIDTH * x;
-			float PosY = TILE_HEIGHT * y;
+			//float PosY = (TILE_HEIGHT * y);
+			float PosY = (TILE_HEIGHT * y) - (y * TILE_FIXPOS);
 			Pos.Set(PosX, PosY);
 
 			/*	ブロック生成	*/
 			switch (MapChip[y][x])
 			{
 			case NB:
-				CreateTile(Pos, "wh2", MAPOBJ::NB);
+				CreateTile(Pos, "re_brown2", MAPOBJ::NB);
 				break;
 
 			case C1:
-				CreateTile(Pos, "red3", MAPOBJ::C1);
+				CreateTile(Pos, "re_red2", MAPOBJ::C1);
 				break;
 
 			case C2:
-				CreateTile(Pos, "bu", MAPOBJ::C2);
+				CreateTile(Pos, "blue", MAPOBJ::C2);
 				break;
 
 			case C3:
-				CreateTile(Pos, "gr", MAPOBJ::C3);
+				CreateTile(Pos, "green", MAPOBJ::C3);
 				break;
 
 			case C4:
-				CreateTile(Pos, "or", MAPOBJ::C4);
+				CreateTile(Pos, "purple", MAPOBJ::C4);
 				break;
 			case C5:
-				CreateTile(Pos, "ye", MAPOBJ::C5);
+				CreateTile(Pos, "yellow", MAPOBJ::C5);
 				break;
 
 			case GR:

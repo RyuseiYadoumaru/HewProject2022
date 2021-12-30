@@ -22,6 +22,7 @@ public:
 	bool SetColumn(float in_Column);		//—ñİ’è
 
 	float GetColumnNum()const { return m_ColumnNum; }
+	int GetTileNum() const { return m_TileCnt; }
 
 	vector<Tile*> mp_TileList;	//1—ñƒ^ƒCƒ‹”z—ñ
 

@@ -5,6 +5,7 @@ typedef enum
 {
 	SOUND_LABEL_BGM000 = 0,		// サンプルBGM
 	SOUND_LABEL_BGM001,			// サンプルBGM
+	SOUND_LABEL_WORLD1_GAMEBGM,	//ワールド１
 	SOUND_LABEL_SE000,			// サンプルSE
 	SOUND_LABEL_SE001,			// サンプルSE
 	SOUND_LABEL_SE002,			// サンプルSE

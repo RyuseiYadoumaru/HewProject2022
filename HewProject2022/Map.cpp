@@ -62,11 +62,15 @@ bool Map::SearchMoveObjectID(int in_ID)
 Map::Map()
 {
 	m_MapDataName = "ProtMap";
+	m_OnReset = false;	//リセットフラグ
+	m_isResetStart = false;
 }
 
 Map::Map(std::string in_MapDataName) : GameObject(in_MapDataName)
 {
 	m_MapDataName = in_MapDataName;
+	m_OnReset = false;	//リセットフラグ
+	m_isResetStart = false;
 }
 
 /****	初期化	****/

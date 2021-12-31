@@ -55,10 +55,12 @@ Scene::STATE GamePlay::Stage4Scene::Update()
 
 	/****	ブロック移動	****/
 	m_Map->CheckLandTile(&m_Player->m_LandTile);
-	if (m_Player->m_LandTile.GetisLandTile() == false ||
-		Input::GetControllerTrigger(XINPUT_GAMEPAD_X))
+	if (((m_Player->m_LandTile.GetisLandTile() == false) ||
+		(Input::GetControllerTrigger(XINPUT_GAMEPAD_X))) &&
+		(m_Map->m_OnReset == false))
 	{
-		m_Map->MoveReset();
+		//リセット発動
+		m_Map->m_OnReset = true;
 	}
 
 	/****	オブジェクト更新	****/

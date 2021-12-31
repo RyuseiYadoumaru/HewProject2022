@@ -59,7 +59,7 @@ Scene::STATE GamePlay::Stage5Scene::Update()
 		(Input::GetControllerTrigger(XINPUT_GAMEPAD_X))) &&
 		(m_Map->m_OnReset == false))
 	{
-		cout << "リセット発動!\n";
+		//リセット発動
 		m_Map->m_OnReset = true;
 	}
 

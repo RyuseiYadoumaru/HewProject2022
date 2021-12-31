@@ -393,11 +393,11 @@ void Map::CreateMap()
 			switch (MapChip[y][x])
 			{
 			case NB:
-				CreateTile(Pos, "re_brown2", MAPOBJ::NB);
+				CreateTile(Pos, "brown", MAPOBJ::NB);
 				break;
 
 			case C1:
-				CreateTile(Pos, "re_red2", MAPOBJ::C1);
+				CreateTile(Pos, "red", MAPOBJ::C1);
 				break;
 
 			case C2:

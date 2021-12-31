@@ -2,6 +2,7 @@
 #include "ydmEngine.h"
 #include "Tile.h"
 #include "MoveInfo.h"
+#include "ResetInfo.h"
 
 /****	ブロック列クラス	****/
 class TileColumn
@@ -28,7 +29,7 @@ public:
 
 	//デバッグ用
 	shared_ptr<MoveInfo> m_MoveInfo;
-	//	MoveInfo m_MoveInfo;	//移動情報
+	shared_ptr<ResetInfo> m_ResetInfo;
 private:
 	int m_TileCnt;			//1列ブロックの数
 	float m_ColumnNum;

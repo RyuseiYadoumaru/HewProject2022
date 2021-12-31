@@ -6,6 +6,7 @@ TileColumn::TileColumn()
 	m_TileCnt = 0;
 	mp_TileList.clear();
 	m_MoveInfo = make_shared<MoveInfo>(this);
+	m_ResetInfo = make_shared<ResetInfo>(this);
 }
 
 /****	’Ç‰Áˆ—	****/

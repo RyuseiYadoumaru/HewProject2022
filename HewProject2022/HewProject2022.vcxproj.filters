@@ -259,6 +259,12 @@
     <Filter Include="TOYALINE\World1\Road\Chair">
       <UniqueIdentifier>{0cf82172-424c-45b1-81c4-6db6cffb772f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TOYALINE\Object\Actor\Map\MoveInfo">
+      <UniqueIdentifier>{1a41ca03-54c2-4fcb-923d-44ece04fbd21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Object\Actor\Map\ResetInfo">
+      <UniqueIdentifier>{97939eee-2a2c-4389-88cf-0f0310858519}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Runtime\Application.cpp">
@@ -404,12 +410,6 @@
     </ClCompile>
     <ClCompile Include="TileColumn.cpp">
       <Filter>TOYALINE\Object\Actor\Map\Tile</Filter>
-    </ClCompile>
-    <ClCompile Include="MoveInfo.cpp">
-      <Filter>TOYALINE\Object\Actor\Map</Filter>
-    </ClCompile>
-    <ClCompile Include="MoveInfoList.cpp">
-      <Filter>TOYALINE\Object\Actor\Map</Filter>
     </ClCompile>
     <ClCompile Include="MoveManager.cpp">
       <Filter>TOYALINE\Object\Actor\Map</Filter>
@@ -570,6 +570,18 @@
     </ClCompile>
     <ClCompile Include="Chair.cpp">
       <Filter>TOYALINE\World1\Road\Chair</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveInfo.cpp">
+      <Filter>TOYALINE\Object\Actor\Map\MoveInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveInfoList.cpp">
+      <Filter>TOYALINE\Object\Actor\Map\MoveInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="ResetInfo.cpp">
+      <Filter>TOYALINE\Object\Actor\Map\ResetInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="ResetInfoList.cpp">
+      <Filter>TOYALINE\Object\Actor\Map\ResetInfo</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -744,12 +756,6 @@
     <ClInclude Include="Tile.h">
       <Filter>TOYALINE\Object\Actor\Map\Tile</Filter>
     </ClInclude>
-    <ClInclude Include="MoveInfo.h">
-      <Filter>TOYALINE\Object\Actor\Map</Filter>
-    </ClInclude>
-    <ClInclude Include="MoveInfoList.h">
-      <Filter>TOYALINE\Object\Actor\Map</Filter>
-    </ClInclude>
     <ClInclude Include="MoveManager.h">
       <Filter>TOYALINE\Object\Actor\Map</Filter>
     </ClInclude>
@@ -915,6 +921,18 @@
     </ClInclude>
     <ClInclude Include="Chair.h">
       <Filter>TOYALINE\World1\Road\Chair</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveInfo.h">
+      <Filter>TOYALINE\Object\Actor\Map\MoveInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveInfoList.h">
+      <Filter>TOYALINE\Object\Actor\Map\MoveInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="ResetInfo.h">
+      <Filter>TOYALINE\Object\Actor\Map\ResetInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="ResetInfoList.h">
+      <Filter>TOYALINE\Object\Actor\Map\ResetInfo</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

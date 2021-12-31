@@ -156,8 +156,9 @@ bool Player::Update()
 	//target.y = 50.0f;
 
 	/*	アクション更新	*/
-	if (Map::SearchMoveObjectName(name) == false)
+	if (Map::SearchMoveObjectName(name) == false/* && Map::m_isResetStart == false*/)
 	{
+		//リセット時に止めたいけど、重力がかからなくなるので重力の処理を別に分けてほしい
 		Move();
 		Jump();
 	}

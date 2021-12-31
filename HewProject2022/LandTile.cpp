@@ -24,7 +24,6 @@ bool LandTile::Init(GameObject* in_Owner, vector<TileColumn>* in_NowMap)
 	//æ‚Á‚Ä‚¢‚éƒ^ƒCƒ‹‰Šú‰»
 	LandTileInit();
 
-
 	return true;
 }
 

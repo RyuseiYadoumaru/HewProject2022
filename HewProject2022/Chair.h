@@ -2,7 +2,7 @@
 #include "ydmEngine.h"
 
 using Create::Actor;
-#define CHAIR_DISTANCE 3200 - 640
+#define CHAIR_DISTANCE 3200 - 780
 
 /****	ˆÖŽq	****/
 class Chair : public Actor

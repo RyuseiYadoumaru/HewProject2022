@@ -17,6 +17,8 @@ public:
 	static vector<shared_ptr<MoveManager>> m_MoveManager;
 	static vector<TileColumn> m_TileColumnList;
 	static vector<Tile*> m_TileList;
+	static bool m_OnReset;
+	static bool m_isResetStart;	//リセットスタート
 
 public:
 	Map();
@@ -29,8 +31,6 @@ public:
 	void Debug();
 	void SystemUpdate();
 
-	//三木原追加
-	void MoveReset();
 
 private:
 	void ColumnInit();			//列初期化
@@ -42,18 +42,28 @@ private:
 private:
 	void MoveUpdate();
 	void AddMoveManager(LandTile* in_LandTile);
-	float m_ResetMoveValue;//リセット移動量
-	float m_ResetSpeed;//リセット速度
+
+	/*	リセット処理	*/
+public:
+	//三木原追加
+	void MoveReset();
+private:
+	ResetInfoList Reset;
+	float m_ResetMoveValue;			//リセット移動量
+	float m_ResetSpeed;				//リセット速度
 	float m_ResetVectorY;
-	bool m_isReset = false;		//リセットフラグ
+	bool m_isReset = false;			//リセットフラグ
+
+	void ResetInit();				//リセット初期化
+	void ResetTick();				//リセット処理
+	void AllTileReset();			//タイルリセット
 
 public:
 	string m_MapDataName;
 
 private:
 	MapData m_Mapdata;
-	//三木原追加
-	MoveInfo m_MoveInfo;
+
 public:
 	bool HitCheckMap(GameObject& in_GameObject);
 	bool CheckLandTile(LandTile* in_LandTile);

@@ -8,6 +8,8 @@ using Math::Vector3;
 vector<shared_ptr<MoveManager>> Map::m_MoveManager;		//移動列
 vector<TileColumn>				Map::m_TileColumnList;	//1列タイルリスト
 vector<Tile*>					Map::m_TileList;		//全てのタイルリスト
+bool							Map::m_OnReset = false;	//リセットフラグ
+bool							Map::m_isResetStart = false;
 
 /****	動いているオブジェクト探索	****/
 bool Map::SearchMoveObjectName(string in_SearchName)
@@ -65,7 +67,6 @@ Map::Map()
 Map::Map(std::string in_MapDataName) : GameObject(in_MapDataName)
 {
 	m_MapDataName = in_MapDataName;
-
 }
 
 /****	初期化	****/
@@ -95,10 +96,12 @@ bool Map::Update()
 	/*	列更新	*/
 	ColumnUpdate();
 
-	//三木原追加
-	//列リセット
-	//MoveReset();
-
+	/*	列リセット処理	*/
+	if (m_OnReset == true)
+	{
+		cout << "列リセット\n";
+		MoveReset();
+	}
 	return true;
 }
 
@@ -227,37 +230,104 @@ bool Map::CheckLandTile(LandTile* in_LandTile)
 
 void Map::MoveReset()
 {
-	SystemTimer* Timer = SystemTimer::Instance();
 	/*	リセット処理不可能	*/
 	if (m_isReset == false)
 	{
 		//trueの時にブロックが移動しているのでリセットすることができる
+		m_OnReset = false;
+		m_isResetStart = false;
 		return;
 	}
-	m_isReset = false;
-	for (int i = 0; i < m_TileList.size(); i++) {
 
-		//スタート座標に戻るまで動く
-		if (m_TileList[i]->transform->Position.y >= m_TileList[i]->GetStartPosition().y) {
-			for (int j = 0; j < m_TileColumnList.size(); j++) {
+	//一回目の時は初期化を行う
 
-				//移動量・移動スピード計算
-				m_ResetMoveValue = m_TileList[j]->GetStartPosition().y - m_TileList[j]->transform->Position.y;
-				//m_ResetSpeed = m_ResetMoveValue / 0.8f;//ここの数字大きくすると、上手く初期座標に戻らない（原因は不明）
-				m_ResetSpeed = m_ResetMoveValue / 100.5f;//ここの数字大きくすると、上手く初期座標に戻らない（原因は不明）
-				m_ResetVectorY = m_ResetSpeed * Timer->DeltaTime();
+	if (m_isResetStart == false)
+	{
+		/*	リセット初期化	*/
+		ResetInit();
+		cout << "リセット初期化完了\n";
+	}
 
-				//移動
-				m_TileList[i]->transform->Position.y += m_ResetVectorY;
-			}
+	/*	リセット処理	*/
+	ResetTick();
+
+}
+
+/****	リセット初期化	****/
+void Map::ResetInit()
+{
+	//タイル列全探索
+	for (auto& Column : m_TileColumnList)
+	{
+		//タイルリストがあるとき
+		//スタート座標と移動しているとき
+		if (Column.mp_TileList.empty() == false &&
+			(Column.mp_TileList[0]->transform->Position.y != Column.mp_TileList[0]->GetStartPosition().y))
+		{
+			//リセットリストに格納する
+			Reset.Add(Column.m_ResetInfo.get());
+			//リセット情報初期化
+			Reset.m_List.back()->Start();
 		}
-		//ごり押し
-		//ここで直接リセットの値を入れている
-		m_TileList[i]->transform->Position.y = m_TileList[i]->GetStartPosition().y;
+	}
+	//スタートフラグを立てる
+	m_isResetStart = true;
+}
+
+/****	リセット処理	****/
+void Map::ResetTick()
+{
+	cout << "リセット中\n";
+	SystemTimer* Timer = SystemTimer::Instance();
+	auto itr = Reset.m_List.begin();
+
+	/*	リセットリストを全更新	*/
+	for (auto& ResetColumn : Reset.m_List)
+	{
+		bool ret = ResetColumn->Tick();
+
+		//移動が終わった時
+		if (ResetColumn->m_isFin == true)
+		{
+			//リセット列を削除する
+			itr = Reset.m_List.erase(itr);
+		}
+		else
+		{
+			//進める
+			itr++;
+		}
+	}
+
+	if (Reset.Empty() == true)
+	{
+		/*	全てのタイルを初期位置にする	*/
+		//最後に無理やり初期位置に戻す
+		AllTileReset();
+
+		//初期化処理
+		Reset.Clear();
+		m_isResetStart = false;
+		m_isReset = false;
+		m_OnReset = false;
+		return;
 	}
 }
 
-
+/****	全てのタイルをリセットする	****/
+void Map::AllTileReset()
+{
+	for (auto& Column : m_TileColumnList)
+	{
+		if (Column.mp_TileList.empty() == false)
+		{
+			for (auto tile : Column.mp_TileList)
+			{
+				tile->transform->Position.y = tile->GetStartPosition().y;
+			}
+		}
+	}
+}
 
 /****	列初期化	****/
 void Map::ColumnInit()

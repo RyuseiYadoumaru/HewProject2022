@@ -57,6 +57,7 @@ namespace Create
 			for (auto com : ComponentList)
 			{
 				T* Buff = dynamic_cast<T*> (com);
+
 				if (Buff != nullptr) return Buff;
 			}
 

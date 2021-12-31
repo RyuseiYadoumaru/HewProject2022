@@ -6,7 +6,7 @@ bool GamePlay::Stage5Scene::Start()
 {
 
 	/*	オブジェクト生成	*/
-	m_Map = make_shared<Map>("MapSizeTest_3");
+	m_Map = make_shared<Map>("TestMap");
 	m_Player = make_shared<Player>("Player");
 	m_MainCamera = make_shared<MainCamera>("MainCamera");
 	m_Fade = make_shared<Fade>("Black");
@@ -33,7 +33,7 @@ bool GamePlay::Stage5Scene::Start()
 	Instance(m_CameraFrame.get());
 
 	/*	初期化	*/
-	m_Player->transform->Position.Set(-2500.0f, -500.0f, 0.0f);
+	m_Player->transform->Position.Set(-2300.0f, -500.0f, 0.0f);
 	m_ChairEnd->transform->Position.x = CHAIR_DISTANCE;
 
 	/*	ギミック初期化	*/
@@ -55,10 +55,12 @@ Scene::STATE GamePlay::Stage5Scene::Update()
 
 	/****	ブロック移動	****/
 	m_Map->CheckLandTile(&m_Player->m_LandTile);
-	if (m_Player->m_LandTile.GetisLandTile() == false ||
-		Input::GetControllerTrigger(XINPUT_GAMEPAD_X))
+	if (((m_Player->m_LandTile.GetisLandTile() == false) ||
+		(Input::GetControllerTrigger(XINPUT_GAMEPAD_X))) &&
+		(m_Map->m_OnReset == false))
 	{
-		m_Map->MoveReset();
+		cout << "リセット発動!\n";
+		m_Map->m_OnReset = true;
 	}
 
 	/****	オブジェクト更新	****/

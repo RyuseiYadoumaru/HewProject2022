@@ -65,39 +65,6 @@ int MoveManager::GetLandObjectID() const
 void MoveManager::SetMoveList(vector<TileColumn>* in_AllTile)
 {
 
-#if 0
-
-	/****	Šî€—ñİ’è	****/
-	int NowColumn = m_StandardTile->GetSaveLandTile()->GetMyColumn();
-	//æ‚Á‚Ä‚é—ñ‚ÌŠî€—ñ‚ğ“ü‚ê‚Ä‚¨‚­
-	in_AllTile->at(NowColumn).m_MoveInfo->SetStandardTile(m_StandardTile->GetLandTile());
-
-	/****	‘O’Tõ	****/
-	/*	ƒXƒ^[ƒg’Tõ—ñ	*/
-	int SearchColumn = m_StandardTile->GetSaveLandTile()->GetMyColumn() + 1;
-
-	/*	’Tõˆ—	*/
-	while (in_AllTile->at(SearchColumn).m_MoveInfo->SearchTile(m_StandardTile->GetLandTile()))
-	{
-		//ˆÚ“®—ñŠi”[
-		Front.Add(in_AllTile->at(SearchColumn).m_MoveInfo.get());
-		//’Tõ—ñXV
-		SearchColumn++;
-	}
-
-	/****	Œã’Tõ	****/
-	/*	ƒXƒ^[ƒg’Tõ—ñ	*/
-	SearchColumn = m_StandardTile->GetLandTile()->GetMyColumn() - 1;
-
-	/*	’Tõˆ—	*/
-	while (in_AllTile->at(SearchColumn).m_MoveInfo->SearchTile(m_StandardTile->GetLandTile()))
-	{
-		//ˆÚ“®—ñŠi”[
-		Back.Add(in_AllTile->at(SearchColumn).m_MoveInfo.get());
-		//’Tõ—ñXV
-		SearchColumn--;
-	}
-#else
 	/****	Šî€—ñİ’è	****/
 	int NowColumn = m_StandardTile->GetLandTile()->GetMyColumn();
 	//æ‚Á‚Ä‚é—ñ‚ÌŠî€—ñ‚ğ“ü‚ê‚Ä‚¨‚­
@@ -119,7 +86,6 @@ void MoveManager::SetMoveList(vector<TileColumn>* in_AllTile)
 	/****	Œã’Tõ	****/
 	/*	ƒXƒ^[ƒg’Tõ—ñ	*/
 	SearchColumn = NowColumn - 1;
-
 	/*	’Tõˆ—	*/
 	while (in_AllTile->at(SearchColumn).m_MoveInfo->SearchTile(m_StandardTile->GetLandTile()))
 	{
@@ -128,8 +94,6 @@ void MoveManager::SetMoveList(vector<TileColumn>* in_AllTile)
 		//’Tõ—ñXV
 		SearchColumn--;
 	}
-#endif // 0
-
 
 }
 

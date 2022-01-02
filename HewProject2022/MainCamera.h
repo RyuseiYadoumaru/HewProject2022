@@ -2,18 +2,23 @@
 #include "ydmEngine.h"
 using Create::Camera;
 using Create::GameObject;
+using Math::Vector2;
 
 class MainCamera : public Camera
 {
 public:
+	MainCamera(string in_Name);
+
 	bool Start() override;
 	bool Update() override;
 
-	MainCamera(string in_Name);
 public:
+	void Range(Vector2& in_TopLeft, Vector2& in_ButtomRight);
 	void Focus(GameObject* in_Object);
 
 private:
+	Vector2 RangeTopLeft;
+	Vector2 RangeButtomRight;
 	GameObject* p_FocusObject;
 };
 

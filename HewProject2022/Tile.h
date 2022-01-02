@@ -36,6 +36,9 @@ public:
 	void Debug() override;
 
 public:
+
+
+public:
 	MAPOBJ GetKind() const;
 	void SetKind(MAPOBJ in_MapObj);
 	void SetColumn(float in_Column);

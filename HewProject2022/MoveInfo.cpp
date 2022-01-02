@@ -28,23 +28,46 @@ MoveInfo::MoveInfo(TileColumn* in_MoveColumn)
 /****	タイル探索処理	****/
 bool MoveInfo::SearchTile(Tile* in_Search)
 {
+	bool isHit = false;
 	//引数のタイルが列の中にあるか調べる関数
 	for (auto& tile : mp_MoveColumn->mp_TileList)
 	{
 		/*	同じブロックヒット	*/
 		if (tile->GetKind() == in_Search->GetKind())
 		{
-			//基準タイル決定
-			mp_StandardTile = tile;
-			//ターゲットタイル格納
-			mp_TargetTile = in_Search;
-			//初期化
-			Start();
+			//ヒットフラグをtrueにする
+			isHit = true;
+			if (mp_StandardTile != nullptr)
+			{
+				//基準タイルから一番近いタイルにする
+				float NowStandardTileDistance = fabsf(in_Search->transform->Position.y - mp_StandardTile->transform->Position.y);
+				float HitTileDistance = fabsf(in_Search->transform->Position.y - tile->transform->Position.y);
+				if (NowStandardTileDistance >= HitTileDistance)
+				{
+					//基準タイル決定
+					mp_StandardTile = tile;
+				}
+			}
 
-			return true;
+			//Nullのときは無差別に代入する
+			else
+			{
+				//基準タイル決定
+				mp_StandardTile = tile;
+
+			}
 		}
 	}
-	return false;
+
+	/*	ヒット時の処理	*/
+	if (isHit == true)
+	{
+		//ターゲットタイル格納
+		mp_TargetTile = in_Search;
+		//初期化
+		Start();
+	}
+	return isHit;
 }
 
 /****	リセット探索処理	****/

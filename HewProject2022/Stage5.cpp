@@ -6,7 +6,7 @@ bool GamePlay::Stage5Scene::Start()
 {
 
 	/*	オブジェクト生成	*/
-	m_Map = make_shared<Map>("TestMap");
+	m_Map = make_shared<Map>("MapTest_1");
 	m_Player = make_shared<Player>("Player");
 	m_MainCamera = make_shared<MainCamera>("MainCamera");
 	m_Fade = make_shared<Fade>("Black");
@@ -40,6 +40,21 @@ bool GamePlay::Stage5Scene::Start()
 	m_Player->m_LandTile.Init(m_Player.get(), &m_Map->m_TileColumnList);
 
 	/*	カメラ設定	*/
+	//描画範囲計算
+	//ここもきれいにしたい
+	Vector2 topleft =
+	{
+		-3600.0f + m_BackGround->transform->Position.x,
+		-800.0f + m_BackGround->transform->Position.y
+
+	};
+
+	Vector2 buttomright =
+	{
+		3600.0f + m_BackGround->transform->Position.x,
+		800.0f + m_BackGround->transform->Position.y
+	};
+	m_MainCamera->Range(topleft, buttomright);
 	SetCamera(m_MainCamera.get());
 	m_MainCamera->Focus(m_Player.get());
 

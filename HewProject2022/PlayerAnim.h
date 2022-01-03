@@ -16,6 +16,7 @@ public:
 		WALK,
 		JUMP,
 		DOWN,
+		MAGIC,
 		KIND_MAX
 	};
 
@@ -25,8 +26,6 @@ public:
 		ANIM_1,
 		ANIM_2,
 		ANIM_3,
-		ANIM_4,
-
 		ANIM_MAX
 	};
 

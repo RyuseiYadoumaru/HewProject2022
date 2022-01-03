@@ -7,6 +7,7 @@
 
 #include "SystemTimer.h"
 #include "../Application.h"
+#include "../../Timer/GameTimer.h"
 #include "Log.h"
 #pragma comment(lib, "winmm.lib")
 
@@ -60,6 +61,10 @@ bool SystemTimer::SystemWait(const float FPS)
 
 	//フレームカウント
 	m_SystemCounter++;
+
+	//ゲームタイマー更新
+	GameEngine::GameTimer::Update();
+
 	return true;
 }
 
@@ -71,8 +76,7 @@ bool SystemTimer::SystemWait(const float FPS)
 //==============================================================================
 float SystemTimer::DeltaTime()
 {
-
-	return (float)(GetSystemTime() - m_SaveTime) / 1000.0f;
+	return (float)(GetSystemTime() - m_SaveTime);
 }
 
 //==============================================================================

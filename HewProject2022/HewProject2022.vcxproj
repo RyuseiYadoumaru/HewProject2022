@@ -187,6 +187,7 @@
     <ClCompile Include="Engine\Runtime\Window\WindowCallBack.cpp" />
     <ClCompile Include="Engine\Runtime\WinMain.cpp" />
     <ClCompile Include="Engine\SceneManager\SceneManager.cpp" />
+    <ClCompile Include="Engine\Timer\GameTimer.cpp" />
     <ClCompile Include="Fade.cpp" />
     <ClCompile Include="Game\GameObject\Actor.cpp" />
     <ClCompile Include="Game\GameObject\Camera.cpp" />
@@ -302,6 +303,7 @@
     <ClInclude Include="Engine\Runtime\Window\Window.h" />
     <ClInclude Include="Engine\Runtime\Window\WindowCallBack.h" />
     <ClInclude Include="Engine\SceneManager\SceneManager.h" />
+    <ClInclude Include="Engine\Timer\GameTimer.h" />
     <ClInclude Include="Fade.h" />
     <ClInclude Include="Game\GameObject\Actor.h" />
     <ClInclude Include="Game\GameObject\Camera.h" />

@@ -14,19 +14,19 @@ void DefaultAnimController::Update()
 	switch (AnimState)
 	{
 	case P_LEFT:
-		Anim->Play("LeftWalk");
+		Anim->PlayLoop("LeftWalk");
 		break;
 
 	case P_RIGHT:
-		Anim->Play("RightWalk");
+		Anim->PlayLoop("RightWalk");
 		break;
 
 	case P_UP:
-		Anim->Play("UpWalk");
+		Anim->PlayLoop("UpWalk");
 		break;
 
 	case P_DOWN:
-		Anim->Play("DownWalk");
+		Anim->PlayLoop("DownWalk");
 		break;
 
 	default:

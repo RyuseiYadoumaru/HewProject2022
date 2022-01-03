@@ -20,11 +20,12 @@ bool Player::Start()
 	m_jumpFlg = false;
 
 	/*	スプライト初期化	*/
-	m_SpriteRenderer->SpriteName = "Character_2";
+	m_SpriteRenderer->SpriteName = "Character";
+	m_SpriteRenderer->SetSize(80.0f, 80.0f);
 	m_SpriteRenderer->Init();
 
 	transform->Position.Set(-230.0f, 0.0f, 0.0f);
-	transform->Scale.Set(0.07f, 0.07f, 0.07f);
+	transform->Scale.Set(1.0f, 1.0f, 1.0f);
 
 	/*	リジットボディーコンポーネント	*/
 	AddComponent<GameEngine::Rigidbody2d>();

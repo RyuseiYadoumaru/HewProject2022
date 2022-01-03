@@ -3,7 +3,7 @@
 #include "TileColumn.h"
 
 //デバッグ用
-#define MOVE_TIME (float)(5.0f)
+#define MOVE_TIME (float)(5000.0f)
 /****	コンストラクタ	****/
 ResetInfo::ResetInfo()
 {

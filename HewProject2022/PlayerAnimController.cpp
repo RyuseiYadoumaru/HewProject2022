@@ -15,18 +15,18 @@ void PlayerAnimController::Update()
 	switch (AnimState)
 	{
 	case PLAYER_WALK:
-		Anim->Play("Walk");
+		Anim->PlayLoop("Walk");
 		break;
 
 	case PLAYER_IDLE:
-		Anim->Play("Idle");
+		Anim->PlayLoop("Idle");
 		break;
 
 	case PLAYER_DOWN:
 		break;
 
 	case PLAYER_JUMP:
-		Anim->Play("Jump");
+		Anim->PlayLoop("Jump");
 		break;
 
 	default:

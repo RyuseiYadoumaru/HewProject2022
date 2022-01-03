@@ -8,6 +8,7 @@
 
 #include "Animation.h"
 #include "../Runtime/Tools/SystemTimer.h"
+#include "../Timer/GameTimer.h"
 
 //==============================================================================
 //!	@fn		Constructor
@@ -16,8 +17,9 @@
 //==============================================================================
 Create::Animation::Animation()
 {
-	m_speed = 0.0f;
-	m_animationFrame = 1;
+	m_AnimationName = "Name";
+	m_animationFrame = 0;
+	m_AnimationCounter = 0;
 	m_kind = 1;
 	m_time = 0;
 }
@@ -30,10 +32,6 @@ Create::Animation::Animation()
 //==============================================================================
 void Create::Animation::Init()
 {
-
-	/*	スピード設定	*/
-	m_speed = 1.0f;
-
 	/*	表示テクスチャ初期化	*/
 	m_animationFrame = 0;
 	m_kind = 0;
@@ -41,26 +39,74 @@ void Create::Animation::Init()
 }
 
 //==============================================================================
-//!	@fn		Play
-//!	@brief	再生
+//!	@fn		PlayLoop
+//!	@brief	ループ再生
 //!	@param	アニメーションテーブル
 //!	@retva	
 //==============================================================================
-void Create::Animation::Play(std::string AnimName)
+void Create::Animation::PlayLoop(std::string AnimName)
 {
+	/*	初期化	*/
+	if (m_AnimationName != AnimName)
+	{
+		//アニメーションが変わった時に初期化する
+		m_AnimationCounter = 0;
+		m_time = 0.0f;
+		m_AnimationName = AnimName;
+
+	}
 	//現在のアニメーション
 	std::vector<int> NowTable = AnimationTableList[AnimName].m_Frame;
 	std::vector<int> NowKind = AnimationTableList[AnimName].m_Kind;
+	std::vector<float>& NowKey = AnimationTableList[AnimName].m_Key;
 
 	// デルタタイムを取得し加算
 	SystemTimer* Timer = SystemTimer::Instance();
-	m_time += Timer->DeltaTime() * m_speed;
+	m_time += GameEngine::GameTimer::deltaTime();
+	printf("DeltaTime:%f\n", GameEngine::GameTimer::deltaTime());
+
+	// アニメーションループ
+	if (NowTable[m_AnimationCounter + 1] == ANIMATION_FINISH)
+	{
+		printf("ループアニメーション\n");
+		m_AnimationCounter = 0;
+		m_time = 0;
+	}
+
+	//アニメーションカウンタ更新
+	if (m_time >= NowKey[m_AnimationCounter + 1])
+	{
+		//Keyタイムになったらanimationフレームを更新する
+		m_AnimationCounter++;
+	}
+
+	//アニメーション種類更新
+	m_kind = NowKind[m_AnimationCounter];
+
+	// アニメーションテーブル更新
+	m_animationFrame = NowTable[m_AnimationCounter];
+}
+
+//==============================================================================
+//!	@fn		PlayOneShot
+//!	@brief	１回再生
+//!	@param	アニメーションテーブル
+//!	@retva	
+//==============================================================================
+int Create::Animation::PlayOneShot(std::string AnimName)
+{
+	//現在のアニメーション
+	std::vector<int>& NowTable = AnimationTableList[AnimName].m_Frame;
+	std::vector<int>& NowKind = AnimationTableList[AnimName].m_Kind;
+
+	// デルタタイムを取得し加算
+	SystemTimer* Timer = SystemTimer::Instance();
 
 	// アニメーションテーブル取得
 	int AnimationCounter = ((int)m_time % (sizeof(NowTable) / sizeof(int))) + 1;
 
 	// アニメーションループ
-	if (NowTable[AnimationCounter] == ANIMATION_LOOP)
+	if (NowTable[AnimationCounter] == ANIMATION_FINISH)
 	{
 		AnimationCounter = 0;
 		m_time = 0;
@@ -71,6 +117,9 @@ void Create::Animation::Play(std::string AnimName)
 
 	// アニメーションテーブル更新
 	m_animationFrame = NowTable[AnimationCounter];
+
+	//アニメーションが終了したら再生終了を返す
+	return ANIMATION_FINISH;
 }
 
 //==============================================================================
@@ -79,12 +128,6 @@ void Create::Animation::Play(std::string AnimName)
 //!	@param	アニメーションテーブル
 //!	@retva	
 //==============================================================================
-//void Create::Animation::CreateAnimation(std::string in_Name, std::vector<int> in_AnimTable)
-//{
-//	AnimationList.insert(std::make_pair(in_Name, in_AnimTable));
-//
-//}
-
 void Create::Animation::CreateAnimation(std::string in_Name, ::AnimationTable in_AnimTable)
 {
 	AnimationTableList.insert(std::make_pair(in_Name, in_AnimTable));

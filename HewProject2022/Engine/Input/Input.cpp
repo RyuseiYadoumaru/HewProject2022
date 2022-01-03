@@ -180,6 +180,7 @@ void GameEngine::Input::KeyUpdate()
 	gKeys[PK_A] = GetAsyncKeyState(PK_A);				//A
 	gKeys[PK_S] = GetAsyncKeyState(PK_S);				//S
 	gKeys[PK_D] = GetAsyncKeyState(PK_D);				//D
+	gKeys[PK_R] = GetAsyncKeyState(PK_R);				//R
 	gKeys[PK_SP] = GetAsyncKeyState(PK_SP);				//SPACE
 
 

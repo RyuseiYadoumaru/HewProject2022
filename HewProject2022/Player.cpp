@@ -143,7 +143,7 @@ void Player::Jump()
 
 	if (GetComponent<BoxCollider2D>()->GetisHit() == false) {//宙に浮いてたら
 
-
+		m_jumpFlg = true;
 		GetComponent<BoxCollider2D>()->SetisHit_underBlock(false);
 	}
 	m_jumpForce += CHAR_GRAVITY;//徐々に重力が加算され、ジャンプ力が弱まっていく

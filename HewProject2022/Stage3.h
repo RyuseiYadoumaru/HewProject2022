@@ -7,6 +7,13 @@
 #include "Table.h"
 #include "ScreenFx.h"
 #include "CameraFrame.h"
+#include "BackGround.h"
+#include "MiniBook.h"
+#include "BigBook.h"
+#include "Sofa.h"
+#include "Cuhsion.h"
+#include "Ceiling.h"
+
 using Create::Actor;
 using GameEngine::Input;
 
@@ -19,11 +26,16 @@ namespace GamePlay
 		shared_ptr<MainCamera> m_MainCamera;
 		shared_ptr<Map> m_Map;
 		shared_ptr<Player> m_Player;
-		shared_ptr<Table> m_TableStart;
-		shared_ptr<Table> m_TableEnd;
+		shared_ptr<Cuhsion> m_CuhsionStart;
+		shared_ptr<Sofa> m_SofaEnd;
 
 		/*	背景	*/
-		shared_ptr<Actor> m_BackGround;
+		shared_ptr<BackGround> m_BackGround;
+		shared_ptr<LayerBack> m_LayerBack;
+		shared_ptr<LayerFront> m_LayerFront;
+
+		/*	天井	*/
+		shared_ptr<Ceiling> m_Ceiling;
 
 		/*	エフェクト	*/
 		shared_ptr<ScreenFx> m_ScreenEffect;

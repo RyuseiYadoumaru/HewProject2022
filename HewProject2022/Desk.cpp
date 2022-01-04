@@ -12,12 +12,12 @@ bool Desk::Start()
 
 	/*	座標設定	*/
 	transform->Scale.Set(1.6f, 1.6f, 1.0f);
-	transform->Position.Set(-2630.0f, 320.0f, 0.0f);
+	transform->Position.Set(1000.0f - 40.0f, 1280.0f, 0.0f);
 
 	/*	ボックスコライダコンポーネント	*/
 	GameEngine::BoxCollider2D* col = AddComponent<GameEngine::BoxCollider2D>(m_SpriteRenderer->GetSize());
-	col->SetSize(1.0f, 0.3f);
-	col->SetOffset(-0.02f, -2.15f);
+	//col->SetSize(1.0f, 0.3f);
+	//col->SetOffset(-0.02f, -2.15f);
 
 	return true;
 }

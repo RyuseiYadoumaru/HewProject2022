@@ -39,7 +39,13 @@ private:
 	float m_accelForceX;// 加速度X
 	float m_stopForceX;// 停止力X　→　摩擦力的なもの
 
+	float m_jumpMax;//ジャンプ最大到達点
+
 	bool m_jumpFlg;//ジャンプフラグ
+
+	bool m_airFlg;//宙に浮いているフラグ
+
+	vector<float> m_JumpForceArray;
 
 private:
 	PlayerAnimController m_PlayerAnimController;

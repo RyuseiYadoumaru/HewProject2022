@@ -6,7 +6,7 @@ bool GamePlay::Stage1Scene::Start()
 {
 
 	/*	オブジェクト生成	*/
-	m_Map = make_shared<Map>("MapSizeTest_3");
+	m_Map = make_shared<Map>("stage1-1");
 	m_Player = make_shared<Player>("Player");
 	m_MainCamera = make_shared<MainCamera>("MainCamera");
 	m_Fade = make_shared<Fade>("Black");

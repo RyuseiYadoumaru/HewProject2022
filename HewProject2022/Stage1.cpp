@@ -109,9 +109,9 @@ bool GamePlay::Stage1Scene::Render()
 	m_Player->Render();
 
 	/****	デバッグ	****/
-	//m_Player->Debug();
-	//m_Map->Debug();
-	//m_TableStart->Debug();
+	m_Player->Debug();
+	m_Map->Debug();
+	m_TableStart->Debug();
 
 	/****	画面エフェクト	****/
 	//m_Fade->Render();

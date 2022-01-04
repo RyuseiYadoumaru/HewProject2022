@@ -4,6 +4,9 @@
 
 Player::Player(string in_Name) :Character(in_Name)
 {
+	m_JumpForceArray = { 0,0,0,0,0,0,0,0,0,0,
+		-15.0f,-11.0f,-11.0f, -11.0f, -11.0f, -11.0f, -11.0f, -11.0f, -11.0f, -11.0f, -11.0f, -11.0f, -11.0f, -11.0f, -11.0f, -11.0f,
+	};
 }
 
 bool Player::Start()
@@ -18,6 +21,10 @@ bool Player::Start()
 	m_jumpForce = 0.0f;
 	//ジャンプフラグ
 	m_jumpFlg = false;
+
+	m_airFlg = false;
+	//ジャンプ最大到達点
+	m_jumpMax = 160.0f;
 
 	/*	スプライト初期化	*/
 	m_SpriteRenderer->SpriteName = "Character";
@@ -118,21 +125,22 @@ void Player::Move()
 
 void Player::Jump()
 {
+	static int jumpCounter = 0;
+
 	if ((Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true || Input::GetKeyTrigger(VK_SPACE) == true) &&
-		m_jumpFlg == false)//小ジャンプ
+		m_jumpFlg == false && m_airFlg == false)//小ジャンプ
 	{
 		m_jumpFlg = true;
-		m_jumpForce = -15.0f;//ジャンプするために重力をマイナスにする
+		//m_jumpForce = -15.0f;//ジャンプするために重力をマイナスにする
 		Sound::Sound_Play(SOUND_LABEL_SE000);//ジャンプ効果音再生
 		//ジャンプアニメーション
 		m_PlayerAnimController.AnimState = PlayerAnimController::PLAYER_JUMP;
-		GetComponent<BoxCollider2D>()->SetisHit_underBlock(false);
+		//GetComponent<BoxCollider2D>()->SetisHit_underBlock(false);
 	}
 
 	if (GetComponent<BoxCollider2D>()->GetisHit_underBlock() == true) {//着地したら
 
-		m_jumpForce = 0;
-		m_jumpFlg = false;
+		m_airFlg = false;
 		m_PlayerAnimController.AnimState = PlayerAnimController::PLAYER_IDLE;
 
 	}
@@ -143,10 +151,28 @@ void Player::Jump()
 
 	if (GetComponent<BoxCollider2D>()->GetisHit() == false) {//宙に浮いてたら
 
+		m_airFlg = true;
 
-		GetComponent<BoxCollider2D>()->SetisHit_underBlock(false);
+		//GetComponent<BoxCollider2D>()->SetisHit_underBlock(false);
 	}
-	m_jumpForce += CHAR_GRAVITY;//徐々に重力が加算され、ジャンプ力が弱まっていく
+
+	if (m_jumpFlg == true) {
+
+		m_jumpForce = m_JumpForceArray[jumpCounter];
+		jumpCounter++;
+
+		if (jumpCounter >= m_JumpForceArray.size()) {
+			m_jumpFlg = false;
+			jumpCounter = 0;
+		}
+	}
+
+	if (m_airFlg == true) {
+		m_jumpForce += CHAR_GRAVITY;//徐々に重力が加算され、ジャンプ力が弱まっていく
+	}
+
+	std::cout << m_airFlg << endl;
+
 	transform->Position.y += m_jumpForce;//ここにデルタタイム？
 }
 

@@ -7,6 +7,7 @@
 #include "Table.h"
 #include "ScreenFx.h"
 #include "CameraFrame.h"
+#include "BackGround.h"
 using Create::Actor;
 using GameEngine::Input;
 
@@ -23,7 +24,7 @@ namespace GamePlay
 		shared_ptr<Table> m_TableEnd;
 
 		/*	背景	*/
-		shared_ptr<Actor> m_BackGround;
+		shared_ptr<BackGround> m_BackGround;
 
 		/*	エフェクト	*/
 		shared_ptr<ScreenFx> m_ScreenEffect;

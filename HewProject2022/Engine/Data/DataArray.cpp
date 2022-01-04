@@ -36,14 +36,24 @@ DataArray* DataArray::Instance()
 bool DataArray::Init()
 {
 	/****	SpriteData	****/
-	std::vector<std::string> ImagePathList;
-	ImagePathList = FileSystem::SearchImageFilePath("assets/Sprite/");
-	for (auto Now : ImagePathList)
+	std::vector<PATH_LIST> ImageList;
+	ImageList.push_back(LoadAllImagePath("assets/Sprite/"));
+	ImageList.push_back(LoadAllImagePath("assets/Sprite/World1/"));
+	ImageList.push_back(LoadAllImagePath("assets/Sprite/World2/"));
+	ImageList.push_back(LoadAllImagePath("assets/Sprite/World3/"));
+	ImageList.push_back(LoadAllImagePath("assets/Sprite/World4/"));
+	ImageList.push_back(LoadAllImagePath("assets/Sprite/World5/"));
+	ImageList.push_back(LoadAllImagePath("assets/Sprite/World6/"));
+	ImageList.push_back(LoadAllImagePath("assets/Sprite/Block/"));
+	for (auto ImagePathList : ImageList)
 	{
-		std::string SpriteName = FileSystem::GetFileName_NotExt(Now.c_str());
-		Sprite sprite;
-		sprite.Load(Now);
-		SpriteData.insert(std::make_pair(SpriteName, sprite));
+		for (auto Now : ImagePathList)
+		{
+			std::string SpriteName = FileSystem::GetFileName_NotExt(Now.c_str());
+			Sprite sprite;
+			sprite.Load(Now);
+			SpriteData.insert(std::make_pair(SpriteName, sprite));
+		}
 	}
 
 	/****	vsShaderData	****/
@@ -100,7 +110,26 @@ vsShader& DataArray::GetvsShader(std::string in_vsShaderName)
 	return vsShaderData[in_vsShaderName];
 }
 
+//==============================================================================
+//!	@fn		GetpsShader
+//!	@brief	ピクセルシェーダー取得
+//!	@param	
+//!	@retval	ピクセルシェーダーデータ
+//==============================================================================
 psShader& DataArray::GetpsShader(std::string in_psShaderName)
 {
 	return psShaderData[in_psShaderName];
+}
+
+//==============================================================================
+//!	@fn		LoadAllImagePath
+//!	@brief	フォルダパス内の全てのデータを読み込む
+//!	@param	フォルダパス
+//!	@retval	パスリスト
+//==============================================================================
+PATH_LIST GameEngine::DataArray::LoadAllImagePath(PATH_NAME in_FilePath)
+{
+	PATH_LIST ImagePathList;
+	ImagePathList = FileSystem::SearchImageFilePath(in_FilePath);
+	return ImagePathList;
 }

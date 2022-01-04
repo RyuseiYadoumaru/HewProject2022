@@ -147,9 +147,11 @@
   <ItemGroup>
     <ClCompile Include="AnimTest.cpp" />
     <ClCompile Include="BackGround.cpp" />
+    <ClCompile Include="BigBook.cpp" />
     <ClCompile Include="CameraFrame.cpp" />
     <ClCompile Include="Chair.cpp" />
     <ClCompile Include="Cuhsion.cpp" />
+    <ClCompile Include="Desk.cpp" />
     <ClCompile Include="directxtex\include\DDSTextureLoader.cpp" />
     <ClCompile Include="directxtex\include\WICTextureLoader.cpp" />
     <ClCompile Include="Engine\Component\Miscellaneous\Animator.cpp" />
@@ -195,6 +197,7 @@
     <ClCompile Include="LandTile.cpp" />
     <ClCompile Include="MainCamera.cpp" />
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="MiniBook.cpp" />
     <ClCompile Include="MoveInfo.cpp" />
     <ClCompile Include="MoveInfoList.cpp" />
     <ClCompile Include="MoveManager.cpp" />
@@ -255,9 +258,11 @@
   <ItemGroup>
     <ClInclude Include="AnimTest.h" />
     <ClInclude Include="BackGround.h" />
+    <ClInclude Include="BigBook.h" />
     <ClInclude Include="CameraFrame.h" />
     <ClInclude Include="Chair.h" />
     <ClInclude Include="Cuhsion.h" />
+    <ClInclude Include="Desk.h" />
     <ClInclude Include="directxtex\include\DDSTextureLoader.h" />
     <ClInclude Include="directxtex\include\DirectXTex.h" />
     <ClInclude Include="directxtex\include\WICTextureLoader.h" />
@@ -311,6 +316,7 @@
     <ClInclude Include="LandTile.h" />
     <ClInclude Include="MainCamera.h" />
     <ClInclude Include="Map.h" />
+    <ClInclude Include="MiniBook.h" />
     <ClInclude Include="MoveInfo.h" />
     <ClInclude Include="MoveInfoList.h" />
     <ClInclude Include="MoveManager.h" />

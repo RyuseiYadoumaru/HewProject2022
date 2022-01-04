@@ -24,7 +24,7 @@ bool Player::Start()
 	m_SpriteRenderer->SetSize(80.0f, 80.0f);
 	m_SpriteRenderer->Init();
 
-	transform->Position.Set(-230.0f, 0.0f, 0.0f);
+	transform->Position.Set(1000.0f, 700.0f, 0.0f);
 	transform->Scale.Set(1.0f, 1.0f, 1.0f);
 
 	/*	リジットボディーコンポーネント	*/
@@ -124,6 +124,8 @@ void Player::Jump()
 		m_jumpFlg = true;
 		m_jumpForce = -15.0f;//ジャンプするために重力をマイナスにする
 		Sound::Sound_Play(SOUND_LABEL_SE000);//ジャンプ効果音再生
+		//ジャンプアニメーション
+		m_PlayerAnimController.AnimState = PlayerAnimController::PLAYER_JUMP;
 		GetComponent<BoxCollider2D>()->SetisHit_underBlock(false);
 	}
 
@@ -131,7 +133,7 @@ void Player::Jump()
 
 		m_jumpForce = 0;
 		m_jumpFlg = false;
-		//m_PlayerAnimController.AnimState = PlayerAnimController::PLAYER_IDLE;
+		m_PlayerAnimController.AnimState = PlayerAnimController::PLAYER_IDLE;
 
 	}
 
@@ -140,12 +142,10 @@ void Player::Jump()
 	}
 
 	if (GetComponent<BoxCollider2D>()->GetisHit() == false) {//宙に浮いてたら
-		//ジャンプアニメーション
-		m_PlayerAnimController.AnimState = PlayerAnimController::PLAYER_JUMP;
+
 
 		GetComponent<BoxCollider2D>()->SetisHit_underBlock(false);
 	}
-
 	m_jumpForce += CHAR_GRAVITY;//徐々に重力が加算され、ジャンプ力が弱まっていく
 	transform->Position.y += m_jumpForce;//ここにデルタタイム？
 }

@@ -78,7 +78,7 @@ bool Map::Start()
 {
 
 	/*	マップ初期化	*/
-	transform->Position.Set(0.0f, 0.0f, 0.0f);
+	transform->Position.Set(3600.0f, 880.0f, 0.0f);
 
 	/*	マップロード	*/
 	m_Mapdata.Load(m_MapDataName);
@@ -411,6 +411,7 @@ void Map::CreateMap()
 			case C4:
 				CreateTile(Pos, "purple", MAPOBJ::C4);
 				break;
+
 			case C5:
 				CreateTile(Pos, "yellow", MAPOBJ::C5);
 				break;

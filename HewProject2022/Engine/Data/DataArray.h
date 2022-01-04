@@ -16,6 +16,9 @@
 
 namespace GameEngine
 {
+	typedef std::vector<std::string> PATH_LIST;
+	typedef const char* PATH_NAME;
+
 	class DataArray
 	{
 	private:
@@ -32,6 +35,10 @@ namespace GameEngine
 		static Sprite& GetSpriteData(std::string in_SpriteName);
 		static vsShader& GetvsShader(std::string in_vsShaderName);
 		static psShader& GetpsShader(std::string in_psShaderName);
+
+
+	private:
+		static PATH_LIST LoadAllImagePath(PATH_NAME in_FilePath);
 
 	};
 }

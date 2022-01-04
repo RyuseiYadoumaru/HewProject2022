@@ -2,7 +2,8 @@
 #define MOVE_SPEED 20
 MainCamera::MainCamera(string in_Name) : Camera(in_Name)
 {
-	transform->Position.Set(1920.0f / 2.0f, 1080.0f / 2.0f, 0.0f);
+	//transform->Position.Set(1920.0f / 2.0f, 1080.0f / 2.0f, 0.0f);
+	transform->Position.Set(0.0f, 0.0f, 0.0f);
 	p_FocusObject = nullptr;
 }
 bool MainCamera::Start()
@@ -13,7 +14,27 @@ bool MainCamera::Start()
 
 bool MainCamera::Update()
 {
-	if ((RangeTopLeft.x <= transform->Position.x) &&
+	if ((RangeTopLeft.x == 0.0f) &&
+		(RangeTopLeft.y == 0.0f) &&
+		(RangeButtomRight.x == 0.0f) &&
+		RangeButtomRight.y == 0.0f)
+	{
+		if (p_FocusObject == nullptr)
+		{
+			if (Input::GetKeyPress(PK_RIGHT)) transform->Position.x += MOVE_SPEED;
+			if (Input::GetKeyPress(PK_LEFT)) transform->Position.x -= MOVE_SPEED;
+			if (Input::GetKeyPress(PK_DOWN)) transform->Position.y += MOVE_SPEED;
+			if (Input::GetKeyPress(PK_UP)) transform->Position.y -= MOVE_SPEED;
+		}
+		else
+		{
+
+			transform->Position.x = p_FocusObject->transform->Position.x;
+			transform->Position.y = p_FocusObject->transform->Position.y - 200.0f;
+		}
+	}
+
+	else if ((RangeTopLeft.x <= transform->Position.x) &&
 		(RangeTopLeft.y <= transform->Position.y) &&
 		(RangeButtomRight.x >= transform->Position.x) &&
 		RangeButtomRight.y >= transform->Position.y)
@@ -32,11 +53,6 @@ bool MainCamera::Update()
 			transform->Position.y = p_FocusObject->transform->Position.y - 200.0f;
 		}
 	}
-	else
-	{
-
-	}
-
 
 	SetCameraPos();
 	return true;

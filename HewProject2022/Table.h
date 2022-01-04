@@ -4,7 +4,7 @@ using Math::Vector2;
 using Math::Vector3;
 using Create::Actor;
 
-#define TABLE_DISTANCE 3200 - 640
+#define TABLE_DISTANCE (float)(80*40 + 2000)
 class Table : public Actor
 {
 public:

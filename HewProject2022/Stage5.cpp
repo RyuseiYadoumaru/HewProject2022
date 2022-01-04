@@ -6,7 +6,7 @@ bool GamePlay::Stage5Scene::Start()
 {
 
 	/*	オブジェクト生成	*/
-	m_Map = make_shared<Map>("MapTest_1");
+	m_Map = make_shared<Map>("stage1-1");
 	m_Player = make_shared<Player>("Player");
 	m_MainCamera = make_shared<MainCamera>("MainCamera");
 	m_Fade = make_shared<Fade>("Black");
@@ -34,7 +34,7 @@ bool GamePlay::Stage5Scene::Start()
 
 	/*	初期化	*/
 	m_Player->transform->Position.Set(-2300.0f, -500.0f, 0.0f);
-	m_ChairEnd->transform->Position.x = CHAIR_DISTANCE;
+	m_ChairEnd->transform->Position.x = CHAIR_DISTANCE - 80 * 20;
 
 	/*	ギミック初期化	*/
 	m_Player->m_LandTile.Init(m_Player.get(), &m_Map->m_TileColumnList);

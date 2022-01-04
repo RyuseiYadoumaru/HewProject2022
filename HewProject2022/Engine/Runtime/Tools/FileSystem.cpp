@@ -45,7 +45,7 @@ std::string FileSystem::GetFileName(const char* FilePath)
 //!	@param	ファイルパス
 //!	@retval	ファイル名
 //==============================================================================
-std::string FileSystem::GetFileName_NotExt(const char * FilePath)
+std::string FileSystem::GetFileName_NotExt(const char* FilePath)
 {
 	std::string filepath(FilePath);
 	std::string filename;
@@ -72,6 +72,22 @@ std::string FileSystem::GetFileExt(const char* FileName)
 	extname = filename.substr(Index + 1, filename.size() - Index);
 
 	return extname;
+}
+
+//==============================================================================
+//!	@fn		JudgeFolderOrFile
+//!	@brief	拡張子があるかないかチェック
+//!	@param	データ名
+//!	@retval	true:Folder　false:File
+//==============================================================================
+bool FileSystem::JudgeFolderOrFile(std::string DataName)
+{
+	int Index = 0;
+	Index = DataName.find(".");
+
+	if (Index != -1) return DATA_FILE;
+
+	return DATA_FOLDER;
 }
 
 //==============================================================================

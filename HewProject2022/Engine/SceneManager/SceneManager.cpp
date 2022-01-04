@@ -67,7 +67,7 @@ GameEngine::SceneManager::SceneManager()
 	CreateScene("Stage29", new GamePlay::Stage29Scene);
 	CreateScene("Stage30", new GamePlay::Stage30Scene);
 
-	NextScene = SceneList["Stage5"];
+	NextScene = SceneList["Stage1"];
 }
 
 //==============================================================================

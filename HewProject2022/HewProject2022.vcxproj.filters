@@ -109,9 +109,6 @@
     <Filter Include="Game\Object\Test">
       <UniqueIdentifier>{8383f8bd-d990-46f4-bb59-58c59920f805}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Object\BackGround">
-      <UniqueIdentifier>{84c32d85-3d8d-42a4-a32c-6aa3ddb9d8cc}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Engine\Component\Public\Physics2D">
       <UniqueIdentifier>{86133024-cb28-40f1-b5a0-15b24217f2aa}</UniqueIdentifier>
     </Filter>
@@ -253,9 +250,6 @@
     <Filter Include="TOYALINE\World1\Road\Table">
       <UniqueIdentifier>{2b30a6cd-1a75-4c44-9e4a-3c0d34aee8ac}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TOYALINE\World1\Road\Cuhsion">
-      <UniqueIdentifier>{eca3da19-be6d-482a-be85-78f697d30c1d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="TOYALINE\World1\Road\Chair">
       <UniqueIdentifier>{0cf82172-424c-45b1-81c4-6db6cffb772f}</UniqueIdentifier>
     </Filter>
@@ -267,6 +261,15 @@
     </Filter>
     <Filter Include="Engine\Timer">
       <UniqueIdentifier>{33af864f-6e20-46f2-b4d9-94ca2b1c7123}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\World1\Road\Book">
+      <UniqueIdentifier>{a0e85aec-6ce6-4333-a251-9dd726469670}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\World1\Road\Cuhsion">
+      <UniqueIdentifier>{eca3da19-be6d-482a-be85-78f697d30c1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\BackGround">
+      <UniqueIdentifier>{84c32d85-3d8d-42a4-a32c-6aa3ddb9d8cc}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -370,7 +373,7 @@
       <Filter>Game\Object\Test</Filter>
     </ClCompile>
     <ClCompile Include="BackGround.cpp">
-      <Filter>Game\Object\BackGround</Filter>
+      <Filter>TOYALINE\BackGround</Filter>
     </ClCompile>
     <ClCompile Include="MainCamera.cpp">
       <Filter>TOYALINE\Object\Camera\MainCamera</Filter>
@@ -589,6 +592,15 @@
     <ClCompile Include="Engine\Timer\GameTimer.cpp">
       <Filter>Engine\Timer</Filter>
     </ClCompile>
+    <ClCompile Include="BigBook.cpp">
+      <Filter>TOYALINE\World1\Road\Book</Filter>
+    </ClCompile>
+    <ClCompile Include="MiniBook.cpp">
+      <Filter>TOYALINE\World1\Road\Book</Filter>
+    </ClCompile>
+    <ClCompile Include="Desk.cpp">
+      <Filter>TOYALINE\World1\Road\Table</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Runtime\Application.h">
@@ -706,7 +718,7 @@
       <Filter>Game\Object\Test</Filter>
     </ClInclude>
     <ClInclude Include="BackGround.h">
-      <Filter>Game\Object\BackGround</Filter>
+      <Filter>TOYALINE\BackGround</Filter>
     </ClInclude>
     <ClInclude Include="MainCamera.h">
       <Filter>TOYALINE\Object\Camera\MainCamera</Filter>
@@ -942,6 +954,15 @@
     </ClInclude>
     <ClInclude Include="Engine\Timer\GameTimer.h">
       <Filter>Engine\Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="BigBook.h">
+      <Filter>TOYALINE\World1\Road\Book</Filter>
+    </ClInclude>
+    <ClInclude Include="MiniBook.h">
+      <Filter>TOYALINE\World1\Road\Book</Filter>
+    </ClInclude>
+    <ClInclude Include="Desk.h">
+      <Filter>TOYALINE\World1\Road\Table</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

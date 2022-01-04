@@ -10,6 +10,7 @@
 #include <map>
 
 #define ANIMATION_FINISH (-1)
+#define ANIMATION_PLAY (0)
 
 namespace
 {
@@ -64,8 +65,8 @@ namespace Create
 	public:
 		Animation();
 		virtual void Init();
-		void PlayLoop(std::string AnimName);
-		int PlayOneShot(std::string AnimName);
+		int Play(std::string AnimName);
+
 	public:
 		int GetFrame() { return m_animationFrame; }  //フレーム取得
 		int GetKind() { return m_kind; }			//種類数取得
@@ -83,6 +84,9 @@ namespace Create
 		int KindMax;			//種類最大数
 
 		std::map<std::string, ::AnimationTable> AnimationTableList;
+
+	private:
+		void AnimStart(std::string in_AnimName);
 
 	private:
 		std::string m_AnimationName;	//アニメーションの名前

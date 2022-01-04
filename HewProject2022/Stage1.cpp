@@ -17,10 +17,10 @@ bool GamePlay::Stage1Scene::Start()
 
 
 	/*	背景初期化	*/
-	m_BackGround = make_shared<Actor>("Wall");
+	m_BackGround = make_shared<BackGround>("Wall");
 	m_BackGround->Sprite("Wall");
 	Instance(m_BackGround.get());
-	m_BackGround->transform->Position.Set(-40.0f, -200.0f, 0.0f);
+	//m_BackGround->transform->Position.Set(-40.0f, -200.0f, 0.0f);
 
 
 	/*	インスタンス	*/
@@ -33,8 +33,7 @@ bool GamePlay::Stage1Scene::Start()
 	Instance(m_CameraFrame.get());
 
 	/*	初期化	*/
-	m_Player->transform->Position.Set(-2500.0f, -500.0f, 0.0f);
-	m_TableEnd->transform->Position.x = TABLE_DISTANCE;
+	m_TableEnd->transform->Position.x += TABLE_DISTANCE;
 
 	/*	ギミック初期化	*/
 	m_Player->m_LandTile.Init(m_Player.get(), &m_Map->m_TileColumnList);
@@ -115,7 +114,7 @@ bool GamePlay::Stage1Scene::Render()
 	//m_TableStart->Debug();
 
 	/****	画面エフェクト	****/
-	m_Fade->Render();
+	//m_Fade->Render();
 	m_ScreenEffect->Render();
 	m_CameraFrame->Render();
 

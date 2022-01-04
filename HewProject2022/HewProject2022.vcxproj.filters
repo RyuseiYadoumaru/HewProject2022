@@ -280,6 +280,15 @@
     <Filter Include="TOYALINE\Ceiling">
       <UniqueIdentifier>{cb30f131-90d9-49fe-bf33-0431081dcc1d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TOYALINE\World2\Road">
+      <UniqueIdentifier>{ec5e07e2-c79b-45c7-bf11-ebf5b9f5f2bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\World2\Road\Sink">
+      <UniqueIdentifier>{609c5c05-1289-4117-82ab-778ca397a094}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\World2\Road\Tablewere">
+      <UniqueIdentifier>{8eda23fb-c48f-4766-a509-2235836b09be}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Runtime\Application.cpp">
@@ -615,6 +624,12 @@
     </ClCompile>
     <ClCompile Include="Ceiling.cpp">
       <Filter>TOYALINE\Ceiling</Filter>
+    </ClCompile>
+    <ClCompile Include="Sink.cpp">
+      <Filter>TOYALINE\World2\Road\Sink</Filter>
+    </ClCompile>
+    <ClCompile Include="Tableware.cpp">
+      <Filter>TOYALINE\World2\Road\Tablewere</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -987,6 +1002,12 @@
     </ClInclude>
     <ClInclude Include="Ceiling.h">
       <Filter>TOYALINE\Ceiling</Filter>
+    </ClInclude>
+    <ClInclude Include="Sink.h">
+      <Filter>TOYALINE\World2\Road\Sink</Filter>
+    </ClInclude>
+    <ClInclude Include="Tableware.h">
+      <Filter>TOYALINE\World2\Road\Tablewere</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

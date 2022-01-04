@@ -133,7 +133,7 @@ void Player::Jump()
 {
 	static int jumpCounter = 0;
 
-#if 1
+#if 0
 	if ((Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true || Input::GetKeyTrigger(VK_SPACE) == true) &&
 		m_jumpFlg == false)//¬ƒWƒƒƒ“ƒv
 	{

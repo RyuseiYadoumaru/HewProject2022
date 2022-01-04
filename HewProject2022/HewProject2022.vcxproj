@@ -149,6 +149,7 @@
     <ClCompile Include="BackGround.cpp" />
     <ClCompile Include="BigBook.cpp" />
     <ClCompile Include="CameraFrame.cpp" />
+    <ClCompile Include="Ceiling.cpp" />
     <ClCompile Include="Chair.cpp" />
     <ClCompile Include="Cuhsion.cpp" />
     <ClCompile Include="Desk.cpp" />
@@ -212,6 +213,7 @@
     <ClCompile Include="ResultScene.cpp" />
     <ClCompile Include="ScreenFx.cpp" />
     <ClCompile Include="SelectScene.cpp" />
+    <ClCompile Include="Sofa.cpp" />
     <ClCompile Include="Stage1.cpp" />
     <ClCompile Include="Stage10.cpp" />
     <ClCompile Include="Stage11.cpp" />
@@ -260,6 +262,7 @@
     <ClInclude Include="BackGround.h" />
     <ClInclude Include="BigBook.h" />
     <ClInclude Include="CameraFrame.h" />
+    <ClInclude Include="Ceiling.h" />
     <ClInclude Include="Chair.h" />
     <ClInclude Include="Cuhsion.h" />
     <ClInclude Include="Desk.h" />
@@ -332,6 +335,7 @@
     <ClInclude Include="SceneList.h" />
     <ClInclude Include="ScreenFx.h" />
     <ClInclude Include="SelectScene.h" />
+    <ClInclude Include="Sofa.h" />
     <ClInclude Include="Stage1.h" />
     <ClInclude Include="Stage10.h" />
     <ClInclude Include="Stage11.h" />
@@ -362,6 +366,7 @@
     <ClInclude Include="Stage7.h" />
     <ClInclude Include="Stage8.h" />
     <ClInclude Include="Stage9.h" />
+    <ClInclude Include="StageInfo.h" />
     <ClInclude Include="StageList.h" />
     <ClInclude Include="Table.h" />
     <ClInclude Include="Test.h" />

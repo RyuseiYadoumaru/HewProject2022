@@ -29,7 +29,7 @@ void PlayerAnim::Init()
 	::AnimationTable set_Jump;
 	set_Jump.SetKind(KIND::IDLE, KIND::JUMP, KIND::JUMP, KIND::JUMP, ANIMATION_FINISH);
 	set_Jump.SetFrame(FRAME::ANIM_1, FRAME::ANIM_1, FRAME::ANIM_2, FRAME::ANIM_3, ANIMATION_FINISH);
-	set_Jump.SetKey(0.0f, 100.0f, 200.0f, 300.0f);
+	set_Jump.SetKey(0.0f, 100.0f, 550.0f, 700.0f);
 	AnimationTableList.insert(std::make_pair("Jump", set_Jump));
 
 	/*	—Ž‰º	*/

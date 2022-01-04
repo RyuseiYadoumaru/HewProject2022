@@ -11,8 +11,10 @@ bool BigBook::Start()
 	m_SpriteRenderer->Init();
 
 	/*	座標設定	*/
+	float HalfSizeX = m_SpriteRenderer->GetSize().x / 2.0f;
+	float PosX = ROAD_WIDTH - HalfSizeX - TILE_WIDTH / 2.0f;
 	transform->Scale.Set(1.0f, 1.0f, 1.0f);
-	transform->Position.Set(-2630.0f, 1120.0f, 0.0f);
+	transform->Position.Set(PosX, 1080.0f, 0.0f);
 
 	/*	ボックスコライダコンポーネント	*/
 	GameEngine::BoxCollider2D* col = AddComponent<GameEngine::BoxCollider2D>(m_SpriteRenderer->GetSize());

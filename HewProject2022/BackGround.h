@@ -10,5 +10,7 @@ public:
 	bool Start() override;
 };
 
+typedef BackGround LayerFront;
+typedef BackGround LayerBack;
 
 

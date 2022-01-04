@@ -11,29 +11,44 @@ bool GamePlay::Stage1Scene::Start()
 	m_MainCamera = make_shared<MainCamera>("MainCamera");
 	m_Fade = make_shared<Fade>("Black");
 	m_TableStart = make_shared<Table>("TableStart");
-	m_TableEnd = make_shared<Table>("TableEnd");
+	m_SofaEnd = make_shared<Sofa>("SofaEnd");
 	m_ScreenEffect = make_shared<ScreenFx>("SFX");
 	m_CameraFrame = make_shared<CameraFrame>("CFX");
-
+	m_BigBook = make_shared<BigBook>("Book1");
+	m_MiniBook = make_shared<MiniBook>("Book2");
 
 	/*	背景初期化	*/
 	m_BackGround = make_shared<BackGround>("Wall");
 	m_BackGround->Sprite("Wall");
 	Instance(m_BackGround.get());
-	//m_BackGround->transform->Position.Set(-40.0f, -200.0f, 0.0f);
+
+	m_LayerBack = make_shared<LayerBack>("LayerBack");
+	m_LayerBack->Sprite("World_obj1_1");
+	Instance(m_LayerBack.get());
+
+	m_LayerFront = make_shared<LayerFront>("LayerFront");
+	m_LayerFront->Sprite("World_obj2_1");
+	Instance(m_LayerFront.get());
+
+	/*	天井初期化	*/
+	m_Ceiling = make_shared<Ceiling>("Ceiling");
+	m_Ceiling->Sprite("ceiling");
+	Instance(m_Ceiling.get());
 
 
 	/*	インスタンス	*/
 	Instance(m_Map.get());
 	Instance(m_Player.get());
 	Instance(m_TableStart.get());
-	Instance(m_TableEnd.get());
+	Instance(m_SofaEnd.get());
 	Instance(m_Fade.get());
 	Instance(m_ScreenEffect.get());
 	Instance(m_CameraFrame.get());
+	Instance(m_BigBook.get());
+	Instance(m_MiniBook.get());
 
 	/*	初期化	*/
-	m_TableEnd->transform->Position.x += TABLE_DISTANCE;
+	m_SofaEnd->transform->Position.x += ROAD_DISTANCE;
 
 	/*	ギミック初期化	*/
 	m_Player->m_LandTile.Init(m_Player.get(), &m_Map->m_TileColumnList);
@@ -68,7 +83,9 @@ Scene::STATE GamePlay::Stage1Scene::Update()
 	/****	当たり判定	****/
 	m_Map->HitCheckMap(*m_Player);
 	m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_TableStart->GetComponent<BoxCollider2D>());
-	m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_TableEnd->GetComponent<BoxCollider2D>());
+	m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_SofaEnd->GetComponent<BoxCollider2D>());
+	m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_BigBook->GetComponent<BoxCollider2D>());
+	m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_MiniBook->GetComponent<BoxCollider2D>());
 
 
 	/****	ロードシーン	****/
@@ -102,16 +119,27 @@ bool GamePlay::Stage1Scene::Render()
 	/****	背景	****/
 	m_BackGround->Render();
 
+	/****	後装飾品	****/
+	m_LayerBack->Render();
+
+	/****	天井	****/
+	m_Ceiling->Render();
+
 	/****	オブジェクト描画	****/
 	m_TableStart->Render();
-	m_TableEnd->Render();
+	m_SofaEnd->Render();
+	m_BigBook->Render();
+	m_MiniBook->Render();
 	m_Map->Render();
 	m_Player->Render();
 
+	/****	前装飾品	****/
+	m_LayerFront->Render();
+
 	/****	デバッグ	****/
-	m_Player->Debug();
-	m_Map->Debug();
-	m_TableStart->Debug();
+	//m_Player->Debug();
+	//m_Map->Debug();
+	//m_TableStart->Debug();
 
 	/****	画面エフェクト	****/
 	//m_Fade->Render();

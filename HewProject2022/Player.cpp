@@ -4,8 +4,15 @@
 
 Player::Player(string in_Name) :Character(in_Name)
 {
-	m_JumpForceArray = { 0,0,0,0,0,0,0,0,0,0,
-		-15.0f,-11.0f,-11.0f, -11.0f, -11.0f, -11.0f, -11.0f, -11.0f, -11.0f, -11.0f, -11.0f, -11.0f, -11.0f, -11.0f, -11.0f, -11.0f,
+	m_JumpForceArray =
+		//溜めフレーム
+	{ 0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,
+	  0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,
+		//ジャンプフレーム
+	  -16.0f,-15.4f,-14.8f,-13.2f,-12.6f,-12.0f,-12.0f,-12.0f,
+	  -11.4f,-10.8f,-10.2f,-09.6f,-09.0f,-08.0f,-07.0f,-06.0f,-05.0f - 04.0f, -03.0f, -02.6f,-02.2f, -01.8f,
+		//空中滞在
+	  1.6f,1.2f,1.2f,1.2f,1.2f,1.2f
 	};
 }
 
@@ -126,7 +133,7 @@ void Player::Jump()
 {
 	static int jumpCounter = 0;
 
-#if 0
+#if 1
 	if ((Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true || Input::GetKeyTrigger(VK_SPACE) == true) &&
 		m_jumpFlg == false)//小ジャンプ
 	{
@@ -173,8 +180,6 @@ void Player::Jump()
 	if (GetComponent<BoxCollider2D>()->GetisHit_underBlock() == true) {//着地したら
 
 		m_airFlg = false;
-		m_PlayerAnimController.AnimState = PlayerAnimController::PLAYER_IDLE;
-
 	}
 
 	if (GetComponent<BoxCollider2D>()->GetisHit_overBlock() == true) {//頭ぶつけたら
@@ -185,7 +190,6 @@ void Player::Jump()
 
 		m_airFlg = true;
 
-		//GetComponent<BoxCollider2D>()->SetisHit_underBlock(false);
 	}
 
 	if (m_jumpFlg == true) {
@@ -207,7 +211,6 @@ void Player::Jump()
 
 	transform->Position.y += m_jumpForce;//ここにデルタタイム？
 
-
 #endif // 0
 
 }
@@ -227,12 +230,12 @@ bool Player::Update()
 	/*	乗ってるタイル更新	*/
 	m_LandTile.Update();
 
-	if (m_LandTile.GetisLandTile() == true)
-	{
-		cout << "プレイヤーが乗っているタイル\n";
-		cout << m_LandTile.GetLandTile()->GetId().x << endl;
-		cout << m_LandTile.GetLandTile()->GetKind() << endl;
-	}
+	//if (m_LandTile.GetisLandTile() == true)
+	//{
+	//	cout << "プレイヤーが乗っているタイル\n";
+	//	cout << m_LandTile.GetLandTile()->GetId().x << endl;
+	//	cout << m_LandTile.GetLandTile()->GetKind() << endl;
+	//}
 	return true;
 }
 

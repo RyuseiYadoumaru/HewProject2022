@@ -253,23 +253,32 @@
     <Filter Include="TOYALINE\World1\Road\Chair">
       <UniqueIdentifier>{0cf82172-424c-45b1-81c4-6db6cffb772f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TOYALINE\Object\Actor\Map\MoveInfo">
-      <UniqueIdentifier>{1a41ca03-54c2-4fcb-923d-44ece04fbd21}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\Object\Actor\Map\ResetInfo">
-      <UniqueIdentifier>{97939eee-2a2c-4389-88cf-0f0310858519}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Engine\Timer">
       <UniqueIdentifier>{33af864f-6e20-46f2-b4d9-94ca2b1c7123}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\World1\Road\Book">
-      <UniqueIdentifier>{a0e85aec-6ce6-4333-a251-9dd726469670}</UniqueIdentifier>
     </Filter>
     <Filter Include="TOYALINE\World1\Road\Cuhsion">
       <UniqueIdentifier>{eca3da19-be6d-482a-be85-78f697d30c1d}</UniqueIdentifier>
     </Filter>
     <Filter Include="TOYALINE\BackGround">
       <UniqueIdentifier>{84c32d85-3d8d-42a4-a32c-6aa3ddb9d8cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\World1\Road\Desk">
+      <UniqueIdentifier>{83035070-34af-490e-999f-96b30a2310c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\World1\Road\Table\Book">
+      <UniqueIdentifier>{a0e85aec-6ce6-4333-a251-9dd726469670}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\World1\Road\Sofa">
+      <UniqueIdentifier>{86838911-eb71-437a-844c-c73151825103}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Script\ResetInfo">
+      <UniqueIdentifier>{97939eee-2a2c-4389-88cf-0f0310858519}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Script\MoveInfo">
+      <UniqueIdentifier>{1a41ca03-54c2-4fcb-923d-44ece04fbd21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Ceiling">
+      <UniqueIdentifier>{cb30f131-90d9-49fe-bf33-0431081dcc1d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -578,28 +587,34 @@
       <Filter>TOYALINE\World1\Road\Chair</Filter>
     </ClCompile>
     <ClCompile Include="MoveInfo.cpp">
-      <Filter>TOYALINE\Object\Actor\Map\MoveInfo</Filter>
+      <Filter>TOYALINE\Script\MoveInfo</Filter>
     </ClCompile>
     <ClCompile Include="MoveInfoList.cpp">
-      <Filter>TOYALINE\Object\Actor\Map\MoveInfo</Filter>
+      <Filter>TOYALINE\Script\MoveInfo</Filter>
     </ClCompile>
     <ClCompile Include="ResetInfo.cpp">
-      <Filter>TOYALINE\Object\Actor\Map\ResetInfo</Filter>
+      <Filter>TOYALINE\Script\ResetInfo</Filter>
     </ClCompile>
     <ClCompile Include="ResetInfoList.cpp">
-      <Filter>TOYALINE\Object\Actor\Map\ResetInfo</Filter>
+      <Filter>TOYALINE\Script\ResetInfo</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Timer\GameTimer.cpp">
       <Filter>Engine\Timer</Filter>
     </ClCompile>
     <ClCompile Include="BigBook.cpp">
-      <Filter>TOYALINE\World1\Road\Book</Filter>
+      <Filter>TOYALINE\World1\Road\Table\Book</Filter>
     </ClCompile>
     <ClCompile Include="MiniBook.cpp">
-      <Filter>TOYALINE\World1\Road\Book</Filter>
+      <Filter>TOYALINE\World1\Road\Table\Book</Filter>
     </ClCompile>
     <ClCompile Include="Desk.cpp">
-      <Filter>TOYALINE\World1\Road\Table</Filter>
+      <Filter>TOYALINE\World1\Road\Desk</Filter>
+    </ClCompile>
+    <ClCompile Include="Sofa.cpp">
+      <Filter>TOYALINE\World1\Road\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Ceiling.cpp">
+      <Filter>TOYALINE\Ceiling</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -941,28 +956,37 @@
       <Filter>TOYALINE\World1\Road\Chair</Filter>
     </ClInclude>
     <ClInclude Include="MoveInfo.h">
-      <Filter>TOYALINE\Object\Actor\Map\MoveInfo</Filter>
+      <Filter>TOYALINE\Script\MoveInfo</Filter>
     </ClInclude>
     <ClInclude Include="MoveInfoList.h">
-      <Filter>TOYALINE\Object\Actor\Map\MoveInfo</Filter>
+      <Filter>TOYALINE\Script\MoveInfo</Filter>
     </ClInclude>
     <ClInclude Include="ResetInfo.h">
-      <Filter>TOYALINE\Object\Actor\Map\ResetInfo</Filter>
+      <Filter>TOYALINE\Script\ResetInfo</Filter>
     </ClInclude>
     <ClInclude Include="ResetInfoList.h">
-      <Filter>TOYALINE\Object\Actor\Map\ResetInfo</Filter>
+      <Filter>TOYALINE\Script\ResetInfo</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Timer\GameTimer.h">
       <Filter>Engine\Timer</Filter>
     </ClInclude>
     <ClInclude Include="BigBook.h">
-      <Filter>TOYALINE\World1\Road\Book</Filter>
+      <Filter>TOYALINE\World1\Road\Table\Book</Filter>
     </ClInclude>
     <ClInclude Include="MiniBook.h">
-      <Filter>TOYALINE\World1\Road\Book</Filter>
+      <Filter>TOYALINE\World1\Road\Table\Book</Filter>
+    </ClInclude>
+    <ClInclude Include="StageInfo.h">
+      <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="Desk.h">
-      <Filter>TOYALINE\World1\Road\Table</Filter>
+      <Filter>TOYALINE\World1\Road\Desk</Filter>
+    </ClInclude>
+    <ClInclude Include="Sofa.h">
+      <Filter>TOYALINE\World1\Road\Sofa</Filter>
+    </ClInclude>
+    <ClInclude Include="Ceiling.h">
+      <Filter>TOYALINE\Ceiling</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

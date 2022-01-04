@@ -4,11 +4,7 @@ using Math::Vector2;
 using Math::Vector3;
 using Create::Actor;
 
-#define TILE_WIDTH	(float)(80)
-#define TILE_HEIGHT	(float)(80)
-#define TILE_FIXPOS (float)(2)	//タイル足場補正値
 #define TILE_ID		(7000)
-
 enum MAPOBJ
 {
 	NB,	//ノーマルブロック

@@ -213,6 +213,7 @@
     <ClCompile Include="ResultScene.cpp" />
     <ClCompile Include="ScreenFx.cpp" />
     <ClCompile Include="SelectScene.cpp" />
+    <ClCompile Include="Shelf.cpp" />
     <ClCompile Include="Sink.cpp" />
     <ClCompile Include="Sofa.cpp" />
     <ClCompile Include="Stage1.cpp" />
@@ -337,6 +338,7 @@
     <ClInclude Include="SceneList.h" />
     <ClInclude Include="ScreenFx.h" />
     <ClInclude Include="SelectScene.h" />
+    <ClInclude Include="Shelf.h" />
     <ClInclude Include="Sink.h" />
     <ClInclude Include="Sofa.h" />
     <ClInclude Include="Stage1.h" />

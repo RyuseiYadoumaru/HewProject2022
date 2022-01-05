@@ -289,6 +289,9 @@
     <Filter Include="TOYALINE\World2\Road\Tablewere">
       <UniqueIdentifier>{8eda23fb-c48f-4766-a509-2235836b09be}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TOYALINE\World2\Road\Shelf">
+      <UniqueIdentifier>{3c6587b1-048c-482a-a2d2-a941e5f90450}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Runtime\Application.cpp">
@@ -630,6 +633,9 @@
     </ClCompile>
     <ClCompile Include="Tableware.cpp">
       <Filter>TOYALINE\World2\Road\Tablewere</Filter>
+    </ClCompile>
+    <ClCompile Include="Shelf.cpp">
+      <Filter>TOYALINE\World2\Road\Shelf</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1008,6 +1014,9 @@
     </ClInclude>
     <ClInclude Include="Tableware.h">
       <Filter>TOYALINE\World2\Road\Tablewere</Filter>
+    </ClInclude>
+    <ClInclude Include="Shelf.h">
+      <Filter>TOYALINE\World2\Road\Shelf</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

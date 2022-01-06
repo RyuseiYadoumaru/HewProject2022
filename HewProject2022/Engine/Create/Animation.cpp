@@ -7,7 +7,7 @@
 //*****************************************************************************
 
 #include "Animation.h"
-#include "../Runtime/Tools/SystemTimer.h"
+#include "../Runtime/Tools/Log.h"
 #include "../Timer/GameTimer.h"
 
 //==============================================================================
@@ -57,8 +57,13 @@ int  Create::Animation::Play(std::string AnimName)
 	std::vector<int> NowKind = AnimationTableList[AnimName].m_Kind;
 	std::vector<float>& NowKey = AnimationTableList[AnimName].m_Key;
 
+	if (NowTable.size() == 0)
+	{
+		Log::LogError("アニメーションの名前が間違えています");
+		return ANIMATION_NAME_ERROR;
+	}
+
 	// デルタタイムを取得し加算
-	SystemTimer* Timer = SystemTimer::Instance();
 	m_time += GameEngine::GameTimer::deltaTime();
 
 	// アニメーションループ

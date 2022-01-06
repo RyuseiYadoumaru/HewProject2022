@@ -19,6 +19,11 @@ bool MoveInfoList::Empty()
 	return m_List.empty();
 }
 
+int MoveInfoList::Num()
+{
+	return m_List.size();
+}
+
 /****	移動処理	****/
 bool MoveInfoList::MoveFront()
 {
@@ -32,35 +37,4 @@ bool MoveInfoList::MoveFront()
 		m_List.erase(m_List.begin());
 	}
 	return isFin;
-}
-
-/****	リセット処理	****/
-bool MoveInfoList::ResetAll()
-{
-	auto itr = m_List.begin();
-
-	//リセット処理は全てのオブジェクトを一括で移動させる
-	for (auto Info : m_List)
-	{
-		bool ret = false;
-		ret = Info->Reset();
-
-		/*	削除処理	*/
-		if (ret == true)
-		{
-			//もし移動が終わっていたら削除する
-			itr = m_List.erase(itr);
-		}
-		else
-		{
-			itr++;
-		}
-	}
-
-	if (m_List.empty() == true)
-	{
-		return true;
-	}
-
-	return false;
 }

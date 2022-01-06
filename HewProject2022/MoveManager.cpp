@@ -4,6 +4,14 @@
 #include "TileColumn.h"
 #include "MoveInfo.h"
 
+
+/****	コンストラクタ	****/
+MoveManager::MoveManager()
+{
+	m_MoveWaitTime = 0.0f;
+	m_Timer = 0.0f;
+}
+
 /****	初期化	****/
 bool MoveManager::Init(vector<TileColumn>* in_AllTile, LandTile* in_StandardTile)
 {
@@ -16,8 +24,17 @@ bool MoveManager::Init(vector<TileColumn>* in_AllTile, LandTile* in_StandardTile
 	if (m_StandardTile->GetLandTile()->tag == TagList::ColorBlock)
 	{
 		//移動配列に格納
-		SetMoveList(in_AllTile);
-		return true;
+		bool ret = SetMoveList(in_AllTile);
+
+		//移動列があるとき
+		if (ret == true)
+		{
+			//移動列の数に応じて待機時間を変える
+			m_MoveWaitTime = (Front.Num() * m_OneColumnWaitTime) + (Back.Num() * m_OneColumnWaitTime);
+			//タイマー初期化
+			m_Timer = 0.0f;
+			return true;
+		}
 	}
 
 	return false;
@@ -32,11 +49,22 @@ bool MoveManager::Update()
 		Back.Empty() == false)
 	{
 		//移動リストが空じゃないとき
-		isFin = Move();
+
+		if (m_Timer >= m_MoveWaitTime)
+		{
+			//待機時間分まつ
+			isFin = Move();
+		}
+		else
+		{
+			//時間更新
+			m_Timer += GameTimer::deltaTime();
+		}
 
 	}
 	else
 	{
+		m_Timer = 0.0f;
 		isFin = true;
 	}
 
@@ -62,8 +90,9 @@ int MoveManager::GetLandObjectID() const
 //-----------------------------------------------------------------------------
 
 /****	移動リスト作成	****/
-void MoveManager::SetMoveList(vector<TileColumn>* in_AllTile)
+bool MoveManager::SetMoveList(vector<TileColumn>* in_AllTile)
 {
+	//移動列があるときはtrueを返す
 
 	/****	基準列設定	****/
 	int NowColumn = m_StandardTile->GetLandTile()->GetMyColumn();
@@ -77,8 +106,13 @@ void MoveManager::SetMoveList(vector<TileColumn>* in_AllTile)
 	/*	探索処理	*/
 	while (in_AllTile->at(SearchColumn).m_MoveInfo->SearchTile(m_StandardTile->GetLandTile()))
 	{
-		//移動列格納
-		Front.Add(in_AllTile->at(SearchColumn).m_MoveInfo.get());
+		/*	現在のポジションと違う場所に移動するとき	*/
+		if (in_AllTile->at(SearchColumn).m_MoveInfo->GetPositionEqual() == false)
+		{
+			//移動列格納
+			Front.Add(in_AllTile->at(SearchColumn).m_MoveInfo.get());
+
+		}
 		//探索列更新
 		SearchColumn++;
 	}
@@ -89,11 +123,20 @@ void MoveManager::SetMoveList(vector<TileColumn>* in_AllTile)
 	/*	探索処理	*/
 	while (in_AllTile->at(SearchColumn).m_MoveInfo->SearchTile(m_StandardTile->GetLandTile()))
 	{
-		//移動列格納
-		Back.Add(in_AllTile->at(SearchColumn).m_MoveInfo.get());
+		if (in_AllTile->at(SearchColumn).m_MoveInfo->GetPositionEqual() == false)
+		{
+			//移動列格納
+			Back.Add(in_AllTile->at(SearchColumn).m_MoveInfo.get());
+		}
 		//探索列更新
 		SearchColumn--;
 	}
+
+	//前か後ろに移動列があるときはtrueを返す
+	if (Back.Empty() == false || Front.Empty() == false) return true;
+
+	//何もない時はfalseを返す
+	return false;
 
 }
 

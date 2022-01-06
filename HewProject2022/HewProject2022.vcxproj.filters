@@ -637,6 +637,9 @@
     <ClCompile Include="Shelf.cpp">
       <Filter>TOYALINE\World2\Road\Shelf</Filter>
     </ClCompile>
+    <ClCompile Include="ResetManager.cpp">
+      <Filter>TOYALINE\Object\Actor\Map</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Runtime\Application.h">
@@ -1017,6 +1020,9 @@
     </ClInclude>
     <ClInclude Include="Shelf.h">
       <Filter>TOYALINE\World2\Road\Shelf</Filter>
+    </ClInclude>
+    <ClInclude Include="ResetManager.h">
+      <Filter>TOYALINE\Object\Actor\Map</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

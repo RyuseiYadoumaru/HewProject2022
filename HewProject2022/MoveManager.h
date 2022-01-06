@@ -1,7 +1,6 @@
 #pragma once
 #include "ydmEngine.h"
 #include "MoveInfoList.h"
-#include "ResetInfoList.h"
 
 class TileColumn;
 class LandTile;
@@ -9,6 +8,7 @@ class LandTile;
 class MoveManager
 {
 public:
+	MoveManager();
 	bool Init(vector<TileColumn>* in_AllTile, LandTile* in_StandardTile);
 	bool Update();
 
@@ -23,8 +23,14 @@ private:
 	LandTile* m_StandardTile;
 
 private:
-	void SetMoveList(vector<TileColumn>* in_AllTile);
+	bool SetMoveList(vector<TileColumn>* in_AllTile);
 	bool Move();
+
+private:
+	static constexpr TIME m_OneColumnWaitTime = 200.0f;
+	TIME m_MoveWaitTime;
+	TIME m_Timer;
+
 
 };
 

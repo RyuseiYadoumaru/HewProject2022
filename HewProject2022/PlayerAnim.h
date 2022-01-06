@@ -21,7 +21,7 @@ public:
 	};
 
 	/*	ÉpÉ^Å[Éì	*/
-	enum FRAME
+	enum PLAYER_ANIM
 	{
 		ANIM_1,
 		ANIM_2,

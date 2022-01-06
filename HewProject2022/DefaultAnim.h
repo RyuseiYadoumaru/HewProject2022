@@ -13,7 +13,7 @@ enum KIND
 };
 
 /* パターン */
-enum FRAME
+enum DEFAULT_ANIM
 {
 	ANIM_1, // アニメーション1
 	ANIM_2, // アニメーション2

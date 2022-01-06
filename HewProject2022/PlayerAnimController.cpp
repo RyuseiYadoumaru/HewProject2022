@@ -14,6 +14,10 @@ void PlayerAnimController::Update()
 {
 	switch (AnimState)
 	{
+	case PLAYER_EMPTY:
+		Anim->Play("Empty");
+		break;
+
 	case PLAYER_WALK:
 		Anim->Play("Walk");
 		break;
@@ -31,6 +35,24 @@ void PlayerAnimController::Update()
 		{
 			AnimState = PLAYER_DOWN;
 		}
+		break;
+
+	case PLAYER_ONGROUND:
+		if (Anim->Play("OnGround") == ANIMATION_FINISH)
+		{
+			AnimState = PLAYER_EMPTY;
+		}
+		break;
+
+	case PLAYER_MAGICSTART:
+		if (Anim->Play("MagicStart") == ANIMATION_FINISH)
+		{
+			AnimState = PLAYER_MAGIC;
+		}
+		break;
+
+	case PLAYER_MAGIC:
+		Anim->Play("Magic");
 		break;
 
 	default:

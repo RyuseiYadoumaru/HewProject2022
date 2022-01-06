@@ -61,7 +61,7 @@ void GameEngine::GameTimer::Update()
 //!	@brief	デルタタイム
 //!	@retval	デルタタイム	
 //==============================================================================
-float GameEngine::GameTimer::deltaTime()
+TIME GameEngine::GameTimer::deltaTime()
 {
 	return m_CurrenTime - m_OldTime;
 }
@@ -71,7 +71,17 @@ float GameEngine::GameTimer::deltaTime()
 //!	@brief	固定デルタタイム
 //!	@retval	固定デルタタイム	
 //==============================================================================
-float GameEngine::GameTimer::fixedDeltaTime()
+TIME GameEngine::GameTimer::fixedDeltaTime()
 {
 	return 1.0f / Application::FPS;
+}
+
+//==============================================================================
+//!	@fn		NowFrameCount
+//!	@brief	現在のトータルフレーム数
+//!	@retval	トータルフレーム
+//==============================================================================
+FRAME GameEngine::GameTimer::NowFrameCount()
+{
+	return m_TotalFrameCnt;
 }

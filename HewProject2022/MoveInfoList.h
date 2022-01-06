@@ -8,12 +8,10 @@ public:
 	void Add(MoveInfo* in_MoveInfo);
 	void Clear();
 	bool Empty();
+	int Num();
 
 	bool MoveFront();
-	bool ResetAll();
-
 public:
 	vector<MoveInfo*> m_List;
-
 };
 

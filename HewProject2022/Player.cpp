@@ -4,40 +4,56 @@
 
 Player::Player(string in_Name) :Character(in_Name)
 {
+
+	/*	ジャンプフォース初期化	*/
 	m_JumpForceArray =
 		//溜めフレーム
-	{ 0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,
-	  0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,
+	{ 0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,
+	  0.0f,0.0f,0.0f,0.0f,0.0f,
 		//ジャンプフレーム
-	  -16.0f,-15.4f,-14.8f,-13.2f,-12.6f,-12.0f,-12.0f,-12.0f,
-	  -11.4f,-10.8f,-10.2f,-09.6f,-09.0f,-08.0f,-07.0f,-06.0f,-05.0f - 04.0f, -03.0f, -02.6f,-02.2f, -01.8f,
+	  -16.0f,-15.4f,-14.8f,-13.2f,-12.6f,-12.0f,-12.0f,-12.0f,-11.4f,-10.8f,
+	  -10.2f,-09.6f,-09.0f,-08.0f,-07.0f,-06.0f,-05.0f,-04.0f,-03.0f,-02.6f,
+	  -02.2f,-01.8f,
+
 		//空中滞在
-	  1.6f,1.2f,1.2f,1.2f,1.2f,1.2f
+	  -1.6f,-1.2f,-1.2f,-1.2f
 	};
+	m_JumpCounter = 0;
+	m_DownMoveValue = 0.0f;
+	m_SavePosition = transform->Position;
+
 }
 
 bool Player::Start()
 {
+	/*	移動初期化	*/
 	//最高速度
 	m_maxMoveSpeedX = 2.0f;
 	//加速度
 	m_accelForceX = m_maxMoveSpeedX * 0.1f;
 	//摩擦力
 	m_stopForceX = m_accelForceX * 0.7f;
+	//地面についているフラグ
+	m_OnGround = false;
+	m_GroundCnt = GameTimer::NowFrameCount();
+
+	/*	ジャンプ初期化	*/
 	//ジャンプ力
 	m_jumpForce = 0.0f;
 	//ジャンプフラグ
 	m_jumpFlg = false;
+	m_airFlg = true;
 
-	m_airFlg = false;
 
+	/*	マジック初期化	*/
+	m_isMagic = false;
 
 	/*	スプライト初期化	*/
 	m_SpriteRenderer->SpriteName = "Character";
 	m_SpriteRenderer->SetSize(80.0f, 80.0f);
 	m_SpriteRenderer->Init();
 
-	transform->Position.Set(1000.0f, 700.0f, 0.0f);
+	transform->Position.Set(1000.0f, 1100.0f, 0.0f);
 	transform->Scale.Set(1.0f, 1.0f, 1.0f);
 
 	/*	リジットボディーコンポーネント	*/
@@ -48,12 +64,121 @@ bool Player::Start()
 
 	/*	ボックスコライダ設定	*/
 	BoxCollider2D* Col = GetComponent<BoxCollider2D>();
-	Col->SetSize(0.5f, 0.65f);
-	Col->SetOffset(0.2f, 0.1f);
+	//Col->SetSize(0.5f, 0.65f);
+	//Col->SetOffset(0.2f, 0.1f);
 
 	/*	アニメーションコンポーネント	*/
 	AddComponent<Animator>(&m_PlayerAnimController);
 	return true;
+}
+
+bool Player::Update()
+{
+	/*	座標保存	*/
+	m_SavePosition = transform->Position;
+
+	/*	アクション更新	*/
+	//ブロックが動いていないとき
+	if (Map::SearchMoveObjectName(name) == false &&
+		(Map::m_isResetStart == false || m_LandTile.GetLandTile() == LandGround))
+	{
+		if (m_isMagic == true)
+		{
+			m_isMagic = false;
+			m_PlayerAnimController.AnimState = PlayerAnimController::PLAYER_EMPTY;
+		}
+		//アクション処理
+		Action();
+	}
+	else
+	{
+		//魔法処理
+		if (m_LandTile.GetLandTile() != LandGround)
+		{
+			Magic();
+		}
+	}
+
+	/*	重力追加	*/
+	//キャラクターは重力の影響を受ける
+	AddGravity();
+
+	/*	乗ってるタイル更新	*/
+	m_LandTile.Update();
+
+	//if (m_LandTile.GetisLandTile() == true)
+	//{
+	//	cout << "プレイヤーが乗っているタイル\n";
+	//	cout << m_LandTile.GetLandTile()->GetId().x << endl;
+	//	cout << m_LandTile.GetLandTile()->GetKind() << endl;
+	//}
+	return true;
+}
+
+void Player::Debug()
+{
+	GetComponent<BoxCollider2D>()->Debug();
+
+	//if (GetComponent<BoxCollider2D>()->GetisHit_underBlock() == false) {
+	//	std::cout << "        　　　　　　　浮いてます" << std::endl;
+	//}
+}
+
+/****	アクション処理	****/
+void Player::Action()
+{
+	/*	空中に浮いているときの処理	*/
+	if (m_jumpFlg == true || m_airFlg == true)
+	{
+		m_OnGround = false;
+		MoveAir();
+	}
+
+	/*	着地しているときの処理	*/
+	else
+	{
+		//汚くてごめん
+		if (m_OnGround == false)
+		{
+			//着地したときにアニメーションを流す
+			m_OnGround = true;
+			if (m_DownMoveValue >= CHAR_ON_GROUND_ANIM || m_isOnGroundAnimFlg == true)
+			{
+				//ブロック２個分で着地アニメーションする
+				m_PlayerAnimController.AnimState = PlayerAnimController::PLAYER_ONGROUND;
+				m_GroundCnt = GameTimer::NowFrameCount();
+			}
+
+			else
+			{
+				//ダウンの移動量が少ない時
+				m_PlayerAnimController.AnimState = PlayerAnimController::PLAYER_EMPTY;
+				m_GroundCnt = 1.0f;
+			}
+			//ダウン量を初期化する
+			m_DownMoveValue = 0.0f;
+			m_isOnGroundAnimFlg = false;
+		}
+
+		else if ((GameTimer::NowFrameCount() - m_GroundCnt) >= m_GroundWaitFrame)
+		{
+			//着地後待機フレーム分待って移動を許可する
+			Move();
+			Jump();
+		}
+
+	}
+}
+
+/****	魔法処理	****/
+void Player::Magic()
+{
+	//魔法アニメーションを再生する
+	if (m_isMagic == false)
+	{
+		m_isMagic = true;
+		m_PlayerAnimController.AnimState = PlayerAnimController::PLAYER_MAGICSTART;
+	}
 }
 
 void Player::SpeedControl()
@@ -71,7 +196,6 @@ void Player::SpeedControl()
 
 		if (m_moveSpeed.x < 0.0f) { // 減速しすぎてマイナスになったら
 			//待機アニメーション
-			m_PlayerAnimController.AnimState = PlayerAnimController::PLAYER_IDLE;
 			m_SpriteRenderer->Flip = false;
 			m_moveSpeed.x = 0.0f;  // 停止させる
 		}
@@ -81,7 +205,6 @@ void Player::SpeedControl()
 
 		if (m_moveSpeed.x > 0.0f) { // 減速しすぎてプラスになったら
 			//待機アニメーション
-			m_PlayerAnimController.AnimState = PlayerAnimController::PLAYER_IDLE;
 			m_SpriteRenderer->Flip = true;
 			m_moveSpeed.x = 0.0f;  // 停止させる
 		}
@@ -129,11 +252,46 @@ void Player::Move()
 	}
 }
 
+
+/****	空中を歩く処理	****/
+void Player::MoveAir()
+{
+	SpeedControl();
+
+	//ジャンプ中の移動処理
+	//溜めフレーム（ジャンプしていない）時は移動できない
+	//空中に浮いていないときは処理しない
+	if (m_airFlg == false) return;
+
+	if (m_jumpFlg == false)
+	{
+		//ジャンプではないときは落ちるアニメーションを再生する
+		m_PlayerAnimController.AnimState = PlayerAnimController::PLAYER_DOWN;
+	}
+
+	//コントローラ左右方向移動
+	if ((Input::GetControllerLeftStick().x < 0.0f || Input::GetKeyPress(PK_A) == true) &&
+		GetComponent<BoxCollider2D>()->GetisHit_leftBlock() == false)
+	{
+		Accelerate(CHAR_MOVE_LEFT);
+		transform->Position.x += m_moveSpeed.x;
+		m_SpriteRenderer->Flip = true;	//テクスチャフリップ
+	}
+
+	if ((Input::GetControllerLeftStick().x > 0.0f || Input::GetKeyPress(PK_D) == true) &&
+		GetComponent<BoxCollider2D>()->GetisHit_rightBlock() == false)
+	{
+
+		Accelerate(CHAR_MOVE_RIGHT);
+		transform->Position.x += m_moveSpeed.x;
+		m_SpriteRenderer->Flip = false;	//テクスチャフリップ
+	}
+}
+
+/****	ジャンプ処理	****/
 void Player::Jump()
 {
-	static int jumpCounter = 0;
-
-#if 1
+#if 0
 	if ((Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true || Input::GetKeyTrigger(VK_SPACE) == true) &&
 		m_jumpFlg == false)//小ジャンプ
 	{
@@ -170,20 +328,43 @@ void Player::Jump()
 		m_jumpFlg == false && m_airFlg == false)//小ジャンプ
 	{
 		m_jumpFlg = true;
-		//m_jumpForce = -15.0f;//ジャンプするために重力をマイナスにする
+		m_isOnGroundAnimFlg = true;
 		Sound::Sound_Play(SOUND_LABEL_SE000);//ジャンプ効果音再生
 		//ジャンプアニメーション
 		m_PlayerAnimController.AnimState = PlayerAnimController::PLAYER_JUMP;
 		//GetComponent<BoxCollider2D>()->SetisHit_underBlock(false);
 	}
 
+#endif // 0
+
+}
+
+
+/****	ジャンプの終了処理	****/
+void Player::JumpEnd()
+{
+	m_jumpForce = 0;
+	m_jumpFlg = false;
+	m_JumpCounter = 0;
+	//頭をぶつけた時点で落下アニメーションに移行する
+	m_PlayerAnimController.AnimState = PlayerAnimController::PLAYER_DOWN;
+
+
+}
+
+/****	重力加算	****/
+void Player::AddGravity()
+{
 	if (GetComponent<BoxCollider2D>()->GetisHit_underBlock() == true) {//着地したら
 
 		m_airFlg = false;
+
 	}
 
 	if (GetComponent<BoxCollider2D>()->GetisHit_overBlock() == true) {//頭ぶつけたら
-		m_jumpForce = 0;
+
+		//ジャンプの終了処理
+		JumpEnd();
 	}
 
 	if (GetComponent<BoxCollider2D>()->GetisHit() == false) {//宙に浮いてたら
@@ -192,58 +373,31 @@ void Player::Jump()
 
 	}
 
+
 	if (m_jumpFlg == true) {
 
-		m_jumpForce = m_JumpForceArray[jumpCounter];
-		jumpCounter++;
+		m_jumpForce = m_JumpForceArray[m_JumpCounter];
+		m_JumpCounter++;
 
-		if (jumpCounter >= m_JumpForceArray.size()) {
-			m_jumpFlg = false;
-			jumpCounter = 0;
+		if (m_JumpCounter >= m_JumpForceArray.size()) {
+			JumpEnd();
 		}
 	}
-
-	if (m_airFlg == true) {
+	//空中に浮いていたら重力を加算する
+	if (m_airFlg == true)
+	{
 		m_jumpForce += CHAR_GRAVITY;//徐々に重力が加算され、ジャンプ力が弱まっていく
 	}
 
-	std::cout << m_airFlg << endl;
-
 	transform->Position.y += m_jumpForce;//ここにデルタタイム？
 
-#endif // 0
-
-}
-
-bool Player::Update()
-{
-	SystemTimer* Timer = SystemTimer::Instance();
-	/*	アクション更新	*/
-	if (Map::SearchMoveObjectName(name) == false && Map::m_isResetStart == false)
+										 /*	ダウンの移動量算出	*/
+	if (m_PlayerAnimController.AnimState == PlayerAnimController::PLAYER_DOWN)
 	{
-		//リセット時に止めたいけど、
-		//重力がかからなくなるので重力の処理を別に分けてほしい
-		Move();
-		Jump();
+		//落ちるアニメーションを再生しているときに
+		//落ちる移動量を加算する
+		m_DownMoveValue += transform->Position.y - m_SavePosition.y;
 	}
 
-	/*	乗ってるタイル更新	*/
-	m_LandTile.Update();
 
-	//if (m_LandTile.GetisLandTile() == true)
-	//{
-	//	cout << "プレイヤーが乗っているタイル\n";
-	//	cout << m_LandTile.GetLandTile()->GetId().x << endl;
-	//	cout << m_LandTile.GetLandTile()->GetKind() << endl;
-	//}
-	return true;
-}
-
-void Player::Debug()
-{
-	GetComponent<BoxCollider2D>()->Debug();
-
-	//if (GetComponent<BoxCollider2D>()->GetisHit_underBlock() == false) {
-	//	std::cout << "        　　　　　　　浮いてます" << std::endl;
-	//}
 }

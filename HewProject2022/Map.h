@@ -4,6 +4,7 @@
 #include "TileColumn.h"
 #include "LandTile.h"
 #include "MoveManager.h"
+#include "ResetManager.h"
 
 using Create::GameObject;
 
@@ -12,6 +13,7 @@ class Map : public GameObject
 public:
 	static bool SearchMoveObjectName(string in_SearchName);
 	static bool SearchMoveObjectID(int in_ID);
+	static void AllTileReset();			//タイルリセット
 
 public:
 	static vector<shared_ptr<MoveManager>> m_MoveManager;
@@ -48,15 +50,8 @@ public:
 	//三木原追加
 	void MoveReset();
 private:
-	ResetInfoList Reset;
-	float m_ResetMoveValue;			//リセット移動量
-	float m_ResetSpeed;				//リセット速度
-	float m_ResetVectorY;
+	ResetManager m_ResetManager;
 	bool m_isReset = false;			//リセットフラグ
-
-	void ResetInit();				//リセット初期化
-	void ResetTick();				//リセット処理
-	void AllTileReset();			//タイルリセット
 
 public:
 	string m_MapDataName;

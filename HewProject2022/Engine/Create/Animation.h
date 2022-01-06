@@ -9,8 +9,9 @@
 #include <vector>
 #include <map>
 
-#define ANIMATION_FINISH (-1)
-#define ANIMATION_PLAY (0)
+#define ANIMATION_PLAY			   (0)
+#define ANIMATION_FINISH		  (-1)
+#define ANIMATION_NAME_ERROR	(-404)
 
 namespace
 {

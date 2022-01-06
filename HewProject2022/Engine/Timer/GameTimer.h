@@ -5,6 +5,8 @@
 //!	@author	YadoumaruRyusei
 //*****************************************************************************
 #pragma once
+typedef float FRAME;
+typedef float TIME;
 namespace GameEngine
 {
 	class GameTimer
@@ -14,13 +16,14 @@ namespace GameEngine
 		static GameTimer* Instance();
 
 		static void Update();
-		static float deltaTime();
-		static float fixedDeltaTime();
+		static TIME deltaTime();
+		static TIME fixedDeltaTime();
+		static TIME NowFrameCount();
 
 	private:
-		static float m_CurrenTime;
-		static float m_OldTime;
-		static float m_TotalFrameCnt;
+		static TIME m_CurrenTime;
+		static TIME m_OldTime;
+		static FRAME m_TotalFrameCnt;
 
 	};
 }

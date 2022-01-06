@@ -10,9 +10,7 @@ public:
 	MoveInfo();
 	MoveInfo(TileColumn* in_MoveColumn);
 	bool SearchTile(Tile* in_Search);	//タイル探索
-	bool SearchResetTile(Tile* in_Search);	//リセットタイル探索
 	bool Tick();	//移動再生
-	bool Reset();	//リセット移動
 
 	//移動アドレスセット
 	void SetColumn(TileColumn* in_Column) { mp_MoveColumn = in_Column; }
@@ -20,6 +18,9 @@ public:
 	void SetStandardTile(Tile* in_Tile) { mp_StandardTile = in_Tile; }
 	//三木原追加
 	float GetSpeed() { return m_Speed; };
+
+	//移動フラグ取得
+	constexpr bool GetPositionEqual() const { return m_isPositionEqual; }
 
 private:
 	TileColumn* mp_MoveColumn; //移動する列
@@ -31,10 +32,10 @@ private:
 	float m_Speed;			//スピード
 
 	bool m_isUp;			//上昇フラグ
+	bool m_isPositionEqual;	//基準タイルとY座標が同じか判定する
 
 private:
 	void Start();		//初期化
-	void ResetStart();	//リセット初期化
 	void Move();	//移動処理
 	bool FixMove(float TargetPosY);	//修正処理
 };

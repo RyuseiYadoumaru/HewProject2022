@@ -153,7 +153,7 @@ void LandTile::SetLandTile(Tile* in_JudgeTile)
 void LandTile::LandTileInit()
 {
 	m_isLandTile = false;
-	mp_LandingTile = nullptr;
+	mp_LandingTile = LandGround;
 	mp_SaveLandingTile = mp_LandingTile;
 	NowColumn = NULL;
 }

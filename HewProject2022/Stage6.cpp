@@ -6,6 +6,7 @@ bool GamePlay::Stage6Scene::Start()
 {
 
 	/*	オブジェクト生成	*/
+	//m_Map = make_shared<Map>("ProtMap");
 	m_Map = make_shared<Map>("stage1-1");
 	m_Player = make_shared<Player>("Player");
 	m_MainCamera = make_shared<MainCamera>("MainCamera");

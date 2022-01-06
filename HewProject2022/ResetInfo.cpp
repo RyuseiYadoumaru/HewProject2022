@@ -3,7 +3,7 @@
 #include "TileColumn.h"
 
 //デバッグ用
-#define MOVE_TIME (float)(5000.0f)
+#define MOVE_TIME (float)(500.0f)
 /****	コンストラクタ	****/
 ResetInfo::ResetInfo()
 {
@@ -70,8 +70,7 @@ bool ResetInfo::Tick()
 void ResetInfo::Move()
 {
 	/*	移動量設定	*/
-	SystemTimer* Timer = SystemTimer::Instance();
-	float VectorY = m_Speed * Timer->DeltaTime();
+	float VectorY = m_Speed * GameTimer::deltaTime();
 
 	/*	移動処理	*/
 	for (auto& Tile : mp_MoveColumn->mp_TileList)
@@ -109,18 +108,7 @@ bool ResetInfo::FixMove(float TargetPosY)
 	/*	修正処理	*/
 	if (isFix == true)
 	{
-		//修正ベクトル
-		//FixVector = TargetPosY - StandartPosY;
-
-		for (auto Tile : mp_MoveColumn->mp_TileList)
-		{
-			Tile->transform->Position.y = Tile->GetStartPosition().y;
-			//縦の移動のみ
-			//全てのタイルを移動する
-			//Tile->transform->Position.y += FixVector;
-		}
 		m_isFin = true;
-
 	}
 
 	return isFix;

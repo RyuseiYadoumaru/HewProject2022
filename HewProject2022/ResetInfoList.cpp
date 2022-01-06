@@ -18,3 +18,9 @@ bool ResetInfoList::Empty()
 	//リストの中身がない時はtrueを返す
 	return m_List.empty();
 }
+
+/****	リスト数取得	****/
+int ResetInfoList::Num()
+{
+	return m_List.size();
+}

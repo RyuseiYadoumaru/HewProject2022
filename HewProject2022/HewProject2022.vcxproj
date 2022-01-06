@@ -210,6 +210,7 @@
     <ClCompile Include="ProtScene.cpp" />
     <ClCompile Include="ResetInfo.cpp" />
     <ClCompile Include="ResetInfoList.cpp" />
+    <ClCompile Include="ResetManager.cpp" />
     <ClCompile Include="ResultScene.cpp" />
     <ClCompile Include="ScreenFx.cpp" />
     <ClCompile Include="SelectScene.cpp" />
@@ -334,6 +335,7 @@
     <ClInclude Include="ProtScene.h" />
     <ClInclude Include="ResetInfo.h" />
     <ClInclude Include="ResetInfoList.h" />
+    <ClInclude Include="ResetManager.h" />
     <ClInclude Include="ResultScene.h" />
     <ClInclude Include="SceneList.h" />
     <ClInclude Include="ScreenFx.h" />

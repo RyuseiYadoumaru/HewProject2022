@@ -5,7 +5,7 @@ using Math::Vector3;
 //-----------------------------------------------------------------------------
 // スタティック　メンバー
 //-----------------------------------------------------------------------------
-vector<shared_ptr<MoveManager>> Map::m_MoveManager;		//移動列
+vector<shared_ptr<MoveManager>> Map::m_MoveManager;		//移動
 vector<TileColumn>				Map::m_TileColumnList;	//1列タイルリスト
 vector<Tile*>					Map::m_TileList;		//全てのタイルリスト
 bool							Map::m_OnReset = false;	//リセットフラグ
@@ -55,6 +55,21 @@ bool Map::SearchMoveObjectID(int in_ID)
 	return false;
 }
 
+/****	全てのタイルをリセットする	****/
+void Map::AllTileReset()
+{
+	for (auto& Column : m_TileColumnList)
+	{
+		if (Column.mp_TileList.empty() == false)
+		{
+			for (auto tile : Column.mp_TileList)
+			{
+				tile->transform->Position.y = tile->GetStartPosition().y;
+			}
+		}
+	}
+}
+
 //-----------------------------------------------------------------------------
 // Public Function
 //-----------------------------------------------------------------------------
@@ -97,15 +112,15 @@ bool Map::Update()
 	/*	列移動の更新	*/
 	MoveUpdate();
 
-	/*	列更新	*/
-	ColumnUpdate();
-
 	/*	列リセット処理	*/
 	if (m_OnReset == true)
 	{
-		cout << "列リセット\n";
 		MoveReset();
 	}
+
+	/*	列更新	*/
+	ColumnUpdate();
+
 	return true;
 }
 
@@ -237,100 +252,38 @@ void Map::MoveReset()
 	/*	リセット処理不可能	*/
 	if (m_isReset == false)
 	{
+		cout << "リセットしない\n";
 		//trueの時にブロックが移動しているのでリセットすることができる
 		m_OnReset = false;
 		m_isResetStart = false;
+		m_isReset = false;
 		return;
 	}
+	cout << "列リセット\n";
+
 
 	//一回目の時は初期化を行う
-
 	if (m_isResetStart == false)
 	{
 		/*	リセット初期化	*/
-		ResetInit();
+		m_isResetStart = true;
+		bool ret = m_ResetManager.Init(&m_TileColumnList);
 		cout << "リセット初期化完了\n";
-	}
-
-	/*	リセット処理	*/
-	ResetTick();
-
-}
-
-/****	リセット初期化	****/
-void Map::ResetInit()
-{
-	//タイル列全探索
-	for (auto& Column : m_TileColumnList)
-	{
-		//タイルリストがあるとき
-		//スタート座標と移動しているとき
-		if (Column.mp_TileList.empty() == false &&
-			(Column.mp_TileList[0]->transform->Position.y != Column.mp_TileList[0]->GetStartPosition().y))
+		/*	リセット処理	*/
+		if (ret == false)
 		{
-			//リセットリストに格納する
-			Reset.Add(Column.m_ResetInfo.get());
-			//リセット情報初期化
-			Reset.m_List.back()->Start();
-		}
-	}
-	//スタートフラグを立てる
-	m_isResetStart = true;
-}
+			cout << "リセット列なし\n";
+			m_isReset = false;
+			m_OnReset = false;
+			m_isResetStart = false;
 
-/****	リセット処理	****/
-void Map::ResetTick()
-{
-	cout << "リセット中\n";
-	SystemTimer* Timer = SystemTimer::Instance();
-	auto itr = Reset.m_List.begin();
-
-	/*	リセットリストを全更新	*/
-	for (auto& ResetColumn : Reset.m_List)
-	{
-		bool ret = ResetColumn->Tick();
-
-		//移動が終わった時
-		if (ResetColumn->m_isFin == true)
-		{
-			//リセット列を削除する
-			itr = Reset.m_List.erase(itr);
-		}
-		else
-		{
-			//進める
-			itr++;
+			return;
 		}
 	}
 
-	if (Reset.Empty() == true)
-	{
-		/*	全てのタイルを初期位置にする	*/
-		//最後に無理やり初期位置に戻す
-		AllTileReset();
+	/*	リセット更新処理	*/
+	m_isReset = m_ResetManager.Update();
 
-		//初期化処理
-		Reset.Clear();
-		m_isResetStart = false;
-		m_isReset = false;
-		m_OnReset = false;
-		return;
-	}
-}
-
-/****	全てのタイルをリセットする	****/
-void Map::AllTileReset()
-{
-	for (auto& Column : m_TileColumnList)
-	{
-		if (Column.mp_TileList.empty() == false)
-		{
-			for (auto tile : Column.mp_TileList)
-			{
-				tile->transform->Position.y = tile->GetStartPosition().y;
-			}
-		}
-	}
 }
 
 /****	列初期化	****/
@@ -385,15 +338,15 @@ void Map::CreateMap()
 		{
 			/*	座標設定	*/
 			float PosX = TILE_WIDTH * x;
-			//float PosY = (TILE_HEIGHT * y);
-			float PosY = (TILE_HEIGHT * y) - (y * TILE_FIXPOS);
+			float PosY = (TILE_HEIGHT * y);
+			//float PosY = (TILE_HEIGHT * y) - (y * TILE_FIXPOS);
 			Pos.Set(PosX, PosY);
 
 			/*	ブロック生成	*/
 			switch (MapChip[y][x])
 			{
 			case NB:
-				CreateTile(Pos, "brown", MAPOBJ::NB);
+				CreateTile(Pos, "brown1", MAPOBJ::NB);
 				break;
 
 			case C1:
@@ -413,11 +366,10 @@ void Map::CreateMap()
 				break;
 
 			case C5:
-				CreateTile(Pos, "yellow", MAPOBJ::C5);
+				CreateTile(Pos, "red", MAPOBJ::C5);
 				break;
 
 			case GR:
-				//CreateTile(Pos, "NormalBlock", MAPOBJ::GR);
 				break;
 
 			case NO:

@@ -3,6 +3,8 @@
 class Tile;
 class TileColumn;
 
+#define LandGround (nullptr) 
+
 using Create::GameObject;
 /****	æ‚Á‚Ä‚¢‚éƒ^ƒCƒ‹	****/
 class LandTile

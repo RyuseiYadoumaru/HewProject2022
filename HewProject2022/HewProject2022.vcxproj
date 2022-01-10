@@ -195,6 +195,7 @@
     <ClCompile Include="Game\GameObject\Actor.cpp" />
     <ClCompile Include="Game\GameObject\Camera.cpp" />
     <ClCompile Include="Game\GameObject\Character.cpp" />
+    <ClCompile Include="House.cpp" />
     <ClCompile Include="LandTile.cpp" />
     <ClCompile Include="MainCamera.cpp" />
     <ClCompile Include="Map.cpp" />
@@ -249,6 +250,7 @@
     <ClCompile Include="Stage7.cpp" />
     <ClCompile Include="Stage8.cpp" />
     <ClCompile Include="Stage9.cpp" />
+    <ClCompile Include="Storage.cpp" />
     <ClCompile Include="Table.cpp" />
     <ClCompile Include="Tableware.cpp" />
     <ClCompile Include="Test.cpp" />
@@ -256,12 +258,14 @@
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TileColumn.cpp" />
     <ClCompile Include="TitleScene.cpp" />
+    <ClCompile Include="Toy.cpp" />
     <ClCompile Include="Tree.cpp" />
     <ClCompile Include="World1StageSelectScene.cpp" />
     <ClCompile Include="World2StageSelectScene.cpp" />
     <ClCompile Include="World3StageSelectScene.cpp" />
     <ClCompile Include="World4StageSelectScene.cpp" />
     <ClCompile Include="World5StageSelectScene.cpp" />
+    <ClCompile Include="World5_desk.cpp" />
     <ClCompile Include="World6StageSelectScene.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -323,6 +327,7 @@
     <ClInclude Include="Game\GameObject\Actor.h" />
     <ClInclude Include="Game\GameObject\Camera.h" />
     <ClInclude Include="Game\GameObject\Character.h" />
+    <ClInclude Include="House.h" />
     <ClInclude Include="LandTile.h" />
     <ClInclude Include="MainCamera.h" />
     <ClInclude Include="Map.h" />
@@ -380,6 +385,7 @@
     <ClInclude Include="Stage9.h" />
     <ClInclude Include="StageInfo.h" />
     <ClInclude Include="StageList.h" />
+    <ClInclude Include="Storage.h" />
     <ClInclude Include="Table.h" />
     <ClInclude Include="Tableware.h" />
     <ClInclude Include="Test.h" />
@@ -387,12 +393,14 @@
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TileColumn.h" />
     <ClInclude Include="TitleScene.h" />
+    <ClInclude Include="Toy.h" />
     <ClInclude Include="Tree.h" />
     <ClInclude Include="World1StageSelectScene.h" />
     <ClInclude Include="World2StageSelectScene.h" />
     <ClInclude Include="World3StageSelectScene.h" />
     <ClInclude Include="World4StageSelectScene.h" />
     <ClInclude Include="World5StageSelectScene.h" />
+    <ClInclude Include="World5_desk.h" />
     <ClInclude Include="World6StageSelectScene.h" />
     <ClInclude Include="ydmEngine.h" />
   </ItemGroup>

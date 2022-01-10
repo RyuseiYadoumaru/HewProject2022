@@ -301,6 +301,21 @@
     <Filter Include="TOYALINE\World3\Road\Tree">
       <UniqueIdentifier>{73fca9b0-dcdd-40c7-bb7e-176a965d6734}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TOYALINE\World5\Road">
+      <UniqueIdentifier>{bc12f1b6-ac23-4259-83ab-43114e7e8b9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\World5\Road\House">
+      <UniqueIdentifier>{34df20fc-b36c-4273-b3a6-021708b825dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\World5\Road\Storage">
+      <UniqueIdentifier>{84eee0bf-a3c6-4b58-a65e-d3f130fdb842}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\World5\Road\Toy">
+      <UniqueIdentifier>{1c799b6c-cf60-484f-ade2-c7d7fe7fdb4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\World5\Road\World5_desk">
+      <UniqueIdentifier>{91baed32-1210-4081-8e9f-f867e487f9f7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Runtime\Application.cpp">
@@ -657,6 +672,18 @@
     </ClCompile>
     <ClCompile Include="Tree.cpp">
       <Filter>TOYALINE\World3\Road\Tree</Filter>
+    </ClCompile>
+    <ClCompile Include="House.cpp">
+      <Filter>TOYALINE\World5\Road\House</Filter>
+    </ClCompile>
+    <ClCompile Include="World5_desk.cpp">
+      <Filter>TOYALINE\World5\Road\World5_desk</Filter>
+    </ClCompile>
+    <ClCompile Include="Toy.cpp">
+      <Filter>TOYALINE\World5\Road\Toy</Filter>
+    </ClCompile>
+    <ClCompile Include="Storage.cpp">
+      <Filter>TOYALINE\World5\Road\Storage</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1050,6 +1077,18 @@
     </ClInclude>
     <ClInclude Include="Tree.h">
       <Filter>TOYALINE\World3\Road\Tree</Filter>
+    </ClInclude>
+    <ClInclude Include="House.h">
+      <Filter>TOYALINE\World5\Road\House</Filter>
+    </ClInclude>
+    <ClInclude Include="World5_desk.h">
+      <Filter>TOYALINE\World5\Road\World5_desk</Filter>
+    </ClInclude>
+    <ClInclude Include="Toy.h">
+      <Filter>TOYALINE\World5\Road\Toy</Filter>
+    </ClInclude>
+    <ClInclude Include="Storage.h">
+      <Filter>TOYALINE\World5\Road\Storage</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

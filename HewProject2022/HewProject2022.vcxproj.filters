@@ -184,9 +184,6 @@
     <Filter Include="TOYALINE\World1">
       <UniqueIdentifier>{0d31dff2-2c2b-484b-9d86-e8845217cf98}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TOYALINE\World1\Object">
-      <UniqueIdentifier>{e1396a4d-1a71-447d-9c81-473902a8dc69}</UniqueIdentifier>
-    </Filter>
     <Filter Include="TOYALINE\Script">
       <UniqueIdentifier>{ab90ee41-d302-4a34-8c33-4b2f9ac76e57}</UniqueIdentifier>
     </Filter>
@@ -291,6 +288,18 @@
     </Filter>
     <Filter Include="TOYALINE\World2\Road\Shelf">
       <UniqueIdentifier>{3c6587b1-048c-482a-a2d2-a941e5f90450}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\World3\Road">
+      <UniqueIdentifier>{f6ce412c-b398-4293-96f7-44e4a57c1f85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\World3\Road\Plants">
+      <UniqueIdentifier>{14a1c3b7-3039-4208-b452-bb2ca397079f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\World3\Road\Rose">
+      <UniqueIdentifier>{1c09e885-b3e5-4685-9310-6db8d2a4517e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\World3\Road\Tree">
+      <UniqueIdentifier>{73fca9b0-dcdd-40c7-bb7e-176a965d6734}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -639,6 +648,15 @@
     </ClCompile>
     <ClCompile Include="ResetManager.cpp">
       <Filter>TOYALINE\Object\Actor\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Plants.cpp">
+      <Filter>TOYALINE\World3\Road\Plants</Filter>
+    </ClCompile>
+    <ClCompile Include="Rose.cpp">
+      <Filter>TOYALINE\World3\Road\Rose</Filter>
+    </ClCompile>
+    <ClCompile Include="Tree.cpp">
+      <Filter>TOYALINE\World3\Road\Tree</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1023,6 +1041,15 @@
     </ClInclude>
     <ClInclude Include="ResetManager.h">
       <Filter>TOYALINE\Object\Actor\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Plants.h">
+      <Filter>TOYALINE\World3\Road\Plants</Filter>
+    </ClInclude>
+    <ClInclude Include="Rose.h">
+      <Filter>TOYALINE\World3\Road\Rose</Filter>
+    </ClInclude>
+    <ClInclude Include="Tree.h">
+      <Filter>TOYALINE\World3\Road\Tree</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

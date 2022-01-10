@@ -93,7 +93,7 @@ bool Map::Start()
 {
 
 	/*	マップ初期化	*/
-	transform->Position.Set(3600.0f, 880.0f, 0.0f);
+	transform->Position.Set(3640.0f, 840.0f, 0.0f);
 
 	/*	マップロード	*/
 	m_Mapdata.Load(m_MapDataName);
@@ -109,6 +109,9 @@ bool Map::Start()
 /****	更新	****/
 bool Map::Update()
 {
+	/*	列更新	*/
+	ColumnUpdate();
+
 	/*	列移動の更新	*/
 	MoveUpdate();
 
@@ -118,8 +121,6 @@ bool Map::Update()
 		MoveReset();
 	}
 
-	/*	列更新	*/
-	ColumnUpdate();
 
 	return true;
 }
@@ -346,7 +347,8 @@ void Map::CreateMap()
 			switch (MapChip[y][x])
 			{
 			case NB:
-				CreateTile(Pos, "brown1", MAPOBJ::NB);
+				CreateNormalBlock(Pos);
+				//CreateTile(Pos, "brown1", MAPOBJ::NB);
 				break;
 
 			case C1:
@@ -379,6 +381,29 @@ void Map::CreateMap()
 				break;
 			}
 		}
+	}
+}
+
+/****	ノーマルブロック生成	****/
+void Map::CreateNormalBlock(Vector2& in_Pos)
+{
+	//ノーマルブロックは乱数で様々な種類を生成する
+	SystemTimer* timer = SystemTimer::Instance();
+	int randTime = (int)timer->GetSystemCurrentTime();
+	int num = (randTime + (int)rand() + (int)rand()) % 3 + 1;
+	if (num == 1)
+	{
+		CreateTile(in_Pos, "brown1", MAPOBJ::NB);
+	}
+	else if (num == 2)
+	{
+		CreateTile(in_Pos, "brown2", MAPOBJ::NB);
+
+	}
+	else if (num == 3)
+	{
+		CreateTile(in_Pos, "brown3", MAPOBJ::NB);
+
 	}
 }
 

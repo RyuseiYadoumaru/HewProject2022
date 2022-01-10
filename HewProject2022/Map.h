@@ -39,6 +39,7 @@ private:
 	void ColumnUpdate();		//列更新
 
 	void CreateMap();
+	void CreateNormalBlock(Vector2& in_Pos);
 	void CreateTile(Vector2& in_Position, string FileName, MAPOBJ in_MapObj);		//タイル生成する
 
 private:

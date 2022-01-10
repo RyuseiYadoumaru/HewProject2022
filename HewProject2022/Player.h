@@ -65,6 +65,10 @@ private:
 
 	bool m_isMagic;
 
+	//ここひどい
+	bool isHitIdle = false;
+	void FixAnimation();	//アニメーション修正処理
+
 
 private:
 	PlayerAnimController m_PlayerAnimController;

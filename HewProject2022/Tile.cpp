@@ -31,6 +31,13 @@ bool Tile::Start()
 	return true;
 }
 
+bool Tile::Update()
+{
+	/*	前回の座標を取得	*/
+	m_SavePosition = transform->Position;
+	return true;
+}
+
 /****	デバッグ機能	****/
 void Tile::Debug()
 {

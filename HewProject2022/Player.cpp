@@ -53,7 +53,7 @@ bool Player::Start()
 	m_SpriteRenderer->SetSize(80.0f, 80.0f);
 	m_SpriteRenderer->Init();
 
-	transform->Position.Set(1000.0f, 1100.0f, 0.0f);
+	transform->Position.Set(1000.0f, 1000.0f, 0.0f);
 	transform->Scale.Set(1.0f, 1.0f, 1.0f);
 
 	/*	リジットボディーコンポーネント	*/
@@ -105,6 +105,9 @@ bool Player::Update()
 
 	/*	乗ってるタイル更新	*/
 	m_LandTile.Update();
+
+	/*	アニメーション修正処理	*/
+	FixAnimation();
 
 	//if (m_LandTile.GetisLandTile() == true)
 	//{
@@ -179,6 +182,16 @@ void Player::Magic()
 		m_isMagic = true;
 		m_PlayerAnimController.AnimState = PlayerAnimController::PLAYER_MAGICSTART;
 	}
+	/*	リセット処理の移動	*/
+	if (Map::m_isResetStart == true)
+	{
+
+		float vectorY = m_LandTile.GetLandTile()->transform->Position.y - m_LandTile.GetLandTile()->GetSavePosition().y;
+		//リセット中に移動ベクトル分加算する
+		transform->Position.y += vectorY;
+		cout << "移動ベクトル:" << vectorY << endl;
+	}
+
 }
 
 void Player::SpeedControl()
@@ -230,6 +243,7 @@ void Player::Move()
 	SpeedControl();
 
 	//コントローラ左右方向移動
+	/*	左移動	*/
 	if ((Input::GetControllerLeftStick().x < 0.0f || Input::GetKeyPress(PK_A) == true) &&
 		GetComponent<BoxCollider2D>()->GetisHit_leftBlock() == false)
 	{
@@ -240,7 +254,8 @@ void Player::Move()
 		m_SpriteRenderer->Flip = true;	//テクスチャフリップ
 	}
 
-	if ((Input::GetControllerLeftStick().x > 0.0f || Input::GetKeyPress(PK_D) == true) &&
+	/*	右移動	*/
+	else if ((Input::GetControllerLeftStick().x > 0.0f || Input::GetKeyPress(PK_D) == true) &&
 		GetComponent<BoxCollider2D>()->GetisHit_rightBlock() == false)
 	{
 
@@ -250,6 +265,13 @@ void Player::Move()
 		m_PlayerAnimController.AnimState = PlayerAnimController::PLAYER_WALK;
 		m_SpriteRenderer->Flip = false;	//テクスチャフリップ
 	}
+
+	/*	止まる	*/
+	else
+	{
+		m_PlayerAnimController.AnimState = PlayerAnimController::PLAYER_IDLE;
+	}
+
 }
 
 
@@ -397,6 +419,37 @@ void Player::AddGravity()
 		//落ちるアニメーションを再生しているときに
 		//落ちる移動量を加算する
 		m_DownMoveValue += transform->Position.y - m_SavePosition.y;
+	}
+
+
+}
+
+/****	アニメーション修正処理	****/
+void Player::FixAnimation()
+{
+
+	if ((GetComponent<BoxCollider2D>()->GetisHit_rightBlock() == true ||
+		GetComponent<BoxCollider2D>()->GetisHit_leftBlock() == true) ||
+		isHitIdle == true)
+	{
+		//当たり判定が生じているときは、アイドルモードにする
+		//ごり押しで、もし触れているときは1フレーム判定をずらして
+		//1フレーム後も振れているときにアイドル状態にする
+		if (m_PlayerAnimController.AnimState == PlayerAnimController::PLAYER_WALK)
+		{
+			m_PlayerAnimController.AnimState = PlayerAnimController::PLAYER_IDLE;
+		}
+		isHitIdle = true;
+
+		//眠すぎて適当
+		//当たり判定がない状態で入っているときはfalseにする
+		if (GetComponent<BoxCollider2D>()->GetisHit_rightBlock() == false && GetComponent<BoxCollider2D>()->GetisHit_leftBlock() == false)
+			isHitIdle = false;
+	}
+	else
+	{
+		isHitIdle = false;
+
 	}
 
 

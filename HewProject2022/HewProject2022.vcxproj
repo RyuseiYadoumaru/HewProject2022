@@ -202,6 +202,7 @@
     <ClCompile Include="MoveInfo.cpp" />
     <ClCompile Include="MoveInfoList.cpp" />
     <ClCompile Include="MoveManager.cpp" />
+    <ClCompile Include="Plants.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="DefaultAnim.cpp" />
     <ClCompile Include="PlayerAnim.cpp" />
@@ -212,6 +213,7 @@
     <ClCompile Include="ResetInfoList.cpp" />
     <ClCompile Include="ResetManager.cpp" />
     <ClCompile Include="ResultScene.cpp" />
+    <ClCompile Include="Rose.cpp" />
     <ClCompile Include="ScreenFx.cpp" />
     <ClCompile Include="SelectScene.cpp" />
     <ClCompile Include="Shelf.cpp" />
@@ -254,6 +256,7 @@
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TileColumn.cpp" />
     <ClCompile Include="TitleScene.cpp" />
+    <ClCompile Include="Tree.cpp" />
     <ClCompile Include="World1StageSelectScene.cpp" />
     <ClCompile Include="World2StageSelectScene.cpp" />
     <ClCompile Include="World3StageSelectScene.cpp" />
@@ -327,6 +330,7 @@
     <ClInclude Include="MoveInfo.h" />
     <ClInclude Include="MoveInfoList.h" />
     <ClInclude Include="MoveManager.h" />
+    <ClInclude Include="Plants.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="DefaultAnim.h" />
     <ClInclude Include="PlayerAnim.h" />
@@ -337,6 +341,7 @@
     <ClInclude Include="ResetInfoList.h" />
     <ClInclude Include="ResetManager.h" />
     <ClInclude Include="ResultScene.h" />
+    <ClInclude Include="Rose.h" />
     <ClInclude Include="SceneList.h" />
     <ClInclude Include="ScreenFx.h" />
     <ClInclude Include="SelectScene.h" />
@@ -382,6 +387,7 @@
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TileColumn.h" />
     <ClInclude Include="TitleScene.h" />
+    <ClInclude Include="Tree.h" />
     <ClInclude Include="World1StageSelectScene.h" />
     <ClInclude Include="World2StageSelectScene.h" />
     <ClInclude Include="World3StageSelectScene.h" />

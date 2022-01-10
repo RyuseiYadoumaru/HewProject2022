@@ -3,7 +3,7 @@
 #include "TileColumn.h"
 
 //デバッグ用
-#define MOVE_TIME (float)(500.0f)
+#define MOVE_TIME (float)(150.0f)
 /****	コンストラクタ	****/
 ResetInfo::ResetInfo()
 {
@@ -77,6 +77,7 @@ void ResetInfo::Move()
 	{
 		//縦の移動のみ
 		//全てのタイルを移動する
+		Tile->SetSavePosition();
 		Tile->transform->Position.y += VectorY;
 	}
 }

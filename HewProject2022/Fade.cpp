@@ -8,11 +8,12 @@ bool Fade::Start()
 {
 	/*	スプライト初期化	*/
 	m_SpriteRenderer->SpriteName = "Black";
+	m_SpriteRenderer->VertexShaderName = "vs_Ui";
 	m_SpriteRenderer->Init();
 	m_SpriteRenderer->Color.Set(1.0f, 1.0f, 1.0f, 1.0f);
 
 	transform->Scale.Set(10.0f, 10.0f, 0.0f);
-	transform->Position.Set(0.0f, 500.0f, 0.0f);
+	transform->Position.Set(0.0f, 0.0f, 0.0f);
 
 	fadeStatus = FADE_NO;
 	fadeSpeed = 0.0035f;//フェードするスピード

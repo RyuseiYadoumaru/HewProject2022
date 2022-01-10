@@ -2,6 +2,7 @@
 #include "ydmEngine.h"
 using Math::Vector2;
 using Math::Vector3;
+using Math::Vector;
 using Create::Actor;
 
 #define TILE_ID		(7000)
@@ -29,6 +30,7 @@ public:
 	}
 
 	bool Start() override;
+	bool Update() override;
 	void Debug() override;
 
 public:
@@ -41,8 +43,11 @@ public:
 	void SetStartPosition(Vector3& in_Position);
 	Vector3 GetStartPosition() const;
 	float GetMyColumn() const;
+	Vector3 GetSavePosition() { return m_SavePosition; }
+	void SetSavePosition() { m_SavePosition = transform->Position; }
 
 private:
+	Vector3 m_SavePosition;		//前フレームの座標
 	MAPOBJ m_Kind;				//種類
 	float m_MyColumn;			//所属列
 	Vector3 m_StartPosition;	//初期座標

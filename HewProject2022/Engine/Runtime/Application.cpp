@@ -13,6 +13,8 @@
 #include "Engine.h"
 #include "Graphics/DirectXGraphics.h"
 
+#include <time.h>
+
 //-----------------------------------------------------------------------------
 // スタティック　メンバー
 //-----------------------------------------------------------------------------
@@ -71,12 +73,14 @@ bool Application::Init(HINSTANCE hInstance)
 	//メモリリーク検出
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
-
 	// コンソールを割り当てる
 	AllocConsole();
 
 	// 標準出力の割り当て
 	freopen_s(&fp, "CON", "w", stdout);
+
+	//ランダム初期化
+	srand((unsigned int)time(NULL));
 
 	Window* window = Window::Instance();
 

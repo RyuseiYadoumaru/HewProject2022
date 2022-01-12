@@ -7,7 +7,7 @@ bool GamePlay::ResultScene::Start()
 	//オブジェクト生成 初期化
 	m_ResultText = make_shared<Actor>("ResultText");
 	m_ResultText->Sprite("リザルト");
-	Instance(m_ResultText.get());
+	OldInstance(m_ResultText.get());
 
 	/*	カメラ	*/
 	SetCamera();

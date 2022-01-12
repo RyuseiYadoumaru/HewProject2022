@@ -19,30 +19,30 @@ bool GamePlay::Stage10Scene::Start()
 	/*	背景初期化	*/
 	m_BackGround = make_shared<BackGround>("Wall");
 	m_BackGround->Sprite("World2_BG");
-	Instance(m_BackGround.get());
+	OldInstance(m_BackGround.get());
 
 	m_LayerBack = make_shared<LayerBack>("LayerBack");
 	m_LayerBack->Sprite("World2_obj1_5");
-	Instance(m_LayerBack.get());
+	OldInstance(m_LayerBack.get());
 
 	m_LayerFront = make_shared<LayerFront>("LayerFront");
 	//m_LayerFront->Sprite("World2_obj2_1");
-	Instance(m_LayerFront.get());
+	OldInstance(m_LayerFront.get());
 
 	/*	天井初期化	*/
 	m_Ceiling = make_shared<Ceiling>("Ceiling");
 	m_Ceiling->Sprite("World2_ceiling");
-	Instance(m_Ceiling.get());
+	OldInstance(m_Ceiling.get());
 
 
 	/*	インスタンス	*/
-	Instance(m_Map.get());
-	Instance(m_Player.get());
-	Instance(m_TablewareStart.get());
-	Instance(m_ShelfEnd.get());
-	Instance(m_Fade.get());
-	Instance(m_ScreenEffect.get());
-	Instance(m_CameraFrame.get());
+	OldInstance(m_Map.get());
+	OldInstance(m_Player.get());
+	OldInstance(m_TablewareStart.get());
+	OldInstance(m_ShelfEnd.get());
+	OldInstance(m_Fade.get());
+	OldInstance(m_ScreenEffect.get());
+	OldInstance(m_CameraFrame.get());
 
 
 	/*	初期化	*/
@@ -52,7 +52,7 @@ bool GamePlay::Stage10Scene::Start()
 	m_Player->m_LandTile.Init(m_Player.get(), &m_Map->m_TileColumnList);
 
 	/*	カメラ設定	*/
-	SetCamera(m_MainCamera.get());
+	OldSetCamera(m_MainCamera.get());
 	m_MainCamera->Focus(m_Player.get());
 
 	return true;
@@ -99,6 +99,9 @@ bool GamePlay::Stage10Scene::End()
 {
 	/*	オブジェクト終了処理	*/
 	ObjectEnd();
+
+	// BGM停止
+	Sound::Sound_Stop(SOUND_LABEL_WORLD2_GAMEBGM);
 
 	/*	解放処理	*/
 	Releace();

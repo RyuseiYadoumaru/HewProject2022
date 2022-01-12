@@ -10,8 +10,8 @@ bool GamePlay::Stage20Scene::Start()
 	m_stage20->Sprite("stage-05");
 	m_world4->Sprite("world-04");
 
-	Instance(m_stage20.get());
-	Instance(m_world4.get());
+	OldInstance(m_stage20.get());
+	OldInstance(m_world4.get());
 
 	m_stage20->transform->Position.Set(0.0f, 0.0f, 0.0f);
 	m_world4->transform->Position.Set(-700.0f, -500.0f, 0.0f);

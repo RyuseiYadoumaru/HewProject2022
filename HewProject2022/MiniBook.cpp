@@ -12,7 +12,7 @@ bool MiniBook::Start()
 
 	/*	À•WÝ’è	*/
 	float HalfSizeX = m_SpriteRenderer->GetSize().x / 2.0f;
-	float PosX = ROAD_WIDTH - HalfSizeX - TILE_WIDTH / 2.0f;
+	float PosX = ROAD_WIDTH - HalfSizeX;
 	transform->Scale.Set(1.0f, 1.0f, 1.0f);
 	transform->Position.Set(PosX, 1000.0f, 0.0f);
 

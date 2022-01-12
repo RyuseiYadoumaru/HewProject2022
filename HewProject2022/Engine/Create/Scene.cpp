@@ -17,6 +17,7 @@ Create::Scene::STATE Create::Scene::State = Create::Scene::START;
 Create::Camera* Create::Scene::camera = nullptr;
 std::map<std::string, Create::GameObject*> Create::Scene::ObjectArray;
 std::map<std::string, std::vector<Component*>> Create::Scene::ComponenArray;
+int Create::Scene::ObjectCnt = 0;
 
 //==============================================================================
 //!	@fn		Find
@@ -73,7 +74,7 @@ bool Create::Scene::Render()
 //!	@param	ゲームオブジェクト
 //!	@retval	
 //==============================================================================
-void Create::Scene::Instance(GameObject* out_Object)
+void Create::Scene::OldInstance(GameObject* out_Object)
 {
 	out_Object->Active = true;
 	out_Object->Start();
@@ -94,10 +95,9 @@ void Create::Scene::Instance(GameObject* out_Object)
 //!	@param	オブジェクトの名前
 //!	@retval	
 //==============================================================================
-void Create::Scene::Destroy(std::string in_ObjectName)
+void Create::Scene::OldDestroy(std::string in_ObjectName)
 {
 	ObjectArray[in_ObjectName]->Active = false;
-	//	ObjectArray[in_ObjectName]->Active = false;
 
 #if 0
 	ComponenArray2[in_ObjectName].clear();
@@ -155,7 +155,7 @@ void Create::Scene::SetCamera()
 //!	@param	カメラ
 //!	@retval	
 //==============================================================================
-void Create::Scene::SetCamera(Camera* out_Camera)
+void Create::Scene::OldSetCamera(Camera* out_Camera)
 {
 	camera = out_Camera;
 	camera->Start();
@@ -285,7 +285,7 @@ bool Create::Scene::Releace()
 	ObjectArray.clear();
 	ComponenArray.clear();
 	camera = nullptr;
-
+	ObjectCnt = 0;
 
 	return true;
 }

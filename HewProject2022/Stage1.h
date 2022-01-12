@@ -22,26 +22,26 @@ namespace GamePlay
 	{
 	private:
 		/*	オブジェクト	*/
-		shared_ptr<MainCamera> m_MainCamera;
-		shared_ptr<Map> m_Map;
-		shared_ptr<Player> m_Player;
-		shared_ptr<Table> m_TableStart;
-		shared_ptr<Sofa> m_SofaEnd;
-		shared_ptr<BigBook> m_BigBook;
-		shared_ptr<MiniBook> m_MiniBook;
+		MainCamera*		m_MainCamera;
+		Map*			m_Map;
+		Player*			m_Player;
+		Table*			m_TableStart;
+		Sofa*			m_SofaEnd;
+		BigBook*		m_BigBook;
+		MiniBook*		m_MiniBook;
 
 		/*	背景	*/
-		shared_ptr<BackGround> m_BackGround;
-		shared_ptr<LayerBack> m_LayerBack;
-		shared_ptr<LayerFront> m_LayerFront;
+		BackGround*		m_BackGround;
+		LayerBack*		m_LayerBack;
+		LayerFront*		m_LayerFront;
 
 		/*	天井	*/
-		shared_ptr<Ceiling> m_Ceiling;
+		Ceiling* m_Ceiling;
 
 		/*	エフェクト	*/
-		shared_ptr<ScreenFx> m_ScreenEffect;
-		shared_ptr<CameraFrame> m_CameraFrame;
-		shared_ptr<Fade> m_Fade;
+		ScreenFx* m_ScreenEffect;
+		CameraFrame* m_CameraFrame;
+		Fade* m_Fade;
 
 	public:
 		bool Start() override;

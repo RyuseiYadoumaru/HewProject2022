@@ -148,6 +148,10 @@
     <ClCompile Include="AnimTest.cpp" />
     <ClCompile Include="BackGround.cpp" />
     <ClCompile Include="BigBook.cpp" />
+    <ClCompile Include="BlockEffect.cpp" />
+    <ClCompile Include="BlockEffectAnimController.cpp" />
+    <ClCompile Include="BlockMagicEffect.cpp" />
+    <ClCompile Include="BlockMagicParticle.cpp" />
     <ClCompile Include="CameraFrame.cpp" />
     <ClCompile Include="Ceiling.cpp" />
     <ClCompile Include="Chair.cpp" />
@@ -156,6 +160,7 @@
     <ClCompile Include="directxtex\include\DDSTextureLoader.cpp" />
     <ClCompile Include="directxtex\include\WICTextureLoader.cpp" />
     <ClCompile Include="Engine\Component\Miscellaneous\Animator.cpp" />
+    <ClCompile Include="Engine\Component\Miscellaneous\ParticleSystem.cpp" />
     <ClCompile Include="Engine\Component\Physics\BoxCollider2D.cpp" />
     <ClCompile Include="Engine\Component\Physics\Rigidbody2d.cpp" />
     <ClCompile Include="Engine\Component\SpriteRenderer.cpp" />
@@ -163,6 +168,7 @@
     <ClCompile Include="Engine\Create\Animation.cpp" />
     <ClCompile Include="Engine\Create\AnimationController.cpp" />
     <ClCompile Include="Engine\Create\GameObject.cpp" />
+    <ClCompile Include="Engine\Create\Particle.cpp" />
     <ClCompile Include="Engine\Create\Scene.cpp" />
     <ClCompile Include="Engine\Data\DataArray.cpp" />
     <ClCompile Include="Engine\Input\Input.cpp" />
@@ -195,6 +201,7 @@
     <ClCompile Include="Game\GameObject\Actor.cpp" />
     <ClCompile Include="Game\GameObject\Camera.cpp" />
     <ClCompile Include="Game\GameObject\Character.cpp" />
+    <ClCompile Include="Game\GameObject\Effect.cpp" />
     <ClCompile Include="House.cpp" />
     <ClCompile Include="LandTile.cpp" />
     <ClCompile Include="MainCamera.cpp" />
@@ -238,12 +245,7 @@
     <ClCompile Include="Stage23.cpp" />
     <ClCompile Include="Stage24.cpp" />
     <ClCompile Include="Stage25.cpp" />
-    <ClCompile Include="Stage26.cpp" />
-    <ClCompile Include="Stage27.cpp" />
-    <ClCompile Include="Stage28.cpp" />
-    <ClCompile Include="Stage29.cpp" />
     <ClCompile Include="Stage3.cpp" />
-    <ClCompile Include="Stage30.cpp" />
     <ClCompile Include="Stage4.cpp" />
     <ClCompile Include="Stage5.cpp" />
     <ClCompile Include="Stage6.cpp" />
@@ -272,6 +274,11 @@
     <ClInclude Include="AnimTest.h" />
     <ClInclude Include="BackGround.h" />
     <ClInclude Include="BigBook.h" />
+    <ClInclude Include="BlockEffect.h" />
+    <ClInclude Include="BlockEffectAnimController.h" />
+    <ClInclude Include="BlockEffectInfo.h" />
+    <ClInclude Include="BlockMagicEffect.h" />
+    <ClInclude Include="BlockMagicParticle.h" />
     <ClInclude Include="CameraFrame.h" />
     <ClInclude Include="Ceiling.h" />
     <ClInclude Include="Chair.h" />
@@ -282,6 +289,7 @@
     <ClInclude Include="directxtex\include\WICTextureLoader.h" />
     <ClInclude Include="Engine\Component\Component.h" />
     <ClInclude Include="Engine\Component\Miscellaneous\Animator.h" />
+    <ClInclude Include="Engine\Component\Miscellaneous\ParticleSystem.h" />
     <ClInclude Include="Engine\Component\Physics\BoxCollider2D.h" />
     <ClInclude Include="Engine\Component\Physics\Rigidbody2d.h" />
     <ClInclude Include="Engine\Component\SpriteRenderer.h" />
@@ -289,6 +297,7 @@
     <ClInclude Include="Engine\Create\Animation.h" />
     <ClInclude Include="Engine\Create\AnimationController.h" />
     <ClInclude Include="Engine\Create\GameObject.h" />
+    <ClInclude Include="Engine\Create\Particle.h" />
     <ClInclude Include="Engine\Create\Scene.h" />
     <ClInclude Include="Engine\Data\DataArray.h" />
     <ClInclude Include="Engine\Input\Input.h" />
@@ -327,6 +336,7 @@
     <ClInclude Include="Game\GameObject\Actor.h" />
     <ClInclude Include="Game\GameObject\Camera.h" />
     <ClInclude Include="Game\GameObject\Character.h" />
+    <ClInclude Include="Game\GameObject\Effect.h" />
     <ClInclude Include="House.h" />
     <ClInclude Include="LandTile.h" />
     <ClInclude Include="MainCamera.h" />
@@ -371,12 +381,7 @@
     <ClInclude Include="Stage23.h" />
     <ClInclude Include="Stage24.h" />
     <ClInclude Include="Stage25.h" />
-    <ClInclude Include="Stage26.h" />
-    <ClInclude Include="Stage27.h" />
-    <ClInclude Include="Stage28.h" />
-    <ClInclude Include="Stage29.h" />
     <ClInclude Include="Stage3.h" />
-    <ClInclude Include="Stage30.h" />
     <ClInclude Include="Stage4.h" />
     <ClInclude Include="Stage5.h" />
     <ClInclude Include="Stage6.h" />

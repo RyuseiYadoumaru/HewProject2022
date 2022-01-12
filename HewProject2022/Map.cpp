@@ -419,9 +419,9 @@ void Map::CreateTile(Vector2& in_Position, string FileName, MAPOBJ in_MapObj)
 	m_TileColumnList[Column].SetKind(in_MapObj);		//種類設定
 	m_TileColumnList[Column].SetColumn((float)Column);	//列設定
 
-	//m_TileColumnList[Column].mp_TileList.back()->Start();	//初期化
+		//m_TileColumnList[Column].mp_TileList.back()->Start();	//初期化
 
-	/*	タイルリストに保存	*/
+		/*	タイルリストに保存	*/
 	m_TileList.push_back(m_TileColumnList[Column].mp_TileList.back());
 
 }

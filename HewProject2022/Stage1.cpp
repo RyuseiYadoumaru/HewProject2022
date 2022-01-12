@@ -4,38 +4,6 @@ using namespace Create;
 
 bool GamePlay::Stage1Scene::Start()
 {
-
-	/*	オブジェクト生成	*/
-	//m_Map =				make_shared<Map>("stage1-1");
-	//m_Player =			make_shared<Player>("Player");
-	//m_MainCamera =		make_shared<MainCamera>("MainCamera");
-	//m_Fade =				make_shared<Fade>("Black");
-	//m_TableStart =		make_shared<Table>("TableStart");
-	//m_SofaEnd =			make_shared<Sofa>("SofaEnd");
-	//m_ScreenEffect =		make_shared<ScreenFx>("SFX");
-	//m_CameraFrame =		make_shared<CameraFrame>("CFX");
-	//m_BigBook =			make_shared<BigBook>("Book1");
-	//m_MiniBook =			make_shared<MiniBook>("Book2");
-
-	///*	背景初期化	*/
-	//m_BackGround = make_shared<BackGround>("Wall");
-	//m_BackGround->Sprite("Wall");
-	//OldInstance(m_BackGround.get());
-
-	//m_LayerBack = make_shared<LayerBack>("LayerBack");
-	//m_LayerBack->Sprite("World_obj1_1");
-	//OldInstance(m_LayerBack.get());
-
-	//m_LayerFront = make_shared<LayerFront>("LayerFront");
-	//m_LayerFront->Sprite("World_obj2_1");
-	//OldInstance(m_LayerFront.get());
-
-	///*	天井初期化	*/
-	//m_Ceiling = make_shared<Ceiling>("Ceiling");
-	//m_Ceiling->Sprite("ceiling");
-	//OldInstance(m_Ceiling.get());
-
-
 	/*	インスタンス	*/
 	m_Map = Instance<Map>("stage1-1");
 	m_Player = Instance<Player>("Player");
@@ -61,16 +29,11 @@ bool GamePlay::Stage1Scene::Start()
 	/*	天井初期化	*/
 	m_Ceiling = Instance<Ceiling>("Ceiling");
 	m_Ceiling->Sprite("ceiling");
+	Instance(m_Ceiling.get());
 
-	//OldInstance(m_Map.get());
-	//OldInstance(m_Player.get());
-	//OldInstance(m_TableStart.get());
-	//OldInstance(m_SofaEnd.get());
-	//OldInstance(m_Fade.get());
-	//OldInstance(m_ScreenEffect.get());
-	//OldInstance(m_CameraFrame.get());
-	//OldInstance(m_BigBook.get());
-	//OldInstance(m_MiniBook.get());
+
+	/*	エフェクトデバッグ	*/
+	BlockMagicEffect* debug = Instance<BlockMagicEffect>("debug");
 
 	/*	初期化	*/
 	m_SofaEnd->transform->Position.x += ROAD_DISTANCE;
@@ -80,7 +43,8 @@ bool GamePlay::Stage1Scene::Start()
 
 	/*	カメラ設定	*/
 	SetCamera(m_MainCamera);
-	m_MainCamera->Focus(m_Player);
+	//m_MainCamera->Focus(m_Player);
+	m_MainCamera->Focus(debug);
 
 	// BGM再生
 	Sound::Sound_Play(SOUND_LABEL_WORLD1_GAMEBGM);
@@ -165,6 +129,7 @@ bool GamePlay::Stage1Scene::Render()
 	ObjectRender<LayerFront>("LayerFront");
 
 	/****	デバッグ	****/
+	ObjectRender<BlockMagicEffect>("debug");
 	//m_Player->Debug();
 	//m_Map->Debug();
 	//m_TableStart->Debug();

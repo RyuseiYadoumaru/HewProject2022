@@ -68,12 +68,13 @@ bool GameEngine::SpriteRenderer::Init()
 	if (Size.x > 0.0f && Size.y > 0.0f)
 	{
 		Rect.Set(Size.x, Size.y);
+		m_isChangeSize = true;
 	}
 	else
 	{
 		Rect.Set(sprite.GetSize().x, sprite.GetSize().y);
 		Size.Set(sprite.GetSize().x, sprite.GetSize().y);
-
+		m_isChangeSize = false;
 	}
 
 	/****	頂点座標	****/
@@ -227,11 +228,15 @@ bool GameEngine::SpriteRenderer::Release()
 void GameEngine::SpriteRenderer::SetSprite(std::string in_SpriteName)
 {
 	/****	SRV生成		****/
+	SpriteName = in_SpriteName;
 	sprite.Set(DataArray::GetSpriteData(SpriteName));
 
 	/****	サイズ再設定	****/
-	Rect.Set(sprite.GetSize().x, sprite.GetSize().y);
-	Size.Set(sprite.GetSize().x, sprite.GetSize().y);
+	if (m_isChangeSize == false)
+	{
+		Rect.Set(sprite.GetSize().x, sprite.GetSize().y);
+		Size.Set(sprite.GetSize().x, sprite.GetSize().y);
+	}
 }
 
 //==============================================================================

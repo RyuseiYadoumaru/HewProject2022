@@ -1,5 +1,6 @@
 #pragma once
 #include "ydmEngine.h"
+#include "BlockEffect.h"
 using Math::Vector2;
 using Math::Vector3;
 using Math::Vector;
@@ -31,10 +32,11 @@ public:
 
 	bool Start() override;
 	bool Update() override;
+	bool Render()override;
 	void Debug() override;
 
 public:
-
+	//shared_ptr<BlockEffect> m_Blockeffect;
 
 public:
 	MAPOBJ GetKind() const;
@@ -45,6 +47,9 @@ public:
 	float GetMyColumn() const;
 	Vector3 GetSavePosition() { return m_SavePosition; }
 	void SetSavePosition() { m_SavePosition = transform->Position; }
+
+private:
+	void EffectInit();
 
 private:
 	Vector3 m_SavePosition;		//前フレームの座標

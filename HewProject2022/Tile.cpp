@@ -28,6 +28,9 @@ bool Tile::Start()
 		tag = Ground;
 	}
 
+	/*	エフェクト初期化	*/
+	EffectInit();
+
 	return true;
 }
 
@@ -35,6 +38,17 @@ bool Tile::Update()
 {
 	/*	前回の座標を取得	*/
 	m_SavePosition = transform->Position;
+
+	return true;
+}
+
+bool Tile::Render()
+{
+	if (Active == true)
+	{
+		m_SpriteRenderer->Render();
+		//m_Blockeffect->Render();
+	}
 	return true;
 }
 
@@ -78,6 +92,17 @@ Vector3 Tile::GetStartPosition() const
 float Tile::GetMyColumn() const
 {
 	return m_MyColumn;
+}
+
+
+/****	エフェクト初期化	****/
+void Tile::EffectInit()
+{
+	//m_Blockeffect = make_shared<BlockEffect>
+	//	(this,
+	//		BlockEffect::Color::BLUE,
+	//		BlockEffect::EFFECT_KIND::MAGIC);
+	//m_Blockeffect->Start();
 }
 
 

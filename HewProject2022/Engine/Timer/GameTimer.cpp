@@ -73,7 +73,7 @@ TIME GameEngine::GameTimer::deltaTime()
 //==============================================================================
 TIME GameEngine::GameTimer::fixedDeltaTime()
 {
-	return 1.0f / Application::FPS;
+	return (1.0f / Application::FPS) * 1000;
 }
 
 //==============================================================================

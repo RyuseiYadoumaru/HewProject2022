@@ -42,10 +42,5 @@
 #include"Stage23.h"
 #include"Stage24.h"
 #include"Stage25.h"
-#include"Stage26.h"
-#include"Stage27.h"
-#include"Stage28.h"
-#include"Stage29.h"
-#include"Stage30.h"
 
 using namespace GamePlay;

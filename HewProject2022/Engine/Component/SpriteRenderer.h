@@ -38,6 +38,9 @@ namespace GameEngine
 		bool Release() override;
 
 	public:
+		void SetSprite(std::string in_SpriteName);
+		void SetVertexShader(std::string in_VertexName);
+		void SetPixcelShader(std::string in_PixcelName);
 		void SetSize(float in_X, float in_Y);
 		void SetSize(float& in_Size);
 		Math::Vector2 GetSize();
@@ -56,6 +59,7 @@ namespace GameEngine
 
 	private:
 		bool m_saveFlip;
+		bool m_isChangeSize;
 	};
 }
 

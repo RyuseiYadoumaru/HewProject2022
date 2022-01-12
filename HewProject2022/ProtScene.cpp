@@ -18,17 +18,17 @@ bool ProtScene::Start()
 
 
 	/*	インスタンス	*/
-	Instance(m_Map.get());
-	Instance(m_Player.get());
-	Instance(m_BackGruond.get());
-	Instance(m_Table.get());
-	Instance(m_Fade.get());
-	Instance(m_AnimTest.get());
-	Instance(m_Screen.get());
-	Instance(m_CameraFrame.get());
+	OldInstance(m_Map.get());
+	OldInstance(m_Player.get());
+	OldInstance(m_BackGruond.get());
+	OldInstance(m_Table.get());
+	OldInstance(m_Fade.get());
+	OldInstance(m_AnimTest.get());
+	OldInstance(m_Screen.get());
+	OldInstance(m_CameraFrame.get());
 
 	/*	カメラ設定	*/
-	SetCamera(m_MainCamera.get());
+	OldSetCamera(m_MainCamera.get());
 	m_MainCamera->Focus(m_Player.get());
 
 	/*	ギミック初期化	*/

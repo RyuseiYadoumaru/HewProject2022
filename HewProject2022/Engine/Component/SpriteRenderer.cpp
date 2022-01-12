@@ -68,12 +68,13 @@ bool GameEngine::SpriteRenderer::Init()
 	if (Size.x > 0.0f && Size.y > 0.0f)
 	{
 		Rect.Set(Size.x, Size.y);
+		m_isChangeSize = true;
 	}
 	else
 	{
 		Rect.Set(sprite.GetSize().x, sprite.GetSize().y);
 		Size.Set(sprite.GetSize().x, sprite.GetSize().y);
-
+		m_isChangeSize = false;
 	}
 
 	/****	頂点座標	****/
@@ -189,7 +190,6 @@ bool GameEngine::SpriteRenderer::Render()
 
 
 	/****	頂点レイアウトセット	****/
-	//DataArray* daa = DataArray::Instance();
 	deviceContext->IASetInputLayout(vertexShader.GetInputLayout());
 
 	deviceContext->VSSetShader(vertexShader.GetVertexShader(), nullptr, 0);		// 頂点シェーダーをセット
@@ -218,6 +218,47 @@ bool GameEngine::SpriteRenderer::Release()
 		VertexBuffer = nullptr;
 	}
 	return true;
+}
+
+//==============================================================================
+//!	@fn		SetSprite
+//!	@brief　スプライト設定
+//!	@param	スプライトデータ名前
+//==============================================================================
+void GameEngine::SpriteRenderer::SetSprite(std::string in_SpriteName)
+{
+	/****	SRV生成		****/
+	SpriteName = in_SpriteName;
+	sprite.Set(DataArray::GetSpriteData(SpriteName));
+
+	/****	サイズ再設定	****/
+	if (m_isChangeSize == false)
+	{
+		Rect.Set(sprite.GetSize().x, sprite.GetSize().y);
+		Size.Set(sprite.GetSize().x, sprite.GetSize().y);
+	}
+}
+
+//==============================================================================
+//!	@fn		SetVertexShader
+//!	@brief　頂点シェーダー設定
+//!	@param	頂点シェーダー名前
+//==============================================================================
+void GameEngine::SpriteRenderer::SetVertexShader(std::string in_VertexName)
+{
+	/****	頂点シェーダー生成	****/
+	vertexShader.Set(DataArray::GetvsShader(VertexShaderName));
+}
+
+//==============================================================================
+//!	@fn		SetPixcelShader
+//!	@brief　ピクセルシェーダー設定
+//!	@param	ピクセルシェーダー名前
+//==============================================================================
+void GameEngine::SpriteRenderer::SetPixcelShader(std::string in_PixcelName)
+{
+	/****	ピクセルシェーダー生成	****/
+	pixcelShader.Set(DataArray::GetpsShader(PixcelShaderName));
 }
 
 //==============================================================================

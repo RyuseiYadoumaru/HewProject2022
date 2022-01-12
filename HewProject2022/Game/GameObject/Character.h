@@ -25,7 +25,7 @@ namespace Create
 		bool Update() override;
 		bool End() override;
 
-		virtual bool Render();
+		bool Render() override;
 
 		void Sprite(std::string in_SpriteName);
 		void Vertex(std::string in_VertexName);

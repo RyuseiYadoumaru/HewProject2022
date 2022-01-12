@@ -13,7 +13,7 @@
 //==============================================================================
 //!	@fn		Init
 //!	@brief　初期化
-//!	@param	
+//!	@param	アニメーション
 //!	@retval	true:正常終了　false:異常終了
 //==============================================================================
 bool GameEngine::Animator::Init(Create::AnimationController* in_Controller)

@@ -105,6 +105,7 @@ void Create::Actor::SetSize(float in_SizeX, float in_SizeY)
 void Create::Actor::Sprite(std::string in_SpriteName)
 {
 	m_SpriteRenderer->SpriteName = in_SpriteName;
+	m_SpriteRenderer->SetSprite(in_SpriteName);
 }
 
 //==============================================================================
@@ -116,6 +117,7 @@ void Create::Actor::Sprite(std::string in_SpriteName)
 void Create::Actor::Vertex(std::string in_VertexName)
 {
 	m_SpriteRenderer->VertexShaderName = in_VertexName;
+	m_SpriteRenderer->SetVertexShader(in_VertexName);
 }
 
 //==============================================================================
@@ -127,4 +129,5 @@ void Create::Actor::Vertex(std::string in_VertexName)
 void Create::Actor::Pixcel(std::string in_PixcelName)
 {
 	m_SpriteRenderer->PixcelShaderName = in_PixcelName;
+	m_SpriteRenderer->SetPixcelShader(in_PixcelName);
 }

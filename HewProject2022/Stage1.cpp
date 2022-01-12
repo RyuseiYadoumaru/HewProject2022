@@ -29,8 +29,6 @@ bool GamePlay::Stage1Scene::Start()
 	/*	天井初期化	*/
 	m_Ceiling = Instance<Ceiling>("Ceiling");
 	m_Ceiling->Sprite("ceiling");
-	Instance(m_Ceiling.get());
-
 
 	/*	エフェクトデバッグ	*/
 	BlockMagicEffect* debug = Instance<BlockMagicEffect>("debug");

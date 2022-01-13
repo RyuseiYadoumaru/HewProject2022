@@ -5,16 +5,6 @@ using namespace Create;
 bool GamePlay::Stage23Scene::Start()
 {
 
-	/*	オブジェクト生成	*/
-	//m_Map = make_shared<Map>("MapSizeTest_3");
-	//m_Player = make_shared<Player>("Player");
-	//m_MainCamera = make_shared<MainCamera>("MainCamera");
-	//m_Fade = make_shared<Fade>("Black");
-	//m_StorageStart = make_shared<Storage>("StorageStart");
-	//m_HouseEnd = make_shared<House>("HouseEnd");
-	//m_ScreenEffect = make_shared<ScreenFx>("SFX");
-	//m_CameraFrame = make_shared<CameraFrame>("CFX");
-
 
 	///*	背景初期化	*/
 	//m_BackGround = make_shared<BackGround>("Wall");

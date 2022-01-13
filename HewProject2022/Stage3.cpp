@@ -15,6 +15,7 @@ bool GamePlay::Stage3Scene::Start()
 	m_CameraFrame = Instance<CameraFrame>("CFX");
 	m_BackGround = Instance<BackGround>("Wall");
 	m_BackGround->Sprite("Wall");
+
 	m_LayerBack = Instance<LayerBack>("LayerBack");
 	m_LayerBack->Sprite("World_obj1_3");
 	m_LayerFront = Instance<LayerFront>("LayerFront");

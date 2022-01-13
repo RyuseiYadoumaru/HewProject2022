@@ -42,7 +42,12 @@ bool GamePlay::Stage1Scene::Start()
 
 	/*	ƒJƒƒ‰İ’è	*/
 	SetCamera(m_MainCamera);
-	m_MainCamera->Focus(m_Player);
+	//m_MainCamera->Focus(m_Player);
+	m_MainCamera->Focus(debug);
+
+	// BGMÄ¶
+	Sound::Sound_Play(SOUND_LABEL_WORLD1_GAMEBGM);
+
 	return true;
 }
 

@@ -84,6 +84,7 @@ bool Create::Character::Render()
 void Create::Character::Sprite(std::string in_SpriteName)
 {
 	m_SpriteRenderer->SpriteName = in_SpriteName;
+	m_SpriteRenderer->SetSprite(in_SpriteName);
 }
 
 //==============================================================================
@@ -95,6 +96,7 @@ void Create::Character::Sprite(std::string in_SpriteName)
 void Create::Character::Vertex(std::string in_VertexName)
 {
 	m_SpriteRenderer->VertexShaderName = in_VertexName;
+	m_SpriteRenderer->SetVertexShader(in_VertexName);
 }
 
 //==============================================================================
@@ -106,5 +108,7 @@ void Create::Character::Vertex(std::string in_VertexName)
 void Create::Character::Pixcel(std::string in_PixcelName)
 {
 	m_SpriteRenderer->PixcelShaderName = in_PixcelName;
+	m_SpriteRenderer->SetPixcelShader(in_PixcelName);
+
 }
 

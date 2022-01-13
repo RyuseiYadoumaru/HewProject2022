@@ -8,7 +8,7 @@ bool GamePlay::TitleScene::Start()
 	m_TitleText = make_shared<Actor>("TitleText");
 	m_TitleText->Sprite("タイトル");
 
-	Instance(m_TitleText.get());
+	OldInstance(m_TitleText.get());
 
 	/*	カメラ設定	*/
 	SetCamera();

@@ -59,6 +59,7 @@ namespace GameEngine
 
 	private:
 		bool m_saveFlip;
+		bool m_isChangeSize;
 	};
 }
 

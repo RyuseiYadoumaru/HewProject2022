@@ -9,8 +9,10 @@
 #include <vector>
 #include <map>
 
+#define ANIMATION_STOP			   (1)
 #define ANIMATION_PLAY			   (0)
 #define ANIMATION_FINISH		  (-1)
+#define ANIMATION_DELETE		  (-2)
 #define ANIMATION_NAME_ERROR	(-404)
 
 namespace
@@ -67,6 +69,8 @@ namespace Create
 		Animation();
 		virtual void Init();
 		int Play(std::string AnimName);
+		int Delete();
+		int Stop();
 
 	public:
 		int GetFrame() { return m_animationFrame; }  //ÉtÉåÅ[ÉÄéÊìæ

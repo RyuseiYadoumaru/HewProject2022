@@ -13,11 +13,12 @@ using namespace Create;
 //-----------------------------------------------------------------------------
 // スタティック　メンバー
 //-----------------------------------------------------------------------------
-Create::Scene::STATE Create::Scene::State = Create::Scene::START;
-Create::Camera* Create::Scene::camera = nullptr;
-std::map<std::string, Create::GameObject*> Create::Scene::ObjectArray;
-std::map<std::string, std::vector<Component*>> Create::Scene::ComponenArray;
-int Create::Scene::ObjectCnt = 0;
+Create::Scene::STATE							Create::Scene::State = Create::Scene::START;
+Create::Camera*									Create::Scene::camera = nullptr;
+std::map<std::string, Create::GameObject*>		Create::Scene::ObjectArray;
+std::map<std::string, std::vector<Component*>>	Create::Scene::ComponenArray;
+int												Create::Scene::ObjectCnt = 0;
+std::vector<NAME>								Create::Scene::DestroyNameList;
 
 //==============================================================================
 //!	@fn		Find
@@ -194,6 +195,10 @@ void Create::Scene::SystemUpdate()
 //==============================================================================
 void Create::Scene::ObjectUpdate()
 {
+	/****	オブジェクト破棄	****/
+	ObjectListDestroy();
+
+	/****	オブジェクト更新	****/
 	for (auto& Object : ObjectArray)
 	{
 		Object.second->Update();
@@ -288,4 +293,22 @@ bool Create::Scene::Releace()
 	ObjectCnt = 0;
 
 	return true;
+}
+
+//==============================================================================
+//!	@fn		ObjectListDestroyDestroy
+//!	@brief	オブジェクトリストを破棄する
+//!	@param	
+//!	@retval	
+//==============================================================================
+void Create::Scene::ObjectListDestroy()
+{
+	if (DestroyNameList.empty() == true) return;
+
+	/****	オブジェクト破棄	****/
+	for (auto& ObjName : DestroyNameList)
+	{
+		Destroy(ObjName);
+	}
+	DestroyNameList.clear();
 }

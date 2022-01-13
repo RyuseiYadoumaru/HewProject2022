@@ -139,9 +139,6 @@
     <Filter Include="Engine\Runtime\Core\Data\TexCoord">
       <UniqueIdentifier>{6f534e71-91f0-4441-9d5a-adf67fbd7153}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Script">
-      <UniqueIdentifier>{ae49d859-4695-4a71-8a03-61ff0743aaa5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\Object\Test\AnimationTest">
       <UniqueIdentifier>{2e15be4c-292d-4bee-adb4-6faf3b58b9e6}</UniqueIdentifier>
     </Filter>
@@ -163,23 +160,11 @@
     <Filter Include="TOYALINE\Object\Actor\Map\Tile">
       <UniqueIdentifier>{d62cc4da-0f9d-473a-9721-3395f3c1c132}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TOYALINE\Object\Effect">
-      <UniqueIdentifier>{f89b9f6c-8ee9-4abd-82ac-b4bbdaeab00e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="TOYALINE\Object\Camera">
       <UniqueIdentifier>{238be73b-fc97-4214-9e80-799002123215}</UniqueIdentifier>
     </Filter>
     <Filter Include="TOYALINE\Object\Camera\MainCamera">
       <UniqueIdentifier>{30c144ae-9517-4642-8275-8af5af26ba9e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\Object\ScreemEffect">
-      <UniqueIdentifier>{a6c080f1-160a-4cab-8e38-b1c9f7bed139}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\Object\ScreemEffect\Fade">
-      <UniqueIdentifier>{7e592d47-f3f1-4018-865c-392043e28e25}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\Object\ScreemEffect\Frame">
-      <UniqueIdentifier>{4db93655-f105-42ab-91a9-095f4cc30204}</UniqueIdentifier>
     </Filter>
     <Filter Include="TOYALINE\World1">
       <UniqueIdentifier>{0d31dff2-2c2b-484b-9d86-e8845217cf98}</UniqueIdentifier>
@@ -222,12 +207,6 @@
     </Filter>
     <Filter Include="TOYALINE\World5\Scene">
       <UniqueIdentifier>{6068bf4b-1259-4355-9c3a-5bbb0f1c62c0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\World6">
-      <UniqueIdentifier>{8771b7af-35f4-4169-87e0-b58e60dbfecd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\World6\Scene">
-      <UniqueIdentifier>{5c9def62-f638-4b5a-9855-48078f96f02c}</UniqueIdentifier>
     </Filter>
     <Filter Include="TOYALINE\StageSelect">
       <UniqueIdentifier>{999dd4e8-5d73-4e1f-9435-8db426486776}</UniqueIdentifier>
@@ -274,9 +253,6 @@
     <Filter Include="TOYALINE\Script\MoveInfo">
       <UniqueIdentifier>{1a41ca03-54c2-4fcb-923d-44ece04fbd21}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TOYALINE\Ceiling">
-      <UniqueIdentifier>{cb30f131-90d9-49fe-bf33-0431081dcc1d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="TOYALINE\World2\Road">
       <UniqueIdentifier>{ec5e07e2-c79b-45c7-bf11-ebf5b9f5f2bb}</UniqueIdentifier>
     </Filter>
@@ -315,6 +291,30 @@
     </Filter>
     <Filter Include="TOYALINE\World5\Road\World5_desk">
       <UniqueIdentifier>{91baed32-1210-4081-8e9f-f867e487f9f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Object\Actor\Ceiling">
+      <UniqueIdentifier>{cb30f131-90d9-49fe-bf33-0431081dcc1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Particle">
+      <UniqueIdentifier>{89604b1d-2f21-4c36-a246-bc76bc818047}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Particle\BlockParticle">
+      <UniqueIdentifier>{82af80f6-6040-4744-bea2-57e5f37b73f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\ScreemEffect">
+      <UniqueIdentifier>{a6c080f1-160a-4cab-8e38-b1c9f7bed139}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\ScreemEffect\Fade">
+      <UniqueIdentifier>{7e592d47-f3f1-4018-865c-392043e28e25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\ScreemEffect\Frame">
+      <UniqueIdentifier>{4db93655-f105-42ab-91a9-095f4cc30204}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Object\Actor\Map\MoveTile">
+      <UniqueIdentifier>{3291f334-c6f2-44fa-81ca-93a7a2bf5c92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Object\Actor\Map\ResetTile">
+      <UniqueIdentifier>{85ab4705-2a1d-4166-8014-2742ae4c4afb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -462,11 +462,8 @@
     <ClCompile Include="TileColumn.cpp">
       <Filter>TOYALINE\Object\Actor\Map\Tile</Filter>
     </ClCompile>
-    <ClCompile Include="MoveManager.cpp">
-      <Filter>TOYALINE\Object\Actor\Map</Filter>
-    </ClCompile>
     <ClCompile Include="Fade.cpp">
-      <Filter>TOYALINE\Object\ScreemEffect\Fade</Filter>
+      <Filter>TOYALINE\ScreemEffect\Fade</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Create\AnimationController.cpp">
       <Filter>Engine\Create\Private</Filter>
@@ -481,10 +478,10 @@
       <Filter>Game\Object\Test</Filter>
     </ClCompile>
     <ClCompile Include="ScreenFx.cpp">
-      <Filter>TOYALINE\Object\ScreemEffect\Frame</Filter>
+      <Filter>TOYALINE\ScreemEffect\Frame</Filter>
     </ClCompile>
     <ClCompile Include="CameraFrame.cpp">
-      <Filter>TOYALINE\Object\ScreemEffect\Frame</Filter>
+      <Filter>TOYALINE\ScreemEffect\Frame</Filter>
     </ClCompile>
     <ClCompile Include="DefaultAnim.cpp">
       <Filter>Game\Object\Test\AnimationTest</Filter>
@@ -598,21 +595,6 @@
     <ClCompile Include="Stage25.cpp">
       <Filter>TOYALINE\World5\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Stage26.cpp">
-      <Filter>TOYALINE\World6\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage27.cpp">
-      <Filter>TOYALINE\World6\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage28.cpp">
-      <Filter>TOYALINE\World6\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage29.cpp">
-      <Filter>TOYALINE\World6\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage30.cpp">
-      <Filter>TOYALINE\World6\Scene</Filter>
-    </ClCompile>
     <ClCompile Include="Table.cpp">
       <Filter>TOYALINE\World1\Road\Table</Filter>
     </ClCompile>
@@ -650,7 +632,7 @@
       <Filter>TOYALINE\World1\Road\Sofa</Filter>
     </ClCompile>
     <ClCompile Include="Ceiling.cpp">
-      <Filter>TOYALINE\Ceiling</Filter>
+      <Filter>TOYALINE\Object\Actor\Ceiling</Filter>
     </ClCompile>
     <ClCompile Include="Sink.cpp">
       <Filter>TOYALINE\World2\Road\Sink</Filter>
@@ -684,6 +666,27 @@
     </ClCompile>
     <ClCompile Include="Storage.cpp">
       <Filter>TOYALINE\World5\Road\Storage</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameObject\Effect.cpp">
+      <Filter>Game\GameObject\private</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Create\Particle.cpp">
+      <Filter>Engine\Create\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Component\Miscellaneous\ParticleSystem.cpp">
+      <Filter>Engine\Component\Private\Miscellaneous</Filter>
+    </ClCompile>
+    <ClCompile Include="BlockMagicParticle.cpp">
+      <Filter>TOYALINE\Particle\BlockParticle</Filter>
+    </ClCompile>
+    <ClCompile Include="BlockMagicEffect.cpp">
+      <Filter>TOYALINE\Particle</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveManager.cpp">
+      <Filter>TOYALINE\Object\Actor\Map\MoveTile</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveParticleManager.cpp">
+      <Filter>TOYALINE\Object\Actor\Map\MoveTile</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -858,11 +861,8 @@
     <ClInclude Include="Tile.h">
       <Filter>TOYALINE\Object\Actor\Map\Tile</Filter>
     </ClInclude>
-    <ClInclude Include="MoveManager.h">
-      <Filter>TOYALINE\Object\Actor\Map</Filter>
-    </ClInclude>
     <ClInclude Include="Fade.h">
-      <Filter>TOYALINE\Object\ScreemEffect\Fade</Filter>
+      <Filter>TOYALINE\ScreemEffect\Fade</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Runtime\Core\TextureCoordinate.h">
       <Filter>Engine\Runtime\Core\Data\TexCoord</Filter>
@@ -880,10 +880,10 @@
       <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="ScreenFx.h">
-      <Filter>TOYALINE\Object\ScreemEffect\Frame</Filter>
+      <Filter>TOYALINE\ScreemEffect\Frame</Filter>
     </ClInclude>
     <ClInclude Include="CameraFrame.h">
-      <Filter>TOYALINE\Object\ScreemEffect\Frame</Filter>
+      <Filter>TOYALINE\ScreemEffect\Frame</Filter>
     </ClInclude>
     <ClInclude Include="DefaultAnim.h">
       <Filter>Game\Object\Test\AnimationTest</Filter>
@@ -973,21 +973,6 @@
     <ClInclude Include="Stage25.h">
       <Filter>TOYALINE\World5\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Stage26.h">
-      <Filter>TOYALINE\World6\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Stage27.h">
-      <Filter>TOYALINE\World6\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Stage28.h">
-      <Filter>TOYALINE\World6\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Stage29.h">
-      <Filter>TOYALINE\World6\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Stage30.h">
-      <Filter>TOYALINE\World6\Scene</Filter>
-    </ClInclude>
     <ClInclude Include="World1StageSelectScene.h">
       <Filter>TOYALINE\StageSelect</Filter>
     </ClInclude>
@@ -1055,7 +1040,7 @@
       <Filter>TOYALINE\World1\Road\Sofa</Filter>
     </ClInclude>
     <ClInclude Include="Ceiling.h">
-      <Filter>TOYALINE\Ceiling</Filter>
+      <Filter>TOYALINE\Object\Actor\Ceiling</Filter>
     </ClInclude>
     <ClInclude Include="Sink.h">
       <Filter>TOYALINE\World2\Road\Sink</Filter>
@@ -1089,6 +1074,30 @@
     </ClInclude>
     <ClInclude Include="Storage.h">
       <Filter>TOYALINE\World5\Road\Storage</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameObject\Effect.h">
+      <Filter>Game\GameObject\public</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Create\Particle.h">
+      <Filter>Engine\Create\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Component\Miscellaneous\ParticleSystem.h">
+      <Filter>Engine\Component\Public\Miscellaneous</Filter>
+    </ClInclude>
+    <ClInclude Include="BlockMagicParticle.h">
+      <Filter>TOYALINE\Particle\BlockParticle</Filter>
+    </ClInclude>
+    <ClInclude Include="BlockMagicEffect.h">
+      <Filter>TOYALINE\Particle</Filter>
+    </ClInclude>
+    <ClInclude Include="BlockEffectInfo.h">
+      <Filter>TOYALINE\Particle\BlockParticle</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveManager.h">
+      <Filter>TOYALINE\Object\Actor\Map\MoveTile</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveParticleManager.h">
+      <Filter>TOYALINE\Object\Actor\Map\MoveTile</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

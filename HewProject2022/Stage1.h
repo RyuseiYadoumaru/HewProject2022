@@ -13,6 +13,8 @@
 #include "Sofa.h"
 #include "Ceiling.h"
 
+#include "BlockMagicEffect.h"
+
 using Create::Actor;
 using GameEngine::Input;
 

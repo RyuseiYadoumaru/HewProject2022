@@ -1,5 +1,6 @@
 #pragma once
 #include "ydmEngine.h"
+#include "MoveParticleManager.h"
 #include "MoveInfoList.h"
 
 class TileColumn;

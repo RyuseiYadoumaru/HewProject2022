@@ -41,7 +41,11 @@ public:
 
 	bool Start() override;
 	bool Update() override;
+	bool Render()override;
 	void Debug() override;
+
+public:
+	//shared_ptr<BlockEffect> m_Blockeffect;
 
 public:
 	MAPOBJ GetKind() const;
@@ -55,6 +59,9 @@ public:
 
 	//入れ替え処理
 	void Replacement();
+
+private:
+	void EffectInit();
 
 private:
 	Vector3 m_SavePosition;		//前フレームの座標

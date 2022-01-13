@@ -28,6 +28,9 @@ bool Tile::Start()
 		tag = Ground;
 	}
 
+	/*	エフェクト初期化	*/
+	EffectInit();
+
 	return true;
 }
 
@@ -36,9 +39,16 @@ bool Tile::Update()
 	/*	前回の座標を取得	*/
 	m_SavePosition = transform->Position;
 
-	/*	入れ替え処理	*/
-	Replacement();
+	return true;
+}
 
+bool Tile::Render()
+{
+	if (Active == true)
+	{
+		m_SpriteRenderer->Render();
+		//m_Blockeffect->Render();
+	}
 	return true;
 }
 
@@ -106,81 +116,14 @@ void Tile::Replacement()
 
 		if (m_ReplacementTimer >= REPLACEMENT_TIME) {//3秒経過すると色が変わる
 
-			switch (this->m_Kind) {
-				{
-			case C1:
-				this->m_Kind = C2;
-				//末尾に入っている画像情報を削除して、新しい画像情報を挿入する?
-				//削除していないです　2022/01/12
-				this->Sprite("blue");
-				break;
-
-			case C2:
-				this->m_Kind = C3;
-				this->Sprite("green");
-				break;
-
-			case C3:
-				this->m_Kind = C4;
-				this->Sprite("purple");
-				break;
-
-			case C4:
-				this->m_Kind = C1;
-				this->Sprite("red");
-				break;
-
-				}
+/****	エフェクト初期化	****/
+			void Tile::EffectInit()
+			{
+				//m_Blockeffect = make_shared<BlockEffect>
+				//	(this,
+				//		BlockEffect::Color::BLUE,
+				//		BlockEffect::EFFECT_KIND::MAGIC);
+				//m_Blockeffect->Start();
 			}
-			//画像のサイズも変更しないといけない
-			this->m_SpriteRenderer->SetSize(TILE_WIDTH, TILE_HEIGHT);
-			this->m_SpriteRenderer->Init();
-
-			//タイマーを０に戻す
-			m_ReplacementTimer = 0;
-		}
 
 
-		//以下入れ替えブロック追加後の実装
-		/*
-		//タイマーにデルタタイム加算
-		m_ReplacementTimer += GameTimer::deltaTime();
-
-		if (m_ReplacementTimer >= REPLACEMENT_TIME) {
-
-			switch (this->m_Kind) {
-				{
-			case REPLACEMWNT_RED_BLOCK:
-				this->m_Kind = REPLACEMWNT_BLUE_BLOCK;
-				//末尾に入っている画像情報を削除して、新しい画像情報を挿入する?
-				//削除していない　2022/01/12
-				this->Sprite("blue");
-				break;
-
-			case REPLACEMWNT_BLUE_BLOCK:
-				this->m_Kind = REPLACEMWNT_GREEN_BLOCK;
-				this->Sprite("green");
-				break;
-
-			case REPLACEMWNT_GREEN_BLOCK:
-				this->m_Kind = REPLACEMWNT_PURPLE_BLOCK;
-				this->Sprite("purple");
-				break;
-
-			case REPLACEMWNT_PURPLE_BLOCK:
-				this->m_Kind = REPLACEMWNT_RED_BLOCK;
-				this->Sprite("red");
-				break;
-
-				}
-			}
-			//画像のサイズも変更しないといけない
-			this->m_SpriteRenderer->SetSize(TILE_WIDTH, TILE_HEIGHT);
-			this->m_SpriteRenderer->Init();
-
-			//タイマーを０に戻す
-			m_ReplacementTimer = 0;
-		}
-		*/
-	}
-}

@@ -42,8 +42,7 @@ bool GamePlay::Stage1Scene::Start()
 
 	/*	ÉJÉÅÉâê›íË	*/
 	SetCamera(m_MainCamera);
-	//m_MainCamera->Focus(m_Player);
-	m_MainCamera->Focus(debug);
+	m_MainCamera->Focus(m_Player);
 
 	// BGMçƒê∂
 	Sound::Sound_Play(SOUND_LABEL_WORLD1_GAMEBGM);

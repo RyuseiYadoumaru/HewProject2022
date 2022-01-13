@@ -36,7 +36,7 @@ bool GameEngine::ParticleSystem::Init(Create::Particle* in_Particle = nullptr)
 	float Height = 1.0f;
 	Owner->GetComponent<SpriteRenderer>()->SetTexSize(Width, Height);
 
-	m_Status = PARTICLE_STATUS::LOOP;
+	m_Status = PARTICLE_STATUS::STOP;
 	return true;
 }
 
@@ -62,7 +62,7 @@ bool GameEngine::ParticleSystem::Update()
 
 		/*	‚P‰ñÄ¶	*/
 	case GameEngine::ParticleSystem::ONE_SHOT:
-		if (m_Pariticle->PlayOneShot() == PARTICLE_FINISH)
+		if (m_Pariticle->PlayOneShot() == PARTICLE_STOP)
 			m_Status = ParticleSystem::STOP;
 		break;
 

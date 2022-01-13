@@ -32,7 +32,8 @@ bool BlockMagicEffect::Start()
 	m_SpriteRenderer->Init();
 
 	/*	パーティクルシステムコンポーネント	*/
-	m_ParticleSystem = AddComponent<ParticleSystem>(&m_Particle);
+	//m_ParticleSystem = AddComponent<ParticleSystem>(&m_Particle);
+	//m_ParticleSystem->SetParticle(ParticleSystem::ONE_SHOT);
 
 	return true;
 }
@@ -40,19 +41,13 @@ bool BlockMagicEffect::Start()
 /****	更新	****/
 bool BlockMagicEffect::Update()
 {
-	/*	エフェクト	*/
-	if (Input::GetKeyTrigger(PK_1) == true)
-	{
-		m_ParticleSystem->SetParticle(ParticleSystem::LOOP);
-	}
-	if (Input::GetKeyTrigger(PK_2) == true)
-	{
-		m_ParticleSystem->SetParticle(ParticleSystem::ONE_SHOT);
-	}
-	if (Input::GetKeyTrigger(PK_3) == true)
-	{
-		m_ParticleSystem->SetParticle(ParticleSystem::END);
-	}
+	//cout << m_Particle.GetState() << endl;
+
+	///*	終了したら破棄する　	*/
+	//if (m_Particle.GetState() == PARTICLE_FINISH)
+	//{
+	//	Destroy();
+	//}
 
 	/*	トランスフォーム更新	*/
 	SetOwnerTransform();

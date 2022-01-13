@@ -143,6 +143,9 @@ bool Map::End()
 		MoveInfo.reset();
 	}
 	m_MoveManager.clear();
+
+	/*	パーティクル解放	*/
+	m_MoveParticle.End();
 	return true;
 }
 
@@ -164,6 +167,9 @@ bool Map::Render()
 			}
 		}
 	}
+
+	/****	パーティクル描画	****/
+	m_MoveParticle.ParticleRender();
 	return true;
 }
 

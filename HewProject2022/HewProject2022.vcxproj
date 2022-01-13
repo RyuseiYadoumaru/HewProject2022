@@ -148,8 +148,6 @@
     <ClCompile Include="AnimTest.cpp" />
     <ClCompile Include="BackGround.cpp" />
     <ClCompile Include="BigBook.cpp" />
-    <ClCompile Include="BlockEffect.cpp" />
-    <ClCompile Include="BlockEffectAnimController.cpp" />
     <ClCompile Include="BlockMagicEffect.cpp" />
     <ClCompile Include="BlockMagicParticle.cpp" />
     <ClCompile Include="CameraFrame.cpp" />
@@ -210,6 +208,7 @@
     <ClCompile Include="MoveInfo.cpp" />
     <ClCompile Include="MoveInfoList.cpp" />
     <ClCompile Include="MoveManager.cpp" />
+    <ClCompile Include="MoveParticleManager.cpp" />
     <ClCompile Include="Plants.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="DefaultAnim.cpp" />
@@ -274,8 +273,6 @@
     <ClInclude Include="AnimTest.h" />
     <ClInclude Include="BackGround.h" />
     <ClInclude Include="BigBook.h" />
-    <ClInclude Include="BlockEffect.h" />
-    <ClInclude Include="BlockEffectAnimController.h" />
     <ClInclude Include="BlockEffectInfo.h" />
     <ClInclude Include="BlockMagicEffect.h" />
     <ClInclude Include="BlockMagicParticle.h" />
@@ -345,6 +342,7 @@
     <ClInclude Include="MoveInfo.h" />
     <ClInclude Include="MoveInfoList.h" />
     <ClInclude Include="MoveManager.h" />
+    <ClInclude Include="MoveParticleManager.h" />
     <ClInclude Include="Plants.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="DefaultAnim.h" />

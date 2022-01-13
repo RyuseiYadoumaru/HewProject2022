@@ -1,5 +1,6 @@
 #pragma once
 #include "ydmEngine.h"
+#include "BlockMagicParticle.h"
 class TileColumn;
 class Tile;
 

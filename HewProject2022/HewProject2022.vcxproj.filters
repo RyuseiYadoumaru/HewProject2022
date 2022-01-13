@@ -301,15 +301,6 @@
     <Filter Include="TOYALINE\Particle\BlockParticle">
       <UniqueIdentifier>{82af80f6-6040-4744-bea2-57e5f37b73f5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TOYALINE\Effect">
-      <UniqueIdentifier>{f89b9f6c-8ee9-4abd-82ac-b4bbdaeab00e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\Effect\BlockEffect">
-      <UniqueIdentifier>{1facca4d-f5ca-43ff-acd7-f7eb14bdabb6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\Effect\BlockEffect\Animation">
-      <UniqueIdentifier>{37fec384-98c9-429f-87f4-4766ea09839b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="TOYALINE\ScreemEffect">
       <UniqueIdentifier>{a6c080f1-160a-4cab-8e38-b1c9f7bed139}</UniqueIdentifier>
     </Filter>
@@ -318,6 +309,12 @@
     </Filter>
     <Filter Include="TOYALINE\ScreemEffect\Frame">
       <UniqueIdentifier>{4db93655-f105-42ab-91a9-095f4cc30204}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Object\Actor\Map\MoveTile">
+      <UniqueIdentifier>{3291f334-c6f2-44fa-81ca-93a7a2bf5c92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Object\Actor\Map\ResetTile">
+      <UniqueIdentifier>{85ab4705-2a1d-4166-8014-2742ae4c4afb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -464,9 +461,6 @@
     </ClCompile>
     <ClCompile Include="TileColumn.cpp">
       <Filter>TOYALINE\Object\Actor\Map\Tile</Filter>
-    </ClCompile>
-    <ClCompile Include="MoveManager.cpp">
-      <Filter>TOYALINE\Object\Actor\Map</Filter>
     </ClCompile>
     <ClCompile Include="Fade.cpp">
       <Filter>TOYALINE\ScreemEffect\Fade</Filter>
@@ -676,12 +670,6 @@
     <ClCompile Include="Game\GameObject\Effect.cpp">
       <Filter>Game\GameObject\private</Filter>
     </ClCompile>
-    <ClCompile Include="BlockEffect.cpp">
-      <Filter>TOYALINE\Effect\BlockEffect</Filter>
-    </ClCompile>
-    <ClCompile Include="BlockEffectAnimController.cpp">
-      <Filter>TOYALINE\Effect\BlockEffect\Animation</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\Create\Particle.cpp">
       <Filter>Engine\Create\Private</Filter>
     </ClCompile>
@@ -693,6 +681,12 @@
     </ClCompile>
     <ClCompile Include="BlockMagicEffect.cpp">
       <Filter>TOYALINE\Particle</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveManager.cpp">
+      <Filter>TOYALINE\Object\Actor\Map\MoveTile</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveParticleManager.cpp">
+      <Filter>TOYALINE\Object\Actor\Map\MoveTile</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -866,9 +860,6 @@
     </ClInclude>
     <ClInclude Include="Tile.h">
       <Filter>TOYALINE\Object\Actor\Map\Tile</Filter>
-    </ClInclude>
-    <ClInclude Include="MoveManager.h">
-      <Filter>TOYALINE\Object\Actor\Map</Filter>
     </ClInclude>
     <ClInclude Include="Fade.h">
       <Filter>TOYALINE\ScreemEffect\Fade</Filter>
@@ -1087,12 +1078,6 @@
     <ClInclude Include="Game\GameObject\Effect.h">
       <Filter>Game\GameObject\public</Filter>
     </ClInclude>
-    <ClInclude Include="BlockEffect.h">
-      <Filter>TOYALINE\Effect\BlockEffect</Filter>
-    </ClInclude>
-    <ClInclude Include="BlockEffectAnimController.h">
-      <Filter>TOYALINE\Effect\BlockEffect\Animation</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\Create\Particle.h">
       <Filter>Engine\Create\Public</Filter>
     </ClInclude>
@@ -1107,6 +1092,12 @@
     </ClInclude>
     <ClInclude Include="BlockEffectInfo.h">
       <Filter>TOYALINE\Particle\BlockParticle</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveManager.h">
+      <Filter>TOYALINE\Object\Actor\Map\MoveTile</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveParticleManager.h">
+      <Filter>TOYALINE\Object\Actor\Map\MoveTile</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

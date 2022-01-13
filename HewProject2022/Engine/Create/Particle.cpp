@@ -46,8 +46,10 @@ void Create::Particle::Init()
 int Create::Particle::Play()
 {
 	/****	パーティクル開始処理	***/
-	if (ParticleStart() == false) return PARTICLE_FINISH;
+	if (State == PARTICLE_FINISH) return PARTICLE_FINISH;
 
+	//アニメーションステータス
+	State = PARTICLE_PLAY;
 	//現在のアニメーション
 	std::vector<int>& NowTable = m_Particle.m_Frame;
 	std::vector<float>& NowKey = m_Particle.m_Key;
@@ -92,7 +94,10 @@ int Create::Particle::PlayOneShot()
 {
 
 	/****	パーティクル開始処理	***/
-	if (ParticleStart() == false) return PARTICLE_FINISH;
+	if (State == PARTICLE_FINISH) return PARTICLE_FINISH;
+
+	//アニメーションステータス
+	State = PARTICLE_PLAY;
 
 	//現在のアニメーション
 	std::vector<int>& NowTable = m_Particle.m_Frame;
@@ -110,7 +115,7 @@ int Create::Particle::PlayOneShot()
 	// アニメーションループ
 	if (NowTable[m_Counter + 1] == PARTICLE_FINISH)
 	{
-		State = PARTICLE_FINISH;
+		State = PARTICLE_STOP;
 		m_Counter = 0;
 		m_time = 0.0f;
 		return State;
@@ -139,22 +144,4 @@ int Create::Particle::End()
 {
 	m_ParticleFrame = 256;
 	return PARTICLE_FINISH;
-}
-
-//==============================================================================
-//!	@fn		ParticleStart
-//!	@brief	開始処理
-//!	@param	
-//!	@retva	
-//==============================================================================
-bool Create::Particle::ParticleStart()
-{
-	if (State == PARTICLE_FINISH)
-	{
-		//ステータスが終了ならば再生しない
-		return false;
-	}
-	//アニメーションステータス
-	State = PARTICLE_PLAY;
-	return true;
 }

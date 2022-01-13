@@ -1,6 +1,8 @@
 #include "Player.h"
 #include "TileColumn.h"
 #include "Map.h"
+#include "MoveParticleManager.h"
+
 
 Player::Player(string in_Name) :Character(in_Name)
 {
@@ -181,6 +183,9 @@ void Player::Magic()
 	{
 		m_isMagic = true;
 		m_PlayerAnimController.AnimState = PlayerAnimController::PLAYER_MAGICSTART;
+
+
+		MoveParticleManager::CreateMagicEffect(m_LandTile.GetLandTile(), BlockEffectColor::BLUE);
 	}
 	/*	ƒŠƒZƒbƒgˆ—‚ÌˆÚ“®	*/
 	if (Map::m_isResetStart == true)

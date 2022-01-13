@@ -7,6 +7,7 @@
 //*****************************************************************************
 
 #include "GameObject.h"
+#include "Scene.h"
 
 //==============================================================================
 //!	@fn		Constructor
@@ -57,4 +58,15 @@ Transform Create::GameObject::GetTransform()
 bool Create::GameObject::Render()
 {
 	return true;
+}
+
+//==============================================================================
+//!	@fn		Destroy
+//!	@brief	オブジェクト破棄
+//!	@note	自分自身を破棄する
+//!	@note	オブジェクト更新の最初に破棄される
+//==============================================================================
+void Create::GameObject::Destroy()
+{
+	Create::Scene::AddDestroyObject(name);
 }

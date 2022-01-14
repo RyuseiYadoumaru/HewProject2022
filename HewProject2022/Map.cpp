@@ -325,6 +325,7 @@ void Map::ColumnUpdate()
 	{
 		Column.Update();
 	}
+
 }
 
 /****	ƒ}ƒbƒv¶¬ˆ—	****/

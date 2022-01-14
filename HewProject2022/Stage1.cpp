@@ -30,10 +30,6 @@ bool GamePlay::Stage1Scene::Start()
 	m_Ceiling = Instance<Ceiling>("Ceiling");
 	m_Ceiling->Sprite("ceiling");
 
-	/*	エフェクト初期化	*/
-	Instance<BlockMagicEffect>("debug")->SetOwner(m_Player);
-
-
 	/*	初期化	*/
 	m_SofaEnd->transform->Position.x += ROAD_DISTANCE;
 
@@ -43,6 +39,7 @@ bool GamePlay::Stage1Scene::Start()
 	/*	カメラ設定	*/
 	SetCamera(m_MainCamera);
 	m_MainCamera->Focus(m_Player);
+
 
 	// BGM再生
 	Sound::Sound_Play(SOUND_LABEL_WORLD1_GAMEBGM);
@@ -77,7 +74,6 @@ Scene::STATE GamePlay::Stage1Scene::Update()
 	m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_SofaEnd->GetComponent<BoxCollider2D>());
 	m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_BigBook->GetComponent<BoxCollider2D>());
 	m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_MiniBook->GetComponent<BoxCollider2D>());
-
 
 	/****	ロードシーン	****/
 	if (Input::GetKeyTrigger(PK_ENTER) == true)
@@ -127,7 +123,6 @@ bool GamePlay::Stage1Scene::Render()
 	ObjectRender<LayerFront>("LayerFront");
 
 	/****	デバッグ	****/
-	GetGameObject<BlockMagicEffect>("debug")->Render();
 	//m_Player->Debug();
 	//m_Map->Debug();
 	//m_TableStart->Debug();

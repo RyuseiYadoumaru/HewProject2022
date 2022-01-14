@@ -90,9 +90,6 @@ bool ResetInfo::FixMove(float TargetPosY)
 	float FixVector;
 	bool isFix = false;
 
-	cout << "座標ターゲット：" << TargetPosY << endl;
-	cout << "座標スタンダード：" << StandartPosY << endl;
-
 	/*	上昇時値修正	*/
 	if (m_isUp == true &&
 		StandartPosY <= TargetPosY)

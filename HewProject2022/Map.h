@@ -51,7 +51,7 @@ public:
 	//三木原追加
 	void MoveReset();
 private:
-	MoveParticleManager m_MoveParticle;
+	BlockParticleManager m_MoveParticle;
 	ResetManager m_ResetManager;
 	bool m_isReset = false;			//リセットフラグ
 

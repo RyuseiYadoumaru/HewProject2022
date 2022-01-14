@@ -139,10 +139,10 @@ void Create::Effect::Pixcel(std::string in_PixcelName)
 //!	@note	オーナーのトランスフォームを設定する
 //!	@retval	
 //==============================================================================
-void Create::Effect::SetOwnerTransform()
+void Create::Effect::SetOwnerPosition()
 {
 	if (m_Owner != nullptr)
 	{
-		transform = m_Owner->transform;
+		transform->Position = m_Owner->transform->Position;
 	}
 }

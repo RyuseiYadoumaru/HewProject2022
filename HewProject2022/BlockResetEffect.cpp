@@ -1,9 +1,9 @@
-#include "BlockMagicEffect.h"
+#include "BlockResetEffect.h"
 #include "BlockParticleManager.h"
 
 
 /****	コンストラクタ	****/
-BlockMagicEffect::BlockMagicEffect(NAME in_Name) : Effect(in_Name)
+BlockResetEffect::BlockResetEffect(NAME in_Name) : Effect(in_Name)
 {
 	/*	オーナー設定	*/
 	m_Owner = nullptr;
@@ -12,7 +12,7 @@ BlockMagicEffect::BlockMagicEffect(NAME in_Name) : Effect(in_Name)
 }
 
 /****	初期化	****/
-bool BlockMagicEffect::Start()
+bool BlockResetEffect::Start()
 {
 	/*	エフェクト色設定	*/
 	EffectColor = BlockEffectColor::RED;
@@ -24,11 +24,11 @@ bool BlockMagicEffect::Start()
 	/*	スプライト初期化	*/
 	if (EffectColor == BlockEffectColor::RED)
 	{
-		m_SpriteRenderer->SpriteName = "red1-20";
+		m_SpriteRenderer->SpriteName = "red35-50";
 	}
 	else if (EffectColor == BlockEffectColor::BLUE)
 	{
-		m_SpriteRenderer->SpriteName = "blue1-20";
+		m_SpriteRenderer->SpriteName = "blue35-50";
 	}
 	m_SpriteRenderer->Init();
 
@@ -38,17 +38,19 @@ bool BlockMagicEffect::Start()
 
 	return true;
 }
-/****	更新	****/
-bool BlockMagicEffect::Update()
-{
-	//if (m_Particle.GetState() == PARTICLE_STOP)m_Particle.StateFinish();
 
+/****	更新	****/
+bool BlockResetEffect::Update()
+{
+
+	//ストップ状態になったら終了する
+	if (m_Particle.GetState() == PARTICLE_STOP) m_Particle.StateFinish();
 
 	/*	終了したら破棄する　	*/
 	if (m_Particle.GetState() == PARTICLE_FINISH)
 	{
 		Destroy();
-		BlockParticleManager::DeleteMagicEffect(m_Owner->GetId().x);
+		BlockParticleManager::DeleteResetEffect(m_Owner->GetId().x);
 	}
 
 	/*	トランスフォーム更新	*/

@@ -1,7 +1,7 @@
 #include "Player.h"
 #include "TileColumn.h"
 #include "Map.h"
-#include "MoveParticleManager.h"
+#include "BlockParticleManager.h"
 
 
 Player::Player(string in_Name) :Character(in_Name)
@@ -124,9 +124,6 @@ void Player::Debug()
 {
 	GetComponent<BoxCollider2D>()->Debug();
 
-	//if (GetComponent<BoxCollider2D>()->GetisHit_underBlock() == false) {
-	//	std::cout << "        　　　　　　　浮いてます" << std::endl;
-	//}
 }
 
 /****	アクション処理	****/
@@ -183,9 +180,6 @@ void Player::Magic()
 	{
 		m_isMagic = true;
 		m_PlayerAnimController.AnimState = PlayerAnimController::PLAYER_MAGICSTART;
-
-
-		MoveParticleManager::CreateMagicEffect(m_LandTile.GetLandTile(), BlockEffectColor::BLUE);
 	}
 	/*	リセット処理の移動	*/
 	if (Map::m_isResetStart == true)
@@ -194,7 +188,6 @@ void Player::Magic()
 		float vectorY = m_LandTile.GetLandTile()->transform->Position.y - m_LandTile.GetLandTile()->GetSavePosition().y;
 		//リセット中に移動ベクトル分加算する
 		transform->Position.y += vectorY;
-		cout << "移動ベクトル:" << vectorY << endl;
 	}
 
 }

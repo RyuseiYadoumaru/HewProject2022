@@ -130,7 +130,6 @@ int Create::Particle::PlayOneShot()
 
 	// アニメーションテーブル更新
 	m_ParticleFrame = NowTable[m_Counter];
-	printf("%f\n", m_time);
 	return State;
 }
 

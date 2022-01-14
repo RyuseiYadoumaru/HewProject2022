@@ -1,14 +1,14 @@
 #pragma once
 #include "ydmEngine.h"
-#include "BlockMagicparticle.h"
+#include "BlockMoveparticle.h"
 #include "BlockEffectInfo.h"
 using Create::Effect;
 
 /****	ブロックマジックエフェクト	****/
-class BlockMagicEffect : public Effect
+class BlockMoveEffect : public Effect
 {
 public:
-	BlockMagicEffect(NAME in_Name);
+	BlockMoveEffect(NAME in_Name);
 	bool Start();
 	bool Update() override;
 
@@ -23,14 +23,13 @@ public:
 		EffectColor = BlockEffectColor::BLUE;
 		Sprite("blue1-20");
 	}
-
 	/*	パーティクルステート設定	*/
 	void StateFinish() { m_Particle.StateFinish(); }
 	void StateStop() { m_Particle.StateStop(); }
 
 private:
 	BlockEffectColor EffectColor;
-	BlockMagicParticle m_Particle;	//エフェクト
+	BlockMoveParticle m_Particle;	//エフェクト
 
 };
 

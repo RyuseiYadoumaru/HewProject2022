@@ -166,12 +166,7 @@ bool MoveInfo::FixMove(float TargetPosY)
 			//全てのタイルを移動する
 			Tile->transform->Position.y += FixVector;
 		}
-		if (TargetPosY == mp_StandardTile->transform->Position.y)
-		{
-			cout << "最初の座標：" << TargetPosY << endl;
-			cout << "基準タイルの座標：" << mp_StandardTile->transform->Position.y << endl;
-			cout << "修正しました\n\n";
-		}
+
 	}
 
 	return isFix;

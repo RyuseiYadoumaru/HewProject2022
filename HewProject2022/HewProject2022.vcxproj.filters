@@ -316,6 +316,18 @@
     <Filter Include="TOYALINE\Object\Actor\Map\ResetTile">
       <UniqueIdentifier>{85ab4705-2a1d-4166-8014-2742ae4c4afb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TOYALINE\Particle\BlockParticle\Magic">
+      <UniqueIdentifier>{f9b9e33f-e0e2-40bb-b7b5-189c5aa3afe3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Particle\BlockParticle\Move">
+      <UniqueIdentifier>{89505073-af30-422e-acb0-78863e5a9c7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Particle\BlockParticle\Reset">
+      <UniqueIdentifier>{f0bc3046-3654-4c33-9c6a-3f29698d6bc0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Object\Actor\Map\ParticleManager">
+      <UniqueIdentifier>{ab75ef4c-9106-40fc-8244-578ada0dbdf3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Runtime\Application.cpp">
@@ -643,9 +655,6 @@
     <ClCompile Include="Shelf.cpp">
       <Filter>TOYALINE\World2\Road\Shelf</Filter>
     </ClCompile>
-    <ClCompile Include="ResetManager.cpp">
-      <Filter>TOYALINE\Object\Actor\Map</Filter>
-    </ClCompile>
     <ClCompile Include="Plants.cpp">
       <Filter>TOYALINE\World3\Road\Plants</Filter>
     </ClCompile>
@@ -676,17 +685,32 @@
     <ClCompile Include="Engine\Component\Miscellaneous\ParticleSystem.cpp">
       <Filter>Engine\Component\Private\Miscellaneous</Filter>
     </ClCompile>
-    <ClCompile Include="BlockMagicParticle.cpp">
-      <Filter>TOYALINE\Particle\BlockParticle</Filter>
-    </ClCompile>
-    <ClCompile Include="BlockMagicEffect.cpp">
-      <Filter>TOYALINE\Particle</Filter>
-    </ClCompile>
     <ClCompile Include="MoveManager.cpp">
       <Filter>TOYALINE\Object\Actor\Map\MoveTile</Filter>
     </ClCompile>
-    <ClCompile Include="MoveParticleManager.cpp">
-      <Filter>TOYALINE\Object\Actor\Map\MoveTile</Filter>
+    <ClCompile Include="ResetManager.cpp">
+      <Filter>TOYALINE\Object\Actor\Map\ResetTile</Filter>
+    </ClCompile>
+    <ClCompile Include="BlockMagicParticle.cpp">
+      <Filter>TOYALINE\Particle\BlockParticle\Magic</Filter>
+    </ClCompile>
+    <ClCompile Include="BlockMoveParticle.cpp">
+      <Filter>TOYALINE\Particle\BlockParticle\Move</Filter>
+    </ClCompile>
+    <ClCompile Include="BlockResetParticle.cpp">
+      <Filter>TOYALINE\Particle\BlockParticle\Reset</Filter>
+    </ClCompile>
+    <ClCompile Include="BlockMoveEffect.cpp">
+      <Filter>TOYALINE\Particle\BlockParticle\Move</Filter>
+    </ClCompile>
+    <ClCompile Include="BlockMagicEffect.cpp">
+      <Filter>TOYALINE\Particle\BlockParticle\Magic</Filter>
+    </ClCompile>
+    <ClCompile Include="BlockResetEffect.cpp">
+      <Filter>TOYALINE\Particle\BlockParticle\Reset</Filter>
+    </ClCompile>
+    <ClCompile Include="BlockParticleManager.cpp">
+      <Filter>TOYALINE\Object\Actor\Map\ParticleManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1051,9 +1075,6 @@
     <ClInclude Include="Shelf.h">
       <Filter>TOYALINE\World2\Road\Shelf</Filter>
     </ClInclude>
-    <ClInclude Include="ResetManager.h">
-      <Filter>TOYALINE\Object\Actor\Map</Filter>
-    </ClInclude>
     <ClInclude Include="Plants.h">
       <Filter>TOYALINE\World3\Road\Plants</Filter>
     </ClInclude>
@@ -1084,20 +1105,35 @@
     <ClInclude Include="Engine\Component\Miscellaneous\ParticleSystem.h">
       <Filter>Engine\Component\Public\Miscellaneous</Filter>
     </ClInclude>
-    <ClInclude Include="BlockMagicParticle.h">
-      <Filter>TOYALINE\Particle\BlockParticle</Filter>
-    </ClInclude>
-    <ClInclude Include="BlockMagicEffect.h">
-      <Filter>TOYALINE\Particle</Filter>
-    </ClInclude>
     <ClInclude Include="BlockEffectInfo.h">
       <Filter>TOYALINE\Particle\BlockParticle</Filter>
     </ClInclude>
     <ClInclude Include="MoveManager.h">
       <Filter>TOYALINE\Object\Actor\Map\MoveTile</Filter>
     </ClInclude>
-    <ClInclude Include="MoveParticleManager.h">
-      <Filter>TOYALINE\Object\Actor\Map\MoveTile</Filter>
+    <ClInclude Include="ResetManager.h">
+      <Filter>TOYALINE\Object\Actor\Map\ResetTile</Filter>
+    </ClInclude>
+    <ClInclude Include="BlockMagicParticle.h">
+      <Filter>TOYALINE\Particle\BlockParticle\Magic</Filter>
+    </ClInclude>
+    <ClInclude Include="BlockMoveParticle.h">
+      <Filter>TOYALINE\Particle\BlockParticle\Move</Filter>
+    </ClInclude>
+    <ClInclude Include="BlockResetParticle.h">
+      <Filter>TOYALINE\Particle\BlockParticle\Reset</Filter>
+    </ClInclude>
+    <ClInclude Include="BlockMoveEffect.h">
+      <Filter>TOYALINE\Particle\BlockParticle\Move</Filter>
+    </ClInclude>
+    <ClInclude Include="BlockMagicEffect.h">
+      <Filter>TOYALINE\Particle\BlockParticle\Magic</Filter>
+    </ClInclude>
+    <ClInclude Include="BlockResetEffect.h">
+      <Filter>TOYALINE\Particle\BlockParticle\Reset</Filter>
+    </ClInclude>
+    <ClInclude Include="BlockParticleManager.h">
+      <Filter>TOYALINE\Object\Actor\Map\ParticleManager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

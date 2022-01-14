@@ -23,6 +23,7 @@ public:
 	//ˆÚ“®ƒtƒ‰ƒOŽæ“¾
 	constexpr bool GetPositionEqual() const { return m_isPositionEqual; }
 
+	Tile* GetStandartdTile()const { return mp_StandardTile; }
 private:
 	TileColumn* mp_MoveColumn; //ˆÚ“®‚·‚é—ñ
 

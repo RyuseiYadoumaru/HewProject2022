@@ -43,9 +43,6 @@ public:
 private:
 	int m_TileCnt;			//1—ñƒuƒƒbƒN‚Ì”
 	float m_ColumnNum;
-
-
-
 };
 
 

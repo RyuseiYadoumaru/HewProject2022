@@ -32,6 +32,7 @@ bool TileColumn::Init()
 /****	更新	****/
 bool TileColumn::Update()
 {
+
 	/*	タイル更新	*/
 	for (auto tile : mp_TileList)
 	{

@@ -34,26 +34,16 @@ public:
 	float GetColumnNum()const { return m_ColumnNum; }
 	int GetTileNum() const { return m_TileCnt; }
 
-	/*	ステータス変更	*/
-	void StateDefault() { m_State = TileColumnState::BLOCK_DEFAULT; }
-	void StateMagic() { m_State = TileColumnState::BLOCK_MAGIC; }
-	void StateMove() { m_State = TileColumnState::BLOCK_MOVE; }
-	void StateReset() { m_State = TileColumnState::BLOCK_RESET; }
-
 	vector<Tile*> mp_TileList;	//1列タイル配列
 
 	//デバッグ用
 	shared_ptr<MoveInfo> m_MoveInfo;
 	shared_ptr<ResetInfo> m_ResetInfo;
 
-
 private:
 	int m_TileCnt;			//1列ブロックの数
 	float m_ColumnNum;
 
-	TileColumnState m_SaveState;
-	TileColumnState m_State;
-	bool m_isMoveParticle = false;
 
 
 };

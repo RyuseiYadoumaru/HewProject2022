@@ -40,7 +40,8 @@ bool Tile::Update()
 	m_SavePosition = transform->Position;
 
 	/*	入れ替え処理	*/
-	Replacement();
+	//ここをコメントアウトすると入れ替え処理切れます。
+	//Replacement();
 
 	return true;
 }

@@ -3,7 +3,6 @@
 #include "Map.h"
 #include "BlockParticleManager.h"
 
-
 Player::Player(string in_Name) :Character(in_Name)
 {
 
@@ -71,6 +70,10 @@ bool Player::Start()
 
 	/*	アニメーションコンポーネント	*/
 	AddComponent<Animator>(&m_PlayerAnimController);
+
+	/*	ランドタイル初期化	*/
+	m_LandTile = Create::Scene::Instance<LandTile>("PlayerLandTile");
+	m_LandTile->Init(this);
 	return true;
 }
 
@@ -82,7 +85,7 @@ bool Player::Update()
 	/*	アクション更新	*/
 	//ブロックが動いていないとき
 	if (Map::SearchMoveObjectName(name) == false &&
-		(Map::m_isResetStart == false || m_LandTile.GetLandTile() == LandGround))
+		(Map::m_isResetStart == false || m_LandTile->GetLandTile() == LandGround))
 	{
 		if (m_isMagic == true)
 		{
@@ -91,11 +94,12 @@ bool Player::Update()
 		}
 		//アクション処理
 		Action();
+		m_LandTile->FlipCol(m_SpriteRenderer->Flip);
 	}
 	else
 	{
 		//魔法処理
-		if (m_LandTile.GetLandTile() != LandGround)
+		if (m_LandTile->GetLandTile() != LandGround)
 		{
 			Magic();
 		}
@@ -106,7 +110,7 @@ bool Player::Update()
 	AddGravity();
 
 	/*	乗ってるタイル更新	*/
-	m_LandTile.Update();
+	//m_LandTile.Update();
 
 	/*	アニメーション修正処理	*/
 	FixAnimation();
@@ -114,8 +118,8 @@ bool Player::Update()
 	//if (m_LandTile.GetisLandTile() == true)
 	//{
 	//	cout << "プレイヤーが乗っているタイル\n";
-	//	cout << m_LandTile.GetLandTile()->GetId().x << endl;
-	//	cout << m_LandTile.GetLandTile()->GetKind() << endl;
+	//	cout << m_LandTile->GetLandTile()->GetId().x << endl;
+	//	cout << m_LandTile->GetLandTile()->GetKind() << endl;
 	//}
 	return true;
 }
@@ -126,8 +130,8 @@ void Player::Debug()
 	if (GetComponent<BoxCollider2D>()->GetisHit_rightBlock() == true) cout << "Player:右ヒット\n";
 	if (GetComponent<BoxCollider2D>()->GetisHit_overBlock() == true) cout << "Player:上ヒット\n";
 	if (GetComponent<BoxCollider2D>()->GetisHit_underBlock() == true) cout << "Player:下ヒット\n";
-	GetComponent<BoxCollider2D>()->Debug();
-
+	GetComponent<BoxCollider2D>()->Debug(0.0f, 0.0f, 1.0f);
+	m_LandTile->GetComponent<BoxCollider2D>()->Debug(1.0f, 0.0f);
 }
 
 /****	アクション処理	****/
@@ -189,7 +193,7 @@ void Player::Magic()
 	if (Map::m_isResetStart == true)
 	{
 
-		float vectorY = m_LandTile.GetLandTile()->transform->Position.y - m_LandTile.GetLandTile()->GetSavePosition().y;
+		float vectorY = m_LandTile->GetLandTile()->transform->Position.y - m_LandTile->GetLandTile()->GetSavePosition().y;
 		//リセット中に移動ベクトル分加算する
 		transform->Position.y += vectorY;
 	}
@@ -367,7 +371,7 @@ void Player::Jump()
 /****	ジャンプの終了処理	****/
 void Player::JumpEnd()
 {
-	m_jumpForce = 0;
+	m_jumpForce = 0.0f;
 	m_jumpFlg = false;
 	m_JumpCounter = 0;
 	//頭をぶつけた時点で落下アニメーションに移行する
@@ -379,20 +383,29 @@ void Player::JumpEnd()
 /****	重力加算	****/
 void Player::AddGravity()
 {
+	if (m_jumpForce != 0.0f)
+	{
+		cout << "airFlg = true\n";
+		m_airFlg = true;	//ジャンプ力が加わったら
+	}
 	if (GetComponent<BoxCollider2D>()->GetisHit_underBlock() == true) {//着地したら
+		cout << "airFlg = false\n";
+		cout << "sita= true\n";
+		m_jumpForce = 0.0f;
 		m_airFlg = false;
 	}
+
+	//if (GetComponent<BoxCollider2D>()->GetisHit_underBlock() == false) {//宙に浮いてたら
+	//	cout << "sita= false\n";
+
+	//	m_airFlg = true;
+
+	//}
 
 	if (GetComponent<BoxCollider2D>()->GetisHit_overBlock() == true) {//頭ぶつけたら
 
 		//ジャンプの終了処理
 		JumpEnd();
-	}
-
-	if (GetComponent<BoxCollider2D>()->GetisHit() == false) {//宙に浮いてたら
-
-		m_airFlg = true;
-
 	}
 
 
@@ -410,10 +423,10 @@ void Player::AddGravity()
 	{
 		m_jumpForce += CHAR_GRAVITY;//徐々に重力が加算され、ジャンプ力が弱まっていく
 	}
-	transform->Position.y += m_jumpForce;//ここにデルタタイム？
+	transform->Position.y += m_jumpForce;
 
 
-/*	ダウンの移動量算出	*/
+	/*	ダウンの移動量算出	*/
 	if (m_PlayerAnimController.AnimState == PlayerAnimController::PLAYER_DOWN)
 	{
 		//落ちるアニメーションを再生しているときに

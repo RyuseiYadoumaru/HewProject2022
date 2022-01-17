@@ -118,7 +118,7 @@ bool BoxCollider2D::Update()
 //!	@brief	コライダ描画処理
 //!	@param
 //==============================================================================
-void GameEngine::BoxCollider2D::Debug()
+void GameEngine::BoxCollider2D::Debug(float red, float green, float blue)
 {
 	/****	デバイスコンテキスト取得	****/
 	ID3D11DeviceContext* deviceContext = DirectXGraphics::Instance()->GetDeviceContext();
@@ -126,10 +126,10 @@ void GameEngine::BoxCollider2D::Debug()
 	/****	頂点座標	****/
 	VERTEX_RECT vertex[4] =
 	{
-		XMFLOAT3(Rect.GetButtomLeft().x, Rect.GetButtomLeft().y, 0.0f),	XMFLOAT4(0.0f,1.0f,0.0f,1.0f),
-		XMFLOAT3(Rect.GetTopLeft().x,	 Rect.GetTopLeft().y,	 0.0f),	XMFLOAT4(0.0f,1.0f,0.0f,1.0f),
-		XMFLOAT3(Rect.GetButtomRight().x,Rect.GetButtomRight().y,0.0f),	XMFLOAT4(0.0f,1.0f,0.0f,1.0f),
-		XMFLOAT3(Rect.GetTopRight().x,	 Rect.GetTopRight().y,	 0.0f),	XMFLOAT4(0.0f,1.0f,0.0f,1.0f)
+		XMFLOAT3(Rect.GetButtomLeft().x, Rect.GetButtomLeft().y, 0.0f),	XMFLOAT4(red,green,blue,1.0f),
+		XMFLOAT3(Rect.GetTopLeft().x,	 Rect.GetTopLeft().y,	 0.0f),	XMFLOAT4(red,green,blue,1.0f),
+		XMFLOAT3(Rect.GetButtomRight().x,Rect.GetButtomRight().y,0.0f),	XMFLOAT4(red,green,blue,1.0f),
+		XMFLOAT3(Rect.GetTopRight().x,	 Rect.GetTopRight().y,	 0.0f),	XMFLOAT4(red,green,blue,1.0f)
 	};
 
 	/****	頂点データ更新	****/

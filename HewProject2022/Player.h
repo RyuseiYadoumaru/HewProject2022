@@ -26,8 +26,7 @@ public:
 	void Debug()override;
 
 
-	//デバッグ（後でPrivateにする）
-	LandTile m_LandTile;
+	LandTile* m_LandTile;
 
 private:
 	void Action();		//アクション処理

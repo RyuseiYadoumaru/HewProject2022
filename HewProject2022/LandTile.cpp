@@ -1,25 +1,35 @@
 #include "LandTile.h"
 #include "Tile.h"
 #include "TileColumn.h"
+#include "Map.h"
+
+
+
+/****	コンストラクタ	****/
+LandTile::LandTile(std::string in_name) : GameObject(in_name)
+{
+}
 
 /****	初期化	****/
-bool LandTile::Init(GameObject* in_Owner, vector<TileColumn>* in_NowMap)
+bool LandTile::Start()
 {
-	/*	エラーチェック	*/
-	if (in_NowMap == nullptr)
-	{
-		Log::LogError("マップがNullです。");
-		return false;
+	/*	ランドタイル当たり判定設定	*/
+	Vector2 size(20.0f, 20.0f);
+	BoxCollider2D* col = AddComponent<BoxCollider2D>(size);
+	col->SetOffset(1.0f, 3.75f);
+	return true;
+}
 
-	}
+/****	初期化	****/
+bool LandTile::Init(GameObject* in_Owner)
+{
+
 	isChange = false;
 
 	/*	オーナー取得	*/
 	Owner = in_Owner;
+	transform->Position = Owner->transform->Position;
 	OwnerName = Owner->GetName();
-
-	//現在マップのアドレス保存
-	mp_NowMap = in_NowMap;
 
 	//乗っているタイル初期化
 	LandTileInit();
@@ -30,8 +40,12 @@ bool LandTile::Init(GameObject* in_Owner, vector<TileColumn>* in_NowMap)
 /****	更新	****/
 bool LandTile::Update()
 {
-
 	/*	乗ってるタイルを調べる	*/
+	transform->Position = Owner->transform->Position;
+
+	/*	マップ当たり判定	*/
+	Map::HitCheckMap(*this);
+	//ここに当たり判定の処理を書く
 	SearchLandingTile();
 
 	/*	乗ってるタイルが変わったか確認する	*/
@@ -44,6 +58,13 @@ bool LandTile::Update()
 }
 
 
+/****	デバッグ	****/
+void LandTile::Debug()
+{
+	GetComponent<BoxCollider2D>()->Debug(1.0f, 0.0f);
+}
+
+
 //-----------------------------------------------------------------------------
 // Private Function
 //-----------------------------------------------------------------------------
@@ -51,10 +72,12 @@ bool LandTile::Update()
 void LandTile::SearchLandingTile()
 {
 	/*	現在のタイル確認	*/
-	BoxCollider2D* Col = Owner->GetComponent<BoxCollider2D>();
+	//BoxCollider2D* Col = Owner->GetComponent<BoxCollider2D>();
+	BoxCollider2D* Col = GetComponent<BoxCollider2D>();
 	//着地したときに格納する
 	if (Col->GetisHit_underBlock() == false)
 	{
+		cout << "着地してないよ\n";;
 		return;
 	}
 	/*	前フレームのタイルを保存	*/
@@ -98,18 +121,15 @@ void LandTile::SearchLandingTile()
 /****	タイルＩＤ探索	****/
 Tile* LandTile::FindTile(ID& in_Id)
 {
-	/*	列探索	*/
-	for (auto Now : *mp_NowMap)
-	{
-		/*	タイル探索	*/
-		for (auto tile : Now.mp_TileList)
+
+	/*	タイル探索	*/
+	for (auto& tile : Map::m_TileList)
+	{	/*	IDヒット	*/
+		if (tile->GetId() == in_Id)
 		{
-			/*	IDヒット	*/
-			if (tile->GetId() == in_Id)
-			{
-				return tile;
-			}
+			return tile;
 		}
+
 	}
 
 	return nullptr;

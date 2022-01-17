@@ -304,12 +304,6 @@
     <Filter Include="TOYALINE\ScreemEffect">
       <UniqueIdentifier>{a6c080f1-160a-4cab-8e38-b1c9f7bed139}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TOYALINE\Script\ScreemEffect\Fade">
-      <UniqueIdentifier>{7e592d47-f3f1-4018-865c-392043e28e25}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\Script\ScreemEffect\Frame">
-      <UniqueIdentifier>{4db93655-f105-42ab-91a9-095f4cc30204}</UniqueIdentifier>
-    </Filter>
     <Filter Include="TOYALINE\Object\Actor\Map\MoveTile">
       <UniqueIdentifier>{3291f334-c6f2-44fa-81ca-93a7a2bf5c92}</UniqueIdentifier>
     </Filter>
@@ -327,6 +321,12 @@
     </Filter>
     <Filter Include="TOYALINE\Object\Actor\Map\ParticleManager">
       <UniqueIdentifier>{ab75ef4c-9106-40fc-8244-578ada0dbdf3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\World4\Road">
+      <UniqueIdentifier>{6a93b807-516f-4c10-8f45-d608f68419fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Tutorial">
+      <UniqueIdentifier>{ae261378-f3ef-4296-bdea-f66fb0b445cf}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -450,9 +450,6 @@
     <ClCompile Include="Engine\Component\Physics\Rigidbody2d.cpp">
       <Filter>Engine\Component\Private\Physics2D</Filter>
     </ClCompile>
-    <ClCompile Include="ProtScene.cpp">
-      <Filter>Game\Scene</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\Runtime\Sound\Sound.cpp">
       <Filter>Engine\Runtime\Sound</Filter>
     </ClCompile>
@@ -474,9 +471,6 @@
     <ClCompile Include="TileColumn.cpp">
       <Filter>TOYALINE\Object\Actor\Map\Tile</Filter>
     </ClCompile>
-    <ClCompile Include="Fade.cpp">
-      <Filter>TOYALINE\Script\ScreemEffect\Fade</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\Create\AnimationController.cpp">
       <Filter>Engine\Create\Private</Filter>
     </ClCompile>
@@ -488,12 +482,6 @@
     </ClCompile>
     <ClCompile Include="AnimTest.cpp">
       <Filter>Game\Object\Test</Filter>
-    </ClCompile>
-    <ClCompile Include="ScreenFx.cpp">
-      <Filter>TOYALINE\Script\ScreemEffect\Frame</Filter>
-    </ClCompile>
-    <ClCompile Include="CameraFrame.cpp">
-      <Filter>TOYALINE\Script\ScreemEffect\Frame</Filter>
     </ClCompile>
     <ClCompile Include="DefaultAnim.cpp">
       <Filter>Game\Object\Test\AnimationTest</Filter>
@@ -712,17 +700,47 @@
     <ClCompile Include="BlockParticleManager.cpp">
       <Filter>TOYALINE\Object\Actor\Map\ParticleManager</Filter>
     </ClCompile>
-    <ClCompile Include="Umbrella.cpp">
-      <Filter>TOYALINE\World4\Road\Umbrella</Filter>
+    <ClCompile Include="CameraFrame.cpp" />
+    <ClCompile Include="Fade.cpp" />
+    <ClCompile Include="ScreenFx.cpp" />
+    <ClCompile Include="BookShelf.cpp">
+      <Filter>TOYALINE\World4\Road</Filter>
     </ClCompile>
     <ClCompile Include="PictureFrame.cpp">
-      <Filter>TOYALINE\World4\Road\PictureFrame</Filter>
+      <Filter>TOYALINE\World4\Road</Filter>
+    </ClCompile>
+    <ClCompile Include="Umbrella.cpp">
+      <Filter>TOYALINE\World4\Road</Filter>
     </ClCompile>
     <ClCompile Include="Shelf2.cpp">
-      <Filter>TOYALINE\World4\Road\Shelf2</Filter>
+      <Filter>TOYALINE\World4\Road</Filter>
     </ClCompile>
-    <ClCompile Include="BookShelf.cpp">
-      <Filter>TOYALINE\World4\Road\BookShelf</Filter>
+    <ClCompile Include="MoveTutorial.cpp">
+      <Filter>TOYALINE\Tutorial</Filter>
+    </ClCompile>
+    <ClCompile Include="JumpTutorial.cpp">
+      <Filter>TOYALINE\Tutorial</Filter>
+    </ClCompile>
+    <ClCompile Include="TutorialAnim.cpp">
+      <Filter>TOYALINE\Tutorial</Filter>
+    </ClCompile>
+    <ClCompile Include="TutorialEffectAnimController.cpp">
+      <Filter>TOYALINE\Tutorial</Filter>
+    </ClCompile>
+    <ClCompile Include="TutorialEffectAnim.cpp">
+      <Filter>TOYALINE\Tutorial</Filter>
+    </ClCompile>
+    <ClCompile Include="JumpTutorialAnim.cpp">
+      <Filter>TOYALINE\Tutorial</Filter>
+    </ClCompile>
+    <ClCompile Include="JumpTutorialAnimController.cpp">
+      <Filter>TOYALINE\Tutorial</Filter>
+    </ClCompile>
+    <ClCompile Include="TutorialAnimController.cpp">
+      <Filter>TOYALINE\Tutorial</Filter>
+    </ClCompile>
+    <ClCompile Include="TutorialEffect.cpp">
+      <Filter>TOYALINE\Tutorial</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -864,9 +882,6 @@
     <ClInclude Include="Engine\Component\Physics\Rigidbody2d.h">
       <Filter>Engine\Component\Public\Physics2D</Filter>
     </ClInclude>
-    <ClInclude Include="ProtScene.h">
-      <Filter>Game\Scene</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\Runtime\Sound\Sound.h">
       <Filter>Engine\Runtime\Sound</Filter>
     </ClInclude>
@@ -897,9 +912,6 @@
     <ClInclude Include="Tile.h">
       <Filter>TOYALINE\Object\Actor\Map\Tile</Filter>
     </ClInclude>
-    <ClInclude Include="Fade.h">
-      <Filter>TOYALINE\Script\ScreemEffect\Fade</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\Runtime\Core\TextureCoordinate.h">
       <Filter>Engine\Runtime\Core\Data\TexCoord</Filter>
     </ClInclude>
@@ -914,12 +926,6 @@
     </ClInclude>
     <ClInclude Include="AnimTest.h">
       <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="ScreenFx.h">
-      <Filter>TOYALINE\Script\ScreemEffect\Frame</Filter>
-    </ClInclude>
-    <ClInclude Include="CameraFrame.h">
-      <Filter>TOYALINE\Script\ScreemEffect\Frame</Filter>
     </ClInclude>
     <ClInclude Include="DefaultAnim.h">
       <Filter>Game\Object\Test\AnimationTest</Filter>
@@ -1147,17 +1153,44 @@
     <ClInclude Include="BlockParticleManager.h">
       <Filter>TOYALINE\Object\Actor\Map\ParticleManager</Filter>
     </ClInclude>
-    <ClInclude Include="Umbrella.h">
-      <Filter>TOYALINE\World4\Road\Umbrella</Filter>
+    <ClInclude Include="CameraFrame.h" />
+    <ClInclude Include="Fade.h" />
+    <ClInclude Include="ScreenFx.h" />
+    <ClInclude Include="BookShelf.h">
+      <Filter>TOYALINE\World4\Road</Filter>
     </ClInclude>
     <ClInclude Include="PictureFrame.h">
-      <Filter>TOYALINE\World4\Road\PictureFrame</Filter>
+      <Filter>TOYALINE\World4\Road</Filter>
+    </ClInclude>
+    <ClInclude Include="Umbrella.h">
+      <Filter>TOYALINE\World4\Road</Filter>
     </ClInclude>
     <ClInclude Include="Shelf2.h">
-      <Filter>TOYALINE\World4\Road\Shelf2</Filter>
+      <Filter>TOYALINE\World4\Road</Filter>
     </ClInclude>
-    <ClInclude Include="BookShelf.h">
-      <Filter>TOYALINE\World4\Road\BookShelf</Filter>
+    <ClInclude Include="JumpTutorial.h">
+      <Filter>TOYALINE\Tutorial</Filter>
+    </ClInclude>
+    <ClInclude Include="TutorialAnim.h">
+      <Filter>TOYALINE\Tutorial</Filter>
+    </ClInclude>
+    <ClInclude Include="TutorialEffectAnimController.h">
+      <Filter>TOYALINE\Tutorial</Filter>
+    </ClInclude>
+    <ClInclude Include="TutorialEffectAnim.h">
+      <Filter>TOYALINE\Tutorial</Filter>
+    </ClInclude>
+    <ClInclude Include="JumpTutorialAnim.h">
+      <Filter>TOYALINE\Tutorial</Filter>
+    </ClInclude>
+    <ClInclude Include="JumpTutorialAnimController.h">
+      <Filter>TOYALINE\Tutorial</Filter>
+    </ClInclude>
+    <ClInclude Include="TutorialAnimController.h">
+      <Filter>TOYALINE\Tutorial</Filter>
+    </ClInclude>
+    <ClInclude Include="TutorialEffect.h">
+      <Filter>TOYALINE\Tutorial</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -198,26 +198,53 @@ void Map::SystemUpdate()
 }
 
 /****	マップ当たり判定	****/
-bool Map::HitCheckMap(GameObject& in_GameObject)
+bool Map::HitCheckMap(GameObject& in_GameObject, bool checkRangeCamera)
 {
 	/*	ヒットチェックオブジェクト	*/
 	BoxCollider2D* CheckObject = in_GameObject.GetComponent<BoxCollider2D>();
 	Create::Camera* camera = Create::Scene::GetCamera();
 	/*	当たり判定	*/
-	for (int column = 0; column < m_Mapdata.GetSize().x; ++column)
+
+	for (auto& NowTile : m_TileList)
 	{
-		TileColumn& Search = m_TileColumnList[column];
-		for (auto NowTile : Search.mp_TileList)
+		BoxCollider2D* TileCol = NowTile->GetComponent<BoxCollider2D>();
+		if (checkRangeCamera == false)
 		{
-			BoxCollider2D* TileCol = NowTile->GetComponent<BoxCollider2D>();
+			//カメラ範囲外もチェックする
 			CheckObject->HitCheckBox(*TileCol);
-			//if (NowTile->transform->Position.x >= camera->GetLeft() && NowTile->transform->Position.x <= camera->GetRight() &&
-			//	NowTile->transform->Position.y >= camera->GetTop() && NowTile->transform->Position.y <= camera->GetButtom())
-			//{
-			//	CheckObject->HitCheckBox(*TileCol);
-			//}
+		}
+		else
+		{
+			if (NowTile->transform->Position.x >= camera->GetLeft() && NowTile->transform->Position.x <= camera->GetRight() &&
+				NowTile->transform->Position.y >= camera->GetTop() && NowTile->transform->Position.y <= camera->GetButtom())
+			{
+				CheckObject->HitCheckBox(*TileCol);
+			}
+
 		}
 	}
+	//for (int column = 0; column < m_Mapdata.GetSize().x; ++column)
+	//{
+	//	TileColumn& Search = m_TileColumnList[column];
+	//	for (auto NowTile : Search.mp_TileList)
+	//	{
+	//		BoxCollider2D* TileCol = NowTile->GetComponent<BoxCollider2D>();
+	//		if (checkRangeCamera == false)
+	//		{
+	//			//カメラ範囲外もチェックする
+	//			CheckObject->HitCheckBox(*TileCol);
+	//		}
+	//		else
+	//		{
+	//			if (NowTile->transform->Position.x >= camera->GetLeft() && NowTile->transform->Position.x <= camera->GetRight() &&
+	//				NowTile->transform->Position.y >= camera->GetTop() && NowTile->transform->Position.y <= camera->GetButtom())
+	//			{
+	//				CheckObject->HitCheckBox(*TileCol);
+	//			}
+
+	//		}
+	//	}
+	//}
 	return true;
 }
 

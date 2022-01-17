@@ -105,12 +105,12 @@ void Tile::Replacement()
 	Player* m_Player = Create::Scene::GetGameObject<Player>("Player");
 
 	//もしGetKind()がNULLだったらreturn
-	/*if (m_Player->m_LandTile.GetLandTile() == LandGround) {
+	/*if (m_Player->m_LandTile->GetLandTile() == LandGround) {
 
 		return;
 	}*/
 	//else ifだったら入れ替わる
-	if (m_Player->m_LandTile.GetLandTile() == LandGround || m_Player->m_LandTile.GetLandTile()->GetKind() == NB)
+	if (m_Player->m_LandTile->GetLandTile() == LandGround || m_Player->m_LandTile->GetLandTile()->GetKind() == NB)
 	{
 
 		//タイマーにデルタタイム加算

@@ -62,7 +62,7 @@ private:
 	MapData m_Mapdata;
 
 public:
-	bool HitCheckMap(GameObject& in_GameObject);
+	static bool HitCheckMap(GameObject& in_GameObject, bool checkRangeCamera = false);
 	bool CheckLandTile(LandTile* in_LandTile);
 
 };

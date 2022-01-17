@@ -23,7 +23,7 @@ namespace GameEngine
 
 		void Init(Math::Vector2 in_Size);	//‰Šú‰»
 		bool Update() override;		//XV
-		void Debug();
+		void Debug(float red = 0.0f, float green = 1.0f, float blue = 0.0f);
 
 		void HitCheckBox(BoxCollider2D &in_objcollider);		//“–‚½‚è”»’è
 

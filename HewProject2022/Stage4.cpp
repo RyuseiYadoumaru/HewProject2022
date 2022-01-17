@@ -25,7 +25,7 @@ bool GamePlay::Stage4Scene::Start()
 	m_DeskEnd->transform->Position.x += ROAD_DISTANCE;
 
 	/*	ギミック初期化	*/
-	m_Player->m_LandTile.Init(m_Player, &m_Map->m_TileColumnList);
+
 
 	/*	カメラ設定	*/
 	SetCamera(m_MainCamera);
@@ -42,8 +42,8 @@ Scene::STATE GamePlay::Stage4Scene::Update()
 	cout << "\nフレーム" << cnt << endl;
 
 	/****	ブロック移動	****/
-	m_Map->CheckLandTile(&m_Player->m_LandTile);
-	if (((m_Player->m_LandTile.GetisLandTile() == false) ||
+	m_Map->CheckLandTile(m_Player->m_LandTile);
+	if (((m_Player->m_LandTile->GetisLandTile() == false) ||
 		(Input::GetControllerTrigger(XINPUT_GAMEPAD_X)) || Input::GetKeyTrigger(PK_R)) &&
 		(m_Map->m_OnReset == false))
 	{

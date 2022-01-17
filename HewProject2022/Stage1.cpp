@@ -1,5 +1,5 @@
 #include "Stage1.h"
-
+#include "Test.h"
 using namespace Create;
 
 bool GamePlay::Stage1Scene::Start()
@@ -19,7 +19,6 @@ bool GamePlay::Stage1Scene::Start()
 	/*	背景初期化	*/
 	m_BackGround = Instance<BackGround>("Wall");
 	m_BackGround->Sprite("Wall");
-
 	m_LayerBack = Instance<LayerBack>("LayerBack");
 	m_LayerBack->Sprite("World_obj1_1");
 
@@ -39,6 +38,7 @@ bool GamePlay::Stage1Scene::Start()
 	/*	カメラ設定	*/
 	SetCamera(m_MainCamera);
 	m_MainCamera->Focus(m_Player);
+
 
 
 	// BGM再生
@@ -64,16 +64,18 @@ Scene::STATE GamePlay::Stage1Scene::Update()
 		m_Map->m_OnReset = true;
 	}
 
-	/****	オブジェクト更新	****/
-	ObjectUpdate();
-
 	/****	当たり判定	****/
 
-	m_Map->HitCheckMap(*m_Player);
 	m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_TableStart->GetComponent<BoxCollider2D>());
 	m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_SofaEnd->GetComponent<BoxCollider2D>());
 	m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_BigBook->GetComponent<BoxCollider2D>());
 	m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_MiniBook->GetComponent<BoxCollider2D>());
+	m_Map->HitCheckMap(*m_Player);
+
+	/****	オブジェクト更新	****/
+	cout << "PlayerPositionY:" << m_Player->transform->Position.y << endl;
+	ObjectUpdate();
+	cout << "PlayerPositionY:" << m_Player->transform->Position.y << endl;
 
 	/****	ロードシーン	****/
 	if (Input::GetKeyTrigger(PK_ENTER) == true)
@@ -83,7 +85,8 @@ Scene::STATE GamePlay::Stage1Scene::Update()
 
 	/****	システム更新	****/
 	m_Map->SystemUpdate();
-	SystemUpdate();	return PLAY;
+	SystemUpdate();
+	return PLAY;
 }
 
 bool GamePlay::Stage1Scene::End()
@@ -123,10 +126,9 @@ bool GamePlay::Stage1Scene::Render()
 	ObjectRender<LayerFront>("LayerFront");
 
 	/****	デバッグ	****/
-	//m_Player->Debug();
-	//m_Map->Debug();
-	//m_TableStart->Debug();
-
+	m_Player->Debug();
+	m_Map->Debug();
+	m_TableStart->Debug();
 	/****	画面エフェクト	****/
 	//m_Fade->Render();
 	ObjectRender<ScreenFx>("SFX");

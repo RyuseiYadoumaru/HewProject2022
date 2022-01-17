@@ -41,6 +41,7 @@ private:
 	void Jump();
 	void JumpEnd();
 
+public:
 	void AddGravity();
 
 private:

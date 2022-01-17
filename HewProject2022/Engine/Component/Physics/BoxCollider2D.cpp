@@ -257,7 +257,7 @@ void GameEngine::BoxCollider2D::HitCheck()
 	isHit = false;
 
 	isHit_overBlock = false;
-	//isHit_underBlock = false;//ここ！！！！！！！！！！！！！
+	isHit_underBlock = false;
 	isHit_rightBlock = false;
 	isHit_leftBlock = false;
 
@@ -272,9 +272,9 @@ void GameEngine::BoxCollider2D::HitCheck()
 		isHit_leftBlock = false;
 		return;
 	}
+
 	/*	座標を保存しておく	*/
 	FixPosition = Owner->transform->Position;
-
 	/*	当たり判定	*/
 	for (auto Check : m_CheckList)
 	{

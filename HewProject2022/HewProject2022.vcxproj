@@ -206,6 +206,9 @@
     <ClCompile Include="Game\GameObject\Character.cpp" />
     <ClCompile Include="Game\GameObject\Effect.cpp" />
     <ClCompile Include="House.cpp" />
+    <ClCompile Include="JumpTutorial.cpp" />
+    <ClCompile Include="JumpTutorialAnim.cpp" />
+    <ClCompile Include="JumpTutorialAnimController.cpp" />
     <ClCompile Include="LandTile.cpp" />
     <ClCompile Include="MainCamera.cpp" />
     <ClCompile Include="Map.cpp" />
@@ -214,6 +217,7 @@
     <ClCompile Include="MoveInfoList.cpp" />
     <ClCompile Include="MoveManager.cpp" />
     <ClCompile Include="BlockParticleManager.cpp" />
+    <ClCompile Include="MoveTutorial.cpp" />
     <ClCompile Include="PictureFrame.cpp" />
     <ClCompile Include="Plants.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -268,6 +272,11 @@
     <ClCompile Include="TitleScene.cpp" />
     <ClCompile Include="Toy.cpp" />
     <ClCompile Include="Tree.cpp" />
+    <ClCompile Include="TutorialAnim.cpp" />
+    <ClCompile Include="TutorialAnimController.cpp" />
+    <ClCompile Include="TutorialEffect.cpp" />
+    <ClCompile Include="TutorialEffectAnim.cpp" />
+    <ClCompile Include="TutorialEffectAnimController.cpp" />
     <ClCompile Include="Umbrella.cpp" />
     <ClCompile Include="World1StageSelectScene.cpp" />
     <ClCompile Include="World2StageSelectScene.cpp" />
@@ -348,6 +357,9 @@
     <ClInclude Include="Game\GameObject\Character.h" />
     <ClInclude Include="Game\GameObject\Effect.h" />
     <ClInclude Include="House.h" />
+    <ClInclude Include="JumpTutorial.h" />
+    <ClInclude Include="JumpTutorialAnim.h" />
+    <ClInclude Include="JumpTutorialAnimController.h" />
     <ClInclude Include="LandTile.h" />
     <ClInclude Include="MainCamera.h" />
     <ClInclude Include="Map.h" />
@@ -356,6 +368,7 @@
     <ClInclude Include="MoveInfoList.h" />
     <ClInclude Include="MoveManager.h" />
     <ClInclude Include="BlockParticleManager.h" />
+    <ClInclude Include="MoveTutorial.h" />
     <ClInclude Include="PictureFrame.h" />
     <ClInclude Include="Plants.h" />
     <ClInclude Include="Player.h" />
@@ -413,6 +426,11 @@
     <ClInclude Include="TitleScene.h" />
     <ClInclude Include="Toy.h" />
     <ClInclude Include="Tree.h" />
+    <ClInclude Include="TutorialAnim.h" />
+    <ClInclude Include="TutorialAnimController.h" />
+    <ClInclude Include="TutorialEffect.h" />
+    <ClInclude Include="TutorialEffectAnim.h" />
+    <ClInclude Include="TutorialEffectAnimController.h" />
     <ClInclude Include="Umbrella.h" />
     <ClInclude Include="World1StageSelectScene.h" />
     <ClInclude Include="World2StageSelectScene.h" />

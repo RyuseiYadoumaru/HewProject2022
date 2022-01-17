@@ -15,6 +15,10 @@
 
 #include "BlockMagicEffect.h"
 
+#include "MoveTutorial.h"
+#include "JumpTutorial.h"
+#include "TutorialEffect.h"
+
 using Create::Actor;
 using GameEngine::Input;
 
@@ -31,6 +35,11 @@ namespace GamePlay
 		Sofa*			m_SofaEnd;
 		BigBook*		m_BigBook;
 		MiniBook*		m_MiniBook;
+
+		//三木原追加 チュートリアル
+		MoveTutorial* m_MoveTutorial;
+		JumpTutorial* m_JumpTutorial;
+		TutorialEffect* m_TutorialEffect;
 
 		/*	背景	*/
 		BackGround*		m_BackGround;

@@ -1147,6 +1147,15 @@
     <ClInclude Include="BlockParticleManager.h">
       <Filter>TOYALINE\Object\Actor\Map\ParticleManager</Filter>
     </ClInclude>
+    <ClInclude Include="MoveTutorial.h" />
+    <ClInclude Include="TutorialAnim.h" />
+    <ClInclude Include="TutorialAnimController.h" />
+    <ClInclude Include="JumpTutorial.h" />
+    <ClInclude Include="JumpTutorialAnim.h" />
+    <ClInclude Include="JumpTutorialAnimController.h" />
+    <ClInclude Include="TutorialEffect.h" />
+    <ClInclude Include="TutorialEffectAnim.h" />
+    <ClInclude Include="TutorialEffectAnimController.h" />
     <ClInclude Include="Shelf2.h">
       <Filter>TOYALINE\World4\Road\Shelf2</Filter>
     </ClInclude>

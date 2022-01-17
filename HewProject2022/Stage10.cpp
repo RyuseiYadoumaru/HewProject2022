@@ -4,24 +4,6 @@ using namespace Create;
 
 bool GamePlay::Stage10Scene::Start()
 {
-
-	/*	オブジェクト生成	*/
-	//m_Map = make_shared<Map>("stage1-1");
-	//m_Player = make_shared<Player>("Player");
-	//m_MainCamera = make_shared<MainCamera>("MainCamera");
-	//m_Fade = make_shared<Fade>("Black");
-	//m_TablewareStart = make_shared<Tableware>("TablewareStart");
-	//m_ShelfEnd = make_shared<Shelf>("ShelfEnd");
-	//m_ScreenEffect = make_shared<ScreenFx>("SFX");
-	//m_CameraFrame = make_shared<CameraFrame>("CFX");
-
-
-	/*	背景初期化	*/
-	m_BackGround = make_shared<BackGround>("Wall");
-	m_BackGround->Sprite("World2_BG");
-	Instance(m_BackGround.get());
-
-
 	/*	インスタンス	*/
 	m_Map = Instance<Map>("stage1-1");
 	m_Player = Instance<Player>("Player");
@@ -76,7 +58,7 @@ Scene::STATE GamePlay::Stage10Scene::Update()
 	case 0:
 		/****	ブロック移動	****/
 		m_Map->CheckLandTile(m_Player->m_LandTile);
-		if (((m_Player->m_LandTile.GetisLandTile() == false) ||
+		if (((m_Player->m_LandTile->GetisLandTile() == false) ||
 			(Input::GetControllerTrigger(XINPUT_GAMEPAD_X)) || Input::GetKeyTrigger(PK_R)) &&
 			(m_Map->m_OnReset == false))
 		{

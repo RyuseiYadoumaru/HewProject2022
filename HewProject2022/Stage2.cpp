@@ -61,8 +61,8 @@ Scene::STATE GamePlay::Stage2Scene::Update()
 	switch (Scene_State) {
 	case 0:
 		/****	ƒuƒƒbƒNˆÚ“®	****/
-		m_Map->CheckLandTile(&m_Player->m_LandTile);
-		if (((m_Player->m_LandTile.GetisLandTile() == false) ||
+		m_Map->CheckLandTile(m_Player->m_LandTile);
+		if (((m_Player->m_LandTile->GetisLandTile() == false) ||
 			(Input::GetControllerTrigger(XINPUT_GAMEPAD_X)) || Input::GetKeyTrigger(PK_R)) &&
 			(m_Map->m_OnReset == false))
 		{

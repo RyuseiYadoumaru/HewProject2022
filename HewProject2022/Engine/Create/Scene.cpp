@@ -70,65 +70,6 @@ bool Create::Scene::Render()
 }
 
 //==============================================================================
-//!	@fn		Instance
-//!	@brief	シーンにオブジェクトを生成する
-//!	@param	ゲームオブジェクト
-//!	@retval	
-//==============================================================================
-void Create::Scene::OldInstance(GameObject* out_Object)
-{
-	out_Object->Active = true;
-	out_Object->Start();
-	ObjectArray[out_Object->ToString()] = out_Object;
-	//ObjectArray.insert(std::make_pair(out_Object->ToString(), out_Object));
-	ComponenArray.insert(std::make_pair(out_Object->ToString(), std::vector<Component*>()));
-	for (auto Obj : out_Object->ComponentList)
-	{
-		ComponenArray[out_Object->ToString()].push_back(Obj);
-	}
-
-	ObjectCnt++;	//オブジェクト加算
-}
-
-//==============================================================================
-//!	@fn		Destroy
-//!	@brief	シーンにオブジェクトを破棄する
-//!	@param	オブジェクトの名前
-//!	@retval	
-//==============================================================================
-void Create::Scene::OldDestroy(std::string in_ObjectName)
-{
-	ObjectArray[in_ObjectName]->Active = false;
-
-#if 0
-	ComponenArray2[in_ObjectName].clear();
-	auto itr = ComponentArray2.begin();
-	for (auto Com : ComponentArray)
-	{
-		if (itr == ComponentArray.end()) break;
-
-		if (Com->GetOwner()->GetName() == in_ObjectName &&
-			Com->GetOwner()->GetId() == ObjectArray[in_ObjectName]->GetId())
-		{
-			itr = ComponentArray.erase(itr);
-		}
-		else
-		{
-			itr++;
-		}
-
-	}
-#else
-
-	ComponenArray.erase(in_ObjectName);
-	ObjectArray.erase(in_ObjectName);
-
-#endif // 0
-
-	ObjectCnt--;
-}
-
-//==============================================================================
 //!	@fn		SetCamera
 //!	@brief	シーンにカメラをセットする
 //!	@param	
@@ -145,28 +86,6 @@ void Create::Scene::SetCamera()
 	for (auto Obj : camera->ComponentList)
 	{
 		ComponenArray[camera->ToString()].push_back(Obj);
-	}
-	ObjectCnt++;
-
-}
-
-//==============================================================================
-//!	@fn		SetCamera
-//!	@brief	シーンにカメラをセットする
-//!	@param	カメラ
-//!	@retval	
-//==============================================================================
-void Create::Scene::OldSetCamera(Camera* out_Camera)
-{
-	camera = out_Camera;
-	camera->Start();
-	ObjectArray[camera->ToString()] = camera;
-	//ObjectArray.insert(std::make_pair(camera->ToString(), camera));
-	ComponenArray.insert(std::make_pair(out_Camera->ToString(), std::vector<Component*>()));
-
-	for (auto Obj : out_Camera->ComponentList)
-	{
-		ComponenArray[out_Camera->ToString()].push_back(Obj);
 	}
 	ObjectCnt++;
 

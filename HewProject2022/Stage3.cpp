@@ -69,7 +69,7 @@ Scene::STATE GamePlay::Stage3Scene::Update()
 	case 0:
 		/****	ƒuƒƒbƒNˆÚ“®	****/
 		m_Map->CheckLandTile(m_Player->m_LandTile);
-		if (((m_Player->m_LandTile.GetisLandTile() == false) ||
+		if (((m_Player->m_LandTile->GetisLandTile() == false) ||
 			(Input::GetControllerTrigger(XINPUT_GAMEPAD_X)) || Input::GetKeyTrigger(PK_R)) &&
 			(m_Map->m_OnReset == false))
 		{

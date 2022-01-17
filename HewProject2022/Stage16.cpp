@@ -50,9 +50,6 @@ bool GamePlay::Stage16Scene::Start()
 	m_ResultCursor->ResultCursor_Init();
 	m_ResultCursor->NowScene = "Stage16";
 
-
-	m_stage16->transform->Position.Set(0.0f, 0.0f, 0.0f);
-	m_world4->transform->Position.Set(-700.0f, -500.0f, 0.0f);
 	/*	ƒJƒƒ‰Ý’è	*/
 	SetCamera(m_MainCamera);
 	m_MainCamera->Focus(m_Player);

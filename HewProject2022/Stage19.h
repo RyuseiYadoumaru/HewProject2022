@@ -8,11 +8,12 @@
 #include "ScreenFx.h"
 #include "CameraFrame.h"
 #include "Ceiling.h"
+#include "BookShelf.h"
 #include "PictureFrame.h"
-#include "Shelf2.h"
 #include"Pause.h"
 #include"Result.h"
 #include "Goal.h"
+#include "Shelf2.h"
 
 using Create::Actor;
 using GameEngine::Input;
@@ -49,6 +50,11 @@ namespace GamePlay
 		/* リザルト */
 		Result* m_ResultCursor;
 		Result* m_ResultBack;
+
+		/*	エフェクト	*/
+		CameraFrame* m_CameraFrame;
+		Fade* m_Fade;
+		ScreenFx* m_ScreenEffect;
 
 	public:
 		bool Start() override;

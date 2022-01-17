@@ -10,6 +10,9 @@
 #include "Ceiling.h"
 #include "Shelf2.h"
 #include "BookShelf.h"
+#include"Pause.h"
+#include"Result.h"
+#include "Goal.h"
 
 using Create::Actor;
 using GameEngine::Input;

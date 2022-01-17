@@ -111,11 +111,10 @@ Scene::STATE GamePlay::Stage20Scene::Update()
 		m_ResultCursor->ResultCursor_Move();//カーソルフラグ＆分岐
 		break;
 	}
-}
-/****	システム更新	****/
-m_Map->SystemUpdate();
-SystemUpdate();
-return PLAY;
+	/****	システム更新	****/
+	m_Map->SystemUpdate();
+	SystemUpdate();
+	return PLAY;
 }
 
 bool GamePlay::Stage20Scene::End()

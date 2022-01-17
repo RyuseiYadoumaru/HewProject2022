@@ -62,9 +62,9 @@ bool GamePlay::Stage1Scene::Start()
 	/*  ゴールインスタンス生成  */
 	m_Goal = Instance<Goal>("Goal");
 
-	
-	
-	
+
+
+
 
 	/*	背景初期化	*/
 	m_BackGround = Instance<BackGround>("Wall");
@@ -111,12 +111,12 @@ Scene::STATE GamePlay::Stage1Scene::Update()
 	cnt++;
 	cout << "\nフレーム" << cnt << endl;
 
-	
+
 	switch (Scene_State) {
 	case 0://メインゲーム処理
 		/****	ブロック移動	****/
 		m_Map->CheckLandTile(m_Player->m_LandTile);
-		if (((m_Player->m_LandTile.GetisLandTile() == false) ||
+		if (((m_Player->m_LandTile->GetisLandTile() == false) ||
 			(Input::GetControllerTrigger(XINPUT_GAMEPAD_X)) || Input::GetKeyTrigger(PK_R)) &&
 			(m_Map->m_OnReset == false))
 		{
@@ -135,10 +135,10 @@ Scene::STATE GamePlay::Stage1Scene::Update()
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_BigBook->GetComponent<BoxCollider2D>());
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_MiniBook->GetComponent<BoxCollider2D>());
 
-	/****	オブジェクト更新	****/
-	cout << "PlayerPositionY:" << m_Player->transform->Position.y << endl;
-	ObjectUpdate();
-	cout << "PlayerPositionY:" << m_Player->transform->Position.y << endl;
+		/****	オブジェクト更新	****/
+		cout << "PlayerPositionY:" << m_Player->transform->Position.y << endl;
+		ObjectUpdate();
+		cout << "PlayerPositionY:" << m_Player->transform->Position.y << endl;
 
 		/***  ゴール判定用  ***/
 		m_Goal->GetComponent<BoxCollider2D>()->HitCheckBox(*m_Player->GetComponent<BoxCollider2D>());
@@ -187,7 +187,7 @@ Scene::STATE GamePlay::Stage1Scene::Update()
 		break;
 
 	}
-	
+
 }
 
 bool GamePlay::Stage1Scene::End()
@@ -250,8 +250,8 @@ bool GamePlay::Stage1Scene::Render()
 	/*** リザルト ***/
 	ObjectRender<Result>("ResultBack");
 	ObjectRender<Result>("ResultCursor");
-	
-	
+
+
 
 	/****	画面描画	****/
 	SwapChain();

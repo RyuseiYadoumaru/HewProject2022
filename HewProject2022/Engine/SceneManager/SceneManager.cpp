@@ -26,7 +26,6 @@ std::map<std::string, Create::Scene*> GameEngine::SceneManager::SceneList;
 GameEngine::SceneManager::SceneManager()
 {
 	CreateScene("TitleScene", new GamePlay::TitleScene);
-	CreateScene("ResultScene", new GamePlay::ResultScene);
 	//ŽO–ØŒ´’Ç‰Á
 	CreateScene("WorldSelectScene", new GamePlay::SelectScene);
 	CreateScene("World1StageSelectScene", new GamePlay::World1StageSelectScene);

@@ -172,7 +172,10 @@
     <ClCompile Include="Engine\Create\AnimationController.cpp" />
     <ClCompile Include="Engine\Create\GameObject.cpp" />
     <ClCompile Include="Engine\Create\Particle.cpp" />
-    <ClCompile Include="Engine\Create\Scene.cpp" />
+    <ClCompile Include="Engine\Create\Scene.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="Engine\Data\DataArray.cpp" />
     <ClCompile Include="Engine\Input\Input.cpp" />
     <ClCompile Include="Engine\Math\Color.cpp" />
@@ -232,7 +235,6 @@
     <ClCompile Include="ResetInfoList.cpp" />
     <ClCompile Include="ResetManager.cpp" />
     <ClCompile Include="Result.cpp" />
-    <ClCompile Include="ResultScene.cpp" />
     <ClCompile Include="Rose.cpp" />
     <ClCompile Include="ScreenFx.cpp" />
     <ClCompile Include="SelectScene.cpp" />
@@ -321,7 +323,10 @@
     <ClInclude Include="Engine\Create\AnimationController.h" />
     <ClInclude Include="Engine\Create\GameObject.h" />
     <ClInclude Include="Engine\Create\Particle.h" />
-    <ClInclude Include="Engine\Create\Scene.h" />
+    <ClInclude Include="Engine\Create\Scene.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="Engine\Data\DataArray.h" />
     <ClInclude Include="Engine\Input\Input.h" />
     <ClInclude Include="Engine\Math\Color.h" />
@@ -387,7 +392,6 @@
     <ClInclude Include="ResetInfoList.h" />
     <ClInclude Include="ResetManager.h" />
     <ClInclude Include="Result.h" />
-    <ClInclude Include="ResultScene.h" />
     <ClInclude Include="Rose.h" />
     <ClInclude Include="SceneList.h" />
     <ClInclude Include="ScreenFx.h" />

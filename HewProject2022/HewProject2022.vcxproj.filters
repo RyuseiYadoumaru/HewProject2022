@@ -435,9 +435,6 @@
     <ClCompile Include="MainCamera.cpp">
       <Filter>TOYALINE\Object\Camera\MainCamera</Filter>
     </ClCompile>
-    <ClCompile Include="ResultScene.cpp">
-      <Filter>TOYALINE\Result</Filter>
-    </ClCompile>
     <ClCompile Include="Test2.cpp">
       <Filter>Game\Object\Test</Filter>
     </ClCompile>
@@ -869,9 +866,6 @@
     <ClInclude Include="MainCamera.h">
       <Filter>TOYALINE\Object\Camera\MainCamera</Filter>
     </ClInclude>
-    <ClInclude Include="ResultScene.h">
-      <Filter>TOYALINE\Result</Filter>
-    </ClInclude>
     <ClInclude Include="Test2.h">
       <Filter>Game\Object\Test</Filter>
     </ClInclude>
@@ -1197,6 +1191,12 @@
     <ClInclude Include="TutorialEffect.h">
       <Filter>TOYALINE\Tutorial</Filter>
     </ClInclude>
+    <ClInclude Include="Goal.h" />
+    <ClInclude Include="Pause.h" />
+    <ClInclude Include="ProtScene.h" />
+    <ClInclude Include="PushAny.h" />
+    <ClInclude Include="Result.h" />
+    <ClInclude Include="Title.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="README.txt">

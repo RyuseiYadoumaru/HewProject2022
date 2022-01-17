@@ -216,7 +216,6 @@
     <ClCompile Include="MoveInfoList.cpp" />
     <ClCompile Include="MoveManager.cpp" />
     <ClCompile Include="BlockParticleManager.cpp" />
-    <ClCompile Include="PictureFrame.cpp" />
     <ClCompile Include="Plants.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="DefaultAnim.cpp" />
@@ -365,7 +364,6 @@
     <ClInclude Include="MoveInfoList.h" />
     <ClInclude Include="MoveManager.h" />
     <ClInclude Include="BlockParticleManager.h" />
-    <ClInclude Include="PictureFrame.h" />
     <ClInclude Include="Plants.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="DefaultAnim.h" />

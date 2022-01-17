@@ -1,4 +1,5 @@
 #include "BlockMagicEffect.h"
+#include "BlockParticleManager.h"
 
 
 /****	コンストラクタ	****/
@@ -17,9 +18,9 @@ bool BlockMagicEffect::Start()
 	EffectColor = BlockEffectColor::RED;
 
 	/*	トランスフォーム設定	*/
-	SetOwnerTransform();
+	SetOwnerPosition();
 	SetSize(TILE_WIDTH, TILE_HEIGHT);
-
+	transform->Scale.Set(2.5f, 2.5f, 0.0f);
 	/*	スプライト初期化	*/
 	if (EffectColor == BlockEffectColor::RED)
 	{
@@ -33,28 +34,24 @@ bool BlockMagicEffect::Start()
 
 	/*	パーティクルシステムコンポーネント	*/
 	m_ParticleSystem = AddComponent<ParticleSystem>(&m_Particle);
+	m_ParticleSystem->SetParticle(ParticleSystem::ONE_SHOT);
 
 	return true;
 }
-
 /****	更新	****/
 bool BlockMagicEffect::Update()
 {
-	/*	エフェクト	*/
-	if (Input::GetKeyTrigger(PK_1) == true)
+	//if (m_Particle.GetState() == PARTICLE_STOP)m_Particle.StateFinish();
+
+
+	/*	終了したら破棄する　	*/
+	if (m_Particle.GetState() == PARTICLE_FINISH)
 	{
-		m_ParticleSystem->SetParticle(ParticleSystem::LOOP);
-	}
-	if (Input::GetKeyTrigger(PK_2) == true)
-	{
-		m_ParticleSystem->SetParticle(ParticleSystem::ONE_SHOT);
-	}
-	if (Input::GetKeyTrigger(PK_3) == true)
-	{
-		m_ParticleSystem->SetParticle(ParticleSystem::END);
+		Destroy();
+		BlockParticleManager::DeleteMagicEffect(m_Owner->GetId().x);
 	}
 
 	/*	トランスフォーム更新	*/
-	SetOwnerTransform();
+	SetOwnerPosition();
 	return true;
 }

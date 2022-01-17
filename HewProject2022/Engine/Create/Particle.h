@@ -67,6 +67,7 @@ namespace Create
 		int GetFrameMax() { return FrameMax; }		//フレーム最大数取得
 		void StateStop() { State = PARTICLE_STOP; }
 		void StateFinish() { State = PARTICLE_FINISH; }
+		int GetState()const { return State; }
 	protected:
 		void Create(ParticleData set) { m_Particle = set; }
 
@@ -76,15 +77,10 @@ namespace Create
 		ParticleData m_Particle;
 
 	private:
-		bool ParticleStart();
-
-	private:
 		std::string m_ParticleName;
 		float m_time;	//経過時間
 		int m_Counter;	//カウンタ
 		int State;
-
-
 	};
 
 }

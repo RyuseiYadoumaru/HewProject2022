@@ -14,8 +14,14 @@ namespace GameEngine
 	class Rigidbody2d : public Component
 	{
 	public:
-		//bool Init() override;
+		bool Init() override;
 		bool Update() override;
+
+	public:
+		float Gravity;
+
+	private:
+		static constexpr float GravitationalAcceleration = 9.8f;
 
 
 	};

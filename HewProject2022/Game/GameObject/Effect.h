@@ -32,7 +32,7 @@ namespace Create
 		void SetOwner(GameObject* in_Owner) { m_Owner = in_Owner; }
 
 	protected:
-		void SetOwnerTransform();
+		void SetOwnerPosition();
 
 
 	protected:

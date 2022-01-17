@@ -7,12 +7,12 @@ GamePlay::Test::Test(string in_Name) : Character(in_Name)
 bool GamePlay::Test::Start()
 {
 	m_Speed = 30.0f;
-	m_SpriteRenderer->SpriteName = "player";
+	m_SpriteRenderer->SpriteName = "playerTest";
 
 	m_SpriteRenderer->Init();
 
 	transform->Position.Set(-100.0f, -100.0f, 0.0f);
-	transform->Scale.Set(0.75f, 0.75f, 0.75f);
+	transform->Scale.Set(0.2f, 0.2f, 0.75f);
 
 	AddComponent<GameEngine::Rigidbody2d>();
 	AddComponent<GameEngine::BoxCollider2D>(m_SpriteRenderer->GetSize());

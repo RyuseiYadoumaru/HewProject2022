@@ -31,10 +31,9 @@ namespace Create
 
 	public:
 		static GameObject* Find(ID& id);
-		static GameObject* Find(float id);
 		static Camera* GetCamera() { return camera; }
-
-	protected:
+		static void AddDestroyObject(NAME in_Name) { DestroyNameList.push_back(in_Name); }
+	public:
 		//==============================================================================
 		//!	@fn		Instance
 		//!	@brief	シーンにオブジェクト生成
@@ -104,11 +103,13 @@ namespace Create
 		}
 
 	protected:
+
 		static Camera* camera;
 		static std::map<std::string, GameObject*> ObjectArray;
 		static std::map<std::string, std::vector<Component*>> ComponenArray;
 		static STATE State;
 		static int ObjectCnt;
+		static std::vector<NAME> DestroyNameList;
 
 
 	public:
@@ -139,6 +140,11 @@ namespace Create
 		bool SwapChain();
 
 		bool Releace();
+
+	private:
+		void ObjectListDestroy();
+
+
 	};
 }
 

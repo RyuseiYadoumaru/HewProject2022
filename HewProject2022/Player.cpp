@@ -1,6 +1,8 @@
 #include "Player.h"
 #include "TileColumn.h"
 #include "Map.h"
+#include "BlockParticleManager.h"
+
 
 Player::Player(string in_Name) :Character(in_Name)
 {
@@ -9,7 +11,7 @@ Player::Player(string in_Name) :Character(in_Name)
 	m_JumpForceArray =
 		//溜めフレーム
 	{ 0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,
-	  0.0f,0.0f,0.0f,0.0f,0.0f,
+
 		//ジャンプフレーム
 	  -16.0f,-15.4f,-14.8f,-13.2f,-12.6f,-12.0f,-12.0f,-12.0f,-11.4f,-10.8f,
 	  -10.2f,-09.6f,-09.0f,-08.0f,-07.0f,-06.0f,-05.0f,-04.0f,-03.0f,-02.6f,
@@ -53,7 +55,7 @@ bool Player::Start()
 	m_SpriteRenderer->SetSize(80.0f, 80.0f);
 	m_SpriteRenderer->Init();
 
-	transform->Position.Set(1000.0f, 1000.0f, 0.0f);
+	transform->Position.Set(1000.0f * 2, 1000.0f - 599, 0.0f);
 	transform->Scale.Set(1.0f, 1.0f, 1.0f);
 
 	/*	リジットボディーコンポーネント	*/
@@ -120,11 +122,12 @@ bool Player::Update()
 
 void Player::Debug()
 {
+	if (GetComponent<BoxCollider2D>()->GetisHit_leftBlock() == true) cout << "Player:左ヒット\n";
+	if (GetComponent<BoxCollider2D>()->GetisHit_rightBlock() == true) cout << "Player:右ヒット\n";
+	if (GetComponent<BoxCollider2D>()->GetisHit_overBlock() == true) cout << "Player:上ヒット\n";
+	if (GetComponent<BoxCollider2D>()->GetisHit_underBlock() == true) cout << "Player:下ヒット\n";
 	GetComponent<BoxCollider2D>()->Debug();
 
-	//if (GetComponent<BoxCollider2D>()->GetisHit_underBlock() == false) {
-	//	std::cout << "        　　　　　　　浮いてます" << std::endl;
-	//}
 }
 
 /****	アクション処理	****/
@@ -189,7 +192,6 @@ void Player::Magic()
 		float vectorY = m_LandTile.GetLandTile()->transform->Position.y - m_LandTile.GetLandTile()->GetSavePosition().y;
 		//リセット中に移動ベクトル分加算する
 		transform->Position.y += vectorY;
-		cout << "移動ベクトル:" << vectorY << endl;
 	}
 
 }
@@ -378,9 +380,7 @@ void Player::JumpEnd()
 void Player::AddGravity()
 {
 	if (GetComponent<BoxCollider2D>()->GetisHit_underBlock() == true) {//着地したら
-
 		m_airFlg = false;
-
 	}
 
 	if (GetComponent<BoxCollider2D>()->GetisHit_overBlock() == true) {//頭ぶつけたら
@@ -410,10 +410,10 @@ void Player::AddGravity()
 	{
 		m_jumpForce += CHAR_GRAVITY;//徐々に重力が加算され、ジャンプ力が弱まっていく
 	}
-
 	transform->Position.y += m_jumpForce;//ここにデルタタイム？
 
-										 /*	ダウンの移動量算出	*/
+
+/*	ダウンの移動量算出	*/
 	if (m_PlayerAnimController.AnimState == PlayerAnimController::PLAYER_DOWN)
 	{
 		//落ちるアニメーションを再生しているときに

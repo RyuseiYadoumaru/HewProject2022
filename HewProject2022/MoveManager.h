@@ -1,5 +1,6 @@
 #pragma once
 #include "ydmEngine.h"
+#include "BlockParticleManager.h"
 #include "MoveInfoList.h"
 
 class TileColumn;
@@ -27,7 +28,7 @@ private:
 	bool Move();
 
 private:
-	static constexpr TIME m_OneColumnWaitTime = 200.0f;
+	static constexpr TIME m_OneColumnWaitTime = 500.0f;
 	TIME m_MoveWaitTime;
 	TIME m_Timer;
 

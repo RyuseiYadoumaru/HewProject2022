@@ -1,6 +1,5 @@
 #pragma once
 #include "ydmEngine.h"
-#include "BlockEffect.h"
 using Math::Vector2;
 using Math::Vector3;
 using Math::Vector;
@@ -14,12 +13,17 @@ enum MAPOBJ
 	C2,	//カラーブロック2
 	C3,
 	C4,
-	C5,
 	GR,
 
 	NO,	//何もない
 	MAX
 };
+
+#define RED_BLOCK		(MAPOBJ::C1)
+#define BLUE_BLOCK		(MAPOBJ::C2)
+#define GREEN_BLOCK		(MAPOBJ::C3)
+#define PARPLE_BLOCK	(MAPOBJ::C4)
+
 /****	タイルクラス	****/
 class Tile : public Actor
 {

@@ -301,31 +301,7 @@
     <Filter Include="TOYALINE\Particle\BlockParticle">
       <UniqueIdentifier>{82af80f6-6040-4744-bea2-57e5f37b73f5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TOYALINE\Effect">
-      <UniqueIdentifier>{f89b9f6c-8ee9-4abd-82ac-b4bbdaeab00e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\Effect\BlockEffect">
-      <UniqueIdentifier>{1facca4d-f5ca-43ff-acd7-f7eb14bdabb6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\Effect\BlockEffect\Animation">
-      <UniqueIdentifier>{37fec384-98c9-429f-87f4-4766ea09839b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\World4\Road">
-      <UniqueIdentifier>{6ba8bbb3-1731-42f1-b219-81144486a9e4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\World4\Road\Umbrella">
-      <UniqueIdentifier>{d03534a4-1574-4227-969d-f84e4ec09a8b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\World4\Road\PictureFrame">
-      <UniqueIdentifier>{87d4acee-591e-478d-bbf3-812991f1fac2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\World4\Road\Shelf2">
-      <UniqueIdentifier>{e1426d36-4475-499a-9d42-26f6e314289f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\World4\Road\BookShelf">
-      <UniqueIdentifier>{9f48289c-9f42-4f6f-b066-cc9cd8f4e676}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\Script\ScreemEffect">
+    <Filter Include="TOYALINE\ScreemEffect">
       <UniqueIdentifier>{a6c080f1-160a-4cab-8e38-b1c9f7bed139}</UniqueIdentifier>
     </Filter>
     <Filter Include="TOYALINE\Script\ScreemEffect\Fade">
@@ -333,6 +309,24 @@
     </Filter>
     <Filter Include="TOYALINE\Script\ScreemEffect\Frame">
       <UniqueIdentifier>{4db93655-f105-42ab-91a9-095f4cc30204}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Object\Actor\Map\MoveTile">
+      <UniqueIdentifier>{3291f334-c6f2-44fa-81ca-93a7a2bf5c92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Object\Actor\Map\ResetTile">
+      <UniqueIdentifier>{85ab4705-2a1d-4166-8014-2742ae4c4afb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Particle\BlockParticle\Magic">
+      <UniqueIdentifier>{f9b9e33f-e0e2-40bb-b7b5-189c5aa3afe3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Particle\BlockParticle\Move">
+      <UniqueIdentifier>{89505073-af30-422e-acb0-78863e5a9c7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Particle\BlockParticle\Reset">
+      <UniqueIdentifier>{f0bc3046-3654-4c33-9c6a-3f29698d6bc0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Object\Actor\Map\ParticleManager">
+      <UniqueIdentifier>{ab75ef4c-9106-40fc-8244-578ada0dbdf3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -479,9 +473,6 @@
     </ClCompile>
     <ClCompile Include="TileColumn.cpp">
       <Filter>TOYALINE\Object\Actor\Map\Tile</Filter>
-    </ClCompile>
-    <ClCompile Include="MoveManager.cpp">
-      <Filter>TOYALINE\Object\Actor\Map</Filter>
     </ClCompile>
     <ClCompile Include="Fade.cpp">
       <Filter>TOYALINE\Script\ScreemEffect\Fade</Filter>
@@ -664,9 +655,6 @@
     <ClCompile Include="Shelf.cpp">
       <Filter>TOYALINE\World2\Road\Shelf</Filter>
     </ClCompile>
-    <ClCompile Include="ResetManager.cpp">
-      <Filter>TOYALINE\Object\Actor\Map</Filter>
-    </ClCompile>
     <ClCompile Include="Plants.cpp">
       <Filter>TOYALINE\World3\Road\Plants</Filter>
     </ClCompile>
@@ -691,23 +679,38 @@
     <ClCompile Include="Game\GameObject\Effect.cpp">
       <Filter>Game\GameObject\private</Filter>
     </ClCompile>
-    <ClCompile Include="BlockEffect.cpp">
-      <Filter>TOYALINE\Effect\BlockEffect</Filter>
-    </ClCompile>
-    <ClCompile Include="BlockEffectAnimController.cpp">
-      <Filter>TOYALINE\Effect\BlockEffect\Animation</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\Create\Particle.cpp">
       <Filter>Engine\Create\Private</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Component\Miscellaneous\ParticleSystem.cpp">
       <Filter>Engine\Component\Private\Miscellaneous</Filter>
     </ClCompile>
+    <ClCompile Include="MoveManager.cpp">
+      <Filter>TOYALINE\Object\Actor\Map\MoveTile</Filter>
+    </ClCompile>
+    <ClCompile Include="ResetManager.cpp">
+      <Filter>TOYALINE\Object\Actor\Map\ResetTile</Filter>
+    </ClCompile>
     <ClCompile Include="BlockMagicParticle.cpp">
-      <Filter>TOYALINE\Particle\BlockParticle</Filter>
+      <Filter>TOYALINE\Particle\BlockParticle\Magic</Filter>
+    </ClCompile>
+    <ClCompile Include="BlockMoveParticle.cpp">
+      <Filter>TOYALINE\Particle\BlockParticle\Move</Filter>
+    </ClCompile>
+    <ClCompile Include="BlockResetParticle.cpp">
+      <Filter>TOYALINE\Particle\BlockParticle\Reset</Filter>
+    </ClCompile>
+    <ClCompile Include="BlockMoveEffect.cpp">
+      <Filter>TOYALINE\Particle\BlockParticle\Move</Filter>
     </ClCompile>
     <ClCompile Include="BlockMagicEffect.cpp">
-      <Filter>TOYALINE\Particle</Filter>
+      <Filter>TOYALINE\Particle\BlockParticle\Magic</Filter>
+    </ClCompile>
+    <ClCompile Include="BlockResetEffect.cpp">
+      <Filter>TOYALINE\Particle\BlockParticle\Reset</Filter>
+    </ClCompile>
+    <ClCompile Include="BlockParticleManager.cpp">
+      <Filter>TOYALINE\Object\Actor\Map\ParticleManager</Filter>
     </ClCompile>
     <ClCompile Include="Umbrella.cpp">
       <Filter>TOYALINE\World4\Road\Umbrella</Filter>
@@ -893,9 +896,6 @@
     </ClInclude>
     <ClInclude Include="Tile.h">
       <Filter>TOYALINE\Object\Actor\Map\Tile</Filter>
-    </ClInclude>
-    <ClInclude Include="MoveManager.h">
-      <Filter>TOYALINE\Object\Actor\Map</Filter>
     </ClInclude>
     <ClInclude Include="Fade.h">
       <Filter>TOYALINE\Script\ScreemEffect\Fade</Filter>
@@ -1087,9 +1087,6 @@
     <ClInclude Include="Shelf.h">
       <Filter>TOYALINE\World2\Road\Shelf</Filter>
     </ClInclude>
-    <ClInclude Include="ResetManager.h">
-      <Filter>TOYALINE\Object\Actor\Map</Filter>
-    </ClInclude>
     <ClInclude Include="Plants.h">
       <Filter>TOYALINE\World3\Road\Plants</Filter>
     </ClInclude>
@@ -1114,26 +1111,41 @@
     <ClInclude Include="Game\GameObject\Effect.h">
       <Filter>Game\GameObject\public</Filter>
     </ClInclude>
-    <ClInclude Include="BlockEffect.h">
-      <Filter>TOYALINE\Effect\BlockEffect</Filter>
-    </ClInclude>
-    <ClInclude Include="BlockEffectAnimController.h">
-      <Filter>TOYALINE\Effect\BlockEffect\Animation</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\Create\Particle.h">
       <Filter>Engine\Create\Public</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Component\Miscellaneous\ParticleSystem.h">
       <Filter>Engine\Component\Public\Miscellaneous</Filter>
     </ClInclude>
-    <ClInclude Include="BlockMagicParticle.h">
-      <Filter>TOYALINE\Particle\BlockParticle</Filter>
-    </ClInclude>
-    <ClInclude Include="BlockMagicEffect.h">
-      <Filter>TOYALINE\Particle</Filter>
-    </ClInclude>
     <ClInclude Include="BlockEffectInfo.h">
       <Filter>TOYALINE\Particle\BlockParticle</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveManager.h">
+      <Filter>TOYALINE\Object\Actor\Map\MoveTile</Filter>
+    </ClInclude>
+    <ClInclude Include="ResetManager.h">
+      <Filter>TOYALINE\Object\Actor\Map\ResetTile</Filter>
+    </ClInclude>
+    <ClInclude Include="BlockMagicParticle.h">
+      <Filter>TOYALINE\Particle\BlockParticle\Magic</Filter>
+    </ClInclude>
+    <ClInclude Include="BlockMoveParticle.h">
+      <Filter>TOYALINE\Particle\BlockParticle\Move</Filter>
+    </ClInclude>
+    <ClInclude Include="BlockResetParticle.h">
+      <Filter>TOYALINE\Particle\BlockParticle\Reset</Filter>
+    </ClInclude>
+    <ClInclude Include="BlockMoveEffect.h">
+      <Filter>TOYALINE\Particle\BlockParticle\Move</Filter>
+    </ClInclude>
+    <ClInclude Include="BlockMagicEffect.h">
+      <Filter>TOYALINE\Particle\BlockParticle\Magic</Filter>
+    </ClInclude>
+    <ClInclude Include="BlockResetEffect.h">
+      <Filter>TOYALINE\Particle\BlockParticle\Reset</Filter>
+    </ClInclude>
+    <ClInclude Include="BlockParticleManager.h">
+      <Filter>TOYALINE\Object\Actor\Map\ParticleManager</Filter>
     </ClInclude>
     <ClInclude Include="Umbrella.h">
       <Filter>TOYALINE\World4\Road\Umbrella</Filter>

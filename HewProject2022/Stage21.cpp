@@ -61,6 +61,9 @@ bool GamePlay::Stage21Scene::Start()
 	SetCamera(m_MainCamera);
 	m_MainCamera->Focus(m_Player);
 
+	// BGMçƒê∂
+	Sound::Sound_Play(SOUND_LABEL_WORLD5_GAMEBGM);
+
 	return true;
 }
 

@@ -90,6 +90,7 @@ namespace GameEngine
 		ID3D11Buffer* VertexBuffer = nullptr;
 		vsShader vertexShader;
 		psShader pixcelShader;
+
 	};
 }
 

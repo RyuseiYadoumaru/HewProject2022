@@ -62,6 +62,9 @@ bool GamePlay::Stage11Scene::Start()
 	SetCamera(m_MainCamera);
 	m_MainCamera->Focus(m_Player);
 
+	// BGM再生
+	Sound::Sound_Play(SOUND_LABEL_WORLD3_GAMEBGM);
+
 	return true;
 }
 
@@ -106,6 +109,7 @@ bool GamePlay::Stage11Scene::End()
 {
 	/*	オブジェクト終了処理	*/
 	ObjectEnd();
+
 
 	/*	解放処理	*/
 	Releace();

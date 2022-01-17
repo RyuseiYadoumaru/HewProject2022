@@ -13,6 +13,11 @@ BYTE GameEngine::Input::m_KeyState[256];
 std::map<int, bool> GameEngine::Input::m_GamePadState;
 std::map<int, bool> GameEngine::Input::m_OldGamePadState;
 
+XINPUT_VIBRATION GameEngine::Input::m_Vibration;
+TIME			 GameEngine::Input::m_LeftTime = NULL;
+TIME			 GameEngine::Input::m_RightTime = NULL;
+TIME			 GameEngine::Input::m_Time = NULL;
+
 /****	グローバル変数	****/
 short gKeys[0xff];
 short gOldKeys[0xff];
@@ -139,6 +144,85 @@ DirectX::XMFLOAT2 GameEngine::Input::GetControllerRightStick()
 }
 
 //==============================================================================
+//!	@fn		LeftVibration
+//!	@brief	左バイブレーション
+//!	@param	パワー
+//!	@param	バイブ時間(設定しなかったらSTOPまでバイブする)
+//!	@retval	
+//==============================================================================
+VIBRATION GameEngine::Input::LeftVibration(VIBRATION in_Power, TIME time)
+{
+	/*	時間設定	*/
+	m_LeftTime = time;
+
+	m_Vibration.wLeftMotorSpeed = in_Power;
+	XInputSetState(0, &m_Vibration);
+
+	return in_Power;
+}
+
+//==============================================================================
+//!	@fn		RightVibration
+//!	@brief	右バイブレーション
+//!	@param	パワー
+//!	@param	バイブ時間(設定しなかったらSTOPまでバイブする)
+//!	@retval	
+//==============================================================================
+VIBRATION GameEngine::Input::RightVibration(VIBRATION in_Power, TIME time)
+{
+	/*	時間設定	*/
+	m_RightTime = time;
+
+	m_Vibration.wRightMotorSpeed = in_Power;
+	XInputSetState(0, &m_Vibration);
+	return in_Power;
+}
+
+//==============================================================================
+//!	@fn		Vibration
+//!	@brief	バイブレーション
+//!	@param	パワー
+//!	@param	バイブ時間(設定しなかったらSTOPまでバイブする)
+//!	@retval	
+//==============================================================================
+VIBRATION GameEngine::Input::Vibration(VIBRATION in_Power, TIME time)
+{
+	m_LeftTime = time;
+	m_RightTime = time;
+	m_Vibration.wLeftMotorSpeed = in_Power;
+	m_Vibration.wRightMotorSpeed = in_Power / 2.0f;
+	XInputSetState(0, &m_Vibration);
+	return in_Power;
+}
+
+//==============================================================================
+//!	@fn		LeftVibrationStop
+//!	@brief	左バイブレーションストップ
+//!	@param	
+//!	@retval	
+//==============================================================================
+void GameEngine::Input::LeftVibrationStop()
+{
+	m_LeftTime = NULL;
+	m_Vibration.wLeftMotorSpeed = 0.0f;
+	XInputSetState(0, &m_Vibration);
+}
+
+//==============================================================================
+//!	@fn		RightVibrationStop
+//!	@brief	右バイブレーションストップ
+//!	@param	
+//!	@retval	
+//==============================================================================
+void GameEngine::Input::RightVibrationStop()
+{
+	m_RightTime = NULL;
+	m_Vibration.wRightMotorSpeed = 0.0f;
+	XInputSetState(0, &m_Vibration);
+
+}
+
+//==============================================================================
 //!	@fn		KeyUpdate
 //!	@brief	キー更新
 //!	@param	
@@ -148,7 +232,6 @@ void GameEngine::Input::KeyUpdate()
 {
 	/*	1フレーム前のキー状態を保存	*/
 	memcpy(gOldKeys, gKeys, sizeof(gKeys));
-
 
 	/****	キー情報を取得	****/
 	gKeys[PK_0] = GetAsyncKeyState(PK_0);				//0
@@ -222,5 +305,14 @@ void GameEngine::Input::KeyUpdate()
 		g_PadState.Gamepad.sThumbRX = (SHORT)0.0f;
 		g_PadState.Gamepad.sThumbRY = (SHORT)0.0f;
 	}
+
+	/*	バイブ時間	*/
+	if (m_LeftTime == NULL);
+	else if (m_LeftTime > 0.0f)	m_LeftTime -= GameTimer::deltaTime();
+	else if (m_LeftTime <= 0.0f) LeftVibrationStop();
+
+	if (m_RightTime == NULL);
+	else if (m_RightTime > 0.0f)	m_RightTime -= GameTimer::deltaTime();
+	else if (m_RightTime <= 0.0f) RightVibrationStop();
 
 }

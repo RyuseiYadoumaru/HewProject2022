@@ -29,7 +29,7 @@ bool GamePlay::Stage4Scene::Start()
 
 	/*	ƒJƒƒ‰Ý’è	*/
 	SetCamera(m_MainCamera);
-	//m_MainCamera->Focus(m_Player);
+	m_MainCamera->Focus(m_Player);
 
 	return true;
 }

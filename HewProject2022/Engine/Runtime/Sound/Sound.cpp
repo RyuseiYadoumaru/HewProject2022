@@ -12,7 +12,10 @@ PARAM g_param[SOUND_LABEL_MAX] =
 {
 	{"assets/SoundData/BGM/sample000.wav", true},	// サンプルBGM（ループさせるのでtrue設定）
 	{"assets/SoundData/BGM/sample001.wav", true},	// サンプルBGM
-	{"assets/SoundData/BGM/sample001.wav", true},	// ワールド１BGM
+	{"assets/SoundData/BGM/world1.wav", true},	// ワールド１BGM
+	{"assets/SoundData/BGM/world2.wav", true},	// ワールド2BGM
+	{"assets/SoundData/BGM/world3.wav", true},	// ワールド3BGM
+	{"assets/SoundData/BGM/world5.wav", true},	// ワールド5BGM
 	{"assets/SoundData/SE/jump.wav", false},  		// サンプルSE（ループしないのでfalse設定）
 	{"assets/SoundData/SE/defend0.wav", false},		// サンプルSE
 	{"assets/SoundData/SE/defend1.wav", false},		// サンプルSE
@@ -167,6 +170,7 @@ void Sound::Sound_Release()
 
 void Sound::Sound_Play(SOUND_LABEL label)
 {
+	//label = SOUND_LABEL_BGM001;
 	// ソースボイス作成
 	g_pXAudio2->CreateSourceVoice(&(g_pSourceVoice[(int)label]), &(g_wfx[(int)label].Format));
 	g_pSourceVoice[(int)label]->SubmitSourceBuffer(&(g_buffer[(int)label]));	// ボイスキューに新しいオーディオバッファーを追加

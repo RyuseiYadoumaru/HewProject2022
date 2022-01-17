@@ -24,6 +24,10 @@ public:
 		Sprite("blue1-20");
 	}
 
+	/*	パーティクルステート設定	*/
+	void StateFinish() { m_Particle.StateFinish(); }
+	void StateStop() { m_Particle.StateStop(); }
+
 private:
 	BlockEffectColor EffectColor;
 	BlockMagicParticle m_Particle;	//エフェクト

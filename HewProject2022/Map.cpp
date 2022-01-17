@@ -143,6 +143,9 @@ bool Map::End()
 		MoveInfo.reset();
 	}
 	m_MoveManager.clear();
+
+	/*	パーティクル解放	*/
+	m_MoveParticle.End();
 	return true;
 }
 
@@ -164,6 +167,9 @@ bool Map::Render()
 			}
 		}
 	}
+
+	/****	パーティクル描画	****/
+	m_MoveParticle.ParticleRender();
 	return true;
 }
 
@@ -204,11 +210,12 @@ bool Map::HitCheckMap(GameObject& in_GameObject)
 		for (auto NowTile : Search.mp_TileList)
 		{
 			BoxCollider2D* TileCol = NowTile->GetComponent<BoxCollider2D>();
-			if (NowTile->transform->Position.x >= camera->GetLeft() && NowTile->transform->Position.x <= camera->GetRight() &&
-				NowTile->transform->Position.y >= camera->GetTop() && NowTile->transform->Position.y <= camera->GetButtom())
-			{
-				CheckObject->HitCheckBox(*TileCol);
-			}
+			CheckObject->HitCheckBox(*TileCol);
+			//if (NowTile->transform->Position.x >= camera->GetLeft() && NowTile->transform->Position.x <= camera->GetRight() &&
+			//	NowTile->transform->Position.y >= camera->GetTop() && NowTile->transform->Position.y <= camera->GetButtom())
+			//{
+			//	CheckObject->HitCheckBox(*TileCol);
+			//}
 		}
 	}
 	return true;
@@ -314,7 +321,7 @@ void Map::ColumnInit()
 /****	列更新	****/
 void Map::ColumnUpdate()
 {
-	for (auto Column : m_TileColumnList)
+	for (auto& Column : m_TileColumnList)
 	{
 		Column.Update();
 	}
@@ -365,10 +372,6 @@ void Map::CreateMap()
 
 			case C4:
 				CreateTile(Pos, "purple", MAPOBJ::C4);
-				break;
-
-			case C5:
-				CreateTile(Pos, "red", MAPOBJ::C5);
 				break;
 
 			case GR:

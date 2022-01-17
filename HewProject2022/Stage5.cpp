@@ -108,6 +108,9 @@ bool GamePlay::Stage5Scene::End()
 	/*	オブジェクト終了処理	*/
 	ObjectEnd();
 
+	// BGM停止
+	Sound::Sound_Play(SOUND_LABEL_WORLD1_GAMEBGM);
+
 	/*	解放処理	*/
 	Releace();
 

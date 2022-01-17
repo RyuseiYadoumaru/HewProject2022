@@ -45,6 +45,8 @@ namespace Create
 		virtual bool Render();
 		virtual void Debug() {}
 
+		void Destroy();
+
 	public:
 		//==============================================================================
 		//!	@fn		GetComponent

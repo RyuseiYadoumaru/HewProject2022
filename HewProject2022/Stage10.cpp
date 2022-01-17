@@ -106,6 +106,9 @@ bool GamePlay::Stage10Scene::End()
 	/*	オブジェクト終了処理	*/
 	ObjectEnd();
 
+	// BGM停止
+	Sound::Sound_Stop(SOUND_LABEL_WORLD2_GAMEBGM);
+
 	/*	解放処理	*/
 	Releace();
 

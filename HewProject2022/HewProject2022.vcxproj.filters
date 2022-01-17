@@ -712,6 +712,15 @@
     <ClCompile Include="BlockParticleManager.cpp">
       <Filter>TOYALINE\Object\Actor\Map\ParticleManager</Filter>
     </ClCompile>
+    <ClCompile Include="MoveTutorial.cpp" />
+    <ClCompile Include="TutorialAnim.cpp" />
+    <ClCompile Include="TutorialAnimController.cpp" />
+    <ClCompile Include="JumpTutorial.cpp" />
+    <ClCompile Include="JumpTutorialAnim.cpp" />
+    <ClCompile Include="JumpTutorialAnimController.cpp" />
+    <ClCompile Include="TutorialEffect.cpp" />
+    <ClCompile Include="TutorialEffectAnim.cpp" />
+    <ClCompile Include="TutorialEffectAnimController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Runtime\Application.h">
@@ -1135,6 +1144,15 @@
     <ClInclude Include="BlockParticleManager.h">
       <Filter>TOYALINE\Object\Actor\Map\ParticleManager</Filter>
     </ClInclude>
+    <ClInclude Include="MoveTutorial.h" />
+    <ClInclude Include="TutorialAnim.h" />
+    <ClInclude Include="TutorialAnimController.h" />
+    <ClInclude Include="JumpTutorial.h" />
+    <ClInclude Include="JumpTutorialAnim.h" />
+    <ClInclude Include="JumpTutorialAnimController.h" />
+    <ClInclude Include="TutorialEffect.h" />
+    <ClInclude Include="TutorialEffectAnim.h" />
+    <ClInclude Include="TutorialEffectAnimController.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="README.txt">

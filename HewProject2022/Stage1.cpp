@@ -16,6 +16,11 @@ bool GamePlay::Stage1Scene::Start()
 	m_BigBook = Instance<BigBook>("Book1");
 	m_MiniBook = Instance<MiniBook>("Book2");
 
+	//三木原追加 チュートリアル初期化
+	m_MoveTutorial = Instance<MoveTutorial>("MoveTutorial");
+	m_JumpTutorial = Instance<JumpTutorial>("JumpTutorial");
+	m_TutorialEffect = Instance<TutorialEffect>("TutorialEffect");
+
 	/*	背景初期化	*/
 	m_BackGround = Instance<BackGround>("Wall");
 	m_BackGround->Sprite("Wall");
@@ -121,6 +126,11 @@ bool GamePlay::Stage1Scene::Render()
 
 	/****	前装飾品	****/
 	ObjectRender<LayerFront>("LayerFront");
+
+	//三木原追加 チュートリアル描画
+	ObjectRender<MoveTutorial>("MoveTutorial");
+	ObjectRender<JumpTutorial>("JumpTutorial");
+	ObjectRender<TutorialEffect>("TutorialEffect");
 
 	/****	デバッグ	****/
 	//m_Player->Debug();

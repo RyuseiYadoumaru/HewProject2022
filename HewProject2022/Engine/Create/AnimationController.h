@@ -25,7 +25,6 @@ namespace Create
 		int GetKindMax();
 		int GetFrameMax();
 
-
 	public:
 		int AnimState = 0;
 

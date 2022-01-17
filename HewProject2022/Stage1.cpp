@@ -21,36 +21,6 @@ bool GamePlay::Stage1Scene::Start()
 	m_JumpTutorial = Instance<JumpTutorial>("JumpTutorial");
 	m_TutorialEffect = Instance<TutorialEffect>("TutorialEffect");
 
-	///*	背景初期化	*/
-	//m_BackGround = make_shared<BackGround>("Wall");
-	//m_BackGround->Sprite("Wall");
-	//OldInstance(m_BackGround.get());
-
-	//m_LayerBack = make_shared<LayerBack>("LayerBack");
-	//m_LayerBack->Sprite("World_obj1_1");
-	//OldInstance(m_LayerBack.get());
-
-	//m_LayerFront = make_shared<LayerFront>("LayerFront");
-	//m_LayerFront->Sprite("World_obj2_1");
-	//OldInstance(m_LayerFront.get());
-
-	///*	天井初期化	*/
-	//m_Ceiling = make_shared<Ceiling>("Ceiling");
-	//m_Ceiling->Sprite("ceiling");
-	//OldInstance(m_Ceiling.get());
-
-
-	/*	インスタンス	*/
-	m_Map = Instance<Map>("stage1-1");
-	m_Player = Instance<Player>("Player");
-	m_MainCamera = Instance<MainCamera>("MainCamera");
-	m_Fade = Instance<Fade>("Black");
-	m_TableStart = Instance<Table>("TableStart");
-	m_SofaEnd = Instance<Sofa>("SofaEnd");
-	m_ScreenEffect = Instance<ScreenFx>("SFX");
-	m_CameraFrame = Instance<CameraFrame>("CFX");
-	m_BigBook = Instance<BigBook>("Book1");
-	m_MiniBook = Instance<MiniBook>("Book2");
 
 	/* Pause初期化 */
 	m_Pause = Instance<Pause>("Pause");
@@ -61,9 +31,6 @@ bool GamePlay::Stage1Scene::Start()
 
 	/*  ゴールインスタンス生成  */
 	m_Goal = Instance<Goal>("Goal");
-
-
-
 
 
 	/*	背景初期化	*/
@@ -93,8 +60,6 @@ bool GamePlay::Stage1Scene::Start()
 	/*	カメラ設定	*/
 	SetCamera(m_MainCamera);
 	m_MainCamera->Focus(m_Player);
-
-
 
 	// BGM再生
 	Sound::Sound_Play(SOUND_LABEL_WORLD1_GAMEBGM);
@@ -151,13 +116,6 @@ Scene::STATE GamePlay::Stage1Scene::Update()
 			}
 		}
 
-
-		/****	ロードシーン	****/
-		if (Input::GetKeyTrigger(PK_ENTER) == true)
-		{
-			GameEngine::SceneManager::LoadScene("Stage2");
-		}
-
 		/* Pause処理　ON */
 		if (Input::GetControllerTrigger(XINPUT_GAMEPAD_START) == true) {
 			m_Pause->Pause_On();
@@ -192,6 +150,9 @@ Scene::STATE GamePlay::Stage1Scene::Update()
 
 bool GamePlay::Stage1Scene::End()
 {
+	/*	サウンドストップ	*/
+	Sound::Sound_Stop(SOUND_LABEL_WORLD1_GAMEBGM);
+
 	/*	オブジェクト終了処理	*/
 	ObjectEnd();
 
@@ -250,8 +211,6 @@ bool GamePlay::Stage1Scene::Render()
 	/*** リザルト ***/
 	ObjectRender<Result>("ResultBack");
 	ObjectRender<Result>("ResultCursor");
-
-
 
 	/****	画面描画	****/
 	SwapChain();

@@ -21,9 +21,6 @@ bool GamePlay::Stage3Scene::Start()
 	m_LayerFront = Instance<LayerFront>("LayerFront");
 	m_LayerFront->Sprite("World_obj2_1");
 
-
-	/*	インスタンス	*/
-
 	/* Pause初期化 */
 	m_Pause = Instance<Pause>("Pause");
 	m_Pause->Sprite("ポーズ");
@@ -46,8 +43,8 @@ bool GamePlay::Stage3Scene::Start()
 	/*	初期化	*/
 	m_SofaEnd->transform->Position.x += ROAD_DISTANCE;
 
-	/*	ギミック初期化	*/
-
+	// BGM再生
+	Sound::Sound_Play(SOUND_LABEL_WORLD1_GAMEBGM);
 
 	/*	カメラ設定	*/
 	SetCamera(m_MainCamera);
@@ -127,6 +124,10 @@ Scene::STATE GamePlay::Stage3Scene::Update()
 
 bool GamePlay::Stage3Scene::End()
 {
+	/*	サウンドストップ	*/
+	Sound::Sound_Stop(SOUND_LABEL_WORLD1_GAMEBGM);
+
+
 	/*	オブジェクト終了処理	*/
 	ObjectEnd();
 

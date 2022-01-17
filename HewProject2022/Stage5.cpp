@@ -47,8 +47,8 @@ bool GamePlay::Stage5Scene::Start()
 	/*	初期化	*/
 	m_DeskEnd->transform->Position.x += ROAD_DISTANCE;
 
-	/*	ギミック初期化	*/
-
+	// BGM再生
+	Sound::Sound_Play(SOUND_LABEL_WORLD1_GAMEBGM);
 
 	/*	カメラ設定	*/
 	SetCamera(m_MainCamera);
@@ -128,11 +128,11 @@ Scene::STATE GamePlay::Stage5Scene::Update()
 
 bool GamePlay::Stage5Scene::End()
 {
-	/*	オブジェクト終了処理	*/
-	ObjectEnd();
-
 	// BGM停止
 	Sound::Sound_Play(SOUND_LABEL_WORLD1_GAMEBGM);
+
+	/*	オブジェクト終了処理	*/
+	ObjectEnd();
 
 	/*	解放処理	*/
 	Releace();

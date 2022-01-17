@@ -132,6 +132,9 @@ Scene::STATE GamePlay::Stage6Scene::Update()
 
 bool GamePlay::Stage6Scene::End()
 {
+	/*	サウンドストップ	*/
+	Sound::Sound_Stop(SOUND_LABEL_WORLD2_GAMEBGM);
+
 	/*	オブジェクト終了処理	*/
 	ObjectEnd();
 

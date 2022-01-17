@@ -4,10 +4,6 @@ using namespace Create;
 
 bool GamePlay::Stage7Scene::Start()
 {
-
-
-
-
 	/*	インスタンス	*/
 	m_Map = Instance<Map>("stage1-1");
 	m_Player = Instance<Player>("Player");
@@ -46,8 +42,8 @@ bool GamePlay::Stage7Scene::Start()
 	/*	初期化	*/
 	m_ShelfEnd->transform->Position.x += ROAD_DISTANCE;
 
-	/*	ギミック初期化	*/
-
+	// BGM再生
+	Sound::Sound_Play(SOUND_LABEL_WORLD2_GAMEBGM);
 
 	/*	カメラ設定	*/
 	SetCamera(m_MainCamera);
@@ -127,6 +123,9 @@ Scene::STATE GamePlay::Stage7Scene::Update()
 
 bool GamePlay::Stage7Scene::End()
 {
+	/*	サウンドストップ	*/
+	Sound::Sound_Stop(SOUND_LABEL_WORLD2_GAMEBGM);
+
 	/*	オブジェクト終了処理	*/
 	ObjectEnd();
 

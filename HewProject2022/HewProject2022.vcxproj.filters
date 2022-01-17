@@ -665,7 +665,6 @@
     <ClCompile Include="Pause.cpp" />
     <ClCompile Include="Title.cpp" />
     <ClCompile Include="Goal.cpp" />
-    <ClCompile Include="Result.cpp" />
     <ClCompile Include="Game\GameObject\Effect.cpp">
       <Filter>Game\GameObject\private</Filter>
     </ClCompile>
@@ -743,6 +742,9 @@
     </ClCompile>
     <ClCompile Include="TutorialEffect.cpp">
       <Filter>TOYALINE\Tutorial</Filter>
+    </ClCompile>
+    <ClCompile Include="Result.cpp">
+      <Filter>TOYALINE\Result</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1195,8 +1197,10 @@
     <ClInclude Include="Pause.h" />
     <ClInclude Include="ProtScene.h" />
     <ClInclude Include="PushAny.h" />
-    <ClInclude Include="Result.h" />
     <ClInclude Include="Title.h" />
+    <ClInclude Include="Result.h">
+      <Filter>TOYALINE\Result</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="README.txt">

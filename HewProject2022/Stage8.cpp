@@ -4,9 +4,6 @@ using namespace Create;
 
 bool GamePlay::Stage8Scene::Start()
 {
-
-
-
 	/*	インスタンス	*/
 	m_Map = Instance<Map>("stage1-2");
 	m_Player = Instance<Player>("Player");
@@ -38,14 +35,14 @@ bool GamePlay::Stage8Scene::Start()
 	m_ResultCursor = Instance<Result>("ResultCursor");
 	m_ResultCursor->ResultCursor_Init();
 	m_ResultCursor->NowScene = "Stage8";
-	
+
 
 
 	/*	初期化	*/
 	m_SinkEnd->transform->Position.x += ROAD_DISTANCE;
 
-	/*	ギミック初期化	*/
-
+	// BGM再生
+	Sound::Sound_Play(SOUND_LABEL_WORLD2_GAMEBGM);
 
 	/*	カメラ設定	*/
 	SetCamera(m_MainCamera);
@@ -122,6 +119,9 @@ Scene::STATE GamePlay::Stage8Scene::Update()
 
 bool GamePlay::Stage8Scene::End()
 {
+	/*	サウンドストップ	*/
+	Sound::Sound_Stop(SOUND_LABEL_WORLD2_GAMEBGM);
+
 	/*	オブジェクト終了処理	*/
 	ObjectEnd();
 

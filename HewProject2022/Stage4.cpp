@@ -38,13 +38,12 @@ bool GamePlay::Stage4Scene::Start()
 	m_ResultCursor->ResultCursor_Init();
 	m_ResultCursor->NowScene = "Stage1";
 
+	// BGM再生
+	Sound::Sound_Play(SOUND_LABEL_WORLD1_GAMEBGM);
 
 
 	/*	初期化	*/
 	m_DeskEnd->transform->Position.x += ROAD_DISTANCE;
-
-	/*	ギミック初期化	*/
-
 
 	/*	カメラ設定	*/
 	SetCamera(m_MainCamera);
@@ -125,6 +124,10 @@ Scene::STATE GamePlay::Stage4Scene::Update()
 
 bool GamePlay::Stage4Scene::End()
 {
+	/*	サウンドストップ	*/
+	Sound::Sound_Stop(SOUND_LABEL_WORLD1_GAMEBGM);
+
+
 	/*	オブジェクト終了処理	*/
 	ObjectEnd();
 

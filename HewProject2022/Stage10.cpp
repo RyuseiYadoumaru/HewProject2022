@@ -33,8 +33,6 @@ bool GamePlay::Stage10Scene::Start()
 	m_ResultCursor->ResultCursor_Init();
 	m_ResultCursor->NowScene = "Stage10";
 
-
-
 	/*	初期化	*/
 	m_ShelfEnd->transform->Position.x += ROAD_DISTANCE;
 
@@ -42,6 +40,8 @@ bool GamePlay::Stage10Scene::Start()
 	SetCamera(m_MainCamera);
 	m_MainCamera->Focus(m_Player);
 
+	// BGM再生
+	Sound::Sound_Play(SOUND_LABEL_WORLD2_GAMEBGM);
 	Scene_State = 0;
 
 	return true;
@@ -117,11 +117,12 @@ Scene::STATE GamePlay::Stage10Scene::Update()
 
 bool GamePlay::Stage10Scene::End()
 {
+	// BGM停止
+	Sound::Sound_Stop(SOUND_LABEL_WORLD2_GAMEBGM);
+
 	/*	オブジェクト終了処理	*/
 	ObjectEnd();
 
-	// BGM停止
-	Sound::Sound_Stop(SOUND_LABEL_WORLD2_GAMEBGM);
 
 	/*	解放処理	*/
 	Releace();

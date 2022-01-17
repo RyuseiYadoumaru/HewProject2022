@@ -1,5 +1,15 @@
 #pragma once
 #include "ydmEngine.h"
+#include "Map.h"
+#include "MainCamera.h"
+#include "Player.h"
+#include "Fade.h"
+#include "BackGround.h"
+#include "ScreenFx.h"
+#include "CameraFrame.h"
+#include "Ceiling.h"
+#include "Shelf2.h"
+#include "BookShelf.h"
 
 using Create::Actor;
 using GameEngine::Input;
@@ -9,8 +19,25 @@ namespace GamePlay
 	class Stage20Scene : public Create::Scene
 	{
 	private:
-		shared_ptr<Actor> m_stage20;//ステージ数表示の画像
-		shared_ptr<Actor> m_world4;//ワールド数表示のの画像
+		/* オブジェクト */
+		MainCamera* m_MainCamera;
+		Map* m_Map;
+		Player* m_Player;
+		Shelf2* m_Shelf2Start;
+		BookShelf* m_BookShelfEnd;
+
+		/*	背景	*/
+		BackGround*		m_BackGround;
+		LayerBack*		m_LayerBack;
+		LayerFront*		m_LayerFront;
+
+		/*	天井	*/
+		Ceiling* m_Ceiling;
+
+		/*	エフェクト	*/
+		ScreenFx* m_ScreenEffect;
+		CameraFrame* m_CameraFrame;
+		Fade* m_Fade;
 
 	public:
 		bool Start() override;

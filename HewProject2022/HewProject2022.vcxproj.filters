@@ -310,13 +310,28 @@
     <Filter Include="TOYALINE\Effect\BlockEffect\Animation">
       <UniqueIdentifier>{37fec384-98c9-429f-87f4-4766ea09839b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TOYALINE\ScreemEffect">
+    <Filter Include="TOYALINE\World4\Road">
+      <UniqueIdentifier>{6ba8bbb3-1731-42f1-b219-81144486a9e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\World4\Road\Umbrella">
+      <UniqueIdentifier>{d03534a4-1574-4227-969d-f84e4ec09a8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\World4\Road\PictureFrame">
+      <UniqueIdentifier>{87d4acee-591e-478d-bbf3-812991f1fac2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\World4\Road\Shelf2">
+      <UniqueIdentifier>{e1426d36-4475-499a-9d42-26f6e314289f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\World4\Road\BookShelf">
+      <UniqueIdentifier>{9f48289c-9f42-4f6f-b066-cc9cd8f4e676}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Script\ScreemEffect">
       <UniqueIdentifier>{a6c080f1-160a-4cab-8e38-b1c9f7bed139}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TOYALINE\ScreemEffect\Fade">
+    <Filter Include="TOYALINE\Script\ScreemEffect\Fade">
       <UniqueIdentifier>{7e592d47-f3f1-4018-865c-392043e28e25}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TOYALINE\ScreemEffect\Frame">
+    <Filter Include="TOYALINE\Script\ScreemEffect\Frame">
       <UniqueIdentifier>{4db93655-f105-42ab-91a9-095f4cc30204}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -469,7 +484,7 @@
       <Filter>TOYALINE\Object\Actor\Map</Filter>
     </ClCompile>
     <ClCompile Include="Fade.cpp">
-      <Filter>TOYALINE\ScreemEffect\Fade</Filter>
+      <Filter>TOYALINE\Script\ScreemEffect\Fade</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Create\AnimationController.cpp">
       <Filter>Engine\Create\Private</Filter>
@@ -484,10 +499,10 @@
       <Filter>Game\Object\Test</Filter>
     </ClCompile>
     <ClCompile Include="ScreenFx.cpp">
-      <Filter>TOYALINE\ScreemEffect\Frame</Filter>
+      <Filter>TOYALINE\Script\ScreemEffect\Frame</Filter>
     </ClCompile>
     <ClCompile Include="CameraFrame.cpp">
-      <Filter>TOYALINE\ScreemEffect\Frame</Filter>
+      <Filter>TOYALINE\Script\ScreemEffect\Frame</Filter>
     </ClCompile>
     <ClCompile Include="DefaultAnim.cpp">
       <Filter>Game\Object\Test\AnimationTest</Filter>
@@ -694,6 +709,18 @@
     <ClCompile Include="BlockMagicEffect.cpp">
       <Filter>TOYALINE\Particle</Filter>
     </ClCompile>
+    <ClCompile Include="Umbrella.cpp">
+      <Filter>TOYALINE\World4\Road\Umbrella</Filter>
+    </ClCompile>
+    <ClCompile Include="PictureFrame.cpp">
+      <Filter>TOYALINE\World4\Road\PictureFrame</Filter>
+    </ClCompile>
+    <ClCompile Include="Shelf2.cpp">
+      <Filter>TOYALINE\World4\Road\Shelf2</Filter>
+    </ClCompile>
+    <ClCompile Include="BookShelf.cpp">
+      <Filter>TOYALINE\World4\Road\BookShelf</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Runtime\Application.h">
@@ -871,7 +898,7 @@
       <Filter>TOYALINE\Object\Actor\Map</Filter>
     </ClInclude>
     <ClInclude Include="Fade.h">
-      <Filter>TOYALINE\ScreemEffect\Fade</Filter>
+      <Filter>TOYALINE\Script\ScreemEffect\Fade</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Runtime\Core\TextureCoordinate.h">
       <Filter>Engine\Runtime\Core\Data\TexCoord</Filter>
@@ -889,10 +916,10 @@
       <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="ScreenFx.h">
-      <Filter>TOYALINE\ScreemEffect\Frame</Filter>
+      <Filter>TOYALINE\Script\ScreemEffect\Frame</Filter>
     </ClInclude>
     <ClInclude Include="CameraFrame.h">
-      <Filter>TOYALINE\ScreemEffect\Frame</Filter>
+      <Filter>TOYALINE\Script\ScreemEffect\Frame</Filter>
     </ClInclude>
     <ClInclude Include="DefaultAnim.h">
       <Filter>Game\Object\Test\AnimationTest</Filter>
@@ -1107,6 +1134,18 @@
     </ClInclude>
     <ClInclude Include="BlockEffectInfo.h">
       <Filter>TOYALINE\Particle\BlockParticle</Filter>
+    </ClInclude>
+    <ClInclude Include="Umbrella.h">
+      <Filter>TOYALINE\World4\Road\Umbrella</Filter>
+    </ClInclude>
+    <ClInclude Include="PictureFrame.h">
+      <Filter>TOYALINE\World4\Road\PictureFrame</Filter>
+    </ClInclude>
+    <ClInclude Include="Shelf2.h">
+      <Filter>TOYALINE\World4\Road\Shelf2</Filter>
+    </ClInclude>
+    <ClInclude Include="BookShelf.h">
+      <Filter>TOYALINE\World4\Road\BookShelf</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

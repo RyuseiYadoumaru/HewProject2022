@@ -685,6 +685,11 @@
     <ClCompile Include="Storage.cpp">
       <Filter>TOYALINE\World5\Road\Storage</Filter>
     </ClCompile>
+    <ClCompile Include="PushAny.cpp" />
+    <ClCompile Include="Pause.cpp" />
+    <ClCompile Include="Title.cpp" />
+    <ClCompile Include="Goal.cpp" />
+    <ClCompile Include="Result.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Runtime\Application.h">
@@ -1090,6 +1095,11 @@
     <ClInclude Include="Storage.h">
       <Filter>TOYALINE\World5\Road\Storage</Filter>
     </ClInclude>
+    <ClInclude Include="PushAny.h" />
+    <ClInclude Include="Pause.h" />
+    <ClInclude Include="Title.h" />
+    <ClInclude Include="Goal.h" />
+    <ClInclude Include="Result.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="README.txt">

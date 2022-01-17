@@ -10,8 +10,26 @@ bool GamePlay::Stage20Scene::Start()
 	m_stage20->Sprite("stage-05");
 	m_world4->Sprite("world-04");
 
-	Instance(m_stage20.get());
-	Instance(m_world4.get());
+	OldInstance(m_stage20.get());
+	OldInstance(m_world4.get());
+
+	/* Pause初期化 */
+	m_Pause = Instance<Pause>("Pause");
+	m_Pause->Sprite("ポーズ");
+
+	m_Button = Instance<Pause>("Button");
+	m_Button->Sprite("button");
+
+	/*  ゴールインスタンス生成  */
+	m_Goal = Instance<Goal>("Goal");
+
+	/* リザルト初期化 */
+	m_ResultBack = Instance<Result>("ResultBack");
+	m_ResultBack->ResultBack_init();
+	m_ResultCursor = Instance<Result>("ResultCursor");
+	m_ResultCursor->ResultCursor_Init();
+	m_ResultCursor->NowScene = "Stage20";
+	
 
 	m_stage20->transform->Position.Set(0.0f, 0.0f, 0.0f);
 	m_world4->transform->Position.Set(-700.0f, -500.0f, 0.0f);
@@ -19,24 +37,62 @@ bool GamePlay::Stage20Scene::Start()
 	SetCamera();
 	camera->GetBackgroundColor()->Set(1.0f, 1.0f, 1.0f, 1.0f);
 
+	Scene_State = 0;
+
 	return true;
 }
 
 Scene::STATE GamePlay::Stage20Scene::Update()
 {
-	/****	オブジェクト更新	****/
-	ObjectUpdate();
+	switch (Scene_State) {
+	case 0:
+		/****	オブジェクト更新	****/
+		ObjectUpdate();
+
+		///***  ゴール判定用  ***/
+		//m_Goal->GetComponent<BoxCollider2D>()->HitCheckBox(*m_Player->GetComponent<BoxCollider2D>());
+		////当たったらゴール
+		//for (auto name : m_Goal->GetComponent<BoxCollider2D>()->GetHitObject()) {
+		//	if (name == m_Player->ToString()) {
+		//		Scene_State = 2;//リザルト用分岐に移動
+		//		m_ResultBack->Result_On();
+		//		m_ResultCursor->Result_On();
+		//	}
+		//}
 
 
-	/****	ロードシーン	****/
-	if (Input::GetKeyTrigger(PK_ENTER) == true || Input::GetControllerTrigger(XINPUT_GAMEPAD_B))//エンター押すと次のシーンへ移動
-	{
-		GameEngine::SceneManager::LoadScene("ResultScene");
+		/****	ロードシーン	****/
+		if (Input::GetKeyTrigger(PK_ENTER) == true || Input::GetControllerTrigger(XINPUT_GAMEPAD_B))//エンター押すと次のシーンへ移動
+		{
+			GameEngine::SceneManager::LoadScene("ResultScene");
+		}
+
+		/* Pause処理　ON */
+		if (Input::GetControllerTrigger(XINPUT_GAMEPAD_START) == true) {
+			m_Pause->Pause_On();
+			m_Button->Pause_On();
+			Scene_State = 1;
+		}
+
+		/****	システム更新	****/
+		SystemUpdate();
+		return PLAY;
+		break;
+	case 1://ポーズ画面
+	/****   ポーズ中処理   ****/
+		m_Button->PauseCursor_Move();
+		/* Pause処理　OFF */
+		if (m_Button->Get_Checker() == 1) {
+			m_Pause->Pause_Off();
+			m_Button->Pause_Off();
+			Scene_State = 0;
+		}
+		break;
+	case 2://リザルト画面
+		m_ResultBack->Result_On();//リザルト画面のフラグ
+		m_ResultCursor->ResultCursor_Move();//カーソルフラグ＆分岐
+		break;
 	}
-
-	/****	システム更新	****/
-	SystemUpdate();
-	return PLAY;
 }
 
 bool GamePlay::Stage20Scene::End()
@@ -58,6 +114,18 @@ bool GamePlay::Stage20Scene::Render()
 	/****	オブジェクト描画	****/
 	m_stage20->Render();
 	m_world4->Render();
+
+	/*** ゴール描画 ***/
+	ObjectRender<Goal>("Goal");
+
+	/**** Pause描画 ****/
+	ObjectRender<Pause>("Pause");
+	ObjectRender<Pause>("Button");
+
+	/*** リザルト ***/
+	ObjectRender<Result>("ResultBack");
+	ObjectRender<Result>("ResultCursor");
+
 
 	/****	画面描画	****/
 	SwapChain();

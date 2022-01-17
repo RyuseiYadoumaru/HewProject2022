@@ -12,7 +12,7 @@ bool Cuhsion::Start()
 
 	/*	座標設定	*/
 	transform->Scale.Set(2.0f, 2.0f, 1.0f);
-	transform->Position.Set(1000.0f - 40.0f, 1280.0f, 0.0f);
+	transform->Position.Set(1000.0f, 1280.0f, 0.0f);
 
 	/*	ボックスコライダコンポーネント	*/
 	GameEngine::BoxCollider2D* col = AddComponent<GameEngine::BoxCollider2D>(m_SpriteRenderer->GetSize());

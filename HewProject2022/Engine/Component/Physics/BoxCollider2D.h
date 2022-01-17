@@ -26,6 +26,7 @@ namespace GameEngine
 		void Debug();
 
 		void HitCheckBox(BoxCollider2D &in_objcollider);		//“–‚½‚è”»’è
+		
 
 		void PushBackObject();//‰Ÿ‚µ–ß‚µˆ—
 
@@ -48,6 +49,8 @@ namespace GameEngine
 
 		std::vector<std::string>& GetHitObject() { return m_HitObjectList; }
 		std::vector<ID> GetHitObjectId()& { return m_HitObjectIdList; }
+
+		
 
 	private:
 		Math::Vector2 CenterPos;	//’†S“_À•W
@@ -76,7 +79,7 @@ namespace GameEngine
 
 	private:
 		void HitCheck();
-
+		
 		void CreateCollider();
 		void CreateCollider(Math::Vector2& Pos);
 

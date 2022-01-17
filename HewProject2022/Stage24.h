@@ -12,6 +12,9 @@
 #include "House.h"
 #include "Toy.h"
 #include "Ceiling.h"
+#include"Pause.h"
+#include"Result.h"
+#include "Goal.h"
 
 using Create::Actor;
 using GameEngine::Input;
@@ -37,10 +40,22 @@ namespace GamePlay
 		/*	天井	*/
 		shared_ptr<Ceiling> m_Ceiling;
 
+		/* ゴール */
+		Goal* m_Goal;
+
 		/*	エフェクト	*/
 		shared_ptr<ScreenFx> m_ScreenEffect;
 		shared_ptr<CameraFrame> m_CameraFrame;
 		shared_ptr<Fade> m_Fade;
+
+		/* Pause */
+		Pause* m_Pause;
+		Pause* m_Button;
+		int Scene_State = 0;//Pause処理制御用
+
+		/* リザルト */
+		Result* m_ResultCursor;
+		Result* m_ResultBack;
 
 	public:
 		bool Start() override;

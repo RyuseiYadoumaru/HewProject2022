@@ -27,8 +27,10 @@ namespace GameEngine
 		SceneManager();
 
 		static bool CreateScene(std::string SceneName, Create::Scene* create);
-
+		
 		static bool LoadScene(std::string SceneName);
+		//‰i‰Y’Ç‰Á
+		static bool LoadResult(std::string NowSceneName);
 
 		bool SetUp();
 
@@ -37,4 +39,49 @@ namespace GameEngine
 
 	};
 }
+
+enum Scene_L {
+	TitleScene,
+	ResultScene,
+	ProtScene,
+	WorldSelectScene,
+	World1StageSelectScene,
+	World2StageSelectScene,
+	World3StageSelectScene,
+	World4StageSelectScene,
+	World5StageSelectScene,
+	World6StageSelectScene,
+	Stage1,
+	Stage2,
+	Stage3,
+	Stage4,
+	Stage5,
+	Stage6,
+	Stage7,
+	Stage8,
+	Stage9,
+	Stage10,
+	Stage11,
+	Stage12,
+	Stage13,
+	Stage14,
+	Stage15,
+	Stage16,
+	Stage17,
+	Stage18,
+	Stage19,
+	Stage20,
+	Stage21,
+	Stage22,
+	Stage23,
+	Stage24,
+	Stage25,
+	Stage26,
+	Stage27,
+	Stage28,
+	Stage29,
+	Stage30
+
+
+};
 

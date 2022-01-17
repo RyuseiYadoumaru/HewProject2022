@@ -12,6 +12,9 @@
 #include "BigBook.h"
 #include "Sofa.h"
 #include "Ceiling.h"
+#include "Pause.h"
+#include "Goal.h"
+#include"Result.h"
 
 using Create::Actor;
 using GameEngine::Input;
@@ -22,31 +25,45 @@ namespace GamePlay
 	{
 	private:
 		/*	オブジェクト	*/
-		shared_ptr<MainCamera> m_MainCamera;
-		shared_ptr<Map> m_Map;
-		shared_ptr<Player> m_Player;
-		shared_ptr<Table> m_TableStart;
-		shared_ptr<Sofa> m_SofaEnd;
-		shared_ptr<BigBook> m_BigBook;
-		shared_ptr<MiniBook> m_MiniBook;
+		MainCamera*		m_MainCamera;
+		Map*			m_Map;
+		Player*			m_Player;
+		Table*			m_TableStart;
+		Sofa*			m_SofaEnd;
+		BigBook*		m_BigBook;
+		MiniBook*		m_MiniBook;
 
 		/*	背景	*/
-		shared_ptr<BackGround> m_BackGround;
-		shared_ptr<LayerBack> m_LayerBack;
-		shared_ptr<LayerFront> m_LayerFront;
+		BackGround*		m_BackGround;
+		LayerBack*		m_LayerBack;
+		LayerFront*		m_LayerFront;
 
 		/*	天井	*/
-		shared_ptr<Ceiling> m_Ceiling;
+		Ceiling* m_Ceiling;
+
+		/* ゴール */
+		Goal* m_Goal;
 
 		/*	エフェクト	*/
-		shared_ptr<ScreenFx> m_ScreenEffect;
-		shared_ptr<CameraFrame> m_CameraFrame;
-		shared_ptr<Fade> m_Fade;
+		ScreenFx* m_ScreenEffect;
+		CameraFrame* m_CameraFrame;
+		Fade* m_Fade;
+
+		/* Pause */
+		Pause* m_Pause;
+		Pause* m_Button;
+		int Scene_State = 0;//Pause処理制御用
+
+		/* リザルト */
+		Result* m_ResultBack;
+		Result* m_ResultCursor;
 
 	public:
 		bool Start() override;
 		STATE Update() override;
 		bool End() override;
 		bool Render() override;
+
+		
 	};
 }

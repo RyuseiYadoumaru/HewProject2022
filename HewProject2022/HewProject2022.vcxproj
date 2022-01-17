@@ -154,7 +154,6 @@
     <ClCompile Include="BlockMoveParticle.cpp" />
     <ClCompile Include="BlockResetEffect.cpp" />
     <ClCompile Include="BlockResetParticle.cpp" />
-    <ClCompile Include="BookShelf.cpp" />
     <ClCompile Include="CameraFrame.cpp" />
     <ClCompile Include="Ceiling.cpp" />
     <ClCompile Include="Chair.cpp" />
@@ -214,7 +213,6 @@
     <ClCompile Include="MoveInfoList.cpp" />
     <ClCompile Include="MoveManager.cpp" />
     <ClCompile Include="BlockParticleManager.cpp" />
-    <ClCompile Include="PictureFrame.cpp" />
     <ClCompile Include="Plants.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="DefaultAnim.cpp" />
@@ -288,7 +286,6 @@
     <ClInclude Include="BlockMoveParticle.h" />
     <ClInclude Include="BlockResetEffect.h" />
     <ClInclude Include="BlockResetParticle.h" />
-    <ClInclude Include="BookShelf.h" />
     <ClInclude Include="CameraFrame.h" />
     <ClInclude Include="Ceiling.h" />
     <ClInclude Include="Chair.h" />
@@ -356,7 +353,6 @@
     <ClInclude Include="MoveInfoList.h" />
     <ClInclude Include="MoveManager.h" />
     <ClInclude Include="BlockParticleManager.h" />
-    <ClInclude Include="PictureFrame.h" />
     <ClInclude Include="Plants.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="DefaultAnim.h" />

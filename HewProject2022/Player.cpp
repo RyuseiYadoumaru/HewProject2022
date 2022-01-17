@@ -379,14 +379,7 @@ void Player::JumpEnd()
 /****	重力加算	****/
 void Player::AddGravity()
 {
-	if (m_jumpForce != 0.0f)
-	{
-		cout << "airFlg = true\n";
-		m_airFlg = true;	//ジャンプ力が加わったら
-	}
 	if (GetComponent<BoxCollider2D>()->GetisHit_underBlock() == true) {//着地したら
-		cout << "airFlg = false\n";
-		m_jumpForce = 0.0f;
 		m_airFlg = false;
 	}
 
@@ -396,11 +389,11 @@ void Player::AddGravity()
 		JumpEnd();
 	}
 
-	//if (GetComponent<BoxCollider2D>()->GetisHit() == false) {//宙に浮いてたら
+	if (GetComponent<BoxCollider2D>()->GetisHit() == false) {//宙に浮いてたら
 
-	//	m_airFlg = true;
+		m_airFlg = true;
 
-	//}
+	}
 
 
 	if (m_jumpFlg == true) {
@@ -417,10 +410,10 @@ void Player::AddGravity()
 	{
 		m_jumpForce += CHAR_GRAVITY;//徐々に重力が加算され、ジャンプ力が弱まっていく
 	}
-	transform->Position.y += m_jumpForce;
+	transform->Position.y += m_jumpForce;//ここにデルタタイム？
 
 
-	/*	ダウンの移動量算出	*/
+/*	ダウンの移動量算出	*/
 	if (m_PlayerAnimController.AnimState == PlayerAnimController::PLAYER_DOWN)
 	{
 		//落ちるアニメーションを再生しているときに

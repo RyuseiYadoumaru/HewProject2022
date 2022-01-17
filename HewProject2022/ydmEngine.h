@@ -30,6 +30,7 @@
 #include "Engine/Component//Physics/BoxCollider2D.h"
 #include "Engine/Component/Physics/Rigidbody2d.h"
 #include "Engine/Component/Miscellaneous/Animator.h"
+#include "Engine/Component/Miscellaneous/ParticleSystem.h"
 #include "Engine/Data/DataArray.h"
 #include "Engine/Input/Input.h"
 #include "Engine/SceneManager/SceneManager.h"
@@ -58,8 +59,10 @@
 #include "Engine/Create/Scene.h"
 #include "Engine/Create/Animation.h"
 #include "Engine/Create/AnimationController.h"
+#include "Engine/Create/Particle.h"
 #include "Game/GameObject/Actor.h"
 #include "Game/GameObject/Character.h"
+#include "Game/GameObject/Effect.h"
 
 //==============================================================================
 //!	@region	Tools
@@ -109,3 +112,10 @@
 //==============================================================================
 using namespace std;
 using namespace GameEngine;
+
+
+//==============================================================================
+//!	@region	using static Functino
+//!	@brief	静的メンバ関数命名
+//!	@note	最低限しか使用しない
+//==============================================================================

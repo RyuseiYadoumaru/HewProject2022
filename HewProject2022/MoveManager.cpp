@@ -111,7 +111,6 @@ bool MoveManager::SetMoveList(vector<TileColumn>* in_AllTile)
 		{
 			//ˆÚ“®—ñŠi”[
 			Front.Add(in_AllTile->at(SearchColumn).m_MoveInfo.get());
-
 		}
 		//’Tõ—ñXV
 		SearchColumn++;

@@ -26,8 +26,7 @@ public:
 	void Debug()override;
 
 
-	//デバッグ（後でPrivateにする）
-	LandTile m_LandTile;
+	LandTile* m_LandTile;
 
 private:
 	void Action();		//アクション処理
@@ -41,6 +40,7 @@ private:
 	void Jump();
 	void JumpEnd();
 
+public:
 	void AddGravity();
 
 private:

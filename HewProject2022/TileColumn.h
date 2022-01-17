@@ -8,12 +8,21 @@
 class TileColumn
 {
 public:
+	enum class TileColumnState
+	{
+		BLOCK_DEFAULT,
+		BLOCK_MAGIC,
+		BLOCK_MOVE,
+		BLOCK_RESET
+	};
+
+public:
 	TileColumn();
 
 	void Add(Tile* in_Tile);	//タイル追加
 
 	bool Init();				//初期化
-	bool Update();				//更新^
+	bool Update();				//更新
 	bool End();					//終了処理
 	bool Debug();				//デバッグ処理
 
@@ -30,9 +39,11 @@ public:
 	//デバッグ用
 	shared_ptr<MoveInfo> m_MoveInfo;
 	shared_ptr<ResetInfo> m_ResetInfo;
+
 private:
 	int m_TileCnt;			//1列ブロックの数
 	float m_ColumnNum;
+
 
 
 };

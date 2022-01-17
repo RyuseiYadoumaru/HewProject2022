@@ -42,7 +42,10 @@ namespace Create
 		std::string GetName() { return name; }
 		ID GetId()const { return id.x; }
 
+		virtual bool Render();
 		virtual void Debug() {}
+
+		void Destroy();
 
 	public:
 		//==============================================================================
@@ -81,7 +84,6 @@ namespace Create
 			return Buff;
 		}
 
-
 		//==============================================================================
 		//!	@fn		AddRenderer
 		//!	@brief	コンポーネントリスト追加
@@ -97,8 +99,6 @@ namespace Create
 			ComponentList.push_back(Buff);
 			return Buff;
 		}
-
-
 	};
 }
 

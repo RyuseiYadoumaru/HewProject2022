@@ -1,4 +1,5 @@
 #include "TileColumn.h"
+#include "BlockParticleManager.h"
 
 /****	コンストラクタ	****/
 TileColumn::TileColumn()
@@ -7,6 +8,7 @@ TileColumn::TileColumn()
 	mp_TileList.clear();
 	m_MoveInfo = make_shared<MoveInfo>(this);
 	m_ResetInfo = make_shared<ResetInfo>(this);
+
 }
 
 /****	追加処理	****/
@@ -30,6 +32,7 @@ bool TileColumn::Init()
 /****	更新	****/
 bool TileColumn::Update()
 {
+
 	/*	タイル更新	*/
 	for (auto tile : mp_TileList)
 	{
@@ -113,5 +116,3 @@ bool TileColumn::SetColumn(float in_Column)
 	mp_TileList.back()->SetColumn(in_Column);
 	return true;
 }
-
-

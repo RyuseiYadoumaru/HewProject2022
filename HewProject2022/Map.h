@@ -51,6 +51,7 @@ public:
 	//三木原追加
 	void MoveReset();
 private:
+	BlockParticleManager m_MoveParticle;
 	ResetManager m_ResetManager;
 	bool m_isReset = false;			//リセットフラグ
 
@@ -61,7 +62,7 @@ private:
 	MapData m_Mapdata;
 
 public:
-	bool HitCheckMap(GameObject& in_GameObject);
+	static bool HitCheckMap(GameObject& in_GameObject, bool checkRangeCamera = false);
 	bool CheckLandTile(LandTile* in_LandTile);
 
 };

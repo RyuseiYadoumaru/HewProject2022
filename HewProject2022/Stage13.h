@@ -24,28 +24,28 @@ namespace GamePlay
 	{
 	private:
 		/*	オブジェクト	*/
-		shared_ptr<MainCamera> m_MainCamera;
-		shared_ptr<Map> m_Map;
-		shared_ptr<Player> m_Player;
-		shared_ptr<Tree> m_TreeStart;
-		shared_ptr<Rose> m_RoseEnd;
+		MainCamera* m_MainCamera;
+		Map* m_Map;
+		Player* m_Player;
+		Tree* m_TreeStart;
+		Rose* m_RoseEnd;
 
 
 		/*	背景	*/
-		shared_ptr<BackGround> m_BackGround;
-		shared_ptr<LayerBack> m_LayerBack;
-		shared_ptr<LayerFront> m_LayerFront;
+		BackGround* m_BackGround;
+		LayerBack* m_LayerBack;
+		LayerFront* m_LayerFront;
 
 		/*	天井	*/
-		shared_ptr<Ceiling> m_Ceiling;
+		Ceiling* m_Ceiling;
 
 		/* ゴール */
 		Goal* m_Goal;
 
 		/*	エフェクト	*/
-		shared_ptr<ScreenFx> m_ScreenEffect;
-		shared_ptr<CameraFrame> m_CameraFrame;
-		shared_ptr<Fade> m_Fade;
+		ScreenFx* m_ScreenEffect;
+		CameraFrame* m_CameraFrame;
+		Fade* m_Fade;
 
 		/* Pause */
 		Pause* m_Pause;

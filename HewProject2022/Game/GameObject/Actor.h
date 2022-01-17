@@ -26,7 +26,7 @@ namespace Create
 		bool Update() override;
 		bool End() override;
 
-		virtual bool Render();
+		bool Render() override;
 
 		void SetSize(float in_SizeX, float in_SizeY);
 		void Sprite(std::string in_SpriteName);

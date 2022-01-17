@@ -143,6 +143,9 @@ bool Map::End()
 		MoveInfo.reset();
 	}
 	m_MoveManager.clear();
+
+	/*	パーティクル解放	*/
+	m_MoveParticle.End();
 	return true;
 }
 
@@ -164,6 +167,9 @@ bool Map::Render()
 			}
 		}
 	}
+
+	/****	パーティクル描画	****/
+	m_MoveParticle.ParticleRender();
 	return true;
 }
 
@@ -192,25 +198,53 @@ void Map::SystemUpdate()
 }
 
 /****	マップ当たり判定	****/
-bool Map::HitCheckMap(GameObject& in_GameObject)
+bool Map::HitCheckMap(GameObject& in_GameObject, bool checkRangeCamera)
 {
 	/*	ヒットチェックオブジェクト	*/
 	BoxCollider2D* CheckObject = in_GameObject.GetComponent<BoxCollider2D>();
 	Create::Camera* camera = Create::Scene::GetCamera();
 	/*	当たり判定	*/
-	for (int column = 0; column < m_Mapdata.GetSize().x; ++column)
+
+	for (auto& NowTile : m_TileList)
 	{
-		TileColumn& Search = m_TileColumnList[column];
-		for (auto NowTile : Search.mp_TileList)
+		BoxCollider2D* TileCol = NowTile->GetComponent<BoxCollider2D>();
+		if (checkRangeCamera == false)
 		{
-			BoxCollider2D* TileCol = NowTile->GetComponent<BoxCollider2D>();
+			//カメラ範囲外もチェックする
+			CheckObject->HitCheckBox(*TileCol);
+		}
+		else
+		{
 			if (NowTile->transform->Position.x >= camera->GetLeft() && NowTile->transform->Position.x <= camera->GetRight() &&
 				NowTile->transform->Position.y >= camera->GetTop() && NowTile->transform->Position.y <= camera->GetButtom())
 			{
 				CheckObject->HitCheckBox(*TileCol);
 			}
+
 		}
 	}
+	//for (int column = 0; column < m_Mapdata.GetSize().x; ++column)
+	//{
+	//	TileColumn& Search = m_TileColumnList[column];
+	//	for (auto NowTile : Search.mp_TileList)
+	//	{
+	//		BoxCollider2D* TileCol = NowTile->GetComponent<BoxCollider2D>();
+	//		if (checkRangeCamera == false)
+	//		{
+	//			//カメラ範囲外もチェックする
+	//			CheckObject->HitCheckBox(*TileCol);
+	//		}
+	//		else
+	//		{
+	//			if (NowTile->transform->Position.x >= camera->GetLeft() && NowTile->transform->Position.x <= camera->GetRight() &&
+	//				NowTile->transform->Position.y >= camera->GetTop() && NowTile->transform->Position.y <= camera->GetButtom())
+	//			{
+	//				CheckObject->HitCheckBox(*TileCol);
+	//			}
+
+	//		}
+	//	}
+	//}
 	return true;
 }
 
@@ -314,7 +348,7 @@ void Map::ColumnInit()
 /****	列更新	****/
 void Map::ColumnUpdate()
 {
-	for (auto Column : m_TileColumnList)
+	for (auto& Column : m_TileColumnList)
 	{
 		Column.Update();
 	}
@@ -367,10 +401,6 @@ void Map::CreateMap()
 				CreateTile(Pos, "purple", MAPOBJ::C4);
 				break;
 
-			case C5:
-				CreateTile(Pos, "red", MAPOBJ::C5);
-				break;
-
 			case GR:
 				break;
 
@@ -419,9 +449,9 @@ void Map::CreateTile(Vector2& in_Position, string FileName, MAPOBJ in_MapObj)
 	m_TileColumnList[Column].SetKind(in_MapObj);		//種類設定
 	m_TileColumnList[Column].SetColumn((float)Column);	//列設定
 
-	//m_TileColumnList[Column].mp_TileList.back()->Start();	//初期化
+		//m_TileColumnList[Column].mp_TileList.back()->Start();	//初期化
 
-	/*	タイルリストに保存	*/
+		/*	タイルリストに保存	*/
 	m_TileList.push_back(m_TileColumnList[Column].mp_TileList.back());
 
 }

@@ -13,6 +13,10 @@
 #pragma comment(lib, "winmm.lib")
 #pragma comment(lib, "xinput.lib")
 
+/****	振動MAX値	****/
+#define XINPUT_GAMEPAD_LEFT_VIBRATION_MAX	(0xffff * 0x02)
+#define XINPUT_GAMEPAD_RIGHT_VIBRATION_MAX	(0xffff)
+
 /****	アナログスティックデッドゾーン	****/
 #define XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE		7849
 #define XINPUT_GAMEPAD_RIGHT_THUMB_DEADZONE		8689

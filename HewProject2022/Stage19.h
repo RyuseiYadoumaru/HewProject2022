@@ -1,5 +1,15 @@
 #pragma once
 #include "ydmEngine.h"
+#include "Map.h"
+#include "MainCamera.h"
+#include "Player.h"
+#include "Fade.h"
+#include "BackGround.h"
+#include "ScreenFx.h"
+#include "CameraFrame.h"
+#include "Ceiling.h"
+#include "PictureFrame.h"
+#include "Shelf2.h"
 #include"Pause.h"
 #include"Result.h"
 #include "Goal.h"
@@ -12,8 +22,21 @@ namespace GamePlay
 	class Stage19Scene : public Create::Scene
 	{
 	private:
-		shared_ptr<Actor> m_stage19;//ステージ数表示の画像
-		shared_ptr<Actor> m_world4;//ワールド数表示のの画像
+		/* オブジェクト */
+		MainCamera* m_MainCamera;
+		Map* m_Map;
+		Player* m_Player;
+		PictureFrame* m_PicTureFrameStart;
+		Shelf2* m_Shelf2End;
+
+
+		/*	背景	*/
+		BackGround*		m_BackGround;
+		LayerBack*		m_LayerBack;
+		LayerFront*		m_LayerFront;
+
+		/*	天井	*/
+		Ceiling* m_Ceiling;
 
 		/* ゴール */
 		Goal* m_Goal;

@@ -28,6 +28,15 @@ namespace GameEngine
 		bool Update() override;
 		XMFLOAT4X4 Get() const;
 		XMFLOAT4X4* GetAddress();
+		Transform &operator=(Transform &in_T)
+		{
+			Position = in_T.Position;
+			Rotation = in_T.Rotation;
+			Scale = in_T.Scale;
+
+			return *this;
+		}
+
 
 
 	private:

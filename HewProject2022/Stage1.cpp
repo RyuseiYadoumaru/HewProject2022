@@ -56,7 +56,6 @@ bool GamePlay::Stage1Scene::Start()
 	/*	初期化	*/
 	m_SofaEnd->transform->Position.x += ROAD_DISTANCE;
 
-
 	/*	カメラ設定	*/
 	SetCamera(m_MainCamera);
 	m_MainCamera->Focus(m_Player);
@@ -81,7 +80,7 @@ Scene::STATE GamePlay::Stage1Scene::Update()
 	case 0://メインゲーム処理
 		/****	ブロック移動	****/
 		m_Map->CheckLandTile(m_Player->m_LandTile);
-		if (((m_Player->m_LandTile->GetisLandTile() == false) ||
+		if (((m_Player->m_LandTile->GetLandTile() == LandGround) ||
 			(Input::GetControllerTrigger(XINPUT_GAMEPAD_X)) || Input::GetKeyTrigger(PK_R)) &&
 			(m_Map->m_OnReset == false))
 		{
@@ -89,8 +88,6 @@ Scene::STATE GamePlay::Stage1Scene::Update()
 			m_Map->m_OnReset = true;
 		}
 
-		/****	オブジェクト更新	****/
-		ObjectUpdate();
 
 		/****	当たり判定	****/
 
@@ -99,17 +96,19 @@ Scene::STATE GamePlay::Stage1Scene::Update()
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_SofaEnd->GetComponent<BoxCollider2D>());
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_BigBook->GetComponent<BoxCollider2D>());
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_MiniBook->GetComponent<BoxCollider2D>());
+		/***  ゴール判定用  ***/
+		m_Goal->GetComponent<BoxCollider2D>()->HitCheckBox(*m_Player->GetComponent<BoxCollider2D>());
 
 		/****	オブジェクト更新	****/
 		cout << "PlayerPositionY:" << m_Player->transform->Position.y << endl;
 		ObjectUpdate();
 		cout << "PlayerPositionY:" << m_Player->transform->Position.y << endl;
 
-		/***  ゴール判定用  ***/
-		m_Goal->GetComponent<BoxCollider2D>()->HitCheckBox(*m_Player->GetComponent<BoxCollider2D>());
 		//当たったらゴール
-		for (auto name : m_Goal->GetComponent<BoxCollider2D>()->GetHitObject()) {
-			if (name == m_Player->ToString()) {
+		for (auto name : m_Goal->GetComponent<BoxCollider2D>()->GetHitObject())
+		{
+			if (name == m_Player->ToString())
+			{
 				Scene_State = 2;//リザルト用分岐に移動
 				m_ResultBack->Result_On();
 				m_ResultCursor->Result_On();
@@ -122,11 +121,6 @@ Scene::STATE GamePlay::Stage1Scene::Update()
 			m_Button->Pause_On();
 			Scene_State = 1;
 		}
-
-		/****	システム更新	****/
-		m_Map->SystemUpdate();
-		SystemUpdate();
-		return PLAY;
 		break;
 	case 1://ポーズ画面
 		/****   ポーズ中処理   ****/
@@ -145,7 +139,10 @@ Scene::STATE GamePlay::Stage1Scene::Update()
 		break;
 
 	}
-
+	/****	システム更新	****/
+	m_Map->SystemUpdate();
+	SystemUpdate();
+	return PLAY;
 }
 
 bool GamePlay::Stage1Scene::End()
@@ -196,9 +193,9 @@ bool GamePlay::Stage1Scene::Render()
 	ObjectRender<TutorialEffect>("TutorialEffect");
 
 	/****	デバッグ	****/
-	m_Player->Debug();
-	m_Map->Debug();
-	m_TableStart->Debug();
+	//m_Player->Debug();
+	//m_Map->Debug();
+	//m_TableStart->Debug();
 	/****	画面エフェクト	****/
 	//m_Fade->Render();
 	ObjectRender<ScreenFx>("SFX");

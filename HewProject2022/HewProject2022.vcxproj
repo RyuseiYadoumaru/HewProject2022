@@ -386,7 +386,6 @@
     <ClInclude Include="PlayerAnim.h" />
     <ClInclude Include="DefaultAnimController.h" />
     <ClInclude Include="PlayerAnimController.h" />
-    <ClInclude Include="ProtScene.h" />
     <ClInclude Include="PushAny.h" />
     <ClInclude Include="ResetInfo.h" />
     <ClInclude Include="ResetInfoList.h" />

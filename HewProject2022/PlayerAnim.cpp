@@ -19,9 +19,9 @@ void PlayerAnim::Init()
 
 	/*	•à‚­	*/
 	::AnimationTable set_Walk;
-	set_Walk.SetKind(KIND::WALK, KIND::WALK, KIND::WALK, ANIMATION_FINISH);
-	set_Walk.SetFrame(PLAYER_ANIM::ANIM_1, PLAYER_ANIM::ANIM_2, PLAYER_ANIM::ANIM_1, ANIMATION_FINISH);
-	set_Walk.SetKey(0.0f, 400.0f, 800.0f);
+	set_Walk.SetKind(KIND::WALK, KIND::IDLE, KIND::WALK, KIND::IDLE, KIND::WALK, ANIMATION_FINISH);
+	set_Walk.SetFrame(PLAYER_ANIM::ANIM_1, PLAYER_ANIM::ANIM_1, PLAYER_ANIM::ANIM_2, PLAYER_ANIM::ANIM_1, PLAYER_ANIM::ANIM_1, ANIMATION_FINISH);
+	set_Walk.SetKey(0.0f, 350.0f, 400.0f, 750.0f, 800.0f);
 	AnimationTableList.insert(std::make_pair("Walk", set_Walk));
 
 
@@ -29,7 +29,7 @@ void PlayerAnim::Init()
 	::AnimationTable set_Jump;
 	set_Jump.SetKind(KIND::IDLE, KIND::JUMP, KIND::JUMP, KIND::JUMP, ANIMATION_FINISH);
 	set_Jump.SetFrame(PLAYER_ANIM::ANIM_1, PLAYER_ANIM::ANIM_1, PLAYER_ANIM::ANIM_2, PLAYER_ANIM::ANIM_3, ANIMATION_FINISH);
-	set_Jump.SetKey(0.0f, 10.0f, 300.0f, 400.0f);
+	set_Jump.SetKey(0.0f, 10.0f, 150.0f, 250.0f);
 	AnimationTableList.insert(std::make_pair("Jump", set_Jump));
 
 	/*	—Ž‰º	*/

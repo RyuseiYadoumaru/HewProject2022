@@ -5,7 +5,7 @@ using namespace Create;
 bool GamePlay::Stage8Scene::Start()
 {
 	/*	インスタンス	*/
-	m_Map = Instance<Map>("stage1-2");
+	m_Map = Instance<Map>("stage2-3");
 	m_Player = Instance<Player>("Player");
 	m_MainCamera = Instance<MainCamera>("MainCamera");
 	m_ShelfStart = Instance<Shelf>("ShelfStart");
@@ -35,8 +35,6 @@ bool GamePlay::Stage8Scene::Start()
 	m_ResultCursor = Instance<Result>("ResultCursor");
 	m_ResultCursor->ResultCursor_Init();
 	m_ResultCursor->NowScene = "Stage8";
-
-
 
 	/*	初期化	*/
 	m_SinkEnd->transform->Position.x += ROAD_DISTANCE;
@@ -149,7 +147,7 @@ bool GamePlay::Stage8Scene::Render()
 	ObjectRender<Shelf>("ShelfStart");
 	ObjectRender<Sink>("SinkEnd");
 
-	ObjectRender<Map>("stage1-2");
+	ObjectRender<Map>("stage2-3");
 	ObjectRender<Player>("Player");
 
 	/*** ゴール描画 ***/

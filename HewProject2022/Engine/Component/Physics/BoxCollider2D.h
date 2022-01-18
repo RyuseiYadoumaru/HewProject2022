@@ -26,7 +26,7 @@ namespace GameEngine
 		void Debug(float red = 0.0f, float green = 1.0f, float blue = 0.0f);
 
 		void HitCheckBox(BoxCollider2D &in_objcollider);		//当たり判定
-		
+
 
 		void PushBackObject();//押し戻し処理
 
@@ -46,11 +46,10 @@ namespace GameEngine
 		Math::Vector2& GetCenterPos() { return CenterPos; }
 		Math::Vector2& GetCenterLength() { return CenterLength; }
 
-
 		std::vector<std::string>& GetHitObject() { return m_HitObjectList; }
 		std::vector<ID> GetHitObjectId()& { return m_HitObjectIdList; }
 
-		
+		bool GroundCheck(float in_Gravity);
 
 	private:
 		Math::Vector2 CenterPos;	//中心点座標
@@ -60,15 +59,15 @@ namespace GameEngine
 
 		Math::Vector2 m_ObjectSize;	//オブジェクトサイズ
 
-		Math::CRect Rect;		//コライダー生成
-		bool isActive;	//状態判定
-		bool isHit;	//ヒット判定
+		Math::CRect Rect;	//コライダー生成
+		bool isActive;		//状態判定
+		bool isHit;			//ヒット判定
 
 		//三木原追加
-		bool isHit_overBlock; //自分より上のブロックとの当たり判定
-		bool isHit_underBlock; //自分より下のブロックとの当たり判定
-		bool isHit_rightBlock; //自分より右のブロックとの当たり判定
-		bool isHit_leftBlock; //自分より左のブロックとの当たり判定
+		bool isHit_overBlock;	//自分より上のブロックとの当たり判定
+		bool isHit_underBlock;	//自分より下のブロックとの当たり判定
+		bool isHit_rightBlock;	//自分より右のブロックとの当たり判定
+		bool isHit_leftBlock;	//自分より左のブロックとの当たり判定
 
 		std::vector< BoxCollider2D > m_CheckList;
 		std::vector< Math::Vector2 > m_PushBackList;
@@ -79,7 +78,7 @@ namespace GameEngine
 
 	private:
 		void HitCheck();
-		
+
 		void CreateCollider();
 		void CreateCollider(Math::Vector2& Pos);
 

@@ -9,7 +9,7 @@ Player::Player(string in_Name) :Character(in_Name)
 	/*	ジャンプフォース初期化	*/
 	m_JumpForceArray =
 		//溜めフレーム
-	{ 0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,
+	{ 0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,
 
 		//ジャンプフレーム
 	  -16.0f,-15.4f,-14.8f,-13.2f,-12.6f,-12.0f,-12.0f,-12.0f,-11.4f,-10.8f,
@@ -29,7 +29,7 @@ bool Player::Start()
 {
 	/*	移動初期化	*/
 	//最高速度
-	m_maxMoveSpeedX = 2.0f;
+	m_maxMoveSpeedX = 2.5f;
 	//加速度
 	m_accelForceX = m_maxMoveSpeedX * 0.1f;
 	//摩擦力
@@ -45,7 +45,6 @@ bool Player::Start()
 	m_jumpFlg = false;
 	m_airFlg = true;
 
-
 	/*	マジック初期化	*/
 	m_isMagic = false;
 
@@ -54,7 +53,7 @@ bool Player::Start()
 	m_SpriteRenderer->SetSize(80.0f, 80.0f);
 	m_SpriteRenderer->Init();
 
-	transform->Position.Set(1000.0f * 2, 1000.0f - 599, 0.0f);
+	transform->Position.Set(1000.0f, 500.0f, 0.0f);
 	transform->Scale.Set(1.0f, 1.0f, 1.0f);
 
 	/*	リジットボディーコンポーネント	*/
@@ -109,18 +108,8 @@ bool Player::Update()
 	//キャラクターは重力の影響を受ける
 	AddGravity();
 
-	/*	乗ってるタイル更新	*/
-	//m_LandTile.Update();
-
 	/*	アニメーション修正処理	*/
 	FixAnimation();
-
-	//if (m_LandTile.GetisLandTile() == true)
-	//{
-	//	cout << "プレイヤーが乗っているタイル\n";
-	//	cout << m_LandTile->GetLandTile()->GetId().x << endl;
-	//	cout << m_LandTile->GetLandTile()->GetKind() << endl;
-	//}
 	return true;
 }
 
@@ -302,7 +291,7 @@ void Player::MoveAir()
 		GetComponent<BoxCollider2D>()->GetisHit_leftBlock() == false)
 	{
 		Accelerate(CHAR_MOVE_LEFT);
-		transform->Position.x += m_moveSpeed.x;
+		transform->Position.x += m_moveSpeed.x * CHAR_AIRSPEED_FIX;
 		m_SpriteRenderer->Flip = true;	//テクスチャフリップ
 	}
 
@@ -311,7 +300,8 @@ void Player::MoveAir()
 	{
 
 		Accelerate(CHAR_MOVE_RIGHT);
-		transform->Position.x += m_moveSpeed.x;
+		//空中の移動を早くする
+		transform->Position.x += m_moveSpeed.x * CHAR_AIRSPEED_FIX;
 		m_SpriteRenderer->Flip = false;	//テクスチャフリップ
 	}
 }
@@ -383,6 +373,7 @@ void Player::JumpEnd()
 /****	重力加算	****/
 void Player::AddGravity()
 {
+	//if (issaveColUnder == false) cout << "save = False\n";
 	if (m_jumpForce != 0.0f)
 	{
 		cout << "airFlg = true\n";
@@ -395,12 +386,6 @@ void Player::AddGravity()
 		m_airFlg = false;
 	}
 
-	//if (GetComponent<BoxCollider2D>()->GetisHit_underBlock() == false) {//宙に浮いてたら
-	//	cout << "sita= false\n";
-
-	//	m_airFlg = true;
-
-	//}
 
 	if (GetComponent<BoxCollider2D>()->GetisHit_overBlock() == true) {//頭ぶつけたら
 
@@ -419,7 +404,7 @@ void Player::AddGravity()
 		}
 	}
 	//空中に浮いていたら重力を加算する
-	if (m_airFlg == true)
+	if (m_airFlg == true || issaveColUnder == false && GetComponent<BoxCollider2D>()->GetisHit_underBlock() == false)
 	{
 		m_jumpForce += CHAR_GRAVITY;//徐々に重力が加算され、ジャンプ力が弱まっていく
 	}
@@ -434,7 +419,7 @@ void Player::AddGravity()
 		m_DownMoveValue += transform->Position.y - m_SavePosition.y;
 	}
 
-
+	issaveColUnder = GetComponent<BoxCollider2D>()->GetisHit_underBlock();
 }
 
 /****	アニメーション修正処理	****/

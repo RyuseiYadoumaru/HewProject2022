@@ -152,7 +152,7 @@ bool GamePlay::Stage2Scene::Render()
 
 	/****	オブジェクト描画	****/
 	ObjectRender<Sofa>("SofaStart");
-	ObjectRender<Cuhsion>("CuhsionEnd");
+	ObjectRender<Cuhsion>("ChusionEnd");
 
 	ObjectRender<Map>("stage1-2");
 	ObjectRender<Player>("Player");

@@ -9,6 +9,7 @@ class TileColumn;
 #define CHAR_MOVE_RIGHT 1.0f
 #define CHAR_MOVE_LEFT -1.0f
 
+#define CHAR_AIRSPEED_FIX (1.4)
 #define CHAR_GRAVITY  0.6f
 #define CHAR_ON_GROUND_ANIM (TILE_HEIGHT * 3.0f)		//ブロック２個分で着地アニメーションする
 
@@ -64,7 +65,7 @@ private:
 	vector<float> m_JumpForceArray;
 
 	bool m_isMagic;
-
+	bool issaveColUnder = false;
 	//ここひどい
 	bool isHitIdle = false;
 	void FixAnimation();	//アニメーション修正処理

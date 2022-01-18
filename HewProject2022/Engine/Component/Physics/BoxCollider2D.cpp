@@ -243,7 +243,33 @@ bool BoxCollider2D::GetisActive()
 	return isActive;
 }
 
+//==============================================================================
+//!	@fn		GroundCheck
+//!	@brief	グラウンドチェック
+//!	@param	重力
+//!	@retval	
+//==============================================================================
+bool GameEngine::BoxCollider2D::GroundCheck(float in_Gravity)
+{
+	/*	重力掛けたときの座標	*/
+	float posY = (Owner->transform->Position.y + in_Gravity) + CenterLength.y;
 
+	for (auto& Check : m_CheckList)
+	{
+		//確認する座標
+		float CheckPosY = Check.CenterPos.y - Check.CenterLength.y;
+
+		/*	衝突判定	*/
+		if (posY > CheckPosY)
+		{
+
+			printf("地面着地\n");
+			return true;
+		}
+
+	}
+	return false;
+}
 //==============================================================================
 //!	@fn		HitCheck
 //!	@brief　当たり判定を調べる

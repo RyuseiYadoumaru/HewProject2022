@@ -77,7 +77,7 @@ void LandTile::SearchLandingTile()
 	//着地したときに格納する
 	if (Col->GetisHit_underBlock() == false)
 	{
-		cout << "着地してないよ\n";;
+		cout << "着地してないよ\n";
 		return;
 	}
 	/*	前フレームのタイルを保存	*/

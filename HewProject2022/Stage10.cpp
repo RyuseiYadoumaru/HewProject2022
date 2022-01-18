@@ -5,7 +5,7 @@ using namespace Create;
 bool GamePlay::Stage10Scene::Start()
 {
 	/*	インスタンス	*/
-	m_Map = Instance<Map>("stage1-1");
+	m_Map = Instance<Map>("stage2-5");
 	m_Player = Instance<Player>("Player");
 	m_MainCamera = Instance<MainCamera>("MainCamera");
 	m_TablewareStart = Instance<Tableware>("TablewareStart");

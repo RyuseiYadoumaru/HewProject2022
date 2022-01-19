@@ -49,8 +49,8 @@ bool BlockResetEffect::Update()
 	/*	終了したら破棄する　	*/
 	if (m_Particle.GetState() == PARTICLE_FINISH)
 	{
-		Destroy();
 		BlockParticleManager::DeleteResetEffect(m_Owner->GetId().x);
+		Destroy();
 	}
 
 	/*	トランスフォーム更新	*/

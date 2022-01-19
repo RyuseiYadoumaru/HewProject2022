@@ -3,7 +3,11 @@
 #include "BlockMagicEffect.h"
 #include "BlockMoveEffect.h"
 #include "BlockResetEffect.h"
+#include "Tile.h"
 
+
+#define EFFECT_RED true
+#define EFFECT_BLUE false
 using Create::GameObject;
 /****	移動パーティクル	****/
 class BlockParticleManager
@@ -13,13 +17,15 @@ public:
 	static void CreateMoveEffect(GameObject* Owner, BlockEffectColor in_Color);
 	static void CreateResetEffect(GameObject* Owner, BlockEffectColor in_Color);
 
-	static void DeleteMagicEffect(float in_Id);
-	static void DeleteMoveEffect(float in_Id);
-	static void DeleteResetEffect(float in_Id);
+	static bool DeleteMagicEffect(float in_Id);
+	static bool DeleteMoveEffect(float in_Id);
+	static bool DeleteResetEffect(float in_Id);
 
 	static void MagicStateFinish(float in_Id);
 	static void MoveStateFinish(float in_Id);
 	static void ResetStateFinish(float in_Id);
+
+	static bool JudgeRedorBlue(MAPOBJ in_kind);
 
 private:
 	static map<float, BlockMagicEffect*> m_MagicEffectList;

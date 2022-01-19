@@ -3,6 +3,7 @@
 #include "Tile.h"
 #include "TileColumn.h"
 #include "MoveInfo.h"
+#include "Map.h"
 
 
 /****	コンストラクタ	****/
@@ -10,10 +11,19 @@ MoveManager::MoveManager()
 {
 	m_MoveWaitTime = 0.0f;
 	m_Timer = 0.0f;
+	FrontCounter = 0;
+	BackCounter = 0;
+	EffectColor = BlockEffectColor::BLUE;
+	isMagicFin = false;
+	//エフェクト配列初期化
+	FrontParticle.Clear();
+	BackParticle.Clear();
+	ResetColumnNum.clear();
+
 }
 
 /****	初期化	****/
-bool MoveManager::Init(vector<TileColumn>* in_AllTile, LandTile* in_StandardTile)
+bool MoveManager::Init(LandTile* in_StandardTile)
 {
 	//移動するブロックがあるときはtrueで返す
 
@@ -24,15 +34,23 @@ bool MoveManager::Init(vector<TileColumn>* in_AllTile, LandTile* in_StandardTile
 	if (m_StandardTile->GetLandTile()->tag == TagList::ColorBlock)
 	{
 		//移動配列に格納
-		bool ret = SetMoveList(in_AllTile);
-
-		//移動列があるとき
-		if (ret == true)
+		if (SetMoveList() == true)
 		{
-			//移動列の数に応じて待機時間を変える
-			m_MoveWaitTime = (Front.Num() * m_OneColumnWaitTime) + (Back.Num() * m_OneColumnWaitTime);
 			//タイマー初期化
 			m_Timer = 0.0f;
+
+			//エフェクト用カウンタ初期化
+			FrontCounter = 0;
+			BackCounter = 0;
+			//エフェクトカラー設定
+			if (m_StandardTile->GetLandTile()->GetKind() == C1 ||
+				m_StandardTile->GetLandTile()->GetKind() == C4)
+			{
+				//赤系のブロックなら、エフェクトカラーを赤に設定
+				EffectColor = BlockEffectColor::RED;
+				isMagicFin = false;
+			}
+
 			return true;
 		}
 	}
@@ -48,16 +66,21 @@ bool MoveManager::Update()
 	if (Front.Empty() == false ||
 		Back.Empty() == false)
 	{
+		/*	リセット処理再生	*/
+		if (isResetFin == false)
+		{
+			SetResetParticle();
+			isResetFin = true;
+		}
 		//移動リストが空じゃないとき
 
-		if (m_Timer >= m_MoveWaitTime)
+		if (isMagicFin == true || SetMagicParticle() == true)
 		{
 			//待機時間分まつ
 			isFin = Move();
 		}
 		else
 		{
-			//時間更新
 			m_Timer += GameTimer::deltaTime();
 		}
 
@@ -90,28 +113,33 @@ int MoveManager::GetLandObjectID() const
 //-----------------------------------------------------------------------------
 
 /****	移動リスト作成	****/
-bool MoveManager::SetMoveList(vector<TileColumn>* in_AllTile)
+bool MoveManager::SetMoveList()
 {
 	//移動列があるときはtrueを返す
 
 	/****	基準列設定	****/
 	int NowColumn = m_StandardTile->GetLandTile()->GetMyColumn();
+	ResetColumnNum.push_back(NowColumn);
 	//乗ってる列の基準列を入れておく
-	in_AllTile->at(NowColumn).m_MoveInfo->SetStandardTile(m_StandardTile->GetLandTile());
+	Map::m_TileColumnList[NowColumn].m_MoveInfo->SetStandardTile(m_StandardTile->GetLandTile());
 
 	/****	前探索	****/
 	/*	スタート探索列	*/
 	int SearchColumn = NowColumn + 1;
 
 	/*	探索処理	*/
-	while (in_AllTile->at(SearchColumn).m_MoveInfo->SearchTile(m_StandardTile->GetLandTile()))
+	while (Map::m_TileColumnList[SearchColumn].m_MoveInfo->SearchTile(m_StandardTile->GetLandTile()))
 	{
+		//リセット列保存
+		ResetColumnNum.push_back(SearchColumn);
 		/*	現在のポジションと違う場所に移動するとき	*/
-		if (in_AllTile->at(SearchColumn).m_MoveInfo->GetPositionEqual() == false)
+		if (Map::m_TileColumnList[SearchColumn].m_MoveInfo->GetPositionEqual() == false)
 		{
 			//移動列格納
-			Front.Add(in_AllTile->at(SearchColumn).m_MoveInfo.get());
+			Front.Add(Map::m_TileColumnList[SearchColumn].m_MoveInfo.get());
 		}
+		//エフェクト用配列格納
+		FrontParticle.Add(Map::m_TileColumnList[SearchColumn].m_MoveInfo.get());
 		//探索列更新
 		SearchColumn++;
 	}
@@ -120,13 +148,16 @@ bool MoveManager::SetMoveList(vector<TileColumn>* in_AllTile)
 	/*	スタート探索列	*/
 	SearchColumn = NowColumn - 1;
 	/*	探索処理	*/
-	while (in_AllTile->at(SearchColumn).m_MoveInfo->SearchTile(m_StandardTile->GetLandTile()))
+	while (Map::m_TileColumnList[SearchColumn].m_MoveInfo->SearchTile(m_StandardTile->GetLandTile()))
 	{
-		if (in_AllTile->at(SearchColumn).m_MoveInfo->GetPositionEqual() == false)
+		//リセット列保存
+		ResetColumnNum.push_back(SearchColumn);
+		if (Map::m_TileColumnList[SearchColumn].m_MoveInfo->GetPositionEqual() == false)
 		{
 			//移動列格納
-			Back.Add(in_AllTile->at(SearchColumn).m_MoveInfo.get());
+			Back.Add(Map::m_TileColumnList[SearchColumn].m_MoveInfo.get());
 		}
+		BackParticle.Add(Map::m_TileColumnList[SearchColumn].m_MoveInfo.get());
 		//探索列更新
 		SearchColumn--;
 	}
@@ -151,6 +182,7 @@ bool MoveManager::Move()
 	{
 		/*	列移動処理	*/
 		Front.MoveFront();
+
 	}
 
 	/*	移動列がなくなったら	*/
@@ -176,9 +208,97 @@ bool MoveManager::Move()
 	//終了の時はtrueを返す
 	if (isFrontFin == true && isBackFin == true)
 	{
+		//移動パーティクル再生
+		SetMoveParticle();
+		return true;
+	}
+	return false;
+}
+
+
+/****	マジックエフェクトを再生する	****/
+bool MoveManager::SetMagicParticle()
+{
+	//待機時間が終了したら
+	//エフェクトを1つずつ再生していく
+	if (m_Timer <= m_OneMagicWaitTime)
+	{
+		return false;
+	}
+	m_Timer = 0.0f;
+
+	if (FrontParticle.Num() != 0 && FrontCounter < FrontParticle.Num())
+	{
+		//前の基準ブロックにエフェクトをかける
+		BlockParticleManager::CreateMagicEffect(FrontParticle.m_List[FrontCounter]->GetStandartdTile(), EffectColor);
+		FrontCounter++;
+	}
+
+	if (BackParticle.Num() != 0 && BackCounter < BackParticle.Num())
+	{
+		//後の基準ブロックにエフェクトをかける
+		BlockParticleManager::CreateMagicEffect(BackParticle.m_List[BackCounter]->GetStandartdTile(), EffectColor);
+		BackCounter++;
+	}
+
+	/*	両方とも終了	*/
+	if (BackCounter >= BackParticle.Num() && FrontCounter >= FrontParticle.Num())
+	{
+		//再生が終了したらtrueを返す
+		isMagicFin = true;
 		return true;
 	}
 
+	//終了していない
 	return false;
+}
+
+
+/****	移動エフェクト再生	****/
+void MoveManager::SetMoveParticle()
+{
+
+	//全て移動が完了したら
+	//一斉に再生する
+	for (auto& front : FrontParticle.m_List)
+	{
+		Tile* PTile = front->GetStandartdTile();
+		BlockParticleManager::DeleteMagicEffect(PTile->GetId().x);
+		BlockParticleManager::CreateMoveEffect(PTile, EffectColor);
+	}
+	for (auto& Back : BackParticle.m_List)
+	{
+		Tile* PTile = Back->GetStandartdTile();
+		BlockParticleManager::DeleteMagicEffect(PTile->GetId().x);
+		BlockParticleManager::CreateMoveEffect(PTile, EffectColor);
+	}
+
+}
+
+/****	リセット処理再生	****/
+void MoveManager::SetResetParticle()
+{
+	/*	移動している全てのタイルを探索	*/
+	for (auto num : ResetColumnNum)
+	{
+		for (auto& tile : Map::m_TileColumnList[num].mp_TileList)
+		{
+			//移動エフェクトがデリートされたら
+			if (BlockParticleManager::DeleteMoveEffect(tile->GetId().x) == true)
+			{
+
+				//リセットエフェクトをかける
+				if (BlockParticleManager::JudgeRedorBlue(tile->GetKind()) == EFFECT_RED)
+				{
+					BlockParticleManager::CreateResetEffect(tile, BlockEffectColor::RED);
+				}
+				else
+				{
+					BlockParticleManager::CreateResetEffect(tile, BlockEffectColor::BLUE);
+				}
+			}
+
+		}
+	}
 
 }

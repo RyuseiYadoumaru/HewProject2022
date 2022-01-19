@@ -75,7 +75,6 @@ Scene::STATE GamePlay::Stage1Scene::Update()
 	cnt++;
 	cout << "\nフレーム" << cnt << endl;
 
-
 	switch (Scene_State) {
 	case 0://メインゲーム処理
 		/****	ブロック移動	****/

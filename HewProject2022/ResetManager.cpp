@@ -11,10 +11,10 @@ ResetManager::ResetManager()
 }
 
 /****	初期化処理	****/
-bool ResetManager::Init(vector<TileColumn>* in_AllTile)
+bool ResetManager::Init()
 {
 	//タイル列全探索
-	for (auto& Column : *in_AllTile)
+	for (auto& Column : Map::m_TileColumnList)
 	{
 		//タイルリストがあるとき
 		//スタート座標と移動しているとき
@@ -90,5 +90,16 @@ bool ResetManager::Update()
 	}
 
 	//リセット中はtrueを返す
+	return true;
+}
+
+bool ResetManager::ResetParticle()
+{
+	for (auto& column : Reset.m_List)
+	{
+		BlockParticleManager::DeleteMagicEffect(column->GetObjectID());
+	}
+
+	//終了したらtrueを返す
 	return true;
 }

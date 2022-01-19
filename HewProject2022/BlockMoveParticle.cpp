@@ -5,7 +5,7 @@ void BlockMoveParticle::Init()
 {
 	::ParticleTable set_Move;
 	set_Move.SetFrame(0, 1, 2, 3, 4, 5, PARTICLE_FINISH);
-	set_Move.SetKey(0.0f, 30.0f, 60.0f, 90.0f, 120.0f, 150.0f);
+	set_Move.SetKey(0.0f, 15.0f, 30.0f, 500.0f, 1000.0f, 1500.0f);
 	Create(set_Move);
 
 	/*	表示テクスチャ初期化	*/

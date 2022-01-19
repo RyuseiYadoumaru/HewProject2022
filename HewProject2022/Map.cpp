@@ -62,9 +62,21 @@ void Map::AllTileReset()
 	{
 		if (Column.mp_TileList.empty() == false)
 		{
-			for (auto tile : Column.mp_TileList)
+
+			for (auto& tile : Column.mp_TileList)
 			{
 				tile->transform->Position.y = tile->GetStartPosition().y;
+				if (BlockParticleManager::DeleteMoveEffect(tile->GetId().x) == true)
+				{
+					if (tile->GetKind() == C1 || tile->GetKind() == C4)
+					{
+						BlockParticleManager::CreateResetEffect(tile, BlockEffectColor::RED);
+					}
+					else
+					{
+						BlockParticleManager::CreateResetEffect(tile, BlockEffectColor::BLUE);
+					}
+				}
 			}
 		}
 	}
@@ -120,8 +132,6 @@ bool Map::Update()
 	{
 		MoveReset();
 	}
-
-
 	return true;
 }
 
@@ -223,28 +233,6 @@ bool Map::HitCheckMap(GameObject& in_GameObject, bool checkRangeCamera)
 
 		}
 	}
-	//for (int column = 0; column < m_Mapdata.GetSize().x; ++column)
-	//{
-	//	TileColumn& Search = m_TileColumnList[column];
-	//	for (auto NowTile : Search.mp_TileList)
-	//	{
-	//		BoxCollider2D* TileCol = NowTile->GetComponent<BoxCollider2D>();
-	//		if (checkRangeCamera == false)
-	//		{
-	//			//カメラ範囲外もチェックする
-	//			CheckObject->HitCheckBox(*TileCol);
-	//		}
-	//		else
-	//		{
-	//			if (NowTile->transform->Position.x >= camera->GetLeft() && NowTile->transform->Position.x <= camera->GetRight() &&
-	//				NowTile->transform->Position.y >= camera->GetTop() && NowTile->transform->Position.y <= camera->GetButtom())
-	//			{
-	//				CheckObject->HitCheckBox(*TileCol);
-	//			}
-
-	//		}
-	//	}
-	//}
 	return true;
 }
 
@@ -302,7 +290,7 @@ void Map::MoveReset()
 	{
 		/*	リセット初期化	*/
 		m_isResetStart = true;
-		bool ret = m_ResetManager.Init(&m_TileColumnList);
+		bool ret = m_ResetManager.Init();
 		cout << "リセット初期化完了\n";
 		/*	リセット処理	*/
 		if (ret == false)
@@ -499,7 +487,7 @@ void Map::AddMoveManager(LandTile* in_LandTile)
 	cout << "タイル保存\n";
 	m_MoveManager.push_back(make_shared<MoveManager>());	//待機列に移動列を入れる
 	/*	移動情報初期化処理	*/
-	if (m_MoveManager.back()->Init(&m_TileColumnList, in_LandTile) == false)
+	if (m_MoveManager.back()->Init(in_LandTile) == false)
 	{
 		//移動列が無かったら解放する
 		m_MoveManager.back().reset();

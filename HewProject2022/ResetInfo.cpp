@@ -63,6 +63,16 @@ bool ResetInfo::Tick()
 	return FixMove(mp_StandardTile->GetStartPosition().y);
 }
 
+float ResetInfo::GetObjectID()
+{
+	return mp_StandardTile->GetId().x;
+}
+
+Tile * ResetInfo::GetStandardTile()
+{
+	return mp_StandardTile;
+}
+
 //-----------------------------------------------------------------------------
 // Private Function
 //-----------------------------------------------------------------------------

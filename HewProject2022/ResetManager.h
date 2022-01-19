@@ -10,12 +10,16 @@ class ResetManager
 {
 public:
 	ResetManager();
-	bool Init(vector<TileColumn>* in_AllTile);
+	bool Init();
 	bool Update();
 
 
 private:
 	ResetInfoList Reset;
+
+
+private:
+	bool ResetParticle();
 
 private:
 	static constexpr TIME m_MaxResetWaitTime = 1000.0f;

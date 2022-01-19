@@ -19,7 +19,9 @@ public:
 	//移動アドレスセット
 	void SetColumn(TileColumn* in_Column) { mp_MoveColumn = in_Column; }
 	//三木原追加
-	float GetSpeed() { return m_Speed; };
+	float GetSpeed() { return m_Speed; }
+	float GetObjectID();
+	Tile* GetStandardTile();
 private:
 	TileColumn* mp_MoveColumn;	//移動する列
 	Tile* mp_StandardTile;		//基準タイル

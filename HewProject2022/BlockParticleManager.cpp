@@ -14,6 +14,12 @@ int							  BlockParticleManager::Counter = 0;
 void BlockParticleManager::CreateMagicEffect(GameObject* Owner, BlockEffectColor in_Color)
 {
 	/*	エフェクト生成	*/
+	if (Owner == nullptr)
+	{
+		//オーナーの中身がない時は生成しない
+		return;
+	}
+	/*	エフェクト生成	*/
 	NAME name = "BlockMagicEffect(clone)";
 	NAME num = to_string(Counter);
 	name = name + num;
@@ -30,6 +36,12 @@ void BlockParticleManager::CreateMagicEffect(GameObject* Owner, BlockEffectColor
 /****	移動エフェクト生成	****/
 void BlockParticleManager::CreateMoveEffect(GameObject* Owner, BlockEffectColor in_Color)
 {
+	/*	エフェクト生成	*/
+	if (Owner == nullptr)
+	{
+		//オーナーの中身がない時は生成しない
+		return;
+	}
 	/*	エフェクト生成	*/
 	NAME name = "BlockMoveEffect(clone)";
 	NAME num = to_string(Counter);
@@ -48,6 +60,11 @@ void BlockParticleManager::CreateMoveEffect(GameObject* Owner, BlockEffectColor 
 void BlockParticleManager::CreateResetEffect(GameObject* Owner, BlockEffectColor in_Color)
 {
 	/*	エフェクト生成	*/
+	if (Owner == nullptr)
+	{
+		//オーナーの中身がない時は生成しない
+		return;
+	}
 	NAME name = "BlockResetEffect(clone)";
 	NAME num = to_string(Counter);
 	name = name + num;
@@ -63,19 +80,45 @@ void BlockParticleManager::CreateResetEffect(GameObject* Owner, BlockEffectColor
 }
 
 /****	エフェクト削除	****/
-void BlockParticleManager::DeleteMagicEffect(float in_Id)
+bool BlockParticleManager::DeleteMagicEffect(float in_Id)
 {
-	m_MagicEffectList.erase(in_Id);
+	if (m_MagicEffectList.count(in_Id) == 1)
+	{
+		//エフェクトを終了する
+		Create::Scene::Destroy(m_MagicEffectList[in_Id]->ToString());
+		//オーナーIDから削除する  
+		m_MagicEffectList.erase(in_Id);
+		//削除に成功
+		return true;
+	}
+
+	return false;
 }
 
-void BlockParticleManager::DeleteMoveEffect(float in_Id)
+bool BlockParticleManager::DeleteMoveEffect(float in_Id)
 {
-	m_MoveEffectList.erase(in_Id);
+	if (m_MoveEffectList.count(in_Id) == 1)
+	{
+		//エフェクトを終了する
+		Create::Scene::Destroy(m_MoveEffectList[in_Id]->ToString());
+		//オーナーIDから削除する  
+		m_MoveEffectList.erase(in_Id);
+		//削除に成功
+		return true;
+	}
+	return false;
 }
 
-void BlockParticleManager::DeleteResetEffect(float in_Id)
+bool BlockParticleManager::DeleteResetEffect(float in_Id)
 {
-	m_ResetEffectList.erase(in_Id);
+	if (m_ResetEffectList.count(in_Id) == 1)
+	{
+		//オーナーIDから削除する  
+		m_ResetEffectList.erase(in_Id);
+		//削除に成功
+		return true;
+	}
+	return false;
 }
 
 
@@ -94,6 +137,20 @@ void BlockParticleManager::MoveStateFinish(float in_Id)
 void BlockParticleManager::ResetStateFinish(float in_Id)
 {
 	m_ResetEffectList[in_Id]->StateFinish();
+}
+
+bool BlockParticleManager::JudgeRedorBlue(MAPOBJ in_kind)
+{
+	if (in_kind == C1 || in_kind == C4)
+	{
+		return EFFECT_RED;
+	}
+	if (in_kind == C2 || in_kind == C3)
+	{
+		return EFFECT_BLUE;
+
+	}
+	return EFFECT_BLUE;
 }
 
 

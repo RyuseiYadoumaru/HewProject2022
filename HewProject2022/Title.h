@@ -16,7 +16,7 @@ public:
 	bool Fade_Out();
 	bool Fade_Switch();
 
-	int GetLogo_sw();
+	bool GetLogo_sw();
 
 };
 

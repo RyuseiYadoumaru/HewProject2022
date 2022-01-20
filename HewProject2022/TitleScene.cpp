@@ -56,28 +56,12 @@ Scene::STATE GamePlay::TitleScene::Update()
 		m_PushAny->Flashing();
 	}
 
-	/****	ロードシーン	****/
-	if (Input::GetKeyTrigger(PK_ENTER) == true)//エンター押すと次のシーンへ移動
-	{
-		GameEngine::SceneManager::LoadScene("WorldSelectScene");
-	}
-	//if (Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true ||
-	//	Input::GetControllerTrigger(XINPUT_GAMEPAD_X) == true ||
-	//	Input::GetControllerTrigger(XINPUT_GAMEPAD_Y) == true ||
-	//	Input::GetControllerTrigger(XINPUT_GAMEPAD_B) == true ||
-	//	Input::GetControllerTrigger(XINPUT_GAMEPAD_DPAD_UP) == true ||
-	//	Input::GetControllerTrigger(XINPUT_GAMEPAD_DPAD_DOWN) == true ||
-	//	Input::GetControllerTrigger(XINPUT_GAMEPAD_DPAD_RIGHT) == true ||
-	//	Input::GetControllerTrigger(XINPUT_GAMEPAD_DPAD_LEFT) == true||
-	//	Input::GetControllerTrigger(XINPUT_GAMEPAD_START) == true || 
-	//	Input::GetControllerTrigger(XINPUT_GAMEPAD_BACK) == true) {
-	//	GameEngine::SceneManager::LoadScene("WorldSelectScene");
-	//}
-	if (Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true)
+	/****	NextScene	****/
+	if (Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true ||
+		Input::GetKeyTrigger(PK_ENTER) == true)
 	{
 		Input::Vibration(XINPUT_GAMEPAD_RIGHT_VIBRATION_MAX, 750.0f);
 		GameEngine::SceneManager::LoadScene("WorldSelectScene");
-
 	}
 
 	/****	システム更新	****/

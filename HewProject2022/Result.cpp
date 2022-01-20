@@ -4,7 +4,7 @@
 #define BASE_POSITION_X 1920.0f/2.0f
 #define BASE_POSITION_Y 1080.0f/2.0f
 
-Result::Result(string in_Name):Actor(in_Name)
+Result::Result(string in_Name) :Actor(in_Name)
 {
 }
 
@@ -177,7 +177,7 @@ void Result::ChangeNextScene()
 			GameEngine::SceneManager::LoadScene("TitleScene");
 		}
 	}
-	
+
 }
 
 void Result::ChangeSelectScene()

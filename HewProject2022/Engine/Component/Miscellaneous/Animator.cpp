@@ -40,7 +40,7 @@ bool GameEngine::Animator::Update()
 	Controller->Update();
 
 	/*	UVタイリング更新	*/
-	Owner->GetComponent<SpriteRenderer>()->UTiling = Controller->GetFrame();
-	Owner->GetComponent<SpriteRenderer>()->VTiling = Controller->GetKind();
+	Owner->GetComponent<SpriteRenderer>()->UTiling = (float)Controller->GetFrame();
+	Owner->GetComponent<SpriteRenderer>()->VTiling = (float)Controller->GetKind();
 	return true;
 }

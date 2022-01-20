@@ -79,7 +79,7 @@ bool GameEngine::ParticleSystem::Update()
 	}
 
 	/*	UVタイリング更新	*/
-	Owner->GetComponent<SpriteRenderer>()->UTiling = m_Pariticle->GetFrame();
+	Owner->GetComponent<SpriteRenderer>()->UTiling = (float)m_Pariticle->GetFrame();
 	Owner->GetComponent<SpriteRenderer>()->VTiling = 0.0f;
 
 	return true;

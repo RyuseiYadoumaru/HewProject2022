@@ -1,6 +1,6 @@
 #include "Title.h"
 
-Title::Title(string in_Name): Actor (in_Name)
+Title::Title(string in_Name) : Actor(in_Name)
 {
 }
 
@@ -9,7 +9,7 @@ bool Title::Start()
 	//Now_Scene = "TitleScene";
 	m_SpriteRenderer->Init();
 	this->Vertex("vs_Ui");										//画面座標の取得
-	this->transform->Position.Set(1920 / 2, (1080 / 2)-70, 0);	//座標初期値設定
+	this->transform->Position.Set(1920 / 2, (1080 / 2) - 70, 0);	//座標初期値設定
 	this->GetComponent<SpriteRenderer>()->Color.a = 0;			//初期で非表示に
 	Logo_sw = true;												//フラグの初期化
 
@@ -51,7 +51,7 @@ bool Title::Fade_Switch()
 }
 
 //フラグの取得
-int Title::GetLogo_sw()
+bool Title::GetLogo_sw()
 {
 	return Logo_sw;
 }

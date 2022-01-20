@@ -86,9 +86,8 @@ bool MapData::Load(std::string in_FileName)
 		y++;
 	}
 
-	Size.x = Map[0].size();
-	Size.y = Map.size();
-
+	Size.x = (float)Map[0].size();
+	Size.y = (float)Map.size();
 
 	return true;
 }

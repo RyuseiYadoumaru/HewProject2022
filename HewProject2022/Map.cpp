@@ -315,8 +315,8 @@ void Map::ColumnInit()
 	/*****	座標設定	****/
 	//マップの中心を基準にする
 	Vector3 SetPosition;
-	int MapWidth = m_Mapdata.GetSize().x;
-	int MapHeight = m_Mapdata.GetSize().y;
+	float MapWidth = m_Mapdata.GetSize().x;
+	float MapHeight = m_Mapdata.GetSize().y;
 	SetPosition.x = transform->Position.x - ((MapWidth / 2.0f) * TILE_WIDTH);
 	SetPosition.y = transform->Position.y - ((MapHeight / 2.0f) * TILE_HEIGHT);
 
@@ -351,8 +351,8 @@ void Map::CreateMap()
 	/****	ブロック情報読込	****/
 	Vector2 Pos;
 
-	int MapWidth = m_Mapdata.GetSize().x;
-	int MapHeight = m_Mapdata.GetSize().y;
+	float MapWidth = m_Mapdata.GetSize().x;
+	float MapHeight = m_Mapdata.GetSize().y;
 
 	vector<vector<char>> MapChip = *m_Mapdata.GetMapData();
 	for (int y = 0; y < MapHeight; y++)

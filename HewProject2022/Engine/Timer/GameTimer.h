@@ -18,7 +18,7 @@ namespace GameEngine
 		static void Update();
 		static TIME deltaTime();
 		static TIME fixedDeltaTime();
-		static TIME NowFrameCount();
+		static FRAME NowFrameCount();
 
 	private:
 		static TIME m_CurrenTime;

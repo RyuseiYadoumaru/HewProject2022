@@ -58,7 +58,7 @@ Math::Vector& Math::Vector::operator=(float in_F)
 //==============================================================================
 Math::Vector& Math::Vector::operator=(int in_I)
 {
-	x = in_I;
+	x = (float)in_I;
 	return *this;
 }
 

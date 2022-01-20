@@ -83,7 +83,12 @@ bool GameEngine::Input::GetKeyTrigger(int vkey)
 //==============================================================================
 bool GameEngine::Input::GetControllerPress(int Xbuttom)
 {
-	return (g_PadState.Gamepad.wButtons & Xbuttom);
+	if (g_PadState.Gamepad.wButtons & Xbuttom)
+	{
+		m_GamePadState[Xbuttom] = true;
+	}
+
+	return m_GamePadState[Xbuttom];
 }
 
 //==============================================================================
@@ -94,6 +99,7 @@ bool GameEngine::Input::GetControllerPress(int Xbuttom)
 //==============================================================================
 bool GameEngine::Input::GetControllerTrigger(int Xbuttom)
 {
+
 	if (g_PadState.Gamepad.wButtons & Xbuttom)
 	{
 		m_GamePadState[Xbuttom] = true;
@@ -204,7 +210,7 @@ VIBRATION GameEngine::Input::Vibration(VIBRATION in_Power, TIME time)
 void GameEngine::Input::LeftVibrationStop()
 {
 	m_LeftTime = NULL;
-	m_Vibration.wLeftMotorSpeed = 0.0f;
+	m_Vibration.wLeftMotorSpeed = (WORD)0.0;
 	XInputSetState(0, &m_Vibration);
 }
 
@@ -217,7 +223,7 @@ void GameEngine::Input::LeftVibrationStop()
 void GameEngine::Input::RightVibrationStop()
 {
 	m_RightTime = NULL;
-	m_Vibration.wRightMotorSpeed = 0.0f;
+	m_Vibration.wRightMotorSpeed = (WORD)0.0f;
 	XInputSetState(0, &m_Vibration);
 
 }

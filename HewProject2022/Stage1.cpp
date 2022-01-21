@@ -121,6 +121,7 @@ Scene::STATE GamePlay::Stage1Scene::Update()
 			Scene_State = 1;
 		}
 		break;
+
 	case 1://ポーズ画面
 		/****   ポーズ中処理   ****/
 		m_Button->PauseCursor_Move();
@@ -138,6 +139,9 @@ Scene::STATE GamePlay::Stage1Scene::Update()
 		break;
 
 	}
+
+
+
 	/****	システム更新	****/
 	m_Map->SystemUpdate();
 	SystemUpdate();

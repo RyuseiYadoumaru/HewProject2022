@@ -204,6 +204,7 @@
     <ClCompile Include="Engine\SceneManager\SceneManager.cpp" />
     <ClCompile Include="Engine\Timer\GameTimer.cpp" />
     <ClCompile Include="Fade.cpp" />
+    <ClCompile Include="GameCamera.cpp" />
     <ClCompile Include="Game\GameObject\Actor.cpp" />
     <ClCompile Include="Game\GameObject\Camera.cpp" />
     <ClCompile Include="Game\GameObject\Character.cpp" />
@@ -361,6 +362,7 @@
     <ClInclude Include="Engine\SceneManager\SceneManager.h" />
     <ClInclude Include="Engine\Timer\GameTimer.h" />
     <ClInclude Include="Fade.h" />
+    <ClInclude Include="GameCamera.h" />
     <ClInclude Include="Game\GameObject\Actor.h" />
     <ClInclude Include="Game\GameObject\Camera.h" />
     <ClInclude Include="Game\GameObject\Character.h" />

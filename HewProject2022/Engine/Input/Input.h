@@ -44,8 +44,8 @@ namespace GameEngine
 	private:
 		static XINPUT_VIBRATION m_Vibration;
 
-		static std::map<int, bool> m_GamePadState;
-		static std::map<int, bool> m_OldGamePadState;
+		static XINPUT_STATE m_GamePadState;
+		static XINPUT_STATE m_OldGamePadState;
 
 		static TIME m_LeftTime;
 		static TIME m_RightTime;

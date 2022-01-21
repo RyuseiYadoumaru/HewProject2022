@@ -135,9 +135,6 @@ bool GameEngine::SceneManager::LoadResult(std::string NowSceneName)
 
 	/****	ƒV[ƒ“ó‘Ô•ÏX	****/
 	scene->SetState(Create::Scene::END);
-	/*if (NowSceneName == "Stage1") {
-
-	}*/
 
 	return true;
 }

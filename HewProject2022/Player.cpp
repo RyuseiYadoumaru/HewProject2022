@@ -342,7 +342,7 @@ void Player::Jump()
 	transform->Position.y += m_jumpForce;//ここにデルタタイム？
 
 #else
-	if ((Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true || Input::GetKeyTrigger(VK_SPACE) == true) &&
+	if ((Input::GetControllerPress(XINPUT_GAMEPAD_A) == true || Input::GetKeyPress(VK_SPACE) == true) &&
 		m_jumpFlg == false && m_airFlg == false)//小ジャンプ
 	{
 		m_jumpFlg = true;

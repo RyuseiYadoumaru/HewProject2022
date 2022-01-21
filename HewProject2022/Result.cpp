@@ -59,21 +59,21 @@ bool Result::ResultCursor_Move()
 	switch (Cursor_Position) {
 	case 0:
 		this->transform->Position.Set(BASE_POSITION_X - 170, BASE_POSITION_Y - CURSOR_DISTANCE + 200, 0.0f);
-		if (Input::GetControllerTrigger(XINPUT_GAMEPAD_B) == true) {
+		if (Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true) {
 			//Result_Checker = 1;//次のステージ
 			this->ChangeNextScene();
 		}
 		break;
 	case 1:
 		this->transform->Position.Set(BASE_POSITION_X - 170, BASE_POSITION_Y + 200, 0.0f);
-		if (Input::GetControllerTrigger(XINPUT_GAMEPAD_B) == true) {
+		if (Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true) {
 			//Result_Checker = 2;//初めからやり直す処理
 			GameEngine::SceneManager::LoadScene(this->NowScene);//ステージセレクトに戻る
 		}
 		break;
 	case 2:
 		this->transform->Position.Set(BASE_POSITION_X - 170, BASE_POSITION_Y + CURSOR_DISTANCE + 200, 0.0f);
-		if (Input::GetControllerTrigger(XINPUT_GAMEPAD_B) == true) {
+		if (Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true) {
 			//Result_Checker = 3;//ステージセレクトに戻る
 			this->ChangeSelectScene();
 		}

@@ -36,7 +36,7 @@ bool GamePlay::Stage3Scene::Start()
 	m_ResultBack->ResultBack_init();
 	m_ResultCursor = Instance<Result>("ResultCursor");
 	m_ResultCursor->ResultCursor_Init();
-	m_ResultCursor->NowScene = "Stage1";
+	m_ResultCursor->NowScene = "Stage3";
 
 
 
@@ -99,12 +99,8 @@ Scene::STATE GamePlay::Stage3Scene::Update()
 			m_Button->Pause_On();
 			Scene_State = 1;
 		}
-
-		/****	システム更新	****/
-		m_Map->SystemUpdate();
-		SystemUpdate();
-		return PLAY;
 		break;
+
 	case 1://ポーズ画面
 	/****   ポーズ中処理   ****/
 		m_Button->PauseCursor_Move();
@@ -120,6 +116,11 @@ Scene::STATE GamePlay::Stage3Scene::Update()
 		m_ResultCursor->ResultCursor_Move();//カーソルフラグ＆分岐
 		break;
 	}
+
+	/****	システム更新	****/
+	m_Map->SystemUpdate();
+	SystemUpdate();
+	return PLAY;
 }
 
 bool GamePlay::Stage3Scene::End()

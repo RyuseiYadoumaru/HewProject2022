@@ -10,8 +10,8 @@
 /****	スタティックメンバ変数	****/
 BYTE GameEngine::Input::m_KeyState[256];
 
-std::map<int, bool> GameEngine::Input::m_GamePadState;
-std::map<int, bool> GameEngine::Input::m_OldGamePadState;
+XINPUT_STATE	GameEngine::Input::m_GamePadState;
+XINPUT_STATE	GameEngine::Input::m_OldGamePadState;
 
 XINPUT_VIBRATION GameEngine::Input::m_Vibration;
 TIME			 GameEngine::Input::m_LeftTime = NULL;
@@ -22,8 +22,6 @@ TIME			 GameEngine::Input::m_Time = NULL;
 short gKeys[0xff];
 short gOldKeys[0xff];
 
-XINPUT_STATE g_PadState;
-XINPUT_STATE g_OldPadState;
 
 
 bool isDown;
@@ -83,12 +81,12 @@ bool GameEngine::Input::GetKeyTrigger(int vkey)
 //==============================================================================
 bool GameEngine::Input::GetControllerPress(int Xbuttom)
 {
-	if (g_PadState.Gamepad.wButtons & Xbuttom)
-	{
-		m_GamePadState[Xbuttom] = true;
-	}
-
-	return m_GamePadState[Xbuttom];
+	//if (m_GamePadState.Gamepad.wButtons & Xbuttom)
+	//{
+	//	m_GamePadState[Xbuttom] = true;
+	//	return true;
+	//}
+	return (m_GamePadState.Gamepad.wButtons & Xbuttom);
 }
 
 //==============================================================================
@@ -100,21 +98,12 @@ bool GameEngine::Input::GetControllerPress(int Xbuttom)
 bool GameEngine::Input::GetControllerTrigger(int Xbuttom)
 {
 
-	if (g_PadState.Gamepad.wButtons & Xbuttom)
-	{
-		m_GamePadState[Xbuttom] = true;
 
-		if (m_OldGamePadState[Xbuttom] == true)
-		{
-			return false;
-		}
-		else
-		{
-			return true;
-		}
-	}
-	m_GamePadState[Xbuttom] = false;
-	return false;
+	bool condition1 = (m_GamePadState.Gamepad.wButtons & Xbuttom) != 0;
+	bool condition2 = (m_OldGamePadState.Gamepad.wButtons & Xbuttom) == 0;
+
+	return condition1 && condition2;
+
 }
 
 //==============================================================================
@@ -127,8 +116,8 @@ DirectX::XMFLOAT2 GameEngine::Input::GetControllerLeftStick()
 {
 	DirectX::XMFLOAT2 stick;
 
-	stick.x = g_PadState.Gamepad.sThumbLX / 32767.0f;
-	stick.y = -g_PadState.Gamepad.sThumbLY / 32767.0f;
+	stick.x = m_GamePadState.Gamepad.sThumbLX / 32767.0f;
+	stick.y = -m_GamePadState.Gamepad.sThumbLY / 32767.0f;
 
 	return stick;
 }
@@ -143,8 +132,8 @@ DirectX::XMFLOAT2 GameEngine::Input::GetControllerRightStick()
 {
 	DirectX::XMFLOAT2 stick;
 
-	stick.x = g_PadState.Gamepad.sThumbRX / 32767.0f;
-	stick.y = -g_PadState.Gamepad.sThumbRY / 32767.0f;
+	stick.x = m_GamePadState.Gamepad.sThumbRX / 32767.0f;
+	stick.y = -m_GamePadState.Gamepad.sThumbRY / 32767.0f;
 
 	return stick;
 }
@@ -273,43 +262,30 @@ void GameEngine::Input::KeyUpdate()
 	gKeys[PK_SP] = GetAsyncKeyState(PK_SP);				//SPACE
 
 
-	/*	1フレーム前のキー情報取得	*/
-	m_OldGamePadState = m_GamePadState;
 
 	/****	パッド状態取得	****/
-
-	m_GamePadState[XINPUT_GAMEPAD_A] = false;
-	m_GamePadState[XINPUT_GAMEPAD_B] = false;
-	m_GamePadState[XINPUT_GAMEPAD_X] = false;
-	m_GamePadState[XINPUT_GAMEPAD_Y] = false;
-	m_GamePadState[XINPUT_GAMEPAD_DPAD_UP] = false;
-	m_GamePadState[XINPUT_GAMEPAD_DPAD_DOWN] = false;
-	m_GamePadState[XINPUT_GAMEPAD_DPAD_LEFT] = false;
-	m_GamePadState[XINPUT_GAMEPAD_DPAD_RIGHT] = false;
-	m_GamePadState[XINPUT_GAMEPAD_START] = false;
-	m_GamePadState[XINPUT_GAMEPAD_BACK] = false;
-
-	XInputGetState(0, &g_PadState);
-	g_OldPadState = g_PadState;
+	/*	1フレーム前のキー情報取得	*/
+	m_OldGamePadState = m_GamePadState;
+	XInputGetState(0, &m_GamePadState);
 
 	/*	左スティック入力なし	*/
-	if ((g_PadState.Gamepad.sThumbLX < XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE &&
-		g_PadState.Gamepad.sThumbLX > -XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE) &&
-		(g_PadState.Gamepad.sThumbLY < XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE&&
-			g_PadState.Gamepad.sThumbLY > -XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE))
+	if ((m_GamePadState.Gamepad.sThumbLX < XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE &&
+		m_GamePadState.Gamepad.sThumbLX > -XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE) &&
+		(m_GamePadState.Gamepad.sThumbLY < XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE&&
+			m_GamePadState.Gamepad.sThumbLY > -XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE))
 	{
-		g_PadState.Gamepad.sThumbLX = (SHORT)0.0f;
-		g_PadState.Gamepad.sThumbLY = (SHORT)0.0f;
+		m_GamePadState.Gamepad.sThumbLX = (SHORT)0.0f;
+		m_GamePadState.Gamepad.sThumbLY = (SHORT)0.0f;
 	}
 
 	/*	右スティック入力なし	*/
-	if ((g_PadState.Gamepad.sThumbRX < XINPUT_GAMEPAD_RIGHT_THUMB_DEADZONE &&
-		g_PadState.Gamepad.sThumbRX > -XINPUT_GAMEPAD_RIGHT_THUMB_DEADZONE) &&
-		(g_PadState.Gamepad.sThumbRY < XINPUT_GAMEPAD_RIGHT_THUMB_DEADZONE&&
-			g_PadState.Gamepad.sThumbRY > -XINPUT_GAMEPAD_RIGHT_THUMB_DEADZONE))
+	if ((m_GamePadState.Gamepad.sThumbRX < XINPUT_GAMEPAD_RIGHT_THUMB_DEADZONE &&
+		m_GamePadState.Gamepad.sThumbRX > -XINPUT_GAMEPAD_RIGHT_THUMB_DEADZONE) &&
+		(m_GamePadState.Gamepad.sThumbRY < XINPUT_GAMEPAD_RIGHT_THUMB_DEADZONE&&
+			m_GamePadState.Gamepad.sThumbRY > -XINPUT_GAMEPAD_RIGHT_THUMB_DEADZONE))
 	{
-		g_PadState.Gamepad.sThumbRX = (SHORT)0.0f;
-		g_PadState.Gamepad.sThumbRY = (SHORT)0.0f;
+		m_GamePadState.Gamepad.sThumbRX = (SHORT)0.0f;
+		m_GamePadState.Gamepad.sThumbRY = (SHORT)0.0f;
 	}
 
 	/*	バイブ時間	*/

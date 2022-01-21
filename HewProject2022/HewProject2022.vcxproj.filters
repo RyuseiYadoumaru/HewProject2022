@@ -337,6 +337,9 @@
     <Filter Include="TOYALINE\Tutorial\MoveaTutorial">
       <UniqueIdentifier>{3813920d-4368-4255-85f5-ff6941c0c966}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TOYALINE\Object\Camera\GameCamera">
+      <UniqueIdentifier>{941db9ca-b4ef-42f4-b7fb-84487d82c80b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Runtime\Application.cpp">
@@ -768,6 +771,9 @@
     </ClCompile>
     <ClCompile Include="JumpTutorialAnimController.cpp">
       <Filter>TOYALINE\Tutorial\JumpTutorial</Filter>
+    </ClCompile>
+    <ClCompile Include="GameCamera.cpp">
+      <Filter>TOYALINE\Object\Camera\GameCamera</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1236,6 +1242,9 @@
     </ClInclude>
     <ClInclude Include="JumpTutorialAnimController.h">
       <Filter>TOYALINE\Tutorial\JumpTutorial</Filter>
+    </ClInclude>
+    <ClInclude Include="GameCamera.h">
+      <Filter>TOYALINE\Object\Camera\GameCamera</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

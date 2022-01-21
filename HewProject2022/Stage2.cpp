@@ -26,6 +26,7 @@ bool GamePlay::Stage2Scene::Start()
 
 	m_Button = Instance<Pause>("Button");
 	m_Button->Sprite("button");
+	m_Button->NowScene = "Stage2";
 
 	/*  ゴールインスタンス生成  */
 	m_Goal = Instance<Goal>("Goal");
@@ -107,7 +108,7 @@ Scene::STATE GamePlay::Stage2Scene::Update()
 		/****   ポーズ中処理   ****/
 		m_Button->PauseCursor_Move();
 		/* Pause処理　OFF */
-		if (m_Button->Get_Checker() == 1) {
+		if (m_Button->Get_Checker() == 1 || Input::GetControllerTrigger(XINPUT_GAMEPAD_START) == true) {
 			m_Pause->Pause_Off();
 			m_Button->Pause_Off();
 			Scene_State = 0;

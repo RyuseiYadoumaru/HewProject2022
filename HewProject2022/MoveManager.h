@@ -42,7 +42,7 @@ private:
 	bool isResetFin = false;
 
 private:
-	static constexpr TIME m_OneMagicWaitTime = 500.0f;
+	static constexpr TIME m_OneMagicWaitTime = 300.0f;
 	TIME m_MoveWaitTime;
 	TIME m_Timer;
 

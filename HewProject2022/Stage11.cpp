@@ -18,9 +18,13 @@ bool GamePlay::Stage11Scene::Start()
 	m_BackGround = Instance<BackGround>("Wall");
 	m_BackGround->Sprite("World3_BG");
 	m_LayerBack = Instance<LayerBack>("LayerBack");
-	//m_LayerBack->Sprite("World3_obj1_1");
+	m_LayerBack->Sprite("World3_obj1-1");
 	m_LayerFront = Instance<LayerFront>("LayerFront");
-	m_LayerFront->Sprite("Wrold3_obj2_1");
+	m_LayerFront->Sprite("World3_obj2-1");
+
+	/*	“Vˆä‰Šú‰»	*/
+	m_Ceiling = Instance<Ceiling>("Ceiling");
+	m_Ceiling->Sprite("World3_ceiling");
 
 	/* Pause‰Šú‰» */
 	m_Pause = Instance<Pause>("Pause");

@@ -21,17 +21,12 @@ bool GamePlay::Stage16Scene::Start()
 	m_LayerBack = Instance<LayerBack>("LayerBack");
 	m_LayerBack->Sprite("world4_obj1_1");
 
-	/*	天井初期化	*/
-	m_Ceiling = Instance<Ceiling>("Ceiling");
-	m_Ceiling->Sprite("World4_Ceiling");
-
 	/*	初期化	*/
 	m_Shelf2End->transform->Position.x += ROAD_DISTANCE;
 
-	/*	ギミック初期化	*/
-
-
-
+	/*	天井初期化	*/
+	m_Ceiling = Instance<Ceiling>("Ceiling");
+	m_Ceiling->Sprite("World4_ceiling");
 
 	/* Pause初期化 */
 	m_Pause = Instance<Pause>("Pause");

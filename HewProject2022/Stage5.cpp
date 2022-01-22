@@ -7,8 +7,6 @@ bool GamePlay::Stage5Scene::Start()
 
 	/*	オブジェクト生成	*/
 
-
-
 	/*	インスタンス	*/
 	m_Map = Instance<Map>("stage1-5");
 	m_Player = Instance<Player>("Player");

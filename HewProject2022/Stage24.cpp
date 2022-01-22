@@ -4,37 +4,6 @@ using namespace Create;
 
 bool GamePlay::Stage24Scene::Start()
 {
-
-	/*	オブジェクト生成	*/
-	//m_Map = make_shared<Map>("MapSizeTest_3");
-	//m_Player = make_shared<Player>("Player");
-	//m_MainCamera = make_shared<MainCamera>("MainCamera");
-	//m_Fade = make_shared<Fade>("Black");
-	//m_StorageStart = make_shared<Storage>("StorageStart");
-	//m_HouseEnd = make_shared<House>("HouseEnd");
-	//m_ScreenEffect = make_shared<ScreenFx>("SFX");
-	//m_CameraFrame = make_shared<CameraFrame>("CFX");
-
-
-	///*	背景初期化	*/
-	//m_BackGround = make_shared<BackGround>("Wall");
-	//m_BackGround->Sprite("World5_BG");
-	//OldInstance(m_BackGround.get());
-
-	//m_LayerBack = make_shared<LayerBack>("LayerBack");
-	//m_LayerBack->Sprite("World5_obj1_1");
-	//OldInstance(m_LayerBack.get());
-
-	//m_LayerFront = make_shared<LayerFront>("LayerFront");
-	////m_LayerFront->Sprite("Wrold5_obj2_1");
-	//OldInstance(m_LayerFront.get());
-
-	///*	天井初期化	*/
-	//m_Ceiling = make_shared<Ceiling>("Ceiling");
-	//m_Ceiling->Sprite("World2_ceiling");
-	//OldInstance(m_Ceiling.get());
-
-
 	/*	インスタンス	*/
 	m_Map = Instance<Map>("stage1-1");
 	m_Player = Instance<Player>("Player");
@@ -50,6 +19,12 @@ bool GamePlay::Stage24Scene::Start()
 	m_LayerBack->Sprite("World5_obj1_1");
 	m_LayerFront = Instance<LayerFront>("LayerFront");
 	m_LayerFront->Sprite("Wrold5_obj2_1");
+
+	/*	天井初期化	*/
+	m_Ceiling = Instance<Ceiling>("Ceiling");
+	m_Ceiling->Sprite("World5_ceiling");
+
+
 	/* Pause初期化 */
 	m_Pause = Instance<Pause>("Pause");
 	m_Pause->Sprite("ポーズ");

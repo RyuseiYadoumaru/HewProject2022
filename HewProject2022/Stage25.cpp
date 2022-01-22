@@ -23,6 +23,10 @@ bool GamePlay::Stage25Scene::Start()
 	m_LayerFront = Instance<LayerFront>("LayerFront");
 	m_LayerFront->Sprite("World5_obj2_5");
 
+	/*	天井初期化	*/
+	m_Ceiling = Instance<Ceiling>("Ceiling");
+	m_Ceiling->Sprite("World5_ceiling");
+
 	/* Pause初期化 */
 	m_Pause = Instance<Pause>("Pause");
 	m_Pause->Sprite("ポーズ");

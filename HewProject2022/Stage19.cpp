@@ -23,8 +23,7 @@ bool GamePlay::Stage19Scene::Start()
 
 	/*	“Vˆä‰Šú‰»	*/
 	m_Ceiling = Instance<Ceiling>("Ceiling");
-	m_Ceiling->Sprite("World4_Ceiling");
-
+	m_Ceiling->Sprite("World4_ceiling");
 	/*	‰Šú‰»	*/
 	m_Shelf2End->transform->Position.x += ROAD_DISTANCE;
 

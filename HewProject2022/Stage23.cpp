@@ -4,27 +4,6 @@ using namespace Create;
 
 bool GamePlay::Stage23Scene::Start()
 {
-
-
-	///*	背景初期化	*/
-	//m_BackGround = make_shared<BackGround>("Wall");
-	//m_BackGround->Sprite("World5_BG");
-	//OldInstance(m_BackGround.get());
-
-	//m_LayerBack = make_shared<LayerBack>("LayerBack");
-	//m_LayerBack->Sprite("World5_obj1_1");
-	//OldInstance(m_LayerBack.get());
-
-	//m_LayerFront = make_shared<LayerFront>("LayerFront");
-	////m_LayerFront->Sprite("Wrold5_obj2_1");
-	//OldInstance(m_LayerFront.get());
-
-	///*	天井初期化	*/
-	//m_Ceiling = make_shared<Ceiling>("Ceiling");
-	//m_Ceiling->Sprite("World2_ceiling");
-	//OldInstance(m_Ceiling.get());
-
-
 	/*	インスタンス	*/
 
 	/* Pause初期化 */
@@ -57,6 +36,11 @@ bool GamePlay::Stage23Scene::Start()
 	m_LayerBack->Sprite("World5_obj1_1");
 	m_LayerFront = Instance<LayerFront>("LayerFront");
 	m_LayerFront->Sprite("Wrold5_obj2_1");
+
+
+	/*	天井初期化	*/
+	m_Ceiling = Instance<Ceiling>("Ceiling");
+	m_Ceiling->Sprite("World5_ceiling");
 
 
 	/*	初期化	*/

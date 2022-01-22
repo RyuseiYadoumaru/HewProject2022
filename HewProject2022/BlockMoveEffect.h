@@ -16,12 +16,12 @@ public:
 	void EffectColorRed()
 	{
 		EffectColor = BlockEffectColor::RED;
-		Sprite("red21-35");
+		Sprite("blue35");
 	}
 	void EffectColorBlue()
 	{
 		EffectColor = BlockEffectColor::BLUE;
-		Sprite("blue21-35");
+		Sprite("blue35");
 	}
 	/*	パーティクルステート設定	*/
 	void StateFinish() { m_Particle.StateFinish(); }

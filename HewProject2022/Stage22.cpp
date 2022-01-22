@@ -43,7 +43,9 @@ bool GamePlay::Stage22Scene::Start()
 	/*	初期化	*/
 	m_HouseEnd->transform->Position.x += ROAD_DISTANCE;
 
-	/*	ギミック初期化	*/
+	/*	天井初期化	*/
+	m_Ceiling = Instance<Ceiling>("Ceiling");
+	m_Ceiling->Sprite("World5_ceiling");
 
 
 	/*	カメラ設定	*/

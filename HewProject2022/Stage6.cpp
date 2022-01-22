@@ -40,6 +40,10 @@ bool GamePlay::Stage6Scene::Start()
 
 
 
+	/*	“Vˆä‰Šú‰»	*/
+	m_Ceiling = Instance<Ceiling>("Ceiling");
+	m_Ceiling->Sprite("World2_ceiling");
+
 	/*	‰Šú‰»	*/
 	m_TablewareEnd->transform->Position.x += ROAD_DISTANCE;
 

@@ -20,6 +20,9 @@ bool GamePlay::Stage9Scene::Start()
 	m_LayerFront = Instance<LayerFront>("LayerFront");
 	m_LayerFront->Sprite("World2_obj2_1");
 
+	/*	“Vˆä‰Šú‰»	*/
+	m_Ceiling = Instance<Ceiling>("Ceiling");
+	m_Ceiling->Sprite("World2_ceiling");
 
 	/*	‰Šú‰»	*/
 	m_TablewareEnd->transform->Position.x += ROAD_DISTANCE;

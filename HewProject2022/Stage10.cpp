@@ -23,6 +23,10 @@ bool GamePlay::Stage10Scene::Start()
 	m_Button = Instance<Pause>("Button");
 	m_Button->Sprite("button");
 
+	/*	天井初期化	*/
+	m_Ceiling = Instance<Ceiling>("Ceiling");
+	m_Ceiling->Sprite("World2_ceiling");
+
 	/*  ゴールインスタンス生成  */
 	m_Goal = Instance<Goal>("Goal");
 

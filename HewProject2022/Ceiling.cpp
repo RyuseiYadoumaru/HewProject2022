@@ -8,7 +8,7 @@ bool Ceiling::Start()
 {
 	m_SpriteRenderer->Init();
 	float PosX = MAPSIZE_WIDTH / 2.0f;
-	float PosY = 0.0f;
+	float PosY = (-305.0f / 2.0f) + 50;
 	transform->Scale.Set(1.0f, 0.75f, 1.0f);
 	transform->Position.Set(PosX, PosY, 0.0f);
 

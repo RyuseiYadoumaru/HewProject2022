@@ -23,15 +23,9 @@ bool GamePlay::Stage18Scene::Start()
 
 	/*	天井初期化	*/
 	m_Ceiling = Instance<Ceiling>("Ceiling");
-	m_Ceiling->Sprite("World4_Ceiling");
-
+	m_Ceiling->Sprite("World4_ceiling");
 	/*	初期化	*/
 	m_PictureFrameEnd->transform->Position.x += ROAD_DISTANCE;
-
-	/*	ギミック初期化	*/
-
-
-	///***  ゴール判定用  ***/
 
 
 	/* Pause初期化 */

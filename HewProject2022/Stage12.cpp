@@ -19,10 +19,30 @@ bool GamePlay::Stage12Scene::Start()
 	m_BackGround = Instance<BackGround>("Wall");
 	m_BackGround->Sprite("World3_BG");
 	m_LayerBack = Instance<LayerBack>("LayerBack");
-	m_LayerBack->Sprite("Wrold3_obj1_2");
+	m_LayerBack->Sprite("World3_obj1-2");
 	m_LayerFront = Instance<LayerFront>("LayerFront");
-	m_LayerFront->Sprite("Wrold3_obj2_2");
+	m_LayerFront->Sprite("World3_obj2-2");
 
+	/*	天井初期化	*/
+	m_Ceiling = Instance<Ceiling>("Ceiling");
+	m_Ceiling->Sprite("World3_ceiling");
+
+	/* Pause初期化 */
+	m_Pause = Instance<Pause>("Pause");
+	m_Pause->Sprite("ポーズ");
+
+	m_Button = Instance<Pause>("Button");
+	m_Button->Sprite("button");
+
+	/*  ゴールインスタンス生成  */
+	m_Goal = Instance<Goal>("Goal");
+
+	/* リザルト初期化 */
+	m_ResultBack = Instance<Result>("ResultBack");
+	m_ResultBack->ResultBack_init();
+	m_ResultCursor = Instance<Result>("ResultCursor");
+	m_ResultCursor->ResultCursor_Init();
+	m_ResultCursor->NowScene = "Stage12";
 
 	/*	初期化	*/
 	m_TreeEnd->transform->Position.x += ROAD_DISTANCE;

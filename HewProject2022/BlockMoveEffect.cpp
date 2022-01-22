@@ -23,11 +23,11 @@ bool BlockMoveEffect::Start()
 	/*	スプライト初期化	*/
 	if (EffectColor == BlockEffectColor::RED)
 	{
-		m_SpriteRenderer->SpriteName = "red21-35";
+		m_SpriteRenderer->SpriteName = "red35";
 	}
 	else if (EffectColor == BlockEffectColor::BLUE)
 	{
-		m_SpriteRenderer->SpriteName = "blue21-35";
+		m_SpriteRenderer->SpriteName = "blue35";
 	}
 	m_SpriteRenderer->Init();
 

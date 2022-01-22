@@ -20,12 +20,16 @@ bool GamePlay::Stage15Scene::Start()
 	m_BackGround = Instance<BackGround>("Wall");
 	m_BackGround->Sprite("World3_BG");
 	m_LayerBack = Instance<LayerBack>("LayerBack");
-	m_LayerBack->Sprite("Wrold3_obj1_5");
+	m_LayerBack->Sprite("World3_obj1-5");
 	m_LayerFront = Instance<LayerFront>("LayerFront");
-	m_LayerFront->Sprite("Wrold3_obj2_5");
+	m_LayerFront->Sprite("World3_obj2-5");
 
 	m_Button = Instance<Pause>("Button");
 	m_Button->Sprite("button");
+
+	/*	天井初期化	*/
+	m_Ceiling = Instance<Ceiling>("Ceiling");
+	m_Ceiling->Sprite("World3_ceiling");
 
 	/*  ゴールインスタンス生成  */
 	m_Goal = Instance<Goal>("Goal");

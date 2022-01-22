@@ -16,12 +16,12 @@ public:
 	void EffectColorRed()
 	{
 		EffectColor = BlockEffectColor::RED;
-		Sprite("red1-20");
+		Sprite("blue1-35");
 	}
 	void EffectColorBlue()
 	{
 		EffectColor = BlockEffectColor::BLUE;
-		Sprite("blue1-20");
+		Sprite("blue1-35");
 	}
 
 	/*	パーティクルステート設定	*/

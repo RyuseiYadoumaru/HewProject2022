@@ -20,6 +20,10 @@ bool GamePlay::Stage7Scene::Start()
 	m_LayerFront = Instance<LayerFront>("LayerFront");
 	m_LayerFront->Sprite("World2_obj2_1");
 
+	/*	天井初期化	*/
+	m_Ceiling = Instance<Ceiling>("Ceiling");
+	m_Ceiling->Sprite("World2_ceiling");
+
 	/* Pause初期化 */
 	m_Pause = Instance<Pause>("Pause");
 	m_Pause->Sprite("ポーズ");

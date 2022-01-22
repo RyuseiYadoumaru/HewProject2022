@@ -64,8 +64,8 @@ bool Player::Start()
 
 	/*	ボックスコライダ設定	*/
 	BoxCollider2D* Col = GetComponent<BoxCollider2D>();
-	//Col->SetSize(0.5f, 0.65f);
-	//Col->SetOffset(0.2f, 0.1f);
+	Col->SetSize(0.7f, 0.85f);
+	Col->SetOffset(0.25f, 0.1f);
 
 	/*	アニメーションコンポーネント	*/
 	AddComponent<Animator>(&m_PlayerAnimController);
@@ -420,6 +420,13 @@ void Player::AddGravity()
 	}
 
 	issaveColUnder = GetComponent<BoxCollider2D>()->GetisHit_underBlock();
+}
+
+/****	フリップ当たり判定	****/
+void Player::FlipCollider()
+{
+
+
 }
 
 /****	アニメーション修正処理	****/

@@ -16,7 +16,7 @@ bool GamePlay::Stage2Scene::Start()
 	m_BackGround = Instance<BackGround>("Wall");
 	m_BackGround->Sprite("Wall");
 	m_LayerBack = Instance<LayerBack>("LayerBack");
-	m_LayerBack->Sprite("World_obj1_2");
+	m_LayerBack->Sprite("World1_obj1-2");
 	m_LayerFront = Instance<LayerFront>("LayerFront");
 	m_LayerFront->Sprite("World_obj2_1");
 
@@ -47,7 +47,7 @@ bool GamePlay::Stage2Scene::Start()
 
 	/*	ƒJƒƒ‰Ý’è	*/
 	SetCamera(m_MainCamera);
-	m_MainCamera->Focus(m_Player);
+	//m_MainCamera->Focus(m_Player);
 	Scene_State = 0;
 	return true;
 }

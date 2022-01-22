@@ -16,7 +16,7 @@ bool LandTile::Start()
 	/*	ƒ‰ƒ“ƒhƒ^ƒCƒ‹“–‚½‚è”»’èİ’è	*/
 	Vector2 size(20.0f, 20.0f);
 	BoxCollider2D* col = AddComponent<BoxCollider2D>(size);
-	col->SetOffset(1.0f, 3.75f);
+	col->SetOffset(offsetX, 3.75f);
 	return true;
 }
 

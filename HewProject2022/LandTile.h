@@ -35,7 +35,7 @@ public:
 	}
 private:
 	bool saveflip = false;
-	float offsetX = 1.0f;
+	float offsetX = -2.0f;
 
 private:
 	void SearchLandingTile();

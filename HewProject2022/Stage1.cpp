@@ -37,7 +37,7 @@ bool GamePlay::Stage1Scene::Start()
 	m_BackGround = Instance<BackGround>("Wall");
 	m_BackGround->Sprite("Wall");
 	m_LayerBack = Instance<LayerBack>("LayerBack");
-	m_LayerBack->Sprite("World_obj1_1");
+	m_LayerBack->Sprite("World1_obj1-1");
 
 	m_LayerFront = Instance<LayerFront>("LayerFront");
 	m_LayerFront->Sprite("World_obj2_1");

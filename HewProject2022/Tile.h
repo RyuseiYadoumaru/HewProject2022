@@ -12,18 +12,18 @@ using Create::Actor;
 enum MAPOBJ
 {
 	NB,	//ノーマルブロック
-	C1,	//カラーブロック1
-	C2,	//カラーブロック2
-	C3,
-	C4,
+	C1,	//普通赤
+	C2,	//普通青
+	C3,	//普通緑
+	C4,	//普通紫
 	GR,
 
-	//入れ替わるブロック
-	//Replacement Block
-	C5, //赤
-	C6, //青
-	C7, //緑
-	C8, //紫
+
+	//乗ったら揃う
+	LC1, //赤
+	LC2, //青
+	LC3, //緑
+	LC4, //紫
 
 	NO,	//何もない
 	MAX
@@ -67,8 +67,7 @@ public:
 	Vector3 GetSavePosition() { return m_SavePosition; }
 	void SetSavePosition() { m_SavePosition = transform->Position; }
 
-	//入れ替え処理
-	void Replacement();
+	void SetColorBlock();
 
 private:
 	void EffectInit();
@@ -80,5 +79,6 @@ private:
 	Vector3 m_StartPosition;	//初期座標
 
 	float m_ReplacementTimer;   //色が変わるまでの時間
+
 };
 

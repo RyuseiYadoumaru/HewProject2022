@@ -67,26 +67,18 @@ Scene::STATE GamePlay::Stage23Scene::Update()
 
 	switch (Scene_State) {
 	case 0:
-		/****	ブロック移動	****/
-		m_Map->CheckLandTile(m_Player->m_LandTile);
-		if (((m_Player->m_LandTile->GetisLandTile() == false) ||
-			(Input::GetControllerTrigger(XINPUT_GAMEPAD_X)) || Input::GetKeyTrigger(PK_R)) &&
-			(m_Map->m_OnReset == false))
-		{
-			//リセット発動
-			m_Map->m_OnReset = true;
-		}
-
-		/****	オブジェクト更新	****/
-		ObjectUpdate();
 
 		/****	当たり判定	****/
 		m_Map->HitCheckMap(*m_Player);
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_StorageStart->GetComponent<BoxCollider2D>());
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_HouseEnd->GetComponent<BoxCollider2D>());
-
 		/***  ゴール判定用  ***/
 		m_Goal->GetComponent<BoxCollider2D>()->HitCheckBox(*m_Player->GetComponent<BoxCollider2D>());
+
+
+		/****	オブジェクト更新	****/
+		ObjectUpdate();
+
 		//当たったらゴール
 		for (auto name : m_Goal->GetComponent<BoxCollider2D>()->GetHitObject()) {
 			if (name == m_Player->ToString()) {
@@ -105,9 +97,6 @@ Scene::STATE GamePlay::Stage23Scene::Update()
 			Scene_State = 1;
 		}
 
-		/****	システム更新	****/
-		m_Map->SystemUpdate();
-		SystemUpdate();	return PLAY;
 		break;
 	case 1://ポーズ画面
 	/****   ポーズ中処理   ****/
@@ -124,6 +113,10 @@ Scene::STATE GamePlay::Stage23Scene::Update()
 		m_ResultCursor->ResultCursor_Move();//カーソルフラグ＆分岐
 		break;
 	}
+
+	/****	システム更新	****/
+	m_Map->SystemUpdate();
+	SystemUpdate();	return PLAY;
 
 }
 

@@ -77,6 +77,10 @@ void LandTile::SearchLandingTile()
 	//’…’n‚µ‚½‚Æ‚«‚ÉŠi”[‚·‚é
 	if (Col->GetisHit_underBlock() == false)
 	{
+		//if (mp_SaveLandingTile != LandGround) BlockParticleManager::MagicReset(*mp_SaveLandingTile);
+
+		//m_isLandTile = false;
+		//mp_LandingTile = LandGround;
 		cout << "’…’n‚µ‚Ä‚È‚¢‚æ\n";
 		return;
 	}

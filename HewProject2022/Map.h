@@ -14,6 +14,10 @@ public:
 	static bool SearchMoveObjectName(string in_SearchName);
 	static bool SearchMoveObjectID(int in_ID);
 	static void AllTileReset();			//タイルリセット
+	static void AddMoveManager(LandTile* in_LandTile);
+	static bool HitCheckMap(GameObject& in_GameObject, bool checkRangeCamera = false);
+	static bool CheckLandTile(LandTile& in_LandTile);
+
 
 public:
 	static vector<shared_ptr<MoveManager>> m_MoveManager;
@@ -44,7 +48,6 @@ private:
 
 private:
 	void MoveUpdate();
-	void AddMoveManager(LandTile* in_LandTile);
 
 	/*	リセット処理	*/
 public:
@@ -60,10 +63,6 @@ public:
 
 private:
 	MapData m_Mapdata;
-
-public:
-	static bool HitCheckMap(GameObject& in_GameObject, bool checkRangeCamera = false);
-	bool CheckLandTile(LandTile* in_LandTile);
 
 };
 

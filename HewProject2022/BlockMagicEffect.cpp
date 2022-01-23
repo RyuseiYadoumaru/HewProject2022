@@ -24,7 +24,7 @@ bool BlockMagicEffect::Start()
 	/*	スプライト初期化	*/
 	if (EffectColor == BlockEffectColor::RED)
 	{
-		m_SpriteRenderer->SpriteName = "blue1-35";
+		m_SpriteRenderer->SpriteName = "red1-35";
 	}
 	else if (EffectColor == BlockEffectColor::BLUE)
 	{

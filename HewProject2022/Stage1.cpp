@@ -5,7 +5,7 @@ using namespace Create;
 bool GamePlay::Stage1Scene::Start()
 {
 	/*	インスタンス	*/
-	m_Map = Instance<Map>("stage1-1");
+	m_Map = Instance<Map>("TestLandMove");
 	m_Player = Instance<Player>("Player");
 	m_MainCamera = Instance<MainCamera>("MainCamera");
 	m_Fade = Instance<Fade>("Black");
@@ -77,20 +77,9 @@ Scene::STATE GamePlay::Stage1Scene::Update()
 
 	switch (Scene_State) {
 	case 0://メインゲーム処理
-		/****	ブロック移動	****/
-		m_Map->CheckLandTile(m_Player->m_LandTile);
-		if (((m_Player->m_LandTile->GetLandTile() == LandGround) ||
-			(Input::GetControllerTrigger(XINPUT_GAMEPAD_X)) || Input::GetKeyTrigger(PK_R)) &&
-			(m_Map->m_OnReset == false))
-		{
-			//リセット発動
-			m_Map->m_OnReset = true;
-		}
-
 
 		/****	当たり判定	****/
-
-		m_Map->HitCheckMap(*m_Player);
+		m_Map->HitCheckMap(*m_Player, true);
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_TableStart->GetComponent<BoxCollider2D>());
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_SofaEnd->GetComponent<BoxCollider2D>());
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_BigBook->GetComponent<BoxCollider2D>());
@@ -178,7 +167,7 @@ bool GamePlay::Stage1Scene::Render()
 
 	/****	オブジェクト描画	****/
 	ObjectRender<Player>("Player");
-	ObjectRender<Map>("stage1-1");
+	ObjectRender<Map>("TestLandMove");
 	ObjectRender<Table>("TableStart");
 	ObjectRender<Sofa>("SofaEnd");
 	ObjectRender<BigBook>("Book1");

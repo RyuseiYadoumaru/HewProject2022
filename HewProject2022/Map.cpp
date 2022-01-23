@@ -68,7 +68,7 @@ void Map::AllTileReset()
 				tile->transform->Position.y = tile->GetStartPosition().y;
 				if (BlockParticleManager::DeleteMoveEffect(tile->GetId().x) == true)
 				{
-					if (tile->GetKind() == C1 || tile->GetKind() == C4)
+					if (BlockParticleManager::JudgeRedorBlue(tile->GetKind()) == EFFECT_RED)
 					{
 						BlockParticleManager::CreateResetEffect(tile, BlockEffectColor::RED);
 					}
@@ -237,35 +237,42 @@ bool Map::HitCheckMap(GameObject& in_GameObject, bool checkRangeCamera)
 }
 
 /****	チェックタイル保存	****/
-bool Map::CheckLandTile(LandTile* in_LandTile)
+bool Map::CheckLandTile(LandTile& in_LandTile)
 {
 	/*	タイルが変わってないとき	*/
-	if (in_LandTile->GetisChange() == false)
+	//タイルが変わっていない
+	//乗っているタイルが乗った時に揃うブロックの時
+	if (in_LandTile.GetisChange() == false ||
+		in_LandTile.GetLandTile()->tag != TagList::LandColorBlock)
 	{
 		//保存しない
 		return true;
 	}
 
 	/*	チェック	*/
-	if (in_LandTile->GetSaveLandTile() == nullptr)
+	if (in_LandTile.GetSaveLandTile() == nullptr)
 	{
 		//デフォルト1発目のタイルに乗った時
 		/*	移動マネージャー追加	*/
-		AddMoveManager(in_LandTile);
+		AddMoveManager(&in_LandTile);
 		return true;
 
 
 	}
-	if (in_LandTile->GetLandTile()->GetKind() == in_LandTile->GetSaveLandTile()->GetKind() &&
-		in_LandTile->GetLandTile()->transform->Position.y == in_LandTile->GetSaveLandTile()->transform->Position.y)
+
+	if (in_LandTile.GetLandTile()->tag == TagList::LandColorBlock && in_LandTile.GetSaveLandTile()->tag != TagList::ColorBlock)
 	{
-		//同じ種類のオブジェクトかつY座標が同じときは
-		//動くことがないので探索しない
-		return true;
+		if (in_LandTile.GetLandTile()->GetKind() == in_LandTile.GetSaveLandTile()->GetKind() &&
+			in_LandTile.GetLandTile()->transform->Position.y == in_LandTile.GetSaveLandTile()->transform->Position.y)
+		{
+			//同じ種類のオブジェクトかつY座標が同じときは
+			//動くことがないので探索しない
+			return true;
+		}
 	}
 
 	/*	移動マネージャー追加	*/
-	AddMoveManager(in_LandTile);
+	AddMoveManager(&in_LandTile);
 
 	return true;
 }
@@ -389,6 +396,22 @@ void Map::CreateMap()
 				CreateTile(Pos, "purple", MAPOBJ::C4);
 				break;
 
+			case LC1:
+				CreateTile(Pos, "Landred", MAPOBJ::LC1);
+				break;
+
+			case LC2:
+				CreateTile(Pos, "Landblue", MAPOBJ::LC2);
+				break;
+
+			case LC3:
+				CreateTile(Pos, "Landgreen", MAPOBJ::LC3);
+				break;
+
+			case LC4:
+				CreateTile(Pos, "Landpurple", MAPOBJ::LC4);
+				break;
+
 			case GR:
 				break;
 
@@ -436,8 +459,6 @@ void Map::CreateTile(Vector2& in_Position, string FileName, MAPOBJ in_MapObj)
 	m_TileColumnList[Column].SetSprite(FileName);		//スプライト設定
 	m_TileColumnList[Column].SetKind(in_MapObj);		//種類設定
 	m_TileColumnList[Column].SetColumn((float)Column);	//列設定
-
-		//m_TileColumnList[Column].mp_TileList.back()->Start();	//初期化
 
 		/*	タイルリストに保存	*/
 	m_TileList.push_back(m_TileColumnList[Column].mp_TileList.back());

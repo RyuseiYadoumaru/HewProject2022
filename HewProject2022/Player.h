@@ -41,9 +41,14 @@ private:
 	void Jump();
 	void JumpEnd();
 
+	void MoveMap();	//マップ移動処理
+
 public:
 	void AddGravity();
-	void FlipCollider();
+	void FlipCollider(bool flip);
+
+	bool CreateLandParticle();
+	bool ResetLandParticle();
 
 private:
 
@@ -71,7 +76,11 @@ private:
 	bool isHitIdle = false;
 	void FixAnimation();	//アニメーション修正処理
 
+	float offsetX = 0.35f;
+	float offsetY = 0.1f;
+	bool saveflip = false;
 
+	bool isMagicEffect = false;
 private:
 	PlayerAnimController m_PlayerAnimController;
 

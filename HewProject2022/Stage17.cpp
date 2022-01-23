@@ -68,25 +68,14 @@ Scene::STATE GamePlay::Stage17Scene::Update()
 
 	switch (Scene_State) {
 	case 0:
-		/****	オブジェクト更新	****/
-		ObjectUpdate();
 
 		/****	当たり判定	****/
-
 		m_Map->HitCheckMap(*m_Player);
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_Shelf2Start->GetComponent<BoxCollider2D>());
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_BookShelfEnd->GetComponent<BoxCollider2D>());
 
-
-		/****	ブロック移動	****/
-		m_Map->CheckLandTile(m_Player->m_LandTile);
-		if (((m_Player->m_LandTile->GetisLandTile() == false) ||
-			(Input::GetControllerTrigger(XINPUT_GAMEPAD_X)) || Input::GetKeyTrigger(PK_R)) &&
-			(m_Map->m_OnReset == false))
-		{
-			//リセット発動
-			m_Map->m_OnReset = true;
-		}
+		/****	オブジェクト更新	****/
+		ObjectUpdate();
 
 
 		/* Pause処理　ON */
@@ -95,8 +84,6 @@ Scene::STATE GamePlay::Stage17Scene::Update()
 			m_Button->Pause_On();
 			Scene_State = 1;
 		}
-
-
 		break;
 	case 1://ポーズ画面
 	/****   ポーズ中処理   ****/

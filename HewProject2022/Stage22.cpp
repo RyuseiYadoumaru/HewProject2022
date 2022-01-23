@@ -66,18 +66,6 @@ Scene::STATE GamePlay::Stage22Scene::Update()
 
 	switch (Scene_State) {
 	case 0:
-		/****	ブロック移動	****/
-		m_Map->CheckLandTile(m_Player->m_LandTile);
-		if (((m_Player->m_LandTile->GetisLandTile() == false) ||
-			(Input::GetControllerTrigger(XINPUT_GAMEPAD_X)) || Input::GetKeyTrigger(PK_R)) &&
-			(m_Map->m_OnReset == false))
-		{
-			//リセット発動
-			m_Map->m_OnReset = true;
-		}
-
-		/****	オブジェクト更新	****/
-		ObjectUpdate();
 
 		/****	当たり判定	****/
 		m_Map->HitCheckMap(*m_Player);
@@ -86,6 +74,10 @@ Scene::STATE GamePlay::Stage22Scene::Update()
 
 		/***  ゴール判定用  ***/
 		m_Goal->GetComponent<BoxCollider2D>()->HitCheckBox(*m_Player->GetComponent<BoxCollider2D>());
+
+		/****	オブジェクト更新	****/
+		ObjectUpdate();
+
 		//当たったらゴール
 		for (auto name : m_Goal->GetComponent<BoxCollider2D>()->GetHitObject()) {
 			if (name == m_Player->ToString()) {

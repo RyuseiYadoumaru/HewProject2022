@@ -70,16 +70,6 @@ Scene::STATE GamePlay::Stage13Scene::Update()
 
 	switch (Scene_State) {
 	case 0:
-		/****	ブロック移動	****/
-		m_Map->CheckLandTile(m_Player->m_LandTile);
-		if (((m_Player->m_LandTile->GetisLandTile() == false) ||
-			(Input::GetControllerTrigger(XINPUT_GAMEPAD_X)) || Input::GetKeyTrigger(PK_R)) &&
-			(m_Map->m_OnReset == false))
-		{
-			//リセット発動
-			m_Map->m_OnReset = true;
-		}
-
 		/****	オブジェクト更新	****/
 		ObjectUpdate();
 

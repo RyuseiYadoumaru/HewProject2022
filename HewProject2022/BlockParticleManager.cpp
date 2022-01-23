@@ -153,6 +153,23 @@ bool BlockParticleManager::JudgeRedorBlue(MAPOBJ in_kind)
 	return EFFECT_BLUE;
 }
 
+/****	マジックを消してリセット	****/
+void BlockParticleManager::MagicReset(Tile& in_OldLandTile)
+{
+
+	if (DeleteMagicEffect(in_OldLandTile.GetId().x) == true)
+	{
+		if (JudgeRedorBlue(in_OldLandTile.GetKind()) == EFFECT_RED)
+		{
+			CreateResetEffect(&in_OldLandTile, BlockEffectColor::RED);
+		}
+		else
+		{
+			CreateResetEffect(&in_OldLandTile, BlockEffectColor::BLUE);
+		}
+	}
+}
+
 
 //-----------------------------------------------------------------------------
 // Public

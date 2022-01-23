@@ -15,9 +15,11 @@ bool Tile::Start()
 	AddComponent<BoxCollider2D>(m_SpriteRenderer->GetSize());
 
 	/*	タグ設定	*/
+
 	if (m_Kind != NB && m_Kind != NO && m_Kind != GR)
 	{
-		tag = ColorBlock;
+		//色ブロック種類分け
+		SetColorBlock();
 	}
 	else if (m_Kind == NB)
 	{
@@ -38,10 +40,6 @@ bool Tile::Update()
 {
 	/*	前回の座標を取得	*/
 	m_SavePosition = transform->Position;
-
-	/*	入れ替え処理	*/
-	//ここをコメントアウトすると入れ替え処理切れます。
-	//Replacement();
 
 	return true;
 }
@@ -98,103 +96,27 @@ float Tile::GetMyColumn() const
 	return m_MyColumn;
 }
 
-/****	入れ替え処理	****/
-void Tile::Replacement()
+/****	乗ったら動くブロックに変更する	****/
+void Tile::SetColorBlock()
 {
-	//プレイヤーがNBまたはGRに乗っているときは色が変わる
-	Player* m_Player = Create::Scene::GetGameObject<Player>("Player");
-
-	//もしGetKind()がNULLだったらreturn
-	/*if (m_Player->m_LandTile->GetLandTile() == LandGround) {
-
-		return;
-	}*/
-	//else ifだったら入れ替わる
-	if (m_Player->m_LandTile->GetLandTile() == LandGround || m_Player->m_LandTile->GetLandTile()->GetKind() == NB)
+	tag = TagList::LandColorBlock;
+	switch (m_Kind)
 	{
-
-		//タイマーにデルタタイム加算
-		m_ReplacementTimer += GameTimer::deltaTime();
-
-		if (m_ReplacementTimer >= REPLACEMENT_TIME) {//3秒経過すると色が変わる
-
-			switch (this->m_Kind) {
-				{
-			case RED_BLOCK:
-				this->m_Kind = BLUE_BLOCK;
-				//末尾に入っている画像情報を削除して、新しい画像情報を挿入する?
-				//削除していないです　2022/01/12
-				this->Sprite("blue");
-				break;
-
-			case BLUE_BLOCK:
-				this->m_Kind = GREEN_BLOCK;
-				this->Sprite("green");
-				break;
-
-			case GREEN_BLOCK:
-				this->m_Kind = PARPLE_BLOCK;
-				this->Sprite("purple");
-				break;
-
-			case PARPLE_BLOCK:
-				this->m_Kind = RED_BLOCK;
-				this->Sprite("red");
-				break;
-
-				}
-			}
-			//画像のサイズも変更しないといけない
-			this->m_SpriteRenderer->SetSize(TILE_WIDTH, TILE_HEIGHT);
-			this->m_SpriteRenderer->Init();
-
-			//タイマーを０に戻す
-			m_ReplacementTimer = 0;
-		}
-
-
-		//以下入れ替えブロック追加後の実装
-
-		/*
-		//タイマーにデルタタイム加算
-		m_ReplacementTimer += GameTimer::deltaTime();
-
-		if (m_ReplacementTimer >= REPLACEMENT_TIME) {
-
-			switch (this->m_Kind) {
-				{
-			case REPLACEMWNT_RED_BLOCK:
-				this->m_Kind = REPLACEMWNT_BLUE_BLOCK;
-				//末尾に入っている画像情報を削除して、新しい画像情報を挿入する?
-				//削除していない　2022/01/12
-				this->Sprite("blue");
-				break;
-
-			case REPLACEMWNT_BLUE_BLOCK:
-				this->m_Kind = REPLACEMWNT_GREEN_BLOCK;
-				this->Sprite("green");
-				break;
-
-			case REPLACEMWNT_GREEN_BLOCK:
-				this->m_Kind = REPLACEMWNT_PURPLE_BLOCK;
-				this->Sprite("purple");
-				break;
-
-			case REPLACEMWNT_PURPLE_BLOCK:
-				this->m_Kind = REPLACEMWNT_RED_BLOCK;
-				this->Sprite("red");
-				break;
-
-				}
-			}
-			//画像のサイズも変更しないといけない
-			this->m_SpriteRenderer->SetSize(TILE_WIDTH, TILE_HEIGHT);
-			this->m_SpriteRenderer->Init();
-
-			//タイマーを０に戻す
-			m_ReplacementTimer = 0;
-		}
-		*/
+	case LC1:
+		m_Kind = C1;
+		break;
+	case LC2:
+		m_Kind = C2;
+		break;
+	case LC3:
+		m_Kind = C3;
+		break;
+	case LC4:
+		m_Kind = C4;
+		break;
+	default:
+		tag = TagList::ColorBlock;
+		break;
 	}
 }
 

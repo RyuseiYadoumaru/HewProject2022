@@ -16,7 +16,7 @@ public:
 	void EffectColorRed()
 	{
 		EffectColor = BlockEffectColor::RED;
-		Sprite("blue35-50");
+		Sprite("red35-50");
 	}
 	void EffectColorBlue()
 	{

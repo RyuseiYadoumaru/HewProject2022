@@ -30,31 +30,25 @@ bool MoveManager::Init(LandTile* in_StandardTile)
 	/*	基準タイル設定	*/
 	m_StandardTile = in_StandardTile;
 
-	/*	カラーブロックに乗ったとき	*/
-	if (m_StandardTile->GetLandTile()->tag == TagList::ColorBlock)
+	//移動配列に格納
+	if (SetMoveList() == true)
 	{
-		//移動配列に格納
-		if (SetMoveList() == true)
+		//タイマー初期化
+		m_Timer = 0.0f;
+
+		//エフェクト用カウンタ初期化
+		FrontCounter = 0;
+		BackCounter = 0;
+		//エフェクトカラー設定
+		if (m_StandardTile->GetLandTile()->GetKind() == C1 ||
+			m_StandardTile->GetLandTile()->GetKind() == C4)
 		{
-			//タイマー初期化
-			m_Timer = 0.0f;
-
-			//エフェクト用カウンタ初期化
-			FrontCounter = 0;
-			BackCounter = 0;
-			//エフェクトカラー設定
-			if (m_StandardTile->GetLandTile()->GetKind() == C1 ||
-				m_StandardTile->GetLandTile()->GetKind() == C4)
-			{
-				//赤系のブロックなら、エフェクトカラーを赤に設定
-				EffectColor = BlockEffectColor::RED;
-				isMagicFin = false;
-			}
-
-			return true;
+			//赤系のブロックなら、エフェクトカラーを赤に設定
+			EffectColor = BlockEffectColor::RED;
+			isMagicFin = false;
 		}
+		return true;
 	}
-
 	return false;
 }
 
@@ -71,6 +65,8 @@ bool MoveManager::Update()
 		{
 			SetResetParticle();
 			isResetFin = true;
+			//BlockParticleManager::CreateMagicEffect(m_StandardTile->GetLandTile(), EffectColor);
+
 		}
 		//移動リストが空じゃないとき
 
@@ -119,10 +115,9 @@ bool MoveManager::SetMoveList()
 
 	/****	基準列設定	****/
 	int NowColumn = m_StandardTile->GetLandTile()->GetMyColumn();
-	ResetColumnNum.push_back(NowColumn);
 	//乗ってる列の基準列を入れておく
 	Map::m_TileColumnList[NowColumn].m_MoveInfo->SetStandardTile(m_StandardTile->GetLandTile());
-
+	ResetColumnNum.push_back(NowColumn);
 	/****	前探索	****/
 	/*	スタート探索列	*/
 	int SearchColumn = NowColumn + 1;
@@ -278,6 +273,7 @@ void MoveManager::SetMoveParticle()
 /****	リセット処理再生	****/
 void MoveManager::SetResetParticle()
 {
+
 	/*	移動している全てのタイルを探索	*/
 	for (auto num : ResetColumnNum)
 	{

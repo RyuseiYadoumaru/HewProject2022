@@ -27,6 +27,8 @@ public:
 
 	static bool JudgeRedorBlue(MAPOBJ in_kind);
 
+	static void MagicReset(Tile& in_OldLandTile);
+
 private:
 	static map<float, BlockMagicEffect*> m_MagicEffectList;
 	static map<float, BlockMoveEffect*> m_MoveEffectList;

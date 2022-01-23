@@ -69,23 +69,14 @@ Scene::STATE GamePlay::Stage20Scene::Update()
 
 	switch (Scene_State) {
 	case 0:
-		/****	ブロック移動	****/
-		m_Map->CheckLandTile(m_Player->m_LandTile);
-		if (((m_Player->m_LandTile->GetisLandTile() == false) ||
-			(Input::GetControllerTrigger(XINPUT_GAMEPAD_X)) || Input::GetKeyTrigger(PK_R)) &&
-			(m_Map->m_OnReset == false))
-		{
-			//リセット発動
-			m_Map->m_OnReset = true;
-		}
-		/****	オブジェクト更新	****/
-		ObjectUpdate();
-
 		/****	当たり判定	****/
-
 		m_Map->HitCheckMap(*m_Player);
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_Shelf2Start->GetComponent<BoxCollider2D>());
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_BookShelfEnd->GetComponent<BoxCollider2D>());
+
+
+		/****	オブジェクト更新	****/
+		ObjectUpdate();
 
 		/* Pause処理　ON */
 		if (Input::GetControllerTrigger(XINPUT_GAMEPAD_START) == true) {
@@ -95,6 +86,8 @@ Scene::STATE GamePlay::Stage20Scene::Update()
 		}
 
 		break;
+
+
 	case 1://ポーズ画面
 	/****   ポーズ中処理   ****/
 		m_Button->PauseCursor_Move();

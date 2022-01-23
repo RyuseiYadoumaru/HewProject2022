@@ -68,30 +68,13 @@ Scene::STATE GamePlay::Stage19Scene::Update()
 	ObjectUpdate();
 	switch (Scene_State) {
 	case 0:
-		/****	ブロック移動	****/
-		m_Map->CheckLandTile(m_Player->m_LandTile);
-		if (((m_Player->m_LandTile->GetisLandTile() == false) ||
-			(Input::GetControllerTrigger(XINPUT_GAMEPAD_X)) || Input::GetKeyTrigger(PK_R)) &&
-			(m_Map->m_OnReset == false))
-		{
-			//リセット発動
-			m_Map->m_OnReset = true;
-		}
-		/****	オブジェクト更新	****/
-		ObjectUpdate();
-
-
 		/****	当たり判定	****/
-
 		m_Map->HitCheckMap(*m_Player);
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_PicTureFrameStart->GetComponent<BoxCollider2D>());
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_Shelf2End->GetComponent<BoxCollider2D>());
 
-		/****	ロードシーン	****/
-		if (Input::GetKeyTrigger(PK_ENTER) == true || Input::GetControllerTrigger(XINPUT_GAMEPAD_B))//エンター押すと次のシーンへ移動
-		{
-			GameEngine::SceneManager::LoadScene("ResultScene");
-		}
+		/****	オブジェクト更新	****/
+		ObjectUpdate();
 
 		/* Pause処理　ON */
 		if (Input::GetControllerTrigger(XINPUT_GAMEPAD_START) == true) {

@@ -66,6 +66,26 @@ bool MapData::Load(std::string in_FileName)
 				Map[y].push_back(C4);
 
 			}
+			else if (one == "LC1")
+			{
+				Map[y].push_back(LC1);
+
+			}
+			else if (one == "LC2")
+			{
+				Map[y].push_back(LC2);
+
+			}
+			else if (one == "LC3")
+			{
+				Map[y].push_back(LC3);
+
+			}
+			else if (one == "LC4")
+			{
+				Map[y].push_back(LC4);
+
+			}
 
 			else if (one == "GR")
 			{

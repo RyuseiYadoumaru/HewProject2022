@@ -64,8 +64,8 @@ bool Player::Start()
 
 	/*	ボックスコライダ設定	*/
 	BoxCollider2D* Col = GetComponent<BoxCollider2D>();
-	Col->SetSize(0.7f, 0.85f);
-	Col->SetOffset(0.25f, 0.1f);
+	Col->SetSize(0.6f, 0.85f);
+	Col->SetOffset(offsetX, offsetY);
 
 	/*	アニメーションコンポーネント	*/
 	AddComponent<Animator>(&m_PlayerAnimController);
@@ -81,6 +81,10 @@ bool Player::Update()
 	/*	座標保存	*/
 	m_SavePosition = transform->Position;
 
+	/*	マップ移動処理	*/
+	MoveMap();
+
+
 	/*	アクション更新	*/
 	//ブロックが動いていないとき
 	if (Map::SearchMoveObjectName(name) == false &&
@@ -94,6 +98,7 @@ bool Player::Update()
 		//アクション処理
 		Action();
 		m_LandTile->FlipCol(m_SpriteRenderer->Flip);
+		FlipCollider(m_SpriteRenderer->Flip);
 	}
 	else
 	{
@@ -370,6 +375,74 @@ void Player::JumpEnd()
 
 }
 
+
+/****	マップ移動処理	****/
+void Player::MoveMap()
+{
+
+	/*	空中に浮いているとき	*/
+	//魔法を使えない
+	//if (m_airFlg == true) return;
+
+	/*	リセット処理	*/
+	if (m_airFlg != true)
+	{
+		if ((m_LandTile->GetLandTile() == LandGround) ||
+			(Input::GetControllerTrigger(XINPUT_GAMEPAD_Y)) || (Input::GetKeyTrigger(PK_R)))
+		{
+			if (Map::m_OnReset == false)
+			{
+				Map::m_OnReset = true;
+			}
+		}
+	}
+
+
+	/*	場所が地面だったら処理しない	*/
+	if (m_LandTile->GetLandTile() == LandGround) return;
+
+	Map::CheckLandTile(*m_LandTile);
+
+	//カラーブロックに乗っているとき
+	//地面に乗っていないときのみ実装する
+	if (m_LandTile->GetLandTile()->tag == TagList::ColorBlock)
+	{
+		/*	エフェクト処理	*/
+		//乗ったところに魔法のエフェクトをかける
+		//乗る場所が変わっていたときのみ生成する
+		if (m_LandTile->GetisChange() == true)
+		{
+			/*	エフェクトリセット処理	*/
+			ResetLandParticle();
+
+			/*	エフェクト生成処理	*/
+			CreateLandParticle();
+		}
+
+		/*	ブロック魔法処理	*/
+		if (m_airFlg == false)
+		{
+			if (Input::GetControllerTrigger(XInput::Buttom::X) == true
+				|| Input::GetKeyTrigger(PK_Q) == true)
+			{
+				//空中に浮いていないとき
+				//魔法を使える
+				Map::AddMoveManager(m_LandTile);
+			}
+		}
+	}
+
+	//前回乗っていたタイルがカラーブロックの時
+	else if (m_LandTile->GetSaveLandTile() != LandGround &&
+		m_LandTile->GetSaveLandTile()->tag == TagList::ColorBlock)
+	{
+		/*	乗ってる部分のエフェクトリセット	*/
+		ResetLandParticle();
+	}
+
+
+}
+
 /****	重力加算	****/
 void Player::AddGravity()
 {
@@ -423,10 +496,47 @@ void Player::AddGravity()
 }
 
 /****	フリップ当たり判定	****/
-void Player::FlipCollider()
+void Player::FlipCollider(bool flip)
 {
+	if (flip != saveflip) {
+		offsetX *= -1;
+		GetComponent<BoxCollider2D>()->SetOffset(offsetX, offsetY);
+		saveflip = flip;
+	}
+}
 
+/****	乗るエフェクト生成処理	****/
+bool Player::CreateLandParticle()
+{
+	if (BlockParticleManager::JudgeRedorBlue(m_LandTile->GetLandTile()->GetKind()) == EFFECT_RED)
+	{
+		BlockParticleManager::CreateMagicEffect(m_LandTile->GetLandTile(), BlockEffectColor::RED);
+	}
+	else
+	{
+		BlockParticleManager::CreateMagicEffect(m_LandTile->GetLandTile(), BlockEffectColor::BLUE);
+	}
+	return true;
+}
 
+/****	エフェクトリセット処理	****/
+bool Player::ResetLandParticle()
+{
+	/*	前フレームが地面の時	*/
+	if (m_LandTile->GetSaveLandTile() == LandGround) return false;
+	if (BlockParticleManager::DeleteMagicEffect(m_LandTile->GetSaveLandTile()->GetId().x) == true)
+	{
+		if (BlockParticleManager::JudgeRedorBlue(m_LandTile->GetSaveLandTile()->GetKind()) == EFFECT_RED)
+		{
+			BlockParticleManager::CreateResetEffect(m_LandTile->GetSaveLandTile(), BlockEffectColor::RED);
+		}
+		else
+		{
+			BlockParticleManager::CreateResetEffect(m_LandTile->GetSaveLandTile(), BlockEffectColor::BLUE);
+		}
+	}
+
+	return true;
 }
 
 /****	アニメーション修正処理	****/

@@ -80,7 +80,7 @@ Tile * ResetInfo::GetStandardTile()
 void ResetInfo::Move()
 {
 	/*	ˆÚ“®—ÊÝ’è	*/
-	float VectorY = m_Speed * GameTimer::deltaTime();
+	float VectorY = m_Speed * GameTimer::fixedDeltaTime();
 
 	/*	ˆÚ“®ˆ—	*/
 	for (auto& Tile : mp_MoveColumn->mp_TileList)

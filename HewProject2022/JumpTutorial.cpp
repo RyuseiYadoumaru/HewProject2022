@@ -16,7 +16,7 @@ bool JumpTutorial::Start()
 	m_SpriteRenderer->Init();
 
 	/*	座標設定	*/
-	transform->Position.Set(1500.0f, 1210.0f, 0.0f);
+	transform->Position.Set(JUMP_TUTORIAL_X, JUMP_TUTORIAL_Y, JUMP_TUTORIAL_Z);
 	transform->Scale.Set(0.5f, 0.5f, 0.5f);
 
 	/*	アニメーションコンポーネント	*/

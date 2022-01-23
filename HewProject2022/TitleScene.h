@@ -36,6 +36,10 @@ namespace GamePlay
 
 		Title* m_TeamLogo;
 
+		/* ゲーム終了 */
+		Actor* m_GameEnd;
+		Actor* m_EndCursor;
+
 
 		/*	エフェクト	*/
 		ScreenFx* m_ScreenEffect;
@@ -47,7 +51,9 @@ namespace GamePlay
 		STATE Update() override;
 		bool End() override;
 		bool Render() override;
+
+		//ゲーム終了処理用フラグ
+		bool End_flg = false;//true=(ゲーム終了) ・ false=(そのまま)
+		bool EndWin_flg = false;//true=(ゲーム終了ウインドウの表示 )・ false=(ゲーム終了ウインドウの非表示)
 	};
 }
-
-

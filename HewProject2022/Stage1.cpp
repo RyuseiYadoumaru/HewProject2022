@@ -5,7 +5,7 @@ using namespace Create;
 bool GamePlay::Stage1Scene::Start()
 {
 	/*	インスタンス	*/
-	m_Map = Instance<Map>("TestLandMove");
+	m_Map = Instance<Map>("stage1-1");
 	m_Player = Instance<Player>("Player");
 	m_MainCamera = Instance<MainCamera>("MainCamera");
 	m_Fade = Instance<Fade>("Black");
@@ -53,6 +53,8 @@ bool GamePlay::Stage1Scene::Start()
 	m_ResultCursor->ResultCursor_Init();//初期値セット
 	m_ResultCursor->Sprite("button");
 	m_ResultCursor->NowScene = "Stage1";//現在のシーン設定
+
+	m_Button->NowScene = m_ResultCursor->NowScene;
 	/*	初期化	*/
 	m_SofaEnd->transform->Position.x += ROAD_DISTANCE;
 
@@ -125,6 +127,7 @@ Scene::STATE GamePlay::Stage1Scene::Update()
 		m_ResultBack->Result_On();//リザルト画面のフラグ
 		m_ResultCursor->Result_On();
 		m_ResultCursor->ResultCursor_Move();//カーソルフラグ＆分岐
+		m_Fade->Update();
 		break;
 
 	}
@@ -167,7 +170,7 @@ bool GamePlay::Stage1Scene::Render()
 
 	/****	オブジェクト描画	****/
 	ObjectRender<Player>("Player");
-	ObjectRender<Map>("TestLandMove");
+	ObjectRender<Map>("stage1-1");
 	ObjectRender<Table>("TableStart");
 	ObjectRender<Sofa>("SofaEnd");
 	ObjectRender<BigBook>("Book1");
@@ -200,6 +203,9 @@ bool GamePlay::Stage1Scene::Render()
 	/*** リザルト ***/
 	ObjectRender<Result>("ResultBack");
 	ObjectRender<Result>("ResultCursor");
+
+	/*** フェード ***/
+	m_Fade->Render();
 
 	/****	画面描画	****/
 	SwapChain();

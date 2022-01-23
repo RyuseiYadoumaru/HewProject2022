@@ -44,6 +44,8 @@ bool GamePlay::Stage13Scene::Start()
 	m_ResultCursor->ResultCursor_Init();
 	m_ResultCursor->NowScene = "Stage13";
 
+	m_Button->NowScene = m_ResultCursor->NowScene;
+
 
 
 	/*	‰Šú‰»	*/

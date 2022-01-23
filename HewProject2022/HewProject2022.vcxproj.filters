@@ -775,6 +775,9 @@
     <ClCompile Include="GameCamera.cpp">
       <Filter>TOYALINE\Object\Camera\GameCamera</Filter>
     </ClCompile>
+    <ClCompile Include="ChangeTile.cpp" />
+    <ClCompile Include="ChangeTileAnim.cpp" />
+    <ClCompile Include="ChangeTileAnimController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Runtime\Application.h">
@@ -1246,6 +1249,9 @@
     <ClInclude Include="GameCamera.h">
       <Filter>TOYALINE\Object\Camera\GameCamera</Filter>
     </ClInclude>
+    <ClInclude Include="ChangeTile.h" />
+    <ClInclude Include="ChangeTileAnim.h" />
+    <ClInclude Include="ChangeTileAnimController.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="README.txt">

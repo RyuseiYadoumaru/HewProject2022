@@ -18,7 +18,7 @@ bool Pause::Start()
 	this->Vertex("vs_Ui");
 	this->transform->Position.Set(BASE_POSITION_X, BASE_POSITION_Y, 0);
 	this->GetComponent<SpriteRenderer>()->Color.a = 0;
-	this->transform->Scale.Set(0.6f, 0.6f, 0.0f);//基本スケールの設定
+	this->transform->Scale.Set(1.5f, 1.5f, 0.0f);//基本スケールの設定
 
 	return true;
 }
@@ -51,28 +51,45 @@ bool Pause::PauseCursor_Move()
 	if ((Input::GetControllerTrigger(XINPUT_GAMEPAD_DPAD_UP) == true || Input::GetKeyTrigger(VK_UP) == true) && Cursor_Position > 0) {
 		Cursor_Position--;
 	}
-	if ((Input::GetControllerTrigger(XINPUT_GAMEPAD_DPAD_DOWN) == true || Input::GetKeyTrigger(VK_DOWN) == true) && Cursor_Position < 2) {
+	else if ((Input::GetControllerTrigger(XINPUT_GAMEPAD_DPAD_DOWN) == true || Input::GetKeyTrigger(VK_DOWN) == true) && Cursor_Position < 2) {
 		Cursor_Position++;
+	}
+	else if (Input::GetControllerLeftStick().y < -0.1) {
+		if (S_flg == false) {
+			Cursor_Position--;
+			S_flg = true;
+		}
+
+	}
+	else if (Input::GetControllerLeftStick().y > 0.1) {
+		if (S_flg == false) {
+			Cursor_Position++;
+			S_flg = true;
+		}
+	}
+	else if (Input::GetControllerLeftStick().y == 0.0) {
+		S_flg = false;
 	}
 
 	//選択肢による分岐
 	switch (Cursor_Position) {
 	case 0:
-		this->transform->Position.Set(BASE_POSITION_X - 170, BASE_POSITION_Y - CURSOR_DISTANCE + 200, 0.0f);
-		if (Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true) {
-			Pause_Checker = 1;//ゲームに戻る（ポーズ終了）
-		}
-		break;
-	case 1:
-		this->transform->Position.Set(BASE_POSITION_X - 170, BASE_POSITION_Y + 200, 0.0f);
-		if (Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true) {
+		this->transform->Position.Set(BASE_POSITION_X - 170, BASE_POSITION_Y - CURSOR_DISTANCE + 100, 0.0f);
+		if (Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true || Input::GetKeyTrigger(VK_RETURN) == true) {
 			//Pause_Checker = 2;
 			GameEngine::SceneManager::LoadScene(this->NowScene);//初めからやり直す処理
 		}
 		break;
+	case 1:
+		this->transform->Position.Set(BASE_POSITION_X - 170, BASE_POSITION_Y + 100, 0.0f);
+		if (Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true || Input::GetKeyTrigger(VK_RETURN) == true) {
+			
+			Pause_Checker = 1;//ゲームに戻る（ポーズ終了）
+		}
+		break;
 	case 2:
-		this->transform->Position.Set(BASE_POSITION_X - 170, BASE_POSITION_Y + CURSOR_DISTANCE + 200, 0.0f);
-		if (Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true) {
+		this->transform->Position.Set(BASE_POSITION_X - 170, BASE_POSITION_Y + CURSOR_DISTANCE + 100, 0.0f);
+		if (Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true || Input::GetKeyTrigger(VK_RETURN) == true) {
 			//Pause_Checker = 3;//ステージセレクトに戻る
 			this->ChangeSelectScene();
 		}

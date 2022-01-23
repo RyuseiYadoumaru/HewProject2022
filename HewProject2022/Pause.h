@@ -22,5 +22,7 @@ public:
 
 	int Cursor_Position;
 	int Pause_Checker;
+
+	bool S_flg = false;
 };
 

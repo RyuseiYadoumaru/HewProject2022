@@ -142,7 +142,7 @@ bool Application::MainLoop()
 	Log* log = Log::Instance();
 	SystemTimer* systemtimer = SystemTimer::Instance();
 	GameEngine::Engine* engine = GameEngine::Engine::Instance();
-	bool isEnd = false;
+	
 
 
 	/****	ƒGƒ“ƒWƒ“‰Šú‰»	****/

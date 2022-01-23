@@ -1,6 +1,7 @@
 #include "Result.h"
+#include "Fade.h"
 
-#define CURSOR_DISTANCE 100.0f			//カーソルの移動間隔
+#define CURSOR_DISTANCE 130.0f			//カーソルの移動間隔
 #define BASE_POSITION_X 1920.0f/2.0f
 #define BASE_POSITION_Y 1080.0f/2.0f
 
@@ -19,6 +20,10 @@ bool Result::Start()
 	this->GetComponent<SpriteRenderer>()->Color.a = 0;
 	this->transform->Scale.Set(1.0f, 1.0f, 0.0f);//基本スケールの設定
 
+	m_SceneTransition = NONE;
+
+	S_flg = false;
+
 	return true;
 }
 
@@ -26,8 +31,8 @@ void Result::ResultBack_init()
 {
 	this->Sprite("result");
 	this->GetComponent<SpriteRenderer>()->Color.a = 0;
-	this->transform->Scale.Set(0.3, 0.3, 0);//スケールの書き換え
-	this, transform->Position.y += 150;
+	this->transform->Scale.Set(1.5f, 1.5f, 0);//スケールの書き換え
+	//this, transform->Position.y += 150;
 }
 
 void Result::ResultCursor_Init()
@@ -46,40 +51,89 @@ bool Result::Result_On()
 
 bool Result::ResultCursor_Move()
 {
+	Fade* m_Fade = Create::Scene::GetGameObject<Fade>("Black");
+
 	this->GetComponent<SpriteRenderer>()->Color.a = 1.0f;
 
 	if ((Input::GetControllerTrigger(XINPUT_GAMEPAD_DPAD_UP) == true || Input::GetKeyTrigger(VK_UP) == true) && Cursor_Position > 0) {
 		Cursor_Position--;
 	}
-	if ((Input::GetControllerTrigger(XINPUT_GAMEPAD_DPAD_DOWN) == true || Input::GetKeyTrigger(VK_DOWN) == true) && Cursor_Position < 2) {
+	else if ((Input::GetControllerTrigger(XINPUT_GAMEPAD_DPAD_DOWN) == true || Input::GetKeyTrigger(VK_DOWN) == true) && Cursor_Position < 2) {
 		Cursor_Position++;
 	}
+	else if (Input::GetControllerLeftStick().y < -0.1) {
+		if (S_flg == false) {
+			Cursor_Position--;
+			S_flg = true;
+		}
+	}
+	else if (Input::GetControllerLeftStick().y > 0.1) {
+		if (S_flg == false) {
+			Cursor_Position++;
+			S_flg = true;
+		}
+	}
+	else if (Input::GetControllerLeftStick().y == 0.0) {
+		S_flg = false;
+	}
+
+
 
 	//選択肢による分岐
 	switch (Cursor_Position) {
 	case 0:
-		this->transform->Position.Set(BASE_POSITION_X - 170, BASE_POSITION_Y - CURSOR_DISTANCE + 200, 0.0f);
-		if (Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true) {
+		this->transform->Position.Set(BASE_POSITION_X - 190, BASE_POSITION_Y - CURSOR_DISTANCE + 270, 0.0f);
+		if (Input::GetControllerTrigger(XINPUT_GAMEPAD_B) == true || Input::GetKeyTrigger(VK_RETURN) == true) {
 			//Result_Checker = 1;//次のステージ
-			this->ChangeNextScene();
+			m_Fade->SetFadeStatus(m_Fade->FADE_OUT);//フェードアウト開始
+			m_SceneTransition = NEXT_SCENE;
+			//this->ChangeNextScene();
 		}
 		break;
 	case 1:
-		this->transform->Position.Set(BASE_POSITION_X - 170, BASE_POSITION_Y + 200, 0.0f);
-		if (Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true) {
-			//Result_Checker = 2;//初めからやり直す処理
-			GameEngine::SceneManager::LoadScene(this->NowScene);//ステージセレクトに戻る
+		this->transform->Position.Set(BASE_POSITION_X - 190, BASE_POSITION_Y + 270, 0.0f);
+		if (Input::GetControllerTrigger(XINPUT_GAMEPAD_B) == true || Input::GetKeyTrigger(VK_RETURN) == true) {
+			//Result_Checker = 2;
+			//m_Fade->SetFadeStatus(m_Fade->FADE_OUT);//フェードアウト開始
+			m_Fade->fadeStatus = m_Fade->FADE_OUT;
+			m_SceneTransition = RETRY;
+			//GameEngine::SceneManager::LoadScene(this->NowScene);//やり直す
 		}
 		break;
 	case 2:
-		this->transform->Position.Set(BASE_POSITION_X - 170, BASE_POSITION_Y + CURSOR_DISTANCE + 200, 0.0f);
-		if (Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true) {
+		this->transform->Position.Set(BASE_POSITION_X - 190, BASE_POSITION_Y + CURSOR_DISTANCE + 270, 0.0f);
+		if (Input::GetControllerTrigger(XINPUT_GAMEPAD_B) == true || Input::GetKeyTrigger(VK_RETURN) == true) {
 			//Result_Checker = 3;//ステージセレクトに戻る
-			this->ChangeSelectScene();
+			m_Fade->SetFadeStatus(m_Fade->FADE_OUT);//フェードアウト開始
+			m_SceneTransition = STAGE_SELECT;
+			//this->ChangeSelectScene();
 		}
 		break;
 	default:
 		break;
+	}
+
+	if (m_Fade->GetFadeStatus() == m_Fade->FADE_NO) {//フェードアウト終了するまで画面遷移しない
+		switch (m_SceneTransition)
+		{
+		case NONE:
+			break;
+
+		case STAGE_SELECT:
+			this->ChangeSelectScene();
+			break;
+
+		case RETRY:
+			GameEngine::SceneManager::LoadScene(this->NowScene);
+			break;
+
+		case NEXT_SCENE:
+			this->ChangeNextScene();
+			break;
+
+		default:
+			break;
+		}
 	}
 	this->transform->Update();
 	return true;
@@ -92,6 +146,7 @@ int Result::Get_Checker()
 
 void Result::ChangeNextScene()
 {
+
 	if (this->NowScene == "Stage1" || this->NowScene == "Stage2" || this->NowScene == "Stage3" || this->NowScene == "Stage4" || this->NowScene == "Stage5") {
 		if (this->NowScene == "Stage1") {
 			GameEngine::SceneManager::LoadScene("Stage2");
@@ -182,6 +237,7 @@ void Result::ChangeNextScene()
 
 void Result::ChangeSelectScene()
 {
+
 	if (this->NowScene == "Stage1" || this->NowScene == "Stage2" || this->NowScene == "Stage3" || this->NowScene == "Stage4" || this->NowScene == "Stage5") {
 		GameEngine::SceneManager::LoadScene("World1StageSelectScene");//ワールド1ステージセレクトを読み込み
 	}
@@ -198,4 +254,5 @@ void Result::ChangeSelectScene()
 		GameEngine::SceneManager::LoadScene("World5StageSelectScene");//ワールド5ステージセレクトを読み込み
 	}
 }
+
 

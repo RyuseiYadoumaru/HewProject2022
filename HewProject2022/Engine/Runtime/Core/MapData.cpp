@@ -87,6 +87,45 @@ bool MapData::Load(std::string in_FileName)
 
 			}
 
+			//入れ替えブロック(真)
+			//3色変化
+			else if (one == "CR3")
+			{
+				Map[y].push_back(CR3);
+
+			}
+			else if (one == "CB3")
+			{
+				Map[y].push_back(CB3);
+
+			}
+			else if (one == "CG3")
+			{
+				Map[y].push_back(CG3);
+
+			}
+			//4色変化
+			else if (one == "CR4")
+			{
+				Map[y].push_back(CR4);
+
+			}
+			else if (one == "CB4")
+			{
+				Map[y].push_back(CB4);
+
+			}
+			else if (one == "CG4")
+			{
+				Map[y].push_back(CG4);
+
+			}
+			else if (one == "CP4")
+			{
+				Map[y].push_back(CP4);
+
+			}
+
 			else if (one == "GR")
 			{
 				Map[y].push_back(GR);

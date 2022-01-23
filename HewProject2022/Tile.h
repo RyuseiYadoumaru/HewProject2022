@@ -25,6 +25,18 @@ enum MAPOBJ
 	LC3, //緑
 	LC4, //紫
 
+	//入れ替わるブロック(真)
+	//3色変化
+	CR3,
+	CB3,
+	CG3,
+
+	//4色変化
+	CR4,
+	CB4,
+	CG4,
+	CP4,
+
 	NO,	//何もない
 	MAX
 };
@@ -33,11 +45,6 @@ enum MAPOBJ
 #define BLUE_BLOCK		(MAPOBJ::C2)
 #define GREEN_BLOCK		(MAPOBJ::C3)
 #define PARPLE_BLOCK	(MAPOBJ::C4)
-
-#define REPLACEMWNT_RED_BLOCK	 (MAPOBJ::C5)	
-#define REPLACEMWNT_BLUE_BLOCK 	 (MAPOBJ::C6)	
-#define REPLACEMWNT_GREEN_BLOCK	 (MAPOBJ::C7)	
-#define REPLACEMWNT_PURPLE_BLOCK (MAPOBJ::C8)	
 
 /****	タイルクラス	****/
 class Tile : public Actor
@@ -72,7 +79,7 @@ public:
 private:
 	void EffectInit();
 
-private:
+protected:
 	Vector3 m_SavePosition;		//前フレームの座標
 	MAPOBJ m_Kind;				//種類
 	float m_MyColumn;			//所属列

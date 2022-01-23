@@ -15,33 +15,42 @@ bool Fade::Start()
 	transform->Scale.Set(10.0f, 10.0f, 0.0f);
 	transform->Position.Set(0.0f, 0.0f, 0.0f);
 
-	fadeStatus = FADE_NO;
-	fadeSpeed = 0.0035f;//フェードするスピード
+	//fadeStatus = FADE_NO;
+	fadeStatus = FADE_IN;//開始とともにフェードイン開始
+	//fadeSpeed = 0.0035f;//フェードするスピード
+	fadeSpeed = 0.01f;//フェードするスピード
 
+	m_FadeFlg = true;
 	return true;
 }
 
 bool Fade::Update()
 {
+	//フェードイン、フェードアウト中は操作できないようにする
+	//if (fadeStatus == FADE_NO) {
 
-	if (fadeStatus == FADE_NO) {
-		//フェードイン
-		if (Input::GetKeyTrigger(PK_1) || Input::GetControllerTrigger(XINPUT_GAMEPAD_B)) {
-			fadeStatus = FADE_IN;
-		}
-		//フェードアウト
-		if (Input::GetKeyTrigger(PK_2) || Input::GetControllerTrigger(XINPUT_GAMEPAD_B)) {
-			fadeStatus = FADE_OUT;
-		}
-	}
+	//	//フェードイン
+	//	if (Input::GetKeyTrigger(PK_1) || Input::GetControllerTrigger(XINPUT_GAMEPAD_B)) {
+	//		m_FadeFlg = true;//プレイヤー操作不可能
+	//		fadeStatus = FADE_IN;
+	//	}
+	//	//フェードアウト
+	//	if (Input::GetKeyTrigger(PK_2) || Input::GetControllerTrigger(XINPUT_GAMEPAD_B)) {
+	//		m_FadeFlg = true;//プレイヤー操作不可能
+	//		fadeStatus = FADE_OUT;
+	//	}
+	//}
 
 	//ステートマシン
 	switch (fadeStatus)
 	{
-	case Fade::FADE_NO:
+	case Fade::FADE_NO://リザルトからシーン遷移可能
+		//ここではプレイヤーを操作できる
+		m_FadeFlg = false;//プレイヤー操作可能 
 		break;
 
 	case Fade::FADE_IN:
+		m_FadeFlg = true;//プレイヤー操作不可能 
 		m_SpriteRenderer->Color.a -= fadeSpeed;
 		if (m_SpriteRenderer->Color.a < 0.0f) {
 			fadeStatus = FADE_NO; // フェードなし
@@ -49,7 +58,8 @@ bool Fade::Update()
 		}
 		break;
 
-	case Fade::FADE_OUT:
+	case Fade::FADE_OUT://リザルトからシーン遷移不可能
+		m_FadeFlg = true;//プレイヤー操作不可能
 		m_SpriteRenderer->Color.a += fadeSpeed;
 		if (m_SpriteRenderer->Color.a > 1.0f) {
 			fadeStatus = FADE_NO; // フェードなし

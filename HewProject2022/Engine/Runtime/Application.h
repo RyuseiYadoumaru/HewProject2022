@@ -38,6 +38,8 @@ public:
 
 	HWND GetHandle() const;
 
+	bool isEnd = false;
+
 private:
 
 	HWND m_hWnd;				//Windowsƒnƒ“ƒhƒ‹

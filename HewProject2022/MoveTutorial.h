@@ -6,6 +6,10 @@ using Create::Actor;
 using GameEngine::Input;
 using Math::Vector2;
 
+#define MOVE_TUTORIAL_X (1100.0f)
+#define MOVE_TUTORIAL_Y (830.0f)
+#define MOVE_TUTORIAL_Z (0.0f)
+
 class MoveTutorial : public Actor
 {
 public:

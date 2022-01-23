@@ -5,6 +5,7 @@
 #include "LandTile.h"
 #include "MoveManager.h"
 #include "ResetManager.h"
+#include"ChangeTile.h"
 
 using Create::GameObject;
 
@@ -45,7 +46,7 @@ private:
 	void CreateMap();
 	void CreateNormalBlock(Vector2& in_Pos);
 	void CreateTile(Vector2& in_Position, string FileName, MAPOBJ in_MapObj);		//タイル生成する
-
+	void CreateChangeTile(Vector2& in_Position, string FileName, MAPOBJ in_MapObj);		//入れ替えタイル生成する
 private:
 	void MoveUpdate();
 

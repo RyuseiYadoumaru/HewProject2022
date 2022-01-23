@@ -16,7 +16,7 @@ bool MoveTutorial::Start()
 	m_SpriteRenderer->Init();
 
 	/*	座標設定	*/
-	transform->Position.Set(1100.0f, 1220.0f, 0.0f);
+	transform->Position.Set(MOVE_TUTORIAL_X, MOVE_TUTORIAL_Y, MOVE_TUTORIAL_Z);
 	transform->Scale.Set(0.5f, 0.5f, 0.5f);
 
 	/*	アニメーションコンポーネント	*/

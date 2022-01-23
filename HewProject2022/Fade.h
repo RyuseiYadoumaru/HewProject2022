@@ -9,9 +9,8 @@ public:
 	Fade(string in_Name);
 	bool Start() override;
 	bool Update() override;
-private:
 
-	float fadeSpeed;//フェードするスピード
+	bool Get_FadeFlg() { return m_FadeFlg; };
 
 	enum FadeStatus
 	{
@@ -19,6 +18,23 @@ private:
 		FADE_IN,
 		FADE_OUT
 	};
+	FadeStatus GetFadeStatus() {
+		return fadeStatus;
+	}
+
+	void SetFadeStatus(FadeStatus fadePattern) {
+		fadeStatus = fadePattern;
+	}
+
+	void SetFadeFlg(bool flg) {
+		m_FadeFlg = flg;
+	}
+
+	//private:
+
+	bool m_FadeFlg;//フェードするフラグ
+
+	float fadeSpeed;//フェードするスピード
 
 	FadeStatus fadeStatus;
 };

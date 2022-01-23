@@ -37,6 +37,15 @@ bool GamePlay::Stage23Scene::Start()
 	m_LayerFront = Instance<LayerFront>("LayerFront");
 	m_LayerFront->Sprite("Wrold5_obj2_1");
 
+	/* ƒŠƒUƒ‹ƒg‰Šú‰» */
+	m_ResultBack = Instance<Result>("ResultBack");
+	m_ResultBack->ResultBack_init();
+	m_ResultCursor = Instance<Result>("ResultCursor");
+	m_ResultCursor->ResultCursor_Init();
+	m_ResultCursor->NowScene = "Stage22";
+
+	m_Button->NowScene = m_ResultCursor->NowScene;
+
 
 	/*	“Vˆä‰Šú‰»	*/
 	m_Ceiling = Instance<Ceiling>("Ceiling");

@@ -27,7 +27,6 @@ bool GamePlay::Stage4Scene::Start()
 
 	m_Button = Instance<Pause>("Button");
 	m_Button->Sprite("button");
-	m_Button->NowScene = "Stage4";
 
 	/*  ゴールインスタンス生成  */
 	m_Goal = Instance<Goal>("Goal");
@@ -38,6 +37,8 @@ bool GamePlay::Stage4Scene::Start()
 	m_ResultCursor = Instance<Result>("ResultCursor");
 	m_ResultCursor->ResultCursor_Init();
 	m_ResultCursor->NowScene = "Stage4";
+
+	m_Button->NowScene = m_ResultCursor->NowScene;
 
 	// BGM再生
 	Sound::Sound_Play(SOUND_LABEL_WORLD1_GAMEBGM);

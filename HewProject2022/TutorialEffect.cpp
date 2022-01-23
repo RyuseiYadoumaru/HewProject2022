@@ -10,6 +10,8 @@ TutorialEffect::TutorialEffect(string in_Name)
 
 bool TutorialEffect::Start()
 {
+	MoveTutorial* m_MoveTutorial = Create::Scene::GetGameObject<MoveTutorial>("MoveTutorial");
+
 	/*	スプライト初期化	*/
 	m_SpriteRenderer->SpriteName = "TutorialEffect";
 	m_SpriteRenderer->SetSize(500.0f, 500.0f);
@@ -17,7 +19,7 @@ bool TutorialEffect::Start()
 	m_SpriteRenderer->Init();
 
 	/*	座標設定	*/
-	transform->Position.Set(1100.0f, 1220.0f, 0.0f);//移動チュートリアルと同じ位置
+	transform->Position.Set(m_MoveTutorial->transform->Position.x, m_MoveTutorial->transform->Position.y, m_MoveTutorial->transform->Position.z);//移動チュートリアルと同じ位置
 	transform->Scale.Set(0.5f, 0.5f, 0.5f);
 
 	/*	アニメーションコンポーネント	*/

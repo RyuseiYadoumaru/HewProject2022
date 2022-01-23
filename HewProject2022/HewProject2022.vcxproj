@@ -158,6 +158,9 @@
     <ClCompile Include="CameraFrame.cpp" />
     <ClCompile Include="Ceiling.cpp" />
     <ClCompile Include="Chair.cpp" />
+    <ClCompile Include="ChangeTile.cpp" />
+    <ClCompile Include="ChangeTileAnim.cpp" />
+    <ClCompile Include="ChangeTileAnimController.cpp" />
     <ClCompile Include="Cuhsion.cpp" />
     <ClCompile Include="Desk.cpp" />
     <ClCompile Include="directxtex\include\DDSTextureLoader.cpp" />
@@ -308,6 +311,9 @@
     <ClInclude Include="CameraFrame.h" />
     <ClInclude Include="Ceiling.h" />
     <ClInclude Include="Chair.h" />
+    <ClInclude Include="ChangeTile.h" />
+    <ClInclude Include="ChangeTileAnim.h" />
+    <ClInclude Include="ChangeTileAnimController.h" />
     <ClInclude Include="Cuhsion.h" />
     <ClInclude Include="Desk.h" />
     <ClInclude Include="directxtex\include\DDSTextureLoader.h" />

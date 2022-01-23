@@ -30,6 +30,7 @@ bool GamePlay::Stage7Scene::Start()
 
 	m_Button = Instance<Pause>("Button");
 	m_Button->Sprite("button");
+	
 
 	/*  ゴールインスタンス生成  */
 	m_Goal = Instance<Goal>("Goal");
@@ -40,6 +41,8 @@ bool GamePlay::Stage7Scene::Start()
 	m_ResultCursor = Instance<Result>("ResultCursor");
 	m_ResultCursor->ResultCursor_Init();
 	m_ResultCursor->NowScene = "Stage7";
+
+	m_Button->NowScene = m_ResultCursor->NowScene;
 
 
 

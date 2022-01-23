@@ -395,6 +395,35 @@ void Map::CreateMap()
 			case C4:
 				CreateTile(Pos, "purple", MAPOBJ::C4);
 				break;
+				//3色変化タイル
+			case CR3:
+				CreateChangeTile(Pos, "red_blue", MAPOBJ::CR3);
+				break;
+
+			case CB3:
+				CreateChangeTile(Pos, "blue_green", MAPOBJ::CB3);
+				break;
+
+			case CG3:
+				CreateChangeTile(Pos, "green_red", MAPOBJ::CG3);
+				break;
+
+				//4色変化タイル
+			case CR4:
+				CreateChangeTile(Pos, "red_blue", MAPOBJ::CR4);
+				break;
+
+			case CB4:
+				CreateChangeTile(Pos, "blue_green", MAPOBJ::CB4);
+				break;
+
+			case CG4:
+				CreateChangeTile(Pos, "green_purple", MAPOBJ::CG4);
+				break;
+
+			case CP4:
+				CreateChangeTile(Pos, "purple_red", MAPOBJ::CP4);
+				break;
 
 			case LC1:
 				CreateTile(Pos, "Landred", MAPOBJ::LC1);
@@ -459,6 +488,25 @@ void Map::CreateTile(Vector2& in_Position, string FileName, MAPOBJ in_MapObj)
 	m_TileColumnList[Column].SetSprite(FileName);		//スプライト設定
 	m_TileColumnList[Column].SetKind(in_MapObj);		//種類設定
 	m_TileColumnList[Column].SetColumn((float)Column);	//列設定
+
+		/*	タイルリストに保存	*/
+	m_TileList.push_back(m_TileColumnList[Column].mp_TileList.back());
+
+}
+
+/****	入れ替えタイル生成	****/
+void Map::CreateChangeTile(Vector2& in_Position, string FileName, MAPOBJ in_MapObj)
+{
+
+	int Column = (int)(in_Position.x / TILE_WIDTH);	//列
+
+	m_TileColumnList[Column].Add(new ChangeTile);				//列にタイルを追加
+	m_TileColumnList[Column].SetPosition(in_Position);	//座標設定
+	m_TileColumnList[Column].SetSprite(FileName);		//スプライト設定
+	m_TileColumnList[Column].SetKind(in_MapObj);		//種類設定
+	m_TileColumnList[Column].SetColumn((float)Column);	//列設定
+
+		//m_TileColumnList[Column].mp_TileList.back()->Start();	//初期化
 
 		/*	タイルリストに保存	*/
 	m_TileList.push_back(m_TileColumnList[Column].mp_TileList.back());

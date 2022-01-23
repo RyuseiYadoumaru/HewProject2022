@@ -38,8 +38,9 @@ bool GamePlay::Stage5Scene::Start()
 	m_ResultBack->ResultBack_init();
 	m_ResultCursor = Instance<Result>("ResultCursor");
 	m_ResultCursor->ResultCursor_Init();
-	m_ResultCursor->NowScene = "Stage1";
+	m_ResultCursor->NowScene = "Stage5";
 
+	m_Button->NowScene = m_ResultCursor->NowScene;
 
 
 	/*	‰Šú‰»	*/

@@ -40,6 +40,8 @@ bool GamePlay::Stage22Scene::Start()
 	m_ResultCursor->ResultCursor_Init();
 	m_ResultCursor->NowScene = "Stage22";
 
+	m_Button->NowScene = m_ResultCursor->NowScene;
+
 	/*	‰Šú‰»	*/
 	m_HouseEnd->transform->Position.x += ROAD_DISTANCE;
 

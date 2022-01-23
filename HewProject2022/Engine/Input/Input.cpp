@@ -261,7 +261,7 @@ void GameEngine::Input::KeyUpdate()
 	gKeys[PK_R] = GetAsyncKeyState(PK_R);				//R
 	gKeys[PK_Q] = GetAsyncKeyState(PK_Q);				//Q
 	gKeys[PK_SP] = GetAsyncKeyState(PK_SP);				//SPACE
-
+	gKeys[PK_ESC] = GetAsyncKeyState(PK_ESC);			//ESCAPE
 
 
 	/****	ƒpƒbƒhó‘Ôæ“¾	****/

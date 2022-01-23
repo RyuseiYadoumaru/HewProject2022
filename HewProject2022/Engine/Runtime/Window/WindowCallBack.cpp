@@ -22,7 +22,7 @@
 //==============================================================================
 LRESULT WindowCallBack::OnKeyDown(HWND h_Handle, UINT h_Message, WPARAM h_WParam, LPARAM h_LParam)
 {
-	if (h_WParam == VK_ESCAPE)
+	/*if (h_WParam == VK_ESCAPE)
 	{
 		int status = Log::LogCloseWindow(h_Handle, "èIóπÇµÇ‹Ç∑Ç©ÅH");
 		if (status == IDYES)
@@ -30,7 +30,7 @@ LRESULT WindowCallBack::OnKeyDown(HWND h_Handle, UINT h_Message, WPARAM h_WParam
 			return DestroyWindow(h_Handle);
 		}
 
-	}
+	}*/
 	return 0;
 }
 

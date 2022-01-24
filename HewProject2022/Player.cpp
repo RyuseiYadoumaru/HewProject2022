@@ -78,8 +78,12 @@ bool Player::Start()
 
 bool Player::Update()
 {
+
 	/*	座標保存	*/
 	m_SavePosition = transform->Position;
+
+	/*	マップ当たり判定	*/
+	Map::HitCheckMap(*this, true);
 
 	/*	マップ移動処理	*/
 	MoveMap();

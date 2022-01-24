@@ -37,6 +37,13 @@ enum MAPOBJ
 	CG4,
 	CP4,
 
+	//ˆÚ“®ƒuƒƒbƒN
+	MB1,
+	MB2,
+	MB3,
+	MB4,
+	MB5,
+
 	NO,	//‰½‚à‚È‚¢
 	MAX
 };
@@ -60,9 +67,6 @@ public:
 	bool Update() override;
 	bool Render()override;
 	void Debug() override;
-
-public:
-	//shared_ptr<BlockEffect> m_Blockeffect;
 
 public:
 	MAPOBJ GetKind() const;

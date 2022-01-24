@@ -211,9 +211,6 @@
     <Filter Include="TOYALINE\StageSelect">
       <UniqueIdentifier>{999dd4e8-5d73-4e1f-9435-8db426486776}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TOYALINE\WorldSelectScene">
-      <UniqueIdentifier>{d4c44244-0df3-4d9b-8900-ea1f91a1c13b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="TOYALINE\TitleScene">
       <UniqueIdentifier>{0b0598a4-11af-4528-8b39-fc3ba654aa92}</UniqueIdentifier>
     </Filter>
@@ -339,6 +336,12 @@
     </Filter>
     <Filter Include="TOYALINE\Object\Camera\GameCamera">
       <UniqueIdentifier>{941db9ca-b4ef-42f4-b7fb-84487d82c80b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Object\Actor\Map\Tile\ChangeTile">
+      <UniqueIdentifier>{d99aca7f-b9e6-4efb-be83-5dd45468d479}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Object\Actor\Map\Tile\PushTile">
+      <UniqueIdentifier>{8ed57ca1-c63d-4945-8241-902e36ea6972}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -522,9 +525,6 @@
     </ClCompile>
     <ClCompile Include="World6StageSelectScene.cpp">
       <Filter>TOYALINE\StageSelect</Filter>
-    </ClCompile>
-    <ClCompile Include="SelectScene.cpp">
-      <Filter>TOYALINE\WorldSelectScene</Filter>
     </ClCompile>
     <ClCompile Include="TitleScene.cpp">
       <Filter>TOYALINE\TitleScene</Filter>
@@ -775,9 +775,18 @@
     <ClCompile Include="GameCamera.cpp">
       <Filter>TOYALINE\Object\Camera\GameCamera</Filter>
     </ClCompile>
-    <ClCompile Include="ChangeTile.cpp" />
-    <ClCompile Include="ChangeTileAnim.cpp" />
-    <ClCompile Include="ChangeTileAnimController.cpp" />
+    <ClCompile Include="ChangeTile.cpp">
+      <Filter>TOYALINE\Object\Actor\Map\Tile\ChangeTile</Filter>
+    </ClCompile>
+    <ClCompile Include="ChangeTileAnim.cpp">
+      <Filter>TOYALINE\Object\Actor\Map\Tile\ChangeTile</Filter>
+    </ClCompile>
+    <ClCompile Include="ChangeTileAnimController.cpp">
+      <Filter>TOYALINE\Object\Actor\Map\Tile\ChangeTile</Filter>
+    </ClCompile>
+    <ClCompile Include="PushTile.cpp">
+      <Filter>TOYALINE\Object\Actor\Map\Tile\PushTile</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Runtime\Application.h">
@@ -1069,9 +1078,6 @@
     <ClInclude Include="StageList.h">
       <Filter>TOYALINE\StageSelect</Filter>
     </ClInclude>
-    <ClInclude Include="SelectScene.h">
-      <Filter>TOYALINE\WorldSelectScene</Filter>
-    </ClInclude>
     <ClInclude Include="TitleScene.h">
       <Filter>TOYALINE\TitleScene</Filter>
     </ClInclude>
@@ -1249,9 +1255,18 @@
     <ClInclude Include="GameCamera.h">
       <Filter>TOYALINE\Object\Camera\GameCamera</Filter>
     </ClInclude>
-    <ClInclude Include="ChangeTile.h" />
-    <ClInclude Include="ChangeTileAnim.h" />
-    <ClInclude Include="ChangeTileAnimController.h" />
+    <ClInclude Include="ChangeTile.h">
+      <Filter>TOYALINE\Object\Actor\Map\Tile\ChangeTile</Filter>
+    </ClInclude>
+    <ClInclude Include="ChangeTileAnim.h">
+      <Filter>TOYALINE\Object\Actor\Map\Tile\ChangeTile</Filter>
+    </ClInclude>
+    <ClInclude Include="ChangeTileAnimController.h">
+      <Filter>TOYALINE\Object\Actor\Map\Tile\ChangeTile</Filter>
+    </ClInclude>
+    <ClInclude Include="PushTile.h">
+      <Filter>TOYALINE\Object\Actor\Map\Tile\PushTile</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="README.txt">

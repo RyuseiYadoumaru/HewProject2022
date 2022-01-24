@@ -17,7 +17,14 @@ namespace GamePlay
 		shared_ptr<Actor> m_stage_4;//ワールド4画像
 		shared_ptr<Actor> m_stage_5;//ワールド5画像
 
+		shared_ptr<Actor> m_worldBack;//背景
+
 		STAGE_NUMBER m_stageNumber;
+
+		int m_frameCnt;
+		bool m_inputflg;
+		bool m_sceneRightMoveflg;
+		bool m_sceneLeftMoveflg;
 
 	public:
 		bool Start() override;
@@ -27,5 +34,9 @@ namespace GamePlay
 		bool End() override;
 
 		bool Render() override;
+
+		void RightMove(STAGE_NUMBER stage);
+		void LeftMove(STAGE_NUMBER stage);
+
 	};
 }

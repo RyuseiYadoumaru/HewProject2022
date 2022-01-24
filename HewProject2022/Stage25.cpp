@@ -75,7 +75,7 @@ Scene::STATE GamePlay::Stage25Scene::Update()
 	case 0:
 
 		/****	“–‚½‚è”»’è	****/
-		m_Map->HitCheckMap(*m_Player);
+		
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_World5_deskStart->GetComponent<BoxCollider2D>());
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_ToyEnd->GetComponent<BoxCollider2D>());
 

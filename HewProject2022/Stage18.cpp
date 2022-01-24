@@ -76,7 +76,7 @@ Scene::STATE GamePlay::Stage18Scene::Update()
 
 		/****	“–‚½‚è”»’è	****/
 
-		m_Map->HitCheckMap(*m_Player);
+		
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_BookShelfStart->GetComponent<BoxCollider2D>());
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_PictureFrameEnd->GetComponent<BoxCollider2D>());
 

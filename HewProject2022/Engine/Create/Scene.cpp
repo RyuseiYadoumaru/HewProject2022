@@ -80,7 +80,6 @@ void Create::Scene::SetCamera()
 	camera = new Camera("MainCamera");
 	camera->Start();
 	ObjectArray[camera->ToString()] = camera;
-	//	ObjectArray.insert(std::make_pair(camera->ToString(), camera));
 	ComponenArray.insert(std::make_pair(camera->ToString(), std::vector<Component*>()));
 
 	for (auto Obj : camera->ComponentList)

@@ -8,6 +8,7 @@ using Math::Vector3;
 vector<shared_ptr<MoveManager>> Map::m_MoveManager;		//移動
 vector<TileColumn>				Map::m_TileColumnList;	//1列タイルリスト
 vector<Tile*>					Map::m_TileList;		//全てのタイルリスト
+vector<PushTile*>				Map::m_PushTileList;	//プッシュタイルリスト
 bool							Map::m_OnReset = false;	//リセットフラグ
 bool							Map::m_isResetStart = false;
 
@@ -154,6 +155,13 @@ bool Map::End()
 	}
 	m_MoveManager.clear();
 
+	/*	押すタイル終了処理	*/
+	for (auto& push : m_PushTileList)
+	{
+		push->End();
+	}
+	m_PushTileList.clear();
+
 	/*	パーティクル解放	*/
 	m_MoveParticle.End();
 	return true;
@@ -163,23 +171,24 @@ bool Map::End()
 bool Map::Render()
 {
 	Create::Camera* camera = Create::Scene::GetCamera();
-	for (int Column = 0; Column < m_Mapdata.GetSize().x; Column++)
+
+
+	/****	タイル描画	****/
+	for (auto& now : m_TileList)
 	{
-		int num = m_TileColumnList[Column].mp_TileList.size();
-		while (num != 0)
+		if (now->transform->Position.x >= camera->GetLeft() - 80.0f&& now->transform->Position.x <= camera->GetRight() + 80.0f &&
+			now->transform->Position.y >= camera->GetTop() - 80.0f && now->transform->Position.y <= camera->GetButtom() + 80.0f)
 		{
-			num--;
-			auto& now = m_TileColumnList[Column].mp_TileList[num];
-			if (now->transform->Position.x >= camera->GetLeft() - 100.0f&& now->transform->Position.x <= camera->GetRight() + 100.0f &&
-				now->transform->Position.y >= camera->GetTop() - 100.0f && now->transform->Position.y <= camera->GetButtom() + 100.0f)
-			{
-				now->Render();
-			}
+			now->Render();
 		}
 	}
 
+	/****	押すブロック描画	****/
+	PushTileRender();
+
 	/****	パーティクル描画	****/
 	m_MoveParticle.ParticleRender();
+
 	return true;
 }
 
@@ -198,9 +207,17 @@ void Map::Debug()
 void Map::SystemUpdate()
 {
 	//コンポーネントシステム更新
-	for (auto i : m_TileList)
+	for (auto& i : m_TileList)
 	{
-		for (auto system : i->ComponentList)
+		for (auto& system : i->ComponentList)
+		{
+			system->Update();
+		}
+	}
+
+	for (auto& push : m_PushTileList)
+	{
+		for (auto& system : push->ComponentList)
 		{
 			system->Update();
 		}
@@ -213,26 +230,56 @@ bool Map::HitCheckMap(GameObject& in_GameObject, bool checkRangeCamera)
 	/*	ヒットチェックオブジェクト	*/
 	BoxCollider2D* CheckObject = in_GameObject.GetComponent<BoxCollider2D>();
 	Create::Camera* camera = Create::Scene::GetCamera();
+
 	/*	当たり判定	*/
 
-	for (auto& NowTile : m_TileList)
+	//カメラ範囲外もチェックする
+	if (checkRangeCamera == false)
 	{
-		BoxCollider2D* TileCol = NowTile->GetComponent<BoxCollider2D>();
-		if (checkRangeCamera == false)
+		for (auto& NowTile : m_TileList)
 		{
-			//カメラ範囲外もチェックする
+			BoxCollider2D* TileCol = NowTile->GetComponent<BoxCollider2D>();
+
 			CheckObject->HitCheckBox(*TileCol);
 		}
-		else
+
+		/*	押すタイル判定	*/
+		for (auto& push : m_PushTileList)
+		{
+			BoxCollider2D* TileCol = push->GetComponent<BoxCollider2D>();
+			CheckObject->HitCheckBox(*TileCol);
+		}
+	}
+
+	//カメラ範囲内チェック
+	else
+	{
+		for (auto& NowTile : m_TileList)
 		{
 			if (NowTile->transform->Position.x >= camera->GetLeft() && NowTile->transform->Position.x <= camera->GetRight() &&
 				NowTile->transform->Position.y >= camera->GetTop() && NowTile->transform->Position.y <= camera->GetButtom())
 			{
+				BoxCollider2D* TileCol = NowTile->GetComponent<BoxCollider2D>();
 				CheckObject->HitCheckBox(*TileCol);
 			}
 
+
+
 		}
+		/*	押すタイル判定	*/
+		for (auto& push : m_PushTileList)
+		{
+			if (push->transform->Position.x >= camera->GetLeft() && push->transform->Position.x <= camera->GetRight() &&
+				push->transform->Position.y >= camera->GetTop() && push->transform->Position.y <= camera->GetButtom())
+			{
+				BoxCollider2D* TileCol = push->GetComponent<BoxCollider2D>();
+				CheckObject->HitCheckBox(*TileCol);
+			}
+		}
+
+
 	}
+
 	return true;
 }
 
@@ -316,6 +363,15 @@ void Map::MoveReset()
 
 }
 
+/****	押すブロック描画	****/
+void Map::PushTileRender()
+{
+	for (auto& tile : m_PushTileList)
+	{
+		tile->Render();
+	}
+}
+
 /****	列初期化	****/
 void Map::ColumnInit()
 {
@@ -338,6 +394,13 @@ void Map::ColumnInit()
 		Column.Init();
 	}
 
+	/****	押すブロック初期化	****/
+	for (auto& tile : m_PushTileList)
+	{
+		tile->transform->Position += SetPosition;
+		tile->Start();
+	}
+
 }
 
 /****	列更新	****/
@@ -347,6 +410,12 @@ void Map::ColumnUpdate()
 	{
 		Column.Update();
 	}
+
+	for (auto& push : m_PushTileList)
+	{
+		push->Update();
+	}
+
 }
 
 /****	マップ生成処理	****/
@@ -369,7 +438,7 @@ void Map::CreateMap()
 			/*	座標設定	*/
 			float PosX = TILE_WIDTH * x;
 			float PosY = (TILE_HEIGHT * y);
-			//float PosY = (TILE_HEIGHT * y) - (y * TILE_FIXPOS);
+
 			Pos.Set(PosX, PosY);
 
 			/*	ブロック生成	*/
@@ -425,6 +494,7 @@ void Map::CreateMap()
 				CreateChangeTile(Pos, "purple_red", MAPOBJ::CP4);
 				break;
 
+				//ランドブロック
 			case LC1:
 				CreateTile(Pos, "Landred", MAPOBJ::LC1);
 				break;
@@ -439,6 +509,22 @@ void Map::CreateMap()
 
 			case LC4:
 				CreateTile(Pos, "Landpurple", MAPOBJ::LC4);
+				break;
+
+			case MB1:
+				CreatePushTile(Pos, "PushTile", MAPOBJ::MB1);
+				break;
+			case MB2:
+				CreatePushTile(Pos, "PushTile", MAPOBJ::MB2);
+				break;
+			case MB3:
+				CreatePushTile(Pos, "PushTile", MAPOBJ::MB3);
+				break;
+			case MB4:
+				CreatePushTile(Pos, "PushTile", MAPOBJ::MB4);
+				break;
+			case MB5:
+				CreatePushTile(Pos, "PushTile", MAPOBJ::MB5);
 				break;
 
 			case GR:
@@ -506,10 +592,19 @@ void Map::CreateChangeTile(Vector2& in_Position, string FileName, MAPOBJ in_MapO
 	m_TileColumnList[Column].SetKind(in_MapObj);		//種類設定
 	m_TileColumnList[Column].SetColumn((float)Column);	//列設定
 
-		//m_TileColumnList[Column].mp_TileList.back()->Start();	//初期化
-
 		/*	タイルリストに保存	*/
 	m_TileList.push_back(m_TileColumnList[Column].mp_TileList.back());
+
+}
+
+
+/****	押すタイル生成	****/
+void Map::CreatePushTile(Vector2& in_Position, string FileName, MAPOBJ in_MapObj)
+{
+	m_PushTileList.push_back(new PushTile);
+	m_PushTileList.back()->transform->Position.Set(in_Position.x, in_Position.y, 0.0f);
+	m_PushTileList.back()->Sprite(FileName);
+	m_PushTileList.back()->SetKind(in_MapObj);
 
 }
 

@@ -73,7 +73,7 @@ Scene::STATE GamePlay::Stage15Scene::Update()
 		ObjectUpdate();
 
 		/****	“–‚½‚è”»’è	****/
-		m_Map->HitCheckMap(*m_Player);
+		
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_TreeStart->GetComponent<BoxCollider2D>());
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_PlantsEnd->GetComponent<BoxCollider2D>());
 

@@ -67,7 +67,7 @@ Scene::STATE GamePlay::Stage3Scene::Update()
 	switch (Scene_State) {
 	case 0:
 		/****	“–‚½‚è”»’è	****/
-		m_Map->HitCheckMap(*m_Player);
+		
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_CuhsionStart->GetComponent<BoxCollider2D>());
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_SofaEnd->GetComponent<BoxCollider2D>());
 

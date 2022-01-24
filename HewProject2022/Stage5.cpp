@@ -68,7 +68,7 @@ Scene::STATE GamePlay::Stage5Scene::Update()
 	switch (Scene_State) {
 	case 0:
 		/****	当たり判定	****/
-		m_Map->HitCheckMap(*m_Player);
+		
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_DeskStart->GetComponent<BoxCollider2D>());
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_DeskEnd->GetComponent<BoxCollider2D>());
 		/****	オブジェクト更新	****/

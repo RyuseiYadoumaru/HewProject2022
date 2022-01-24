@@ -6,6 +6,7 @@
 #include "MoveManager.h"
 #include "ResetManager.h"
 #include"ChangeTile.h"
+#include "PushTile.h"
 
 using Create::GameObject;
 
@@ -24,6 +25,8 @@ public:
 	static vector<shared_ptr<MoveManager>> m_MoveManager;
 	static vector<TileColumn> m_TileColumnList;
 	static vector<Tile*> m_TileList;
+	static vector<PushTile*> m_PushTileList;
+
 	static bool m_OnReset;
 	static bool m_isResetStart;	//リセットスタート
 
@@ -40,13 +43,17 @@ public:
 
 
 private:
+	void PushTileRender();
+
+
 	void ColumnInit();			//列初期化
 	void ColumnUpdate();		//列更新
 
 	void CreateMap();
 	void CreateNormalBlock(Vector2& in_Pos);
-	void CreateTile(Vector2& in_Position, string FileName, MAPOBJ in_MapObj);		//タイル生成する
+	void CreateTile(Vector2& in_Position, string FileName, MAPOBJ in_MapObj);			//タイル生成する
 	void CreateChangeTile(Vector2& in_Position, string FileName, MAPOBJ in_MapObj);		//入れ替えタイル生成する
+	void CreatePushTile(Vector2& in_Position, string FileName, MAPOBJ in_MapObj);		//押すタイル生成
 private:
 	void MoveUpdate();
 

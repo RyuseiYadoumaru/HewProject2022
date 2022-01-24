@@ -54,6 +54,29 @@ bool MainCamera::Update()
 		}
 	}
 
+	// 画面外にカメラがいかないようにする処理
+
+// 左端
+	if (transform->Position.x < 1000.0f)
+	{
+		transform->Position.x = 1000.0f;
+	}
+	// 右端
+	if (transform->Position.x > 6200.0f)
+	{
+		transform->Position.x = 6200.0f;
+	}
+	// 上端
+	if (transform->Position.y < 337.25f)
+	{
+		transform->Position.y = 337.25f;
+	}
+	// 下端
+	if (transform->Position.y > 1060.0f)
+	{
+		transform->Position.y = 1060.0f;
+	}
+
 	SetCameraPos();
 	return true;
 }

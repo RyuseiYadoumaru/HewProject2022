@@ -126,6 +126,33 @@ bool MapData::Load(std::string in_FileName)
 
 			}
 
+
+			//ˆÚ“®ƒuƒƒbƒN
+			else if (one == "MB1")
+			{
+				Map[y].push_back(MB1);
+			}
+
+			else if (one == "MB2")
+			{
+				Map[y].push_back(MB2);
+			}
+
+			else if (one == "MB3")
+			{
+				Map[y].push_back(MB3);
+			}
+
+			else if (one == "MB4")
+			{
+				Map[y].push_back(MB4);
+			}
+
+			else if (one == "MB5")
+			{
+				Map[y].push_back(MB5);
+			}
+
 			else if (one == "GR")
 			{
 				Map[y].push_back(GR);

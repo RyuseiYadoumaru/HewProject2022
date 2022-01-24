@@ -46,6 +46,7 @@ bool DataArray::Init()
 	ImageList.push_back(LoadAllImagePath("assets/Sprite/World6/"));
 	ImageList.push_back(LoadAllImagePath("assets/Sprite/Block/"));
 	ImageList.push_back(LoadAllImagePath("assets/Sprite/Effect/"));
+	ImageList.push_back(LoadAllImagePath("assets/Sprite/Select/"));
 	for (auto ImagePathList : ImageList)
 	{
 		for (auto Now : ImagePathList)

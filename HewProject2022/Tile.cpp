@@ -30,9 +30,6 @@ bool Tile::Start()
 		tag = Ground;
 	}
 
-	/*	エフェクト初期化	*/
-	EffectInit();
-
 	return true;
 }
 
@@ -49,7 +46,6 @@ bool Tile::Render()
 	if (Active == true)
 	{
 		m_SpriteRenderer->Render();
-		//m_Blockeffect->Render();
 	}
 	return true;
 }

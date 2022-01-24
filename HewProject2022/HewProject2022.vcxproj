@@ -235,13 +235,13 @@
     <ClCompile Include="DefaultAnimController.cpp" />
     <ClCompile Include="PlayerAnimController.cpp" />
     <ClCompile Include="PushAny.cpp" />
+    <ClCompile Include="PushTile.cpp" />
     <ClCompile Include="ResetInfo.cpp" />
     <ClCompile Include="ResetInfoList.cpp" />
     <ClCompile Include="ResetManager.cpp" />
     <ClCompile Include="Result.cpp" />
     <ClCompile Include="Rose.cpp" />
     <ClCompile Include="ScreenFx.cpp" />
-    <ClCompile Include="SelectScene.cpp" />
     <ClCompile Include="Shelf.cpp" />
     <ClCompile Include="Shelf2.cpp" />
     <ClCompile Include="Sink.cpp" />
@@ -395,6 +395,7 @@
     <ClInclude Include="DefaultAnimController.h" />
     <ClInclude Include="PlayerAnimController.h" />
     <ClInclude Include="PushAny.h" />
+    <ClInclude Include="PushTile.h" />
     <ClInclude Include="ResetInfo.h" />
     <ClInclude Include="ResetInfoList.h" />
     <ClInclude Include="ResetManager.h" />
@@ -402,7 +403,6 @@
     <ClInclude Include="Rose.h" />
     <ClInclude Include="SceneList.h" />
     <ClInclude Include="ScreenFx.h" />
-    <ClInclude Include="SelectScene.h" />
     <ClInclude Include="Shelf.h" />
     <ClInclude Include="Shelf2.h" />
     <ClInclude Include="Sink.h" />

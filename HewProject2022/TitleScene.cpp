@@ -76,7 +76,7 @@ Scene::STATE GamePlay::TitleScene::Update()
 			if (Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true || Input::GetKeyTrigger(VK_RETURN) == true)//Ａボタンでワールドセレクトへ
 			{
 				Input::Vibration(XINPUT_GAMEPAD_RIGHT_VIBRATION_MAX, 750.0f);
-				GameEngine::SceneManager::LoadScene("WorldSelectScene");
+				GameEngine::SceneManager::LoadScene("World1StageSelectScene");
 			}
 			if (Input::GetControllerTrigger(XINPUT_GAMEPAD_B) == true || Input::GetKeyTrigger(VK_ESCAPE)) {//スタートボタンでゲーム終了ウインドウの表示
 				//ゲーム終了ウインドウを表示する
@@ -89,9 +89,7 @@ Scene::STATE GamePlay::TitleScene::Update()
 			if (m_GameEnd->GetComponent<SpriteRenderer>()->Color.a == 1) {
 				if (End_flg == false) {//カーソル位置が「いいえ」の時
 					m_EndCursor->transform->Position.Set((1920.0f / 2.0f) - 120, (1080.0f / 2.0f) + 80, 0.0f);
-					/*if (Input::GetControllerTrigger(XINPUT_GAMEPAD_DPAD_DOWN) == true) {
-						End_flg = true;
-					}*/
+
 					if (Input::GetControllerLeftStick().y > 0.5 || Input::GetKeyTrigger(VK_DOWN) || Input::GetControllerTrigger(XINPUT_GAMEPAD_DPAD_DOWN) == true) {//スティックを下に倒したときの判定
 						End_flg = true;//true=(ゲーム終了)
 					}
@@ -128,16 +126,6 @@ Scene::STATE GamePlay::TitleScene::Update()
 			}
 		}
 	}
-
-	///****	NextScene	****/
-	//if (Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true ||
-	//	Input::GetKeyTrigger(PK_ENTER) == true)
-	//{
-	//	Input::Vibration(XINPUT_GAMEPAD_RIGHT_VIBRATION_MAX, 750.0f);
-	//	GameEngine::SceneManager::LoadScene("WorldSelectScene");
-	//}
-
-
 
 	/****	システム更新	****/
 	SystemUpdate();

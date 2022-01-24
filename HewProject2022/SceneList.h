@@ -8,7 +8,6 @@
 
 #include "TitleScene.h"
 //ŽO–ØŒ´’Ç‰Á
-#include"SelectScene.h"
 #include"World1StageSelectScene.h"
 #include"World2StageSelectScene.h"
 #include"World3StageSelectScene.h"

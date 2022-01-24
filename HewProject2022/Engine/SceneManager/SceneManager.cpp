@@ -27,7 +27,6 @@ GameEngine::SceneManager::SceneManager()
 {
 	CreateScene("TitleScene", new GamePlay::TitleScene);
 	//ŽO–ØŒ´’Ç‰Á
-	CreateScene("WorldSelectScene", new GamePlay::SelectScene);
 	CreateScene("World1StageSelectScene", new GamePlay::World1StageSelectScene);
 	CreateScene("World2StageSelectScene", new GamePlay::World2StageSelectScene);
 	CreateScene("World3StageSelectScene", new GamePlay::World3StageSelectScene);
@@ -60,7 +59,7 @@ GameEngine::SceneManager::SceneManager()
 	CreateScene("Stage24", new GamePlay::Stage24Scene);
 	CreateScene("Stage25", new GamePlay::Stage25Scene);
 
-	NextScene = SceneList["TitleScene"];
+	NextScene = SceneList["Stage1"];
 }
 
 //==============================================================================

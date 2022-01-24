@@ -164,7 +164,8 @@ bool Math::Vector3::operator!=(const Vector3 in_V3)
 //==============================================================================
 bool Math::Vector3::operator==(const Vector3 in_V3)
 {
-	return (*this == in_V3);
+	if (this->x == in_V3.x && this->y == in_V3.y && this->z == in_V3.z) return true;
+	return false;
 }
 
 //==============================================================================

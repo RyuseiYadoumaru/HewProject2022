@@ -133,7 +133,14 @@ Tile* LandTile::FindTile(ID& in_Id)
 		{
 			return tile;
 		}
-
+	}
+	for (auto& push : Map::m_PushTileList)
+	{
+		/*	IDƒqƒbƒg	*/
+		if (push->GetId() == in_Id)
+		{
+			return push;
+		}
 	}
 
 	return nullptr;

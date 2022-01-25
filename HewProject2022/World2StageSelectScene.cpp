@@ -49,7 +49,7 @@ bool GamePlay::World2StageSelectScene::Start()
 
 	m_sceneRightMoveflg = false;
 	m_sceneLeftMoveflg = false;
-	m_inputflg = false;
+	m_inputflg = true;
 	m_frameCnt = 0;
 
 	//camera = make_shared<Camera>("MainCamera");

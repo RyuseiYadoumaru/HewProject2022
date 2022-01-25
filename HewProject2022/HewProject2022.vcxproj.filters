@@ -787,6 +787,8 @@
     <ClCompile Include="PushTile.cpp">
       <Filter>TOYALINE\Object\Actor\Map\Tile\PushTile</Filter>
     </ClCompile>
+    <ClCompile Include="GoalAnimController.cpp" />
+    <ClCompile Include="StarTile.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Runtime\Application.h">
@@ -1267,6 +1269,8 @@
     <ClInclude Include="PushTile.h">
       <Filter>TOYALINE\Object\Actor\Map\Tile\PushTile</Filter>
     </ClInclude>
+    <ClInclude Include="GoalAnimController.h" />
+    <ClInclude Include="StarTile.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="README.txt">

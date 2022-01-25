@@ -17,6 +17,10 @@ public:
 		JUMP,
 		DOWN,
 		MAGIC,
+		PUSH,
+		ROTATELOOP,
+		ROTATEEND,
+		HAND,
 		KIND_MAX
 	};
 

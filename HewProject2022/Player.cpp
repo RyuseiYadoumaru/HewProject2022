@@ -2,6 +2,7 @@
 #include "TileColumn.h"
 #include "Map.h"
 #include "BlockParticleManager.h"
+#include "Result.h"
 
 Player::Player(string in_Name) :Character(in_Name)
 {
@@ -48,6 +49,9 @@ bool Player::Start()
 	/*	マジック初期化	*/
 	m_isMagic = false;
 
+	/* ゴール初期化 */
+	m_isGoal = false;
+
 	/*	スプライト初期化	*/
 	m_SpriteRenderer->SpriteName = "Character";
 	m_SpriteRenderer->SetSize(80.0f, 80.0f);
@@ -73,6 +77,13 @@ bool Player::Start()
 	/*	ランドタイル初期化	*/
 	m_LandTile = Create::Scene::Instance<LandTile>("PlayerLandTile");
 	m_LandTile->Init(this);
+
+	/*	取得した星の数初期化	*/
+	m_GetStar = 0;
+
+	/*	プレイヤー死亡フラグ初期化	*/
+	m_PlayerDeath = false;
+
 	return true;
 }
 
@@ -83,11 +94,20 @@ bool Player::Update()
 	m_SavePosition = transform->Position;
 
 	/*	マップ当たり判定	*/
-	Map::HitCheckMap(*this, true);
+	Map::HitCheckMap(*this, Map::CHECK::CAMERA_RANGE);
 
 	/*	マップ移動処理	*/
 	MoveMap();
 
+
+	//if (Input::GetKeyPress(PK_E) == true && Input::GetKeyPress(PK_D))
+	//{
+	//	isPushing = true;
+	//}
+	//if (isPushing == true)
+	//{
+	//	isPushing = !Map::PushRightMoveTile(*this);
+	//}
 
 	/*	アクション更新	*/
 	//ブロックが動いていないとき
@@ -119,6 +139,14 @@ bool Player::Update()
 
 	/*	アニメーション修正処理	*/
 	FixAnimation();
+
+	/*	プレイヤー死亡処理	*/
+	if (this->transform->Position.y >= PLAYER_DEATH_LINE && m_PlayerDeath == false) {
+
+		m_PlayerDeath = true;
+		PlayerDeath();
+	}
+
 	return true;
 }
 
@@ -196,6 +224,26 @@ void Player::Magic()
 		transform->Position.y += vectorY;
 	}
 
+}
+
+/*** ゴールアニメーション ***/
+void Player::Goal()
+{
+
+	if (m_isGoal == false) {
+		m_PlayerAnimController.AnimState = PlayerAnimController::PLAYER_ROTATESTART;
+		m_isGoal = true;
+
+	}
+	if (m_PlayerAnimController.AnimState == PlayerAnimController::PLAYER_ANIMEND && m_isGoal == true) {
+		ReturnGoal = true;
+	}
+}
+
+bool Player::GetGoal()
+{
+	//アニメーション完了でtrueを返す
+	return ReturnGoal;
 }
 
 void Player::SpeedControl()
@@ -541,6 +589,13 @@ bool Player::ResetLandParticle()
 	}
 
 	return true;
+}
+
+void Player::PlayerDeath()
+{
+	string n = Create::Scene::GetGameObject<Result>("ResultCursor")->NowScene;
+	SceneManager::LoadScene(Create::Scene::GetGameObject<Result>("ResultCursor")->NowScene);
+
 }
 
 /****	アニメーション修正処理	****/

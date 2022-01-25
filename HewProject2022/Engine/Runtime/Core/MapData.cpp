@@ -152,7 +152,12 @@ bool MapData::Load(std::string in_FileName)
 			{
 				Map[y].push_back(MB5);
 			}
+			//êØ
+			else if (one == "ST")
+			{
+				Map[y].push_back(ST);
 
+			}
 			else if (one == "GR")
 			{
 				Map[y].push_back(GR);

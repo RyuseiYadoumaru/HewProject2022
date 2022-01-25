@@ -13,6 +13,7 @@ enum TagList
 	NormalBlock,
 	ColorBlock,
 	LandColorBlock,
+	STAR,
 
 	TagListMax
 };

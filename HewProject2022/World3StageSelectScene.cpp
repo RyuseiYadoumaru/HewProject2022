@@ -48,7 +48,7 @@ bool GamePlay::World3StageSelectScene::Start()
 	m_stageNumber = STAGE_01;
 	m_sceneRightMoveflg = false;
 	m_sceneLeftMoveflg = false;
-	m_inputflg = false;
+	m_inputflg = true;
 	m_frameCnt = 0;
 
 	//camera = make_shared<Camera>("MainCamera");

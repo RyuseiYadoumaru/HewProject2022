@@ -7,7 +7,6 @@ bool PlayerAnimController::Init()
 	AnimState = PLAYER_IDLE;
 
 	return true;
-
 }
 
 void PlayerAnimController::Update()
@@ -55,8 +54,54 @@ void PlayerAnimController::Update()
 		Anim->Play("Magic");
 		break;
 
+	case PLAYER_PUSH:
+		Anim->Play("Push");
+		break;
+
+	case PLAYER_ROTATESTART:
+		Anim->Play("RotateStart");
+		if (Anim->Play("RotateStart") == ANIMATION_FINISH) {
+			AnimState = PLAYER_ROTATELOOP;
+		}
+		break;
+
+	case PLAYER_ROTATELOOP:
+		Anim->Play("RotateLoop");
+		if (Anim->Play("RotateLoop") == ANIMATION_FINISH)
+		{
+			AnimState = PLAYER_ROTATEEND;
+		}
+		break;
+
+	case PLAYER_ROTATEEND:
+		Anim->Play("RotateEnd");
+		if (Anim->Play("RotateEnd") == ANIMATION_FINISH)
+		{
+			AnimState = PLAYER_HAND;
+		}
+		break;
+
+	case PLAYER_HAND:
+		Anim->Play("Hand");
+		if (Anim->Play("Hand") == ANIMATION_FINISH)
+		{
+			AnimState = PLAYER_HANDLOOP;
+		}
+
+		break;
+
+	case PLAYER_HANDLOOP:
+		Anim->Play("Hand");
+		if (Anim->Play("Hand") == ANIMATION_FINISH)
+		{
+			AnimState = PLAYER_ANIMEND;
+		}
+		break;
+	case PLAYER_ANIMEND:
+		Anim->Play("Hand");
+		break;
+
 	default:
 		break;
 	}
-
 }

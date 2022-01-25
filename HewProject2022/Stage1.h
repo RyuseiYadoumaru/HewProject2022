@@ -47,6 +47,7 @@ namespace GamePlay
 		/*	”wŒi	*/
 		BackGround*		m_BackGround;
 		LayerBack*		m_LayerBack;
+		GrayBack*       m_GrayBack;
 		LayerFront*		m_LayerFront;
 
 		/*	“Vˆä	*/
@@ -75,6 +76,6 @@ namespace GamePlay
 		bool End() override;
 		bool Render() override;
 
-		
+
 	};
 }

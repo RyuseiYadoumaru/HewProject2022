@@ -37,6 +37,9 @@ enum MAPOBJ
 	CG4,
 	CP4,
 
+	//¯
+	ST,
+
 	//ˆÚ“®ƒuƒƒbƒN
 	MB1,
 	MB2,

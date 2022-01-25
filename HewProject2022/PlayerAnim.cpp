@@ -60,6 +60,41 @@ void PlayerAnim::Init()
 	set_Magic.SetKey(0.0f, 150.0f, 300.0f);
 	AnimationTableList.insert(std::make_pair("Magic", set_Magic));
 
+	/*	PUSH	*/
+	::AnimationTable set_Push;
+	set_Push.SetKind(KIND::PUSH, KIND::PUSH, KIND::PUSH);
+	set_Push.SetFrame(PLAYER_ANIM::ANIM_2, PLAYER_ANIM::ANIM_3, PLAYER_ANIM::ANIM_2, ANIMATION_FINISH);
+	set_Push.SetKey(0.0f, 150.0f, 300.0f);
+	AnimationTableList.insert(std::make_pair("Push", set_Magic));
+
+	/*	ROTATESTART	*/
+	::AnimationTable set_RotateStart;
+	set_RotateStart.SetKind(KIND::PUSH, KIND::ROTATELOOP, KIND::ROTATELOOP, KIND::ROTATELOOP);
+	set_RotateStart.SetFrame(PLAYER_ANIM::ANIM_1, PLAYER_ANIM::ANIM_1, PLAYER_ANIM::ANIM_2, PLAYER_ANIM::ANIM_3, ANIMATION_FINISH);
+	set_RotateStart.SetKey(0.0f, 400.0f, 600.0f, 800.0f);
+	AnimationTableList.insert(std::make_pair("RotateStart", set_RotateStart));
+
+	/*	ROTATELOOP	*/
+	::AnimationTable set_RotateLoop;
+	set_RotateLoop.SetKind(KIND::ROTATELOOP, KIND::ROTATELOOP, KIND::ROTATELOOP);
+	set_RotateLoop.SetFrame(PLAYER_ANIM::ANIM_1, PLAYER_ANIM::ANIM_2, PLAYER_ANIM::ANIM_3, ANIMATION_FINISH);
+	set_RotateLoop.SetKey(0.0f, 200.0f, 400.0f);
+	AnimationTableList.insert(std::make_pair("RotateLoop", set_RotateLoop));
+
+	/*	ROTATEEND	*/
+	::AnimationTable set_RotateEnd;
+	set_RotateEnd.SetKind(KIND::ROTATELOOP, KIND::ROTATEEND, KIND::ROTATEEND);
+	set_RotateEnd.SetFrame(PLAYER_ANIM::ANIM_3, PLAYER_ANIM::ANIM_1, PLAYER_ANIM::ANIM_2, ANIMATION_FINISH);
+	set_RotateEnd.SetKey(0.0f, 500.0f, 1000.0f);
+	AnimationTableList.insert(std::make_pair("RotateEnd", set_RotateEnd));
+
+	/*	HAND	*/
+	::AnimationTable set_Hand;
+	set_Hand.SetKind(KIND::HAND, KIND::HAND);
+	set_Hand.SetFrame(PLAYER_ANIM::ANIM_1, PLAYER_ANIM::ANIM_2, ANIMATION_FINISH);
+	set_Hand.SetKey(0.0f, 500.0f);
+	AnimationTableList.insert(std::make_pair("Hand", set_Hand));
+
 
 	/*	表示テクスチャ初期化	*/
 	m_animationFrame = 0;

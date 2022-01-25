@@ -6,7 +6,10 @@ Ceiling::Ceiling(string in_Name) : Actor(in_Name)
 
 bool Ceiling::Start()
 {
+	/*	スプライト初期化	*/
+	m_SpriteRenderer->SpriteName = "ceiling";
 	m_SpriteRenderer->Init();
+
 	float PosX = MAPSIZE_WIDTH / 2.0f;
 	float PosY = (-305.0f / 2.0f) + 50;
 	transform->Scale.Set(1.0f, 0.75f, 1.0f);
@@ -14,8 +17,8 @@ bool Ceiling::Start()
 
 	/*	ボックスコライダコンポーネント	*/
 	GameEngine::BoxCollider2D* col = AddComponent<GameEngine::BoxCollider2D>(m_SpriteRenderer->GetSize());
-	col->SetSize(1.0f, 1.0f);
-	col->SetOffset(0.0f, 0.0f);
+	/*col->SetSize(1.0f, 1.0f);
+	col->SetOffset(0.0f, 0.0f);*/
 
 	return true;
 }

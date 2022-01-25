@@ -1,6 +1,6 @@
 #pragma once
 enum STAGE_NUMBER {
-	STAGE_01,
+	STAGE_01 = 1,
 	STAGE_02,
 	STAGE_03,
 	STAGE_04,

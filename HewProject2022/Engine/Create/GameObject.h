@@ -40,6 +40,7 @@ namespace Create
 
 		Transform GetTransform();
 		std::string GetName() { return name; }
+		void SetName(std::string in_Name) { name = in_Name; }
 		ID GetId()const { return id.x; }
 
 		virtual bool Render();

@@ -83,7 +83,7 @@ bool Result::ResultCursor_Move()
 	switch (Cursor_Position) {
 	case 0:
 		this->transform->Position.Set(BASE_POSITION_X - 190, BASE_POSITION_Y - CURSOR_DISTANCE + 270, 0.0f);
-		if (Input::GetControllerTrigger(XINPUT_GAMEPAD_B) == true || Input::GetKeyTrigger(VK_RETURN) == true) {
+		if (Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true || Input::GetKeyTrigger(VK_RETURN) == true) {
 			//Result_Checker = 1;//次のステージ
 			m_Fade->SetFadeStatus(m_Fade->FADE_OUT);//フェードアウト開始
 			m_SceneTransition = NEXT_SCENE;
@@ -92,7 +92,7 @@ bool Result::ResultCursor_Move()
 		break;
 	case 1:
 		this->transform->Position.Set(BASE_POSITION_X - 190, BASE_POSITION_Y + 270, 0.0f);
-		if (Input::GetControllerTrigger(XINPUT_GAMEPAD_B) == true || Input::GetKeyTrigger(VK_RETURN) == true) {
+		if (Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true || Input::GetKeyTrigger(VK_RETURN) == true) {
 			//Result_Checker = 2;
 			//m_Fade->SetFadeStatus(m_Fade->FADE_OUT);//フェードアウト開始
 			m_Fade->fadeStatus = m_Fade->FADE_OUT;
@@ -102,7 +102,7 @@ bool Result::ResultCursor_Move()
 		break;
 	case 2:
 		this->transform->Position.Set(BASE_POSITION_X - 190, BASE_POSITION_Y + CURSOR_DISTANCE + 270, 0.0f);
-		if (Input::GetControllerTrigger(XINPUT_GAMEPAD_B) == true || Input::GetKeyTrigger(VK_RETURN) == true) {
+		if (Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true || Input::GetKeyTrigger(VK_RETURN) == true) {
 			//Result_Checker = 3;//ステージセレクトに戻る
 			m_Fade->SetFadeStatus(m_Fade->FADE_OUT);//フェードアウト開始
 			m_SceneTransition = STAGE_SELECT;

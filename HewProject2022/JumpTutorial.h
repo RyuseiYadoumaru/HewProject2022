@@ -6,8 +6,8 @@ using Create::Actor;
 using GameEngine::Input;
 using Math::Vector2;
 
-#define	JUMP_TUTORIAL_X (1477.0f)
-#define JUMP_TUTORIAL_Y (830.0f)
+#define	JUMP_TUTORIAL_X (1620.0f)
+#define JUMP_TUTORIAL_Y (730.0f)
 #define JUMP_TUTORIAL_Z (0.0f)
 
 class JumpTutorial :public Actor

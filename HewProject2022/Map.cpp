@@ -11,6 +11,7 @@ vector<Tile*>					Map::m_TileList;		//全てのタイルリスト
 vector<PushTile*>				Map::m_PushTileList;	//プッシュタイルリスト
 bool							Map::m_OnReset = false;	//リセットフラグ
 bool							Map::m_isResetStart = false;
+bool							Map::m_isPush = false;	//プッシュフラグ
 
 /****	動いているオブジェクト探索	****/
 bool Map::SearchMoveObjectName(string in_SearchName)
@@ -104,7 +105,6 @@ Map::Map(std::string in_MapDataName) : GameObject(in_MapDataName)
 /****	初期化	****/
 bool Map::Start()
 {
-
 	/*	マップ初期化	*/
 	transform->Position.Set(3640.0f, 840.0f, 0.0f);
 
@@ -171,8 +171,6 @@ bool Map::End()
 bool Map::Render()
 {
 	Create::Camera* camera = Create::Scene::GetCamera();
-
-
 	/****	タイル描画	****/
 	for (auto& now : m_TileList)
 	{
@@ -225,7 +223,7 @@ void Map::SystemUpdate()
 }
 
 /****	マップ当たり判定	****/
-bool Map::HitCheckMap(GameObject& in_GameObject, bool checkRangeCamera)
+bool Map::HitCheckMap(GameObject& in_GameObject, CHECK in_Check)
 {
 	/*	ヒットチェックオブジェクト	*/
 	BoxCollider2D* CheckObject = in_GameObject.GetComponent<BoxCollider2D>();
@@ -234,7 +232,7 @@ bool Map::HitCheckMap(GameObject& in_GameObject, bool checkRangeCamera)
 	/*	当たり判定	*/
 
 	//カメラ範囲外もチェックする
-	if (checkRangeCamera == false)
+	if (in_Check == ALL)
 	{
 		for (auto& NowTile : m_TileList)
 		{
@@ -252,7 +250,7 @@ bool Map::HitCheckMap(GameObject& in_GameObject, bool checkRangeCamera)
 	}
 
 	//カメラ範囲内チェック
-	else
+	else if (in_Check == CAMERA_RANGE)
 	{
 		for (auto& NowTile : m_TileList)
 		{
@@ -260,11 +258,10 @@ bool Map::HitCheckMap(GameObject& in_GameObject, bool checkRangeCamera)
 				NowTile->transform->Position.y >= camera->GetTop() && NowTile->transform->Position.y <= camera->GetButtom())
 			{
 				BoxCollider2D* TileCol = NowTile->GetComponent<BoxCollider2D>();
-				CheckObject->HitCheckBox(*TileCol);
+				if (NowTile->tag != TagList::STAR) {
+					CheckObject->HitCheckBox(*TileCol);
+				}
 			}
-
-
-
 		}
 		/*	押すタイル判定	*/
 		for (auto& push : m_PushTileList)
@@ -276,8 +273,6 @@ bool Map::HitCheckMap(GameObject& in_GameObject, bool checkRangeCamera)
 				CheckObject->HitCheckBox(*TileCol);
 			}
 		}
-
-
 	}
 
 	return true;
@@ -507,8 +502,8 @@ void Map::CreateMap()
 				CreateTile(Pos, "Landgreen", MAPOBJ::LC3);
 				break;
 
-			case LC4:
-				CreateTile(Pos, "Landpurple", MAPOBJ::LC4);
+			case ST:
+				CreateStarTile(Pos, "hosi", MAPOBJ::ST);
 				break;
 
 			case MB1:
@@ -597,6 +592,25 @@ void Map::CreateChangeTile(Vector2& in_Position, string FileName, MAPOBJ in_MapO
 
 }
 
+void Map::CreateStarTile(Vector2 & in_Position, string FileName, MAPOBJ in_MapObj)
+{
+	int Column = (int)(in_Position.x / TILE_WIDTH);	//列
+
+
+	m_TileColumnList[Column].Add(new StarTile);				//列に星を追加
+	NAME n = "Star" + std::to_string(m_TileColumnList[Column].mp_TileList.back()->GetId().x);
+	m_TileColumnList[Column].mp_TileList.back()->SetName(n);
+	m_TileColumnList[Column].SetPosition(in_Position);	//座標設定
+	m_TileColumnList[Column].SetSprite(FileName);		//スプライト設定
+	m_TileColumnList[Column].SetKind(in_MapObj);		//種類設定
+	m_TileColumnList[Column].SetColumn((float)Column);	//列設定
+
+		//m_TileColumnList[Column].mp_TileList.back()->Start();	//初期化
+
+		/*	タイルリストに保存	*/
+	m_TileList.push_back(m_TileColumnList[Column].mp_TileList.back());
+}
+
 
 /****	押すタイル生成	****/
 void Map::CreatePushTile(Vector2& in_Position, string FileName, MAPOBJ in_MapObj)
@@ -659,4 +673,52 @@ void Map::AddMoveManager(LandTile* in_LandTile)
 		m_MoveManager.pop_back();
 
 	}
+}
+
+/****	押す処理	****/
+bool Map::PushRightMoveTile(GameObject& in_PushObj)
+{
+	/*	初期化	*/
+	static PushTile* push = nullptr;	//押されるタイル
+	if (m_isPush == false)
+	{
+		for (auto& tile : m_PushTileList)
+		{
+			if (tile->GetComponent<BoxCollider2D>()->GetisHit_leftBlock() == true)
+			{
+				cout << "Push！\n";
+				push = tile;
+				push->isMoveRight = true;
+				push->m_PushValue = 0.0f;
+				m_isPush = true;
+				break;
+			}
+
+		}
+
+		if (m_isPush == false)
+		{
+			push = nullptr;
+			return true;
+		}
+	}
+
+
+	cout << "押している\n";
+	/*	更新	*/
+	//プッシュタイルの移動量を加算する
+	float vec = push->Move();
+	in_PushObj.transform->Position.x += vec;
+	/*	修正処理	*/
+	if (push->m_PushValue >= TILE_WIDTH)
+	{
+		in_PushObj.transform->Position.x += push->FixMove();
+		m_isPush = false;
+		push = nullptr;
+		//終了したらtrueを返す
+		return true;
+
+	}
+
+	return false;
 }

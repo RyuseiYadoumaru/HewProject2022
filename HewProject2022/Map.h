@@ -7,6 +7,7 @@
 #include "ResetManager.h"
 #include"ChangeTile.h"
 #include "PushTile.h"
+#include "StarTile.h"
 
 using Create::GameObject;
 
@@ -17,7 +18,17 @@ public:
 	static bool SearchMoveObjectID(int in_ID);
 	static void AllTileReset();			//タイルリセット
 	static void AddMoveManager(LandTile* in_LandTile);
-	static bool HitCheckMap(GameObject& in_GameObject, bool checkRangeCamera = false);
+	static bool PushRightMoveTile(GameObject& in_PushObj);
+	static bool PushLeftMoveTile(GameObject& in_PushObj);
+
+public:
+	enum CHECK
+	{
+		ALL,
+		CAMERA_RANGE
+
+	};
+	static bool HitCheckMap(GameObject& in_GameObject, CHECK in_Check = ALL);
 	static bool CheckLandTile(LandTile& in_LandTile);
 
 
@@ -29,7 +40,7 @@ public:
 
 	static bool m_OnReset;
 	static bool m_isResetStart;	//リセットスタート
-
+	static bool m_isPush;		//プッシュフラグ
 public:
 	Map();
 	Map(std::string in_MapDataName);
@@ -53,7 +64,9 @@ private:
 	void CreateNormalBlock(Vector2& in_Pos);
 	void CreateTile(Vector2& in_Position, string FileName, MAPOBJ in_MapObj);			//タイル生成する
 	void CreateChangeTile(Vector2& in_Position, string FileName, MAPOBJ in_MapObj);		//入れ替えタイル生成する
+
 	void CreatePushTile(Vector2& in_Position, string FileName, MAPOBJ in_MapObj);		//押すタイル生成
+	void CreateStarTile(Vector2& in_Position, string FileName, MAPOBJ in_MapObj);		//星生成する
 private:
 	void MoveUpdate();
 

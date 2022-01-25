@@ -1,4 +1,5 @@
 #include "PushTile.h"
+#include "Player.h"
 
 bool PushTile::Start()
 {
@@ -37,5 +38,56 @@ bool PushTile::Update()
 	/*	前回の座標を取得	*/
 	m_SavePosition = transform->Position;
 
+	/*	プレイヤーとの当たり判定	*/
+	//現在はプレイヤーのみ当たり判定が生じる
+	Player* check = Create::Scene::GetGameObject<Player>("Player");
+	GetComponent<BoxCollider2D>()->HitCheckBox(*check->GetComponent<BoxCollider2D>());
+
 	return true;
 }
+
+/****	移動処理	****/
+float PushTile::Move()
+{
+
+	float VectorX = 0.0f;
+
+	/*	右移動	*/
+	if (isMoveRight == true)
+	{
+		VectorX += MoveSpeed * GameTimer::fixedDeltaTime();
+
+	}
+
+	/*	左移動	*/
+	else
+	{
+		VectorX += -MoveSpeed * GameTimer::fixedDeltaTime();
+
+	}
+
+	m_PushValue += fabsf(VectorX);
+	transform->Position.x += VectorX;
+
+	return VectorX;
+}
+
+
+/****	修正処理	****/
+float PushTile::FixMove()
+{
+	float VectorX = 0.0f;
+	VectorX = TILE_WIDTH - m_PushValue;
+
+	/*	右移動	*/
+	if (isMoveRight == true)
+	{
+		VectorX *= -1;
+	}
+
+	transform->Position.x += VectorX;
+	m_PushValue = 0.0f;
+	return VectorX;
+}
+
+

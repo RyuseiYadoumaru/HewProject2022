@@ -35,7 +35,7 @@ bool JumpTutorial::Update()
 	Player* m_Player = Create::Scene::GetGameObject<Player>("Player");
 
 	//本棚の手前らへんにプレイヤーが到着したら、
-	if ((transform->Position.x - m_Player->GetTransform().Position.x) <= 200) {
+	if ((transform->Position.x - m_Player->GetTransform().Position.x) <= 300) {
 		m_StartJumpTutorialFlg = true;
 	}
 	if (m_StartJumpTutorialFlg == true && m_PerfectLookJumpTutorialFlg == false) {//徐々に見えるようになる。
@@ -46,8 +46,7 @@ bool JumpTutorial::Update()
 			m_PerfectLookJumpTutorialFlg = true;//完全に見えた
 		}
 	}
-
-	if (m_Player->GetTransform().Position.x >= transform->Position.x) {//通り過ぎたら
+	if (m_Player->GetJumpForce() <= -15.0f && m_PerfectLookJumpTutorialFlg == true) {//ジャンプしたら
 		m_EndStartJumpTutorialFlg = true;
 	}
 	if (m_EndStartJumpTutorialFlg == true && m_EndJumpTutorialFlg == false) {//消え始める

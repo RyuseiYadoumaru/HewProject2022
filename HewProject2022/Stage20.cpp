@@ -21,6 +21,9 @@ bool GamePlay::Stage20Scene::Start()
 	m_LayerBack = Instance<LayerBack>("LayerBack");
 	m_LayerBack->Sprite("world4_obj1_5");
 
+	m_GrayBack = Instance<GrayBack>("GrayBack");
+	m_GrayBack->Sprite("Grey4_5");
+
 	m_LayerFront = Instance<LayerFront>("LayerFront");
 	m_LayerFront->Sprite("world4_obj2_5");
 
@@ -72,16 +75,26 @@ Scene::STATE GamePlay::Stage20Scene::Update()
 	switch (Scene_State) {
 	case 0:
 		/****	当たり判定	****/
-		
+
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_Shelf2Start->GetComponent<BoxCollider2D>());
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_BookShelfEnd->GetComponent<BoxCollider2D>());
 
+		/***  ゴール判定用  ***/
+		m_Goal->GetComponent<BoxCollider2D>()->HitCheckBox(*m_Player->GetComponent<BoxCollider2D>());
 
 		/****	オブジェクト更新	****/
 		ObjectUpdate();
 
+		//当たったらゴール
+		for (auto name : m_Goal->GetComponent<BoxCollider2D>()->GetHitObject()) {
+			if (name == m_Player->ToString()) {
+				Scene_State = 2;//リザルト用分岐に移動
+				/*m_ResultBack->Result_On();
+				m_ResultCursor->Result_On();*/
+			}
+		}
 		/* Pause処理　ON */
-		if (Input::GetControllerTrigger(XINPUT_GAMEPAD_START) == true) {
+		if (Input::GetControllerTrigger(XINPUT_GAMEPAD_START) == true || Input::GetKeyTrigger(VK_ESCAPE)) {
 			m_Pause->Pause_On();
 			m_Button->Pause_On();
 			Scene_State = 1;
@@ -94,15 +107,20 @@ Scene::STATE GamePlay::Stage20Scene::Update()
 	/****   ポーズ中処理   ****/
 		m_Button->PauseCursor_Move();
 		/* Pause処理　OFF */
-		if (m_Button->Get_Checker() == 1) {
+		if (m_Button->Get_Checker() == 1 || Input::GetControllerTrigger(XINPUT_GAMEPAD_START) == true || Input::GetKeyTrigger(VK_ESCAPE)) {
 			m_Pause->Pause_Off();
 			m_Button->Pause_Off();
 			Scene_State = 0;
 		}
 		break;
 	case 2://リザルト画面
-		m_ResultBack->Result_On();//リザルト画面のフラグ
-		m_ResultCursor->ResultCursor_Move();//カーソルフラグ＆分岐
+		m_Player->Goal();//ゴールアニメーション再生
+		if (m_Player->GetGoal() == true) {//アニメーション終了でリザルト表示
+			m_ResultBack->Result_On();//リザルト画面のフラグ
+			m_ResultCursor->Result_On();
+			m_ResultCursor->ResultCursor_Move();//カーソルフラグ＆分岐
+			m_Fade->Update();
+		}
 		break;
 	}
 	/****	システム更新	****/
@@ -133,6 +151,9 @@ bool GamePlay::Stage20Scene::Render()
 	/****	後装飾品	****/
 	ObjectRender<LayerBack>("LayerBack");
 
+	// グレー背景
+	ObjectRender<GrayBack>("GrayBack");
+
 	/****	天井	****/
 	ObjectRender<Ceiling>("Ceiling");
 
@@ -153,13 +174,16 @@ bool GamePlay::Stage20Scene::Render()
 	/*** ゴール描画 ***/
 	ObjectRender<Goal>("Goal");
 
-	/**** Pause描画 ****/
-	ObjectRender<Pause>("Pause");
-	ObjectRender<Pause>("Button");
-
 	/*** リザルト ***/
 	ObjectRender<Result>("ResultBack");
 	ObjectRender<Result>("ResultCursor");
+
+	/*** フェード ***/
+	m_Fade->Render();
+
+	/**** Pause描画 ****/
+	ObjectRender<Pause>("Pause");
+	ObjectRender<Pause>("Button");
 
 
 	/****	画面描画	****/

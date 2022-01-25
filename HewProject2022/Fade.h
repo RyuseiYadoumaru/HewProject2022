@@ -15,8 +15,12 @@ public:
 	enum FadeStatus
 	{
 		FADE_NO,
+
 		FADE_IN,
-		FADE_OUT
+		FADE_OUT,
+
+		FADE_WHITE_OUT,
+		FADE_WHITE_IN,
 	};
 	FadeStatus GetFadeStatus() {
 		return fadeStatus;
@@ -35,6 +39,8 @@ public:
 	bool m_FadeFlg;//フェードするフラグ
 
 	float fadeSpeed;//フェードするスピード
+
+	float m_WhiteFadeSpeed;
 
 	FadeStatus fadeStatus;
 };

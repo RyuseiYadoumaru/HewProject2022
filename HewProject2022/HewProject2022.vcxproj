@@ -213,6 +213,7 @@
     <ClCompile Include="Game\GameObject\Character.cpp" />
     <ClCompile Include="Game\GameObject\Effect.cpp" />
     <ClCompile Include="Goal.cpp" />
+    <ClCompile Include="GoalAnimController.cpp" />
     <ClCompile Include="House.cpp" />
     <ClCompile Include="JumpTutorial.cpp" />
     <ClCompile Include="JumpTutorialAnim.cpp" />
@@ -271,6 +272,7 @@
     <ClCompile Include="Stage7.cpp" />
     <ClCompile Include="Stage8.cpp" />
     <ClCompile Include="Stage9.cpp" />
+    <ClCompile Include="StarTile.cpp" />
     <ClCompile Include="Storage.cpp" />
     <ClCompile Include="Table.cpp" />
     <ClCompile Include="Tableware.cpp" />
@@ -374,6 +376,7 @@
     <ClInclude Include="Game\GameObject\Character.h" />
     <ClInclude Include="Goal.h" />
     <ClInclude Include="Game\GameObject\Effect.h" />
+    <ClInclude Include="GoalAnimController.h" />
     <ClInclude Include="House.h" />
     <ClInclude Include="JumpTutorial.h" />
     <ClInclude Include="JumpTutorialAnim.h" />
@@ -434,6 +437,7 @@
     <ClInclude Include="Stage9.h" />
     <ClInclude Include="StageInfo.h" />
     <ClInclude Include="StageList.h" />
+    <ClInclude Include="StarTile.h" />
     <ClInclude Include="Storage.h" />
     <ClInclude Include="Table.h" />
     <ClInclude Include="Tableware.h" />

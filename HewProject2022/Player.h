@@ -13,6 +13,9 @@ class TileColumn;
 #define CHAR_GRAVITY  0.6f
 #define CHAR_ON_GROUND_ANIM (TILE_HEIGHT * 3.0f)		//ブロック２個分で着地アニメーションする
 
+#define PLAYER_DEATH_LINE (4000.0f)
+
+
 using GameEngine::Input;
 using Math::Vector2;
 using Create::Character;
@@ -29,7 +32,13 @@ public:
 
 	LandTile* m_LandTile;
 
+	void Goal();//ゴールアニメーション処理
+	bool GetGoal();
+
 private:
+
+	bool ReturnGoal = false;////ゴールアニメーション処理フラグ
+
 	void Action();		//アクション処理
 	void Magic();		//魔法処理
 
@@ -50,6 +59,11 @@ public:
 	bool CreateLandParticle();
 	bool ResetLandParticle();
 
+	float GetJumpForce() { return m_jumpForce; };
+
+	void PlayerDeath();
+
+	int m_GetStar; //取得した星の数
 private:
 
 	Vector3 m_SavePosition;	//前フレームの座標を保存
@@ -71,6 +85,7 @@ private:
 	vector<float> m_JumpForceArray;
 
 	bool m_isMagic;
+	bool m_isGoal;
 	bool issaveColUnder = false;
 	//ここひどい
 	bool isHitIdle = false;
@@ -81,9 +96,12 @@ private:
 	bool saveflip = false;
 
 	bool isMagicEffect = false;
+
+	bool isPushing = false;
 private:
 	PlayerAnimController m_PlayerAnimController;
 
+	bool m_PlayerDeath;//プレイヤー死亡フラグ
 };
 
 

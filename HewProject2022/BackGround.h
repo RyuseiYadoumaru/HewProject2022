@@ -12,5 +12,6 @@ public:
 
 typedef BackGround LayerFront;
 typedef BackGround LayerBack;
+typedef BackGround GrayBack;
 
 

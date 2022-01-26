@@ -72,7 +72,7 @@ void LandTile::Debug()
 void LandTile::SearchLandingTile()
 {
 	/*	現在のタイル確認	*/
-	//BoxCollider2D* Col = Owner->GetComponent<BoxCollider2D>();
+
 	BoxCollider2D* Col = GetComponent<BoxCollider2D>();
 	//着地したときに格納する
 	if (Col->GetisHit_underBlock() == false)
@@ -108,6 +108,8 @@ void LandTile::SearchLandingTile()
 			//乗ってるタイル確定
 			SetLandTile(tmp);
 			m_isLandTile = true;
+			//乗ってる列格納
+			NowColumn = mp_LandingTile->GetMyColumn();
 		}
 
 		/*	普通オブジェクト	*/
@@ -125,21 +127,12 @@ void LandTile::SearchLandingTile()
 /****	タイルＩＤ探索	****/
 Tile* LandTile::FindTile(ID& in_Id)
 {
-
 	/*	タイル探索	*/
 	for (auto& tile : Map::m_TileList)
 	{	/*	IDヒット	*/
 		if (tile->GetId() == in_Id)
 		{
 			return tile;
-		}
-	}
-	for (auto& push : Map::m_PushTileList)
-	{
-		/*	IDヒット	*/
-		if (push->GetId() == in_Id)
-		{
-			return push;
 		}
 	}
 

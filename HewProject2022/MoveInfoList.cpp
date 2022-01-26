@@ -1,4 +1,6 @@
 #include "MoveInfoList.h"
+#include "Tile.h"
+#include "MoveManager.h"
 
 /****	追加処理	****/
 void MoveInfoList::Add(MoveInfo* in_MoveInfo)
@@ -24,6 +26,17 @@ int MoveInfoList::Num()
 	return m_List.size();
 }
 
+/****	先頭列	****/
+float MoveInfoList::FrontColumn()
+{
+	if (m_List.empty() == false)
+	{
+		//先頭タイルの列を返す
+		return m_List.front()->GetHeadTile()->GetMyColumn();
+	}
+	return NULL;
+}
+
 /****	移動処理	****/
 bool MoveInfoList::MoveFront()
 {
@@ -33,6 +46,7 @@ bool MoveInfoList::MoveFront()
 	/*	移動が終了したら	*/
 	if (isFin == true)
 	{
+		MoveManager::NowFinFrontMoveColumn = m_List.front()->GetHeadTile()->GetMyColumn();
 		//先頭配列を削除する
 		m_List.erase(m_List.begin());
 	}

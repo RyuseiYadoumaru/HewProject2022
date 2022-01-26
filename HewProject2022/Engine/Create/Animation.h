@@ -52,7 +52,7 @@ namespace
 		void SetKey(FLOAT... key)
 		{
 			//‰Â•Ï”z—ñ‚Ì’†g‚ğCopy‚·‚é
-			for (int k : std::initializer_list<float>{ key... })
+			for (float k : std::initializer_list<float>{ key... })
 			{
 				m_Key.push_back(k);
 			}

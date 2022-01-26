@@ -9,6 +9,10 @@ class LandTile;
 class MoveManager
 {
 public:
+	static int NowFinFrontMoveColumn;
+	static int NowFinBackMoveColumn;
+
+public:
 	MoveManager();
 	bool Init(LandTile* in_StandardTile);
 	bool Update();
@@ -26,6 +30,7 @@ private:
 private:
 	bool SetMoveList();
 	bool Move();
+	bool MoveResetBefore();
 
 	bool SetMagicParticle();
 	void SetMoveParticle();
@@ -38,8 +43,24 @@ private:
 	bool isMagicFin;
 	MoveInfoList FrontParticle;
 	MoveInfoList BackParticle;
+
 	vector<int> ResetColumnNum;
 	bool isResetFin = false;
+
+
+private:
+	MoveInfoList ResetBeforeList;
+	float HitCeilingColumn;
+	bool isResetBefore;
+	bool isHitCeiling;
+	static constexpr unsigned int HitStopFrameCount = 5;
+	int SaveHitFrame;
+
+private:
+	void SetHitCeilingColumn(float column);
+	bool ResetBefore();
+
+
 
 private:
 	static constexpr TIME m_OneMagicWaitTime = 300.0f;

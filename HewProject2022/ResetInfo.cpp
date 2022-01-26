@@ -3,7 +3,7 @@
 #include "TileColumn.h"
 
 //デバッグ用
-#define MOVE_TIME (float)(150.0f)
+#define MOVE_TIME (float)(500.0f)
 /****	コンストラクタ	****/
 ResetInfo::ResetInfo()
 {
@@ -97,7 +97,6 @@ bool ResetInfo::FixMove(float TargetPosY)
 {
 	/*	修正処理	*/
 	float StandartPosY = mp_StandardTile->transform->Position.y;
-	float FixVector;
 	bool isFix = false;
 
 	/*	上昇時値修正	*/

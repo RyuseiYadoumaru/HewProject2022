@@ -9,7 +9,7 @@ class TileColumn;
 #define CHAR_MOVE_RIGHT 1.0f
 #define CHAR_MOVE_LEFT -1.0f
 
-#define CHAR_AIRSPEED_FIX (1.4)
+#define CHAR_AIRSPEED_FIX (1.4f)
 #define CHAR_GRAVITY  0.6f
 #define CHAR_ON_GROUND_ANIM (TILE_HEIGHT * 3.0f)		//ブロック２個分で着地アニメーションする
 
@@ -81,7 +81,7 @@ private:
 	bool m_jumpFlg;//ジャンプフラグ
 	bool m_airFlg;//宙に浮いているフラグ
 	bool m_isOnGroundAnimFlg;	//着地アニメーションフラグ
-	int m_JumpCounter;
+	unsigned int m_JumpCounter;
 	vector<float> m_JumpForceArray;
 
 	bool m_isMagic;

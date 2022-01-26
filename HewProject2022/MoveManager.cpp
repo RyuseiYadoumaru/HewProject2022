@@ -5,6 +5,10 @@
 #include "MoveInfo.h"
 #include "Map.h"
 
+/****	静的メンバ変数	****/
+int MoveManager::NowFinFrontMoveColumn = 0;
+int MoveManager::NowFinBackMoveColumn = 0;
+
 
 /****	コンストラクタ	****/
 MoveManager::MoveManager()
@@ -18,13 +22,22 @@ MoveManager::MoveManager()
 	//エフェクト配列初期化
 	FrontParticle.Clear();
 	BackParticle.Clear();
+	ResetBeforeList.Clear();
+	HitCeilingColumn = NULL;
+	isResetBefore = false;
+	isHitCeiling = false;
+	SaveHitFrame = 0;
 	ResetColumnNum.clear();
+
 
 }
 
 /****	初期化	****/
 bool MoveManager::Init(LandTile* in_StandardTile)
 {
+
+	NowFinFrontMoveColumn = 0;
+	NowFinBackMoveColumn = 0;
 	//移動するブロックがあるときはtrueで返す
 
 	/*	基準タイル設定	*/
@@ -57,39 +70,78 @@ bool MoveManager::Update()
 {
 	bool isFin = false;
 	/****	移動処理	****/
-	if (Front.Empty() == false ||
-		Back.Empty() == false)
+	//普通の移動処理
+	if (isResetBefore == false)
 	{
-		/*	リセット処理再生	*/
-		if (isResetFin == false)
+		if (Front.Empty() == false ||
+			Back.Empty() == false)
 		{
-			SetResetParticle();
-			isResetFin = true;
-			//BlockParticleManager::CreateMagicEffect(m_StandardTile->GetLandTile(), EffectColor);
+			/*	リセット処理再生	*/
+			if (isResetFin == false)
+			{
+				SetResetParticle();
+				isResetFin = true;
+				//BlockParticleManager::CreateMagicEffect(m_StandardTile->GetLandTile(), EffectColor);
 
-		}
-		//移動リストが空じゃないとき
+			}
+			//移動リストが空じゃないとき
 
-		if (isMagicFin == true || SetMagicParticle() == true)
-		{
-			//待機時間分まつ
-			isFin = Move();
+			if (isMagicFin == true || SetMagicParticle() == true)
+			{
+				//待機時間分まつ
+				isFin = Move();
+			}
+
+			else
+			{
+				m_Timer += GameTimer::deltaTime();
+			}
 		}
 		else
 		{
-			m_Timer += GameTimer::deltaTime();
+			m_Timer = 0.0f;
+			isFin = true;
 		}
 
 	}
+	/*	リセット処理	*/
 	else
 	{
-		m_Timer = 0.0f;
-		isFin = true;
+		if (ResetBeforeList.Empty() == false)
+		{
+			/*	リセット処理再生	*/
+			if (isResetFin == false)
+			{
+				SetResetParticle();
+				isResetFin = true;
+				//BlockParticleManager::CreateMagicEffect(m_StandardTile->GetLandTile(), EffectColor);
+
+			}
+			//移動リストが空じゃないとき
+
+			if (isMagicFin == true || SetMagicParticle() == true)
+			{
+				//天井にぶつかるときの移動処理
+				cout << "天井にぶつかってるよ\n";
+				isFin = MoveResetBefore();
+			}
+			else
+			{
+				m_Timer += GameTimer::deltaTime();
+			}
+
+		}
+		else
+		{
+			m_Timer = 0.0f;
+			isFin = true;
+		}
 	}
 
 	//終了の時はtrueを返す
 	return isFin;
 }
+
 
 /****	乗ってるオブジェクトの名前取得	****/
 string & MoveManager::GetLandObjectName()
@@ -114,7 +166,7 @@ bool MoveManager::SetMoveList()
 	//移動列があるときはtrueを返す
 
 	/****	基準列設定	****/
-	int NowColumn = m_StandardTile->GetLandTile()->GetMyColumn();
+	int NowColumn = (int)m_StandardTile->GetLandTile()->GetMyColumn();
 	//乗ってる列の基準列を入れておく
 	Map::m_TileColumnList[NowColumn].m_MoveInfo->SetStandardTile(m_StandardTile->GetLandTile());
 	ResetColumnNum.push_back(NowColumn);
@@ -127,14 +179,22 @@ bool MoveManager::SetMoveList()
 	{
 		//リセット列保存
 		ResetColumnNum.push_back(SearchColumn);
+		//エフェクト用配列格納
+		FrontParticle.Add(Map::m_TileColumnList[SearchColumn].m_MoveInfo.get());
+
 		/*	現在のポジションと違う場所に移動するとき	*/
 		if (Map::m_TileColumnList[SearchColumn].m_MoveInfo->GetPositionEqual() == false)
 		{
 			//移動列格納
 			Front.Add(Map::m_TileColumnList[SearchColumn].m_MoveInfo.get());
+			//リセット確認
+			if (Map::m_TileColumnList[SearchColumn].m_MoveInfo->JudgeResetBeforePos() == true)
+			{
+				//リセットのフラグを立てる
+				isResetBefore = true;
+				SetHitCeilingColumn(Map::m_TileColumnList[SearchColumn].m_MoveInfo->GetHeadTile()->GetMyColumn());
+			}
 		}
-		//エフェクト用配列格納
-		FrontParticle.Add(Map::m_TileColumnList[SearchColumn].m_MoveInfo.get());
 		//探索列更新
 		SearchColumn++;
 	}
@@ -147,21 +207,45 @@ bool MoveManager::SetMoveList()
 	{
 		//リセット列保存
 		ResetColumnNum.push_back(SearchColumn);
+		//エフェクト用配列格納
+		BackParticle.Add(Map::m_TileColumnList[SearchColumn].m_MoveInfo.get());
+
+		/*	現在のポジションと違う場所に移動するとき	*/
 		if (Map::m_TileColumnList[SearchColumn].m_MoveInfo->GetPositionEqual() == false)
 		{
 			//移動列格納
 			Back.Add(Map::m_TileColumnList[SearchColumn].m_MoveInfo.get());
+			//リセット確認
+			if (Map::m_TileColumnList[SearchColumn].m_MoveInfo->JudgeResetBeforePos() == true)
+			{
+				//リセットのフラグを立てる
+				isResetBefore = true;
+				SetHitCeilingColumn(Map::m_TileColumnList[SearchColumn].m_MoveInfo->GetHeadTile()->GetMyColumn());
+			}
 		}
-		BackParticle.Add(Map::m_TileColumnList[SearchColumn].m_MoveInfo.get());
 		//探索列更新
 		SearchColumn--;
 	}
 
-	//前か後ろに移動列があるときはtrueを返す
-	if (Back.Empty() == false || Front.Empty() == false) return true;
 
-	//何もない時はfalseを返す
-	return false;
+	//天井に当たっていないとき
+	if (isResetBefore == false)
+	{
+		//前か後ろに移動列があるときはtrueを返す
+		if (Back.Empty() == false || Front.Empty() == false) return true;
+		//何もない時はfalseを返す
+		return false;
+	}
+
+	//天井に当たっているとき
+	//移動列を保存する
+	ResetBeforeList.m_List = Front.m_List;
+	if (ResetBeforeList.Empty() == false) copy(ResetBeforeList.m_List.begin(), ResetBeforeList.m_List.end(), back_inserter(Back.m_List));
+	else	ResetBeforeList.m_List = Back.m_List;
+
+
+	return true;
+
 
 }
 
@@ -205,6 +289,58 @@ bool MoveManager::Move()
 	{
 		//移動パーティクル再生
 		SetMoveParticle();
+		return true;
+	}
+	return false;
+}
+
+/****	天井に当たるときの移動処理	****/
+bool MoveManager::MoveResetBefore()
+{
+	bool isFin = false;
+	/*	リセットリストが空じゃないとき	*/
+	if (ResetBeforeList.Empty() == false)
+	{
+		/*	終わった列がリセット列に該当していないとき	*/
+		if (NowFinFrontMoveColumn != HitCeilingColumn &&
+			NowFinBackMoveColumn != HitCeilingColumn)
+		{
+			/*	前移動	*/
+			if (Front.Empty() == false)
+			{
+				/*	列移動処理	*/
+				Front.MoveFront();
+			}
+
+			/*	後移動	*/
+			if (Back.Empty() == false)
+			{
+				/*	列移動処理	*/
+				Back.MoveFront();
+			}
+		}
+
+		/*	前の座標に戻す処理	*/
+		else
+		{
+			//終わった列が天井と当たる列に該当するとき
+
+			isFin = ResetBefore();
+		}
+
+
+	}
+
+	if (isFin == true)
+	{
+		/*	終了処理	*/
+		Front.Clear();
+		Back.Clear();
+		ResetBeforeList.Clear();
+		HitCeilingColumn = 0;
+		NowFinFrontMoveColumn = 0;
+		NowFinBackMoveColumn = 0;
+		//終了の時はtrueを返す
 		return true;
 	}
 	return false;
@@ -297,4 +433,53 @@ void MoveManager::SetResetParticle()
 		}
 	}
 
+}
+
+
+/****	天井に当たる列	****/
+void MoveManager::SetHitCeilingColumn(float column)
+{
+	if (HitCeilingColumn == NULL)
+	{
+		HitCeilingColumn = column;
+		return;
+	}
+	/*	間隔チェック	*/
+	float land = m_StandardTile->GetNowColumn();
+	float NowDis = fabsf(land - HitCeilingColumn);
+	float CheckDis = fabsf(land - column);
+
+	//乗ってる位置から近いほうを採用
+	if (NowDis > CheckDis) HitCeilingColumn = column;
+
+}
+
+bool MoveManager::ResetBefore()
+{
+	/*	リセット処理開始	*/
+	auto itr = ResetBeforeList.m_List.begin();
+	/*	リセットリストを全更新	*/
+	for (auto& ResetColumn : ResetBeforeList.m_List)
+	{
+		bool ret = ResetColumn->ResetTick();
+
+		//移動が終わった時
+		if (/*ResetColumn->m_isFin == true*/ret == true)
+		{
+			cout << "リセット列削除\n";
+			//リセット列を削除する
+			itr = ResetBeforeList.m_List.erase(itr);
+		}
+		else
+		{
+			//進める
+			itr++;
+		}
+	}
+	if (ResetBeforeList.Empty() == false)
+	{
+		return false;
+	}
+
+	return true;
 }

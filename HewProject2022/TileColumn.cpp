@@ -22,9 +22,16 @@ void TileColumn::Add(Tile* in_Tile)
 /****	初期化	****/
 bool TileColumn::Init()
 {
-	for (auto* tile : mp_TileList)
+	//タイルリストの中身があるときに処理をする
+	if (mp_TileList.empty() == false)
 	{
-		tile->Start();
+		for (auto* tile : mp_TileList)
+		{
+			tile->Start();
+		}
+
+		/*	先頭タイル設定	*/
+		m_MoveInfo->SetHeadTile(mp_TileList.front());
 	}
 	return true;
 }
@@ -32,7 +39,6 @@ bool TileColumn::Init()
 /****	更新	****/
 bool TileColumn::Update()
 {
-
 	/*	タイル更新	*/
 	for (auto tile : mp_TileList)
 	{

@@ -10,7 +10,9 @@ public:
 	bool Empty();
 	int Num();
 
+	float FrontColumn();
 	bool MoveFront();
+
 public:
 	vector<MoveInfo*> m_List;
 };

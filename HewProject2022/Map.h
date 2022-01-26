@@ -18,8 +18,6 @@ public:
 	static bool SearchMoveObjectID(int in_ID);
 	static void AllTileReset();			//タイルリセット
 	static void AddMoveManager(LandTile* in_LandTile);
-	static bool PushRightMoveTile(GameObject& in_PushObj);
-	static bool PushLeftMoveTile(GameObject& in_PushObj);
 
 public:
 	enum CHECK
@@ -36,11 +34,9 @@ public:
 	static vector<shared_ptr<MoveManager>> m_MoveManager;
 	static vector<TileColumn> m_TileColumnList;
 	static vector<Tile*> m_TileList;
-	static vector<PushTile*> m_PushTileList;
 
 	static bool m_OnReset;
 	static bool m_isResetStart;	//リセットスタート
-	static bool m_isPush;		//プッシュフラグ
 public:
 	Map();
 	Map(std::string in_MapDataName);
@@ -54,7 +50,6 @@ public:
 
 
 private:
-	void PushTileRender();
 
 
 	void ColumnInit();			//列初期化
@@ -64,8 +59,6 @@ private:
 	void CreateNormalBlock(Vector2& in_Pos);
 	void CreateTile(Vector2& in_Position, string FileName, MAPOBJ in_MapObj);			//タイル生成する
 	void CreateChangeTile(Vector2& in_Position, string FileName, MAPOBJ in_MapObj);		//入れ替えタイル生成する
-
-	void CreatePushTile(Vector2& in_Position, string FileName, MAPOBJ in_MapObj);		//押すタイル生成
 	void CreateStarTile(Vector2& in_Position, string FileName, MAPOBJ in_MapObj);		//星生成する
 private:
 	void MoveUpdate();

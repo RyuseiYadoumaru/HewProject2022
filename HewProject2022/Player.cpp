@@ -429,20 +429,31 @@ void Player::MoveMap()
 	/*	リセット処理	*/
 	if (m_airFlg != true)
 	{
-		if ((m_LandTile->GetLandTile() == LandGround) ||
-			(Input::GetControllerTrigger(XINPUT_GAMEPAD_Y)) || (Input::GetKeyTrigger(PK_R)))
+		/*	リセットのボタンを押したとき	*/
+		if ((Input::GetControllerTrigger(XINPUT_GAMEPAD_Y)) || (Input::GetKeyTrigger(PK_R)))
 		{
 			if (Map::m_OnReset == false)
 			{
 				Map::m_OnReset = true;
 			}
 		}
+		/*	リセット条件	*/
+		if (transform->Position.x < MAP_START_POSX || transform->Position.x > MAP_END_POSX &&
+			m_LandTile->GetLandTile() == LandGround)
+		{
+			if (Map::m_OnReset == false)
+			{
+				Map::m_OnReset = true;
+			}
+		}
+
 	}
 
 
 	/*	場所が地面だったら処理しない	*/
-	if (m_LandTile->GetLandTile() == LandGround) return;
+	if (m_LandTile->GetLandTile() == LandGround || Map::m_OnReset == true) return;
 
+	/*	踏んだら揃うブロック	*/
 	Map::CheckLandTile(*m_LandTile);
 
 	//カラーブロックに乗っているとき
@@ -550,6 +561,7 @@ void Player::FlipCollider(bool flip)
 /****	乗るエフェクト生成処理	****/
 bool Player::CreateLandParticle()
 {
+
 	if (BlockParticleManager::JudgeRedorBlue(m_LandTile->GetLandTile()->GetKind()) == EFFECT_RED)
 	{
 		BlockParticleManager::CreateMagicEffect(m_LandTile->GetLandTile(), BlockEffectColor::RED);

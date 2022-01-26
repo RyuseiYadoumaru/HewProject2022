@@ -43,7 +43,7 @@ void PlayerAnim::Init()
 	::AnimationTable set_OnGround;
 	set_OnGround.SetKind(KIND::DOWN, KIND::IDLE);
 	set_OnGround.SetFrame(PLAYER_ANIM::ANIM_2, PLAYER_ANIM::ANIM_1, ANIMATION_FINISH);
-	set_OnGround.SetKey(0.0f, 130.0f);
+	set_OnGround.SetKey(0.0f, 70.0f);
 	AnimationTableList.insert(std::make_pair("OnGround", set_OnGround));
 
 	/*	–‚–@ŠJŽn	*/

@@ -5,7 +5,7 @@ using namespace Create;
 bool GamePlay::Stage1Scene::Start()
 {
 	/*	インスタンス	*/
-	m_Map = Instance<Map>("test");
+	m_Map = Instance<Map>("stage1-1");
 	m_Player = Instance<Player>("Player");
 	m_MainCamera = Instance<MainCamera>("MainCamera");
 	m_Fade = Instance<Fade>("Black");
@@ -180,8 +180,8 @@ bool GamePlay::Stage1Scene::Render()
 	ObjectRender<Ceiling>("Ceiling");
 
 	/****	オブジェクト描画	****/
+	ObjectRender<Map>("stage1-1");
 	ObjectRender<Player>("Player");
-	ObjectRender<Map>("test");
 	ObjectRender<Table>("TableStart");
 	ObjectRender<Sofa>("SofaEnd");
 	ObjectRender<BigBook>("Book1");

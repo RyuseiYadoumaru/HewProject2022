@@ -19,19 +19,11 @@
 // スタティック　メンバー
 //-----------------------------------------------------------------------------
 
-const char*	Application::WINDOW_TITLE = "ゲームタイトル";
-const char*	Application::WINDOW_CLASS_NAME = "GameName";
+const char*	Application::WINDOW_TITLE = "TOY ALINE";
+const char*	Application::WINDOW_CLASS_NAME = "#デマチ";
 
-#if 1
 const uint32_t	Application::SCREEN_WIDTH = 1920;
 const uint32_t	Application::SCREEN_HEIGHT = 1080;
-
-#else
-const uint32_t	Application::SCREEN_WIDTH = 1280;
-const uint32_t	Application::SCREEN_HEIGHT = 720;
-
-#endif // 1
-
 
 const float		Application::FPS = 60.0f;
 
@@ -142,8 +134,6 @@ bool Application::MainLoop()
 	Log* log = Log::Instance();
 	SystemTimer* systemtimer = SystemTimer::Instance();
 	GameEngine::Engine* engine = GameEngine::Engine::Instance();
-	
-
 
 	/****	エンジン初期化	****/
 	engine->Init();

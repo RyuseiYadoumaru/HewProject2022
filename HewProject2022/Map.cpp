@@ -1,5 +1,7 @@
 #include "Map.h"
 #include "Engine/Create/Scene.h"
+#define FixLeft  100/*(Application::SCREEN_WIDTH / 5.0f)*/
+#define FixRight (Application::SCREEN_WIDTH - FixLeft)
 using Math::Vector3;
 
 //-----------------------------------------------------------------------------
@@ -205,6 +207,8 @@ void Map::SystemUpdate()
 /****	マップ当たり判定	****/
 bool Map::HitCheckMap(GameObject& in_GameObject, CHECK in_Check)
 {
+	int debug = 0;
+
 	/*	ヒットチェックオブジェクト	*/
 	BoxCollider2D* CheckObject = in_GameObject.GetComponent<BoxCollider2D>();
 	Create::Camera* camera = Create::Scene::GetCamera();
@@ -217,10 +221,9 @@ bool Map::HitCheckMap(GameObject& in_GameObject, CHECK in_Check)
 		for (auto& NowTile : m_TileList)
 		{
 			BoxCollider2D* TileCol = NowTile->GetComponent<BoxCollider2D>();
-
+			debug++;
 			CheckObject->HitCheckBox(*TileCol);
 		}
-
 	}
 
 	//カメラ範囲内チェック
@@ -231,6 +234,8 @@ bool Map::HitCheckMap(GameObject& in_GameObject, CHECK in_Check)
 			if (NowTile->transform->Position.x >= camera->GetLeft() && NowTile->transform->Position.x <= camera->GetRight() &&
 				NowTile->transform->Position.y >= camera->GetTop() && NowTile->transform->Position.y <= camera->GetButtom())
 			{
+				debug++;
+
 				BoxCollider2D* TileCol = NowTile->GetComponent<BoxCollider2D>();
 				if (NowTile->tag != TagList::STAR) {
 					CheckObject->HitCheckBox(*TileCol);
@@ -239,6 +244,25 @@ bool Map::HitCheckMap(GameObject& in_GameObject, CHECK in_Check)
 		}
 	}
 
+	else if (in_Check == OBJECT_RANGE)
+	{
+		for (auto& NowTile : m_TileList)
+		{
+			if (NowTile->transform->Position.x >= camera->GetLeft() + FixLeft && NowTile->transform->Position.x <= camera->GetRight() - FixRight &&
+				NowTile->transform->Position.y >= camera->GetTop() + FixLeft && NowTile->transform->Position.y <= camera->GetButtom() - FixRight)
+			{
+				debug++;
+
+				BoxCollider2D* TileCol = NowTile->GetComponent<BoxCollider2D>();
+				if (NowTile->tag != TagList::STAR) {
+					CheckObject->HitCheckBox(*TileCol);
+				}
+			}
+		}
+	}
+
+
+	cout << "当たり判定の参照回数：" << debug << endl;
 	return true;
 }
 
@@ -441,9 +465,11 @@ void Map::CreateMap()
 			case LC2:
 				CreateTile(Pos, "Landblue", MAPOBJ::LC2);
 				break;
-
 			case LC3:
 				CreateTile(Pos, "Landgreen", MAPOBJ::LC3);
+				break;
+			case LC4:
+				CreateTile(Pos, "Landpurple", MAPOBJ::LC4);
 				break;
 
 			case ST:

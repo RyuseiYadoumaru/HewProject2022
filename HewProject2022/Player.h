@@ -74,7 +74,7 @@ private:
 	float m_stopForceX;// 停止力X　→　摩擦力的なもの
 	bool m_OnGround;	//地面についているフラグ
 	FRAME m_GroundCnt;		//着地したときのフレームカウント
-	static constexpr FRAME m_GroundWaitFrame = 20;	//着地後の待機フレーム
+	static constexpr FRAME m_GroundWaitFrame = 5;	//着地後の待機フレーム
 
 	float m_jumpForce;// ジャンプ力
 	float m_DownMoveValue;	//落ちる移動量

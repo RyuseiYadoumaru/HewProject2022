@@ -19,6 +19,7 @@ void BlockParticleManager::CreateMagicEffect(GameObject* Owner, BlockEffectColor
 		//オーナーの中身がない時は生成しない
 		return;
 	}
+
 	/*	エフェクト生成	*/
 	NAME name = "BlockMagicEffect(clone)";
 	NAME num = to_string(Counter);

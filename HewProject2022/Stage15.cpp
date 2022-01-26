@@ -9,7 +9,7 @@ bool GamePlay::Stage15Scene::Start()
 
 
 	/*	インスタンス	*/
-	m_Map = Instance<Map>("stage1-1");
+	m_Map = Instance<Map>("stage3-5");
 	m_Player = Instance<Player>("Player");
 	m_MainCamera = Instance<MainCamera>("MainCamera");
 	m_TreeStart = Instance<Tree>("TreeStart");
@@ -99,7 +99,7 @@ Scene::STATE GamePlay::Stage15Scene::Update()
 
 		/****	システム更新	****/
 		m_Map->SystemUpdate();
-		SystemUpdate();	return PLAY;
+		SystemUpdate();
 		break;
 	case 1://ポーズ画面
 	/****   ポーズ中処理   ****/
@@ -121,6 +121,7 @@ Scene::STATE GamePlay::Stage15Scene::Update()
 		}
 		break;
 	}
+	return PLAY;
 }
 
 bool GamePlay::Stage15Scene::End()
@@ -158,7 +159,7 @@ bool GamePlay::Stage15Scene::Render()
 	ObjectRender<Tree>("TreeStart");
 	ObjectRender<Plants>("PlantsEnd");
 
-	ObjectRender<Map>("stage1-1");
+	ObjectRender<Map>("stage3-5");
 	ObjectRender<Player>("Player");
 
 	/*** ゴール描画 ***/

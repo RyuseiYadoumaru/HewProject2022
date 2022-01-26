@@ -94,7 +94,7 @@ bool Player::Update()
 	m_SavePosition = transform->Position;
 
 	/*	マップ当たり判定	*/
-	Map::HitCheckMap(*this, Map::CHECK::CAMERA_RANGE);
+	Map::HitCheckMap(*this, Map::CHECK::OBJECT_RANGE);
 
 	/*	マップ移動処理	*/
 	MoveMap();

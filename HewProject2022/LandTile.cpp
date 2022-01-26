@@ -44,7 +44,7 @@ bool LandTile::Update()
 	transform->Position = Owner->transform->Position;
 
 	/*	ƒ}ƒbƒv“–‚½‚è”»’è	*/
-	Map::HitCheckMap(*this, Map::CHECK::CAMERA_RANGE);
+	Map::HitCheckMap(*this, Map::CHECK::OBJECT_RANGE);
 	//‚±‚±‚É“–‚½‚è”»’è‚Ìˆ—‚ğ‘‚­
 	SearchLandingTile();
 

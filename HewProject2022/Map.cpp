@@ -1,7 +1,9 @@
 #include "Map.h"
 #include "Engine/Create/Scene.h"
-#define FixLeft  100/*(Application::SCREEN_WIDTH / 5.0f)*/
-#define FixRight (Application::SCREEN_WIDTH - FixLeft)
+#define FixLeft  500
+#define FixRight  500
+#define FixTop  100
+#define FixButtom  50
 using Math::Vector3;
 
 //-----------------------------------------------------------------------------
@@ -246,10 +248,14 @@ bool Map::HitCheckMap(GameObject& in_GameObject, CHECK in_Check)
 
 	else if (in_Check == OBJECT_RANGE)
 	{
+		float left = camera->GetLeft() + FixLeft;
+		float right = camera->GetRight() - FixRight;
+		float top = camera->GetTop() + FixTop;
+		float buttom = camera->GetButtom() - FixButtom;
 		for (auto& NowTile : m_TileList)
 		{
-			if (NowTile->transform->Position.x >= camera->GetLeft() + FixLeft && NowTile->transform->Position.x <= camera->GetRight() - FixRight &&
-				NowTile->transform->Position.y >= camera->GetTop() + FixLeft && NowTile->transform->Position.y <= camera->GetButtom() - FixRight)
+			if (NowTile->transform->Position.x >= left && NowTile->transform->Position.x <= right &&
+				NowTile->transform->Position.y >= top && NowTile->transform->Position.y <= buttom)
 			{
 				debug++;
 

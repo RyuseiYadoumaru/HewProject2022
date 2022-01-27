@@ -24,6 +24,7 @@ public:
 	{
 		ALL,
 		CAMERA_RANGE,
+		CAMERA_OBHECT_RANGE,
 		OBJECT_RANGE
 
 	};

@@ -30,6 +30,7 @@ private:
 	float m_Speed;			//スピード
 
 	bool m_isUp;			//上昇フラグ
+	bool isMoveStart;
 private:
 	void Move();	//移動処理
 	bool FixMove(float TargetPosY);	//修正処理

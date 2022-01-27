@@ -90,10 +90,10 @@ Scene::STATE GamePlay::Stage15Scene::Update()
 		m_Goal->GetComponent<BoxCollider2D>()->HitCheckBox(*m_Player->GetComponent<BoxCollider2D>());
 		//当たったらゴール
 		for (auto name : m_Goal->GetComponent<BoxCollider2D>()->GetHitObject()) {
-			if (name == m_Player->ToString()) {
+			if (name == m_Player->ToString())
+			{
 				Scene_State = 2;//リザルト用分岐に移動
-				/*m_ResultBack->Result_On();
-				m_ResultCursor->Result_On();*/
+
 			}
 		}
 
@@ -119,7 +119,7 @@ Scene::STATE GamePlay::Stage15Scene::Update()
 		}
 		break;
 	case 2://リザルト画面
-		
+
 		m_Player->Goal(m_Goal->transform->Position.x);//ゴールアニメーション再生
 		m_PGoalEffect->EF_Start();
 		m_PGoalEffect->transform->Position.Set(m_Player->transform->Position.x, m_Player->transform->Position.y, 0);

@@ -176,6 +176,8 @@ void Player::Action()
 			{
 				//ブロック２個分で着地アニメーションする
 				m_PlayerAnimController.AnimState = PlayerAnimController::PLAYER_ONGROUND;
+				Sound::Sound_Play(SOUND_LABEL_ONGROUND);//着地効果音再生
+
 				m_GroundCnt = GameTimer::NowFrameCount();
 			}
 
@@ -183,6 +185,8 @@ void Player::Action()
 			{
 				//ダウンの移動量が少ない時
 				m_PlayerAnimController.AnimState = PlayerAnimController::PLAYER_EMPTY;
+				Sound::Sound_Play(SOUND_LABEL_ONGROUND);//着地効果音再生
+
 				m_GroundCnt = 1.0f;
 			}
 			//ダウン量を初期化する
@@ -371,51 +375,15 @@ void Player::MoveAir()
 /****	ジャンプ処理	****/
 void Player::Jump()
 {
-#if 0
-	if ((Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true || Input::GetKeyTrigger(VK_SPACE) == true) &&
-		m_jumpFlg == false)//小ジャンプ
-	{
-		m_jumpFlg = true;
-		m_jumpForce = -15.0f;//ジャンプするために重力をマイナスにする
-		Sound::Sound_Play(SOUND_LABEL_SE000);//ジャンプ効果音再生
-		//ジャンプアニメーション
-		m_PlayerAnimController.AnimState = PlayerAnimController::PLAYER_JUMP;
-		GetComponent<BoxCollider2D>()->SetisHit_underBlock(false);
-	}
-
-	if (GetComponent<BoxCollider2D>()->GetisHit_underBlock() == true) {//着地したら
-
-		m_jumpForce = 0;
-		m_jumpFlg = false;
-		m_PlayerAnimController.AnimState = PlayerAnimController::PLAYER_IDLE;
-
-	}
-
-	if (GetComponent<BoxCollider2D>()->GetisHit_overBlock() == true) {//頭ぶつけたら
-		m_jumpForce = 0;
-	}
-
-	if (GetComponent<BoxCollider2D>()->GetisHit() == false) {//宙に浮いてたら
-
-		m_jumpFlg = true;
-		GetComponent<BoxCollider2D>()->SetisHit_underBlock(false);
-	}
-	m_jumpForce += CHAR_GRAVITY;//徐々に重力が加算され、ジャンプ力が弱まっていく
-	transform->Position.y += m_jumpForce;//ここにデルタタイム？
-
-#else
 	if ((Input::GetControllerPress(XINPUT_GAMEPAD_A) == true || Input::GetKeyPress(VK_SPACE) == true) &&
 		m_jumpFlg == false && m_airFlg == false)//小ジャンプ
 	{
 		m_jumpFlg = true;
 		m_isOnGroundAnimFlg = true;
-		Sound::Sound_Play(SOUND_LABEL_SE000);//ジャンプ効果音再生
+		//Sound::Sound_Play(SOUND_LABEL_SE000);//ジャンプ効果音再生
 		//ジャンプアニメーション
 		m_PlayerAnimController.AnimState = PlayerAnimController::PLAYER_JUMP;
-		//GetComponent<BoxCollider2D>()->SetisHit_underBlock(false);
 	}
-
-#endif // 0
 
 }
 
@@ -484,7 +452,13 @@ void Player::MoveMap()
 			ResetLandParticle();
 
 			/*	エフェクト生成処理	*/
-			CreateLandParticle();
+			if (BlockParticleManager::CheckPlayMoveEffect(m_LandTile->GetLandTile()->GetId().x) == false)
+			{
+				//乗っているタイルにエフェクトがかかっていないとき
+				//マジックエフェクトを再生する
+				CreateLandParticle();
+
+			}
 		}
 
 		/*	ブロック魔法処理	*/
@@ -603,7 +577,10 @@ bool Player::ResetLandParticle()
 		{
 			BlockParticleManager::CreateResetEffect(m_LandTile->GetSaveLandTile(), BlockEffectColor::BLUE);
 		}
+		/*	リセットSE再生	*/
+		Sound::Sound_Play(SOUND_LABEL_RESETBLOCK);//着地効果音再生
 	}
+
 
 	return true;
 }

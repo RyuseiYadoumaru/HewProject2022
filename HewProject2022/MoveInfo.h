@@ -46,7 +46,7 @@ private:
 	bool m_isUp;			//上昇フラグ
 	bool m_isPositionEqual;	//基準タイルとY座標が同じか判定する
 	Vector3 m_BeforeMovePosition;	//移動前座標
-
+	bool isMoveStart;
 private:
 	void Start();		//初期化
 	void Move();	//移動処理

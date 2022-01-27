@@ -25,6 +25,8 @@ public:
 	static void MoveStateFinish(float in_Id);
 	static void ResetStateFinish(float in_Id);
 
+	static bool CheckPlayMoveEffect(float in_Id);
+
 	static bool JudgeRedorBlue(MAPOBJ in_kind);
 
 	static void MagicReset(Tile& in_OldLandTile);

@@ -109,8 +109,9 @@ bool Player::Update()
 			m_isMagic = false;
 			m_PlayerAnimController.AnimState = PlayerAnimController::PLAYER_EMPTY;
 		}
-		//アクション処理
-		Action();
+		if (m_MainCamera->m_CameraMode == false)
+			//アクション処理
+			Action();
 		m_LandTile->FlipCol(m_SpriteRenderer->Flip);
 		FlipCollider(m_SpriteRenderer->Flip);
 	}

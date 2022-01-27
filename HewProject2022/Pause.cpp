@@ -46,7 +46,7 @@ bool Pause::SetScale()
 
 bool Pause::PauseCursor_Move()
 {
-	this->transform->Scale.Set(1.2, 1.2, 0);//カーソル用にスケールの書き換え
+	this->transform->Scale.Set(1.2f, 1.2f, 0.0f);//カーソル用にスケールの書き換え
 
 	if ((Input::GetControllerTrigger(XINPUT_GAMEPAD_DPAD_UP) == true || Input::GetKeyTrigger(VK_UP) == true) && Cursor_Position > 0) {
 		Cursor_Position--;
@@ -83,7 +83,7 @@ bool Pause::PauseCursor_Move()
 	case 1:
 		this->transform->Position.Set(BASE_POSITION_X - 170, BASE_POSITION_Y + 100, 0.0f);
 		if (Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true || Input::GetKeyTrigger(VK_RETURN) == true) {
-			
+
 			Pause_Checker = 1;//ゲームに戻る（ポーズ終了）
 		}
 		break;

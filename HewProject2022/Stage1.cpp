@@ -5,7 +5,7 @@ using namespace Create;
 bool GamePlay::Stage1Scene::Start()
 {
 	/*	インスタンス	*/
-	m_Map = Instance<Map>("PushTileTest");
+	m_Map = Instance<Map>("test");
 	m_Player = Instance<Player>("Player");
 	m_MainCamera = Instance<MainCamera>("MainCamera");
 	m_Fade = Instance<Fade>("Black");
@@ -66,7 +66,7 @@ bool GamePlay::Stage1Scene::Start()
 	m_MainCamera->Focus(m_Player);
 
 	// BGM再生
-	//Sound::Sound_Play(SOUND_LABEL_WORLD1_GAMEBGM);
+	Sound::Sound_Play(SOUND_LABEL_WORLD1_GAMEBGM);
 
 	Scene_State = 0;
 
@@ -180,7 +180,7 @@ bool GamePlay::Stage1Scene::Render()
 
 	/****	オブジェクト描画	****/
 	ObjectRender<Player>("Player");
-	ObjectRender<Map>("PushTileTest");
+	ObjectRender<Map>("test");
 	ObjectRender<Table>("TableStart");
 	ObjectRender<Sofa>("SofaEnd");
 	ObjectRender<BigBook>("Book1");

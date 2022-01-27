@@ -99,16 +99,6 @@ bool Player::Update()
 	/*	マップ移動処理	*/
 	MoveMap();
 
-
-	//if (Input::GetKeyPress(PK_E) == true && Input::GetKeyPress(PK_D))
-	//{
-	//	isPushing = true;
-	//}
-	//if (isPushing == true)
-	//{
-	//	isPushing = !Map::PushRightMoveTile(*this);
-	//}
-
 	/*	アクション更新	*/
 	//ブロックが動いていないとき
 	if (Map::SearchMoveObjectName(name) == false &&

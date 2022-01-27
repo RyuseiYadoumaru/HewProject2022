@@ -22,7 +22,7 @@ bool GamePlay::TitleScene::Start()
 
 	m_TeamLogo = Instance<Title>("TeamLogo");
 	m_TeamLogo->Sprite("TeamLogo");
-	m_TeamLogo->transform->Scale.Set(0.8, 0.8, 0);
+	m_TeamLogo->transform->Scale.Set(0.8f, 0.8f, 0.0f);
 
 	m_PushAny = Instance<PushAny>("PushAny");
 	m_PushAny->Sprite("Any");
@@ -34,13 +34,13 @@ bool GamePlay::TitleScene::Start()
 	m_GameEnd->GetComponent<SpriteRenderer>()->Color.a = 0;
 	m_GameEnd->Vertex("vs_Ui");
 	m_GameEnd->transform->Position.Set(1920 / 2, 1080 / 2, 0);
-	m_GameEnd->transform->Scale.Set(1.5, 1.5, 0);
+	m_GameEnd->transform->Scale.Set(1.5f, 1.5f, 0.0f);
 
 	m_EndCursor = Instance<Actor>("EndCursor");
 	m_EndCursor->Sprite("button");
 	m_EndCursor->GetComponent<SpriteRenderer>()->Color.a = 0;
 	m_EndCursor->Vertex("vs_Ui");
-	m_EndCursor->transform->Position.Set(1920 / 2, 1080 / 2, 0);
+	m_EndCursor->transform->Position.Set(1920.0f / 2.0f, 1080.0f / 2.0f, 0.0f);
 
 
 	/*	ƒJƒƒ‰İ’è	*/

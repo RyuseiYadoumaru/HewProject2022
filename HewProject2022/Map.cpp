@@ -8,10 +8,8 @@ using Math::Vector3;
 vector<shared_ptr<MoveManager>> Map::m_MoveManager;		//移動
 vector<TileColumn>				Map::m_TileColumnList;	//1列タイルリスト
 vector<Tile*>					Map::m_TileList;		//全てのタイルリスト
-vector<PushTile*>				Map::m_PushTileList;	//プッシュタイルリスト
 bool							Map::m_OnReset = false;	//リセットフラグ
 bool							Map::m_isResetStart = false;
-bool							Map::m_isPush = false;	//プッシュフラグ
 
 /****	動いているオブジェクト探索	****/
 bool Map::SearchMoveObjectName(string in_SearchName)
@@ -155,13 +153,6 @@ bool Map::End()
 	}
 	m_MoveManager.clear();
 
-	/*	押すタイル終了処理	*/
-	for (auto& push : m_PushTileList)
-	{
-		push->End();
-	}
-	m_PushTileList.clear();
-
 	/*	パーティクル解放	*/
 	m_MoveParticle.End();
 	return true;
@@ -180,9 +171,6 @@ bool Map::Render()
 			now->Render();
 		}
 	}
-
-	/****	押すブロック描画	****/
-	PushTileRender();
 
 	/****	パーティクル描画	****/
 	m_MoveParticle.ParticleRender();
@@ -212,14 +200,6 @@ void Map::SystemUpdate()
 			system->Update();
 		}
 	}
-
-	for (auto& push : m_PushTileList)
-	{
-		for (auto& system : push->ComponentList)
-		{
-			system->Update();
-		}
-	}
 }
 
 /****	マップ当たり判定	****/
@@ -241,12 +221,6 @@ bool Map::HitCheckMap(GameObject& in_GameObject, CHECK in_Check)
 			CheckObject->HitCheckBox(*TileCol);
 		}
 
-		/*	押すタイル判定	*/
-		for (auto& push : m_PushTileList)
-		{
-			BoxCollider2D* TileCol = push->GetComponent<BoxCollider2D>();
-			CheckObject->HitCheckBox(*TileCol);
-		}
 	}
 
 	//カメラ範囲内チェック
@@ -261,16 +235,6 @@ bool Map::HitCheckMap(GameObject& in_GameObject, CHECK in_Check)
 				if (NowTile->tag != TagList::STAR) {
 					CheckObject->HitCheckBox(*TileCol);
 				}
-			}
-		}
-		/*	押すタイル判定	*/
-		for (auto& push : m_PushTileList)
-		{
-			if (push->transform->Position.x >= camera->GetLeft() && push->transform->Position.x <= camera->GetRight() &&
-				push->transform->Position.y >= camera->GetTop() && push->transform->Position.y <= camera->GetButtom())
-			{
-				BoxCollider2D* TileCol = push->GetComponent<BoxCollider2D>();
-				CheckObject->HitCheckBox(*TileCol);
 			}
 		}
 	}
@@ -358,14 +322,6 @@ void Map::MoveReset()
 
 }
 
-/****	押すブロック描画	****/
-void Map::PushTileRender()
-{
-	for (auto& tile : m_PushTileList)
-	{
-		tile->Render();
-	}
-}
 
 /****	列初期化	****/
 void Map::ColumnInit()
@@ -389,13 +345,6 @@ void Map::ColumnInit()
 		Column.Init();
 	}
 
-	/****	押すブロック初期化	****/
-	for (auto& tile : m_PushTileList)
-	{
-		tile->transform->Position += SetPosition;
-		tile->Start();
-	}
-
 }
 
 /****	列更新	****/
@@ -406,18 +355,13 @@ void Map::ColumnUpdate()
 		Column.Update();
 	}
 
-	for (auto& push : m_PushTileList)
-	{
-		push->Update();
-	}
-
 }
 
 /****	マップ生成処理	****/
 void Map::CreateMap()
 {
 	/****	マップサイズ決定	****/
-	m_TileColumnList.resize(m_Mapdata.GetSize().x);
+	m_TileColumnList.resize((UINT)m_Mapdata.GetSize().x);
 
 	/****	ブロック情報読込	****/
 	Vector2 Pos;
@@ -505,23 +449,6 @@ void Map::CreateMap()
 			case ST:
 				CreateStarTile(Pos, "hosi", MAPOBJ::ST);
 				break;
-
-			case MB1:
-				CreatePushTile(Pos, "PushTile", MAPOBJ::MB1);
-				break;
-			case MB2:
-				CreatePushTile(Pos, "PushTile", MAPOBJ::MB2);
-				break;
-			case MB3:
-				CreatePushTile(Pos, "PushTile", MAPOBJ::MB3);
-				break;
-			case MB4:
-				CreatePushTile(Pos, "PushTile", MAPOBJ::MB4);
-				break;
-			case MB5:
-				CreatePushTile(Pos, "PushTile", MAPOBJ::MB5);
-				break;
-
 			case GR:
 				break;
 
@@ -611,17 +538,6 @@ void Map::CreateStarTile(Vector2 & in_Position, string FileName, MAPOBJ in_MapOb
 	m_TileList.push_back(m_TileColumnList[Column].mp_TileList.back());
 }
 
-
-/****	押すタイル生成	****/
-void Map::CreatePushTile(Vector2& in_Position, string FileName, MAPOBJ in_MapObj)
-{
-	m_PushTileList.push_back(new PushTile);
-	m_PushTileList.back()->transform->Position.Set(in_Position.x, in_Position.y, 0.0f);
-	m_PushTileList.back()->Sprite(FileName);
-	m_PushTileList.back()->SetKind(in_MapObj);
-
-}
-
 /****	移動更新	****/
 void Map::MoveUpdate()
 {
@@ -673,52 +589,4 @@ void Map::AddMoveManager(LandTile* in_LandTile)
 		m_MoveManager.pop_back();
 
 	}
-}
-
-/****	押す処理	****/
-bool Map::PushRightMoveTile(GameObject& in_PushObj)
-{
-	/*	初期化	*/
-	static PushTile* push = nullptr;	//押されるタイル
-	if (m_isPush == false)
-	{
-		for (auto& tile : m_PushTileList)
-		{
-			if (tile->GetComponent<BoxCollider2D>()->GetisHit_leftBlock() == true)
-			{
-				cout << "Push！\n";
-				push = tile;
-				push->isMoveRight = true;
-				push->m_PushValue = 0.0f;
-				m_isPush = true;
-				break;
-			}
-
-		}
-
-		if (m_isPush == false)
-		{
-			push = nullptr;
-			return true;
-		}
-	}
-
-
-	cout << "押している\n";
-	/*	更新	*/
-	//プッシュタイルの移動量を加算する
-	float vec = push->Move();
-	in_PushObj.transform->Position.x += vec;
-	/*	修正処理	*/
-	if (push->m_PushValue >= TILE_WIDTH)
-	{
-		in_PushObj.transform->Position.x += push->FixMove();
-		m_isPush = false;
-		push = nullptr;
-		//終了したらtrueを返す
-		return true;
-
-	}
-
-	return false;
 }

@@ -39,7 +39,7 @@ void Result::ResultCursor_Init()
 {
 	this->Sprite("button");
 	this->GetComponent<SpriteRenderer>()->Color.a = 0;
-	this->transform->Scale.Set(1.2, 1.2, 0);//スケールの書き換え
+	this->transform->Scale.Set(1.2f, 1.2f, 0.0f);//スケールの書き換え
 }
 
 bool Result::Result_On()

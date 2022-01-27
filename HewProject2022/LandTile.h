@@ -23,6 +23,8 @@ public:
 	Tile* GetLandTile() { return mp_LandingTile; }
 	Tile* GetSaveLandTile() { return mp_SaveLandingTile; }
 	bool GetisLandTile()const { return m_isLandTile; }
+	float GetNowColumn()const { return NowColumn; }
+
 
 public:
 	void FlipCol(bool flip) {
@@ -49,7 +51,7 @@ private:
 	Tile* mp_LandingTile;		//乗ってるタイル
 	Tile* mp_SaveLandingTile;	//前フレームの乗ってるタイル
 
-	int NowColumn;		//現在の列	
+	float NowColumn;		//現在の列	
 	bool isChange;		//タイル変更フラグ
 	bool m_isLandTile;	//タイル乗ってるフラグ
 

@@ -110,10 +110,13 @@ bool Player::Update()
 			m_PlayerAnimController.AnimState = PlayerAnimController::PLAYER_EMPTY;
 		}
 		if (m_MainCamera->m_CameraMode == false)
+		{
 			//ƒAƒNƒVƒ‡ƒ“ˆ—
 			Action();
-		m_LandTile->FlipCol(m_SpriteRenderer->Flip);
-		FlipCollider(m_SpriteRenderer->Flip);
+			m_LandTile->FlipCol(m_SpriteRenderer->Flip);
+			FlipCollider(m_SpriteRenderer->Flip);
+
+		}
 	}
 	else
 	{

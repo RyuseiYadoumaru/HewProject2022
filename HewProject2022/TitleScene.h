@@ -13,8 +13,9 @@
 #include "BigBook.h"
 #include "Sofa.h"
 #include "Ceiling.h"
-#include"PushAny.h"
-#include"Title.h"
+#include "PushAny.h"
+#include "Title.h"
+#include "SceneTransition.h"
 
 using Create::Actor;
 using GameEngine::Input;
@@ -46,6 +47,8 @@ namespace GamePlay
 		CameraFrame* m_CameraFrame;
 		Fade* m_Fade;
 
+		SceneTransition* m_SceneTransition;
+
 	public:
 		bool Start() override;
 		STATE Update() override;
@@ -55,5 +58,7 @@ namespace GamePlay
 		//ゲーム終了処理用フラグ
 		bool End_flg = false;//true=(ゲーム終了) ・ false=(そのまま)
 		bool EndWin_flg = false;//true=(ゲーム終了ウインドウの表示 )・ false=(ゲーム終了ウインドウの非表示)
+
+
 	};
 }

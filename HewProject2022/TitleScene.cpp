@@ -27,7 +27,7 @@ bool GamePlay::TitleScene::Start()
 	m_PushAny = Instance<PushAny>("PushAny");
 	m_PushAny->Sprite("Any");
 	m_PushAny->transform->Position.y -= 100;
-	m_PushAny->transform->Scale.Set(1.1, 1.1, 0);
+	m_PushAny->transform->Scale.Set(1.1f, 1.1f, 0.0f);
 
 	m_GameEnd = Instance<Actor>("GameEnd");
 	m_GameEnd->Sprite("End");
@@ -49,6 +49,9 @@ bool GamePlay::TitleScene::Start()
 
 	EndWin_flg = false;
 	End_flg = false;
+
+	//シーン遷移アニメーション可能フラグ初期化
+	SceneTransition::m_SceneTransitionFlg = false;
 
 	return true;
 }
@@ -75,7 +78,7 @@ Scene::STATE GamePlay::TitleScene::Update()
 			End_flg = false;
 			if (Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true || Input::GetKeyTrigger(VK_RETURN) == true)//Ａボタンでワールドセレクトへ
 			{
-				Input::Vibration(XINPUT_GAMEPAD_RIGHT_VIBRATION_MAX, 750.0f);
+				Input::Vibration(1000, 250.0f);
 				GameEngine::SceneManager::LoadScene("World1StageSelectScene");
 			}
 			if (Input::GetControllerTrigger(XINPUT_GAMEPAD_B) == true || Input::GetKeyTrigger(VK_ESCAPE)) {//スタートボタンでゲーム終了ウインドウの表示
@@ -155,6 +158,7 @@ bool GamePlay::TitleScene::Render()
 	ObjectRender<Title>("TeamLogo");
 	ObjectRender<Actor>("GameEnd");
 	ObjectRender<Actor>("EndCursor");
+
 	/****	画面描画	****/
 	SwapChain();
 

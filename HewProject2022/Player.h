@@ -3,6 +3,7 @@
 #include "Tile.h"
 #include "LandTile.h"
 #include "PlayerAnimController.h"
+#include "MainCamera.h"
 
 class TileColumn;
 
@@ -76,7 +77,7 @@ private:
 	float m_stopForceX;// 停止力X　→　摩擦力的なもの
 	
 	FRAME m_GroundCnt;		//着地したときのフレームカウント
-	static constexpr FRAME m_GroundWaitFrame = 20;	//着地後の待機フレーム
+	static constexpr FRAME m_GroundWaitFrame = 5;	//着地後の待機フレーム
 
 	float m_jumpForce;// ジャンプ力
 	float m_DownMoveValue;	//落ちる移動量
@@ -104,6 +105,8 @@ private:
 	PlayerAnimController m_PlayerAnimController;
 
 	bool m_PlayerDeath;//プレイヤー死亡フラグ
+
+	MainCamera* m_MainCamera;
 };
 
 

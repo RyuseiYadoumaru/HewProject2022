@@ -244,6 +244,9 @@
     <ClCompile Include="ResetManager.cpp" />
     <ClCompile Include="Result.cpp" />
     <ClCompile Include="Rose.cpp" />
+    <ClCompile Include="SceneTransition.cpp" />
+    <ClCompile Include="SceneTransitionAnim.cpp" />
+    <ClCompile Include="SceneTransitionAnimController.cpp" />
     <ClCompile Include="ScreenFx.cpp" />
     <ClCompile Include="Shelf.cpp" />
     <ClCompile Include="Shelf2.cpp" />
@@ -409,6 +412,9 @@
     <ClInclude Include="Result.h" />
     <ClInclude Include="Rose.h" />
     <ClInclude Include="SceneList.h" />
+    <ClInclude Include="SceneTransition.h" />
+    <ClInclude Include="SceneTransitionAnim.h" />
+    <ClInclude Include="SceneTransitionAnimController.h" />
     <ClInclude Include="ScreenFx.h" />
     <ClInclude Include="Shelf.h" />
     <ClInclude Include="Shelf2.h" />

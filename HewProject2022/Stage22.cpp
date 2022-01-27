@@ -104,7 +104,7 @@ Scene::STATE GamePlay::Stage22Scene::Update()
 
 		/****	システム更新	****/
 		m_Map->SystemUpdate();
-		SystemUpdate();	return PLAY;
+		SystemUpdate();
 		break;
 	case 1://ポーズ画面
 	/****   ポーズ中処理   ****/
@@ -129,6 +129,7 @@ Scene::STATE GamePlay::Stage22Scene::Update()
 		}
 		break;
 	}
+	return PLAY;
 
 }
 

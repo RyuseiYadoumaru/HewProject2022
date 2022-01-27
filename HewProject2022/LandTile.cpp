@@ -44,7 +44,7 @@ bool LandTile::Update()
 	transform->Position = Owner->transform->Position;
 
 	/*	マップ当たり判定	*/
-	Map::HitCheckMap(*this);
+	Map::HitCheckMap(*this, Map::CHECK::OBJECT_RANGE);
 	//ここに当たり判定の処理を書く
 	SearchLandingTile();
 
@@ -77,10 +77,11 @@ void LandTile::SearchLandingTile()
 	//着地したときに格納する
 	if (Col->GetisHit_underBlock() == false)
 	{
-		//if (mp_SaveLandingTile != LandGround) BlockParticleManager::MagicReset(*mp_SaveLandingTile);
+		/*	マジック解除	*/
+		if (mp_SaveLandingTile != LandGround) BlockParticleManager::MagicReset(*mp_SaveLandingTile);
 
-		//m_isLandTile = false;
-		//mp_LandingTile = LandGround;
+		m_isLandTile = false;
+		mp_LandingTile = LandGround;
 		cout << "着地してないよ\n";
 		return;
 	}

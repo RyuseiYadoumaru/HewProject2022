@@ -1,5 +1,6 @@
 #pragma once
 
+
 #define TILE_WIDTH	(float)(80)
 #define TILE_HEIGHT	(float)(80)
 
@@ -9,8 +10,12 @@
 #define MAPSIZE_WIDTH (float)(7200.0f)
 #define MAPSIZE_HEIGHT (float)(1600.0f)
 
+
 #define PUZZLE_WIDTH (float)(80.0f*40.0f)
 #define PUZZLE_HEIGHT (float)(80.0f*20.0f)
+
+#define MAP_START_POSX (float)(2000.0f)
+#define MAP_END_POSX (MAP_START_POSX + PUZZLE_WIDTH)
 
 #define ROAD_WIDTH  (float)(2000.0f)
 #define ROAD_HEIGHT (float)(640.0f)

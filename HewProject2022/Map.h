@@ -23,7 +23,8 @@ public:
 	enum CHECK
 	{
 		ALL,
-		CAMERA_RANGE
+		CAMERA_RANGE,
+		OBJECT_RANGE
 
 	};
 	static bool HitCheckMap(GameObject& in_GameObject, CHECK in_Check = ALL);

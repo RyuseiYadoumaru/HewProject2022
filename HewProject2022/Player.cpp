@@ -36,7 +36,7 @@ bool Player::Start()
 	//摩擦力
 	m_stopForceX = m_accelForceX * 0.7f;
 	//地面についているフラグ
-	m_OnGround = false;
+	m_OnGround = true;
 	m_GroundCnt = GameTimer::NowFrameCount();
 
 	/*	ジャンプ初期化	*/
@@ -57,7 +57,7 @@ bool Player::Start()
 	m_SpriteRenderer->SetSize(80.0f, 80.0f);
 	m_SpriteRenderer->Init();
 
-	transform->Position.Set(1000.0f, 500.0f, 0.0f);
+	transform->Position.Set(1000.0f, 960.0f, 0.0f);
 	transform->Scale.Set(1.0f, 1.0f, 1.0f);
 
 	/*	リジットボディーコンポーネント	*/
@@ -94,7 +94,7 @@ bool Player::Update()
 	m_SavePosition = transform->Position;
 
 	/*	マップ当たり判定	*/
-	Map::HitCheckMap(*this, Map::CHECK::CAMERA_RANGE);
+	Map::HitCheckMap(*this, Map::CHECK::OBJECT_RANGE);
 
 	/*	マップ移動処理	*/
 	MoveMap();
@@ -109,8 +109,9 @@ bool Player::Update()
 			m_isMagic = false;
 			m_PlayerAnimController.AnimState = PlayerAnimController::PLAYER_EMPTY;
 		}
-		//アクション処理
-		Action();
+		if (m_MainCamera->m_CameraMode == false)
+			//アクション処理
+			Action();
 		m_LandTile->FlipCol(m_SpriteRenderer->Flip);
 		FlipCollider(m_SpriteRenderer->Flip);
 	}
@@ -440,20 +441,31 @@ void Player::MoveMap()
 	/*	リセット処理	*/
 	if (m_airFlg != true)
 	{
-		if ((m_LandTile->GetLandTile() == LandGround) ||
-			(Input::GetControllerTrigger(XINPUT_GAMEPAD_Y)) || (Input::GetKeyTrigger(PK_R)))
+		/*	リセットのボタンを押したとき	*/
+		if ((Input::GetControllerTrigger(XINPUT_GAMEPAD_Y)) || (Input::GetKeyTrigger(PK_R)))
 		{
 			if (Map::m_OnReset == false)
 			{
 				Map::m_OnReset = true;
 			}
 		}
+		/*	リセット条件	*/
+		if (transform->Position.x < MAP_START_POSX || transform->Position.x > MAP_END_POSX &&
+			m_LandTile->GetLandTile() == LandGround)
+		{
+			if (Map::m_OnReset == false)
+			{
+				Map::m_OnReset = true;
+			}
+		}
+
 	}
 
 
 	/*	場所が地面だったら処理しない	*/
-	if (m_LandTile->GetLandTile() == LandGround) return;
+	if (m_LandTile->GetLandTile() == LandGround || Map::m_OnReset == true) return;
 
+	/*	踏んだら揃うブロック	*/
 	Map::CheckLandTile(*m_LandTile);
 
 	//カラーブロックに乗っているとき
@@ -561,6 +573,7 @@ void Player::FlipCollider(bool flip)
 /****	乗るエフェクト生成処理	****/
 bool Player::CreateLandParticle()
 {
+
 	if (BlockParticleManager::JudgeRedorBlue(m_LandTile->GetLandTile()->GetKind()) == EFFECT_RED)
 	{
 		BlockParticleManager::CreateMagicEffect(m_LandTile->GetLandTile(), BlockEffectColor::RED);

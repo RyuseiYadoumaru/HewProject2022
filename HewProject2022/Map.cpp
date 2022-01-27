@@ -205,6 +205,8 @@ void Map::SystemUpdate()
 /****	マップ当たり判定	****/
 bool Map::HitCheckMap(GameObject& in_GameObject, CHECK in_Check)
 {
+	int debug = 0;
+
 	/*	ヒットチェックオブジェクト	*/
 	BoxCollider2D* CheckObject = in_GameObject.GetComponent<BoxCollider2D>();
 	Create::Camera* camera = Create::Scene::GetCamera();
@@ -217,10 +219,9 @@ bool Map::HitCheckMap(GameObject& in_GameObject, CHECK in_Check)
 		for (auto& NowTile : m_TileList)
 		{
 			BoxCollider2D* TileCol = NowTile->GetComponent<BoxCollider2D>();
-
+			debug++;
 			CheckObject->HitCheckBox(*TileCol);
 		}
-
 	}
 
 	//カメラ範囲内チェック
@@ -231,6 +232,8 @@ bool Map::HitCheckMap(GameObject& in_GameObject, CHECK in_Check)
 			if (NowTile->transform->Position.x >= camera->GetLeft() && NowTile->transform->Position.x <= camera->GetRight() &&
 				NowTile->transform->Position.y >= camera->GetTop() && NowTile->transform->Position.y <= camera->GetButtom())
 			{
+				debug++;
+
 				BoxCollider2D* TileCol = NowTile->GetComponent<BoxCollider2D>();
 				if (NowTile->tag != TagList::STAR) {
 					CheckObject->HitCheckBox(*TileCol);
@@ -239,6 +242,34 @@ bool Map::HitCheckMap(GameObject& in_GameObject, CHECK in_Check)
 		}
 	}
 
+	else if (in_Check == OBJECT_RANGE)
+	{
+
+		/*	コライダの範囲のみチェックする	*/
+		float left = CheckObject->GetCenterPos().x - (CheckObject->GetCenterLength().x + 100.0f);
+		float right = CheckObject->GetCenterPos().x + (CheckObject->GetCenterLength().x + 100.0f);
+		float top = CheckObject->GetCenterPos().y - (CheckObject->GetCenterLength().y + 100.0f);
+		float buttom = CheckObject->GetCenterPos().y + (CheckObject->GetCenterLength().y + 100.0f);
+
+
+		/*	当たり判定	*/
+		for (auto& NowTile : m_TileList)
+		{
+			if (NowTile->transform->Position.x >= left && NowTile->transform->Position.x <= right &&
+				NowTile->transform->Position.y >= top && NowTile->transform->Position.y <= buttom)
+			{
+				debug++;
+
+				BoxCollider2D* TileCol = NowTile->GetComponent<BoxCollider2D>();
+				if (NowTile->tag != TagList::STAR) {
+					CheckObject->HitCheckBox(*TileCol);
+				}
+			}
+		}
+	}
+
+
+	cout << "当たり判定の参照回数：" << debug << endl;
 	return true;
 }
 
@@ -441,9 +472,11 @@ void Map::CreateMap()
 			case LC2:
 				CreateTile(Pos, "Landblue", MAPOBJ::LC2);
 				break;
-
 			case LC3:
 				CreateTile(Pos, "Landgreen", MAPOBJ::LC3);
+				break;
+			case LC4:
+				CreateTile(Pos, "Landpurple", MAPOBJ::LC4);
 				break;
 
 			case ST:

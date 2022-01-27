@@ -243,10 +243,7 @@ bool MoveManager::SetMoveList()
 	if (ResetBeforeList.Empty() == false) copy(ResetBeforeList.m_List.begin(), ResetBeforeList.m_List.end(), back_inserter(Back.m_List));
 	else	ResetBeforeList.m_List = Back.m_List;
 
-
 	return true;
-
-
 }
 
 /****	移動処理	****/
@@ -324,7 +321,6 @@ bool MoveManager::MoveResetBefore()
 		else
 		{
 			//終わった列が天井と当たる列に該当するとき
-
 			isFin = ResetBefore();
 		}
 
@@ -333,6 +329,15 @@ bool MoveManager::MoveResetBefore()
 
 	if (isFin == true)
 	{
+		for (auto& tile : FrontParticle.m_List)
+		{
+			BlockParticleManager::MagicReset(*tile->GetStandartdTile());
+		}
+		for (auto& tile : BackParticle.m_List)
+		{
+			BlockParticleManager::MagicReset(*tile->GetStandartdTile());
+		}
+
 		/*	終了処理	*/
 		Front.Clear();
 		Back.Clear();
@@ -459,9 +464,9 @@ bool MoveManager::ResetBefore()
 	/*	リセット処理開始	*/
 	auto itr = ResetBeforeList.m_List.begin();
 	/*	リセットリストを全更新	*/
-	for (auto& ResetColumn : ResetBeforeList.m_List)
+	for (auto& reset : ResetBeforeList.m_List)
 	{
-		bool ret = ResetColumn->ResetTick();
+		bool ret = reset->ResetTick();
 
 		//移動が終わった時
 		if (/*ResetColumn->m_isFin == true*/ret == true)

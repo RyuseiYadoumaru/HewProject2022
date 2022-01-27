@@ -2,6 +2,7 @@
 #include"ydmEngine.h"
 #include"StageList.h"
 #include "Fade.h"
+#include "SceneTransition.h"
 
 using Create::Actor;
 using GameEngine::Input;
@@ -20,12 +21,16 @@ namespace GamePlay
 		Actor* m_worldBack;//背景
 
 		Fade* m_fade;//フェード
+
+		SceneTransition* m_SceneTransition;//シーン遷移
+
 		STAGE_NUMBER m_stageNumber;
 
 		int m_frameCnt;
 		bool m_inputflg;
 		bool m_sceneRightMoveflg;
 		bool m_sceneLeftMoveflg;
+
 
 	public:
 		bool Start() override;

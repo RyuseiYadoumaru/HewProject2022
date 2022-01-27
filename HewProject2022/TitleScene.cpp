@@ -50,6 +50,9 @@ bool GamePlay::TitleScene::Start()
 	EndWin_flg = false;
 	End_flg = false;
 
+	//シーン遷移アニメーション可能フラグ初期化
+	SceneTransition::m_SceneTransitionFlg = false;
+
 	return true;
 }
 
@@ -155,6 +158,7 @@ bool GamePlay::TitleScene::Render()
 	ObjectRender<Title>("TeamLogo");
 	ObjectRender<Actor>("GameEnd");
 	ObjectRender<Actor>("EndCursor");
+
 	/****	画面描画	****/
 	SwapChain();
 

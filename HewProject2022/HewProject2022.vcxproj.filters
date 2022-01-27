@@ -789,6 +789,9 @@
     </ClCompile>
     <ClCompile Include="GoalAnimController.cpp" />
     <ClCompile Include="StarTile.cpp" />
+    <ClCompile Include="SceneTransitionAnim.cpp" />
+    <ClCompile Include="SceneTransitionAnimController.cpp" />
+    <ClCompile Include="SceneTransition.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Runtime\Application.h">
@@ -1271,6 +1274,9 @@
     </ClInclude>
     <ClInclude Include="GoalAnimController.h" />
     <ClInclude Include="StarTile.h" />
+    <ClInclude Include="SceneTransitionAnim.h" />
+    <ClInclude Include="SceneTransitionAnimController.h" />
+    <ClInclude Include="SceneTransition.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="README.txt">

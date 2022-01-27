@@ -136,7 +136,6 @@ Scene::STATE GamePlay::Stage1Scene::Update()
 			m_ResultCursor->ResultCursor_Move();//カーソルフラグ＆分岐
 			m_Fade->Update();
 		}
-
 		break;
 
 	}

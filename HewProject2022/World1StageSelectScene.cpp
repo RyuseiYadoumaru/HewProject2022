@@ -38,6 +38,9 @@ bool GamePlay::World1StageSelectScene::Start()
 	m_stage_4->transform->Position.Set(10500.0f, 0.0f, 0.0f);
 	m_stage_5->transform->Position.Set(14000.0f, 0.0f, 0.0f);
 
+	//シーン遷移
+	m_SceneTransition = Instance<SceneTransition>("Scene");
+
 	//ステージ番号
 	m_stageNumber = STAGE_01;
 
@@ -140,6 +143,7 @@ Scene::STATE GamePlay::World1StageSelectScene::Update()
 		}
 		break;
 	}
+
 
 	//右シーン遷移
 	if (m_stageNumber == STAGE_01 && m_sceneRightMoveflg == true) {
@@ -268,6 +272,11 @@ bool GamePlay::World1StageSelectScene::Render()
 	ObjectRender<Actor>("Stage-05");
 	ObjectRender<Actor>("Select");
 	ObjectRender<Actor>("SelectButton");
+
+	if (SceneTransition::m_SceneTransitionFlg == false) {
+		ObjectRender<SceneTransition>("Scene");//シーン遷移アニメーション
+	}
+
 
 	/****	画面描画	****/
 	SwapChain();

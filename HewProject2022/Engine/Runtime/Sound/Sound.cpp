@@ -11,11 +11,11 @@ typedef struct
 PARAM g_param[SOUND_LABEL_MAX] =
 {
 	{"assets/SoundData/BGM/SelectNoize.wav", true},	// セレクトノイズ
-	{"assets/SoundData/BGM/world1.wav", true},	// ワールド１BGM
-	{"assets/SoundData/BGM/world2.wav", true},	// ワールド2BGM
-	{"assets/SoundData/BGM/world3.wav", true},	// ワールド3BGM
-	{"assets/SoundData/BGM/world3.wav", true},	// ワールド4BGM
-	{"assets/SoundData/BGM/world5.wav", true},	// ワールド5BGM
+	{"assets/SoundData/BGM/world1_1.wav", true},	// ワールド１BGM
+	{"assets/SoundData/BGM/world2_1.wav", true},	// ワールド2BGM
+	{"assets/SoundData/BGM/world3_1.wav", true},	// ワールド3BGM
+	{"assets/SoundData/BGM/world3_1.wav", true},	// ワールド4BGM
+	{"assets/SoundData/BGM/world5_1.wav", true},	// ワールド5BGM
 	{"assets/SoundData/SE/onGround.wav", false},	// 着地SE
 	{"assets/SoundData/SE/MagicBlock.wav", false},	// 着地SE
 	{"assets/SoundData/SE/MoveBlock.wav", false},	// 着地SE

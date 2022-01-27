@@ -217,9 +217,20 @@ void Player::Magic()
 }
 
 /*** ゴールアニメーション ***/
-void Player::Goal()
+void Player::Goal(float Goal_x)
 {
-
+	if (transform->Position.x < Goal_x) {
+		transform->Position.x += 2;
+		if (transform->Position.x > Goal_x) {
+			transform->Position.x--;
+		}
+	}
+	else if (transform->Position.x > Goal_x) {
+		transform->Position.x -= 2;
+		if (transform->Position.x < Goal_x) {
+			transform->Position.x++;
+		}
+	}
 	if (m_isGoal == false) {
 		m_PlayerAnimController.AnimState = PlayerAnimController::PLAYER_ROTATESTART;
 		m_isGoal = true;

@@ -15,6 +15,7 @@
 #include "Pause.h"
 #include "Goal.h"
 #include"Result.h"
+#include"PlayerGoalEffect.h"
 
 #include "BlockMagicEffect.h"
 
@@ -55,6 +56,7 @@ namespace GamePlay
 
 		/* ゴール */
 		Goal* m_Goal;
+		PlayerGoalEffect* m_PGoalEffect;
 
 		/*	エフェクト	*/
 		ScreenFx* m_ScreenEffect;

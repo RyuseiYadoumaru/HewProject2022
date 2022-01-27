@@ -235,6 +235,8 @@
     <ClCompile Include="PlayerAnim.cpp" />
     <ClCompile Include="DefaultAnimController.cpp" />
     <ClCompile Include="PlayerAnimController.cpp" />
+    <ClCompile Include="PlayerEffectController.cpp" />
+    <ClCompile Include="PlayerGoalEffect.cpp" />
     <ClCompile Include="PushAny.cpp" />
     <ClCompile Include="PushTile.cpp" />
     <ClCompile Include="ResetInfo.cpp" />
@@ -397,6 +399,8 @@
     <ClInclude Include="PlayerAnim.h" />
     <ClInclude Include="DefaultAnimController.h" />
     <ClInclude Include="PlayerAnimController.h" />
+    <ClInclude Include="PlayerEffectController.h" />
+    <ClInclude Include="PlayerGoalEffect.h" />
     <ClInclude Include="PushAny.h" />
     <ClInclude Include="PushTile.h" />
     <ClInclude Include="ResetInfo.h" />

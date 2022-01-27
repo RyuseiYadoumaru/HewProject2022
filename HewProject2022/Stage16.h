@@ -13,6 +13,7 @@
 #include"Pause.h"
 #include"Result.h"
 #include "Goal.h"
+#include"PlayerGoalEffect.h"
 
 using Create::Actor;
 using GameEngine::Input;
@@ -48,6 +49,7 @@ namespace GamePlay
 
 		/* ÉSÅ[Éã */
 		Goal* m_Goal;
+		PlayerGoalEffect* m_PGoalEffect;
 
 		/* Pause */
 		Pause* m_Pause;

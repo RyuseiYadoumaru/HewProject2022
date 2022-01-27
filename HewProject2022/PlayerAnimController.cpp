@@ -5,6 +5,7 @@ bool PlayerAnimController::Init()
 	Anim = make_shared<PlayerAnim>();
 	Anim->Init();
 	AnimState = PLAYER_IDLE;
+	flg = 0;
 
 	return true;
 }
@@ -66,10 +67,14 @@ void PlayerAnimController::Update()
 		break;
 
 	case PLAYER_ROTATELOOP:
+
 		Anim->Play("RotateLoop");
-		if (Anim->Play("RotateLoop") == ANIMATION_FINISH)
+		if (Anim->Play("RotateLoop") == ANIMATION_FINISH || flg == 1)
 		{
 			AnimState = PLAYER_ROTATEEND;
+		}
+		else if (Anim->Play("RotateLoop") == ANIMATION_FINISH) {
+			flg = 1;
 		}
 		break;
 
@@ -92,13 +97,18 @@ void PlayerAnimController::Update()
 
 	case PLAYER_HANDLOOP:
 		Anim->Play("Hand");
-		if (Anim->Play("Hand") == ANIMATION_FINISH)
+
+		if (Anim->Play("Hand") == ANIMATION_FINISH || flg == 2)
 		{
 			AnimState = PLAYER_ANIMEND;
 		}
+		else if (Anim->Play("Hand") == ANIMATION_FINISH)
+		{
+			flg = 2;
+		}
 		break;
 	case PLAYER_ANIMEND:
-		Anim->Play("Hand");
+		//Anim->Play("Hand");
 		break;
 
 	default:

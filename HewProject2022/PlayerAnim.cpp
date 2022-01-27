@@ -71,14 +71,14 @@ void PlayerAnim::Init()
 	::AnimationTable set_RotateStart;
 	set_RotateStart.SetKind(KIND::PUSH, KIND::ROTATELOOP, KIND::ROTATELOOP, KIND::ROTATELOOP);
 	set_RotateStart.SetFrame(PLAYER_ANIM::ANIM_1, PLAYER_ANIM::ANIM_1, PLAYER_ANIM::ANIM_2, PLAYER_ANIM::ANIM_3, ANIMATION_FINISH);
-	set_RotateStart.SetKey(0.0f, 400.0f, 600.0f, 800.0f);
+	set_RotateStart.SetKey(0.0f, 400.0f, 700.0f, 1000.0f);
 	AnimationTableList.insert(std::make_pair("RotateStart", set_RotateStart));
 
 	/*	ROTATELOOP	*/
 	::AnimationTable set_RotateLoop;
 	set_RotateLoop.SetKind(KIND::ROTATELOOP, KIND::ROTATELOOP, KIND::ROTATELOOP);
 	set_RotateLoop.SetFrame(PLAYER_ANIM::ANIM_1, PLAYER_ANIM::ANIM_2, PLAYER_ANIM::ANIM_3, ANIMATION_FINISH);
-	set_RotateLoop.SetKey(0.0f, 200.0f, 400.0f);
+	set_RotateLoop.SetKey(0.0f, 300.0f, 600.0f);
 	AnimationTableList.insert(std::make_pair("RotateLoop", set_RotateLoop));
 
 	/*	ROTATEEND	*/

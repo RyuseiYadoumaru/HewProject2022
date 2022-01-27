@@ -789,6 +789,8 @@
     </ClCompile>
     <ClCompile Include="GoalAnimController.cpp" />
     <ClCompile Include="StarTile.cpp" />
+    <ClCompile Include="PlayerGoalEffect.cpp" />
+    <ClCompile Include="PlayerEffectController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Runtime\Application.h">
@@ -1271,6 +1273,8 @@
     </ClInclude>
     <ClInclude Include="GoalAnimController.h" />
     <ClInclude Include="StarTile.h" />
+    <ClInclude Include="PlayerGoalEffect.h" />
+    <ClInclude Include="PlayerEffectController.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="README.txt">

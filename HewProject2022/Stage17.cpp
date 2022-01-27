@@ -29,6 +29,9 @@ bool GamePlay::Stage17Scene::Start()
 	/*	初期化	*/
 	m_BookShelfEnd->transform->Position.x += ROAD_DISTANCE;
 
+	/* ゴール時プレイヤーエフェクト生成 */
+	m_PGoalEffect = Instance<PlayerGoalEffect>("PGoalEffect");
+
 	/*	ギミック初期化	*/
 
 
@@ -112,7 +115,10 @@ Scene::STATE GamePlay::Stage17Scene::Update()
 		}
 		break;
 	case 2://リザルト画面
-		m_Player->Goal();//ゴールアニメーション再生
+		
+		m_Player->Goal(m_Goal->transform->Position.x);//ゴールアニメーション再生
+		m_PGoalEffect->EF_Start();
+		m_PGoalEffect->transform->Position.Set(m_Player->transform->Position.x, m_Player->transform->Position.y, 0);
 		if (m_Player->GetGoal() == true) {//アニメーション終了でリザルト表示
 			m_ResultBack->Result_On();//リザルト画面のフラグ
 			m_ResultCursor->Result_On();
@@ -156,6 +162,10 @@ bool GamePlay::Stage17Scene::Render()
 	/****	天井	****/
 	ObjectRender<Ceiling>("Ceiling");
 
+	/*** ゴール描画 ***/
+	ObjectRender<Goal>("Goal");
+	ObjectRender<PlayerGoalEffect>("PGoalEffect");
+
 	/****	オブジェクト描画	****/
 	ObjectRender<Player>("Player");
 	ObjectRender<Map>("stage1-1");
@@ -166,10 +176,6 @@ bool GamePlay::Stage17Scene::Render()
 	//m_Fade->Render();
 	ObjectRender<ScreenFx>("SFX");
 	ObjectRender<CameraFrame>("CFX");
-
-
-	/*** ゴール描画 ***/
-	ObjectRender<Goal>("Goal");
 
 	/*** リザルト ***/
 	ObjectRender<Result>("ResultBack");

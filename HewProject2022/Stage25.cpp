@@ -57,8 +57,8 @@ bool GamePlay::Stage25Scene::Start()
 	/*	初期化	*/
 	m_ToyEnd->transform->Position.x += ROAD_DISTANCE;
 
-	/*	ギミック初期化	*/
-
+	// BGM再生
+	Sound::Sound_Play(SOUND_LABEL_WORLD5_GAMEBGM);
 
 	/*	カメラ設定	*/
 	SetCamera(m_MainCamera);
@@ -140,6 +140,8 @@ bool GamePlay::Stage25Scene::End()
 	ObjectEnd();
 
 	// BGM停止
+	Sound::Sound_Stop(SOUND_LABEL_WORLD5_GAMEBGM);
+	/*	サウンドストップ	*/
 	Sound::Sound_Stop(SOUND_LABEL_WORLD5_GAMEBGM);
 
 	/*	解放処理	*/

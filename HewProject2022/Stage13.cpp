@@ -58,6 +58,8 @@ bool GamePlay::Stage13Scene::Start()
 
 	/*	ギミック初期化	*/
 
+		// BGM再生
+	Sound::Sound_Play(SOUND_LABEL_WORLD3_GAMEBGM);
 
 	/*	カメラ設定	*/
 	SetCamera(m_MainCamera);
@@ -120,7 +122,7 @@ Scene::STATE GamePlay::Stage13Scene::Update()
 		}
 		break;
 	case 2://リザルト画面
-		
+
 		m_Player->Goal(m_Goal->transform->Position.x);//ゴールアニメーション再生
 		m_PGoalEffect->EF_Start();
 		m_PGoalEffect->transform->Position.Set(m_Player->transform->Position.x, m_Player->transform->Position.y, 0);
@@ -139,6 +141,10 @@ bool GamePlay::Stage13Scene::End()
 {
 	/*	オブジェクト終了処理	*/
 	ObjectEnd();
+
+	/*	サウンドストップ	*/
+	Sound::Sound_Stop(SOUND_LABEL_WORLD3_GAMEBGM);
+
 
 	/*	解放処理	*/
 	Releace();

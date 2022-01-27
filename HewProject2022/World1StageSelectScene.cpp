@@ -53,6 +53,10 @@ bool GamePlay::World1StageSelectScene::Start()
 	m_inputflg = true;
 	m_frameCnt = 0;
 
+	// BGM再生
+	Sound::Sound_Play(SOUND_LABEL_SELECT);
+
+
 	return true;
 }
 
@@ -252,6 +256,8 @@ bool GamePlay::World1StageSelectScene::End()
 	/*	オブジェクト終了処理	*/
 	ObjectEnd();
 
+	/*	サウンドストップ	*/
+	Sound::Sound_Stop(SOUND_LABEL_SELECT);
 	/*	解放処理	*/
 	Releace();
 

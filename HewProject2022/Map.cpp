@@ -82,7 +82,7 @@ void Map::AllTileReset()
 	}
 
 	/*	リセットSE再生	*/
-	Sound::Sound_Play(SOUND_LABEL_RESETBLOCK);//着地効果音再生
+	Sound::Sound_Play(SOUND_LABEL_RESETBLOCK);
 
 }
 

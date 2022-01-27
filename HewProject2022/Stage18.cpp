@@ -57,6 +57,11 @@ bool GamePlay::Stage18Scene::Start()
 	m_MainCamera->Focus(m_Player);
 
 
+	// BGM再生
+	Sound::Sound_Play(SOUND_LABEL_WORLD4_GAMEBGM);
+
+	Scene_State = 0;
+
 	return true;
 }
 
@@ -119,7 +124,7 @@ Scene::STATE GamePlay::Stage18Scene::Update()
 		}
 		break;
 	case 2://リザルト画面
-		
+
 		m_Player->Goal(m_Goal->transform->Position.x);//ゴールアニメーション再生
 		m_PGoalEffect->EF_Start();
 		m_PGoalEffect->transform->Position.Set(m_Player->transform->Position.x, m_Player->transform->Position.y, 0);
@@ -141,6 +146,8 @@ bool GamePlay::Stage18Scene::End()
 {
 	/*	オブジェクト終了処理	*/
 	ObjectEnd();
+	/*	サウンドストップ	*/
+	Sound::Sound_Stop(SOUND_LABEL_WORLD4_GAMEBGM);
 
 	/*	解放処理	*/
 	Releace();

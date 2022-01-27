@@ -69,7 +69,7 @@ bool GamePlay::Stage1Scene::Start()
 	m_MainCamera->Focus(m_Player);
 
 	// BGMçƒê∂
-	//Sound::Sound_Play(SOUND_LABEL_WORLD1_GAMEBGM);
+	Sound::Sound_Play(SOUND_LABEL_WORLD1_GAMEBGM);
 
 	Scene_State = 0;
 

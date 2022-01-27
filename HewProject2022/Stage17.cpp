@@ -32,7 +32,8 @@ bool GamePlay::Stage17Scene::Start()
 	/* ゴール時プレイヤーエフェクト生成 */
 	m_PGoalEffect = Instance<PlayerGoalEffect>("PGoalEffect");
 
-	/*	ギミック初期化	*/
+	// BGM再生
+	Sound::Sound_Play(SOUND_LABEL_WORLD4_GAMEBGM);
 
 
 	///***  ゴール判定用  ***/
@@ -115,7 +116,7 @@ Scene::STATE GamePlay::Stage17Scene::Update()
 		}
 		break;
 	case 2://リザルト画面
-		
+
 		m_Player->Goal(m_Goal->transform->Position.x);//ゴールアニメーション再生
 		m_PGoalEffect->EF_Start();
 		m_PGoalEffect->transform->Position.Set(m_Player->transform->Position.x, m_Player->transform->Position.y, 0);
@@ -138,6 +139,8 @@ bool GamePlay::Stage17Scene::End()
 {
 	/*	オブジェクト終了処理	*/
 	ObjectEnd();
+	/*	サウンドストップ	*/
+	Sound::Sound_Stop(SOUND_LABEL_WORLD4_GAMEBGM);
 
 	/*	解放処理	*/
 	Releace();

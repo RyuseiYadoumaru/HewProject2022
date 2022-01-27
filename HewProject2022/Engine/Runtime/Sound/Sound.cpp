@@ -10,11 +10,11 @@ typedef struct
 
 PARAM g_param[SOUND_LABEL_MAX] =
 {
-	{"assets/SoundData/BGM/sample000.wav", true},	// サンプルBGM（ループさせるのでtrue設定）
-	{"assets/SoundData/BGM/sample001.wav", true},	// サンプルBGM
+	{"assets/SoundData/BGM/SelectNoize.wav", true},	// セレクトノイズ
 	{"assets/SoundData/BGM/world1.wav", true},	// ワールド１BGM
 	{"assets/SoundData/BGM/world2.wav", true},	// ワールド2BGM
 	{"assets/SoundData/BGM/world3.wav", true},	// ワールド3BGM
+	{"assets/SoundData/BGM/world3.wav", true},	// ワールド4BGM
 	{"assets/SoundData/BGM/world5.wav", true},	// ワールド5BGM
 	{"assets/SoundData/SE/onGround.wav", false},	// 着地SE
 	{"assets/SoundData/SE/MagicBlock.wav", false},	// 着地SE

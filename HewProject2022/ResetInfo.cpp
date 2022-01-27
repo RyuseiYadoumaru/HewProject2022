@@ -63,8 +63,6 @@ bool ResetInfo::Tick()
 	/*	ˆÚ“®‚ÌSEÄ¶	*/
 	if (isMoveStart == false)
 	{
-		/*	ˆÚ“®SEÄ¶	*/
-		Sound::Sound_Play(SOUND_LABEL_MOVEBLOCK);
 		isMoveStart = true;
 	}
 

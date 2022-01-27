@@ -54,12 +54,12 @@ bool GamePlay::Stage12Scene::Start()
 	/*	初期化	*/
 	m_TreeEnd->transform->Position.x += ROAD_DISTANCE;
 
-	/*	ギミック初期化	*/
-
-
 	/*	カメラ設定	*/
 	SetCamera(m_MainCamera);
 	m_MainCamera->Focus(m_Player);
+
+	/*	BGM再生	*/
+	Sound::Sound_Play(SOUND_LABEL_WORLD3_GAMEBGM);
 
 	Scene_State = 0;
 
@@ -118,7 +118,7 @@ Scene::STATE GamePlay::Stage12Scene::Update()
 		}
 		break;
 	case 2://リザルト画面
-		
+
 		m_Player->Goal(m_Goal->transform->Position.x);//ゴールアニメーション再生
 		m_PGoalEffect->EF_Start();
 		m_PGoalEffect->transform->Position.Set(m_Player->transform->Position.x, m_Player->transform->Position.y, 0);
@@ -138,6 +138,10 @@ bool GamePlay::Stage12Scene::End()
 {
 	/*	オブジェクト終了処理	*/
 	ObjectEnd();
+
+	/*	サウンドストップ	*/
+	Sound::Sound_Stop(SOUND_LABEL_WORLD3_GAMEBGM);
+
 
 	/*	解放処理	*/
 	Releace();

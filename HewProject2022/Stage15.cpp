@@ -57,7 +57,8 @@ bool GamePlay::Stage15Scene::Start()
 	/*	初期化	*/
 	m_PlantsEnd->transform->Position.x += ROAD_DISTANCE;
 
-	/*	ギミック初期化	*/
+	// BGM再生
+	Sound::Sound_Play(SOUND_LABEL_WORLD3_GAMEBGM);
 
 
 	/*	カメラ設定	*/

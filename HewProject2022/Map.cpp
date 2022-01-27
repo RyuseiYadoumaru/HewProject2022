@@ -1,9 +1,5 @@
 #include "Map.h"
 #include "Engine/Create/Scene.h"
-#define FixLeft  500
-#define FixRight  500
-#define FixTop  100
-#define FixButtom  50
 using Math::Vector3;
 
 //-----------------------------------------------------------------------------
@@ -248,20 +244,15 @@ bool Map::HitCheckMap(GameObject& in_GameObject, CHECK in_Check)
 
 	else if (in_Check == OBJECT_RANGE)
 	{
-#if 0
-		float left = camera->GetLeft() + FixLeft;
-		float right = camera->GetRight() - FixRight;
-		float top = camera->GetTop() + FixTop;
-		float buttom = camera->GetButtom() - FixButtom;
 
-#else
+		/*	コライダの範囲のみチェックする	*/
 		float left = CheckObject->GetCenterPos().x - (CheckObject->GetCenterLength().x + 100.0f);
 		float right = CheckObject->GetCenterPos().x + (CheckObject->GetCenterLength().x + 100.0f);
 		float top = CheckObject->GetCenterPos().y - (CheckObject->GetCenterLength().y + 100.0f);
 		float buttom = CheckObject->GetCenterPos().y + (CheckObject->GetCenterLength().y + 100.0f);
 
-#endif // 0
 
+		/*	当たり判定	*/
 		for (auto& NowTile : m_TileList)
 		{
 			if (NowTile->transform->Position.x >= left && NowTile->transform->Position.x <= right &&

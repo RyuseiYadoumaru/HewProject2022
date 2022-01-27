@@ -36,7 +36,7 @@ bool Player::Start()
 	//摩擦力
 	m_stopForceX = m_accelForceX * 0.7f;
 	//地面についているフラグ
-	m_OnGround = false;
+	m_OnGround = true;
 	m_GroundCnt = GameTimer::NowFrameCount();
 
 	/*	ジャンプ初期化	*/
@@ -57,7 +57,7 @@ bool Player::Start()
 	m_SpriteRenderer->SetSize(80.0f, 80.0f);
 	m_SpriteRenderer->Init();
 
-	transform->Position.Set(1000.0f, 500.0f, 0.0f);
+	transform->Position.Set(1000.0f, 960.0f, 0.0f);
 	transform->Scale.Set(1.0f, 1.0f, 1.0f);
 
 	/*	リジットボディーコンポーネント	*/

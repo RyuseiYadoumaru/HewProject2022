@@ -59,6 +59,7 @@ bool GamePlay::Stage1Scene::Start()
 
 	m_Button->NowScene = m_ResultCursor->NowScene;
 	/*	‰Šú‰»	*/
+	m_Player->transform->Position.y += 450.0f;
 	m_SofaEnd->transform->Position.x += ROAD_DISTANCE;
 
 	/*	ƒJƒƒ‰Ý’è	*/

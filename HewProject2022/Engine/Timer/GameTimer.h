@@ -19,6 +19,7 @@ namespace GameEngine
 		static TIME deltaTime();
 		static TIME fixedDeltaTime();
 		static FRAME NowFrameCount();
+		static bool ErrorFPS();
 
 	private:
 		static TIME m_CurrenTime;

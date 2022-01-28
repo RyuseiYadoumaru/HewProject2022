@@ -207,6 +207,7 @@ bool Create::Scene::Releace()
 {
 	ObjectArray.clear();
 	ComponenArray.clear();
+	DestroyNameList.clear();
 	camera = nullptr;
 	ObjectCnt = 0;
 

@@ -23,6 +23,8 @@ public:
 	float GetNowFPS();
 	float GetNowFPS(int in_Interval);
 
+	bool ErrorFPS();
+
 private:
 
 	SYSTEMTIME m_SystemLocalTime;
@@ -34,6 +36,8 @@ private:
 
 	float m_WaitTime;
 	float m_NowFPS;
+
+	static constexpr float ErrorFPSRange = 5.0f;
 
 private:
 

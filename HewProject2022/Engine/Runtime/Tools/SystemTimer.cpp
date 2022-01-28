@@ -56,7 +56,12 @@ bool SystemTimer::SystemWait(const float FPS)
 	//処理待ち
 	if (m_WaitTime > 0)
 	{
+		printf("待ち時間：%f\n", m_WaitTime);
 		Sleep((DWORD)m_WaitTime);
+	}
+	else
+	{
+		Sleep(1 / Application::FPS);
 	}
 
 	//フレームカウント
@@ -136,6 +141,25 @@ float SystemTimer::GetNowFPS(int in_Interval)
 	}
 
 	return m_NowFPS;
+}
+
+//==============================================================================
+//!	@fn		ErrorFPS
+//!	@brief	FPSの異常を検知
+//!	@param	
+//!	@retval	true:異常　false:正常
+//==============================================================================
+bool SystemTimer::ErrorFPS()
+{
+	//fps範囲
+	float Min = Application::FPS - ErrorFPSRange;
+	float Max = Application::FPS + ErrorFPSRange;
+
+	//異常チェック
+	if (m_NowFPS < Min || m_NowFPS > Max) return true;
+
+	//正常
+	return false;
 }
 
 //==============================================================================

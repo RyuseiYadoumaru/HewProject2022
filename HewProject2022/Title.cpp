@@ -39,11 +39,25 @@ bool Title::Fade_Switch()
 {
 	//フレームカウントでフェードイン・フェードアウトを切替
 	Frame_cnt++;
-	if (Frame_cnt < 300) {
-		this->Fade_In();
+	if (GameTimer::ErrorFPS() == true)
+	{
+		if (Frame_cnt < 500) {
+			this->Fade_In();
+		}
+		else if (Frame_cnt >= 500 && GameTimer::ErrorFPS() == false) {
+			this->Fade_Out();
+		}
+
 	}
-	else if (Frame_cnt >= 300) {
-		this->Fade_Out();
+
+	else
+	{
+		if (Frame_cnt < 60) {
+			this->Fade_In();
+		}
+		else if (Frame_cnt >= 60) {
+			this->Fade_Out();
+		}
 	}
 	if (this->GetComponent<SpriteRenderer>()->Color.a <= 0) {
 		Logo_sw = false;//フラグ切替（タイトルシーンのフラグ切替）

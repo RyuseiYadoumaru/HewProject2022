@@ -163,6 +163,7 @@ bool GameEngine::SceneManager::SetUp()
 //==============================================================================
 bool GameEngine::SceneManager::Releace()
 {
+
 	SceneList.clear();
 	delete NextScene;
 

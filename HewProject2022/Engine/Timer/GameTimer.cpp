@@ -7,6 +7,7 @@
 
 #include "GameTimer.h"
 #include "../Runtime/Application.h"
+#include "../Runtime/Tools/SystemTimer.h"
 #include <Windows.h>
 #pragma comment(lib, "winmm.lib")
 using namespace GameEngine;
@@ -84,4 +85,15 @@ TIME GameEngine::GameTimer::fixedDeltaTime()
 FRAME GameEngine::GameTimer::NowFrameCount()
 {
 	return m_TotalFrameCnt;
+}
+
+//==============================================================================
+//!	@fn		ErrorFPS
+//!	@brief	FPS‚ÌˆÙí‚ðŒŸ’m
+//!	@param	
+//!	@retval	true:ˆÙí@false:³í
+//==============================================================================
+bool GameEngine::GameTimer::ErrorFPS()
+{
+	return SystemTimer::Instance()->ErrorFPS();
 }

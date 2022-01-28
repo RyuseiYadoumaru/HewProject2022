@@ -22,15 +22,12 @@
 //==============================================================================
 LRESULT WindowCallBack::OnKeyDown(HWND h_Handle, UINT h_Message, WPARAM h_WParam, LPARAM h_LParam)
 {
-	/*if (h_WParam == VK_ESCAPE)
+	if (h_WParam == VK_ESCAPE)
 	{
-		int status = Log::LogCloseWindow(h_Handle, "I—¹‚µ‚Ü‚·‚©H");
-		if (status == IDYES)
-		{
-			return DestroyWindow(h_Handle);
-		}
-
-	}*/
+		//‹­§I—¹
+		Log::LogError(h_Handle, "‚Ü‚½‚ ‚»‚ñ‚Å‚Ë");
+		Application::Instance()->isEnd = true;
+	}
 	return 0;
 }
 

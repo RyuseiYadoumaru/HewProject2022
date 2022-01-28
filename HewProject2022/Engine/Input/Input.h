@@ -11,7 +11,8 @@
 #include <map>
 #include <DirectXMath.h>
 
-using VIBRATION = WORD;
+
+typedef WORD VIBRATION;
 
 namespace GameEngine
 {

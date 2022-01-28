@@ -185,7 +185,7 @@ VIBRATION GameEngine::Input::Vibration(VIBRATION in_Power, TIME time)
 	m_LeftTime = time;
 	m_RightTime = time;
 	m_Vibration.wLeftMotorSpeed = in_Power;
-	m_Vibration.wRightMotorSpeed = in_Power / 2.0f;
+	m_Vibration.wRightMotorSpeed = in_Power / (WORD)2.0;
 	XInputSetState(0, &m_Vibration);
 	return in_Power;
 }

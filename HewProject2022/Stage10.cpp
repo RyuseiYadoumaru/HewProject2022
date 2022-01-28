@@ -98,7 +98,7 @@ Scene::STATE GamePlay::Stage10Scene::Update()
 
 		/****	システム更新	****/
 		m_Map->SystemUpdate();
-		SystemUpdate();	return PLAY;
+		SystemUpdate();
 		break;
 	case 1://ポーズ画面
 	/****   ポーズ中処理   ****/
@@ -111,7 +111,7 @@ Scene::STATE GamePlay::Stage10Scene::Update()
 		}
 		break;
 	case 2://リザルト画面
-		
+
 		m_Player->Goal(m_Goal->transform->Position.x);//ゴールアニメーション再生
 		m_PGoalEffect->EF_Start();
 		m_PGoalEffect->transform->Position.Set(m_Player->transform->Position.x, m_Player->transform->Position.y, 0);
@@ -123,6 +123,7 @@ Scene::STATE GamePlay::Stage10Scene::Update()
 		}
 		break;
 	}
+	return PLAY;
 }
 
 bool GamePlay::Stage10Scene::End()

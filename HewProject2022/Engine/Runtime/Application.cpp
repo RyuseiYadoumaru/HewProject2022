@@ -115,7 +115,6 @@ bool Application::Init(HINSTANCE hInstance)
 		return false;
 	}
 
-
 	/****	ハンドルデータ取得	****/
 	m_hWnd = window->GetHandle();
 
@@ -178,6 +177,7 @@ void Application::Uninit()
 
 	/****	標準出力クローズ	****/
 	fclose(fp);
+
 	/****	コンソール解放	****/
 	::FreeConsole();
 }

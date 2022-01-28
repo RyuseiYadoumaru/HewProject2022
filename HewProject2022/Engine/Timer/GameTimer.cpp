@@ -50,7 +50,7 @@ void GameEngine::GameTimer::Update()
 	m_OldTime = m_CurrenTime;
 
 	//現在の時間を取得
-	m_CurrenTime = timeGetTime();
+	m_CurrenTime = (TIME)timeGetTime();
 
 	//ゲーム全体のフレームカウント
 	m_TotalFrameCnt++;

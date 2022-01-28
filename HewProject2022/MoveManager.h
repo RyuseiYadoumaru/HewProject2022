@@ -9,8 +9,8 @@ class LandTile;
 class MoveManager
 {
 public:
-	static int NowFinFrontMoveColumn;
-	static int NowFinBackMoveColumn;
+	static float NowFinFrontMoveColumn;
+	static float NowFinBackMoveColumn;
 
 public:
 	MoveManager();

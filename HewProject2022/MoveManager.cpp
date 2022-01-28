@@ -6,8 +6,8 @@
 #include "Map.h"
 
 /****	静的メンバ変数	****/
-int MoveManager::NowFinFrontMoveColumn = 0;
-int MoveManager::NowFinBackMoveColumn = 0;
+float MoveManager::NowFinFrontMoveColumn = 0;
+float MoveManager::NowFinBackMoveColumn = 0;
 
 
 /****	コンストラクタ	****/

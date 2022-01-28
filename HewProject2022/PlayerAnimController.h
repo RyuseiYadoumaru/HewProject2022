@@ -4,7 +4,7 @@
 class PlayerAnimController : public Create::AnimationController
 {
 public:
-	bool flg = 0;
+	unsigned int flg = 0;
 	enum
 	{
 		PLAYER_WALK,

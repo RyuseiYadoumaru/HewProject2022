@@ -7,6 +7,7 @@
 //*****************************************************************************
 
 #include "Scene.h"
+#include "../Runtime/Sound/Sound.h"
 #include "../Runtime/Graphics/DirectXGraphics.h"
 using namespace Create;
 
@@ -48,6 +49,18 @@ Create::Scene::Scene()
 {
 	ObjectCnt = 0;
 	Object::ObjectNum = 0;
+}
+
+//==============================================================================
+//!	@fn		SetUp
+//!	@brief	シーンセットアップ
+//!	@param	
+//!	@retval	true:正常終了　false:異常終了
+//==============================================================================
+bool Create::Scene::SetUp()
+{
+	SystemUpdate();
+	return true;
 }
 
 //==============================================================================

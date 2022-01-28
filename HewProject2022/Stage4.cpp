@@ -107,7 +107,7 @@ Scene::STATE GamePlay::Stage4Scene::Update()
 		}
 		break;
 	case 2://リザルト画面
-		
+
 		m_Player->Goal(m_Goal->transform->Position.x);//ゴールアニメーション再生
 		m_PGoalEffect->EF_Start();
 		m_PGoalEffect->transform->Position.Set(m_Player->transform->Position.x, m_Player->transform->Position.y, 0);
@@ -166,7 +166,7 @@ bool GamePlay::Stage4Scene::Render()
 	ObjectRender<Sofa>("SofaStart");
 	ObjectRender<Desk>("DeskEnd");
 
-	ObjectRender<Map>("stage1-2");
+	ObjectRender<Map>("stage1-4");
 	ObjectRender<Player>("Player");
 
 	/****	前装飾品	****/

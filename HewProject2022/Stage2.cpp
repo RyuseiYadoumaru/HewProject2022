@@ -56,6 +56,7 @@ bool GamePlay::Stage2Scene::Start()
 	SetCamera(m_MainCamera);
 	m_MainCamera->Focus(m_Player);
 	Scene_State = 0;
+
 	return true;
 }
 

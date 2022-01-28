@@ -18,6 +18,7 @@ namespace GameEngine
 		static void Update();
 		static TIME deltaTime();
 		static TIME fixedDeltaTime();
+		static TIME NowTime();
 		static FRAME NowFrameCount();
 		static bool ErrorFPS();
 

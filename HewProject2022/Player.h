@@ -75,7 +75,7 @@ private:
 	float m_maxMoveSpeedX;// 最大移動速度
 	float m_accelForceX;// 加速度X
 	float m_stopForceX;// 停止力X　→　摩擦力的なもの
-	
+
 	FRAME m_GroundCnt;		//着地したときのフレームカウント
 	static constexpr FRAME m_GroundWaitFrame = 5;	//着地後の待機フレーム
 
@@ -101,6 +101,12 @@ private:
 	bool isMagicEffect = false;
 
 	bool isPushing = false;
+
+private:
+	TIME m_ActionTimer;
+	static constexpr TIME StartWaitTime = 1000.0f;	//最初の待機時間
+
+
 private:
 	PlayerAnimController m_PlayerAnimController;
 

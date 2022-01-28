@@ -235,7 +235,7 @@ Scene::STATE GamePlay::World2StageSelectScene::Update()
 		{
 		case STAGE_01:
 			if (m_inputflg == true) {
-				GameEngine::SceneManager::LoadScene("Stage1");
+				GameEngine::SceneManager::LoadScene("Stage6");
 			}
 			break;
 		case STAGE_02:

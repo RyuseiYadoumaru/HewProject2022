@@ -121,6 +121,7 @@ namespace Create
 		virtual bool Render();
 
 
+		bool SetUp();
 		STATE GetState() const;
 		void SetState(const STATE in_State);
 

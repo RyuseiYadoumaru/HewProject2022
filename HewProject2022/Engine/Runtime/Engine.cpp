@@ -111,7 +111,7 @@ bool GameEngine::Engine::Update()
 	case Create::Scene::START:
 		sceneManager.SetUp();
 		SceneManager::scene->Start();
-
+		SceneManager::scene->SetUp();
 		/*	Ä¶	*/
 	case Create::Scene::PLAY:
 		SceneManager::scene->Update();

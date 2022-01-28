@@ -116,7 +116,7 @@ Scene::STATE GamePlay::Stage6Scene::Update()
 		}
 		break;
 	case 2://リザルト画面
-		
+
 		m_Player->Goal(m_Goal->transform->Position.x);//ゴールアニメーション再生
 		m_PGoalEffect->EF_Start();
 		m_PGoalEffect->transform->Position.Set(m_Player->transform->Position.x, m_Player->transform->Position.y, 0);
@@ -131,7 +131,8 @@ Scene::STATE GamePlay::Stage6Scene::Update()
 
 	/****	システム更新	****/
 	m_Map->SystemUpdate();
-	SystemUpdate();	return PLAY;
+	SystemUpdate();
+	return PLAY;
 
 
 }

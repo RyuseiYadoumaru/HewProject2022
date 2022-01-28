@@ -78,6 +78,16 @@ TIME GameEngine::GameTimer::fixedDeltaTime()
 }
 
 //==============================================================================
+//!	@fn		NowTime
+//!	@brief	現在時刻取得
+//!	@retval	現在時刻	
+//==============================================================================
+TIME GameEngine::GameTimer::NowTime()
+{
+	return SystemTimer::Instance()->GetSystemTime();
+}
+
+//==============================================================================
 //!	@fn		NowFrameCount
 //!	@brief	現在のトータルフレーム数
 //!	@retval	トータルフレーム

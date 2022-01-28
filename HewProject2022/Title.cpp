@@ -18,6 +18,7 @@ bool Title::Start()
 
 bool Title::Fade_In()
 {
+
 	//ƒ¿’l‚ðã‚°‚Ä‚¢‚­
 	if (this->GetComponent<SpriteRenderer>()->Color.a < 1.0f) {
 		this->GetComponent<SpriteRenderer>()->Color.a += 0.004f;

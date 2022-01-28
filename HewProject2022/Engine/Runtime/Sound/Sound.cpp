@@ -10,16 +10,22 @@ typedef struct
 
 PARAM g_param[SOUND_LABEL_MAX] =
 {
-	{"assets/SoundData/BGM/SelectNoize.wav", true},	// セレクトノイズ
-	{"assets/SoundData/BGM/world1_1.wav", true},	// ワールド１BGM
+	/*	BGM	*/
+	{"assets/SoundData/BGM/SelectNoize_2.wav", true},	// セレクトノイズ
+	{"assets/SoundData/BGM/world1_2.wav", true},	// タイトルBGM
+	{"assets/SoundData/BGM/world1_2.wav", true},	// ワールド1BGM
 	{"assets/SoundData/BGM/world2_1.wav", true},	// ワールド2BGM
 	{"assets/SoundData/BGM/world3_1.wav", true},	// ワールド3BGM
-	{"assets/SoundData/BGM/world3_1.wav", true},	// ワールド4BGM
+	{"assets/SoundData/BGM/world4_1.wav", true},	// ワールド4BGM
 	{"assets/SoundData/BGM/world5_1.wav", true},	// ワールド5BGM
+
+	/*	SE	*/
 	{"assets/SoundData/SE/onGround.wav", false},	// 着地SE
-	{"assets/SoundData/SE/MagicBlock.wav", false},	// 着地SE
-	{"assets/SoundData/SE/MoveBlock.wav", false},	// 着地SE
-	{"assets/SoundData/SE/ResetBlock.wav", false},	// 着地SE
+	{"assets/SoundData/SE/MagicBlock.wav", false},	// 魔法SE
+	{"assets/SoundData/SE/MoveBlock.wav", false},	// 移動SE
+	{"assets/SoundData/SE/ResetBlock.wav", false},	// リセットSE
+	{"assets/SoundData/SE/Ok_2.wav", false},	// 決定SE
+	{"assets/SoundData/SE/Cancel_1.wav", false},	// 戻るSE
 };
 
 #ifdef _XBOX //Big-Endian

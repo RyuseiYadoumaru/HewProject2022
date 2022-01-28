@@ -1,5 +1,4 @@
 #include "Stage1.h"
-#include "Test.h"
 using namespace Create;
 
 bool GamePlay::Stage1Scene::Start()

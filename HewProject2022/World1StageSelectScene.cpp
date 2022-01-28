@@ -67,7 +67,7 @@ Scene::STATE GamePlay::World1StageSelectScene::Update()
 	ObjectUpdate();
 
 	/*	ƒ^ƒCƒgƒ‹‚É–ß‚é	*/
-	if (Input::GetControllerTrigger(XInput::Buttom::B) == true)
+	if (Input::GetControllerTrigger(XInput::Buttom::B) == true || Input::GetKeyTrigger(PK_BS) == true)
 	{
 		SceneManager::LoadScene("TitleScene");
 	}

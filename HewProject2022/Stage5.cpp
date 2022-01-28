@@ -108,7 +108,7 @@ Scene::STATE GamePlay::Stage5Scene::Update()
 		}
 		break;
 	case 2://リザルト画面
-		
+
 		m_Player->Goal(m_Goal->transform->Position.x);//ゴールアニメーション再生
 		m_PGoalEffect->EF_Start();
 		m_PGoalEffect->transform->Position.Set(m_Player->transform->Position.x, m_Player->transform->Position.y, 0);
@@ -131,7 +131,7 @@ Scene::STATE GamePlay::Stage5Scene::Update()
 bool GamePlay::Stage5Scene::End()
 {
 	// BGM停止
-	Sound::Sound_Play(SOUND_LABEL_WORLD1_GAMEBGM);
+	Sound::Sound_Stop(SOUND_LABEL_WORLD1_GAMEBGM);
 
 	/*	オブジェクト終了処理	*/
 	ObjectEnd();

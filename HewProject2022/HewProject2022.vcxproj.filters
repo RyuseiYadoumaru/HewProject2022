@@ -106,9 +106,6 @@
     <Filter Include="Game\Object">
       <UniqueIdentifier>{f6ad6b6b-6d02-44cc-8ec0-8a26c5ecfd40}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Object\Test">
-      <UniqueIdentifier>{8383f8bd-d990-46f4-bb59-58c59920f805}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Engine\Component\Public\Physics2D">
       <UniqueIdentifier>{86133024-cb28-40f1-b5a0-15b24217f2aa}</UniqueIdentifier>
     </Filter>
@@ -138,9 +135,6 @@
     </Filter>
     <Filter Include="Engine\Runtime\Core\Data\TexCoord">
       <UniqueIdentifier>{6f534e71-91f0-4441-9d5a-adf67fbd7153}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\Object\Test\AnimationTest">
-      <UniqueIdentifier>{2e15be4c-292d-4bee-adb4-6faf3b58b9e6}</UniqueIdentifier>
     </Filter>
     <Filter Include="TOYALINE">
       <UniqueIdentifier>{3525c8a5-19b8-42d6-ad04-d339c4edfdc7}</UniqueIdentifier>
@@ -444,17 +438,11 @@
     <ClCompile Include="Map.cpp">
       <Filter>TOYALINE\Object\Actor\Map</Filter>
     </ClCompile>
-    <ClCompile Include="Test.cpp">
-      <Filter>Game\Object\Test</Filter>
-    </ClCompile>
     <ClCompile Include="BackGround.cpp">
       <Filter>TOYALINE\BackGround</Filter>
     </ClCompile>
     <ClCompile Include="MainCamera.cpp">
       <Filter>TOYALINE\Object\Camera\MainCamera</Filter>
-    </ClCompile>
-    <ClCompile Include="Test2.cpp">
-      <Filter>Game\Object\Test</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Component\SpriteRenderer.cpp">
       <Filter>Engine\Component\Private\Renderer</Filter>
@@ -494,15 +482,6 @@
     </ClCompile>
     <ClCompile Include="Engine\Component\Miscellaneous\Animator.cpp">
       <Filter>Engine\Component\Private\Miscellaneous</Filter>
-    </ClCompile>
-    <ClCompile Include="AnimTest.cpp">
-      <Filter>Game\Object\Test</Filter>
-    </ClCompile>
-    <ClCompile Include="DefaultAnim.cpp">
-      <Filter>Game\Object\Test\AnimationTest</Filter>
-    </ClCompile>
-    <ClCompile Include="DefaultAnimController.cpp">
-      <Filter>Game\Object\Test\AnimationTest</Filter>
     </ClCompile>
     <ClCompile Include="PlayerAnim.cpp">
       <Filter>TOYALINE\Object\Player\Animation</Filter>
@@ -921,17 +900,11 @@
     <ClInclude Include="Map.h">
       <Filter>TOYALINE\Object\Actor\Map</Filter>
     </ClInclude>
-    <ClInclude Include="Test.h">
-      <Filter>Game\Object\Test</Filter>
-    </ClInclude>
     <ClInclude Include="BackGround.h">
       <Filter>TOYALINE\BackGround</Filter>
     </ClInclude>
     <ClInclude Include="MainCamera.h">
       <Filter>TOYALINE\Object\Camera\MainCamera</Filter>
-    </ClInclude>
-    <ClInclude Include="Test2.h">
-      <Filter>Game\Object\Test</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Component\Component.h">
       <Filter>Engine\Component</Filter>
@@ -986,15 +959,6 @@
     </ClInclude>
     <ClInclude Include="Engine\Component\Miscellaneous\Animator.h">
       <Filter>Engine\Component\Public\Miscellaneous</Filter>
-    </ClInclude>
-    <ClInclude Include="AnimTest.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="DefaultAnim.h">
-      <Filter>Game\Object\Test\AnimationTest</Filter>
-    </ClInclude>
-    <ClInclude Include="DefaultAnimController.h">
-      <Filter>Game\Object\Test\AnimationTest</Filter>
     </ClInclude>
     <ClInclude Include="PlayerAnim.h">
       <Filter>TOYALINE\Object\Player\Animation</Filter>

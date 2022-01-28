@@ -106,7 +106,7 @@ Scene::STATE GamePlay::Stage2Scene::Update()
 		}
 		break;
 	case 2://リザルト画面
-		
+
 		m_Player->Goal(m_Goal->transform->Position.x);//ゴールアニメーション再生
 		m_PGoalEffect->EF_Start();
 		m_PGoalEffect->transform->Position.Set(m_Player->transform->Position.x, m_Player->transform->Position.y, 0);
@@ -187,7 +187,7 @@ bool GamePlay::Stage2Scene::Render()
 		ObjectRender<Result>("ResultBack");
 		ObjectRender<Result>("ResultCursor");
 	}
-	
+
 
 	/*** フェード ***/
 	m_Fade->Render();
@@ -196,7 +196,7 @@ bool GamePlay::Stage2Scene::Render()
 		ObjectRender<Pause>("Pause");
 		ObjectRender<Pause>("Button");
 	}
-	
+
 
 	/****	画面描画	****/
 	SwapChain();

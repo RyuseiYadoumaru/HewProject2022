@@ -145,7 +145,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AnimTest.cpp" />
     <ClCompile Include="BackGround.cpp" />
     <ClCompile Include="BigBook.cpp" />
     <ClCompile Include="BlockMagicEffect.cpp" />
@@ -230,9 +229,7 @@
     <ClCompile Include="PictureFrame.cpp" />
     <ClCompile Include="Plants.cpp" />
     <ClCompile Include="Player.cpp" />
-    <ClCompile Include="DefaultAnim.cpp" />
     <ClCompile Include="PlayerAnim.cpp" />
-    <ClCompile Include="DefaultAnimController.cpp" />
     <ClCompile Include="PlayerAnimController.cpp" />
     <ClCompile Include="PlayerEffectController.cpp" />
     <ClCompile Include="PlayerGoalEffect.cpp" />
@@ -280,8 +277,6 @@
     <ClCompile Include="Storage.cpp" />
     <ClCompile Include="Table.cpp" />
     <ClCompile Include="Tableware.cpp" />
-    <ClCompile Include="Test.cpp" />
-    <ClCompile Include="Test2.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TileColumn.cpp" />
     <ClCompile Include="Title.cpp" />
@@ -303,7 +298,6 @@
     <ClCompile Include="World6StageSelectScene.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AnimTest.h" />
     <ClInclude Include="BackGround.h" />
     <ClInclude Include="BigBook.h" />
     <ClInclude Include="BlockEffectInfo.h" />
@@ -396,9 +390,7 @@
     <ClInclude Include="Pause.h" />
     <ClInclude Include="Plants.h" />
     <ClInclude Include="Player.h" />
-    <ClInclude Include="DefaultAnim.h" />
     <ClInclude Include="PlayerAnim.h" />
-    <ClInclude Include="DefaultAnimController.h" />
     <ClInclude Include="PlayerAnimController.h" />
     <ClInclude Include="PlayerEffectController.h" />
     <ClInclude Include="PlayerGoalEffect.h" />
@@ -449,8 +441,6 @@
     <ClInclude Include="Storage.h" />
     <ClInclude Include="Table.h" />
     <ClInclude Include="Tableware.h" />
-    <ClInclude Include="Test.h" />
-    <ClInclude Include="Test2.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TileColumn.h" />
     <ClInclude Include="Title.h" />

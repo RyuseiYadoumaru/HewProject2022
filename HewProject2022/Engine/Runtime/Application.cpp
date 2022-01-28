@@ -152,7 +152,6 @@ bool Application::MainLoop()
 		log->FPSWindowText(m_hWnd, systemtimer->GetNowFPS());
 
 	}
-
 	return true;
 }
 

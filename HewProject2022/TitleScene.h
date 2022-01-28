@@ -1,21 +1,10 @@
 #pragma once
 #include "ydmEngine.h"
-#include "Test.h"
-#include "Map.h"
 #include "MainCamera.h"
-#include "Player.h"
-#include "Fade.h"
-#include "Table.h"
-#include "ScreenFx.h"
-#include "CameraFrame.h"
-#include "BackGround.h"
-#include "MiniBook.h"
-#include "BigBook.h"
-#include "Sofa.h"
-#include "Ceiling.h"
 #include "PushAny.h"
 #include "Title.h"
 #include "SceneTransition.h"
+#include "BackGround.h"
 
 using Create::Actor;
 using GameEngine::Input;
@@ -41,12 +30,6 @@ namespace GamePlay
 		Actor* m_GameEnd;
 		Actor* m_EndCursor;
 
-
-		/*	エフェクト	*/
-		ScreenFx* m_ScreenEffect;
-		CameraFrame* m_CameraFrame;
-		Fade* m_Fade;
-
 		SceneTransition* m_SceneTransition;
 
 	public:
@@ -58,6 +41,12 @@ namespace GamePlay
 		//ゲーム終了処理用フラグ
 		bool End_flg = false;//true=(ゲーム終了) ・ false=(そのまま)
 		bool EndWin_flg = false;//true=(ゲーム終了ウインドウの表示 )・ false=(ゲーム終了ウインドウの非表示)
+		bool EndGame;
+		bool isPlaySound;
+
+	private:
+		static constexpr FRAME FinishWaitFrame = 30.0f;	//終了待機フレーム
+		FRAME FinFrame = 0.0f;
 
 
 	};

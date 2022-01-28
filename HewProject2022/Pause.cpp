@@ -77,13 +77,14 @@ bool Pause::PauseCursor_Move()
 		this->transform->Position.Set(BASE_POSITION_X - 170, BASE_POSITION_Y - CURSOR_DISTANCE + 100, 0.0f);
 		if (Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true || Input::GetKeyTrigger(VK_RETURN) == true) {
 			//Pause_Checker = 2;
+			Sound::Sound_Play(SOUND_LABEL_OK);
 			GameEngine::SceneManager::LoadScene(this->NowScene);//初めからやり直す処理
 		}
 		break;
 	case 1:
 		this->transform->Position.Set(BASE_POSITION_X - 170, BASE_POSITION_Y + 100, 0.0f);
 		if (Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true || Input::GetKeyTrigger(VK_RETURN) == true) {
-
+			Sound::Sound_Play(SOUND_LABEL_BACK);
 			Pause_Checker = 1;//ゲームに戻る（ポーズ終了）
 		}
 		break;
@@ -91,6 +92,7 @@ bool Pause::PauseCursor_Move()
 		this->transform->Position.Set(BASE_POSITION_X - 170, BASE_POSITION_Y + CURSOR_DISTANCE + 100, 0.0f);
 		if (Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true || Input::GetKeyTrigger(VK_RETURN) == true) {
 			//Pause_Checker = 3;//ステージセレクトに戻る
+			Sound::Sound_Play(SOUND_LABEL_OK);
 			this->ChangeSelectScene();
 		}
 		break;

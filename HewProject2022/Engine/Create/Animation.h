@@ -8,6 +8,7 @@
 #pragma once
 #include <vector>
 #include <map>
+#include <stdarg.h>
 
 #define ANIMATION_STOP			   (1)
 #define ANIMATION_PLAY			   (0)
@@ -26,36 +27,40 @@ namespace
 
 	public:
 		/****	アニメーション種類セット	****/
-		template<class... INT>
-		void SetKind(INT... kind)
+		void SetKind(int kind, ...)
 		{
+			int data = kind;
+			va_list args;
+			va_start(args, kind);
 			//可変配列の中身をCopyする
-			for (int k : std::initializer_list<int>{ kind... })
+			while (data != ANIMATION_FINISH)
 			{
-				m_Kind.push_back(k);
+				m_Kind.push_back(data);
+				data = va_arg(args, int);
 			}
+
+			//可変引数解放
+			va_end(args);
 		}
 
 		/*	アニメーションフレームセット	*/
-		template<class... INT>
-		void SetFrame(INT... frame)
+		void SetFrame(int frame, ...)
 		{
-			//可変配列の中身をCopyする
-			for (int k : std::initializer_list<int>{ frame... })
-			{
-				m_Frame.push_back(k);
-			}
-		}
+			int data = frame;
+			m_Frame.push_back(data);
+			va_list args;
+			va_start(args, frame);
 
-		/*	アニメーションキーセット	*/
-		template<class... FLOAT>
-		void SetKey(FLOAT... key)
-		{
 			//可変配列の中身をCopyする
-			for (float k : std::initializer_list<float>{ key... })
+			do
 			{
-				m_Key.push_back(k);
-			}
+				data = va_arg(args, int);
+				m_Frame.push_back(data);
+
+			} while (data != ANIMATION_FINISH);
+
+			//可変引数解放
+			va_end(args);
 		}
 	};
 }
@@ -68,6 +73,7 @@ namespace Create
 	public:
 		Animation();
 		virtual void Init();
+
 		int Play(std::string AnimName);
 		int Delete();
 		int Stop();

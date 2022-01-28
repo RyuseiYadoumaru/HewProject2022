@@ -8,6 +8,7 @@
 #pragma once
 #include <vector>
 #include <map>
+#include <stdarg.h>
 
 #define PARTICLE_STOP			   (1)
 #define PARTICLE_PLAY			   (0)
@@ -25,26 +26,25 @@ namespace
 
 	public:
 		/*	アニメーションフレームセット	*/
-		template<class... INT>
-		void SetFrame(INT... frame)
+		void SetFrame(int frame, ...)
 		{
+			int data = frame;
+			m_Frame.push_back(data);
+			va_list args;
+			va_start(args, frame);
+
 			//可変配列の中身をCopyする
-			for (int k : std::initializer_list<int>{ frame... })
+			do
 			{
-				m_Frame.push_back(k);
-			}
+				data = va_arg(args, int);
+				m_Frame.push_back(data);
+
+			} while (data != PARTICLE_FINISH);
+
+			//可変引数解放
+			va_end(args);
 		}
 
-		/*	アニメーションキーセット	*/
-		template<class... FLOAT>
-		void SetKey(FLOAT... key)
-		{
-			//可変配列の中身をCopyする
-			for (float k : std::initializer_list<float>{ key... })
-			{
-				m_Key.push_back(k);
-			}
-		}
 	};
 }
 

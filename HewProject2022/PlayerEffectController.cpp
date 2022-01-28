@@ -34,9 +34,9 @@ void PlayerEffect::Init()
 	set_GoalPlayerEffect.SetFrame(GOALPLAYER_EFFECT::ANIM_1, GOALPLAYER_EFFECT::ANIM_2, GOALPLAYER_EFFECT::ANIM_3,
 		GOALPLAYER_EFFECT::ANIM_4, GOALPLAYER_EFFECT::ANIM_5, GOALPLAYER_EFFECT::ANIM_6,
 		GOALPLAYER_EFFECT::ANIM_7, GOALPLAYER_EFFECT::ANIM_8, GOALPLAYER_EFFECT::ANIM_9, ANIMATION_FINISH);
-	set_GoalPlayerEffect.SetKey(GOAL_KeyFrame * 0, GOAL_KeyFrame * 1, GOAL_KeyFrame * 2,
+	set_GoalPlayerEffect.m_Key = { GOAL_KeyFrame * 0, GOAL_KeyFrame * 1, GOAL_KeyFrame * 2,
 		GOAL_KeyFrame * 3, GOAL_KeyFrame * 4, GOAL_KeyFrame * 5,
-		GOAL_KeyFrame * 6, GOAL_KeyFrame * 7, GOAL_KeyFrame * 8);
+		GOAL_KeyFrame * 6, GOAL_KeyFrame * 7, GOAL_KeyFrame * 8 };
 	AnimationTableList.insert(std::make_pair("GoalPlayerEffect", set_GoalPlayerEffect));
 
 	/*	表示テクスチャ初期化	*/

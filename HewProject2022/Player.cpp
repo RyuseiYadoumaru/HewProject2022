@@ -151,6 +151,7 @@ bool Player::Update()
 
 void Player::Debug()
 {
+
 	if (GetComponent<BoxCollider2D>()->GetisHit_leftBlock() == true) cout << "Player:左ヒット\n";
 	if (GetComponent<BoxCollider2D>()->GetisHit_rightBlock() == true) cout << "Player:右ヒット\n";
 	if (GetComponent<BoxCollider2D>()->GetisHit_overBlock() == true) cout << "Player:上ヒット\n";

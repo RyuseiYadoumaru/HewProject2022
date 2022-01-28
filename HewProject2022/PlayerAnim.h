@@ -12,7 +12,7 @@ public:
 	/*	éÌóﬁ	*/
 	enum KIND
 	{
-		IDLE,
+		IDLE = 0,
 		WALK,
 		JUMP,
 		DOWN,
@@ -27,7 +27,7 @@ public:
 	/*	ÉpÉ^Å[Éì	*/
 	enum PLAYER_ANIM
 	{
-		ANIM_1,
+		ANIM_1 = 0,
 		ANIM_2,
 		ANIM_3,
 		ANIM_MAX

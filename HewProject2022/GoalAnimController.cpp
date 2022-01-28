@@ -42,13 +42,13 @@ void GoalAnim::Init()
 	::AnimationTable set_GoalEffect;
 	set_GoalEffect.SetKind(KIND::EFFECT_1, KIND::EFFECT_1, KIND::EFFECT_1, KIND::EFFECT_1, KIND::EFFECT_1,
 		KIND::EFFECT_2, KIND::EFFECT_2, KIND::EFFECT_2, KIND::EFFECT_2, KIND::EFFECT_2,
-		KIND::EFFECT_3, KIND::EFFECT_3, KIND::EFFECT_3, KIND::EFFECT_3, KIND::EFFECT_3);
+		KIND::EFFECT_3, KIND::EFFECT_3, KIND::EFFECT_3, KIND::EFFECT_3, KIND::EFFECT_3, ANIMATION_FINISH);
 	set_GoalEffect.SetFrame(PLAYER_ANIM::ANIM_1, PLAYER_ANIM::ANIM_2, PLAYER_ANIM::ANIM_3, PLAYER_ANIM::ANIM_4, PLAYER_ANIM::ANIM_5,
 		PLAYER_ANIM::ANIM_1, PLAYER_ANIM::ANIM_2, PLAYER_ANIM::ANIM_3, PLAYER_ANIM::ANIM_4, PLAYER_ANIM::ANIM_5,
 		PLAYER_ANIM::ANIM_1, PLAYER_ANIM::ANIM_2, PLAYER_ANIM::ANIM_3, PLAYER_ANIM::ANIM_4, PLAYER_ANIM::ANIM_5, ANIMATION_FINISH);
-	set_GoalEffect.SetKey(EF_KeyFrame * 0, EF_KeyFrame * 1, EF_KeyFrame * 2, EF_KeyFrame * 3, EF_KeyFrame * 4,
+	set_GoalEffect.m_Key = { EF_KeyFrame * 0, EF_KeyFrame * 1, EF_KeyFrame * 2, EF_KeyFrame * 3, EF_KeyFrame * 4,
 		EF_KeyFrame * 5, EF_KeyFrame * 6, EF_KeyFrame * 7, EF_KeyFrame * 8, EF_KeyFrame * 9,
-		EF_KeyFrame * 10, EF_KeyFrame * 11, EF_KeyFrame * 12, EF_KeyFrame * 13, EF_KeyFrame * 14);
+		EF_KeyFrame * 10, EF_KeyFrame * 11, EF_KeyFrame * 12, EF_KeyFrame * 13, EF_KeyFrame * 14 };
 	AnimationTableList.insert(std::make_pair("GoalEffect", set_GoalEffect));
 
 	/*	表示テクスチャ初期化	*/

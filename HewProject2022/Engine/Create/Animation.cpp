@@ -53,8 +53,8 @@ int  Create::Animation::Play(std::string AnimName)
 	int State = ANIMATION_PLAY;
 
 	//現在のアニメーション
-	std::vector<int> NowTable = AnimationTableList[AnimName].m_Frame;
-	std::vector<int> NowKind = AnimationTableList[AnimName].m_Kind;
+	std::vector<int>& NowTable = AnimationTableList[AnimName].m_Frame;
+	std::vector<int>& NowKind = AnimationTableList[AnimName].m_Kind;
 	std::vector<float>& NowKey = AnimationTableList[AnimName].m_Key;
 
 	if (NowTable.size() == 0)
@@ -64,7 +64,7 @@ int  Create::Animation::Play(std::string AnimName)
 	}
 
 	// デルタタイムを取得し加算
-	m_time += GameEngine::GameTimer::fixedDeltaTime();
+	m_time += GameEngine::GameTimer::deltaTime();
 
 	// アニメーションループ
 	if (NowTable[m_AnimationCounter + 1] == ANIMATION_FINISH)

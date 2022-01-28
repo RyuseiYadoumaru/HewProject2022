@@ -33,6 +33,9 @@ bool ResetManager::Init()
 	{
 		m_Timer = 0.0f;
 		m_ResetWaitTime = m_MaxResetWaitTime * (Reset.Num() / m_ResetMaxColumn);
+		/*	移動SE再生	*/
+		Sound::Sound_Play(SOUND_LABEL_MOVEBLOCK);
+
 		return true;
 	}
 	//何もなければfalseを返す
@@ -76,6 +79,7 @@ bool ResetManager::Update()
 
 	if (Reset.Empty() == true)
 	{
+
 		/*	全てのタイルを初期位置にする	*/
 		//最後に無理やり初期位置に戻す
 		Map::AllTileReset();

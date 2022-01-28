@@ -207,7 +207,6 @@
     <ClCompile Include="Engine\SceneManager\SceneManager.cpp" />
     <ClCompile Include="Engine\Timer\GameTimer.cpp" />
     <ClCompile Include="Fade.cpp" />
-    <ClCompile Include="GameCamera.cpp" />
     <ClCompile Include="Game\GameObject\Actor.cpp" />
     <ClCompile Include="Game\GameObject\Camera.cpp" />
     <ClCompile Include="Game\GameObject\Character.cpp" />
@@ -235,6 +234,8 @@
     <ClCompile Include="PlayerAnim.cpp" />
     <ClCompile Include="DefaultAnimController.cpp" />
     <ClCompile Include="PlayerAnimController.cpp" />
+    <ClCompile Include="PlayerEffectController.cpp" />
+    <ClCompile Include="PlayerGoalEffect.cpp" />
     <ClCompile Include="PushAny.cpp" />
     <ClCompile Include="PushTile.cpp" />
     <ClCompile Include="ResetInfo.cpp" />
@@ -373,7 +374,6 @@
     <ClInclude Include="Engine\SceneManager\SceneManager.h" />
     <ClInclude Include="Engine\Timer\GameTimer.h" />
     <ClInclude Include="Fade.h" />
-    <ClInclude Include="GameCamera.h" />
     <ClInclude Include="Game\GameObject\Actor.h" />
     <ClInclude Include="Game\GameObject\Camera.h" />
     <ClInclude Include="Game\GameObject\Character.h" />
@@ -400,6 +400,8 @@
     <ClInclude Include="PlayerAnim.h" />
     <ClInclude Include="DefaultAnimController.h" />
     <ClInclude Include="PlayerAnimController.h" />
+    <ClInclude Include="PlayerEffectController.h" />
+    <ClInclude Include="PlayerGoalEffect.h" />
     <ClInclude Include="PushAny.h" />
     <ClInclude Include="PushTile.h" />
     <ClInclude Include="ResetInfo.h" />

@@ -13,6 +13,8 @@ MoveInfo::MoveInfo()
 	m_MoveValue = 0.0f;
 	m_Speed = 0.0f;
 	m_isUp = false;
+	isMoveStart = false;
+
 }
 
 MoveInfo::MoveInfo(TileColumn* in_MoveColumn)
@@ -23,6 +25,7 @@ MoveInfo::MoveInfo(TileColumn* in_MoveColumn)
 	m_MoveValue = 0.0f;
 	m_Speed = 0.0f;
 	m_isUp = false;
+	isMoveStart = false;
 }
 
 /****	ƒ^ƒCƒ‹’Tõˆ—	****/
@@ -77,6 +80,13 @@ bool MoveInfo::SearchTile(Tile* in_Search)
 /****	ˆÚ“®ˆ—	****/
 bool MoveInfo::Tick()
 {
+	/*	ˆÚ“®‰Šú‰»ˆ—	*/
+	if (isMoveStart == false)
+	{
+		/*	ˆÚ“®SEÄ¶	*/
+		Sound::Sound_Play(SOUND_LABEL_MOVEBLOCK);
+		isMoveStart = true;
+	}
 	/*	ˆÚ“®ˆ—	*/
 	Move();
 
@@ -174,6 +184,9 @@ void MoveInfo::Start()
 	if (m_MoveValue < 0) m_isUp = true;
 	//‰º~
 	else if (m_MoveValue > 0) m_isUp = false;
+
+	isMoveStart = false;
+
 
 }
 

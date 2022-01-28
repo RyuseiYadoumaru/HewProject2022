@@ -80,6 +80,10 @@ void Map::AllTileReset()
 			}
 		}
 	}
+
+	/*	リセットSE再生	*/
+	Sound::Sound_Play(SOUND_LABEL_RESETBLOCK);
+
 }
 
 //-----------------------------------------------------------------------------
@@ -227,6 +231,28 @@ bool Map::HitCheckMap(GameObject& in_GameObject, CHECK in_Check)
 	//カメラ範囲内チェック
 	else if (in_Check == CAMERA_RANGE)
 	{
+		for (auto& NowTile : m_TileList)
+		{
+			if (NowTile->transform->Position.x >= camera->GetLeft() && NowTile->transform->Position.x <= camera->GetRight() &&
+				NowTile->transform->Position.y >= camera->GetTop() && NowTile->transform->Position.y <= camera->GetButtom())
+			{
+				debug++;
+
+				BoxCollider2D* TileCol = NowTile->GetComponent<BoxCollider2D>();
+				if (NowTile->tag != TagList::STAR) {
+					CheckObject->HitCheckBox(*TileCol);
+				}
+			}
+		}
+	}
+
+	else if (in_Check == CAMERA_OBHECT_RANGE)
+	{
+		/*	ここに縮小した補正値を計算する	*/
+		//////////////////////////////////////////
+		/////////////////////////////////////////
+		////////////////////////////////////////
+		///////////////////////////////////////
 		for (auto& NowTile : m_TileList)
 		{
 			if (NowTile->transform->Position.x >= camera->GetLeft() && NowTile->transform->Position.x <= camera->GetRight() &&

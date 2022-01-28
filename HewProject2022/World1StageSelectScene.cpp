@@ -53,6 +53,10 @@ bool GamePlay::World1StageSelectScene::Start()
 	m_inputflg = true;
 	m_frameCnt = 0;
 
+	// BGM再生
+	Sound::Sound_Play(SOUND_LABEL_SELECT);
+
+
 	return true;
 }
 
@@ -62,6 +66,11 @@ Scene::STATE GamePlay::World1StageSelectScene::Update()
 	/****	オブジェクト更新	****/
 	ObjectUpdate();
 
+	/*	タイトルに戻る	*/
+	if (Input::GetControllerTrigger(XInput::Buttom::B) == true)
+	{
+		SceneManager::LoadScene("TitleScene");
+	}
 	switch (m_stageNumber) {
 	case STAGE_01:
 		if (Input::GetKeyTrigger(VK_RIGHT) == true
@@ -252,6 +261,8 @@ bool GamePlay::World1StageSelectScene::End()
 	/*	オブジェクト終了処理	*/
 	ObjectEnd();
 
+	/*	サウンドストップ	*/
+	Sound::Sound_Stop(SOUND_LABEL_SELECT);
 	/*	解放処理	*/
 	Releace();
 

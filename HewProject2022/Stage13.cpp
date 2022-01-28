@@ -25,6 +25,9 @@ bool GamePlay::Stage13Scene::Start()
 	m_LayerFront = Instance<LayerFront>("LayerFront");
 	m_LayerFront->Sprite("World3_obj2-3");
 
+	/* ゴール時プレイヤーエフェクト生成 */
+	m_PGoalEffect = Instance<PlayerGoalEffect>("PGoalEffect");
+
 	/*	天井初期化	*/
 	m_Ceiling = Instance<Ceiling>("Ceiling");
 	m_Ceiling->Sprite("World3_ceiling");
@@ -55,6 +58,8 @@ bool GamePlay::Stage13Scene::Start()
 
 	/*	ギミック初期化	*/
 
+		// BGM再生
+	Sound::Sound_Play(SOUND_LABEL_WORLD3_GAMEBGM);
 
 	/*	カメラ設定	*/
 	SetCamera(m_MainCamera);
@@ -117,7 +122,10 @@ Scene::STATE GamePlay::Stage13Scene::Update()
 		}
 		break;
 	case 2://リザルト画面
-		m_Player->Goal();//ゴールアニメーション再生
+
+		m_Player->Goal(m_Goal->transform->Position.x);//ゴールアニメーション再生
+		m_PGoalEffect->EF_Start();
+		m_PGoalEffect->transform->Position.Set(m_Player->transform->Position.x, m_Player->transform->Position.y, 0);
 		if (m_Player->GetGoal() == true) {//アニメーション終了でリザルト表示
 			m_ResultBack->Result_On();//リザルト画面のフラグ
 			m_ResultCursor->Result_On();
@@ -133,6 +141,10 @@ bool GamePlay::Stage13Scene::End()
 {
 	/*	オブジェクト終了処理	*/
 	ObjectEnd();
+
+	/*	サウンドストップ	*/
+	Sound::Sound_Stop(SOUND_LABEL_WORLD3_GAMEBGM);
+
 
 	/*	解放処理	*/
 	Releace();
@@ -157,15 +169,16 @@ bool GamePlay::Stage13Scene::Render()
 	/****	天井	****/
 	ObjectRender<Ceiling>("Ceiling");
 
+	/*** ゴール描画 ***/
+	ObjectRender<Goal>("Goal");
+	ObjectRender<PlayerGoalEffect>("PGoalEffect");
+
 	/****	オブジェクト描画	****/
 	ObjectRender<Tree>("TreeStart");
 	ObjectRender<Rose>("RoseEnd");
 
 	ObjectRender<Map>("stage1-1");
 	ObjectRender<Player>("Player");
-
-	/*** ゴール描画 ***/
-	ObjectRender<Goal>("Goal");
 
 	/****	前装飾品	****/
 	ObjectRender<LayerFront>("LayerFront");

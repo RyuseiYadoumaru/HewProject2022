@@ -31,6 +31,9 @@ void BlockParticleManager::CreateMagicEffect(GameObject* Owner, BlockEffectColor
 	if (in_Color == BlockEffectColor::RED) m_MagicEffectList[Owner->GetId().x]->EffectColorRed();
 	else m_MagicEffectList[Owner->GetId().x]->EffectColorBlue();
 
+	/*	魔法SE再生	*/
+	Sound::Sound_Play(SOUND_LABEL_MAGICBLOCK);
+
 	/*	カウンタ	*/
 	Counter++;
 }
@@ -53,6 +56,7 @@ void BlockParticleManager::CreateMoveEffect(GameObject* Owner, BlockEffectColor 
 	m_MoveEffectList[Owner->GetId().x]->SetOwner(Owner);
 	if (in_Color == BlockEffectColor::RED) m_MoveEffectList[Owner->GetId().x]->EffectColorRed();
 	else m_MoveEffectList[Owner->GetId().x]->EffectColorBlue();
+
 
 	/*	カウンタ	*/
 	Counter++;
@@ -138,6 +142,19 @@ void BlockParticleManager::MoveStateFinish(float in_Id)
 void BlockParticleManager::ResetStateFinish(float in_Id)
 {
 	m_ResetEffectList[in_Id]->StateFinish();
+}
+
+
+/****	エフェクトがかかっているか確認する	****/
+bool BlockParticleManager::CheckPlayMoveEffect(float in_Id)
+{
+	if (m_MoveEffectList.count(in_Id) == 1)
+	{
+		//ある
+		return true;
+	}
+	//ない
+	return false;
 }
 
 bool BlockParticleManager::JudgeRedorBlue(MAPOBJ in_kind)

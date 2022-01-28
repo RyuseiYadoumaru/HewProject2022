@@ -22,6 +22,9 @@ bool GamePlay::Stage24Scene::Start()
 	m_LayerFront = Instance<LayerFront>("LayerFront");
 	m_LayerFront->Sprite("Wrold5_obj2_1");
 
+	/* ゴール時プレイヤーエフェクト生成 */
+	m_PGoalEffect = Instance<PlayerGoalEffect>("PGoalEffect");
+
 	/*	天井初期化	*/
 	m_Ceiling = Instance<Ceiling>("Ceiling");
 	m_Ceiling->Sprite("World5_ceiling");
@@ -50,7 +53,8 @@ bool GamePlay::Stage24Scene::Start()
 	/*	初期化	*/
 	m_HouseEnd->transform->Position.x += ROAD_DISTANCE;
 
-	/*	ギミック初期化	*/
+	// BGM再生
+	Sound::Sound_Play(SOUND_LABEL_WORLD5_GAMEBGM);
 
 
 	/*	カメラ設定	*/
@@ -111,7 +115,10 @@ Scene::STATE GamePlay::Stage24Scene::Update()
 		}
 		break;
 	case 2://リザルト画面
-		m_Player->Goal();//ゴールアニメーション再生
+
+		m_Player->Goal(m_Goal->transform->Position.x);//ゴールアニメーション再生
+		m_PGoalEffect->EF_Start();
+		m_PGoalEffect->transform->Position.Set(m_Player->transform->Position.x, m_Player->transform->Position.y, 0);
 		if (m_Player->GetGoal() == true) {//アニメーション終了でリザルト表示
 			m_ResultBack->Result_On();//リザルト画面のフラグ
 			m_ResultCursor->Result_On();
@@ -129,6 +136,8 @@ bool GamePlay::Stage24Scene::End()
 {
 	/*	オブジェクト終了処理	*/
 	ObjectEnd();
+	/*	サウンドストップ	*/
+	Sound::Sound_Stop(SOUND_LABEL_WORLD5_GAMEBGM);
 
 	/*	解放処理	*/
 	Releace();
@@ -153,15 +162,16 @@ bool GamePlay::Stage24Scene::Render()
 	/****	天井	****/
 	ObjectRender<Ceiling>("Ceiling");
 
+	/*** ゴール描画 ***/
+	ObjectRender<Goal>("Goal");
+	ObjectRender<PlayerGoalEffect>("PGoalEffect");
+
 	/****	オブジェクト描画	****/
 	ObjectRender<Storage>("StorageStart");
 	ObjectRender<House>("HouseEnd");
 
 	ObjectRender<Map>("stage1-1");
 	ObjectRender<Player>("Player");
-
-	/*** ゴール描画 ***/
-	ObjectRender<Goal>("Goal");
 
 	/****	前装飾品	****/
 	ObjectRender<LayerFront>("LayerFront");

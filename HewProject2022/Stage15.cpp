@@ -4,10 +4,6 @@ using namespace Create;
 
 bool GamePlay::Stage15Scene::Start()
 {
-
-
-
-
 	/*	インスタンス	*/
 	m_Map = Instance<Map>("stage3-5");
 	m_Player = Instance<Player>("Player");
@@ -26,6 +22,9 @@ bool GamePlay::Stage15Scene::Start()
 	m_LayerFront = Instance<LayerFront>("LayerFront");
 	m_LayerFront->Sprite("World3_obj2-5");
 
+	/* ゴール時プレイヤーエフェクト生成 */
+	m_PGoalEffect = Instance<PlayerGoalEffect>("PGoalEffect");
+
 	m_Button = Instance<Pause>("Button");
 	m_Button->Sprite("button");
 
@@ -35,6 +34,14 @@ bool GamePlay::Stage15Scene::Start()
 
 	/*  ゴールインスタンス生成  */
 	m_Goal = Instance<Goal>("Goal");
+
+	/* Pause初期化 */
+	m_Pause = Instance<Pause>("Pause");
+	m_Pause->Sprite("ポーズ");
+
+	m_Button = Instance<Pause>("Button");
+	m_Button->Sprite("button");
+
 
 	/* リザルト初期化 */
 	m_ResultBack = Instance<Result>("ResultBack");
@@ -50,7 +57,8 @@ bool GamePlay::Stage15Scene::Start()
 	/*	初期化	*/
 	m_PlantsEnd->transform->Position.x += ROAD_DISTANCE;
 
-	/*	ギミック初期化	*/
+	// BGM再生
+	Sound::Sound_Play(SOUND_LABEL_WORLD3_GAMEBGM);
 
 
 	/*	カメラ設定	*/
@@ -83,10 +91,10 @@ Scene::STATE GamePlay::Stage15Scene::Update()
 		m_Goal->GetComponent<BoxCollider2D>()->HitCheckBox(*m_Player->GetComponent<BoxCollider2D>());
 		//当たったらゴール
 		for (auto name : m_Goal->GetComponent<BoxCollider2D>()->GetHitObject()) {
-			if (name == m_Player->ToString()) {
+			if (name == m_Player->ToString())
+			{
 				Scene_State = 2;//リザルト用分岐に移動
-				/*m_ResultBack->Result_On();
-				m_ResultCursor->Result_On();*/
+
 			}
 		}
 
@@ -112,7 +120,10 @@ Scene::STATE GamePlay::Stage15Scene::Update()
 		}
 		break;
 	case 2://リザルト画面
-		m_Player->Goal();//ゴールアニメーション再生
+
+		m_Player->Goal(m_Goal->transform->Position.x);//ゴールアニメーション再生
+		m_PGoalEffect->EF_Start();
+		m_PGoalEffect->transform->Position.Set(m_Player->transform->Position.x, m_Player->transform->Position.y, 0);
 		if (m_Player->GetGoal() == true) {//アニメーション終了でリザルト表示
 			m_ResultBack->Result_On();//リザルト画面のフラグ
 			m_ResultCursor->Result_On();
@@ -155,15 +166,16 @@ bool GamePlay::Stage15Scene::Render()
 	/****	天井	****/
 	ObjectRender<Ceiling>("Ceiling");
 
+	/*** ゴール描画 ***/
+	ObjectRender<Goal>("Goal");
+	ObjectRender<PlayerGoalEffect>("PGoalEffect");
+
 	/****	オブジェクト描画	****/
 	ObjectRender<Tree>("TreeStart");
 	ObjectRender<Plants>("PlantsEnd");
 
 	ObjectRender<Map>("stage3-5");
 	ObjectRender<Player>("Player");
-
-	/*** ゴール描画 ***/
-	ObjectRender<Goal>("Goal");
 
 	/****	前装飾品	****/
 	ObjectRender<LayerFront>("LayerFront");

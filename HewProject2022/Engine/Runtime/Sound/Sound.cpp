@@ -10,20 +10,16 @@ typedef struct
 
 PARAM g_param[SOUND_LABEL_MAX] =
 {
-	{"assets/SoundData/BGM/sample000.wav", true},	// サンプルBGM（ループさせるのでtrue設定）
-	{"assets/SoundData/BGM/sample001.wav", true},	// サンプルBGM
-	{"assets/SoundData/BGM/world1.wav", true},	// ワールド１BGM
-	{"assets/SoundData/BGM/world2.wav", true},	// ワールド2BGM
-	{"assets/SoundData/BGM/world3.wav", true},	// ワールド3BGM
-	{"assets/SoundData/BGM/world5.wav", true},	// ワールド5BGM
-	{"assets/SoundData/SE/jump.wav", false},  		// サンプルSE（ループしないのでfalse設定）
-	{"assets/SoundData/SE/defend0.wav", false},		// サンプルSE
-	{"assets/SoundData/SE/defend1.wav", false},		// サンプルSE
-	{"assets/SoundData/SE/hit0.wav", false},			// サンプルSE
-	{"assets/SoundData/SE/laser0.wav", false},		// サンプルSE
-	{"assets/SoundData/SE/lockon0.wav", false},		// サンプルSE
-	{"assets/SoundData/SE/shot0.wav", false},		// サンプルSE
-	{"assets/SoundData/SE/shot1.wav", false},		// サンプルSE
+	{"assets/SoundData/BGM/SelectNoize.wav", true},	// セレクトノイズ
+	{"assets/SoundData/BGM/world1_1.wav", true},	// ワールド１BGM
+	{"assets/SoundData/BGM/world2_1.wav", true},	// ワールド2BGM
+	{"assets/SoundData/BGM/world3_1.wav", true},	// ワールド3BGM
+	{"assets/SoundData/BGM/world3_1.wav", true},	// ワールド4BGM
+	{"assets/SoundData/BGM/world5_1.wav", true},	// ワールド5BGM
+	{"assets/SoundData/SE/onGround.wav", false},	// 着地SE
+	{"assets/SoundData/SE/MagicBlock.wav", false},	// 着地SE
+	{"assets/SoundData/SE/MoveBlock.wav", false},	// 着地SE
+	{"assets/SoundData/SE/ResetBlock.wav", false},	// 着地SE
 };
 
 #ifdef _XBOX //Big-Endian

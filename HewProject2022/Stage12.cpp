@@ -25,6 +25,9 @@ bool GamePlay::Stage12Scene::Start()
 	m_LayerFront = Instance<LayerFront>("LayerFront");
 	m_LayerFront->Sprite("World3_obj2-2");
 
+	/* ゴール時プレイヤーエフェクト生成 */
+	m_PGoalEffect = Instance<PlayerGoalEffect>("PGoalEffect");
+
 	/*	天井初期化	*/
 	m_Ceiling = Instance<Ceiling>("Ceiling");
 	m_Ceiling->Sprite("World3_ceiling");
@@ -51,12 +54,12 @@ bool GamePlay::Stage12Scene::Start()
 	/*	初期化	*/
 	m_TreeEnd->transform->Position.x += ROAD_DISTANCE;
 
-	/*	ギミック初期化	*/
-
-
 	/*	カメラ設定	*/
 	SetCamera(m_MainCamera);
 	m_MainCamera->Focus(m_Player);
+
+	/*	BGM再生	*/
+	Sound::Sound_Play(SOUND_LABEL_WORLD3_GAMEBGM);
 
 	Scene_State = 0;
 
@@ -115,7 +118,10 @@ Scene::STATE GamePlay::Stage12Scene::Update()
 		}
 		break;
 	case 2://リザルト画面
-		m_Player->Goal();//ゴールアニメーション再生
+
+		m_Player->Goal(m_Goal->transform->Position.x);//ゴールアニメーション再生
+		m_PGoalEffect->EF_Start();
+		m_PGoalEffect->transform->Position.Set(m_Player->transform->Position.x, m_Player->transform->Position.y, 0);
 		if (m_Player->GetGoal() == true) {//アニメーション終了でリザルト表示
 			m_ResultBack->Result_On();//リザルト画面のフラグ
 			m_ResultCursor->Result_On();
@@ -132,6 +138,10 @@ bool GamePlay::Stage12Scene::End()
 {
 	/*	オブジェクト終了処理	*/
 	ObjectEnd();
+
+	/*	サウンドストップ	*/
+	Sound::Sound_Stop(SOUND_LABEL_WORLD3_GAMEBGM);
+
 
 	/*	解放処理	*/
 	Releace();
@@ -156,15 +166,16 @@ bool GamePlay::Stage12Scene::Render()
 	/****	天井	****/
 	ObjectRender<Ceiling>("Ceiling");
 
+	/*** ゴール描画 ***/
+	ObjectRender<Goal>("Goal");
+	ObjectRender<PlayerGoalEffect>("PGoalEffect");
+
 	/****	オブジェクト描画	****/
 	ObjectRender<Plants>("PlantsStart");
 	ObjectRender<Tree>("TreeEnd");
 
 	ObjectRender<Map>("stage1-2");
 	ObjectRender<Player>("Player");
-
-	/*** ゴール描画 ***/
-	ObjectRender<Goal>("Goal");
 
 	/****	前装飾品	****/
 	ObjectRender<LayerFront>("LayerFront");

@@ -33,7 +33,7 @@ public:
 
 	LandTile* m_LandTile;
 
-	void Goal();//ゴールアニメーション処理
+	void Goal(float Goal_x);//ゴールアニメーション処理
 	bool GetGoal();
 
 private:
@@ -65,6 +65,8 @@ public:
 	void PlayerDeath();
 
 	int m_GetStar; //取得した星の数
+
+	bool m_OnGround;	//地面についているフラグ
 private:
 
 	Vector3 m_SavePosition;	//前フレームの座標を保存
@@ -73,7 +75,7 @@ private:
 	float m_maxMoveSpeedX;// 最大移動速度
 	float m_accelForceX;// 加速度X
 	float m_stopForceX;// 停止力X　→　摩擦力的なもの
-	bool m_OnGround;	//地面についているフラグ
+	
 	FRAME m_GroundCnt;		//着地したときのフレームカウント
 	static constexpr FRAME m_GroundWaitFrame = 5;	//着地後の待機フレーム
 

@@ -26,6 +26,7 @@ public:
 		EFFECT_1,
 		EFFECT_2,
 		EFFECT_3,
+		EMPTY,
 		KIND_MAX
 	};
 

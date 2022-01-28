@@ -33,7 +33,8 @@ bool GamePlay::Stage20Scene::Start()
 	/*	初期化	*/
 	m_BookShelfEnd->transform->Position.x += ROAD_DISTANCE;
 
-
+	/* ゴール時プレイヤーエフェクト生成 */
+	m_PGoalEffect = Instance<PlayerGoalEffect>("PGoalEffect");
 
 	/* Pause初期化 */
 	m_Pause = Instance<Pause>("Pause");
@@ -54,6 +55,8 @@ bool GamePlay::Stage20Scene::Start()
 
 	m_Button->NowScene = m_ResultCursor->NowScene;
 
+	// BGM再生
+	Sound::Sound_Play(SOUND_LABEL_WORLD4_GAMEBGM);
 
 	/*	カメラ設定	*/
 	SetCamera(m_MainCamera);
@@ -114,7 +117,10 @@ Scene::STATE GamePlay::Stage20Scene::Update()
 		}
 		break;
 	case 2://リザルト画面
-		m_Player->Goal();//ゴールアニメーション再生
+
+		m_Player->Goal(m_Goal->transform->Position.x);//ゴールアニメーション再生
+		m_PGoalEffect->EF_Start();
+		m_PGoalEffect->transform->Position.Set(m_Player->transform->Position.x, m_Player->transform->Position.y, 0);
 		if (m_Player->GetGoal() == true) {//アニメーション終了でリザルト表示
 			m_ResultBack->Result_On();//リザルト画面のフラグ
 			m_ResultCursor->Result_On();
@@ -133,6 +139,8 @@ bool GamePlay::Stage20Scene::End()
 {
 	/*	オブジェクト終了処理	*/
 	ObjectEnd();
+	/*	サウンドストップ	*/
+	Sound::Sound_Stop(SOUND_LABEL_WORLD4_GAMEBGM);
 
 	/*	解放処理	*/
 	Releace();
@@ -157,6 +165,10 @@ bool GamePlay::Stage20Scene::Render()
 	/****	天井	****/
 	ObjectRender<Ceiling>("Ceiling");
 
+	/*** ゴール描画 ***/
+	ObjectRender<Goal>("Goal");
+	ObjectRender<PlayerGoalEffect>("PGoalEffect");
+
 	/****	オブジェクト描画	****/
 	ObjectRender<Player>("Player");
 	ObjectRender<Map>("stage1-1");
@@ -170,9 +182,6 @@ bool GamePlay::Stage20Scene::Render()
 	//m_Fade->Render();
 	ObjectRender<ScreenFx>("SFX");
 	ObjectRender<CameraFrame>("CFX");
-
-	/*** ゴール描画 ***/
-	ObjectRender<Goal>("Goal");
 
 	/*** リザルト ***/
 	ObjectRender<Result>("ResultBack");

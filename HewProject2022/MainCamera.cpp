@@ -6,11 +6,9 @@ bool MainCamera::m_CameraMode = false;
 
 MainCamera::MainCamera(string in_Name) : Camera(in_Name)
 {
-	//transform->Position.Set(1920.0f / 2.0f, 1080.0f / 2.0f, 0.0f);
 	transform->Position.Set(0.0f, 0.0f, 0.0f);
 	m_object_distace.x = 0.0f;
 	m_object_distace.y = 0.0f;
-	//m_CameraMode = false;
 	m_controller_angle.x = 0.0f;
 	m_controller_angle.y = 0.0f;
 	p_FocusObject = nullptr;
@@ -27,64 +25,32 @@ bool MainCamera::Update()
 	m_object_distace.x = this->transform->Position.x - p_FocusObject->transform->Position.x; // x座標
 	m_object_distace.y = this->transform->Position.y - p_FocusObject->transform->Position.y; // y座標
 
-	if ((RangeTopLeft.x == 0.0f) &&
-		(RangeTopLeft.y == 0.0f) &&
-		(RangeButtomRight.x == 0.0f) &&
-		RangeButtomRight.y == 0.0f)
+
+	/*	オブジェクトにフォーカスしてないときの処理	*/
+	if (p_FocusObject == nullptr)
 	{
-		if (p_FocusObject == nullptr)
-		{
-			if (Input::GetKeyPress(PK_RIGHT)) transform->Position.x += MOVE_SPEED;
-			if (Input::GetKeyPress(PK_LEFT)) transform->Position.x -= MOVE_SPEED;
-			if (Input::GetKeyPress(PK_DOWN)) transform->Position.y += MOVE_SPEED;
-			if (Input::GetKeyPress(PK_UP)) transform->Position.y -= MOVE_SPEED;
-		}
-		else
-		{
-
-			if (Input::GetKeyTrigger(PK_RIGHT) || Input::GetKeyTrigger(PK_LEFT) || Input::GetKeyTrigger(PK_DOWN) || Input::GetKeyTrigger(PK_UP) ||
-				Input::GetControllerRightStick().x > 0.0f || Input::GetControllerRightStick().x < 0.0f || Input::GetControllerRightStick().y < 0.0f || Input::GetControllerRightStick().y > 0.0f)
-			{
-				m_CameraMode = true;
-
-			}
-
-			if (m_CameraMode == false)
-			{
-				transform->Position.x = p_FocusObject->transform->Position.x;
-				transform->Position.y = p_FocusObject->transform->Position.y - 200.0f;
-			}
-		}
+		//if (Input::GetKeyPress(PK_RIGHT)) transform->Position.x += MOVE_SPEED;
+		//if (Input::GetKeyPress(PK_LEFT)) transform->Position.x -= MOVE_SPEED;
+		//if (Input::GetKeyPress(PK_DOWN)) transform->Position.y += MOVE_SPEED;
+		//if (Input::GetKeyPress(PK_UP)) transform->Position.y -= MOVE_SPEED;
 	}
 
-	else if ((RangeTopLeft.x <= transform->Position.x) &&
-		(RangeTopLeft.y <= transform->Position.y) &&
-		(RangeButtomRight.x >= transform->Position.x) &&
-		RangeButtomRight.y >= transform->Position.y)
+	/*	カメラの移動処理	*/
+	else
 	{
-		if (p_FocusObject == nullptr)
+		if (Input::GetKeyPress(PK_RIGHT) == true || Input::GetKeyPress(PK_LEFT) == true || Input::GetKeyPress(PK_DOWN) == true || Input::GetKeyPress(PK_UP) == true ||
+			Input::GetControllerRightStick().x > 0.0f || Input::GetControllerRightStick().x < 0.0f || Input::GetControllerRightStick().y < 0.0f || Input::GetControllerRightStick().y > 0.0f)
 		{
-			if (Input::GetKeyPress(PK_RIGHT)) transform->Position.x += MOVE_SPEED;
-			if (Input::GetKeyPress(PK_LEFT)) transform->Position.x -= MOVE_SPEED;
-			if (Input::GetKeyPress(PK_DOWN)) transform->Position.y += MOVE_SPEED;
-			if (Input::GetKeyPress(PK_UP)) transform->Position.y -= MOVE_SPEED;
-		}
-		else
-		{
-			if (Input::GetKeyTrigger(PK_RIGHT) || Input::GetKeyTrigger(PK_LEFT) || Input::GetKeyTrigger(PK_DOWN) || Input::GetKeyTrigger(PK_UP) ||
-				Input::GetControllerRightStick().x > 0.0f || Input::GetControllerRightStick().x < 0.0f || Input::GetControllerRightStick().y < 0.0f || Input::GetControllerRightStick().y > 0.0f)
-			{
-				m_CameraMode = true;
-
-			}
-
-			if (m_CameraMode == false)
-			{
-				transform->Position.x = p_FocusObject->transform->Position.x;
-				transform->Position.y = p_FocusObject->transform->Position.y - 200.0f;
-			}
+			m_CameraMode = true;
 
 		}
+
+		if (m_CameraMode == false)
+		{
+			transform->Position.x = p_FocusObject->transform->Position.x;
+			transform->Position.y = p_FocusObject->transform->Position.y - 200.0f;
+		}
+
 	}
 
 	/* 画面外にカメラがいかないようにする処理 */
@@ -112,24 +78,37 @@ bool MainCamera::Update()
 	// カメラモード（カメラだけ動かす）
 	if (m_CameraMode == true)
 	{
-		// カメラ動かす処理(キーボード）
-		//if (Input::GetKeyPress(PK_RIGHT)) // 右に動かす
-		//	transform->Position.x += MOVE_SPEED;
-		//if (Input::GetKeyPress(PK_LEFT))  // 左に動かす
-		//	transform->Position.x -= MOVE_SPEED;
-		//if (Input::GetKeyPress(PK_DOWN))  // 下に動かす
-		//	transform->Position.y += MOVE_SPEED;
-		//if (Input::GetKeyPress(PK_UP))    // 上に動かす
-		//	transform->Position.y -= MOVE_SPEED;
 
 		// カメラ動かす処理(コントローラー）
-		if (Input::GetControllerRightStick().x > 0.0f && m_object_distace.x < 500.0f)	transform->Position.x += CAMERA_SPEED; // 右
-		if (Input::GetControllerRightStick().x < 0.0f && m_object_distace.x > -500.0f)	transform->Position.x -= CAMERA_SPEED; // 左 
-		if (Input::GetControllerRightStick().y > 0.0f && m_object_distace.y < 300.0f)	transform->Position.y += CAMERA_SPEED; // 下
-		if (Input::GetControllerRightStick().y < 0.0f && m_object_distace.y > -350.0f)  transform->Position.y -= CAMERA_SPEED; // 上
-
-		if (Input::GetControllerRightStick().x == 0.0f && Input::GetControllerRightStick().y == 0.0f)
+		if ((Input::GetControllerRightStick().x > 0.0f || Input::GetKeyPress(PK_RIGHT)) == true
+			&& m_object_distace.x < 500.0f)
 		{
+			transform->Position.x += CAMERA_SPEED; // 右
+		}
+		if ((Input::GetControllerRightStick().x < 0.0f || Input::GetKeyPress(PK_LEFT)) == true
+			&& m_object_distace.x > -500.0f)
+		{
+			transform->Position.x -= CAMERA_SPEED; // 左 
+		}
+
+		if ((Input::GetControllerRightStick().y > 0.0f || Input::GetKeyPress(PK_DOWN)) == true
+			&& m_object_distace.y < 300.0f)
+		{
+			transform->Position.y += CAMERA_SPEED; // 下
+		}
+
+		if ((Input::GetControllerRightStick().y < 0.0f || Input::GetKeyPress(PK_UP)) == true
+			&& m_object_distace.y > -350.0f)
+		{
+			transform->Position.y -= CAMERA_SPEED; // 上
+		}
+
+		/*	戻す処理	*/
+		if ((Input::GetControllerRightStick().x == 0.0f && Input::GetControllerRightStick().y == 0.0f) &&
+			(Input::GetKeyPress(PK_RIGHT) == false && Input::GetKeyPress(PK_UP) == false && Input::GetKeyPress(PK_LEFT) == false && Input::GetKeyPress(PK_DOWN) == false))
+		{
+			//右スティックの軸が0の時に戻す処理をする
+
 			// スムーズに戻す処理
 			if (transform->Position.x > p_FocusObject->transform->Position.x)
 			{
@@ -153,15 +132,15 @@ bool MainCamera::Update()
 
 			if ((transform->Position.x <= p_FocusObject->transform->Position.x + 10) && (transform->Position.x > p_FocusObject->transform->Position.x - 10) &&
 				(transform->Position.y >= p_FocusObject->transform->Position.y - 210.0f) && (transform->Position.y < p_FocusObject->transform->Position.y - 190.0f))
+			{
 				m_CameraMode = false;
+			}
 		}
-
-		// カメラモード終了
-		if (Input::GetKeyTrigger(VK_RETURN)) m_CameraMode = false;
 
 		// タイルの上でカメラの位置がプレイヤーが見えない範囲まで行くとプレイヤーが下に落ちるバグ？
 		// →プレイヤーが見えてる範囲でカメラを動かす
 
+		/*	範囲内条件式	*/
 		// カメラが右に行き過ぎている時
 		if (m_object_distace.x > 500.0f) 	this->transform->Position.x = p_FocusObject->transform->Position.x + 500.0f;
 		// カメラが左に行き過ぎている時

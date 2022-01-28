@@ -15,14 +15,16 @@ class Application
 {
 public:
 
-	static const char*		WINDOW_TITLE;				// ウィンドウタイトル
-	static const char*		WINDOW_CLASS_NAME;			// クラスネーム
+	static const char*			WINDOW_TITLE;				// ウィンドウタイトル
+	static const char*			WINDOW_CLASS_NAME;			// クラスネーム
 
 	static const uint32_t		SCREEN_WIDTH;				// スクリーン横幅
 	static const uint32_t		SCREEN_HEIGHT;				// スクリーン縦幅
 
 	static const float			FPS;						// フレームカウント
 
+	static bool					isShowCursor;				//マウスカーソル表示							
+	static bool					FullScreen;					//フルスクリーン
 public:
 
 	Application();

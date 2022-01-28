@@ -16,6 +16,8 @@ bool GamePlay::Stage1Scene::Start()
 	m_BigBook = Instance<BigBook>("Book1");
 	m_MiniBook = Instance<MiniBook>("Book2");
 
+	m_PGoalEffect = Instance<PlayerGoalEffect>("PGoalEffect");
+
 	//三木原追加 チュートリアル初期化
 	m_MoveTutorial = Instance<MoveTutorial>("MoveTutorial");
 	m_JumpTutorial = Instance<JumpTutorial>("JumpTutorial");
@@ -104,9 +106,9 @@ Scene::STATE GamePlay::Stage1Scene::Update()
 		{
 			if (name == m_Player->ToString())
 			{
-				Scene_State = 2;//リザルト用分岐に移動
-				/*m_ResultBack->Result_On();
-				m_ResultCursor->Result_On();*/
+				if (m_Player->m_OnGround == true) {
+					Scene_State = 2;//リザルト用分岐に移動
+				}
 			}
 		}
 
@@ -129,7 +131,10 @@ Scene::STATE GamePlay::Stage1Scene::Update()
 		}
 		break;
 	case 2://リザルト画面
-		m_Player->Goal();//ゴールアニメーション再生
+
+		m_Player->Goal(m_Goal->transform->Position.x);//ゴールアニメーション再生
+		m_PGoalEffect->EF_Start();
+		m_PGoalEffect->transform->Position.Set(m_Player->transform->Position.x, m_Player->transform->Position.y, 0);
 		if (m_Player->GetGoal() == true) {//アニメーション終了でリザルト表示
 			m_ResultBack->Result_On();//リザルト画面のフラグ
 			m_ResultCursor->Result_On();
@@ -179,6 +184,10 @@ bool GamePlay::Stage1Scene::Render()
 	/****	天井	****/
 	ObjectRender<Ceiling>("Ceiling");
 
+	/*** ゴール描画 ***/
+	ObjectRender<Goal>("Goal");
+	ObjectRender<PlayerGoalEffect>("PGoalEffect");
+
 	/****	オブジェクト描画	****/
 	ObjectRender<Map>("stage1-1");
 	ObjectRender<Player>("Player");
@@ -187,16 +196,13 @@ bool GamePlay::Stage1Scene::Render()
 	ObjectRender<BigBook>("Book1");
 	ObjectRender<MiniBook>("Book2");
 
-	/*** ゴール描画 ***/
-	ObjectRender<Goal>("Goal");
-
 	/****	前装飾品	****/
 	ObjectRender<LayerFront>("LayerFront");
 
 	//三木原追加 チュートリアル描画
-	ObjectRender<MoveTutorial>("MoveTutorial");
-	ObjectRender<JumpTutorial>("JumpTutorial");
-	ObjectRender<TutorialEffect>("TutorialEffect");
+	//ObjectRender<MoveTutorial>("MoveTutorial");
+	//ObjectRender<JumpTutorial>("JumpTutorial");
+	//ObjectRender<TutorialEffect>("TutorialEffect");
 
 	/****	デバッグ	****/
 	//m_Player->Debug();

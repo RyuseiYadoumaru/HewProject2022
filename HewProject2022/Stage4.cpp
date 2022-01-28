@@ -22,6 +22,7 @@ bool GamePlay::Stage4Scene::Start()
 	m_LayerFront = Instance<LayerFront>("LayerFront");
 	m_LayerFront->Sprite("World_obj2_4");
 
+	m_PGoalEffect = Instance<PlayerGoalEffect>("PGoalEffect");
 
 	/* Pause初期化 */
 	m_Pause = Instance<Pause>("Pause");
@@ -82,9 +83,9 @@ Scene::STATE GamePlay::Stage4Scene::Update()
 		//当たったらゴール
 		for (auto name : m_Goal->GetComponent<BoxCollider2D>()->GetHitObject()) {
 			if (name == m_Player->ToString()) {
-				Scene_State = 2;//リザルト用分岐に移動
-				/*m_ResultBack->Result_On();
-				m_ResultCursor->Result_On();*/
+				if (m_Player->m_OnGround == true) {
+					Scene_State = 2;//リザルト用分岐に移動
+				}
 			}
 		}
 
@@ -106,7 +107,10 @@ Scene::STATE GamePlay::Stage4Scene::Update()
 		}
 		break;
 	case 2://リザルト画面
-		m_Player->Goal();//ゴールアニメーション再生
+		
+		m_Player->Goal(m_Goal->transform->Position.x);//ゴールアニメーション再生
+		m_PGoalEffect->EF_Start();
+		m_PGoalEffect->transform->Position.Set(m_Player->transform->Position.x, m_Player->transform->Position.y, 0);
 		if (m_Player->GetGoal() == true) {//アニメーション終了でリザルト表示
 			m_ResultBack->Result_On();//リザルト画面のフラグ
 			m_ResultCursor->Result_On();
@@ -154,15 +158,16 @@ bool GamePlay::Stage4Scene::Render()
 	/****	天井	****/
 	ObjectRender<Ceiling>("Ceiling");
 
+	/*** ゴール描画 ***/
+	ObjectRender<Goal>("Goal");
+	ObjectRender<PlayerGoalEffect>("PGoalEffect");
+
 	/****	オブジェクト描画	****/
 	ObjectRender<Sofa>("SofaStart");
 	ObjectRender<Desk>("DeskEnd");
 
 	ObjectRender<Map>("stage1-2");
 	ObjectRender<Player>("Player");
-
-	/*** ゴール描画 ***/
-	ObjectRender<Goal>("Goal");
 
 	/****	前装飾品	****/
 	ObjectRender<LayerFront>("LayerFront");

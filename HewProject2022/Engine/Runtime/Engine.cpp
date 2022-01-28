@@ -84,7 +84,13 @@ bool GameEngine::Engine::Init()
 	}
 
 	/****	サウンド初期化	****/
-	Sound::Sound_Init();
+	HRESULT hr = Sound::Sound_Init();
+	if (FAILED(hr))
+	{
+		Log::LogError(App->GetHandle(), "サウンドの初期化に失敗しました");
+		return false;
+	}
+
 	return true;
 }
 //==============================================================================
@@ -95,7 +101,7 @@ bool GameEngine::Engine::Init()
 //==============================================================================
 bool GameEngine::Engine::Update()
 {
-
+	/****	インプット更新	****/
 	Input::KeyUpdate();
 
 	/****	シーン再生	****/

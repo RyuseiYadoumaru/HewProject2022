@@ -12,6 +12,7 @@ ResetInfo::ResetInfo()
 	m_MoveValue = 0.0f;
 	m_Speed = 0.0f;
 	m_isUp = false;
+	isMoveStart = false;
 }
 
 ResetInfo::ResetInfo(TileColumn* in_MoveColumn)
@@ -22,6 +23,7 @@ ResetInfo::ResetInfo(TileColumn* in_MoveColumn)
 	m_Speed = 0.0f;
 	m_isUp = false;
 	m_isFin = false;
+	isMoveStart = false;
 }
 
 /****	‰Šú‰»ˆ—	****/
@@ -50,11 +52,20 @@ void ResetInfo::Start()
 	//‰º~
 	else if (m_MoveValue > 0) m_isUp = false;
 
+	isMoveStart = false;
+
+
 }
 
 /****	ˆÚ“®ˆ—	****/
 bool ResetInfo::Tick()
 {
+	/*	ˆÚ“®‚ÌSEÄ¶	*/
+	if (isMoveStart == false)
+	{
+		isMoveStart = true;
+	}
+
 	/*	ˆÚ“®ˆ—	*/
 	Move();
 

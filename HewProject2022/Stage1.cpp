@@ -200,9 +200,9 @@ bool GamePlay::Stage1Scene::Render()
 	ObjectRender<LayerFront>("LayerFront");
 
 	//三木原追加 チュートリアル描画
-	ObjectRender<MoveTutorial>("MoveTutorial");
-	ObjectRender<JumpTutorial>("JumpTutorial");
-	ObjectRender<TutorialEffect>("TutorialEffect");
+	//ObjectRender<MoveTutorial>("MoveTutorial");
+	//ObjectRender<JumpTutorial>("JumpTutorial");
+	//ObjectRender<TutorialEffect>("TutorialEffect");
 
 	/****	デバッグ	****/
 	//m_Player->Debug();

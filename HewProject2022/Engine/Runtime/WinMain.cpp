@@ -21,16 +21,21 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 {
 	/****	アプリケーショ生成	****/
 	Application* App = Application::Instance();
+	bool Success = true;
 
 	/****	アプリケーション初期化	****/
-	App->Init(hInstance);
+	Success = App->Init(hInstance);
 
-	/****	ウィンドウ表示	****/
-	ShowWindow(App->GetHandle(), nCmdShow);
-	UpdateWindow(App->GetHandle());
+	if (Success == true)
+	{
+		/****	ウィンドウ表示	****/
+		ShowWindow(App->GetHandle(), nCmdShow);
+		UpdateWindow(App->GetHandle());
 
-	/****	メイン処理	****/
-	App->MainLoop();
+		/****	メイン処理	****/
+		App->MainLoop();
+
+	}
 
 	/****	アプリケーション終了処理	****/
 	App->Uninit();

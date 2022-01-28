@@ -66,6 +66,11 @@ Scene::STATE GamePlay::World1StageSelectScene::Update()
 	/****	オブジェクト更新	****/
 	ObjectUpdate();
 
+	/*	タイトルに戻る	*/
+	if (Input::GetControllerTrigger(XInput::Buttom::B) == true)
+	{
+		SceneManager::LoadScene("TitleScene");
+	}
 	switch (m_stageNumber) {
 	case STAGE_01:
 		if (Input::GetKeyTrigger(VK_RIGHT) == true

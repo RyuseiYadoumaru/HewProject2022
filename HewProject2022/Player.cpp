@@ -84,6 +84,11 @@ bool Player::Start()
 	/*	プレイヤー死亡フラグ初期化	*/
 	m_PlayerDeath = false;
 
+
+
+	Active = true;
+
+
 	return true;
 }
 

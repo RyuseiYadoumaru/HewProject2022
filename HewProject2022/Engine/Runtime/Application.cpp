@@ -19,13 +19,16 @@
 // スタティック　メンバー
 //-----------------------------------------------------------------------------
 
-const char*	Application::WINDOW_TITLE = "TOY ALINE";
-const char*	Application::WINDOW_CLASS_NAME = "#デマチ";
+const char*		Application::WINDOW_TITLE = "TOY ALINE";
+const char*		Application::WINDOW_CLASS_NAME = "#デマチ";
 
 const uint32_t	Application::SCREEN_WIDTH = 1920;
 const uint32_t	Application::SCREEN_HEIGHT = 1080;
 
 const float		Application::FPS = 60.0f;
+
+bool			Application::isShowCursor = true;
+bool			Application::FullScreen = false;
 
 
 //==============================================================================
@@ -105,7 +108,7 @@ bool Application::Init(HINSTANCE hInstance)
 	/****	DirectX11初期化	****/
 	DirectXGraphics* DirectXGraphic = DirectXGraphics::Instance();
 
-	bool sts = DirectXGraphic->Init(window->GetHandle(), SCREEN_WIDTH, SCREEN_HEIGHT, false);
+	bool sts = DirectXGraphic->Init(window->GetHandle(), SCREEN_WIDTH, SCREEN_HEIGHT, FullScreen);
 	if (sts == false)
 	{
 		Log::LogError(window->GetHandle(), "DirectXの初期化に失敗しました");
@@ -115,6 +118,9 @@ bool Application::Init(HINSTANCE hInstance)
 
 	/****	ハンドルデータ取得	****/
 	m_hWnd = window->GetHandle();
+
+	/****	マウスカーソル表示	****/
+	ShowCursor(isShowCursor);
 
 	/****	アプリケーションインスタンス取得	****/
 	m_hInstance = hInstance;
@@ -136,19 +142,17 @@ bool Application::MainLoop()
 	GameEngine::Engine* engine = GameEngine::Engine::Instance();
 
 	/****	エンジン初期化	****/
-	engine->Init();
+	bool Success = engine->Init();
+	if (Success == false) return false;
 
 	/****	エンジン更新	****/
-	while (log->ExecMessage() == false && !isEnd)
+	while (log->ExecMessage() == false && isEnd == false)
 	{
 		engine->Update();
 		systemtimer->SystemWait(FPS);
 		log->FPSWindowText(m_hWnd, systemtimer->GetNowFPS());
 
 	}
-
-	/****	エンジン終了処理	****/
-	engine->Uninit();
 
 	return true;
 }
@@ -161,13 +165,20 @@ bool Application::MainLoop()
 //==============================================================================
 void Application::Uninit()
 {
-	/*	DirectX解放	*/
+	/****	エンジン終了処理	****/
+	GameEngine::Engine* engine = GameEngine::Engine::Instance();
+	engine->Uninit();
+
+	/****	マウスカーソル表示	****/
+	ShowCursor(true);
+
+	/****	DirectX解放		****/
 	DirectXGraphics* DirectXGraphic = DirectXGraphics::Instance();
 	DirectXGraphic->Uninit();
 
-	/*	標準出力クローズ	*/
+	/****	標準出力クローズ	****/
 	fclose(fp);
-	/*	コンソール解放	*/
+	/****	コンソール解放	****/
 	::FreeConsole();
 }
 

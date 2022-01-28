@@ -14,6 +14,9 @@ bool ScreenFx::Start()
 	/*	À•W	*/
 	transform->Position.Set(1920.0f / 2, 1080.0f / 2, 0.0f);
 
+
+	Active = true;
+
 	return true;
 }
 

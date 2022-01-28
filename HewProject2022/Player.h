@@ -3,6 +3,7 @@
 #include "Tile.h"
 #include "LandTile.h"
 #include "PlayerAnimController.h"
+#include "MainCamera.h"
 
 class TileColumn;
 
@@ -102,6 +103,8 @@ private:
 	PlayerAnimController m_PlayerAnimController;
 
 	bool m_PlayerDeath;//プレイヤー死亡フラグ
+
+	MainCamera* m_MainCamera;
 };
 
 

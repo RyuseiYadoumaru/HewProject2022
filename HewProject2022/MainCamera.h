@@ -20,5 +20,8 @@ private:
 	Vector2 RangeTopLeft;
 	Vector2 RangeButtomRight;
 	GameObject* p_FocusObject;
+	XMFLOAT2 m_object_distace;
+	XMFLOAT2 m_controller_angle;
+public:
+	static bool m_CameraMode;
 };
-

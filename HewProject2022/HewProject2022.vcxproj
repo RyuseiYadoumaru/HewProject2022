@@ -233,6 +233,7 @@
     <ClCompile Include="PlayerAnimController.cpp" />
     <ClCompile Include="PlayerEffectController.cpp" />
     <ClCompile Include="PlayerGoalEffect.cpp" />
+    <ClCompile Include="PlayModeUI.cpp" />
     <ClCompile Include="PushAny.cpp" />
     <ClCompile Include="PushTile.cpp" />
     <ClCompile Include="ResetInfo.cpp" />
@@ -289,6 +290,7 @@
     <ClCompile Include="TutorialEffectAnim.cpp" />
     <ClCompile Include="TutorialEffectAnimController.cpp" />
     <ClCompile Include="Umbrella.cpp" />
+    <ClCompile Include="waku.cpp" />
     <ClCompile Include="World1StageSelectScene.cpp" />
     <ClCompile Include="World2StageSelectScene.cpp" />
     <ClCompile Include="World3StageSelectScene.cpp" />
@@ -394,6 +396,7 @@
     <ClInclude Include="PlayerAnimController.h" />
     <ClInclude Include="PlayerEffectController.h" />
     <ClInclude Include="PlayerGoalEffect.h" />
+    <ClInclude Include="PlayModeUI.h" />
     <ClInclude Include="PushAny.h" />
     <ClInclude Include="PushTile.h" />
     <ClInclude Include="ResetInfo.h" />
@@ -453,6 +456,7 @@
     <ClInclude Include="TutorialEffectAnim.h" />
     <ClInclude Include="TutorialEffectAnimController.h" />
     <ClInclude Include="Umbrella.h" />
+    <ClInclude Include="waku.h" />
     <ClInclude Include="World1StageSelectScene.h" />
     <ClInclude Include="World2StageSelectScene.h" />
     <ClInclude Include="World3StageSelectScene.h" />

@@ -489,7 +489,6 @@
     <ClCompile Include="PlayerAnimController.cpp">
       <Filter>TOYALINE\Object\Player\Animation</Filter>
     </ClCompile>
-    <ClCompile Include="AnimTest.cpp" />
     <ClCompile Include="World1StageSelectScene.cpp">
       <Filter>TOYALINE\StageSelect</Filter>
     </ClCompile>
@@ -787,6 +786,12 @@
     <ClCompile Include="StarTile.cpp">
       <Filter>TOYALINE\Object\Actor\Map\Star</Filter>
     </ClCompile>
+    <ClCompile Include="PlayModeUI.cpp">
+      <Filter>TOYALINE\Object\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="waku.cpp">
+      <Filter>TOYALINE\Object\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Runtime\Application.h">
@@ -966,7 +971,6 @@
     <ClInclude Include="PlayerAnimController.h">
       <Filter>TOYALINE\Object\Player\Animation</Filter>
     </ClInclude>
-    <ClInclude Include="AnimTest.h" />
     <ClInclude Include="Stage1.h">
       <Filter>TOYALINE\World1\Scene</Filter>
     </ClInclude>
@@ -1269,6 +1273,12 @@
     </ClInclude>
     <ClInclude Include="StarTile.h">
       <Filter>TOYALINE\Object\Actor\Map\Star</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayModeUI.h">
+      <Filter>TOYALINE\Object\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="waku.h">
+      <Filter>TOYALINE\Object\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

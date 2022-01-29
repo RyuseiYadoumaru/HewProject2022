@@ -26,6 +26,8 @@ bool GamePlay::Stage20Scene::Start()
 
 	m_LayerFront = Instance<LayerFront>("LayerFront");
 	m_LayerFront->Sprite("world4_obj2_5");
+	m_LayerBack->transform->Position.y += 5.0f;
+	m_GrayBack->transform->Position.y += 5.0f;
 
 	/*	“Vˆä‰Šú‰»	*/
 	m_Ceiling = Instance<Ceiling>("Ceiling");

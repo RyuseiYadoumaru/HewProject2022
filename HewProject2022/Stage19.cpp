@@ -22,6 +22,8 @@ bool GamePlay::Stage19Scene::Start()
 	m_LayerBack->Sprite("world4_obj1_4");
 	m_GrayBack = Instance<GrayBack>("GrayBack");
 	m_GrayBack->Sprite("Grey4_4");
+	m_LayerBack->transform->Position.y += 5.0f;
+	m_GrayBack->transform->Position.y += 5.0f;
 
 	/*	“Vˆä‰Šú‰»	*/
 	m_Ceiling = Instance<Ceiling>("Ceiling");

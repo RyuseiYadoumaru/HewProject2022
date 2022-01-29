@@ -22,6 +22,8 @@ bool GamePlay::Stage16Scene::Start()
 	m_LayerBack->Sprite("world4_obj1_1");
 	m_GrayBack = Instance<GrayBack>("GrayBack");
 	m_GrayBack->Sprite("Grey4_1");
+	m_LayerBack->transform->Position.y += 5.0f;
+	m_GrayBack->transform->Position.y += 5.0f;
 
 	/*	‰Šú‰»	*/
 	m_Shelf2End->transform->Position.x += ROAD_DISTANCE;

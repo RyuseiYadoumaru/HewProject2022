@@ -4,8 +4,6 @@ using namespace Create;
 
 bool GamePlay::Stage11Scene::Start()
 {
-
-
 	/*	インスタンス	*/
 	m_Map = Instance<Map>("stage3-1");
 	m_Player = Instance<Player>("Player");
@@ -51,12 +49,8 @@ bool GamePlay::Stage11Scene::Start()
 
 	m_Button->NowScene = m_ResultCursor->NowScene;
 
-
-
 	/*	初期化	*/
 	m_PlantsEnd->transform->Position.x += ROAD_DISTANCE;
-
-
 
 	/*	カメラ設定	*/
 	SetCamera(m_MainCamera);

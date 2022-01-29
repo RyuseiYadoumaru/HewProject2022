@@ -15,7 +15,8 @@ bool GamePlay::World1StageSelectScene::Start()
 	//”wŒi‰æ‘œ
 	m_worldBack = Instance<Actor>("Select");
 	m_worldBack->Sprite("select");
-	m_worldBack->transform->Scale.Set(0.5f, 0.5f, 0.5f);
+	//m_worldBack->transform->Scale.Set(0.5f, 0.5f, 0.5f);
+	m_worldBack->transform->Scale.Set(0.49f, 0.49f, 0.49f);//‹g“cK‹C‚±‚±‚ÌƒTƒCƒY‚Æ‚©•Ï‚¦‚Ä”wŒiƒmƒCƒY‚¢‚¢Š´‚¶‚É‚µ‚Ä[
 
 	//1‚Â‚ÌƒmƒCƒYˆÚ“®3500
 	m_worldBack->transform->Position.Set(7000.0f, 0.0f, 0.0f);

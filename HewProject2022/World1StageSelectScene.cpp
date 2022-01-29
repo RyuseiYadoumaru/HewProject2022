@@ -5,6 +5,13 @@ using namespace Create;
 bool GamePlay::World1StageSelectScene::Start()
 {
 	//オブジェクト生成 初期化
+	//フェード
+	m_fade = Instance<SelectFade>("White");
+	m_fadeflg = false;
+
+	//ボタンアニメーション
+	m_selectAnimation = Instance<SelectTutorial>("SelectAnimation");
+
 	//背景画像
 	m_worldBack = Instance<Actor>("Select");
 	m_worldBack->Sprite("select");
@@ -13,15 +20,15 @@ bool GamePlay::World1StageSelectScene::Start()
 	//1つのノイズ移動3500
 	m_worldBack->transform->Position.Set(7000.0f, 0.0f, 0.0f);
 
-	//矢印キー画像
-	m_button = Instance<Actor>("SelectButton");
-	m_button->Sprite("button");
-	m_button->transform->Scale.Set(0.5f, 0.5f, 0.5f);
-	m_button->transform->Position.Set(-700.0f, 150.0f, 0.0f);
+	//Ui
+	m_selectUi = Instance<Actor>("SelectUI");
+	m_selectUi->Sprite("selectUI");
+	m_selectUi->Vertex("vs_Ui");
+	m_selectUi->transform->Position.Set(960.0f, 550.0f, 0.0f);
+	m_selectUi->transform->Scale.Set(0.5f, 0.5f, 0.0f);
 
 	//ワールド画像
 	//配列にしたいよ～～～
-	m_fade = Instance<Fade>("Black");
 	m_stage_1 = Instance<Actor>("Stage-01");
 	m_stage_2 = Instance<Actor>("Stage-02");
 	m_stage_3 = Instance<Actor>("Stage-03");
@@ -249,6 +256,14 @@ Scene::STATE GamePlay::World1StageSelectScene::Update()
 		}
 	}
 
+	if (m_fadeflg == true) {
+		m_fade->SetFadeStatus(m_fade->FADE_OUT);
+		int gomi;
+		gomi = m_fade->GetFadeStatus();
+		m_fade->Update();
+		m_fadeflg = false;
+	}
+
 	m_frameCnt++;
 
 	/****	システム更新	****/
@@ -275,18 +290,20 @@ bool GamePlay::World1StageSelectScene::Render()
 	ClearDisplay();
 
 	//自前の描画
-
+	ObjectRender<SelectTutorial>("SelectAnimation");
 	ObjectRender<Actor>("Stage-01");
 	ObjectRender<Actor>("Stage-02");
 	ObjectRender<Actor>("Stage-03");
 	ObjectRender<Actor>("Stage-04");
 	ObjectRender<Actor>("Stage-05");
 	ObjectRender<Actor>("Select");
-	ObjectRender<Actor>("SelectButton");
+	ObjectRender<SelectTutorial>("SelectAnimation");
+	ObjectRender<Actor>("SelectUI");
+	ObjectRender<SelectFade>("White");
 
-	if (SceneTransition::m_SceneTransitionFlg == false) {
-		ObjectRender<SceneTransition>("Scene");//シーン遷移アニメーション
-	}
+	//if (SceneTransition::m_SceneTransitionFlg == false) {
+	//	ObjectRender<SceneTransition>("Scene");//シーン遷移アニメーション
+	//}
 
 
 	/****	画面描画	****/

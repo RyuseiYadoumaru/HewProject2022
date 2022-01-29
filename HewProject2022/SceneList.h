@@ -13,7 +13,6 @@
 #include"World3StageSelectScene.h"
 #include"World4StageSelectScene.h"
 #include"World5StageSelectScene.h"
-#include"World6StageSelectScene.h"
 #include"Stage1.h"
 #include"Stage2.h"
 #include"Stage3.h"

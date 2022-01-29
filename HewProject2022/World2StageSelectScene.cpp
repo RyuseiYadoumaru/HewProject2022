@@ -5,39 +5,39 @@ using namespace Create;
 bool GamePlay::World2StageSelectScene::Start()
 {
 	//オブジェクト生成 初期化
+	//フェード
+	m_fade = Instance<SelectFade>("White");
+
+	//ボタンアニメーション
+	m_selectAnimation = Instance<SelectTutorial>("SelectAnimation");
+
+	//Ui
+	m_selectUi = Instance<Actor>("SelectUI");
+	m_selectUi->Sprite("selectUI");
+	m_selectUi->Vertex("vs_Ui");
+	m_selectUi->transform->Position.Set(960.0f, 550.0f, 0.0f);
+	m_selectUi->transform->Scale.Set(0.5f, 0.5f, 0.0f);
+
 	//背景画像
-	m_worldBack = make_shared<Actor>("Select");
+	m_worldBack = Instance<Actor>("Select");
 	m_worldBack->Sprite("select");
-	m_worldBack->Start();
 	m_worldBack->transform->Scale.Set(0.5f, 0.5f, 0.5f);
 
 	//1つのノイズ移動3500
 	m_worldBack->transform->Position.Set(7000.0f, 0.0f, 0.0f);
 
-	//矢印キー画像
-	m_button = make_shared<Actor>("SelectButton");
-	m_button->Sprite("button");
-	m_button->Start();
-	m_button->transform->Scale.Set(0.5f, 0.5f, 0.5f);
-	m_button->transform->Position.Set(-700.0f, 150.0f, 0.0f);
-
 	//ワールド画像
 	//配列にしたいよ～～～
-	m_stage_1 = make_shared<Actor>("Stage-01");
-	m_stage_2 = make_shared<Actor>("Stage-02");
-	m_stage_3 = make_shared<Actor>("Stage-03");
-	m_stage_4 = make_shared<Actor>("Stage-04");
-	m_stage_5 = make_shared<Actor>("Stage-05");
+	m_stage_1 = Instance<Actor>("Stage-01");
+	m_stage_2 = Instance<Actor>("Stage-02");
+	m_stage_3 = Instance<Actor>("Stage-03");
+	m_stage_4 = Instance<Actor>("Stage-04");
+	m_stage_5 = Instance<Actor>("Stage-05");
 	m_stage_1->Sprite("stage-01");
 	m_stage_2->Sprite("stage-02");
 	m_stage_3->Sprite("stage-03");
 	m_stage_4->Sprite("stage-04");
 	m_stage_5->Sprite("stage-05");
-	m_stage_1->Start();
-	m_stage_2->Start();
-	m_stage_3->Start();
-	m_stage_4->Start();
-	m_stage_5->Start();
 	m_stage_1->transform->Position.Set(0.0f, 0.0f, 0.0f);
 	m_stage_2->transform->Position.Set(3500.0f, 0.0f, 0.0f);
 	m_stage_3->transform->Position.Set(7000.0f, 0.0f, 0.0f);
@@ -64,12 +64,7 @@ bool GamePlay::World2StageSelectScene::Start()
 
 Scene::STATE GamePlay::World2StageSelectScene::Update()
 {
-	camera->Update();
-
-	for (auto i : ObjectArray)
-	{
-		i.second->Update();
-	}
+	ObjectUpdate();
 
 	switch (m_stageNumber) {
 	case STAGE_01:
@@ -253,16 +248,9 @@ Scene::STATE GamePlay::World2StageSelectScene::Update()
 		}
 	}
 
-	m_button->transform->Update();
-
-	m_stage_1->transform->Update();
-	m_stage_2->transform->Update();
-	m_stage_3->transform->Update();
-	m_stage_4->transform->Update();
-	m_stage_5->transform->Update();
-	m_worldBack->transform->Update();
-
 	m_frameCnt++;
+	SystemUpdate();
+
 	return PLAY;
 }
 
@@ -283,13 +271,15 @@ bool GamePlay::World2StageSelectScene::Render()
 	ClearDisplay();
 
 	//自前の描画
-	m_stage_1->Render();
-	m_stage_2->Render();
-	m_stage_3->Render();
-	m_stage_4->Render();
-	m_stage_5->Render();
-	m_button->Render();
-	m_worldBack->Render();
+	ObjectRender<Actor>("Stage-01");
+	ObjectRender<Actor>("Stage-02");
+	ObjectRender<Actor>("Stage-03");
+	ObjectRender<Actor>("Stage-04");
+	ObjectRender<Actor>("Stage-05");
+	ObjectRender<Actor>("Select");
+	ObjectRender<SelectTutorial>("SelectAnimation");
+	ObjectRender<Actor>("SelectUI");
+	ObjectRender<SelectFade>("White");
 
 	/****	画面描画	****/
 	SwapChain();

@@ -17,8 +17,9 @@ bool GamePlay::Stage11Scene::Start()
 	m_CameraFrame = Instance<CameraFrame>("CFX");
 	m_BackGround = Instance<BackGround>("Wall");
 	m_BackGround->Sprite("World3_BG");
-	m_LayerBack = Instance<LayerBack>("LayerBack");
-	m_LayerBack->Sprite("World3_obj1-1");
+	m_BackGround->transform->Scale.Set(2.5f, 2.5f, 0.0f);
+	//m_LayerBack = Instance<LayerBack>("LayerBack");
+	//m_LayerBack->Sprite("World3_obj1-1");
 	m_GrayBack = Instance<GrayBack>("GrayBack");
 	m_GrayBack->Sprite("Grey");
 	m_LayerFront = Instance<LayerFront>("LayerFront");
@@ -159,7 +160,7 @@ bool GamePlay::Stage11Scene::Render()
 	ObjectRender<BackGround>("Wall");
 
 	/****	å„ëïè¸ïi	****/
-	ObjectRender<LayerBack>("LayerBack");
+	//ObjectRender<LayerBack>("LayerBack");
 
 	// ÉOÉåÅ[îwåi
 	ObjectRender<GrayBack>("GrayBack");

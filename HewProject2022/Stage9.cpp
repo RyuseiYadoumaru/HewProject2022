@@ -19,6 +19,8 @@ bool GamePlay::Stage9Scene::Start()
 	m_LayerBack->Sprite("World2_obj1_4");
 	m_GrayBack = Instance<GrayBack>("GrayBack");
 	m_GrayBack->Sprite("Grey");
+	m_LayerFront = Instance<LayerFront>("LayerFront");
+	m_LayerFront->Sprite("World2_obj2_4");
 
 	/* ゴール時プレイヤーエフェクト生成 */
 	m_PGoalEffect = Instance<PlayerGoalEffect>("PGoalEffect");
@@ -166,7 +168,7 @@ bool GamePlay::Stage9Scene::Render()
 	ObjectRender<Sink>("SinkStart");
 	ObjectRender<Tableware>("TablewareEnd");
 
-	ObjectRender<Map>("stage1-1");
+	ObjectRender<Map>("stage2-4");
 	ObjectRender<Player>("Player");
 
 	/****	前装飾品	****/

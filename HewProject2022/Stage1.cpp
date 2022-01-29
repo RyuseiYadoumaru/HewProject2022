@@ -34,6 +34,9 @@ bool GamePlay::Stage1Scene::Start()
 	/*  ゴールインスタンス生成  */
 	m_Goal = Instance<Goal>("Goal");
 
+	// ゲーム画面UI初期化
+	m_PlayModeUI = Instance<PlayModeUI>("PlayModeUI");
+	m_waku = Instance<waku>("waku");
 
 	/*	背景初期化	*/
 	m_BackGround = Instance<BackGround>("Wall");
@@ -145,6 +148,20 @@ Scene::STATE GamePlay::Stage1Scene::Update()
 
 	}
 
+	// ゲーム画面UI切り替え
+	if (m_MainCamera->m_CameraMode == false)
+	{
+		m_PlayModeUI->Active = true;
+		m_waku->Active = false;
+		m_ScreenEffect->Active = true;
+	}
+	else
+	{
+		m_PlayModeUI->Active = false;
+		m_waku->Active = true;
+		m_ScreenEffect->Active = false;
+	}
+
 
 
 	/****	システム更新	****/
@@ -199,6 +216,8 @@ bool GamePlay::Stage1Scene::Render()
 	/****	前装飾品	****/
 	ObjectRender<LayerFront>("LayerFront");
 
+
+
 	//三木原追加 チュートリアル描画
 	ObjectRender<MoveTutorial>("MoveTutorial");
 	ObjectRender<JumpTutorial>("JumpTutorial");
@@ -214,6 +233,9 @@ bool GamePlay::Stage1Scene::Render()
 	ObjectRender<ScreenFx>("SFX");
 	ObjectRender<CameraFrame>("CFX");
 
+	// ゲーム画面UI
+	ObjectRender<PlayModeUI>("PlayModeUI");
+	ObjectRender<waku>("waku");
 
 
 	/*** リザルト ***/

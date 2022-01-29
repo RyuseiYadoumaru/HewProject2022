@@ -1,5 +1,6 @@
 #pragma once
 #include "ydmEngine.h"
+
 using Create::Camera;
 using Create::GameObject;
 using Math::Vector2;
@@ -22,6 +23,7 @@ private:
 	GameObject* p_FocusObject;
 	XMFLOAT2 m_object_distace;
 	XMFLOAT2 m_controller_angle;
+	XMFLOAT2 m_Save;
 public:
 	static bool m_CameraMode;
 };

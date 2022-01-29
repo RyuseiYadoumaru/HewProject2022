@@ -19,8 +19,6 @@ bool GamePlay::Stage10Scene::Start()
 	m_LayerBack->Sprite("World2_obj1_5");
 	m_GrayBack = Instance<GrayBack>("GrayBack");
 	m_GrayBack->Sprite("Grey");
-	m_LayerFront = Instance<LayerFront>("LayerFront");
-	m_LayerFront->Sprite("World2_obj2_1");
 
 	/* ゴール時プレイヤーエフェクト生成 */
 	m_PGoalEffect = Instance<PlayerGoalEffect>("PGoalEffect");
@@ -168,10 +166,6 @@ bool GamePlay::Stage10Scene::Render()
 
 	ObjectRender<Map>("stage2-5");
 	ObjectRender<Player>("Player");
-
-
-	/****	前装飾品	****/
-	ObjectRender<LayerFront>("LayerFront");
 
 	/****	デバッグ	****/
 	//m_ShelfEnd->Debug();

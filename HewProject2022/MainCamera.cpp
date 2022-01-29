@@ -4,6 +4,7 @@
 
 bool MainCamera::m_CameraMode = false;
 
+
 MainCamera::MainCamera(string in_Name) : Camera(in_Name)
 {
 	transform->Position.Set(0.0f, 0.0f, 0.0f);
@@ -11,11 +12,14 @@ MainCamera::MainCamera(string in_Name) : Camera(in_Name)
 	m_object_distace.y = 0.0f;
 	m_controller_angle.x = 0.0f;
 	m_controller_angle.y = 0.0f;
+	m_Save.x = 0.0f;
+	m_Save.y = 0.0f;
 	p_FocusObject = nullptr;
 }
 bool MainCamera::Start()
 {
 	BackgroundColor.Set(32.0f, 56.0f, 96.0f, 1.0f);
+
 	return true;
 }
 
@@ -41,8 +45,18 @@ bool MainCamera::Update()
 		if (Input::GetKeyPress(PK_RIGHT) == true || Input::GetKeyPress(PK_LEFT) == true || Input::GetKeyPress(PK_DOWN) == true || Input::GetKeyPress(PK_UP) == true ||
 			Input::GetControllerRightStick().x > 0.0f || Input::GetControllerRightStick().x < 0.0f || Input::GetControllerRightStick().y < 0.0f || Input::GetControllerRightStick().y > 0.0f)
 		{
-			m_CameraMode = true;
+			if (m_CameraMode == false)
+			{
+				m_Save.x = 0.0f;
+				m_Save.y = 0.0f;
+				m_Save.x = m_object_distace.x;
+				m_Save.y = m_object_distace.y;
+			}
 
+			if ((m_Save.x != 0.0f) || (m_Save.y != 0.0f))
+			{
+				m_CameraMode = true;
+			}
 		}
 
 		if (m_CameraMode == false)
@@ -110,28 +124,35 @@ bool MainCamera::Update()
 			//右スティックの軸が0の時に戻す処理をする
 
 			// スムーズに戻す処理
-			if (transform->Position.x > p_FocusObject->transform->Position.x)
+			if (transform->Position.x > p_FocusObject->transform->Position.x - fabs(m_Save.x))
 			{
 				transform->Position.x -= CAMERA_SPEED;
 			}
 
-			if (transform->Position.x < p_FocusObject->transform->Position.x)
+			if (transform->Position.x < p_FocusObject->transform->Position.x - fabs(m_Save.x))
 			{
 				transform->Position.x += CAMERA_SPEED;
 			}
 
-			if (transform->Position.y > (p_FocusObject->transform->Position.y - 200.0f))
+			if (transform->Position.y > p_FocusObject->transform->Position.y - fabs(m_Save.y))
 			{
 				transform->Position.y -= CAMERA_SPEED;
 			}
 
-			if (transform->Position.y < (p_FocusObject->transform->Position.y - 200.0f))
+			if (transform->Position.y < p_FocusObject->transform->Position.y - fabs(m_Save.y))
 			{
 				transform->Position.y += CAMERA_SPEED;
 			}
 
-			if ((transform->Position.x <= p_FocusObject->transform->Position.x + 10) && (transform->Position.x > p_FocusObject->transform->Position.x - 10) &&
-				(transform->Position.y >= p_FocusObject->transform->Position.y - 210.0f) && (transform->Position.y < p_FocusObject->transform->Position.y - 190.0f))
+			//if ((p_FocusObject->transform->Position.x < 1000.0f) || (p_FocusObject->transform->Position.x > 6200.0f))
+			//{
+			//	if ((transform->Position.y <= p_FocusObject->transform->Position.y - fabs(m_Save.y) + 10.0f) && (transform->Position.y > p_FocusObject->transform->Position.y - fabs(m_Save.y) - 10.0f) &&
+			//		(transform->Position.x >= 1000.0f) && (transform->Position.x < 1010.0f))
+			//		m_CameraMode = false;
+			//}
+
+			if ((transform->Position.x <= p_FocusObject->transform->Position.x - fabs(m_Save.x) + 10.0f) && (transform->Position.x > p_FocusObject->transform->Position.x - fabs(m_Save.x) - 10.0f) &&
+				(transform->Position.y <= p_FocusObject->transform->Position.y - fabs(m_Save.y) + 10.0f) && (transform->Position.y > p_FocusObject->transform->Position.y - fabs(m_Save.y) - 10.0f))
 			{
 				m_CameraMode = false;
 			}

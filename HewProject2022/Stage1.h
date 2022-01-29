@@ -25,6 +25,9 @@
 #include "Tutorial_X.h"
 #include "Tutorial_Y.h"
 
+#include "PlayModeUI.h"
+#include "waku.h"
+
 using Create::Actor;
 using GameEngine::Input;
 
@@ -75,6 +78,10 @@ namespace GamePlay
 		/* ƒŠƒUƒ‹ƒg */
 		Result* m_ResultBack;
 		Result* m_ResultCursor;
+
+		// ƒQ[ƒ€‰æ–ÊUI
+		PlayModeUI* m_PlayModeUI;
+		waku* m_waku;
 
 	public:
 		bool Start() override;

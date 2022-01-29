@@ -20,8 +20,6 @@ bool GamePlay::Stage3Scene::Start()
 	m_LayerBack->Sprite("World1_obj1-3");
 	m_GrayBack = Instance<GrayBack>("GrayBack");
 	m_GrayBack->Sprite("Grey1-3");
-	m_LayerFront = Instance<LayerFront>("LayerFront");
-	m_LayerFront->Sprite("World_obj2_1");
 
 	m_PGoalEffect = Instance<PlayerGoalEffect>("PGoalEffect");
 
@@ -175,9 +173,6 @@ bool GamePlay::Stage3Scene::Render()
 
 	ObjectRender<Map>("stage1-3");
 	ObjectRender<Player>("Player");
-
-	/****	前装飾品	****/
-	ObjectRender<LayerFront>("LayerFront");
 
 	//三木原追加 チュートリアル描画
 	ObjectRender<TutorialEffect>("TutorialEffect");

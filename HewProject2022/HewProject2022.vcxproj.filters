@@ -343,6 +343,12 @@
     <Filter Include="TOYALINE\StageSelect\SelectAnimation">
       <UniqueIdentifier>{02602386-5265-4ebb-bb6b-182f83f4bf38}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TOYALINE\Tutorial\TutorialEffect">
+      <UniqueIdentifier>{b8091a7a-ad38-4ad3-8328-82a99c3d805e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Tutorial\TutorialXY">
+      <UniqueIdentifier>{24c3fc5d-4e43-4fa6-bcc5-1313de36ce32}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Runtime\Application.cpp">
@@ -492,7 +498,6 @@
     <ClCompile Include="PlayerAnimController.cpp">
       <Filter>TOYALINE\Object\Player\Animation</Filter>
     </ClCompile>
-    <ClCompile Include="AnimTest.cpp" />
     <ClCompile Include="World1StageSelectScene.cpp">
       <Filter>TOYALINE\StageSelect</Filter>
     </ClCompile>
@@ -703,21 +708,6 @@
     <ClCompile Include="Shelf2.cpp">
       <Filter>TOYALINE\World4\Road</Filter>
     </ClCompile>
-    <ClCompile Include="TutorialAnim.cpp">
-      <Filter>TOYALINE\Tutorial</Filter>
-    </ClCompile>
-    <ClCompile Include="TutorialEffectAnimController.cpp">
-      <Filter>TOYALINE\Tutorial</Filter>
-    </ClCompile>
-    <ClCompile Include="TutorialEffectAnim.cpp">
-      <Filter>TOYALINE\Tutorial</Filter>
-    </ClCompile>
-    <ClCompile Include="TutorialAnimController.cpp">
-      <Filter>TOYALINE\Tutorial</Filter>
-    </ClCompile>
-    <ClCompile Include="TutorialEffect.cpp">
-      <Filter>TOYALINE\Tutorial</Filter>
-    </ClCompile>
     <ClCompile Include="Result.cpp">
       <Filter>TOYALINE\Result</Filter>
     </ClCompile>
@@ -787,10 +777,6 @@
     <ClCompile Include="StarTile.cpp">
       <Filter>TOYALINE\Object\Actor\Map\Star</Filter>
     </ClCompile>
-    <ClCompile Include="Tutorial_X.cpp" />
-    <ClCompile Include="Tutorial_Y.cpp" />
-    <ClCompile Include="Tutorial_XYAnim.cpp" />
-    <ClCompile Include="Tutorial_XYAnimController.cpp" />
     <ClCompile Include="SelectFade.cpp">
       <Filter>TOYALINE\StageSelect</Filter>
     </ClCompile>
@@ -802,6 +788,33 @@
     </ClCompile>
     <ClCompile Include="SelectTutorial.cpp">
       <Filter>TOYALINE\StageSelect\SelectAnimation</Filter>
+    </ClCompile>
+    <ClCompile Include="TutorialEffect.cpp">
+      <Filter>TOYALINE\Tutorial\TutorialEffect</Filter>
+    </ClCompile>
+    <ClCompile Include="TutorialEffectAnim.cpp">
+      <Filter>TOYALINE\Tutorial\TutorialEffect</Filter>
+    </ClCompile>
+    <ClCompile Include="TutorialEffectAnimController.cpp">
+      <Filter>TOYALINE\Tutorial\TutorialEffect</Filter>
+    </ClCompile>
+    <ClCompile Include="TutorialAnim.cpp">
+      <Filter>TOYALINE\Tutorial\MoveaTutorial</Filter>
+    </ClCompile>
+    <ClCompile Include="TutorialAnimController.cpp">
+      <Filter>TOYALINE\Tutorial\MoveaTutorial</Filter>
+    </ClCompile>
+    <ClCompile Include="Tutorial_X.cpp">
+      <Filter>TOYALINE\Tutorial\TutorialXY</Filter>
+    </ClCompile>
+    <ClCompile Include="Tutorial_Y.cpp">
+      <Filter>TOYALINE\Tutorial\TutorialXY</Filter>
+    </ClCompile>
+    <ClCompile Include="Tutorial_XYAnim.cpp">
+      <Filter>TOYALINE\Tutorial\TutorialXY</Filter>
+    </ClCompile>
+    <ClCompile Include="Tutorial_XYAnimController.cpp">
+      <Filter>TOYALINE\Tutorial\TutorialXY</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -982,7 +995,6 @@
     <ClInclude Include="PlayerAnimController.h">
       <Filter>TOYALINE\Object\Player\Animation</Filter>
     </ClInclude>
-    <ClInclude Include="AnimTest.h" />
     <ClInclude Include="Stage1.h">
       <Filter>TOYALINE\World1\Scene</Filter>
     </ClInclude>
@@ -1202,21 +1214,6 @@
     <ClInclude Include="Shelf2.h">
       <Filter>TOYALINE\World4\Road</Filter>
     </ClInclude>
-    <ClInclude Include="TutorialAnim.h">
-      <Filter>TOYALINE\Tutorial</Filter>
-    </ClInclude>
-    <ClInclude Include="TutorialEffectAnimController.h">
-      <Filter>TOYALINE\Tutorial</Filter>
-    </ClInclude>
-    <ClInclude Include="TutorialEffectAnim.h">
-      <Filter>TOYALINE\Tutorial</Filter>
-    </ClInclude>
-    <ClInclude Include="TutorialAnimController.h">
-      <Filter>TOYALINE\Tutorial</Filter>
-    </ClInclude>
-    <ClInclude Include="TutorialEffect.h">
-      <Filter>TOYALINE\Tutorial</Filter>
-    </ClInclude>
     <ClInclude Include="Result.h">
       <Filter>TOYALINE\Result</Filter>
     </ClInclude>
@@ -1283,10 +1280,6 @@
     <ClInclude Include="StarTile.h">
       <Filter>TOYALINE\Object\Actor\Map\Star</Filter>
     </ClInclude>
-    <ClInclude Include="Tutorial_X.h" />
-    <ClInclude Include="Tutorial_Y.h" />
-    <ClInclude Include="Tutorial_XYAnim.h" />
-    <ClInclude Include="Tutorial_XYAnimController.h" />
     <ClInclude Include="SelectFade.h">
       <Filter>TOYALINE\StageSelect</Filter>
     </ClInclude>
@@ -1298,6 +1291,33 @@
     </ClInclude>
     <ClInclude Include="SelectTutorial.h">
       <Filter>TOYALINE\StageSelect\SelectAnimation</Filter>
+    </ClInclude>
+    <ClInclude Include="TutorialEffect.h">
+      <Filter>TOYALINE\Tutorial\TutorialEffect</Filter>
+    </ClInclude>
+    <ClInclude Include="TutorialEffectAnim.h">
+      <Filter>TOYALINE\Tutorial\TutorialEffect</Filter>
+    </ClInclude>
+    <ClInclude Include="TutorialEffectAnimController.h">
+      <Filter>TOYALINE\Tutorial\TutorialEffect</Filter>
+    </ClInclude>
+    <ClInclude Include="TutorialAnim.h">
+      <Filter>TOYALINE\Tutorial\MoveaTutorial</Filter>
+    </ClInclude>
+    <ClInclude Include="TutorialAnimController.h">
+      <Filter>TOYALINE\Tutorial\MoveaTutorial</Filter>
+    </ClInclude>
+    <ClInclude Include="Tutorial_X.h">
+      <Filter>TOYALINE\Tutorial\TutorialXY</Filter>
+    </ClInclude>
+    <ClInclude Include="Tutorial_Y.h">
+      <Filter>TOYALINE\Tutorial\TutorialXY</Filter>
+    </ClInclude>
+    <ClInclude Include="Tutorial_XYAnim.h">
+      <Filter>TOYALINE\Tutorial\TutorialXY</Filter>
+    </ClInclude>
+    <ClInclude Include="Tutorial_XYAnimController.h">
+      <Filter>TOYALINE\Tutorial\TutorialXY</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

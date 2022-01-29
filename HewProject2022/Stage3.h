@@ -18,6 +18,12 @@
 #include "Goal.h"
 #include"PlayerGoalEffect.h"
 
+#include "MoveTutorial.h"
+#include "JumpTutorial.h"
+#include "TutorialEffect.h"
+#include "Tutorial_X.h"
+#include "Tutorial_Y.h"
+
 using Create::Actor;
 using GameEngine::Input;
 
@@ -37,7 +43,6 @@ namespace GamePlay
 		BackGround* m_BackGround;
 		LayerBack* m_LayerBack;
 		GrayBack*       m_GrayBack;
-		LayerFront* m_LayerFront;
 
 		/*	天井	*/
 		Ceiling* m_Ceiling;
@@ -58,6 +63,13 @@ namespace GamePlay
 		/* リザルト */
 		Result* m_ResultCursor;
 		Result* m_ResultBack;
+
+		/* チュートリアル */
+		MoveTutorial* m_MoveTutorial;
+		JumpTutorial* m_JumpTutorial;
+		TutorialEffect* m_TutorialEffect;
+		Tutorial_X* m_Tutorial_X;
+		Tutorial_Y* m_Tutorial_Y;
 
 	public:
 		bool Start() override;

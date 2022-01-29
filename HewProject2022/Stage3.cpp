@@ -20,8 +20,6 @@ bool GamePlay::Stage3Scene::Start()
 	m_LayerBack->Sprite("World1_obj1-3");
 	m_GrayBack = Instance<GrayBack>("GrayBack");
 	m_GrayBack->Sprite("Grey1-3");
-	m_LayerFront = Instance<LayerFront>("LayerFront");
-	m_LayerFront->Sprite("World_obj2_1");
 
 	m_PGoalEffect = Instance<PlayerGoalEffect>("PGoalEffect");
 
@@ -44,7 +42,12 @@ bool GamePlay::Stage3Scene::Start()
 
 	m_Button->NowScene = m_ResultCursor->NowScene;
 
-
+	/* チュートリアル初期化 */
+	m_MoveTutorial = Instance<MoveTutorial>("MoveTutorial");
+	m_JumpTutorial = Instance<JumpTutorial>("JumpTutorial");
+	m_TutorialEffect = Instance<TutorialEffect>("TutorialEffect");
+	m_Tutorial_X = Instance<Tutorial_X>("Tutorial_X");
+	m_Tutorial_Y = Instance<Tutorial_Y>("Tutorial_Y");
 
 	/*	初期化	*/
 	m_SofaEnd->transform->Position.x += ROAD_DISTANCE;
@@ -109,7 +112,7 @@ Scene::STATE GamePlay::Stage3Scene::Update()
 		}
 		break;
 	case 2://リザルト画面
-		
+
 		m_Player->Goal(m_Goal->transform->Position.x);//ゴールアニメーション再生
 		m_PGoalEffect->EF_Start();
 		m_PGoalEffect->transform->Position.Set(m_Player->transform->Position.x, m_Player->transform->Position.y, 0);
@@ -171,8 +174,9 @@ bool GamePlay::Stage3Scene::Render()
 	ObjectRender<Map>("stage1-3");
 	ObjectRender<Player>("Player");
 
-	/****	前装飾品	****/
-	ObjectRender<LayerFront>("LayerFront");
+	//三木原追加 チュートリアル描画
+	ObjectRender<TutorialEffect>("TutorialEffect");
+	ObjectRender<Tutorial_Y>("Tutorial_Y");
 
 	/****	デバッグ	****/
 	//m_Player->Debug();

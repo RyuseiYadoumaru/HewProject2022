@@ -3,6 +3,8 @@
 #include"StageList.h"
 #include "Fade.h"
 #include "SceneTransition.h"
+#include "SelectTutorial.h"
+#include"SelectFade.h"
 
 using Create::Actor;
 using GameEngine::Input;
@@ -12,15 +14,15 @@ namespace GamePlay
 	class World1StageSelectScene :public Create::Scene
 	{
 	private:
-		Actor* m_button;//選択矢印画像
 		Actor* m_stage_1;//ワールド1画像
 		Actor* m_stage_2;//ワールド2画像
 		Actor* m_stage_3;//ワールド3画像
 		Actor* m_stage_4;//ワールド4画像
 		Actor* m_stage_5;//ワールド5画像
+		Actor* m_selectUi;//Ui
 		Actor* m_worldBack;//背景
-
-		Fade* m_fade;//フェード
+		SelectTutorial* m_selectAnimation;//ボタンアニメーション
+		SelectFade* m_fade;//フェード
 
 		SceneTransition* m_SceneTransition;//シーン遷移
 
@@ -30,7 +32,7 @@ namespace GamePlay
 		bool m_inputflg;
 		bool m_sceneRightMoveflg;
 		bool m_sceneLeftMoveflg;
-
+		bool m_fadeflg;
 
 	public:
 		bool Start() override;

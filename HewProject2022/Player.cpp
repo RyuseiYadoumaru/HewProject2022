@@ -95,7 +95,6 @@ bool Player::Start()
 
 bool Player::Update()
 {
-
 	/*	座標保存	*/
 	m_SavePosition = transform->Position;
 
@@ -455,7 +454,8 @@ void Player::MoveMap()
 
 	//カラーブロックに乗っているとき
 	//地面に乗っていないときのみ実装する
-	if (m_LandTile->GetLandTile()->tag == TagList::ColorBlock)
+	if (m_LandTile->GetLandTile()->tag.name == TagList::ColorBlock ||
+		m_LandTile->GetLandTile()->tag.name == TagList::ChangeColorBlock)
 	{
 		/*	エフェクト処理	*/
 		//乗ったところに魔法のエフェクトをかける
@@ -466,7 +466,8 @@ void Player::MoveMap()
 			ResetLandParticle();
 
 			/*	エフェクト生成処理	*/
-			if (BlockParticleManager::CheckPlayMoveEffect(m_LandTile->GetLandTile()->GetId().x) == false)
+			if (BlockParticleManager::CheckPlayMoveEffect(m_LandTile->GetLandTile()->GetId().x) == false &&
+				m_LandTile->GetLandTile()->tag.name == TagList::ColorBlock)
 			{
 				//乗っているタイルにエフェクトがかかっていないとき
 				//マジックエフェクトを再生する
@@ -478,8 +479,8 @@ void Player::MoveMap()
 		/*	ブロック魔法処理	*/
 		if (m_airFlg == false)
 		{
-			if (Input::GetControllerTrigger(XInput::Buttom::X) == true
-				|| Input::GetKeyTrigger(PK_Q) == true)
+			if (Input::GetControllerTrigger(XInput::Buttom::X) == true ||
+				Input::GetKeyTrigger(PK_Q) == true)
 			{
 				//空中に浮いていないとき
 				//魔法を使える

@@ -15,6 +15,7 @@ bool GamePlay::Stage15Scene::Start()
 	m_CameraFrame = Instance<CameraFrame>("CFX");
 	m_BackGround = Instance<BackGround>("Wall");
 	m_BackGround->Sprite("World3_BG");
+	m_BackGround->transform->Scale.Set(2.5f, 2.5f, 0.0f);
 	m_LayerBack = Instance<LayerBack>("LayerBack");
 	m_LayerBack->Sprite("World3_obj1-5");
 	m_GrayBack = Instance<GrayBack>("GrayBack");

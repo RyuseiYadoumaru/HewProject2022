@@ -18,8 +18,8 @@ bool GamePlay::Stage25Scene::Start()
 	m_CameraFrame = Instance<CameraFrame>("CFX");
 	m_BackGround = Instance<BackGround>("Wall");
 	m_BackGround->Sprite("World5_BG");
-	m_LayerBack = Instance<LayerBack>("LayerBack");
-	m_LayerBack->Sprite("World5_obj1_5");
+	//m_LayerBack = Instance<LayerBack>("LayerBack");
+	//m_LayerBack->Sprite("World5_obj1_5");
 	m_GrayBack = Instance<GrayBack>("GrayBack");
 	m_GrayBack->Sprite("Grey");
 	m_LayerFront = Instance<LayerFront>("LayerFront");
@@ -159,7 +159,7 @@ bool GamePlay::Stage25Scene::Render()
 	ObjectRender<BackGround>("Wall");
 
 	/****	å„ëïè¸ïi	****/
-	ObjectRender<LayerBack>("LayerBack");
+	//ObjectRender<LayerBack>("LayerBack");
 
 	// ÉOÉåÅ[îwåi
 	ObjectRender<GrayBack>("GrayBack");

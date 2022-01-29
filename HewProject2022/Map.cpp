@@ -127,14 +127,12 @@ bool Map::Update()
 	/*	列更新	*/
 	ColumnUpdate();
 
-	/*	列移動の更新	*/
-	MoveUpdate();
-
 	/*	列リセット処理	*/
-	if (m_OnReset == true)
-	{
-		MoveReset();
-	}
+	if (m_OnReset == true) MoveReset();
+
+	/*	列移動の更新	*/
+	else MoveUpdate();
+
 	return true;
 }
 
@@ -323,7 +321,9 @@ bool Map::CheckLandTile(LandTile& in_LandTile)
 
 	}
 
-	if (in_LandTile.GetLandTile()->tag == TagList::LandColorBlock && in_LandTile.GetSaveLandTile()->tag != TagList::ColorBlock)
+	if (in_LandTile.GetLandTile()->tag == TagList::LandColorBlock &&
+		in_LandTile.GetSaveLandTile()->tag != TagList::ColorBlock &&
+		in_LandTile.GetSaveLandTile()->tag != TagList::ChangeColorBlock)
 	{
 		if (in_LandTile.GetLandTile()->GetKind() == in_LandTile.GetSaveLandTile()->GetKind() &&
 			in_LandTile.GetLandTile()->transform->Position.y == in_LandTile.GetSaveLandTile()->transform->Position.y)

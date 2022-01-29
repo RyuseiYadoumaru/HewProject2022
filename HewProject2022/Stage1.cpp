@@ -4,7 +4,7 @@ using namespace Create;
 bool GamePlay::Stage1Scene::Start()
 {
 	/*	インスタンス	*/
-	m_Map = Instance<Map>("stage1-1");
+	m_Map = Instance<Map>("stage1-1_nagaura");
 	m_Player = Instance<Player>("Player");
 	m_MainCamera = Instance<MainCamera>("MainCamera");
 	m_Fade = Instance<Fade>("Black");
@@ -21,7 +21,8 @@ bool GamePlay::Stage1Scene::Start()
 	m_MoveTutorial = Instance<MoveTutorial>("MoveTutorial");
 	m_JumpTutorial = Instance<JumpTutorial>("JumpTutorial");
 	m_TutorialEffect = Instance<TutorialEffect>("TutorialEffect");
-
+	m_Tutorial_X = Instance<Tutorial_X>("Tutorial_X");
+	m_Tutorial_Y = Instance<Tutorial_Y>("Tutorial_Y");
 
 	/* Pause初期化 */
 	m_Pause = Instance<Pause>("Pause");
@@ -205,7 +206,7 @@ bool GamePlay::Stage1Scene::Render()
 	ObjectRender<PlayerGoalEffect>("PGoalEffect");
 
 	/****	オブジェクト描画	****/
-	ObjectRender<Map>("stage1-1");
+	ObjectRender<Map>("stage1-1_nagaura");
 	ObjectRender<Player>("Player");
 	ObjectRender<Table>("TableStart");
 	ObjectRender<Sofa>("SofaEnd");
@@ -221,6 +222,7 @@ bool GamePlay::Stage1Scene::Render()
 	ObjectRender<MoveTutorial>("MoveTutorial");
 	ObjectRender<JumpTutorial>("JumpTutorial");
 	ObjectRender<TutorialEffect>("TutorialEffect");
+	ObjectRender<Tutorial_X>("Tutorial_X");
 
 	/****	デバッグ	****/
 	//m_Player->Debug();

@@ -15,8 +15,8 @@ bool Fade::Start()
 	transform->Scale.Set(10.0f, 10.0f, 0.0f);
 	transform->Position.Set(0.0f, 0.0f, 0.0f);
 
-	//fadeStatus = FADE_NO;
 	fadeStatus = FADE_IN;//開始とともにフェードイン開始
+	//fadeStatus = FADE_OUT;//開始とともにフェードイン開始
 	//fadeSpeed = 0.0035f;//フェードするスピード
 	fadeSpeed = 0.01f;//フェードするスピード
 

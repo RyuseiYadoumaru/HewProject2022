@@ -15,12 +15,8 @@ bool GamePlay::Stage7Scene::Start()
 	m_CameraFrame = Instance<CameraFrame>("CFX");
 	m_BackGround = Instance<BackGround>("Wall");
 	m_BackGround->Sprite("World2_BG");
-	m_LayerFront = Instance<LayerFront>("LayerFront");
-	m_LayerFront->Sprite("World2_obj2_1");
 	m_GrayBack = Instance<GrayBack>("GrayBack");
 	m_GrayBack->Sprite("Grey");
-	m_LayerFront = Instance<LayerFront>("LayerFront");
-	m_LayerFront->Sprite("World2_obj2_1");
 
 	/* ゴール時プレイヤーエフェクト生成 */
 	m_PGoalEffect = Instance<PlayerGoalEffect>("PGoalEffect");
@@ -114,7 +110,7 @@ Scene::STATE GamePlay::Stage7Scene::Update()
 		}
 		break;
 	case 2://リザルト画面
-		
+
 		m_Player->Goal(m_Goal->transform->Position.x);//ゴールアニメーション再生
 		m_PGoalEffect->EF_Start();
 		m_PGoalEffect->transform->Position.Set(m_Player->transform->Position.x, m_Player->transform->Position.y, 0);
@@ -172,10 +168,6 @@ bool GamePlay::Stage7Scene::Render()
 
 	ObjectRender<Map>("stage2_2");
 	ObjectRender<Player>("Player");
-
-
-	/****	前装飾品	****/
-	ObjectRender<LayerFront>("LayerFront");
 
 	/****	デバッグ	****/
 	//m_ShelfEnd->Debug();

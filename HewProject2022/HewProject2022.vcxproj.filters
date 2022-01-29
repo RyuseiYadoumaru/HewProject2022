@@ -340,6 +340,9 @@
     <Filter Include="TOYALINE\Object\Actor\Map\Star">
       <UniqueIdentifier>{bcd47710-36b8-4e99-a9dc-53b3f9c62e73}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TOYALINE\StageSelect\SelectAnimation">
+      <UniqueIdentifier>{02602386-5265-4ebb-bb6b-182f83f4bf38}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Runtime\Application.cpp">
@@ -502,9 +505,6 @@
       <Filter>TOYALINE\StageSelect</Filter>
     </ClCompile>
     <ClCompile Include="World5StageSelectScene.cpp">
-      <Filter>TOYALINE\StageSelect</Filter>
-    </ClCompile>
-    <ClCompile Include="World6StageSelectScene.cpp">
       <Filter>TOYALINE\StageSelect</Filter>
     </ClCompile>
     <ClCompile Include="TitleScene.cpp">
@@ -786,6 +786,22 @@
     <ClCompile Include="StarTile.cpp">
       <Filter>TOYALINE\Object\Actor\Map\Star</Filter>
     </ClCompile>
+    <ClCompile Include="Tutorial_X.cpp" />
+    <ClCompile Include="Tutorial_Y.cpp" />
+    <ClCompile Include="Tutorial_XYAnim.cpp" />
+    <ClCompile Include="Tutorial_XYAnimController.cpp" />
+    <ClCompile Include="SelectFade.cpp">
+      <Filter>TOYALINE\StageSelect</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectAnim.cpp">
+      <Filter>TOYALINE\StageSelect\SelectAnimation</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectAnimController.cpp">
+      <Filter>TOYALINE\StageSelect\SelectAnimation</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectTutorial.cpp">
+      <Filter>TOYALINE\StageSelect\SelectAnimation</Filter>
+    </ClCompile>
     <ClCompile Include="PlayModeUI.cpp">
       <Filter>TOYALINE\Object\UI</Filter>
     </ClCompile>
@@ -1061,9 +1077,6 @@
     <ClInclude Include="World5StageSelectScene.h">
       <Filter>TOYALINE\StageSelect</Filter>
     </ClInclude>
-    <ClInclude Include="World6StageSelectScene.h">
-      <Filter>TOYALINE\StageSelect</Filter>
-    </ClInclude>
     <ClInclude Include="StageList.h">
       <Filter>TOYALINE\StageSelect</Filter>
     </ClInclude>
@@ -1273,6 +1286,22 @@
     </ClInclude>
     <ClInclude Include="StarTile.h">
       <Filter>TOYALINE\Object\Actor\Map\Star</Filter>
+    </ClInclude>
+    <ClInclude Include="Tutorial_X.h" />
+    <ClInclude Include="Tutorial_Y.h" />
+    <ClInclude Include="Tutorial_XYAnim.h" />
+    <ClInclude Include="Tutorial_XYAnimController.h" />
+    <ClInclude Include="SelectFade.h">
+      <Filter>TOYALINE\StageSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectAnim.h">
+      <Filter>TOYALINE\StageSelect\SelectAnimation</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectAnimController.h">
+      <Filter>TOYALINE\StageSelect\SelectAnimation</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectTutorial.h">
+      <Filter>TOYALINE\StageSelect\SelectAnimation</Filter>
     </ClInclude>
     <ClInclude Include="PlayModeUI.h">
       <Filter>TOYALINE\Object\UI</Filter>

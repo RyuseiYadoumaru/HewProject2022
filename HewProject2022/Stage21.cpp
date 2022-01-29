@@ -23,8 +23,6 @@ bool GamePlay::Stage21Scene::Start()
 	m_LayerBack->Sprite("World5_obj1_1");
 	m_GrayBack = Instance<GrayBack>("GrayBack");
 	m_GrayBack->Sprite("Grey");
-	m_LayerFront = Instance<LayerFront>("LayerFront");
-	m_LayerFront->Sprite("Wrold5_obj2_1");
 
 	/* ゴール時プレイヤーエフェクト生成 */
 	m_PGoalEffect = Instance<PlayerGoalEffect>("PGoalEffect");
@@ -180,8 +178,6 @@ bool GamePlay::Stage21Scene::Render()
 	ObjectRender<Map>("stage1-1");
 	ObjectRender<Player>("Player");
 
-	/****	前装飾品	****/
-	ObjectRender<LayerFront>("LayerFront");
 
 	/****	デバッグ	****/
 	//m_HouseEnd->Debug();

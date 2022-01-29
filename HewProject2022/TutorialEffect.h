@@ -20,6 +20,7 @@ private:
 
 	bool m_MoveTutorialEffectFlg;//移動チュートリアルエフェクトが見えるかどうか
 	bool m_JumpTutorialEffectFlg;//ジャンプチュートリアルエフェクトが見えるかどうか
-
+	bool m_X_TutorialEffectFlg;//Xチュートリアルエフェクトが見えるかどうか
+	bool m_Y_TutorialEffectFlg;//Yチュートリアルエフェクトが見えるかどうか
 };
 

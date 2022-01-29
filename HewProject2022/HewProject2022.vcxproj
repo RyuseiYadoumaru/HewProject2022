@@ -245,6 +245,10 @@
     <ClCompile Include="SceneTransitionAnim.cpp" />
     <ClCompile Include="SceneTransitionAnimController.cpp" />
     <ClCompile Include="ScreenFx.cpp" />
+    <ClCompile Include="SelectAnim.cpp" />
+    <ClCompile Include="SelectAnimController.cpp" />
+    <ClCompile Include="SelectFade.cpp" />
+    <ClCompile Include="SelectTutorial.cpp" />
     <ClCompile Include="Shelf.cpp" />
     <ClCompile Include="Shelf2.cpp" />
     <ClCompile Include="Sink.cpp" />
@@ -289,6 +293,10 @@
     <ClCompile Include="TutorialEffect.cpp" />
     <ClCompile Include="TutorialEffectAnim.cpp" />
     <ClCompile Include="TutorialEffectAnimController.cpp" />
+    <ClCompile Include="Tutorial_X.cpp" />
+    <ClCompile Include="Tutorial_XYAnim.cpp" />
+    <ClCompile Include="Tutorial_XYAnimController.cpp" />
+    <ClCompile Include="Tutorial_Y.cpp" />
     <ClCompile Include="Umbrella.cpp" />
     <ClCompile Include="waku.cpp" />
     <ClCompile Include="World1StageSelectScene.cpp" />
@@ -297,7 +305,6 @@
     <ClCompile Include="World4StageSelectScene.cpp" />
     <ClCompile Include="World5StageSelectScene.cpp" />
     <ClCompile Include="World5_desk.cpp" />
-    <ClCompile Include="World6StageSelectScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BackGround.h" />
@@ -409,6 +416,10 @@
     <ClInclude Include="SceneTransitionAnim.h" />
     <ClInclude Include="SceneTransitionAnimController.h" />
     <ClInclude Include="ScreenFx.h" />
+    <ClInclude Include="SelectAnim.h" />
+    <ClInclude Include="SelectAnimController.h" />
+    <ClInclude Include="SelectFade.h" />
+    <ClInclude Include="SelectTutorial.h" />
     <ClInclude Include="Shelf.h" />
     <ClInclude Include="Shelf2.h" />
     <ClInclude Include="Sink.h" />
@@ -455,6 +466,10 @@
     <ClInclude Include="TutorialEffect.h" />
     <ClInclude Include="TutorialEffectAnim.h" />
     <ClInclude Include="TutorialEffectAnimController.h" />
+    <ClInclude Include="Tutorial_X.h" />
+    <ClInclude Include="Tutorial_XYAnim.h" />
+    <ClInclude Include="Tutorial_XYAnimController.h" />
+    <ClInclude Include="Tutorial_Y.h" />
     <ClInclude Include="Umbrella.h" />
     <ClInclude Include="waku.h" />
     <ClInclude Include="World1StageSelectScene.h" />
@@ -463,7 +478,6 @@
     <ClInclude Include="World4StageSelectScene.h" />
     <ClInclude Include="World5StageSelectScene.h" />
     <ClInclude Include="World5_desk.h" />
-    <ClInclude Include="World6StageSelectScene.h" />
     <ClInclude Include="ydmEngine.h" />
   </ItemGroup>
   <ItemGroup>

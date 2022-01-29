@@ -21,6 +21,6 @@
 #define ROAD_HEIGHT (float)(640.0f)
 #define ROAD_DISTANCE (float)(PUZZLE_WIDTH + ROAD_WIDTH)
 
-#define TOP_OBJECT_POSY (float) ((-305.0f / 2.0f) + 40.0f)
+#define TOP_OBJECT_POSY (float) ((160.0f / 2.0f) + 40.0f)
 
 

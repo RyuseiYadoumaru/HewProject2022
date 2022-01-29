@@ -34,14 +34,14 @@ void SelectAnim::Init()
 	::AnimationTable set_SelectTutorial_Right_End;
 	set_SelectTutorial_Right_End.SetKind(KIND::MOVE_1, KIND::MOVE_1, KIND::MOVE_1, KIND::MOVE_1, KIND::MOVE_1, KIND::MOVE_1, ANIMATION_FINISH);
 	set_SelectTutorial_Right_End.SetFrame(TUTORIAL_ANIM::ANIM_3, TUTORIAL_ANIM::ANIM_3, TUTORIAL_ANIM::ANIM_3, TUTORIAL_ANIM::ANIM_3, TUTORIAL_ANIM::ANIM_3, TUTORIAL_ANIM::ANIM_3, ANIMATION_FINISH);
-	set_SelectTutorial_Right_End.m_Key = { 0.0f, 100.0f, 200.0f, 300.0f, 400.0f, 500.0f };
+	set_SelectTutorial_Right_End.m_Key = { 0.0f, 10.0f, 20.0f, 30.0f, 40.0f, 50.0f };
 	AnimationTableList.insert(std::make_pair("SelectTutorial_Right_End", set_SelectTutorial_Right_End));
 
 	/*	左に最大	*/
 	::AnimationTable set_SelectTutorial_Left_End;
 	set_SelectTutorial_Left_End.SetKind(KIND::MOVE_2, KIND::MOVE_2, KIND::MOVE_2, KIND::MOVE_2, KIND::MOVE_2, KIND::MOVE_2, ANIMATION_FINISH);
 	set_SelectTutorial_Left_End.SetFrame(TUTORIAL_ANIM::ANIM_3, TUTORIAL_ANIM::ANIM_3, TUTORIAL_ANIM::ANIM_3, TUTORIAL_ANIM::ANIM_3, TUTORIAL_ANIM::ANIM_3, TUTORIAL_ANIM::ANIM_3, ANIMATION_FINISH);
-	set_SelectTutorial_Left_End.m_Key = { 0.0f, 100.0f, 200.0f, 300.0f, 400.0f, 500.0f };
+	set_SelectTutorial_Left_End.m_Key = { 0.0f, 10.0f, 20.0f, 30.0f, 40.0f, 50.0f };
 	AnimationTableList.insert(std::make_pair("SelectTutorial_Left_End", set_SelectTutorial_Left_End));
 
 	/*	表示テクスチャ初期化	*/

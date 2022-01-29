@@ -265,6 +265,7 @@ Scene::STATE GamePlay::World1StageSelectScene::Update()
 		m_fadeflg = false;
 	}
 
+	std::cout << m_frameCnt << std::endl;
 	m_frameCnt++;
 
 	/****	システム更新	****/

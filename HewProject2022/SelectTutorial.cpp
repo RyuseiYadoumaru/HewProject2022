@@ -23,23 +23,22 @@ bool SelectTutorial::Start()
 
 bool SelectTutorial::Update()
 {
+
+	//右に傾けたら右にアニメーション
+	if (Input::GetKeyPress(VK_RIGHT) == true || Input::GetControllerLeftStick().x > 0 && m_SelectAnimController.AnimState != SelectAnimController::RIGHT_END) {
+		m_SelectAnimController.AnimState = SelectAnimController::RIGHT;
+	}
+
+	//左に傾けたら左にアニメーション
+	else if (Input::GetKeyPress(VK_LEFT) == true || Input::GetControllerLeftStick().x < 0 && m_SelectAnimController.AnimState != SelectAnimController::LEFT_END) {
+		m_SelectAnimController.AnimState = SelectAnimController::LEFT;
+	}
+
 	//操作していないときは動かない
-	if (Input::GetControllerLeftStick().x == 0) {
+	else if (Input::GetControllerLeftStick().x == 0) {
 		m_SelectAnimController.AnimState = SelectAnimController::IDLE;
 	}
 
-	if (m_SelectAnimController.AnimState != SelectAnimController::RIGHT_END || m_SelectAnimController.AnimState != SelectAnimController::LEFT_END) {
-
-		//右に傾けたら右にアニメーション
-		if (Input::GetKeyPress(VK_RIGHT) == true || Input::GetControllerLeftStick().x < 0) {
-			m_SelectAnimController.AnimState = SelectAnimController::RIGHT;
-		}
-
-		//左に傾けたら左にアニメーション
-		if (Input::GetKeyPress(VK_LEFT) == true || Input::GetControllerLeftStick().x > 0) {
-			m_SelectAnimController.AnimState = SelectAnimController::LEFT;
-		}
-	}
 
 	return true;
 }

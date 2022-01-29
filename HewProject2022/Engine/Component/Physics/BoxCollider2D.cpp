@@ -194,7 +194,6 @@ void BoxCollider2D::PushBackObject()
 	//当たり判定が複数個分加算されている
 	//1つ１つHitCheck＆PushBack処理をかけてあげるとうまくいくと思う！！！！！
 	//上手くいった！！！！
-
 	Owner->transform->Position = FixPosition;
 
 
@@ -341,30 +340,21 @@ void GameEngine::BoxCollider2D::HitCheck()
 			{
 				PushBack.x = 0.0f;
 			}
-
-			/*	押し戻し処理	*/
 			FixPosition += PushBack;
 			CreateCollider(FixPosition);
 
 			if (PushBack.y < 0) {
-				//printf("着地!");
 				isHit_underBlock = true;
 			}
 			if (PushBack.y > 0) {
-				//printf("頭ぶつけた!");
 				isHit_overBlock = true;
 			}
 			if (PushBack.x < 0) {
-				//printf("右!");
 				isHit_rightBlock = true;
 			}
 			if (PushBack.x > 0) {
-				//printf("左!");
 				isHit_leftBlock = true;
 			}
-
-			//printf("\n");
-
 			/*	ヒットオブジェクト格納	*/
 			m_HitObjectList.push_back(Check.Owner->GetName());
 			m_HitObjectIdList.push_back(Check.Owner->GetId());

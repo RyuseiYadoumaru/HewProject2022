@@ -4,7 +4,7 @@ using namespace Create;
 bool GamePlay::Stage1Scene::Start()
 {
 	/*	インスタンス	*/
-	m_Map = Instance<Map>("stage1-1");
+	m_Map = Instance<Map>("stage1-1_nagaura");
 	m_Player = Instance<Player>("Player");
 	m_MainCamera = Instance<MainCamera>("MainCamera");
 	m_Fade = Instance<Fade>("Black");
@@ -188,7 +188,7 @@ bool GamePlay::Stage1Scene::Render()
 	ObjectRender<PlayerGoalEffect>("PGoalEffect");
 
 	/****	オブジェクト描画	****/
-	ObjectRender<Map>("stage1-1");
+	ObjectRender<Map>("stage1-1_nagaura");
 	ObjectRender<Player>("Player");
 	ObjectRender<Table>("TableStart");
 	ObjectRender<Sofa>("SofaEnd");

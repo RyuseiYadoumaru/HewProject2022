@@ -62,23 +62,15 @@ bool ChangeTile::Start()
 	m_ChangeTimer = 0;
 
 	/*	ƒ^ƒOÝ’è	*/
-	if (m_Kind != NB && m_Kind != NO && m_Kind != GR)
-	{
-		tag = ColorBlock;
-	}
-	else if (m_Kind == NB)
-	{
-		tag = NormalBlock;
-	}
-	else if (m_Kind == GR)
-	{
-		tag = Ground;
-	}
+	tag = ChangeColorBlock;
+
 	return true;
 }
 
 bool ChangeTile::Update()
 {
+
+
 	if (m_ChangeTimer >= CHANGE_TIME) {//3•b‚Å“ü‚ê‘Ö‚¦‚é
 
 		m_ChangeTileController.AnimState = ChangeTileAnimController::CHANGE;
@@ -115,6 +107,10 @@ bool ChangeTile::Update()
 	if (Map::m_MoveManager.empty() == true) {
 		m_ChangeTimer += GameTimer::deltaTime();
 	}
+
+
+	/*	À•W‚ð•Û‘¶‚·‚é	*/
+	m_SavePosition = transform->Position;
 
 	return true;
 }
@@ -191,8 +187,3 @@ void ChangeTile::Change4_AnimUpdate()
 		break;
 	}
 }
-
-//bool ChangeTile::Render()
-//{
-//	return true;
-//}

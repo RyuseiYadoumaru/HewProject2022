@@ -12,6 +12,7 @@ enum TagList
 	Ground,
 	NormalBlock,
 	ColorBlock,
+	ChangeColorBlock,
 	LandColorBlock,
 	STAR,
 

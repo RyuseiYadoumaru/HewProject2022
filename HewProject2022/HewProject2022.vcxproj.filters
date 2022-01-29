@@ -808,6 +808,10 @@
     <ClCompile Include="StarTile.cpp">
       <Filter>TOYALINE\Object\Actor\Map\Star</Filter>
     </ClCompile>
+    <ClCompile Include="Tutorial_X.cpp" />
+    <ClCompile Include="Tutorial_Y.cpp" />
+    <ClCompile Include="Tutorial_XYAnim.cpp" />
+    <ClCompile Include="Tutorial_XYAnimController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Runtime\Application.h">
@@ -1306,6 +1310,10 @@
     <ClInclude Include="StarTile.h">
       <Filter>TOYALINE\Object\Actor\Map\Star</Filter>
     </ClInclude>
+    <ClInclude Include="Tutorial_X.h" />
+    <ClInclude Include="Tutorial_Y.h" />
+    <ClInclude Include="Tutorial_XYAnim.h" />
+    <ClInclude Include="Tutorial_XYAnimController.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="README.txt">

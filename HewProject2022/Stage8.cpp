@@ -18,8 +18,7 @@ bool GamePlay::Stage8Scene::Start()
 	m_LayerBack = Instance<LayerBack>("LayerBack");
 	m_LayerBack->Sprite("World2_obj1_3");
 	m_GrayBack = Instance<GrayBack>("GrayBack");
-	m_GrayBack->Sprite("Grey2-3");
-	m_LayerFront = Instance<LayerFront>("LayerFront");
+	m_GrayBack->Sprite("Grey");
 
 	/* ゴール時プレイヤーエフェクト生成 */
 	m_PGoalEffect = Instance<PlayerGoalEffect>("PGoalEffect");
@@ -108,7 +107,7 @@ Scene::STATE GamePlay::Stage8Scene::Update()
 		}
 		break;
 	case 2://リザルト画面
-		
+
 		m_Player->Goal(m_Goal->transform->Position.x);//ゴールアニメーション再生
 		m_PGoalEffect->EF_Start();
 		m_PGoalEffect->transform->Position.Set(m_Player->transform->Position.x, m_Player->transform->Position.y, 0);
@@ -166,9 +165,6 @@ bool GamePlay::Stage8Scene::Render()
 
 	ObjectRender<Map>("stage2-3");
 	ObjectRender<Player>("Player");
-
-	/****	前装飾品	****/
-	ObjectRender<LayerFront>("LayerFront");
 
 	/****	デバッグ	****/
 	//m_SinkEnd->Debug();

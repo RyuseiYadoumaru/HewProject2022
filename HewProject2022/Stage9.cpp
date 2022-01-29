@@ -18,9 +18,7 @@ bool GamePlay::Stage9Scene::Start()
 	m_LayerBack = Instance<LayerBack>("LayerBack");
 	m_LayerBack->Sprite("World2_obj1_4");
 	m_GrayBack = Instance<GrayBack>("GrayBack");
-	m_GrayBack->Sprite("Grey2_4");
-	m_LayerFront = Instance<LayerFront>("LayerFront");
-	m_LayerFront->Sprite("World2_obj2_1");
+	m_GrayBack->Sprite("Grey");
 
 	/* ゴール時プレイヤーエフェクト生成 */
 	m_PGoalEffect = Instance<PlayerGoalEffect>("PGoalEffect");
@@ -111,7 +109,7 @@ Scene::STATE GamePlay::Stage9Scene::Update()
 		}
 		break;
 	case 2://リザルト画面
-		
+
 		m_Player->Goal(m_Goal->transform->Position.x);//ゴールアニメーション再生
 		m_PGoalEffect->EF_Start();
 		m_PGoalEffect->transform->Position.Set(m_Player->transform->Position.x, m_Player->transform->Position.y, 0);

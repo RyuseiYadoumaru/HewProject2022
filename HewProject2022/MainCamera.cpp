@@ -21,23 +21,23 @@ bool MainCamera::Start()
 
 bool MainCamera::Update()
 {
-	// オブジェクトとカメラの距離の差を計算
-	m_object_distace.x = this->transform->Position.x - p_FocusObject->transform->Position.x; // x座標
-	m_object_distace.y = this->transform->Position.y - p_FocusObject->transform->Position.y; // y座標
-
-
 	/*	オブジェクトにフォーカスしてないときの処理	*/
 	if (p_FocusObject == nullptr)
 	{
-		//if (Input::GetKeyPress(PK_RIGHT)) transform->Position.x += MOVE_SPEED;
-		//if (Input::GetKeyPress(PK_LEFT)) transform->Position.x -= MOVE_SPEED;
-		//if (Input::GetKeyPress(PK_DOWN)) transform->Position.y += MOVE_SPEED;
-		//if (Input::GetKeyPress(PK_UP)) transform->Position.y -= MOVE_SPEED;
+		if (Input::GetKeyPress(PK_RIGHT)) transform->Position.x += MOVE_SPEED;
+		if (Input::GetKeyPress(PK_LEFT)) transform->Position.x -= MOVE_SPEED;
+		if (Input::GetKeyPress(PK_DOWN)) transform->Position.y += MOVE_SPEED;
+		if (Input::GetKeyPress(PK_UP)) transform->Position.y -= MOVE_SPEED;
 	}
+
+
 
 	/*	カメラの移動処理	*/
 	else
 	{
+		// オブジェクトとカメラの距離の差を計算
+		m_object_distace.x = this->transform->Position.x - p_FocusObject->transform->Position.x; // x座標
+		m_object_distace.y = this->transform->Position.y - p_FocusObject->transform->Position.y; // y座標
 		if (Input::GetKeyPress(PK_RIGHT) == true || Input::GetKeyPress(PK_LEFT) == true || Input::GetKeyPress(PK_DOWN) == true || Input::GetKeyPress(PK_UP) == true ||
 			Input::GetControllerRightStick().x > 0.0f || Input::GetControllerRightStick().x < 0.0f || Input::GetControllerRightStick().y < 0.0f || Input::GetControllerRightStick().y > 0.0f)
 		{

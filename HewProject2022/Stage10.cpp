@@ -166,7 +166,7 @@ bool GamePlay::Stage10Scene::Render()
 	ObjectRender<Tableware>("TablewareStart");
 	ObjectRender<Shelf>("ShelfEnd");
 
-	ObjectRender<Map>("stage1-1");
+	ObjectRender<Map>("stage2-5");
 	ObjectRender<Player>("Player");
 
 

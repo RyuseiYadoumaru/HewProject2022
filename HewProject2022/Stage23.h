@@ -29,8 +29,8 @@ namespace GamePlay
 		MainCamera* m_MainCamera;
 		Map* m_Map;
 		Player* m_Player;
-		Storage* m_StorageStart;
-		House* m_HouseEnd;
+		House* m_HouseStart;
+		Storage* m_StorageEnd;
 
 
 		/*	îwåi	*/

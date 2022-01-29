@@ -8,7 +8,7 @@
 #include "CameraFrame.h"
 #include "BackGround.h"
 #include "World5_desk.h"
-#include "Storage.h"
+#include "World5_desk.h"
 #include "House.h"
 #include "Toy.h"
 #include "Ceiling.h"
@@ -29,7 +29,7 @@ namespace GamePlay
 		MainCamera* m_MainCamera;
 		Map* m_Map;
 		Player* m_Player;
-		Storage* m_StorageStart;
+		World5_desk* m_World5_deskStart;
 		House* m_HouseEnd;
 
 

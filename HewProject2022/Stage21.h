@@ -9,7 +9,7 @@
 #include "BackGround.h"
 #include "World5_desk.h"
 #include "Storage.h"
-#include "House.h"
+#include "World5_desk.h"
 #include "Toy.h"
 #include "Ceiling.h"
 #include"Pause.h"
@@ -30,7 +30,7 @@ namespace GamePlay
 		Map* m_Map;
 		Player* m_Player;
 		Storage* m_StorageStart;
-		House* m_HouseEnd;
+		World5_desk* m_World5_deskEnd;
 
 
 		/*	îwåi	*/

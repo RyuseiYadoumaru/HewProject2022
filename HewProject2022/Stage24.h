@@ -30,7 +30,7 @@ namespace GamePlay
 		Map* m_Map;
 		Player* m_Player;
 		Storage* m_StorageStart;
-		House* m_HouseEnd;
+		World5_desk* m_World5_deskEnd;
 
 
 		/*	îwåi	*/

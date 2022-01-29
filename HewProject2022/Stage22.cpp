@@ -11,7 +11,7 @@ bool GamePlay::Stage22Scene::Start()
 	m_Map = Instance<Map>("stage1-1");
 	m_Player = Instance<Player>("Player");
 	m_MainCamera = Instance<MainCamera>("MainCamera");
-	m_StorageStart = Instance<Storage>("StorageStart");
+	m_World5_deskStart = Instance<World5_desk>("World5_deskStart");
 	m_HouseEnd = Instance<House>("HouseEnd");
 	m_Fade = Instance<Fade>("Black");
 	m_ScreenEffect = Instance<ScreenFx>("SFX");
@@ -78,7 +78,7 @@ Scene::STATE GamePlay::Stage22Scene::Update()
 
 		/****	当たり判定	****/
 
-		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_StorageStart->GetComponent<BoxCollider2D>());
+		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_World5_deskStart->GetComponent<BoxCollider2D>());
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_HouseEnd->GetComponent<BoxCollider2D>());
 
 		/***  ゴール判定用  ***/
@@ -170,7 +170,7 @@ bool GamePlay::Stage22Scene::Render()
 	ObjectRender<PlayerGoalEffect>("PGoalEffect");
 
 	/****	オブジェクト描画	****/
-	ObjectRender<Storage>("StorageStart");
+	ObjectRender<World5_desk>("World5_deskStart");
 	ObjectRender<House>("HouseEnd");
 
 	ObjectRender<Map>("stage1-1");

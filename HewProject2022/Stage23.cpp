@@ -26,8 +26,8 @@ bool GamePlay::Stage23Scene::Start()
 	m_Map = Instance<Map>("stage1-1");
 	m_Player = Instance<Player>("Player");
 	m_MainCamera = Instance<MainCamera>("MainCamera");
-	m_StorageStart = Instance<Storage>("StorageStart");
-	m_HouseEnd = Instance<House>("HouseEnd");
+	m_HouseStart = Instance<House>("HouseStart");
+	m_StorageEnd = Instance<Storage>("StorageEnd");
 	m_Fade = Instance<Fade>("Black");
 	m_ScreenEffect = Instance<ScreenFx>("SFX");
 	m_CameraFrame = Instance<CameraFrame>("CFX");
@@ -59,7 +59,7 @@ bool GamePlay::Stage23Scene::Start()
 
 
 	/*	初期化	*/
-	m_HouseEnd->transform->Position.x += ROAD_DISTANCE;
+	m_StorageEnd->transform->Position.x += ROAD_DISTANCE;
 
 	// BGM再生
 	Sound::Sound_Play(SOUND_LABEL_WORLD5_GAMEBGM);
@@ -86,8 +86,8 @@ Scene::STATE GamePlay::Stage23Scene::Update()
 
 		/****	当たり判定	****/
 
-		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_StorageStart->GetComponent<BoxCollider2D>());
-		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_HouseEnd->GetComponent<BoxCollider2D>());
+		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_HouseStart->GetComponent<BoxCollider2D>());
+		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_StorageEnd->GetComponent<BoxCollider2D>());
 		/***  ゴール判定用  ***/
 		m_Goal->GetComponent<BoxCollider2D>()->HitCheckBox(*m_Player->GetComponent<BoxCollider2D>());
 
@@ -179,8 +179,8 @@ bool GamePlay::Stage23Scene::Render()
 	ObjectRender<PlayerGoalEffect>("PGoalEffect");
 
 	/****	オブジェクト描画	****/
-	ObjectRender<Storage>("StorageStart");
-	ObjectRender<House>("HouseEnd");
+	ObjectRender<Storage>("StorageEnd");
+	ObjectRender<House>("HouseStart");
 
 	ObjectRender<Map>("stage1-1");
 	ObjectRender<Player>("Player");

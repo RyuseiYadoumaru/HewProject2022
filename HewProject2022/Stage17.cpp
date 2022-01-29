@@ -29,8 +29,6 @@ bool GamePlay::Stage17Scene::Start()
 	/*	初期化	*/
 	m_BookShelfEnd->transform->Position.x += ROAD_DISTANCE;
 
-
-	m_LayerBack->transform->Position.y += 5.0f;
 	m_GrayBack->transform->Position.y += 5.0f;
 
 	/* ゴール時プレイヤーエフェクト生成 */

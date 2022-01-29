@@ -10,7 +10,7 @@ bool GamePlay::Stage14Scene::Start()
 	m_Map = Instance<Map>("stage1-1");
 	m_Player = Instance<Player>("Player");
 	m_MainCamera = Instance<MainCamera>("MainCamera");
-	m_RoseStart = Instance<Rose>("RoseStart");
+	m_BlueRoseStart = Instance<BlueRose>("BlueRoseStart");
 	m_TreeEnd = Instance<Tree>("TreeEnd");
 	m_Fade = Instance<Fade>("Black");
 	m_ScreenEffect = Instance<ScreenFx>("SFX");
@@ -24,6 +24,9 @@ bool GamePlay::Stage14Scene::Start()
 	m_GrayBack->Sprite("Grey3-4");
 	m_LayerFront = Instance<LayerFront>("LayerFront");
 	m_LayerFront->Sprite("World3_obj2-4");
+	m_LayerFront->transform->Position.y += 2.0f;
+	m_LayerBack->transform->Position.y += 2.0f;
+	m_GrayBack->transform->Position.y += 2.0f;
 
 	/* ゴール時プレイヤーエフェクト生成 */
 	m_PGoalEffect = Instance<PlayerGoalEffect>("PGoalEffect");
@@ -83,7 +86,7 @@ Scene::STATE GamePlay::Stage14Scene::Update()
 
 		/****	当たり判定	****/
 
-		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_RoseStart->GetComponent<BoxCollider2D>());
+		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_BlueRoseStart->GetComponent<BoxCollider2D>());
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_TreeEnd->GetComponent<BoxCollider2D>());
 
 		/***  ゴール判定用  ***/
@@ -172,7 +175,7 @@ bool GamePlay::Stage14Scene::Render()
 	ObjectRender<PlayerGoalEffect>("PGoalEffect");
 
 	/****	オブジェクト描画	****/
-	ObjectRender<Rose>("RoseStart");
+	ObjectRender<BlueRose>("BlueRoseStart");
 	ObjectRender<Tree>("TreeEnd");
 
 	ObjectRender<Map>("stage1-1");
@@ -183,7 +186,7 @@ bool GamePlay::Stage14Scene::Render()
 
 	/****	デバッグ	****/
 	//m_PlantsEnd->Debug();
-	//m_RoseStart->Debug();
+	//m_BlueRoseStart->Debug();
 	//m_Player->Debug();
 	//m_Map->Debug();
 

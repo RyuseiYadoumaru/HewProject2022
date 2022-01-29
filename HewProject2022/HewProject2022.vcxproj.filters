@@ -343,6 +343,9 @@
     <Filter Include="TOYALINE\StageSelect\SelectAnimation">
       <UniqueIdentifier>{02602386-5265-4ebb-bb6b-182f83f4bf38}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TOYALINE\World3\Road\BlueRose">
+      <UniqueIdentifier>{bd44e86e-50d8-4c98-b787-993d7e25aed8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Runtime\Application.cpp">
@@ -807,6 +810,9 @@
     </ClCompile>
     <ClCompile Include="waku.cpp">
       <Filter>TOYALINE\Object\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="BlueRose.cpp">
+      <Filter>TOYALINE\World3\Road\BlueRose</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1308,6 +1314,9 @@
     </ClInclude>
     <ClInclude Include="waku.h">
       <Filter>TOYALINE\Object\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueRose.h">
+      <Filter>TOYALINE\World3\Road\BlueRose</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

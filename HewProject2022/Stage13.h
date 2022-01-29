@@ -9,12 +9,13 @@
 #include "BackGround.h"
 #include "Plants.h"
 #include "Tree.h"
-#include "Rose.h"
+#include "BlueRose.h"
 #include "Ceiling.h"
 #include"Pause.h"
 #include"Result.h"
 #include "Goal.h"
 #include"PlayerGoalEffect.h"
+#include "BlueRose.h"
 
 using Create::Actor;
 using GameEngine::Input;
@@ -29,7 +30,7 @@ namespace GamePlay
 		Map* m_Map;
 		Player* m_Player;
 		Tree* m_TreeStart;
-		Rose* m_RoseEnd;
+		BlueRose* m_BlueRoseEnd;
 
 
 		/*	îwåi	*/

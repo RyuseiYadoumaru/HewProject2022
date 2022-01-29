@@ -10,7 +10,6 @@ bool GamePlay::Stage20Scene::Start()
 	m_MainCamera = Instance<MainCamera>("MainCamera");
 	m_Fade = Instance<Fade>("Black");
 	m_ScreenEffect = Instance<ScreenFx>("SFX");
-	m_CameraFrame = Instance<CameraFrame>("CFX");
 	m_Shelf2Start = Instance<Shelf2>("Shelf2Start");
 	m_BookShelfEnd = Instance<BookShelf>("BookShelfEnd");
 
@@ -183,7 +182,6 @@ bool GamePlay::Stage20Scene::Render()
 	/****	画面エフェクト	****/
 	//m_Fade->Render();
 	ObjectRender<ScreenFx>("SFX");
-	ObjectRender<CameraFrame>("CFX");
 
 	/*** リザルト ***/
 	ObjectRender<Result>("ResultBack");

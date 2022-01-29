@@ -8,7 +8,6 @@
 #include "Shelf2.h"
 #include "BackGround.h"
 #include "ScreenFx.h"
-#include "CameraFrame.h"
 #include "Ceiling.h"
 #include"Pause.h"
 #include"Result.h"
@@ -43,7 +42,7 @@ namespace GamePlay
 
 		/*	エフェクト	*/
 		ScreenFx* m_ScreenEffect;
-		CameraFrame* m_CameraFrame;
+		
 		Fade* m_Fade;
 
 

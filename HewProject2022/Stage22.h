@@ -5,7 +5,7 @@
 #include "Player.h"
 #include "Fade.h"
 #include "ScreenFx.h"
-#include "CameraFrame.h"
+
 #include "BackGround.h"
 #include "World5_desk.h"
 #include "World5_desk.h"
@@ -48,7 +48,7 @@ namespace GamePlay
 
 		/*	エフェクト	*/
 		ScreenFx* m_ScreenEffect;
-		CameraFrame* m_CameraFrame;
+		
 		Fade* m_Fade;
 
 		/* Pause */

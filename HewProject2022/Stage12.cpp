@@ -15,7 +15,6 @@ bool GamePlay::Stage12Scene::Start()
 	m_TreeEnd = Instance<Tree>("TreeEnd");
 	m_Fade = Instance<Fade>("Black");
 	m_ScreenEffect = Instance<ScreenFx>("SFX");
-	m_CameraFrame = Instance<CameraFrame>("CFX");
 	m_BackGround = Instance<BackGround>("Wall");
 	m_BackGround->Sprite("World3_BG");
 	m_BackGround->transform->Scale.Set(2.5f, 2.5f, 0.0f);
@@ -190,7 +189,7 @@ bool GamePlay::Stage12Scene::Render()
 	/****	画面エフェクト	****/
 	//m_Fade->Render();
 	ObjectRender<ScreenFx>("SFX");
-	ObjectRender<CameraFrame>("CFX");
+
 
 	/*** リザルト ***/
 	ObjectRender<Result>("ResultBack");

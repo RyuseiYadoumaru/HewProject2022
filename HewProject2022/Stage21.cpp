@@ -16,7 +16,6 @@ bool GamePlay::Stage21Scene::Start()
 	m_World5_deskEnd = Instance<World5_desk>("World5_deskEnd");
 	m_Fade = Instance<Fade>("Black");
 	m_ScreenEffect = Instance<ScreenFx>("SFX");
-	m_CameraFrame = Instance<CameraFrame>("CFX");
 	m_BackGround = Instance<BackGround>("Wall");
 	m_BackGround->Sprite("World5_BG");
 	m_LayerBack = Instance<LayerBack>("LayerBack");
@@ -188,7 +187,6 @@ bool GamePlay::Stage21Scene::Render()
 	/****	画面エフェクト	****/
 	//m_Fade->Render();
 	ObjectRender<ScreenFx>("SFX");
-	ObjectRender<CameraFrame>("CFX");
 
 	/*** リザルト ***/
 	ObjectRender<Result>("ResultBack");

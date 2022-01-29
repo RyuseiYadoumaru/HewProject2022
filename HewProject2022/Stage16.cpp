@@ -12,7 +12,6 @@ bool GamePlay::Stage16Scene::Start()
 	m_UmbrellaStart = Instance<Umbrella>("UmbrellaStart");
 	m_Shelf2End = Instance<Shelf2>("Shelf2End");
 	m_ScreenEffect = Instance<ScreenFx>("SFX");
-	m_CameraFrame = Instance<CameraFrame>("CFX");
 
 	/*	背景初期化	*/
 	m_BackGround = Instance<BackGround>("Wall");
@@ -180,7 +179,7 @@ bool GamePlay::Stage16Scene::Render()
 	/****	画面エフェクト	****/
 	//m_Fade->Render();
 	ObjectRender<ScreenFx>("SFX");
-	ObjectRender<CameraFrame>("CFX");
+
 
 	/*** リザルト ***/
 	ObjectRender<Result>("ResultBack");

@@ -22,6 +22,8 @@
 #include "MoveTutorial.h"
 #include "JumpTutorial.h"
 #include "TutorialEffect.h"
+#include "Tutorial_X.h"
+#include "Tutorial_Y.h"
 
 using Create::Actor;
 using GameEngine::Input;
@@ -44,6 +46,8 @@ namespace GamePlay
 		MoveTutorial* m_MoveTutorial;
 		JumpTutorial* m_JumpTutorial;
 		TutorialEffect* m_TutorialEffect;
+		Tutorial_X* m_Tutorial_X;
+		Tutorial_Y* m_Tutorial_Y;
 
 		/*	îwåi	*/
 		BackGround*		m_BackGround;

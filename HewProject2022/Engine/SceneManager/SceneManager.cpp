@@ -32,7 +32,6 @@ GameEngine::SceneManager::SceneManager()
 	CreateScene("World3StageSelectScene", new GamePlay::World3StageSelectScene);
 	CreateScene("World4StageSelectScene", new GamePlay::World4StageSelectScene);
 	CreateScene("World5StageSelectScene", new GamePlay::World5StageSelectScene);
-	CreateScene("World6StageSelectScene", new GamePlay::World6StageSelectScene);
 	CreateScene("Stage1", new GamePlay::Stage1Scene);
 	CreateScene("Stage2", new GamePlay::Stage2Scene);
 	CreateScene("Stage3", new GamePlay::Stage3Scene);

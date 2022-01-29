@@ -21,7 +21,8 @@ bool GamePlay::Stage1Scene::Start()
 	m_MoveTutorial = Instance<MoveTutorial>("MoveTutorial");
 	m_JumpTutorial = Instance<JumpTutorial>("JumpTutorial");
 	m_TutorialEffect = Instance<TutorialEffect>("TutorialEffect");
-
+	m_Tutorial_X = Instance<Tutorial_X>("Tutorial_X");
+	m_Tutorial_Y = Instance<Tutorial_Y>("Tutorial_Y");
 
 	/* Pause初期化 */
 	m_Pause = Instance<Pause>("Pause");
@@ -202,6 +203,7 @@ bool GamePlay::Stage1Scene::Render()
 	ObjectRender<MoveTutorial>("MoveTutorial");
 	ObjectRender<JumpTutorial>("JumpTutorial");
 	ObjectRender<TutorialEffect>("TutorialEffect");
+	ObjectRender<Tutorial_X>("Tutorial_X");
 
 	/****	デバッグ	****/
 	//m_Player->Debug();

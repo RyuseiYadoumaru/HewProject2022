@@ -44,7 +44,12 @@ bool GamePlay::Stage3Scene::Start()
 
 	m_Button->NowScene = m_ResultCursor->NowScene;
 
-
+	/* チュートリアル初期化 */
+	m_MoveTutorial = Instance<MoveTutorial>("MoveTutorial");
+	m_JumpTutorial = Instance<JumpTutorial>("JumpTutorial");
+	m_TutorialEffect = Instance<TutorialEffect>("TutorialEffect");
+	m_Tutorial_X = Instance<Tutorial_X>("Tutorial_X");
+	m_Tutorial_Y = Instance<Tutorial_Y>("Tutorial_Y");
 
 	/*	初期化	*/
 	m_SofaEnd->transform->Position.x += ROAD_DISTANCE;
@@ -173,6 +178,10 @@ bool GamePlay::Stage3Scene::Render()
 
 	/****	前装飾品	****/
 	ObjectRender<LayerFront>("LayerFront");
+
+	//三木原追加 チュートリアル描画
+	ObjectRender<TutorialEffect>("TutorialEffect");
+	ObjectRender<Tutorial_Y>("Tutorial_Y");
 
 	/****	デバッグ	****/
 	//m_Player->Debug();

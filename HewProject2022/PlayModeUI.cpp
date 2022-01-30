@@ -1,5 +1,6 @@
 #include "PlayModeUI.h"
 #include "Player.h"
+#include "MainCamera.h"
 
 PlayModeUI::PlayModeUI(string in_Name) :Actor(in_Name)
 {

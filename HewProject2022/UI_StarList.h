@@ -16,6 +16,6 @@ public:
 	bool Render()override;
 	bool End()override;
 
-	UI_Star * m_StarsList[3];	//¯”z—ñ
+	UI_Star* m_StarsList[3];	//¯”z—ñ
 };
 

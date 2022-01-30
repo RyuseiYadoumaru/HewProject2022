@@ -7,7 +7,7 @@ bool GamePlay::Stage14Scene::Start()
 
 
 	/*	インスタンス	*/
-	m_Map = Instance<Map>("stage1-1");
+	m_Map = Instance<Map>(STAGE_3_4);
 	m_Player = Instance<Player>("Player");
 	m_MainCamera = Instance<MainCamera>("MainCamera");
 	m_BlueRoseStart = Instance<BlueRose>("BlueRoseStart");
@@ -109,7 +109,7 @@ Scene::STATE GamePlay::Stage14Scene::Update()
 			Scene_State = 1;
 		}
 
-		
+
 		break;
 	case 1://ポーズ画面
 	/****   ポーズ中処理   ****/
@@ -180,7 +180,7 @@ bool GamePlay::Stage14Scene::Render()
 	ObjectRender<Goal>("Goal");
 	ObjectRender<PlayerGoalEffect>("PGoalEffect");
 
-	ObjectRender<Map>("stage1-1");
+	ObjectRender<Map>(STAGE_3_4);
 	ObjectRender<Player>("Player");
 
 	/****	前装飾品	****/

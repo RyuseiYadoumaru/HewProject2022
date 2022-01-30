@@ -8,14 +8,14 @@ bool GamePlay::Stage25Scene::Start()
 	/*	オブジェクト生成	*/
 
 	/*	インスタンス	*/
-	m_Map = Instance<Map>("stage1-1");
+	m_Map = Instance<Map>(STAGE_5_5);
 	m_Player = Instance<Player>("Player");
 	m_MainCamera = Instance<MainCamera>("MainCamera");
 	m_World5_deskStart = Instance<World5_desk>("World5_deskStart");
 	m_ToyEnd = Instance<Toy>("ToyEnd");
 	m_Fade = Instance<Fade>("Black");
 	m_ScreenEffect = Instance<ScreenFx>("SFX");
-	
+
 	m_BackGround = Instance<BackGround>("Wall");
 	m_BackGround->Sprite("World5_BG");
 	m_LayerBack = Instance<LayerBack>("LayerBack");
@@ -177,7 +177,7 @@ bool GamePlay::Stage25Scene::Render()
 	ObjectRender<World5_desk>("World5_deskStart");
 	ObjectRender<Toy>("ToyEnd");
 
-	ObjectRender<Map>("stage1-1");
+	ObjectRender<Map>(STAGE_5_5);
 	ObjectRender<Player>("Player");
 
 	/****	前装飾品	****/
@@ -192,7 +192,7 @@ bool GamePlay::Stage25Scene::Render()
 	/****	画面エフェクト	****/
 	//m_Fade->Render();
 	ObjectRender<ScreenFx>("SFX");
-	
+
 
 	/*** リザルト ***/
 	ObjectRender<Result>("ResultBack");

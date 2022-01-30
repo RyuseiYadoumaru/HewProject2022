@@ -5,7 +5,7 @@ using namespace Create;
 bool GamePlay::Stage7Scene::Start()
 {
 	/*	インスタンス	*/
-	m_Map = Instance<Map>("stage2_2");
+	m_Map = Instance<Map>(STAGE_2_2);
 	m_Player = Instance<Player>("Player");
 	m_MainCamera = Instance<MainCamera>("MainCamera");
 	m_TablewareStart = Instance<Tableware>("TablewareStart");
@@ -167,7 +167,7 @@ bool GamePlay::Stage7Scene::Render()
 	ObjectRender<Tableware>("TablewareStart");
 	ObjectRender<Shelf>("ShelfEnd");
 
-	ObjectRender<Map>("stage2_2");
+	ObjectRender<Map>(STAGE_2_2);
 	ObjectRender<Player>("Player");
 
 	/****	デバッグ	****/

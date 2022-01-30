@@ -5,14 +5,14 @@ using namespace Create;
 bool GamePlay::Stage24Scene::Start()
 {
 	/*	インスタンス	*/
-	m_Map = Instance<Map>("stage1-1");
+	m_Map = Instance<Map>(STAGE_5_4);
 	m_Player = Instance<Player>("Player");
 	m_MainCamera = Instance<MainCamera>("MainCamera");
 	m_StorageStart = Instance<Storage>("StorageStart");
 	m_World5_deskEnd = Instance<World5_desk>("World5_deskEnd");
 	m_Fade = Instance<Fade>("Black");
 	m_ScreenEffect = Instance<ScreenFx>("SFX");
-	
+
 	m_BackGround = Instance<BackGround>("Wall");
 	m_BackGround->Sprite("World5_BG");
 	m_LayerBack = Instance<LayerBack>("LayerBack");
@@ -172,7 +172,7 @@ bool GamePlay::Stage24Scene::Render()
 	ObjectRender<Storage>("StorageStart");
 	ObjectRender<World5_desk>("World5_deskEnd");
 
-	ObjectRender<Map>("stage1-1");
+	ObjectRender<Map>(STAGE_5_4);
 	ObjectRender<Player>("Player");
 
 	/****	前装飾品	****/
@@ -187,7 +187,7 @@ bool GamePlay::Stage24Scene::Render()
 	/****	画面エフェクト	****/
 	//m_Fade->Render();
 	ObjectRender<ScreenFx>("SFX");
-	
+
 
 	/*** リザルト ***/
 	ObjectRender<Result>("ResultBack");

@@ -6,7 +6,7 @@ bool GamePlay::Stage13Scene::Start()
 {
 
 	/*	インスタンス	*/
-	m_Map = Instance<Map>("stage1-1");
+	m_Map = Instance<Map>(STAGE_3_3);
 	m_Player = Instance<Player>("Player");
 	m_MainCamera = Instance<MainCamera>("MainCamera");
 	m_TreeStart = Instance<Tree>("TreeStart");
@@ -110,7 +110,7 @@ Scene::STATE GamePlay::Stage13Scene::Update()
 			Scene_State = 1;
 		}
 
-		
+
 		break;
 	case 1://ポーズ画面
 	/****   ポーズ中処理   ****/
@@ -181,7 +181,7 @@ bool GamePlay::Stage13Scene::Render()
 	ObjectRender<Goal>("Goal");
 	ObjectRender<PlayerGoalEffect>("PGoalEffect");
 
-	ObjectRender<Map>("stage1-1");
+	ObjectRender<Map>(STAGE_3_3);
 	ObjectRender<Player>("Player");
 
 	/****	前装飾品	****/
@@ -196,7 +196,7 @@ bool GamePlay::Stage13Scene::Render()
 	/****	画面エフェクト	****/
 	//m_Fade->Render();
 	ObjectRender<ScreenFx>("SFX");
-	
+
 
 	/*** リザルト ***/
 	ObjectRender<Result>("ResultBack");

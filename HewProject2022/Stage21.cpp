@@ -9,7 +9,7 @@ bool GamePlay::Stage21Scene::Start()
 
 
 	/*	インスタンス	*/
-	m_Map = Instance<Map>("stage1-1");
+	m_Map = Instance<Map>(STAGE_5_1);
 	m_Player = Instance<Player>("Player");
 	m_MainCamera = Instance<MainCamera>("MainCamera");
 	m_StorageStart = Instance<Storage>("StorageStart");
@@ -108,7 +108,7 @@ Scene::STATE GamePlay::Stage21Scene::Update()
 			Scene_State = 1;
 		}
 
-		
+
 		break;
 	case 1://ポーズ画面
 	/****   ポーズ中処理   ****/
@@ -177,7 +177,7 @@ bool GamePlay::Stage21Scene::Render()
 	ObjectRender<Storage>("StorageStart");
 	ObjectRender<World5_desk>("World5_deskEnd");
 
-	ObjectRender<Map>("stage1-1");
+	ObjectRender<Map>(STAGE_5_1);
 	ObjectRender<Player>("Player");
 
 

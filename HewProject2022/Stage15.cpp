@@ -5,7 +5,7 @@ using namespace Create;
 bool GamePlay::Stage15Scene::Start()
 {
 	/*	インスタンス	*/
-	m_Map = Instance<Map>("stage3-5");
+	m_Map = Instance<Map>(STAGE_3_5);
 	m_Player = Instance<Player>("Player");
 	m_MainCamera = Instance<MainCamera>("MainCamera");
 	m_TreeStart = Instance<Tree>("TreeStart");
@@ -107,7 +107,7 @@ Scene::STATE GamePlay::Stage15Scene::Update()
 			Scene_State = 1;
 		}
 
-		
+
 		break;
 	case 1://ポーズ画面
 	/****   ポーズ中処理   ****/
@@ -169,7 +169,7 @@ bool GamePlay::Stage15Scene::Render()
 	/****	天井	****/
 	ObjectRender<Ceiling>("Ceiling");
 
-	
+
 
 	/****	オブジェクト描画	****/
 	ObjectRender<Tree>("TreeStart");
@@ -179,7 +179,7 @@ bool GamePlay::Stage15Scene::Render()
 	ObjectRender<Goal>("Goal");
 	ObjectRender<PlayerGoalEffect>("PGoalEffect");
 
-	ObjectRender<Map>("stage3-5");
+	ObjectRender<Map>(STAGE_3_5);
 	ObjectRender<Player>("Player");
 
 	/****	前装飾品	****/

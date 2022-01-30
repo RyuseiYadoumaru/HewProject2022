@@ -23,14 +23,14 @@ bool GamePlay::Stage23Scene::Start()
 	m_ResultCursor->ResultCursor_Init();
 	m_ResultCursor->NowScene = "Stage23";
 
-	m_Map = Instance<Map>("stage1-1");
+	m_Map = Instance<Map>(STAGE_5_3);
 	m_Player = Instance<Player>("Player");
 	m_MainCamera = Instance<MainCamera>("MainCamera");
 	m_HouseStart = Instance<House>("HouseStart");
 	m_StorageEnd = Instance<Storage>("StorageEnd");
 	m_Fade = Instance<Fade>("Black");
 	m_ScreenEffect = Instance<ScreenFx>("SFX");
-	
+
 	m_BackGround = Instance<BackGround>("Wall");
 	m_BackGround->Sprite("World5_BG");
 	m_LayerBack = Instance<LayerBack>("LayerBack");
@@ -184,7 +184,7 @@ bool GamePlay::Stage23Scene::Render()
 	ObjectRender<Storage>("StorageEnd");
 	ObjectRender<House>("HouseStart");
 
-	ObjectRender<Map>("stage1-1");
+	ObjectRender<Map>(STAGE_5_3);
 	ObjectRender<Player>("Player");
 
 	/****	前装飾品	****/
@@ -199,7 +199,7 @@ bool GamePlay::Stage23Scene::Render()
 	/****	画面エフェクト	****/
 	//m_Fade->Render();
 	ObjectRender<ScreenFx>("SFX");
-	
+
 
 	/*** リザルト ***/
 	ObjectRender<Result>("ResultBack");

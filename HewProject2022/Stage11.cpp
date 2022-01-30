@@ -5,7 +5,7 @@ using namespace Create;
 bool GamePlay::Stage11Scene::Start()
 {
 	/*	インスタンス	*/
-	m_Map = Instance<Map>("stage3-1");
+	m_Map = Instance<Map>(STAGE_3_1);
 	m_Player = Instance<Player>("Player");
 	m_MainCamera = Instance<MainCamera>("MainCamera");
 	m_RoseStart = Instance<Rose>("RoseStart");
@@ -172,7 +172,7 @@ bool GamePlay::Stage11Scene::Render()
 	ObjectRender<Goal>("Goal");
 	ObjectRender<PlayerGoalEffect>("PGoalEffect");
 
-	ObjectRender<Map>("stage3-1");
+	ObjectRender<Map>(STAGE_3_1);
 	ObjectRender<Player>("Player");
 
 	/****	前装飾品	****/

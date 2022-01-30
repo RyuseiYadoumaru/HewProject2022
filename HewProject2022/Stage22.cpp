@@ -8,7 +8,7 @@ bool GamePlay::Stage22Scene::Start()
 
 
 	/*	インスタンス	*/
-	m_Map = Instance<Map>("stage1-1");
+	m_Map = Instance<Map>(STAGE_5_2);
 	m_Player = Instance<Player>("Player");
 	m_MainCamera = Instance<MainCamera>("MainCamera");
 	m_World5_deskStart = Instance<World5_desk>("World5_deskStart");
@@ -106,7 +106,7 @@ Scene::STATE GamePlay::Stage22Scene::Update()
 			Scene_State = 1;
 		}
 
-		
+
 		break;
 	case 1://ポーズ画面
 	/****   ポーズ中処理   ****/
@@ -176,7 +176,7 @@ bool GamePlay::Stage22Scene::Render()
 	ObjectRender<World5_desk>("World5_deskStart");
 	ObjectRender<House>("HouseEnd");
 
-	ObjectRender<Map>("stage1-1");
+	ObjectRender<Map>(STAGE_5_2);
 	ObjectRender<Player>("Player");
 
 	/****	前装飾品	****/

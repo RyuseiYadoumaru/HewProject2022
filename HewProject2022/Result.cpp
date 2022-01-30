@@ -45,9 +45,9 @@ void Result::ResultBack_init_GameEnd()
 
 void Result::ResultCursor_Init()
 {
-	this->Sprite("button");
+	this->Sprite("button_2");
 	this->GetComponent<SpriteRenderer>()->Color.a = 0;
-	this->transform->Scale.Set(1.2f, 1.2f, 0.0f);//スケールの書き換え
+	this->transform->Scale.Set(0.2f, 0.2f, 0.0f);//スケールの書き換え
 }
 
 bool Result::Result_On()

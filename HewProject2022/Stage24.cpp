@@ -35,7 +35,7 @@ bool GamePlay::Stage24Scene::Start()
 	m_Pause->Sprite("ポーズ");
 
 	m_Button = Instance<Pause>("Button");
-	m_Button->Sprite("button");
+	m_Button->Sprite("button_2");
 
 	/*  ゴールインスタンス生成  */
 	m_Goal = Instance<Goal>("Goal");

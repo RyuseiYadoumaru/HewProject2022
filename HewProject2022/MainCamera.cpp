@@ -1,4 +1,6 @@
 #include "MainCamera.h"
+#include "Player.h"
+
 #define MOVE_SPEED 20
 #define CAMERA_SPEED (10.0f)
 
@@ -55,7 +57,9 @@ bool MainCamera::Update()
 
 			if ((m_Save.x != 0.0f) || (m_Save.y != 0.0f))
 			{
-				m_CameraMode = true;
+				// プレイヤーが飛んでいないとき かつ プレイヤーが魔法をかけていないとき カメラ使える
+				if (Player::m_OnGround == true && Player::m_isMagic == false)
+					m_CameraMode = true;
 			}
 		}
 
@@ -93,25 +97,26 @@ bool MainCamera::Update()
 	if (m_CameraMode == true)
 	{
 
+
 		// カメラ動かす処理(コントローラー）
-		if ((Input::GetControllerRightStick().x > 0.0f || Input::GetKeyPress(PK_RIGHT)) == true
+		if ((Input::GetControllerRightStick().x == 1.0f || Input::GetKeyPress(PK_RIGHT)) == true
 			&& m_object_distace.x < 500.0f)
 		{
 			transform->Position.x += CAMERA_SPEED; // 右
 		}
-		if ((Input::GetControllerRightStick().x < 0.0f || Input::GetKeyPress(PK_LEFT)) == true
+		if ((Input::GetControllerRightStick().x <= (-1.0f) || Input::GetKeyPress(PK_LEFT)) == true
 			&& m_object_distace.x > -500.0f)
 		{
 			transform->Position.x -= CAMERA_SPEED; // 左 
 		}
 
-		if ((Input::GetControllerRightStick().y > 0.0f || Input::GetKeyPress(PK_DOWN)) == true
+		if ((Input::GetControllerRightStick().y >= 1.0f || Input::GetKeyPress(PK_DOWN)) == true
 			&& m_object_distace.y < 300.0f)
 		{
 			transform->Position.y += CAMERA_SPEED; // 下
 		}
 
-		if ((Input::GetControllerRightStick().y < 0.0f || Input::GetKeyPress(PK_UP)) == true
+		if ((Input::GetControllerRightStick().y == (-1.0f) || Input::GetKeyPress(PK_UP)) == true
 			&& m_object_distace.y > -350.0f)
 		{
 			transform->Position.y -= CAMERA_SPEED; // 上
@@ -196,6 +201,12 @@ bool MainCamera::Update()
 
 	SetCameraPos();
 	return true;
+}
+
+void MainCamera::Debug()
+{
+	cout << Input::GetControllerRightStick().x << endl;
+	cout << Input::GetControllerRightStick().y << endl;
 }
 
 

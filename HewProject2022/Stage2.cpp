@@ -29,7 +29,7 @@ bool GamePlay::Stage2Scene::Start()
 	m_Pause->Sprite("ポーズ");
 
 	m_Button = Instance<Pause>("Button");
-	m_Button->Sprite("button");
+	m_Button->Sprite("button_2");
 	m_Button->NowScene = "Stage2";
 
 	/*  ゴールインスタンス生成  */

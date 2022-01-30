@@ -5,6 +5,10 @@
 #include "Result.h"
 #include "Ceiling.h"
 
+bool Player::m_OnGround = false;
+/*	マジック初期化	*/
+bool Player::m_isMagic = false;
+
 Player::Player(string in_Name) :Character(in_Name)
 {
 
@@ -37,7 +41,7 @@ bool Player::Start()
 	//摩擦力
 	m_stopForceX = m_accelForceX * 0.7f;
 	//地面についているフラグ
-	m_OnGround = false;
+	//m_OnGround = false;
 	m_GroundCnt = GameTimer::NowFrameCount();
 
 	/*	ジャンプ初期化	*/
@@ -47,8 +51,7 @@ bool Player::Start()
 	m_jumpFlg = false;
 	m_airFlg = true;
 
-	/*	マジック初期化	*/
-	m_isMagic = false;
+
 
 	/* ゴール初期化 */
 	m_isGoal = false;

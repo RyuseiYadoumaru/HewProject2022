@@ -46,7 +46,8 @@ bool Pause::SetScale()
 
 bool Pause::PauseCursor_Move()
 {
-	this->transform->Scale.Set(1.2f, 1.2f, 0.0f);//カーソル用にスケールの書き換え
+	//this->Sprite("button_2");
+	this->transform->Scale.Set(0.2f, 0.2f, 0.0f);//カーソル用にスケールの書き換え
 
 	if ((Input::GetControllerTrigger(XINPUT_GAMEPAD_DPAD_UP) == true || Input::GetKeyTrigger(VK_UP) == true) && Cursor_Position > 0) {
 		Cursor_Position--;

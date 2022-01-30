@@ -8,12 +8,12 @@ bool SelectTutorial::Start()
 {
 	/*	スプライト初期化	*/
 	m_SpriteRenderer->SpriteName = "selectAnimation";
-	m_SpriteRenderer->SetSize(800.0f, 800.0f);
+	m_SpriteRenderer->SetSize(1920.0f, 1080.0f);
 	this->Vertex("vs_Ui");
 	m_SpriteRenderer->Init();
 
 	/*	座標設定	*/
-	transform->Position.Set(975, 650, 0);
+	transform->Position.Set(1920 / 2, 1080 / 2, 0);
 
 	/*	アニメーションコンポーネント　*/
 	AddComponent<Animator>(&m_SelectAnimController);

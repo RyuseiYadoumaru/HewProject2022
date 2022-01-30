@@ -47,6 +47,11 @@ bool MapData::Load(std::string in_FileName)
 			{
 				Map[y].push_back(NB);
 			}
+			else if (one == "NO")
+			{
+				Map[y].push_back(NO);
+
+			}
 			else if (one == "C1")
 			{
 				Map[y].push_back(C1);
@@ -66,6 +71,58 @@ bool MapData::Load(std::string in_FileName)
 				Map[y].push_back(C4);
 
 			}
+			else if (one == "GR")
+			{
+				Map[y].push_back(GR);
+
+			}
+			else if (one == "NB2")
+			{
+				Map[y].push_back(NB2);
+
+			}
+			else if (one == "NB3")
+			{
+				Map[y].push_back(NB3);
+
+			}
+			else if (one == "NB4")
+			{
+				Map[y].push_back(NB4);
+
+			}
+			else if (one == "NB5")
+			{
+				Map[y].push_back(NB5);
+
+			}
+			else if (one == "NB6")
+			{
+				Map[y].push_back(NB6);
+
+			}
+			else if (one == "NB7")
+			{
+				Map[y].push_back(NB7);
+
+			}
+			else if (one == "NB8")
+			{
+				Map[y].push_back(NB8);
+
+			}
+			else if (one == "NB9")
+			{
+				Map[y].push_back(NB9);
+
+			}
+			else if (one == "NB10")
+			{
+				Map[y].push_back(NB10);
+
+			}
+
+
 			else if (one == "LC1")
 			{
 				Map[y].push_back(LC1);
@@ -126,46 +183,10 @@ bool MapData::Load(std::string in_FileName)
 
 			}
 
-
-			//à⁄ìÆÉuÉçÉbÉN
-			else if (one == "MB1")
-			{
-				Map[y].push_back(MB1);
-			}
-
-			else if (one == "MB2")
-			{
-				Map[y].push_back(MB2);
-			}
-
-			else if (one == "MB3")
-			{
-				Map[y].push_back(MB3);
-			}
-
-			else if (one == "MB4")
-			{
-				Map[y].push_back(MB4);
-			}
-
-			else if (one == "MB5")
-			{
-				Map[y].push_back(MB5);
-			}
 			//êØ
 			else if (one == "ST")
 			{
 				Map[y].push_back(ST);
-
-			}
-			else if (one == "GR")
-			{
-				Map[y].push_back(GR);
-
-			}
-			else if (one == "NO")
-			{
-				Map[y].push_back(NO);
 
 			}
 			else

@@ -22,5 +22,14 @@ bool ScreenFx::Start()
 
 bool ScreenFx::Update()
 {
+	if (m_MainCamera->m_CameraMode == false)
+	{
+		Active = true;
+	}
+	else
+	{
+		Active = false;
+	}
+
 	return true;
 }

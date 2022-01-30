@@ -153,8 +153,8 @@
     <ClCompile Include="BlockMoveParticle.cpp" />
     <ClCompile Include="BlockResetEffect.cpp" />
     <ClCompile Include="BlockResetParticle.cpp" />
+    <ClCompile Include="BlueRose.cpp" />
     <ClCompile Include="BookShelf.cpp" />
-    <ClCompile Include="CameraFrame.cpp" />
     <ClCompile Include="Ceiling.cpp" />
     <ClCompile Include="Chair.cpp" />
     <ClCompile Include="ChangeTile.cpp" />
@@ -318,8 +318,8 @@
     <ClInclude Include="BlockMoveParticle.h" />
     <ClInclude Include="BlockResetEffect.h" />
     <ClInclude Include="BlockResetParticle.h" />
+    <ClInclude Include="BlueRose.h" />
     <ClInclude Include="BookShelf.h" />
-    <ClInclude Include="CameraFrame.h" />
     <ClInclude Include="Ceiling.h" />
     <ClInclude Include="Chair.h" />
     <ClInclude Include="ChangeTile.h" />

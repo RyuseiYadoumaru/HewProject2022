@@ -5,21 +5,21 @@ using namespace Create;
 bool GamePlay::Stage2Scene::Start()
 {
 	/*	インスタンス	*/
-	m_Map = Instance<Map>("stage1-2");
+	m_Map = Instance<Map>(STAGE_1_2);
 	m_Player = Instance<Player>("Player");
 	m_MainCamera = Instance<MainCamera>("MainCamera");
 	m_SofaStart = Instance<Sofa>("SofaStart");
 	m_CuhsionEnd = Instance<Cuhsion>("ChusionEnd");
 	m_Fade = Instance<Fade>("Black");
 	m_ScreenEffect = Instance<ScreenFx>("SFX");
-	m_CameraFrame = Instance<CameraFrame>("CFX");
 	m_BackGround = Instance<BackGround>("Wall");
 	m_BackGround->Sprite("Wall");
 	m_LayerBack = Instance<LayerBack>("LayerBack");
 	m_LayerBack->Sprite("World1_obj1-2");
 	m_GrayBack = Instance<GrayBack>("GrayBack");
 	m_GrayBack->Sprite("Grey1-2");
-
+	/*	天井初期化	*/
+	m_Ceiling = Instance<Ceiling>("Ceiling");
 
 	/* ゴール時プレイヤーエフェクト生成 */
 	m_PGoalEffect = Instance<PlayerGoalEffect>("PGoalEffect");
@@ -29,11 +29,15 @@ bool GamePlay::Stage2Scene::Start()
 	m_Pause->Sprite("ポーズ");
 
 	m_Button = Instance<Pause>("Button");
-	m_Button->Sprite("button");
+	m_Button->Sprite("button_2");
 	m_Button->NowScene = "Stage2";
 
 	/*  ゴールインスタンス生成  */
 	m_Goal = Instance<Goal>("Goal");
+
+	// ゲーム画面UI初期化
+	m_PlayModeUI = Instance<PlayModeUI>("PlayModeUI");
+	m_waku = Instance<waku>("waku");
 
 	/* リザルト初期化 */
 	m_ResultBack = Instance<Result>("ResultBack");
@@ -166,18 +170,23 @@ bool GamePlay::Stage2Scene::Render()
 	ObjectRender<Sofa>("SofaStart");
 	ObjectRender<Cuhsion>("ChusionEnd");
 
-	ObjectRender<Map>("stage1-2");
+	ObjectRender<Map>(STAGE_1_2);
 	ObjectRender<Player>("Player");
 
 	/****	デバッグ	****/
 	//m_Player->Debug();
 	//m_Map->Debug();
 	//m_TableStart->Debug();
+	/****	天井	****/
+	ObjectRender<Ceiling>("Ceiling");
 
 	/****	画面エフェクト	****/
 	//m_Fade->Render();
 	ObjectRender<ScreenFx>("SFX");
-	ObjectRender<CameraFrame>("CFX");
+
+	// ゲーム画面UI
+	ObjectRender<PlayModeUI>("PlayModeUI");
+	ObjectRender<waku>("waku");
 
 	if (Scene_State == 2) {
 		/*** リザルト ***/

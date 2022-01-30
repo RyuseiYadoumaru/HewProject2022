@@ -5,14 +5,13 @@ using namespace Create;
 bool GamePlay::Stage9Scene::Start()
 {
 	/*	インスタンス	*/
-	m_Map = Instance<Map>("stage2-4");
+	m_Map = Instance<Map>(STAGE_2_4);
 	m_Player = Instance<Player>("Player");
 	m_MainCamera = Instance<MainCamera>("MainCamera");
 	m_SinkStart = Instance<Sink>("SinkStart");
 	m_TablewareEnd = Instance<Tableware>("TablewareEnd");
 	m_Fade = Instance<Fade>("Black");
 	m_ScreenEffect = Instance<ScreenFx>("SFX");
-	m_CameraFrame = Instance<CameraFrame>("CFX");
 	m_BackGround = Instance<BackGround>("Wall");
 	m_BackGround->Sprite("World2_BG");
 	m_LayerBack = Instance<LayerBack>("LayerBack");
@@ -34,11 +33,15 @@ bool GamePlay::Stage9Scene::Start()
 	m_Pause->Sprite("ポーズ");
 
 	m_Button = Instance<Pause>("Button");
-	m_Button->Sprite("button");
+	m_Button->Sprite("button_2");
 
 
 	/*  ゴールインスタンス生成  */
 	m_Goal = Instance<Goal>("Goal");
+
+	// ゲーム画面UI初期化
+	m_PlayModeUI = Instance<PlayModeUI>("PlayModeUI");
+	m_waku = Instance<waku>("waku");
 
 	/* リザルト初期化 */
 	m_ResultBack = Instance<Result>("ResultBack");
@@ -85,11 +88,13 @@ Scene::STATE GamePlay::Stage9Scene::Update()
 		ObjectUpdate();
 
 		//当たったらゴール
-		for (auto name : m_Goal->GetComponent<BoxCollider2D>()->GetHitObject()) {
-			if (name == m_Player->ToString()) {
-				Scene_State = 2;//リザルト用分岐に移動
-				/*m_ResultBack->Result_On();
-				m_ResultCursor->Result_On();*/
+		for (auto name : m_Goal->GetComponent<BoxCollider2D>()->GetHitObject())
+		{
+			if (name == m_Player->ToString())
+			{
+				if (m_Player->m_OnGround == true) {
+					Scene_State = 2;//リザルト用分岐に移動
+				}
 			}
 		}
 
@@ -168,7 +173,7 @@ bool GamePlay::Stage9Scene::Render()
 	ObjectRender<Sink>("SinkStart");
 	ObjectRender<Tableware>("TablewareEnd");
 
-	ObjectRender<Map>("stage2-4");
+	ObjectRender<Map>(STAGE_2_4);
 	ObjectRender<Player>("Player");
 
 	/****	前装飾品	****/
@@ -184,7 +189,10 @@ bool GamePlay::Stage9Scene::Render()
 	/****	画面エフェクト	****/
 	//m_Fade->Render();
 	ObjectRender<ScreenFx>("SFX");
-	ObjectRender<CameraFrame>("CFX");
+
+	// ゲーム画面UI
+	ObjectRender<PlayModeUI>("PlayModeUI");
+	ObjectRender<waku>("waku");
 
 	/*** リザルト ***/
 	ObjectRender<Result>("ResultBack");

@@ -6,7 +6,6 @@
 #include "Fade.h"
 #include "BackGround.h"
 #include "ScreenFx.h"
-#include "CameraFrame.h"
 #include "Ceiling.h"
 #include "BookShelf.h"
 #include "PictureFrame.h"
@@ -15,6 +14,9 @@
 #include "Goal.h"
 #include "Shelf2.h"
 #include"PlayerGoalEffect.h"
+
+#include "PlayModeUI.h"
+#include "waku.h"
 
 using Create::Actor;
 using GameEngine::Input;
@@ -55,9 +57,12 @@ namespace GamePlay
 		Result* m_ResultBack;
 
 		/*	エフェクト	*/
-		CameraFrame* m_CameraFrame;
 		Fade* m_Fade;
 		ScreenFx* m_ScreenEffect;
+
+		// ゲーム画面UI
+		PlayModeUI* m_PlayModeUI;
+		waku* m_waku;
 
 	public:
 		bool Start() override;

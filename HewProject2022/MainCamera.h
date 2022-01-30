@@ -12,6 +12,7 @@ public:
 
 	bool Start() override;
 	bool Update() override;
+	void Debug() override;
 
 public:
 	void Range(Vector2& in_TopLeft, Vector2& in_ButtomRight);

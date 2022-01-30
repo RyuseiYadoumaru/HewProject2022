@@ -5,14 +5,14 @@ using namespace Create;
 bool GamePlay::Stage3Scene::Start()
 {
 	/*	インスタンス	*/
-	m_Map = Instance<Map>("stage1-3");
+	m_Map = Instance<Map>(STAGE_1_3);
 	m_Player = Instance<Player>("Player");
 	m_MainCamera = Instance<MainCamera>("MainCamera");
 	m_CuhsionStart = Instance<Cuhsion>("CuhsionStart");
 	m_SofaEnd = Instance<Sofa>("SofaEnd");
 	m_Fade = Instance<Fade>("Black");
 	m_ScreenEffect = Instance<ScreenFx>("SFX");
-	m_CameraFrame = Instance<CameraFrame>("CFX");
+
 	m_BackGround = Instance<BackGround>("Wall");
 	m_BackGround->Sprite("Wall");
 
@@ -28,10 +28,18 @@ bool GamePlay::Stage3Scene::Start()
 	m_Pause->Sprite("ポーズ");
 
 	m_Button = Instance<Pause>("Button");
-	m_Button->Sprite("button");
+	m_Button->Sprite("button_2");
+	/*	天井初期化	*/
+	m_Ceiling = Instance<Ceiling>("Ceiling");
+	m_Ceiling->Sprite("ceiling");
+
 
 	/*  ゴールインスタンス生成  */
 	m_Goal = Instance<Goal>("Goal");
+
+	// ゲーム画面UI初期化
+	m_PlayModeUI = Instance<PlayModeUI>("PlayModeUI");
+	m_waku = Instance<waku>("waku");
 
 	/* リザルト初期化 */
 	m_ResultBack = Instance<Result>("ResultBack");
@@ -171,7 +179,7 @@ bool GamePlay::Stage3Scene::Render()
 	ObjectRender<Cuhsion>("CuhsionStart");
 	ObjectRender<Sofa>("SofaEnd");
 
-	ObjectRender<Map>("stage1-3");
+	ObjectRender<Map>(STAGE_1_3);
 	ObjectRender<Player>("Player");
 
 	//三木原追加 チュートリアル描画
@@ -186,7 +194,10 @@ bool GamePlay::Stage3Scene::Render()
 	/****	画面エフェクト	****/
 	//m_Fade->Render();
 	ObjectRender<ScreenFx>("SFX");
-	ObjectRender<CameraFrame>("CFX");
+
+	// ゲーム画面UI
+	ObjectRender<PlayModeUI>("PlayModeUI");
+	ObjectRender<waku>("waku");
 
 	/*** リザルト ***/
 	ObjectRender<Result>("ResultBack");

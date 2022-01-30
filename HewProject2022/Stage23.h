@@ -5,7 +5,7 @@
 #include "Player.h"
 #include "Fade.h"
 #include "ScreenFx.h"
-#include "CameraFrame.h"
+
 #include "BackGround.h"
 #include "World5_desk.h"
 #include "Storage.h"
@@ -16,6 +16,8 @@
 #include"Result.h"
 #include "Goal.h"
 #include"PlayerGoalEffect.h"
+#include "PlayModeUI.h"
+#include "waku.h"
 
 using Create::Actor;
 using GameEngine::Input;
@@ -29,8 +31,8 @@ namespace GamePlay
 		MainCamera* m_MainCamera;
 		Map* m_Map;
 		Player* m_Player;
-		Storage* m_StorageStart;
-		House* m_HouseEnd;
+		House* m_HouseStart;
+		Storage* m_StorageEnd;
 
 
 		/*	背景	*/
@@ -48,7 +50,7 @@ namespace GamePlay
 
 		/*	エフェクト	*/
 		ScreenFx* m_ScreenEffect;
-		CameraFrame* m_CameraFrame;
+
 		Fade* m_Fade;
 
 		/* Pause */
@@ -59,6 +61,10 @@ namespace GamePlay
 		/* リザルト */
 		Result* m_ResultCursor;
 		Result* m_ResultBack;
+
+		// ゲーム画面UI
+		PlayModeUI* m_PlayModeUI;
+		waku* m_waku;
 
 	public:
 		bool Start() override;

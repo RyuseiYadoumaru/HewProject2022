@@ -25,6 +25,14 @@ bool PlayModeUI::Start()
 
 bool PlayModeUI::Update()
 {
+	if (m_MainCamera->m_CameraMode == false)
+	{
+		Active = true;
+	}
+	else
+	{
+		Active = false;
+	}
 
 	return true;
 }

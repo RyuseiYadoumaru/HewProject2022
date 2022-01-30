@@ -47,7 +47,19 @@ enum MAPOBJ
 	MB4,
 	MB5,
 
-	NO,	//何もない
+	//パズルじゃないブロック
+	NB2,
+	NB3,
+	NB4,
+	NB5,
+	NB6,
+	NB7,
+	NB8,
+	NB9,
+	NB10,
+
+	//何もない
+	NO,
 	MAX
 };
 

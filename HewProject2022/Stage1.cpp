@@ -4,14 +4,13 @@ using namespace Create;
 bool GamePlay::Stage1Scene::Start()
 {
 	/*	インスタンス	*/
-	m_Map = Instance<Map>("stage1-1_nagaura");
+	m_Map = Instance<Map>(STAGE_1_1);
 	m_Player = Instance<Player>("Player");
 	m_MainCamera = Instance<MainCamera>("MainCamera");
 	m_Fade = Instance<Fade>("Black");
 	m_TableStart = Instance<Table>("TableStart");
 	m_SofaEnd = Instance<Sofa>("SofaEnd");
 	m_ScreenEffect = Instance<ScreenFx>("SFX");
-	m_CameraFrame = Instance<CameraFrame>("CFX");
 	m_BigBook = Instance<BigBook>("Book1");
 	m_MiniBook = Instance<MiniBook>("Book2");
 
@@ -28,7 +27,7 @@ bool GamePlay::Stage1Scene::Start()
 	m_Pause = Instance<Pause>("Pause");
 	m_Pause->Sprite("ポーズ");
 	m_Button = Instance<Pause>("Button");
-	m_Button->Sprite("button");
+	m_Button->Sprite("button_2");
 	m_Button->NowScene = "Stage1";
 
 	/*  ゴールインスタンス生成  */
@@ -59,7 +58,6 @@ bool GamePlay::Stage1Scene::Start()
 	m_ResultBack->ResultBack_init();
 	m_ResultCursor = Instance<Result>("ResultCursor");	//リザルト中カーソルのインスタンス生成
 	m_ResultCursor->ResultCursor_Init();				//初期値セット
-	m_ResultCursor->Sprite("button");
 	m_ResultCursor->NowScene = "Stage1";//現在のシーン設定
 
 	m_Button->NowScene = m_ResultCursor->NowScene;
@@ -94,7 +92,6 @@ Scene::STATE GamePlay::Stage1Scene::Update()
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_SofaEnd->GetComponent<BoxCollider2D>());
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_BigBook->GetComponent<BoxCollider2D>());
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_MiniBook->GetComponent<BoxCollider2D>());
-		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_Ceiling->GetComponent<BoxCollider2D>());
 
 		/***  ゴール判定用  ***/
 		m_Goal->GetComponent<BoxCollider2D>()->HitCheckBox(*m_Player->GetComponent<BoxCollider2D>());
@@ -148,20 +145,6 @@ Scene::STATE GamePlay::Stage1Scene::Update()
 
 	}
 
-	// ゲーム画面UI切り替え
-	if (m_MainCamera->m_CameraMode == false)
-	{
-		m_PlayModeUI->Active = true;
-		m_waku->Active = false;
-		m_ScreenEffect->Active = true;
-	}
-	else
-	{
-		m_PlayModeUI->Active = false;
-		m_waku->Active = true;
-		m_ScreenEffect->Active = false;
-	}
-
 
 
 	/****	システム更新	****/
@@ -206,7 +189,7 @@ bool GamePlay::Stage1Scene::Render()
 	ObjectRender<PlayerGoalEffect>("PGoalEffect");
 
 	/****	オブジェクト描画	****/
-	ObjectRender<Map>("stage1-1_nagaura");
+	ObjectRender<Map>(STAGE_1_1);
 	ObjectRender<Player>("Player");
 	ObjectRender<Table>("TableStart");
 	ObjectRender<Sofa>("SofaEnd");
@@ -228,10 +211,10 @@ bool GamePlay::Stage1Scene::Render()
 	//m_Player->Debug();
 	//m_Map->Debug();
 	//m_TableStart->Debug();
+	m_MainCamera->Debug();
 	/****	画面エフェクト	****/
 	//m_Fade->Render();
 	ObjectRender<ScreenFx>("SFX");
-	ObjectRender<CameraFrame>("CFX");
 
 	// ゲーム画面UI
 	ObjectRender<PlayModeUI>("PlayModeUI");

@@ -8,18 +8,18 @@ bool GamePlay::Stage25Scene::Start()
 	/*	オブジェクト生成	*/
 
 	/*	インスタンス	*/
-	m_Map = Instance<Map>("stage1-1");
+	m_Map = Instance<Map>(STAGE_5_5);
 	m_Player = Instance<Player>("Player");
 	m_MainCamera = Instance<MainCamera>("MainCamera");
 	m_World5_deskStart = Instance<World5_desk>("World5_deskStart");
 	m_ToyEnd = Instance<Toy>("ToyEnd");
 	m_Fade = Instance<Fade>("Black");
 	m_ScreenEffect = Instance<ScreenFx>("SFX");
-	m_CameraFrame = Instance<CameraFrame>("CFX");
+
 	m_BackGround = Instance<BackGround>("Wall");
 	m_BackGround->Sprite("World5_BG");
-	//m_LayerBack = Instance<LayerBack>("LayerBack");
-	//m_LayerBack->Sprite("World5_obj1_5");
+	m_LayerBack = Instance<LayerBack>("LayerBack");
+	m_LayerBack->Sprite("World3_obj1-5");
 	m_GrayBack = Instance<GrayBack>("GrayBack");
 	m_GrayBack->Sprite("Grey");
 	m_LayerFront = Instance<LayerFront>("LayerFront");
@@ -37,14 +37,18 @@ bool GamePlay::Stage25Scene::Start()
 	m_Pause->Sprite("ポーズ");
 
 	m_Button = Instance<Pause>("Button");
-	m_Button->Sprite("button");
+	m_Button->Sprite("button_2");
 
 	/*  ゴールインスタンス生成  */
 	m_Goal = Instance<Goal>("Goal");
 
+	// ゲーム画面UI初期化
+	m_PlayModeUI = Instance<PlayModeUI>("PlayModeUI");
+	m_waku = Instance<waku>("waku");
+
 	/* リザルト初期化 */
 	m_ResultBack = Instance<Result>("ResultBack");
-	m_ResultBack->ResultBack_init();
+	m_ResultBack->ResultBack_init_GameEnd();
 	m_ResultCursor = Instance<Result>("ResultCursor");
 	m_ResultCursor->ResultCursor_Init();
 	m_ResultCursor->NowScene = "Stage25";
@@ -90,11 +94,13 @@ Scene::STATE GamePlay::Stage25Scene::Update()
 		ObjectUpdate();
 
 		//当たったらゴール
-		for (auto name : m_Goal->GetComponent<BoxCollider2D>()->GetHitObject()) {
-			if (name == m_Player->ToString()) {
-				Scene_State = 2;//リザルト用分岐に移動
-				/*m_ResultBack->Result_On();
-				m_ResultCursor->Result_On();*/
+		for (auto name : m_Goal->GetComponent<BoxCollider2D>()->GetHitObject())
+		{
+			if (name == m_Player->ToString())
+			{
+				if (m_Player->m_OnGround == true) {
+					Scene_State = 2;//リザルト用分岐に移動
+				}
 			}
 		}
 
@@ -159,7 +165,7 @@ bool GamePlay::Stage25Scene::Render()
 	ObjectRender<BackGround>("Wall");
 
 	/****	後装飾品	****/
-	//ObjectRender<LayerBack>("LayerBack");
+	ObjectRender<LayerBack>("LayerBack");
 
 	// グレー背景
 	ObjectRender<GrayBack>("GrayBack");
@@ -175,7 +181,7 @@ bool GamePlay::Stage25Scene::Render()
 	ObjectRender<World5_desk>("World5_deskStart");
 	ObjectRender<Toy>("ToyEnd");
 
-	ObjectRender<Map>("stage1-1");
+	ObjectRender<Map>(STAGE_5_5);
 	ObjectRender<Player>("Player");
 
 	/****	前装飾品	****/
@@ -190,7 +196,10 @@ bool GamePlay::Stage25Scene::Render()
 	/****	画面エフェクト	****/
 	//m_Fade->Render();
 	ObjectRender<ScreenFx>("SFX");
-	ObjectRender<CameraFrame>("CFX");
+
+	// ゲーム画面UI
+	ObjectRender<PlayModeUI>("PlayModeUI");
+	ObjectRender<waku>("waku");
 
 	/*** リザルト ***/
 	ObjectRender<Result>("ResultBack");

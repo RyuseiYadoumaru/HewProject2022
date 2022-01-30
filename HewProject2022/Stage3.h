@@ -6,7 +6,7 @@
 #include "Fade.h"
 #include "Table.h"
 #include "ScreenFx.h"
-#include "CameraFrame.h"
+
 #include "BackGround.h"
 #include "MiniBook.h"
 #include "BigBook.h"
@@ -23,6 +23,9 @@
 #include "TutorialEffect.h"
 #include "Tutorial_X.h"
 #include "Tutorial_Y.h"
+
+#include "PlayModeUI.h"
+#include "waku.h"
 
 using Create::Actor;
 using GameEngine::Input;
@@ -53,7 +56,7 @@ namespace GamePlay
 
 		/*	エフェクト	*/
 		ScreenFx* m_ScreenEffect;
-		CameraFrame* m_CameraFrame;
+
 		Fade* m_Fade;
 
 		/* Pause */
@@ -63,6 +66,10 @@ namespace GamePlay
 		/* リザルト */
 		Result* m_ResultCursor;
 		Result* m_ResultBack;
+
+		// ゲーム画面UI
+		PlayModeUI* m_PlayModeUI;
+		waku* m_waku;
 
 		/* チュートリアル */
 		MoveTutorial* m_MoveTutorial;

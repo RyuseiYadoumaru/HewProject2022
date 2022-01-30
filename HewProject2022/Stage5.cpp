@@ -8,14 +8,14 @@ bool GamePlay::Stage5Scene::Start()
 	/*	オブジェクト生成	*/
 
 	/*	インスタンス	*/
-	m_Map = Instance<Map>("stage1-5");
+	m_Map = Instance<Map>(STAGE_1_5);
 	m_Player = Instance<Player>("Player");
 	m_MainCamera = Instance<MainCamera>("MainCamera");
 	m_DeskStart = Instance<Desk>("DeskStart");
 	m_DeskEnd = Instance<Desk>("DeskEnd");
 	m_Fade = Instance<Fade>("Black");
 	m_ScreenEffect = Instance<ScreenFx>("SFX");
-	m_CameraFrame = Instance<CameraFrame>("CFX");
+
 	m_BackGround = Instance<BackGround>("Wall");
 	m_BackGround->Sprite("Wall");
 	m_LayerBack = Instance<LayerBack>("LayerBack");
@@ -32,10 +32,14 @@ bool GamePlay::Stage5Scene::Start()
 	m_Pause->Sprite("ポーズ");
 
 	m_Button = Instance<Pause>("Button");
-	m_Button->Sprite("button");
+	m_Button->Sprite("button_2");
 
 	/*  ゴールインスタンス生成  */
 	m_Goal = Instance<Goal>("Goal");
+
+	// ゲーム画面UI初期化
+	m_PlayModeUI = Instance<PlayModeUI>("PlayModeUI");
+	m_waku = Instance<waku>("waku");
 
 	/* リザルト初期化 */
 	m_ResultBack = Instance<Result>("ResultBack");
@@ -45,6 +49,10 @@ bool GamePlay::Stage5Scene::Start()
 	m_ResultCursor->NowScene = "Stage5";
 
 	m_Button->NowScene = m_ResultCursor->NowScene;
+	/*	天井初期化	*/
+	m_Ceiling = Instance<Ceiling>("Ceiling");
+	m_Ceiling->Sprite("ceiling");
+
 
 
 	/*	初期化	*/
@@ -167,7 +175,7 @@ bool GamePlay::Stage5Scene::Render()
 	ObjectRender<Desk>("DeskStart");
 	ObjectRender<Desk>("DeskEnd");
 
-	ObjectRender<Map>("stage1-5");
+	ObjectRender<Map>(STAGE_1_5);
 	ObjectRender<Player>("Player");
 
 	/****	前装飾品	****/
@@ -181,7 +189,10 @@ bool GamePlay::Stage5Scene::Render()
 	/****	画面エフェクト	****/
 	//m_Fade->Render();
 	ObjectRender<ScreenFx>("SFX");
-	ObjectRender<CameraFrame>("CFX");
+
+	// ゲーム画面UI
+	ObjectRender<PlayModeUI>("PlayModeUI");
+	ObjectRender<waku>("waku");
 
 	/*** リザルト ***/
 	ObjectRender<Result>("ResultBack");

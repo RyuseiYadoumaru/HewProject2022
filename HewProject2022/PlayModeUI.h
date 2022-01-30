@@ -13,5 +13,8 @@ public:
 	bool Update() override;
 	bool Render() override;
 
+	/*	オブジェクト	*/
+	MainCamera*		m_MainCamera;
+
 	UI_StarList* m_StarList;
 };

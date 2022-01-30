@@ -11,10 +11,14 @@ bool GamePlay::Stage23Scene::Start()
 	m_Pause->Sprite("ポーズ");
 
 	m_Button = Instance<Pause>("Button");
-	m_Button->Sprite("button");
+	m_Button->Sprite("button_2");
 
 	/*  ゴールインスタンス生成  */
 	m_Goal = Instance<Goal>("Goal");
+
+	// ゲーム画面UI初期化
+	m_PlayModeUI = Instance<PlayModeUI>("PlayModeUI");
+	m_waku = Instance<waku>("waku");
 
 	/* リザルト初期化 */
 	m_ResultBack = Instance<Result>("ResultBack");
@@ -23,14 +27,14 @@ bool GamePlay::Stage23Scene::Start()
 	m_ResultCursor->ResultCursor_Init();
 	m_ResultCursor->NowScene = "Stage23";
 
-	m_Map = Instance<Map>("stage1-1");
+	m_Map = Instance<Map>(STAGE_5_3);
 	m_Player = Instance<Player>("Player");
 	m_MainCamera = Instance<MainCamera>("MainCamera");
-	m_StorageStart = Instance<Storage>("StorageStart");
-	m_HouseEnd = Instance<House>("HouseEnd");
+	m_HouseStart = Instance<House>("HouseStart");
+	m_StorageEnd = Instance<Storage>("StorageEnd");
 	m_Fade = Instance<Fade>("Black");
 	m_ScreenEffect = Instance<ScreenFx>("SFX");
-	m_CameraFrame = Instance<CameraFrame>("CFX");
+
 	m_BackGround = Instance<BackGround>("Wall");
 	m_BackGround->Sprite("World5_BG");
 	m_LayerBack = Instance<LayerBack>("LayerBack");
@@ -38,7 +42,7 @@ bool GamePlay::Stage23Scene::Start()
 	m_GrayBack = Instance<GrayBack>("GrayBack");
 	m_GrayBack->Sprite("Grey");
 	m_LayerFront = Instance<LayerFront>("LayerFront");
-	m_LayerFront->Sprite("Wrold5_obj2_3");
+	m_LayerFront->Sprite("World5_obj2_3");
 
 	/* ゴール時プレイヤーエフェクト生成 */
 	m_PGoalEffect = Instance<PlayerGoalEffect>("PGoalEffect");
@@ -48,7 +52,7 @@ bool GamePlay::Stage23Scene::Start()
 	m_ResultBack->ResultBack_init();
 	m_ResultCursor = Instance<Result>("ResultCursor");
 	m_ResultCursor->ResultCursor_Init();
-	m_ResultCursor->NowScene = "Stage22";
+	m_ResultCursor->NowScene = "Stage23";
 
 	m_Button->NowScene = m_ResultCursor->NowScene;
 
@@ -59,7 +63,7 @@ bool GamePlay::Stage23Scene::Start()
 
 
 	/*	初期化	*/
-	m_HouseEnd->transform->Position.x += ROAD_DISTANCE;
+	m_StorageEnd->transform->Position.x += ROAD_DISTANCE;
 
 	// BGM再生
 	Sound::Sound_Play(SOUND_LABEL_WORLD5_GAMEBGM);
@@ -86,8 +90,8 @@ Scene::STATE GamePlay::Stage23Scene::Update()
 
 		/****	当たり判定	****/
 
-		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_StorageStart->GetComponent<BoxCollider2D>());
-		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_HouseEnd->GetComponent<BoxCollider2D>());
+		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_HouseStart->GetComponent<BoxCollider2D>());
+		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_StorageEnd->GetComponent<BoxCollider2D>());
 		/***  ゴール判定用  ***/
 		m_Goal->GetComponent<BoxCollider2D>()->HitCheckBox(*m_Player->GetComponent<BoxCollider2D>());
 
@@ -96,11 +100,13 @@ Scene::STATE GamePlay::Stage23Scene::Update()
 		ObjectUpdate();
 
 		//当たったらゴール
-		for (auto name : m_Goal->GetComponent<BoxCollider2D>()->GetHitObject()) {
-			if (name == m_Player->ToString()) {
-				Scene_State = 2;//リザルト用分岐に移動
-				/*m_ResultBack->Result_On();
-				m_ResultCursor->Result_On();*/
+		for (auto name : m_Goal->GetComponent<BoxCollider2D>()->GetHitObject())
+		{
+			if (name == m_Player->ToString())
+			{
+				if (m_Player->m_OnGround == true) {
+					Scene_State = 2;//リザルト用分岐に移動
+				}
 			}
 		}
 
@@ -179,10 +185,10 @@ bool GamePlay::Stage23Scene::Render()
 	ObjectRender<PlayerGoalEffect>("PGoalEffect");
 
 	/****	オブジェクト描画	****/
-	ObjectRender<Storage>("StorageStart");
-	ObjectRender<House>("HouseEnd");
+	ObjectRender<Storage>("StorageEnd");
+	ObjectRender<House>("HouseStart");
 
-	ObjectRender<Map>("stage1-1");
+	ObjectRender<Map>(STAGE_5_3);
 	ObjectRender<Player>("Player");
 
 	/****	前装飾品	****/
@@ -197,7 +203,10 @@ bool GamePlay::Stage23Scene::Render()
 	/****	画面エフェクト	****/
 	//m_Fade->Render();
 	ObjectRender<ScreenFx>("SFX");
-	ObjectRender<CameraFrame>("CFX");
+
+	// ゲーム画面UI
+	ObjectRender<PlayModeUI>("PlayModeUI");
+	ObjectRender<waku>("waku");
 
 	/*** リザルト ***/
 	ObjectRender<Result>("ResultBack");

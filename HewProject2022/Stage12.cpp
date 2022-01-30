@@ -8,14 +8,13 @@ bool GamePlay::Stage12Scene::Start()
 
 
 	/*	インスタンス	*/
-	m_Map = Instance<Map>("stage1-2");
+	m_Map = Instance<Map>(STAGE_3_2);
 	m_Player = Instance<Player>("Player");
 	m_MainCamera = Instance<MainCamera>("MainCamera");
 	m_PlantsStart = Instance<Plants>("PlantsStart");
 	m_TreeEnd = Instance<Tree>("TreeEnd");
 	m_Fade = Instance<Fade>("Black");
 	m_ScreenEffect = Instance<ScreenFx>("SFX");
-	m_CameraFrame = Instance<CameraFrame>("CFX");
 	m_BackGround = Instance<BackGround>("Wall");
 	m_BackGround->Sprite("World3_BG");
 	m_BackGround->transform->Scale.Set(2.5f, 2.5f, 0.0f);
@@ -38,10 +37,14 @@ bool GamePlay::Stage12Scene::Start()
 	m_Pause->Sprite("ポーズ");
 
 	m_Button = Instance<Pause>("Button");
-	m_Button->Sprite("button");
+	m_Button->Sprite("button_2");
 
 	/*  ゴールインスタンス生成  */
 	m_Goal = Instance<Goal>("Goal");
+
+	// ゲーム画面UI初期化
+	m_PlayModeUI = Instance<PlayModeUI>("PlayModeUI");
+	m_waku = Instance<waku>("waku");
 
 	/* リザルト初期化 */
 	m_ResultBack = Instance<Result>("ResultBack");
@@ -87,11 +90,13 @@ Scene::STATE GamePlay::Stage12Scene::Update()
 		/***  ゴール判定用  ***/
 		m_Goal->GetComponent<BoxCollider2D>()->HitCheckBox(*m_Player->GetComponent<BoxCollider2D>());
 		//当たったらゴール
-		for (auto name : m_Goal->GetComponent<BoxCollider2D>()->GetHitObject()) {
-			if (name == m_Player->ToString()) {
-				Scene_State = 2;//リザルト用分岐に移動
-				/*m_ResultBack->Result_On();
-				m_ResultCursor->Result_On();*/
+		for (auto name : m_Goal->GetComponent<BoxCollider2D>()->GetHitObject())
+		{
+			if (name == m_Player->ToString())
+			{
+				if (m_Player->m_OnGround == true) {
+					Scene_State = 2;//リザルト用分岐に移動
+				}
 			}
 		}
 
@@ -104,9 +109,7 @@ Scene::STATE GamePlay::Stage12Scene::Update()
 			Scene_State = 1;
 		}
 
-		/****	システム更新	****/
-		m_Map->SystemUpdate();
-		SystemUpdate();
+
 		break;
 	case 1://ポーズ画面
 	/****   ポーズ中処理   ****/
@@ -131,6 +134,9 @@ Scene::STATE GamePlay::Stage12Scene::Update()
 		}
 		break;
 	}
+	/****	システム更新	****/
+	m_Map->SystemUpdate();
+	SystemUpdate();
 	return PLAY;
 
 }
@@ -167,15 +173,15 @@ bool GamePlay::Stage12Scene::Render()
 	/****	天井	****/
 	ObjectRender<Ceiling>("Ceiling");
 
-	/*** ゴール描画 ***/
-	ObjectRender<Goal>("Goal");
-	ObjectRender<PlayerGoalEffect>("PGoalEffect");
-
 	/****	オブジェクト描画	****/
 	ObjectRender<Plants>("PlantsStart");
 	ObjectRender<Tree>("TreeEnd");
 
-	ObjectRender<Map>("stage1-2");
+	/*** ゴール描画 ***/
+	ObjectRender<Goal>("Goal");
+	ObjectRender<PlayerGoalEffect>("PGoalEffect");
+
+	ObjectRender<Map>(STAGE_3_2);
 	ObjectRender<Player>("Player");
 
 	/****	前装飾品	****/
@@ -190,7 +196,11 @@ bool GamePlay::Stage12Scene::Render()
 	/****	画面エフェクト	****/
 	//m_Fade->Render();
 	ObjectRender<ScreenFx>("SFX");
-	ObjectRender<CameraFrame>("CFX");
+
+	// ゲーム画面UI
+	ObjectRender<PlayModeUI>("PlayModeUI");
+	ObjectRender<waku>("waku");
+
 
 	/*** リザルト ***/
 	ObjectRender<Result>("ResultBack");

@@ -5,14 +5,13 @@ using namespace Create;
 bool GamePlay::Stage10Scene::Start()
 {
 	/*	インスタンス	*/
-	m_Map = Instance<Map>("stage2-5");
+	m_Map = Instance<Map>(STAGE_2_5);
 	m_Player = Instance<Player>("Player");
 	m_MainCamera = Instance<MainCamera>("MainCamera");
 	m_TablewareStart = Instance<Tableware>("TablewareStart");
 	m_ShelfEnd = Instance<Shelf>("ShelfEnd");
 	m_Fade = Instance<Fade>("Black");
 	m_ScreenEffect = Instance<ScreenFx>("SFX");
-	m_CameraFrame = Instance<CameraFrame>("CFX");
 	m_BackGround = Instance<BackGround>("Wall");
 	m_BackGround->Sprite("World2_BG");
 	m_LayerBack = Instance<LayerBack>("LayerBack");
@@ -23,8 +22,12 @@ bool GamePlay::Stage10Scene::Start()
 	/* ゴール時プレイヤーエフェクト生成 */
 	m_PGoalEffect = Instance<PlayerGoalEffect>("PGoalEffect");
 
+	/* Pause初期化 */
+	m_Pause = Instance<Pause>("Pause");
+	m_Pause->Sprite("ポーズ");
+
 	m_Button = Instance<Pause>("Button");
-	m_Button->Sprite("button");
+	m_Button->Sprite("button_2");
 
 	/*	天井初期化	*/
 	m_Ceiling = Instance<Ceiling>("Ceiling");
@@ -32,6 +35,10 @@ bool GamePlay::Stage10Scene::Start()
 
 	/*  ゴールインスタンス生成  */
 	m_Goal = Instance<Goal>("Goal");
+
+	// ゲーム画面UI初期化
+	m_PlayModeUI = Instance<PlayModeUI>("PlayModeUI");
+	m_waku = Instance<waku>("waku");
 
 	/* リザルト初期化 */
 	m_ResultBack = Instance<Result>("ResultBack");
@@ -77,11 +84,13 @@ Scene::STATE GamePlay::Stage10Scene::Update()
 		/***  ゴール判定用  ***/
 		m_Goal->GetComponent<BoxCollider2D>()->HitCheckBox(*m_Player->GetComponent<BoxCollider2D>());
 		//当たったらゴール
-		for (auto name : m_Goal->GetComponent<BoxCollider2D>()->GetHitObject()) {
-			if (name == m_Player->ToString()) {
-				Scene_State = 2;//リザルト用分岐に移動
-				/*m_ResultBack->Result_On();
-				m_ResultCursor->Result_On();*/
+		for (auto name : m_Goal->GetComponent<BoxCollider2D>()->GetHitObject())
+		{
+			if (name == m_Player->ToString())
+			{
+				if (m_Player->m_OnGround == true) {
+					Scene_State = 2;//リザルト用分岐に移動
+				}
 			}
 		}
 
@@ -164,7 +173,7 @@ bool GamePlay::Stage10Scene::Render()
 	ObjectRender<Tableware>("TablewareStart");
 	ObjectRender<Shelf>("ShelfEnd");
 
-	ObjectRender<Map>("stage2-5");
+	ObjectRender<Map>(STAGE_2_5);
 	ObjectRender<Player>("Player");
 
 	/****	デバッグ	****/
@@ -177,7 +186,11 @@ bool GamePlay::Stage10Scene::Render()
 	/****	画面エフェクト	****/
 	//m_Fade->Render();
 	ObjectRender<ScreenFx>("SFX");
-	ObjectRender<CameraFrame>("CFX");
+
+	// ゲーム画面UI
+	ObjectRender<PlayModeUI>("PlayModeUI");
+	ObjectRender<waku>("waku");
+
 
 	/*** リザルト ***/
 	ObjectRender<Result>("ResultBack");

@@ -10,7 +10,7 @@ bool GamePlay::Stage15Scene::Start()
 	m_MainCamera = Instance<MainCamera>("MainCamera");
 	m_TreeStart = Instance<Tree>("TreeStart");
 	m_PlantsEnd = Instance<Plants>("PlantsEnd");
-	m_Fade = Instance<Fade>("Fade");
+	m_Fade = Instance<Fade>("Black");
 	m_ScreenEffect = Instance<ScreenFx>("SFX");
 	m_BackGround = Instance<BackGround>("Wall");
 	m_BackGround->Sprite("World3_BG");

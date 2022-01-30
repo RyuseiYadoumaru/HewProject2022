@@ -18,9 +18,8 @@ bool GamePlay::Stage2Scene::Start()
 	m_LayerBack->Sprite("World1_obj1-2");
 	m_GrayBack = Instance<GrayBack>("GrayBack");
 	m_GrayBack->Sprite("Grey1-2");
-	/****	天井	****/
-	ObjectRender<Ceiling>("Ceiling");
-
+	/*	天井初期化	*/
+	m_Ceiling = Instance<Ceiling>("Ceiling");
 
 	/* ゴール時プレイヤーエフェクト生成 */
 	m_PGoalEffect = Instance<PlayerGoalEffect>("PGoalEffect");
@@ -30,7 +29,7 @@ bool GamePlay::Stage2Scene::Start()
 	m_Pause->Sprite("ポーズ");
 
 	m_Button = Instance<Pause>("Button");
-	m_Button->Sprite("button");
+	m_Button->Sprite("button_2");
 	m_Button->NowScene = "Stage2";
 
 	/*  ゴールインスタンス生成  */

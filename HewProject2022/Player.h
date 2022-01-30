@@ -66,7 +66,8 @@ public:
 
 	int m_GetStar; //取得した星の数
 
-	bool m_OnGround;	//地面についているフラグ
+	static bool m_OnGround;	//地面についているフラグ
+	static bool m_isMagic;
 private:
 
 	Vector3 m_SavePosition;	//前フレームの座標を保存
@@ -87,7 +88,7 @@ private:
 	unsigned int m_JumpCounter;
 	vector<float> m_JumpForceArray;
 
-	bool m_isMagic;
+
 	bool m_isGoal;
 	bool issaveColUnder = false;
 	//ここひどい

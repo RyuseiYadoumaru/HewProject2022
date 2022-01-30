@@ -27,7 +27,7 @@ bool GamePlay::Stage1Scene::Start()
 	m_Pause = Instance<Pause>("Pause");
 	m_Pause->Sprite("ポーズ");
 	m_Button = Instance<Pause>("Button");
-	m_Button->Sprite("button");
+	m_Button->Sprite("button_2");
 	m_Button->NowScene = "Stage1";
 
 	/*  ゴールインスタンス生成  */
@@ -58,7 +58,6 @@ bool GamePlay::Stage1Scene::Start()
 	m_ResultBack->ResultBack_init();
 	m_ResultCursor = Instance<Result>("ResultCursor");	//リザルト中カーソルのインスタンス生成
 	m_ResultCursor->ResultCursor_Init();				//初期値セット
-	m_ResultCursor->Sprite("button");
 	m_ResultCursor->NowScene = "Stage1";//現在のシーン設定
 
 	m_Button->NowScene = m_ResultCursor->NowScene;
@@ -226,6 +225,7 @@ bool GamePlay::Stage1Scene::Render()
 	//m_Player->Debug();
 	//m_Map->Debug();
 	//m_TableStart->Debug();
+	m_MainCamera->Debug();
 	/****	画面エフェクト	****/
 	//m_Fade->Render();
 	ObjectRender<ScreenFx>("SFX");

@@ -13,7 +13,7 @@ bool GamePlay::Stage6Scene::Start()
 	m_TablewareEnd = Instance<Tableware>("TablewareEnd");
 	m_Fade = Instance<Fade>("Black");
 	m_ScreenEffect = Instance<ScreenFx>("SFX");
-	m_CameraFrame = Instance<CameraFrame>("CFX");
+	
 	m_BackGround = Instance<BackGround>("Wall");
 	m_BackGround->Sprite("World2_BG");
 	m_LayerBack = Instance<LayerBack>("LayerBack");
@@ -194,7 +194,7 @@ bool GamePlay::Stage6Scene::Render()
 	/****	画面エフェクト	****/
 	//m_Fade->Render();
 	ObjectRender<ScreenFx>("SFX");
-	ObjectRender<CameraFrame>("CFX");
+	
 
 	/*** リザルト ***/
 	ObjectRender<Result>("ResultBack");

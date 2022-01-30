@@ -11,8 +11,7 @@ bool Ceiling::Start()
 	m_SpriteRenderer->Init();
 
 	float PosX = MAPSIZE_WIDTH / 2.0f;
-	float PosY = (-160.0f / 2.0f) + 40.0f;
-	transform->Scale.Set(1.0f, 0.75f, 1.0f);
+	float PosY = (-350.0f / 2.0f);
 	transform->Position.Set(PosX, PosY, 0.0f);
 
 	/*	ボックスコライダコンポーネント	*/

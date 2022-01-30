@@ -15,7 +15,7 @@ bool GamePlay::Stage5Scene::Start()
 	m_DeskEnd = Instance<Desk>("DeskEnd");
 	m_Fade = Instance<Fade>("Black");
 	m_ScreenEffect = Instance<ScreenFx>("SFX");
-	m_CameraFrame = Instance<CameraFrame>("CFX");
+	
 	m_BackGround = Instance<BackGround>("Wall");
 	m_BackGround->Sprite("Wall");
 	m_LayerBack = Instance<LayerBack>("LayerBack");
@@ -181,7 +181,7 @@ bool GamePlay::Stage5Scene::Render()
 	/****	画面エフェクト	****/
 	//m_Fade->Render();
 	ObjectRender<ScreenFx>("SFX");
-	ObjectRender<CameraFrame>("CFX");
+	
 
 	/*** リザルト ***/
 	ObjectRender<Result>("ResultBack");

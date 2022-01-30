@@ -11,7 +11,6 @@ bool GamePlay::Stage1Scene::Start()
 	m_TableStart = Instance<Table>("TableStart");
 	m_SofaEnd = Instance<Sofa>("SofaEnd");
 	m_ScreenEffect = Instance<ScreenFx>("SFX");
-	m_CameraFrame = Instance<CameraFrame>("CFX");
 	m_BigBook = Instance<BigBook>("Book1");
 	m_MiniBook = Instance<MiniBook>("Book2");
 
@@ -231,7 +230,6 @@ bool GamePlay::Stage1Scene::Render()
 	/****	画面エフェクト	****/
 	//m_Fade->Render();
 	ObjectRender<ScreenFx>("SFX");
-	ObjectRender<CameraFrame>("CFX");
 
 	// ゲーム画面UI
 	ObjectRender<PlayModeUI>("PlayModeUI");

@@ -7,7 +7,7 @@ Tree::Tree(string in_Name) : Actor(in_Name)
 bool Tree::Start()
 {
 	/*	スプライト初期化	*/
-	m_SpriteRenderer->SpriteName = "Tree";
+	m_SpriteRenderer->SpriteName = "Tree_2";
 	m_SpriteRenderer->Init();
 
 	/*	座標設定	*/

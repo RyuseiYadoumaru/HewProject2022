@@ -5,11 +5,10 @@
 #include "Player.h"
 #include "Fade.h"
 #include "ScreenFx.h"
-#include "CameraFrame.h"
 #include "BackGround.h"
 #include "Plants.h"
 #include "Tree.h"
-#include "Rose.h"
+#include "BlueRose.h"
 #include "Ceiling.h"
 #include"Pause.h"
 #include"Result.h"
@@ -28,7 +27,7 @@ namespace GamePlay
 		MainCamera* m_MainCamera;
 		Map* m_Map;
 		Player* m_Player;
-		Rose* m_RoseStart;
+		BlueRose* m_BlueRoseStart;
 		Tree* m_TreeEnd;
 
 
@@ -47,7 +46,6 @@ namespace GamePlay
 
 		/*	エフェクト	*/
 		ScreenFx* m_ScreenEffect;
-		CameraFrame* m_CameraFrame;
 		Fade* m_Fade;
 
 		/* Pause */

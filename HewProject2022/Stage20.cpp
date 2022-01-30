@@ -10,7 +10,6 @@ bool GamePlay::Stage20Scene::Start()
 	m_MainCamera = Instance<MainCamera>("MainCamera");
 	m_Fade = Instance<Fade>("Black");
 	m_ScreenEffect = Instance<ScreenFx>("SFX");
-	m_CameraFrame = Instance<CameraFrame>("CFX");
 	m_Shelf2Start = Instance<Shelf2>("Shelf2Start");
 	m_BookShelfEnd = Instance<BookShelf>("BookShelfEnd");
 
@@ -26,6 +25,8 @@ bool GamePlay::Stage20Scene::Start()
 
 	m_LayerFront = Instance<LayerFront>("LayerFront");
 	m_LayerFront->Sprite("world4_obj2_5");
+	m_LayerBack->transform->Position.y += 5.0f;
+	m_GrayBack->transform->Position.y += 5.0f;
 
 	/*	天井初期化	*/
 	m_Ceiling = Instance<Ceiling>("Ceiling");
@@ -183,7 +184,6 @@ bool GamePlay::Stage20Scene::Render()
 	/****	画面エフェクト	****/
 	//m_Fade->Render();
 	ObjectRender<ScreenFx>("SFX");
-	ObjectRender<CameraFrame>("CFX");
 
 	/*** リザルト ***/
 	ObjectRender<Result>("ResultBack");

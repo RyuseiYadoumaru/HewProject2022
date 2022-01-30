@@ -325,23 +325,35 @@
     <Filter Include="TOYALINE\Tutorial\JumpTutorial">
       <UniqueIdentifier>{b9b3ba57-3994-4053-a02e-87c7261e8235}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TOYALINE\Tutorial\MoveaTutorial">
-      <UniqueIdentifier>{3813920d-4368-4255-85f5-ff6941c0c966}</UniqueIdentifier>
-    </Filter>
     <Filter Include="TOYALINE\Object\Actor\Map\Tile\ChangeTile">
       <UniqueIdentifier>{d99aca7f-b9e6-4efb-be83-5dd45468d479}</UniqueIdentifier>
     </Filter>
     <Filter Include="TOYALINE\Object\Actor\Map\Tile\PushTile">
       <UniqueIdentifier>{8ed57ca1-c63d-4945-8241-902e36ea6972}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TOYALINE\Goal">
-      <UniqueIdentifier>{f61dd4cd-ad7f-468d-83de-64b22e98668f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="TOYALINE\Object\Actor\Map\Star">
       <UniqueIdentifier>{bcd47710-36b8-4e99-a9dc-53b3f9c62e73}</UniqueIdentifier>
     </Filter>
     <Filter Include="TOYALINE\StageSelect\SelectAnimation">
       <UniqueIdentifier>{02602386-5265-4ebb-bb6b-182f83f4bf38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\World3\Road\BlueRose">
+      <UniqueIdentifier>{bd44e86e-50d8-4c98-b787-993d7e25aed8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Tutorial\TutorialAnim">
+      <UniqueIdentifier>{589a423d-c32c-4593-bcca-8e4caba4a58b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Tutorial\XTutorial">
+      <UniqueIdentifier>{05ad5bd5-585f-44a5-85e5-cbf3777e9e07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Tutorial\MoveTutorial">
+      <UniqueIdentifier>{3813920d-4368-4255-85f5-ff6941c0c966}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Tutorial\YTutorial">
+      <UniqueIdentifier>{7a7c2b62-21f1-4a8f-b28e-fc562a66e74f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Object\Goal\GoalAnim">
+      <UniqueIdentifier>{f61dd4cd-ad7f-468d-83de-64b22e98668f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -702,18 +714,6 @@
     <ClCompile Include="Shelf2.cpp">
       <Filter>TOYALINE\World4\Road</Filter>
     </ClCompile>
-    <ClCompile Include="TutorialAnim.cpp">
-      <Filter>TOYALINE\Tutorial</Filter>
-    </ClCompile>
-    <ClCompile Include="TutorialEffectAnimController.cpp">
-      <Filter>TOYALINE\Tutorial</Filter>
-    </ClCompile>
-    <ClCompile Include="TutorialEffectAnim.cpp">
-      <Filter>TOYALINE\Tutorial</Filter>
-    </ClCompile>
-    <ClCompile Include="TutorialAnimController.cpp">
-      <Filter>TOYALINE\Tutorial</Filter>
-    </ClCompile>
     <ClCompile Include="TutorialEffect.cpp">
       <Filter>TOYALINE\Tutorial</Filter>
     </ClCompile>
@@ -721,9 +721,6 @@
       <Filter>TOYALINE\Result</Filter>
     </ClCompile>
     <ClCompile Include="Fade.cpp">
-      <Filter>TOYALINE\ScreemEffect</Filter>
-    </ClCompile>
-    <ClCompile Include="CameraFrame.cpp">
       <Filter>TOYALINE\ScreemEffect</Filter>
     </ClCompile>
     <ClCompile Include="Goal.cpp">
@@ -745,7 +742,7 @@
       <Filter>TOYALINE\Tutorial\JumpTutorial</Filter>
     </ClCompile>
     <ClCompile Include="MoveTutorial.cpp">
-      <Filter>TOYALINE\Tutorial\MoveaTutorial</Filter>
+      <Filter>TOYALINE\Tutorial\MoveTutorial</Filter>
     </ClCompile>
     <ClCompile Include="JumpTutorialAnim.cpp">
       <Filter>TOYALINE\Tutorial\JumpTutorial</Filter>
@@ -766,7 +763,7 @@
       <Filter>TOYALINE\Object\Actor\Map\Tile\PushTile</Filter>
     </ClCompile>
     <ClCompile Include="GoalAnimController.cpp">
-      <Filter>TOYALINE\Goal</Filter>
+      <Filter>TOYALINE\Object\Goal\GoalAnim</Filter>
     </ClCompile>
     <ClCompile Include="SceneTransition.cpp">
       <Filter>TOYALINE\ScreemEffect</Filter>
@@ -786,10 +783,6 @@
     <ClCompile Include="StarTile.cpp">
       <Filter>TOYALINE\Object\Actor\Map\Star</Filter>
     </ClCompile>
-    <ClCompile Include="Tutorial_X.cpp" />
-    <ClCompile Include="Tutorial_Y.cpp" />
-    <ClCompile Include="Tutorial_XYAnim.cpp" />
-    <ClCompile Include="Tutorial_XYAnimController.cpp" />
     <ClCompile Include="SelectFade.cpp">
       <Filter>TOYALINE\StageSelect</Filter>
     </ClCompile>
@@ -807,6 +800,33 @@
     </ClCompile>
     <ClCompile Include="waku.cpp">
       <Filter>TOYALINE\Object\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="BlueRose.cpp">
+      <Filter>TOYALINE\World3\Road\BlueRose</Filter>
+    </ClCompile>
+    <ClCompile Include="TutorialAnimController.cpp">
+      <Filter>TOYALINE\Tutorial\TutorialAnim</Filter>
+    </ClCompile>
+    <ClCompile Include="TutorialAnim.cpp">
+      <Filter>TOYALINE\Tutorial\TutorialAnim</Filter>
+    </ClCompile>
+    <ClCompile Include="TutorialEffectAnim.cpp">
+      <Filter>TOYALINE\Tutorial\TutorialAnim</Filter>
+    </ClCompile>
+    <ClCompile Include="TutorialEffectAnimController.cpp">
+      <Filter>TOYALINE\Tutorial\TutorialAnim</Filter>
+    </ClCompile>
+    <ClCompile Include="Tutorial_X.cpp">
+      <Filter>TOYALINE\Tutorial\XTutorial</Filter>
+    </ClCompile>
+    <ClCompile Include="Tutorial_XYAnim.cpp">
+      <Filter>TOYALINE\Tutorial\XTutorial</Filter>
+    </ClCompile>
+    <ClCompile Include="Tutorial_XYAnimController.cpp">
+      <Filter>TOYALINE\Tutorial\XTutorial</Filter>
+    </ClCompile>
+    <ClCompile Include="Tutorial_Y.cpp">
+      <Filter>TOYALINE\Tutorial\YTutorial</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1206,18 +1226,6 @@
     <ClInclude Include="Shelf2.h">
       <Filter>TOYALINE\World4\Road</Filter>
     </ClInclude>
-    <ClInclude Include="TutorialAnim.h">
-      <Filter>TOYALINE\Tutorial</Filter>
-    </ClInclude>
-    <ClInclude Include="TutorialEffectAnimController.h">
-      <Filter>TOYALINE\Tutorial</Filter>
-    </ClInclude>
-    <ClInclude Include="TutorialEffectAnim.h">
-      <Filter>TOYALINE\Tutorial</Filter>
-    </ClInclude>
-    <ClInclude Include="TutorialAnimController.h">
-      <Filter>TOYALINE\Tutorial</Filter>
-    </ClInclude>
     <ClInclude Include="TutorialEffect.h">
       <Filter>TOYALINE\Tutorial</Filter>
     </ClInclude>
@@ -1225,9 +1233,6 @@
       <Filter>TOYALINE\Result</Filter>
     </ClInclude>
     <ClInclude Include="Fade.h">
-      <Filter>TOYALINE\ScreemEffect</Filter>
-    </ClInclude>
-    <ClInclude Include="CameraFrame.h">
       <Filter>TOYALINE\ScreemEffect</Filter>
     </ClInclude>
     <ClInclude Include="Goal.h">
@@ -1267,7 +1272,7 @@
       <Filter>TOYALINE\Object\Actor\Map\Tile\PushTile</Filter>
     </ClInclude>
     <ClInclude Include="GoalAnimController.h">
-      <Filter>TOYALINE\Goal</Filter>
+      <Filter>TOYALINE\Object\Goal\GoalAnim</Filter>
     </ClInclude>
     <ClInclude Include="SceneTransition.h">
       <Filter>TOYALINE\ScreemEffect</Filter>
@@ -1287,10 +1292,6 @@
     <ClInclude Include="StarTile.h">
       <Filter>TOYALINE\Object\Actor\Map\Star</Filter>
     </ClInclude>
-    <ClInclude Include="Tutorial_X.h" />
-    <ClInclude Include="Tutorial_Y.h" />
-    <ClInclude Include="Tutorial_XYAnim.h" />
-    <ClInclude Include="Tutorial_XYAnimController.h" />
     <ClInclude Include="SelectFade.h">
       <Filter>TOYALINE\StageSelect</Filter>
     </ClInclude>
@@ -1308,6 +1309,33 @@
     </ClInclude>
     <ClInclude Include="waku.h">
       <Filter>TOYALINE\Object\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="BlueRose.h">
+      <Filter>TOYALINE\World3\Road\BlueRose</Filter>
+    </ClInclude>
+    <ClInclude Include="TutorialAnim.h">
+      <Filter>TOYALINE\Tutorial\TutorialAnim</Filter>
+    </ClInclude>
+    <ClInclude Include="TutorialAnimController.h">
+      <Filter>TOYALINE\Tutorial\TutorialAnim</Filter>
+    </ClInclude>
+    <ClInclude Include="TutorialEffectAnim.h">
+      <Filter>TOYALINE\Tutorial\TutorialAnim</Filter>
+    </ClInclude>
+    <ClInclude Include="TutorialEffectAnimController.h">
+      <Filter>TOYALINE\Tutorial\TutorialAnim</Filter>
+    </ClInclude>
+    <ClInclude Include="Tutorial_X.h">
+      <Filter>TOYALINE\Tutorial\XTutorial</Filter>
+    </ClInclude>
+    <ClInclude Include="Tutorial_XYAnimController.h">
+      <Filter>TOYALINE\Tutorial\XTutorial</Filter>
+    </ClInclude>
+    <ClInclude Include="Tutorial_XYAnim.h">
+      <Filter>TOYALINE\Tutorial\XTutorial</Filter>
+    </ClInclude>
+    <ClInclude Include="Tutorial_Y.h">
+      <Filter>TOYALINE\Tutorial\YTutorial</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

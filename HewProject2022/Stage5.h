@@ -6,7 +6,7 @@
 #include "Fade.h"
 #include "Table.h"
 #include "ScreenFx.h"
-#include "CameraFrame.h"
+
 #include "BackGround.h"
 #include "MiniBook.h"
 #include "BigBook.h"
@@ -50,7 +50,7 @@ namespace GamePlay
 
 		/*	エフェクト	*/
 		ScreenFx* m_ScreenEffect;
-		CameraFrame* m_CameraFrame;
+		
 		Fade* m_Fade;
 
 		/* Pause */

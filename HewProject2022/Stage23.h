@@ -5,7 +5,7 @@
 #include "Player.h"
 #include "Fade.h"
 #include "ScreenFx.h"
-#include "CameraFrame.h"
+
 #include "BackGround.h"
 #include "World5_desk.h"
 #include "Storage.h"
@@ -29,8 +29,8 @@ namespace GamePlay
 		MainCamera* m_MainCamera;
 		Map* m_Map;
 		Player* m_Player;
-		Storage* m_StorageStart;
-		House* m_HouseEnd;
+		House* m_HouseStart;
+		Storage* m_StorageEnd;
 
 
 		/*	背景	*/
@@ -48,7 +48,7 @@ namespace GamePlay
 
 		/*	エフェクト	*/
 		ScreenFx* m_ScreenEffect;
-		CameraFrame* m_CameraFrame;
+		
 		Fade* m_Fade;
 
 		/* Pause */

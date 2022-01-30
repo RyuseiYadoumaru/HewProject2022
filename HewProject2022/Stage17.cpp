@@ -10,7 +10,6 @@ bool GamePlay::Stage17Scene::Start()
 	m_MainCamera = Instance<MainCamera>("MainCamera");
 	m_Fade = Instance<Fade>("Black");
 	m_ScreenEffect = Instance<ScreenFx>("SFX");
-	m_CameraFrame = Instance<CameraFrame>("CFX");
 	m_Shelf2Start = Instance<Shelf2>("Shelf2Start");
 	m_BookShelfEnd = Instance<BookShelf>("BookShelfEnd");
 
@@ -28,6 +27,8 @@ bool GamePlay::Stage17Scene::Start()
 	m_Ceiling->Sprite("World4_ceiling");
 	/*	初期化	*/
 	m_BookShelfEnd->transform->Position.x += ROAD_DISTANCE;
+
+	m_GrayBack->transform->Position.y += 5.0f;
 
 	/* ゴール時プレイヤーエフェクト生成 */
 	m_PGoalEffect = Instance<PlayerGoalEffect>("PGoalEffect");
@@ -180,7 +181,7 @@ bool GamePlay::Stage17Scene::Render()
 	/****	画面エフェクト	****/
 	//m_Fade->Render();
 	ObjectRender<ScreenFx>("SFX");
-	ObjectRender<CameraFrame>("CFX");
+
 
 	/*** リザルト ***/
 	ObjectRender<Result>("ResultBack");

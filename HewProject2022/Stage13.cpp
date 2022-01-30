@@ -5,17 +5,14 @@ using namespace Create;
 bool GamePlay::Stage13Scene::Start()
 {
 
-
-
 	/*	インスタンス	*/
 	m_Map = Instance<Map>("stage1-1");
 	m_Player = Instance<Player>("Player");
 	m_MainCamera = Instance<MainCamera>("MainCamera");
 	m_TreeStart = Instance<Tree>("TreeStart");
-	m_RoseEnd = Instance<Rose>("RoseEnd");
+	m_BlueRoseEnd = Instance<BlueRose>("BlueRoseEnd");
 	m_Fade = Instance<Fade>("Black");
 	m_ScreenEffect = Instance<ScreenFx>("SFX");
-	m_CameraFrame = Instance<CameraFrame>("CFX");
 	m_BackGround = Instance<BackGround>("Wall");
 	m_BackGround->Sprite("World3_BG");
 	m_BackGround->transform->Scale.Set(2.5f, 2.5f, 0.0f);
@@ -25,6 +22,9 @@ bool GamePlay::Stage13Scene::Start()
 	m_GrayBack->Sprite("Grey3-3");
 	m_LayerFront = Instance<LayerFront>("LayerFront");
 	m_LayerFront->Sprite("World3_obj2-3");
+	m_LayerFront->transform->Position.y += 2.0f;
+	m_LayerBack->transform->Position.y += 2.0f;
+	m_GrayBack->transform->Position.y += 2.0f;
 
 	/* ゴール時プレイヤーエフェクト生成 */
 	m_PGoalEffect = Instance<PlayerGoalEffect>("PGoalEffect");
@@ -55,7 +55,7 @@ bool GamePlay::Stage13Scene::Start()
 
 
 	/*	初期化	*/
-	m_RoseEnd->transform->Position.x += ROAD_DISTANCE;
+	m_BlueRoseEnd->transform->Position.x += ROAD_DISTANCE;
 
 	/*	ギミック初期化	*/
 
@@ -86,7 +86,7 @@ Scene::STATE GamePlay::Stage13Scene::Update()
 		/****	当たり判定	****/
 
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_TreeStart->GetComponent<BoxCollider2D>());
-		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_RoseEnd->GetComponent<BoxCollider2D>());
+		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_BlueRoseEnd->GetComponent<BoxCollider2D>());
 
 		/***  ゴール判定用  ***/
 		m_Goal->GetComponent<BoxCollider2D>()->HitCheckBox(*m_Player->GetComponent<BoxCollider2D>());
@@ -175,7 +175,7 @@ bool GamePlay::Stage13Scene::Render()
 
 	/****	オブジェクト描画	****/
 	ObjectRender<Tree>("TreeStart");
-	ObjectRender<Rose>("RoseEnd");
+	ObjectRender<BlueRose>("BlueRoseEnd");
 
 	/*** ゴール描画 ***/
 	ObjectRender<Goal>("Goal");
@@ -196,7 +196,7 @@ bool GamePlay::Stage13Scene::Render()
 	/****	画面エフェクト	****/
 	//m_Fade->Render();
 	ObjectRender<ScreenFx>("SFX");
-	ObjectRender<CameraFrame>("CFX");
+	
 
 	/*** リザルト ***/
 	ObjectRender<Result>("ResultBack");

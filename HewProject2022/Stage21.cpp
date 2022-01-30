@@ -13,10 +13,9 @@ bool GamePlay::Stage21Scene::Start()
 	m_Player = Instance<Player>("Player");
 	m_MainCamera = Instance<MainCamera>("MainCamera");
 	m_StorageStart = Instance<Storage>("StorageStart");
-	m_HouseEnd = Instance<House>("HouseEnd");
+	m_World5_deskEnd = Instance<World5_desk>("World5_deskEnd");
 	m_Fade = Instance<Fade>("Black");
 	m_ScreenEffect = Instance<ScreenFx>("SFX");
-	m_CameraFrame = Instance<CameraFrame>("CFX");
 	m_BackGround = Instance<BackGround>("Wall");
 	m_BackGround->Sprite("World5_BG");
 	m_LayerBack = Instance<LayerBack>("LayerBack");
@@ -52,7 +51,7 @@ bool GamePlay::Stage21Scene::Start()
 	m_Button->NowScene = m_ResultCursor->NowScene;
 
 	/*	初期化	*/
-	m_HouseEnd->transform->Position.x += ROAD_DISTANCE;
+	m_World5_deskEnd->transform->Position.x += ROAD_DISTANCE;
 
 	/*	ギミック初期化	*/
 
@@ -82,7 +81,7 @@ Scene::STATE GamePlay::Stage21Scene::Update()
 		/****	当たり判定	****/
 
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_StorageStart->GetComponent<BoxCollider2D>());
-		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_HouseEnd->GetComponent<BoxCollider2D>());
+		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_World5_deskEnd->GetComponent<BoxCollider2D>());
 
 
 		/****	オブジェクト更新	****/
@@ -176,14 +175,14 @@ bool GamePlay::Stage21Scene::Render()
 
 	/****	オブジェクト描画	****/
 	ObjectRender<Storage>("StorageStart");
-	ObjectRender<House>("HouseEnd");
+	ObjectRender<World5_desk>("World5_deskEnd");
 
 	ObjectRender<Map>("stage1-1");
 	ObjectRender<Player>("Player");
 
 
 	/****	デバッグ	****/
-	//m_HouseEnd->Debug();
+	//m_World5_deskEnd->Debug();
 	//m_Map->Debug();
 	//m_RoseStart->Debug();
 	//m_Player->Debug();
@@ -191,7 +190,6 @@ bool GamePlay::Stage21Scene::Render()
 	/****	画面エフェクト	****/
 	//m_Fade->Render();
 	ObjectRender<ScreenFx>("SFX");
-	ObjectRender<CameraFrame>("CFX");
 
 	/*** リザルト ***/
 	ObjectRender<Result>("ResultBack");

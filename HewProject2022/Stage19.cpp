@@ -10,7 +10,6 @@ bool GamePlay::Stage19Scene::Start()
 	m_MainCamera = Instance<MainCamera>("MainCamera");
 	m_Fade = Instance<Fade>("Black");
 	m_ScreenEffect = Instance<ScreenFx>("SFX");
-	m_CameraFrame = Instance<CameraFrame>("CFX");
 	m_PicTureFrameStart = Instance<PictureFrame>("PicTureFrameStart");
 	m_Shelf2End = Instance<Shelf2>("Shelf2End");
 
@@ -22,6 +21,8 @@ bool GamePlay::Stage19Scene::Start()
 	m_LayerBack->Sprite("world4_obj1_4");
 	m_GrayBack = Instance<GrayBack>("GrayBack");
 	m_GrayBack->Sprite("Grey4_4");
+	m_LayerBack->transform->Position.y += 5.0f;
+	m_GrayBack->transform->Position.y += 5.0f;
 
 	/*	天井初期化	*/
 	m_Ceiling = Instance<Ceiling>("Ceiling");
@@ -177,7 +178,7 @@ bool GamePlay::Stage19Scene::Render()
 	/****	画面エフェクト	****/
 	//m_Fade->Render();
 	ObjectRender<ScreenFx>("SFX");
-	ObjectRender<CameraFrame>("CFX");
+
 
 	/*** リザルト ***/
 	ObjectRender<Result>("ResultBack");

@@ -59,6 +59,18 @@ bool GamePlay::Stage11Scene::Start()
 	SetCamera(m_MainCamera);
 	m_MainCamera->Focus(m_Player);
 
+	/*	チュートリアル	*/
+	m_MoveTutorial = Instance<MoveTutorial>("MoveTutorial");
+	m_JumpTutorial = Instance<JumpTutorial>("JumpTutorial");
+	m_TutorialEffect = Instance<TutorialEffect>("TutorialEffect");
+	m_Tutorial_X = Instance<Tutorial_X>("Tutorial_X");
+	m_Tutorial_Y = Instance<Tutorial_Y>("Tutorial_Y");
+
+	m_Tutorial_X->transform->Position.Set(2035.0f, 700.0f, 0.0f);
+
+	m_TutorialEffect->transform->Position.Set(2035.0f, 700.0f, 0.0f);
+
+
 	// BGM再生
 	Sound::Sound_Play(SOUND_LABEL_WORLD3_GAMEBGM);
 
@@ -187,6 +199,10 @@ bool GamePlay::Stage11Scene::Render()
 	//m_RoseStart->Debug();
 	//m_Player->Debug();
 	//m_Map->Debug();
+
+	//チュートリアル描画
+	ObjectRender<TutorialEffect>("TutorialEffect");
+	ObjectRender<Tutorial_X>("Tutorial_X");
 
 	/****	画面エフェクト	****/
 	//m_Fade->Render();

@@ -24,10 +24,11 @@ bool UI_Star::Start()
 bool UI_Star::Update()
 {
 	//サイズを徐々に大きくする
+	//くるくる回す?
 	//最大サイズになったら大きくするのを止める
 	if (transform->Scale.x <= MAX_STAR_SIZE && transform->Scale.y < MAX_STAR_SIZE) {
-		transform->Scale.x++;
-		transform->Scale.y++;
+		transform->Scale.x += 3.0f;
+		transform->Scale.y += 3.0f;
 	}
 
 	for (auto &Com : ComponentList) {

@@ -103,9 +103,7 @@ Scene::STATE GamePlay::Stage10Scene::Update()
 			Scene_State = 1;
 		}
 
-		/****	システム更新	****/
-		m_Map->SystemUpdate();
-		SystemUpdate();
+
 		break;
 	case 1://ポーズ画面
 	/****   ポーズ中処理   ****/
@@ -130,6 +128,9 @@ Scene::STATE GamePlay::Stage10Scene::Update()
 		}
 		break;
 	}
+	/****	システム更新	****/
+	m_Map->SystemUpdate();
+	SystemUpdate();
 	return PLAY;
 }
 

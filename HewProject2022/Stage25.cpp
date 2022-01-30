@@ -19,7 +19,7 @@ bool GamePlay::Stage25Scene::Start()
 	m_BackGround = Instance<BackGround>("Wall");
 	m_BackGround->Sprite("World5_BG");
 	m_LayerBack = Instance<LayerBack>("LayerBack");
-	m_LayerBack->Sprite("World5_obj1-5");
+	m_LayerBack->Sprite("World5_obj1_5");
 	m_GrayBack = Instance<GrayBack>("GrayBack");
 	m_GrayBack->Sprite("Grey");
 	m_LayerFront = Instance<LayerFront>("LayerFront");
@@ -173,10 +173,6 @@ bool GamePlay::Stage25Scene::Render()
 	/****	天井	****/
 	ObjectRender<Ceiling>("Ceiling");
 
-	/*** ゴール描画 ***/
-	ObjectRender<Goal>("Goal");
-	ObjectRender<PlayerGoalEffect>("PGoalEffect");
-
 	/****	オブジェクト描画	****/
 	ObjectRender<World5_desk>("World5_deskStart");
 	ObjectRender<Toy>("ToyEnd");
@@ -186,6 +182,10 @@ bool GamePlay::Stage25Scene::Render()
 
 	/****	前装飾品	****/
 	ObjectRender<LayerFront>("LayerFront");
+
+	/*** ゴール描画 ***/
+	ObjectRender<Goal>("Goal");
+	ObjectRender<PlayerGoalEffect>("PGoalEffect");
 
 	/****	デバッグ	****/
 	//m_ToyEnd->Debug();

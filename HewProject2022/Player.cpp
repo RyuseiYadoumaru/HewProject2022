@@ -4,6 +4,7 @@
 #include "BlockParticleManager.h"
 #include "Result.h"
 #include "Ceiling.h"
+#include "Fade.h"
 
 bool Player::m_OnGround = false;
 /*	マジック初期化	*/
@@ -218,8 +219,12 @@ void Player::Action()
 		else if ((GameTimer::NowFrameCount() - m_GroundCnt) >= m_GroundWaitFrame)
 		{
 			//着地後待機フレーム分待って移動を許可する
-			Move();
-			Jump();
+
+			Fade* m_Fade = Create::Scene::GetGameObject<Fade>("Black");
+			if (m_Fade->m_FadeFlg == false) {//フェードしている間は操作できない（FPSが安定しないと操作できない）
+				Move();
+				Jump();
+			}
 		}
 
 	}

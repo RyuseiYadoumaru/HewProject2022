@@ -180,10 +180,6 @@ bool GamePlay::Stage23Scene::Render()
 	/****	天井	****/
 	ObjectRender<Ceiling>("Ceiling");
 
-	/*** ゴール描画 ***/
-	ObjectRender<Goal>("Goal");
-	ObjectRender<PlayerGoalEffect>("PGoalEffect");
-
 	/****	オブジェクト描画	****/
 	ObjectRender<Storage>("StorageEnd");
 	ObjectRender<House>("HouseStart");
@@ -193,6 +189,10 @@ bool GamePlay::Stage23Scene::Render()
 
 	/****	前装飾品	****/
 	ObjectRender<LayerFront>("LayerFront");
+
+	/*** ゴール描画 ***/
+	ObjectRender<Goal>("Goal");
+	ObjectRender<PlayerGoalEffect>("PGoalEffect");
 
 	/****	デバッグ	****/
 	/*m_HouseEnd->Debug();

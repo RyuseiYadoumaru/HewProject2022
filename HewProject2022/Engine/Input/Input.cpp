@@ -262,6 +262,7 @@ void GameEngine::Input::KeyUpdate()
 	gKeys[PK_Q] = GetAsyncKeyState(PK_Q);				//Q
 	gKeys[PK_SP] = GetAsyncKeyState(PK_SP);				//SPACE
 	gKeys[PK_BS] = GetAsyncKeyState(PK_BS);				//BackSCAPE
+	gKeys[PK_ESC] = GetAsyncKeyState(PK_ESC);				//BackSCAPE
 
 
 	/****	ƒpƒbƒhó‘Ôæ“¾	****/

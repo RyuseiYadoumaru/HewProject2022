@@ -21,7 +21,7 @@ bool GamePlay::Stage22Scene::Start()
 	m_LayerBack = Instance<LayerBack>("LayerBack");
 	m_LayerBack->Sprite("World5_obj1_2");
 	m_GrayBack = Instance<GrayBack>("GrayBack");
-	m_GrayBack->Sprite("Grey");
+	m_GrayBack->Sprite("Gray5-2");
 	m_LayerFront = Instance<LayerFront>("LayerFront");
 	m_LayerFront->Sprite("World5_obj2_2");
 

@@ -75,8 +75,6 @@ Scene::STATE GamePlay::Stage19Scene::Update()
 	cnt++;
 	cout << "\nフレーム" << cnt << endl;
 
-
-
 	/****	オブジェクト更新	****/
 	switch (Scene_State) {
 	case 0:
@@ -134,6 +132,7 @@ Scene::STATE GamePlay::Stage19Scene::Update()
 		break;
 	}
 	/****	システム更新	****/
+	m_Map->SystemUpdate();
 	SystemUpdate();
 	return PLAY;
 }

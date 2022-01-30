@@ -177,13 +177,18 @@ void MoveInfo::Start()
 	/*	前回の先頭タイルポジション設定	*/
 	m_BeforeMovePosition = mp_HeadTile->transform->Position;
 	/*	リセット時の設定	*/
-	m_ResetValue = m_MoveValue * -1;
-	m_ResetSpeed = m_ResetValue / MOVE_TIME;
-	/*	上昇フラグ設定	*/
 	//上昇
-	if (m_MoveValue < 0) m_isUp = true;
+	if (m_MoveValue < 0)
+	{
+		m_isUp = true;
+		m_ResetValue = m_MoveValue * -1;
+		m_ResetSpeed = m_ResetValue / MOVE_TIME;
+
+	}
 	//下降
 	else if (m_MoveValue > 0) m_isUp = false;
+
+	/*	上昇フラグ設定	*/
 
 	isMoveStart = false;
 

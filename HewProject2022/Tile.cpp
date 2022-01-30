@@ -125,5 +125,3 @@ void Tile::EffectInit()
 	//		BlockEffect::EFFECT_KIND::MAGIC);
 	//m_Blockeffect->Start();
 }
-
-

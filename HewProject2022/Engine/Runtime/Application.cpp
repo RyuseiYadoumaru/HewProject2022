@@ -27,7 +27,7 @@ const uint32_t	Application::SCREEN_HEIGHT = 1080;
 
 const float		Application::FPS = 60.0f;
 
-bool			Application::isShowCursor = true;
+bool			Application::isShowCursor = false;
 bool			Application::FullScreen = false;
 
 
@@ -86,7 +86,7 @@ bool Application::Init(HINSTANCE hInstance)
 	if (isSucceed == false)
 	{
 		Log::LogError("アプリケーション初期化に失敗しました");
-		return false;
+		return true;
 	}
 
 	/****	ウィンドウ作成	****/

@@ -17,18 +17,18 @@ namespace GamePlay
 		Actor* m_stage_3;//ワールド3画像
 		Actor* m_stage_4;//ワールド4画像
 		Actor* m_stage_5;//ワールド5画像
-		SelectTutorial* m_selectAnimation;//ボタンアニメーション
 		Actor* m_selectUi;//Ui
 		Actor* m_worldBack;//背景
-		SelectFade* m_fade;
-
+		SelectTutorial* m_selectAnimation;//ボタンアニメーション
+		SelectFade* m_fadeIn;//フェードイン
+		Actor* m_fadeOut;//フェードアウト
 		STAGE_NUMBER m_stageNumber;
 
 		int m_frameCnt;
 		bool m_inputflg;
 		bool m_sceneRightMoveflg;
 		bool m_sceneLeftMoveflg;
-
+		bool m_fadeflg;
 	public:
 		bool Start() override;
 

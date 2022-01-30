@@ -1,7 +1,6 @@
 #pragma once
 #include"ydmEngine.h"
 #include"StageList.h"
-#include "Fade.h"
 #include "SceneTransition.h"
 #include "SelectTutorial.h"
 #include"SelectFade.h"
@@ -22,8 +21,8 @@ namespace GamePlay
 		Actor* m_selectUi;//Ui
 		Actor* m_worldBack;//背景
 		SelectTutorial* m_selectAnimation;//ボタンアニメーション
-		SelectFade* m_fade;//フェード
-
+		SelectFade* m_fadeIn;//フェード
+		Actor* m_fadeOut;
 		SceneTransition* m_SceneTransition;//シーン遷移
 
 		STAGE_NUMBER m_stageNumber;

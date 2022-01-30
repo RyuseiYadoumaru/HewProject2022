@@ -4,6 +4,7 @@
 #include "BlockParticleManager.h"
 #include "Result.h"
 #include "Ceiling.h"
+#include "Fade.h"
 
 bool Player::m_OnGround = false;
 /*	マジック初期化	*/
@@ -52,7 +53,6 @@ bool Player::Start()
 	m_airFlg = true;
 
 
-
 	/* ゴール初期化 */
 	m_isGoal = false;
 
@@ -62,6 +62,7 @@ bool Player::Start()
 	m_SpriteRenderer->Init();
 
 	transform->Position.Set(1000.0f, 900.0f, 0.0f);
+	//transform->Position.Set(5500.0f, 0.0f, 0.0f);
 	transform->Scale.Set(1.0f, 1.0f, 1.0f);
 
 	/*	リジットボディーコンポーネント	*/
@@ -218,8 +219,12 @@ void Player::Action()
 		else if ((GameTimer::NowFrameCount() - m_GroundCnt) >= m_GroundWaitFrame)
 		{
 			//着地後待機フレーム分待って移動を許可する
-			Move();
-			Jump();
+
+			Fade* m_Fade = Create::Scene::GetGameObject<Fade>("Black");
+			if (m_Fade->m_FadeFlg == false) {//フェードしている間は操作できない（FPSが安定しないと操作できない）
+				Move();
+				Jump();
+			}
 		}
 
 	}

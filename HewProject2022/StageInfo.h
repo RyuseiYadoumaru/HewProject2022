@@ -27,7 +27,7 @@
 /****	ステージデータ名	****/
 #define STAGE_1_1 ("stage1-1")
 #define STAGE_1_2 ("stage1-2")
-#define STAGE_1_3 ("Nostage")
+#define STAGE_1_3 ("stage1-3")
 #define STAGE_1_4 ("stage1-4")
 #define STAGE_1_5 ("stage1-5")
 #define STAGE_2_1 ("stage2-1")

@@ -172,10 +172,6 @@ bool GamePlay::Stage22Scene::Render()
 	/****	天井	****/
 	ObjectRender<Ceiling>("Ceiling");
 
-	/*** ゴール描画 ***/
-	ObjectRender<Goal>("Goal");
-	ObjectRender<PlayerGoalEffect>("PGoalEffect");
-
 	/****	オブジェクト描画	****/
 	ObjectRender<World5_desk>("World5_deskStart");
 	ObjectRender<House>("HouseEnd");
@@ -185,6 +181,10 @@ bool GamePlay::Stage22Scene::Render()
 
 	/****	前装飾品	****/
 	ObjectRender<LayerFront>("LayerFront");
+
+	/*** ゴール描画 ***/
+	ObjectRender<Goal>("Goal");
+	ObjectRender<PlayerGoalEffect>("PGoalEffect");
 
 	/****	デバッグ	****/
 /*	m_HouseEnd->Debug();

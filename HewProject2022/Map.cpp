@@ -248,9 +248,9 @@ bool Map::HitCheckMap(GameObject& in_GameObject, CHECK in_Check)
 	{
 		/*	ここに縮小した補正値を計算する	*/
 		//////////////////////////////////////////
-		/////////////////////////////////////////
-		////////////////////////////////////////
-		///////////////////////////////////////
+		//////////////////////////////////////////
+		//////////////////////////////////////////
+		//////////////////////////////////////////
 		for (auto& NowTile : m_TileList)
 		{
 			if (NowTile->transform->Position.x >= camera->GetLeft() && NowTile->transform->Position.x <= camera->GetRight() &&
@@ -445,6 +445,36 @@ void Map::CreateMap()
 				//CreateTile(Pos, "brown1", MAPOBJ::NB);
 				break;
 
+				/*	パズルに関係ないブロック	*/
+			case NB2:
+				CreateTile(Pos, "tile2", MAPOBJ::NB);
+				break;
+			case NB3:
+				CreateTile(Pos, "tile3", MAPOBJ::NB);
+				break;
+			case NB4:
+				CreateTile(Pos, "brick4", MAPOBJ::NB);
+				break;
+			case NB5:
+				CreateTile(Pos, "brick5", MAPOBJ::NB);
+				break;
+			case NB6:
+				CreateTile(Pos, "brick6", MAPOBJ::NB);
+				break;
+			case NB7:
+				CreateTile(Pos, "brick7", MAPOBJ::NB);
+				break;
+			case NB8:
+				CreateTile(Pos, "brown1", MAPOBJ::NB);
+				break;
+			case NB9:
+				CreateTile(Pos, "brown1", MAPOBJ::NB);
+				break;
+			case NB10:
+				CreateTile(Pos, "brown1", MAPOBJ::NB);
+				break;
+
+				/*	カラーブロック	*/
 			case C1:
 				CreateTile(Pos, "red", MAPOBJ::C1);
 				break;
@@ -460,6 +490,7 @@ void Map::CreateMap()
 			case C4:
 				CreateTile(Pos, "purple", MAPOBJ::C4);
 				break;
+
 				//3色変化タイル
 			case CR3:
 				CreateChangeTile(Pos, "red_blue", MAPOBJ::CR3);
@@ -507,11 +538,6 @@ void Map::CreateMap()
 
 			case ST:
 				CreateStarTile(Pos, "hosi", MAPOBJ::ST);
-				break;
-			case GR:
-				break;
-
-			case NO:
 				break;
 
 			default:

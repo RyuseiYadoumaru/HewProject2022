@@ -45,7 +45,7 @@
 #define STAGE_4_3 ("stage4-3")
 #define STAGE_4_4 ("Nostage")
 #define STAGE_4_5 ("Nostage")
-#define STAGE_5_1 ("Nostage")
+#define STAGE_5_1 ("stage5-1_nagaura")
 #define STAGE_5_2 ("Nostage")
 #define STAGE_5_3 ("Nostage")
 #define STAGE_5_4 ("Nostage")

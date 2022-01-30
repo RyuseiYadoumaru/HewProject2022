@@ -86,7 +86,7 @@ bool Application::Init(HINSTANCE hInstance)
 	if (isSucceed == false)
 	{
 		Log::LogError("アプリケーション初期化に失敗しました");
-		return false;
+		return true;
 	}
 
 	/****	ウィンドウ作成	****/

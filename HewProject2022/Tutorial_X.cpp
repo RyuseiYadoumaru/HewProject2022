@@ -46,6 +46,8 @@ bool Tutorial_X::Update()
 		}
 	}
 
+	if (m_Player->m_LandTile->GetLandTile() == LandGround) return true;
+
 	if ((Input::GetKeyTrigger(PK_Q) == true || Input::GetControllerTrigger(XINPUT_GAMEPAD_X) == true) &&//キーでQまたはコントローラーでXを押したら
 		m_PerfectLook_X_TutorialFlg == true && m_Player->m_LandTile->GetLandTile()->GetKind() == RED_BLOCK) {//プレイヤーが赤のカラーブロックの上
 		m_EndStart_X_TutorialFlg = true;

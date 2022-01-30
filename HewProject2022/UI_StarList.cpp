@@ -56,7 +56,6 @@ bool UI_StarList::Update()
 			m_StarsList[i]->Update();
 		}
 	}
-
 	return true;
 }
 

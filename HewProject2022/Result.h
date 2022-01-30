@@ -12,8 +12,9 @@ public:
 
 	Result(string in_Name);
 	bool Start() override;
-	void ResultBack_init();//画像差し替え用（効率化のため）
-	void ResultBack_init_GameEnd();
+	void ResultFront_init();//画像差し替え用（効率化のため）
+	void ResultFront_init_GameEnd();
+	void ResultBack_init();
 	void ResultCursor_Init();//画像差し替え用（効率化のため）
 	bool Result_On();
 

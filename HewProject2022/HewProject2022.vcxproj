@@ -206,6 +206,8 @@
     <ClCompile Include="Engine\SceneManager\SceneManager.cpp" />
     <ClCompile Include="Engine\Timer\GameTimer.cpp" />
     <ClCompile Include="Fade.cpp" />
+    <ClCompile Include="FireworkController.cpp" />
+    <ClCompile Include="Fireworks.cpp" />
     <ClCompile Include="Game\GameObject\Actor.cpp" />
     <ClCompile Include="Game\GameObject\Camera.cpp" />
     <ClCompile Include="Game\GameObject\Character.cpp" />
@@ -234,6 +236,8 @@
     <ClCompile Include="PlayerEffectController.cpp" />
     <ClCompile Include="PlayerGoalEffect.cpp" />
     <ClCompile Include="PlayModeUI.cpp" />
+    <ClCompile Include="Star.cpp" />
+    <ClCompile Include="StarAnimController.cpp" />
     <ClCompile Include="UI_Star.cpp" />
     <ClCompile Include="PushAny.cpp" />
     <ClCompile Include="PushTile.cpp" />
@@ -379,6 +383,8 @@
     <ClInclude Include="Engine\SceneManager\SceneManager.h" />
     <ClInclude Include="Engine\Timer\GameTimer.h" />
     <ClInclude Include="Fade.h" />
+    <ClInclude Include="FireworkController.h" />
+    <ClInclude Include="Fireworks.h" />
     <ClInclude Include="Game\GameObject\Actor.h" />
     <ClInclude Include="Game\GameObject\Camera.h" />
     <ClInclude Include="Game\GameObject\Character.h" />
@@ -406,6 +412,8 @@
     <ClInclude Include="PlayerEffectController.h" />
     <ClInclude Include="PlayerGoalEffect.h" />
     <ClInclude Include="PlayModeUI.h" />
+    <ClInclude Include="Star.h" />
+    <ClInclude Include="StarAnimController.h" />
     <ClInclude Include="UI_Star.h" />
     <ClInclude Include="PushAny.h" />
     <ClInclude Include="PushTile.h" />

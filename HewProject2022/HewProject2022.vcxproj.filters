@@ -827,6 +827,10 @@
     </ClCompile>
     <ClCompile Include="UI_Star.cpp" />
     <ClCompile Include="UI_StarList.cpp" />
+    <ClCompile Include="FireworkController.cpp" />
+    <ClCompile Include="Fireworks.cpp" />
+    <ClCompile Include="StarAnimController.cpp" />
+    <ClCompile Include="Star.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Runtime\Application.h">
@@ -1338,6 +1342,10 @@
     </ClInclude>
     <ClInclude Include="UI_Star.h" />
     <ClInclude Include="UI_StarList.h" />
+    <ClInclude Include="FireworkController.h" />
+    <ClInclude Include="Fireworks.h" />
+    <ClInclude Include="StarAnimController.h" />
+    <ClInclude Include="Star.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="README.txt">

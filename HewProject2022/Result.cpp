@@ -14,6 +14,7 @@ bool Result::Start()
 	m_SpriteRenderer->Init();
 	//Result_Checker = 0;
 	//Cursor_Position = 0;
+	
 
 	this->Vertex("vs_Ui");
 	this->transform->Position.Set(BASE_POSITION_X, BASE_POSITION_Y, 0);
@@ -27,15 +28,15 @@ bool Result::Start()
 	return true;
 }
 
-void Result::ResultBack_init()
+void Result::ResultFront_init()
 {
-	this->Sprite("result");
+	this->Sprite("ResultFront");
 	this->GetComponent<SpriteRenderer>()->Color.a = 0;
 	this->transform->Scale.Set(1.5f, 1.5f, 0);//スケールの書き換え
 	//this, transform->Position.y += 150;
 }
 
-void Result::ResultBack_init_GameEnd()
+void Result::ResultFront_init_GameEnd()
 {
 	this->Sprite("result_S25");
 	this->GetComponent<SpriteRenderer>()->Color.a = 0;
@@ -43,8 +44,16 @@ void Result::ResultBack_init_GameEnd()
 	//this, transform->Position.y += 150;
 }
 
+void Result::ResultBack_init()
+{
+	this->Sprite("ResultBack");
+	this->GetComponent<SpriteRenderer>()->Color.a = 0;
+	this->transform->Scale.Set(1.5f, 1.5f, 0);//スケールの書き換え
+}
+
 void Result::ResultCursor_Init()
 {
+	Result_Checker = 0;
 	this->Sprite("button_2");
 	this->GetComponent<SpriteRenderer>()->Color.a = 0;
 	this->transform->Scale.Set(0.2f, 0.2f, 0.0f);//スケールの書き換え
@@ -52,7 +61,6 @@ void Result::ResultCursor_Init()
 
 bool Result::Result_On()
 {
-	Result_Checker = 0;
 	this->GetComponent<SpriteRenderer>()->Color.a = 1;
 	return true;
 }
@@ -90,7 +98,7 @@ bool Result::ResultCursor_Move()
 	//選択肢による分岐
 	switch (Cursor_Position) {
 	case 0:
-		this->transform->Position.Set(BASE_POSITION_X - 190, BASE_POSITION_Y - CURSOR_DISTANCE + 270, 0.0f);
+		this->transform->Position.Set(BASE_POSITION_X - 210, BASE_POSITION_Y - CURSOR_DISTANCE + 270, 0.0f);
 		if (Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true || Input::GetKeyTrigger(VK_RETURN) == true) {
 			//Result_Checker = 1;//次のステージ
 			m_Fade->SetFadeStatus(m_Fade->FADE_OUT);//フェードアウト開始
@@ -99,7 +107,7 @@ bool Result::ResultCursor_Move()
 		}
 		break;
 	case 1:
-		this->transform->Position.Set(BASE_POSITION_X - 190, BASE_POSITION_Y + 270, 0.0f);
+		this->transform->Position.Set(BASE_POSITION_X - 210, BASE_POSITION_Y + 270, 0.0f);
 		if (Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true || Input::GetKeyTrigger(VK_RETURN) == true) {
 			//Result_Checker = 2;
 			//m_Fade->SetFadeStatus(m_Fade->FADE_OUT);//フェードアウト開始
@@ -109,7 +117,7 @@ bool Result::ResultCursor_Move()
 		}
 		break;
 	case 2:
-		this->transform->Position.Set(BASE_POSITION_X - 190, BASE_POSITION_Y + CURSOR_DISTANCE + 270, 0.0f);
+		this->transform->Position.Set(BASE_POSITION_X - 210, BASE_POSITION_Y + CURSOR_DISTANCE + 270, 0.0f);
 		if (Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true || Input::GetKeyTrigger(VK_RETURN) == true) {
 			//Result_Checker = 3;//ステージセレクトに戻る
 			m_Fade->SetFadeStatus(m_Fade->FADE_OUT);//フェードアウト開始

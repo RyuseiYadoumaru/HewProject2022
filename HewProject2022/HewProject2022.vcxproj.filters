@@ -70,9 +70,6 @@
     <Filter Include="Game\GameObject">
       <UniqueIdentifier>{2ba0e73e-30d4-44b1-ab65-c6859b3a1ea0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Scene">
-      <UniqueIdentifier>{4dbde817-86e3-46e8-adc9-a64d8aa69fa6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Engine\Runtime\DirectTex">
       <UniqueIdentifier>{ebcf8527-9d30-4524-b80f-5142f33347a4}</UniqueIdentifier>
     </Filter>

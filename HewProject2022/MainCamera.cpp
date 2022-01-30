@@ -42,8 +42,8 @@ bool MainCamera::Update()
 	else
 	{
 		// オブジェクトとカメラの距離の差を計算
-		m_object_distace.x = this->transform->Position.x - p_FocusObject->transform->Position.x; // x座標
-		m_object_distace.y = this->transform->Position.y - p_FocusObject->transform->Position.y; // y座標
+		m_object_distace.x = transform->Position.x - p_FocusObject->transform->Position.x; // x座標
+		m_object_distace.y = transform->Position.y - p_FocusObject->transform->Position.y; // y座標
 		if (Input::GetKeyPress(PK_RIGHT) == true || Input::GetKeyPress(PK_LEFT) == true || Input::GetKeyPress(PK_DOWN) == true || Input::GetKeyPress(PK_UP) == true ||
 			Input::GetControllerRightStick().x > 0.0f || Input::GetControllerRightStick().x < 0.0f || Input::GetControllerRightStick().y < 0.0f || Input::GetControllerRightStick().y > 0.0f)
 		{
@@ -51,8 +51,35 @@ bool MainCamera::Update()
 			{
 				m_Save.x = 0.0f;
 				m_Save.y = 0.0f;
-				m_Save.x = m_object_distace.x;
-				m_Save.y = m_object_distace.y;
+
+				// x座標
+				if (p_FocusObject->transform->Position.x < 1000.0f) // 左端
+				{
+					m_Save.x = 1000.0f;
+				}
+				else if (p_FocusObject->transform->Position.x > 6200.0f) // 右端
+				{
+					m_Save.x = 6200.0f;
+				}
+				else
+				{
+					m_Save.x = m_object_distace.x;
+				}
+
+				// y座標
+				if (p_FocusObject->transform->Position.y < 337.25f) // 上端
+				{
+					m_Save.y = 337.25f;
+				}
+				//else if (p_FocusObject->transform->Position.y > 1060.0f) // 下端
+				//{
+				//	m_Save.y = 1060.0f;
+				//}
+				else
+				{
+					m_Save.y = m_object_distace.y;
+				}
+
 			}
 
 			if ((m_Save.x != 0.0f) || (m_Save.y != 0.0f))
@@ -129,37 +156,80 @@ bool MainCamera::Update()
 			//右スティックの軸が0の時に戻す処理をする
 
 			// スムーズに戻す処理
-			if (transform->Position.x > p_FocusObject->transform->Position.x - fabs(m_Save.x))
+			if ((p_FocusObject->transform->Position.x < 1000.0f) || (p_FocusObject->transform->Position.x > 6200.0f)) // プレイヤーが左端か右端
 			{
-				transform->Position.x -= CAMERA_SPEED;
+				if (transform->Position.x > fabs(m_Save.x))
+				{
+					transform->Position.x -= CAMERA_SPEED;
+				}
+
+				if (transform->Position.x < fabs(m_Save.x))
+				{
+					transform->Position.x += CAMERA_SPEED;
+				}
+			}
+			else // それ以外
+			{
+				if (transform->Position.x > p_FocusObject->transform->Position.x)
+				{
+					transform->Position.x -= CAMERA_SPEED;
+				}
+
+				if (transform->Position.x < p_FocusObject->transform->Position.x)
+				{
+					transform->Position.x += CAMERA_SPEED;
+				}
 			}
 
-			if (transform->Position.x < p_FocusObject->transform->Position.x - fabs(m_Save.x))
+			if ((p_FocusObject->transform->Position.y < 337.25f) /*|| (p_FocusObject->transform->Position.y > 1060.0f)*/) // プレイヤーが上端か下端
 			{
-				transform->Position.x += CAMERA_SPEED;
+				if (transform->Position.y > fabs(m_Save.y))
+				{
+					transform->Position.y -= CAMERA_SPEED;
+				}
+
+				if (transform->Position.y < fabs(m_Save.y))
+				{
+					transform->Position.y += CAMERA_SPEED;
+				}
+			}
+			else
+			{
+
+				if (transform->Position.y > p_FocusObject->transform->Position.y - fabs(m_Save.y))
+				{
+					transform->Position.y -= CAMERA_SPEED;
+				}
+
+				if (transform->Position.y < p_FocusObject->transform->Position.y - fabs(m_Save.y))
+				{
+					transform->Position.y += CAMERA_SPEED;
+				}
 			}
 
-			if (transform->Position.y > p_FocusObject->transform->Position.y - fabs(m_Save.y))
+			if ((p_FocusObject->transform->Position.x < 1000.0f) || (p_FocusObject->transform->Position.x > 6200.0f)) // プレイヤーが左端か右端
 			{
-				transform->Position.y -= CAMERA_SPEED;
+				if ((transform->Position.y <= p_FocusObject->transform->Position.y - fabs(m_Save.y) + 10.0f) && (transform->Position.y > p_FocusObject->transform->Position.y - fabs(m_Save.y) - 10.0f) &&
+					(transform->Position.x <= m_Save.x + 10.0f) && (transform->Position.x > m_Save.x - 10.0f))
+				{
+					m_CameraMode = false;
+				}
 			}
-
-			if (transform->Position.y < p_FocusObject->transform->Position.y - fabs(m_Save.y))
+			else if ((p_FocusObject->transform->Position.y < 337.25f) /*|| (p_FocusObject->transform->Position.y > 1060.0f)*/) // プレイヤーが上端
 			{
-				transform->Position.y += CAMERA_SPEED;
+				if ((transform->Position.x <= p_FocusObject->transform->Position.x - fabs(m_Save.x) + 10.0f) && (transform->Position.x > p_FocusObject->transform->Position.x - fabs(m_Save.x) - 10.0f) &&
+					(transform->Position.y <= m_Save.y + 10.0f) && (transform->Position.y > m_Save.y - 10.0f))
+				{
+					m_CameraMode = false;
+				}
 			}
-
-			//if ((p_FocusObject->transform->Position.x < 1000.0f) || (p_FocusObject->transform->Position.x > 6200.0f))
-			//{
-			//	if ((transform->Position.y <= p_FocusObject->transform->Position.y - fabs(m_Save.y) + 10.0f) && (transform->Position.y > p_FocusObject->transform->Position.y - fabs(m_Save.y) - 10.0f) &&
-			//		(transform->Position.x >= 1000.0f) && (transform->Position.x < 1010.0f))
-			//		m_CameraMode = false;
-			//}
-
-			if ((transform->Position.x <= p_FocusObject->transform->Position.x - fabs(m_Save.x) + 10.0f) && (transform->Position.x > p_FocusObject->transform->Position.x - fabs(m_Save.x) - 10.0f) &&
-				(transform->Position.y <= p_FocusObject->transform->Position.y - fabs(m_Save.y) + 10.0f) && (transform->Position.y > p_FocusObject->transform->Position.y - fabs(m_Save.y) - 10.0f))
+			else
 			{
-				m_CameraMode = false;
+				if ((transform->Position.x <= p_FocusObject->transform->Position.x - fabs(m_Save.x) + 10.0f) && (transform->Position.x > p_FocusObject->transform->Position.x - fabs(m_Save.x) - 10.0f) &&
+					(transform->Position.y <= p_FocusObject->transform->Position.y - fabs(m_Save.y) + 10.0f) && (transform->Position.y > p_FocusObject->transform->Position.y - fabs(m_Save.y) - 10.0f))
+				{
+					m_CameraMode = false;
+				}
 			}
 		}
 

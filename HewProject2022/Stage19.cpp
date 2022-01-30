@@ -78,11 +78,9 @@ Scene::STATE GamePlay::Stage19Scene::Update()
 
 
 	/****	オブジェクト更新	****/
-	ObjectUpdate();
 	switch (Scene_State) {
 	case 0:
 		/****	当たり判定	****/
-
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_PicTureFrameStart->GetComponent<BoxCollider2D>());
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_Shelf2End->GetComponent<BoxCollider2D>());
 

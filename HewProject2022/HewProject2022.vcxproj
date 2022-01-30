@@ -234,6 +234,7 @@
     <ClCompile Include="PlayerEffectController.cpp" />
     <ClCompile Include="PlayerGoalEffect.cpp" />
     <ClCompile Include="PlayModeUI.cpp" />
+    <ClCompile Include="UI_Star.cpp" />
     <ClCompile Include="PushAny.cpp" />
     <ClCompile Include="PushTile.cpp" />
     <ClCompile Include="ResetInfo.cpp" />
@@ -297,6 +298,7 @@
     <ClCompile Include="Tutorial_XYAnim.cpp" />
     <ClCompile Include="Tutorial_XYAnimController.cpp" />
     <ClCompile Include="Tutorial_Y.cpp" />
+    <ClCompile Include="UI_StarList.cpp" />
     <ClCompile Include="Umbrella.cpp" />
     <ClCompile Include="waku.cpp" />
     <ClCompile Include="World1StageSelectScene.cpp" />
@@ -404,6 +406,7 @@
     <ClInclude Include="PlayerEffectController.h" />
     <ClInclude Include="PlayerGoalEffect.h" />
     <ClInclude Include="PlayModeUI.h" />
+    <ClInclude Include="UI_Star.h" />
     <ClInclude Include="PushAny.h" />
     <ClInclude Include="PushTile.h" />
     <ClInclude Include="ResetInfo.h" />
@@ -470,6 +473,7 @@
     <ClInclude Include="Tutorial_XYAnim.h" />
     <ClInclude Include="Tutorial_XYAnimController.h" />
     <ClInclude Include="Tutorial_Y.h" />
+    <ClInclude Include="UI_StarList.h" />
     <ClInclude Include="Umbrella.h" />
     <ClInclude Include="waku.h" />
     <ClInclude Include="World1StageSelectScene.h" />

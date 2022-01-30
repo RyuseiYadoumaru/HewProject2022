@@ -808,6 +808,8 @@
     <ClCompile Include="waku.cpp">
       <Filter>TOYALINE\Object\UI</Filter>
     </ClCompile>
+    <ClCompile Include="UI_Star.cpp" />
+    <ClCompile Include="UI_StarList.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Runtime\Application.h">
@@ -1309,6 +1311,8 @@
     <ClInclude Include="waku.h">
       <Filter>TOYALINE\Object\UI</Filter>
     </ClInclude>
+    <ClInclude Include="UI_Star.h" />
+    <ClInclude Include="UI_StarList.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="README.txt">

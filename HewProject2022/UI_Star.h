@@ -1,17 +1,16 @@
 #pragma once
 #include "ydmEngine.h"
-#include "UI_Star.h"
-#include "UI_StarList.h"
-
 using Create::Actor;
 
-class PlayModeUI :public Actor
+#define MAX_STAR_SIZE (78.0f)
+
+class UI_Star :public Actor
 {
 public:
-	PlayModeUI(string in_Name);
+	UI_Star(string in_Name);
 	bool Start() override;
 	bool Update() override;
 	bool Render() override;
-
-	UI_StarList* m_StarList;
+	bool End() override;
 };
+

@@ -1,4 +1,5 @@
 #include "PlayModeUI.h"
+#include "Player.h"
 
 PlayModeUI::PlayModeUI(string in_Name) :Actor(in_Name)
 {
@@ -16,10 +17,24 @@ bool PlayModeUI::Start()
 	transform->Position.Set(1920.0f / 2, 1080.0f / 2, 0.0f);
 
 	Active = true;
+
+	m_StarList = Create::Scene::Instance<UI_StarList>("UI_StarList");
+
 	return true;
 }
 
 bool PlayModeUI::Update()
 {
+
 	return true;
 }
+
+bool PlayModeUI::Render()
+{
+	m_StarList->Render();
+	m_SpriteRenderer->Render();
+
+	return true;
+}
+
+

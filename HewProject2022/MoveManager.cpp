@@ -28,8 +28,6 @@ MoveManager::MoveManager()
 	isHitCeiling = false;
 	SaveHitFrame = 0;
 	ResetColumnNum.clear();
-
-
 }
 
 /****	‰Šú‰»	****/
@@ -240,9 +238,15 @@ bool MoveManager::SetMoveList()
 	//“Vˆä‚É“–‚½‚Á‚Ä‚¢‚é‚Æ‚«
 	//ˆÚ“®—ñ‚ğ•Û‘¶‚·‚é
 	ResetBeforeList.m_List = Front.m_List;
-	if (ResetBeforeList.Empty() == false) copy(ResetBeforeList.m_List.begin(), ResetBeforeList.m_List.end(), back_inserter(Back.m_List));
-	else	ResetBeforeList.m_List = Back.m_List;
+	if (ResetBeforeList.Empty() == false)
+	{
+		copy(ResetBeforeList.m_List.begin(), ResetBeforeList.m_List.end(), back_inserter(Back.m_List));
+	}
+	else
+	{
+		ResetBeforeList.m_List = Back.m_List;
 
+	}
 	return true;
 }
 

@@ -21,29 +21,11 @@ bool GamePlay::World5StageSelectScene::Start()
 
 	//”wŒi‰æ‘œ
 	m_worldBack = Instance<Actor>("Select");
-	m_worldBack->Sprite("world1");
+	m_worldBack->Sprite("world5");
 	/*m_worldBack->transform->Scale.Set(0.48f, 0.475f, 0.45f);*/
 	m_worldBack->transform->Scale.Set(2.01f, 2.0f, 0.45f);
 	//1‚Â‚ÌƒmƒCƒYˆÚ“®3355
 	m_worldBack->transform->Position.Set(6710.0f, 0.0f, 0.0f);
-
-	//ƒ[ƒ‹ƒh‰æ‘œ
-	//”z—ñ‚É‚µ‚½‚¢‚æ```
-	m_stage_1 = Instance<Actor>("Stage-01");
-	m_stage_2 = Instance<Actor>("Stage-02");
-	m_stage_3 = Instance<Actor>("Stage-03");
-	m_stage_4 = Instance<Actor>("Stage-04");
-	m_stage_5 = Instance<Actor>("Stage-05");
-	m_stage_1->Sprite("stage-01");
-	m_stage_2->Sprite("stage-02");
-	m_stage_3->Sprite("stage-03");
-	m_stage_4->Sprite("stage-04");
-	m_stage_5->Sprite("stage-05");
-	m_stage_1->transform->Position.Set(0.0f, 0.0f, 0.0f);
-	m_stage_2->transform->Position.Set(3355.0f, 0.0f, 0.0f);
-	m_stage_3->transform->Position.Set(6710.0f, 0.0f, 0.0f);
-	m_stage_4->transform->Position.Set(10065.0f, 0.0f, 0.0f);
-	m_stage_5->transform->Position.Set(13420.0f, 0.0f, 0.0f);
 
 	//ƒXƒe[ƒW”Ô†
 	m_stageNumber = STAGE_01;

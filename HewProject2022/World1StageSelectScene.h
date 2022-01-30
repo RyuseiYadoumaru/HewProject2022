@@ -13,12 +13,6 @@ namespace GamePlay
 	class World1StageSelectScene :public Create::Scene
 	{
 	private:
-		Actor* m_stage_1;//ワールド1画像
-		Actor* m_stage_2;//ワールド2画像
-		Actor* m_stage_3;//ワールド3画像
-		Actor* m_stage_4;//ワールド4画像
-		Actor* m_stage_5;//ワールド5画像
-		Actor* m_selectUi;//Ui
 		Actor* m_worldBack;//背景
 		SelectTutorial* m_selectAnimation;//ボタンアニメーション
 		SelectFade* m_fadeIn;//フェード

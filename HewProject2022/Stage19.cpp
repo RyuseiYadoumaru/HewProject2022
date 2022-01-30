@@ -198,6 +198,8 @@ bool GamePlay::Stage19Scene::Render()
 	ObjectRender<Pause>("Pause");
 	ObjectRender<Pause>("Button");
 
+	m_Shelf2End->Debug();
+
 	/****	‰æ–Ê•`‰æ	****/
 	SwapChain();
 

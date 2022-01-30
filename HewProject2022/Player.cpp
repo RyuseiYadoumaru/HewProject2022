@@ -52,7 +52,6 @@ bool Player::Start()
 	m_airFlg = true;
 
 
-
 	/* ゴール初期化 */
 	m_isGoal = false;
 
@@ -61,7 +60,8 @@ bool Player::Start()
 	m_SpriteRenderer->SetSize(80.0f, 80.0f);
 	m_SpriteRenderer->Init();
 
-	transform->Position.Set(1000.0f, 900.0f, 0.0f);
+	//transform->Position.Set(1000.0f, 900.0f, 0.0f);
+	transform->Position.Set(5500.0f, 0.0f, 0.0f);
 	transform->Scale.Set(1.0f, 1.0f, 1.0f);
 
 	/*	リジットボディーコンポーネント	*/

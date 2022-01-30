@@ -27,7 +27,7 @@ const uint32_t	Application::SCREEN_HEIGHT = 1080;
 
 const float		Application::FPS = 60.0f;
 
-bool			Application::isShowCursor = false;
+bool			Application::isShowCursor = true;
 bool			Application::FullScreen = false;
 
 

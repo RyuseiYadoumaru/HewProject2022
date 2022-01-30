@@ -143,6 +143,31 @@ bool TutorialEffect::Update()
 			}
 		}
 	}
+
+	if (m_Result->NowScene == "Stage11") {//ステージ11でしか入らない
+	////Xチュートリアル////
+		if (m_X_TutorialEffectFlg == false) {
+			if (m_Tutorial_X->GetTutorialStartFlg() == true) {
+				//座標をXチュートリアルと同じところにする
+				transform->Position.Set(m_Tutorial_X->transform->Position.x, m_Tutorial_X->transform->Position.y, m_Tutorial_X->transform->Position.z);
+				//見えるようになる
+				m_SpriteRenderer->Color.a = 1.0f;
+			}
+			//Xチュートリアルが完全に見えたら見えなくなる
+			if (m_Tutorial_X->GetTutorialLookPerfectFlg() == true) {
+				m_SpriteRenderer->Color.a = 0.0f;
+			}
+			//Xチュートリアルが消え始めた時にもう一度見える
+			if (m_Tutorial_X->GetTutorialEndStartFlg() == true) {
+				m_SpriteRenderer->Color.a = 1.0f;
+			}
+			//Xチュートリアルが見えなくなったら消える
+			if (m_Tutorial_X->GetTutorialEndFlg() == true) {
+				m_SpriteRenderer->Color.a = 0.0f;
+				m_X_TutorialEffectFlg = true;
+			}
+		}
+	}
 	return true;
 }
 

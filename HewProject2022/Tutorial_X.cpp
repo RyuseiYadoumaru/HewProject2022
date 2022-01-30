@@ -49,7 +49,10 @@ bool Tutorial_X::Update()
 	if (m_Player->m_LandTile->GetLandTile() == LandGround) return true;
 
 	if ((Input::GetKeyTrigger(PK_Q) == true || Input::GetControllerTrigger(XINPUT_GAMEPAD_X) == true) &&//キーでQまたはコントローラーでXを押したら
-		m_PerfectLook_X_TutorialFlg == true && m_Player->m_LandTile->GetLandTile()->GetKind() == RED_BLOCK) {//プレイヤーが赤のカラーブロックの上
+		(m_PerfectLook_X_TutorialFlg == true && m_Player->m_LandTile->GetLandTile()->GetKind() == RED_BLOCK) ||
+		(m_PerfectLook_X_TutorialFlg == true && m_Player->m_LandTile->GetLandTile()->GetKind() == BLUE_BLOCK) ||
+		(m_PerfectLook_X_TutorialFlg == true && m_Player->m_LandTile->GetLandTile()->GetKind() == GREEN_BLOCK)
+		) {//プレイヤーが赤のカラーブロックの上
 		m_EndStart_X_TutorialFlg = true;
 	}
 	if (m_EndStart_X_TutorialFlg == true && m_End_X_TutorialFlg == false) {//消え始める

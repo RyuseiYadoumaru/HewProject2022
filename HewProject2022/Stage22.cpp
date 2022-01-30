@@ -38,6 +38,10 @@ bool GamePlay::Stage22Scene::Start()
 	/*  ゴールインスタンス生成  */
 	m_Goal = Instance<Goal>("Goal");
 
+	// ゲーム画面UI初期化
+	m_PlayModeUI = Instance<PlayModeUI>("PlayModeUI");
+	m_waku = Instance<waku>("waku");
+
 	/* リザルト初期化 */
 	m_ResultBack = Instance<Result>("ResultBack");
 	m_ResultBack->ResultBack_init();
@@ -191,6 +195,10 @@ bool GamePlay::Stage22Scene::Render()
 	/****	画面エフェクト	****/
 	//m_Fade->Render();
 	ObjectRender<ScreenFx>("SFX");
+
+	// ゲーム画面UI
+	ObjectRender<PlayModeUI>("PlayModeUI");
+	ObjectRender<waku>("waku");
 
 
 	/*** リザルト ***/

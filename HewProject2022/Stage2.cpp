@@ -18,9 +18,8 @@ bool GamePlay::Stage2Scene::Start()
 	m_LayerBack->Sprite("World1_obj1-2");
 	m_GrayBack = Instance<GrayBack>("GrayBack");
 	m_GrayBack->Sprite("Grey1-2");
-	/****	天井	****/
-	ObjectRender<Ceiling>("Ceiling");
-
+	/*	天井初期化	*/
+	m_Ceiling = Instance<Ceiling>("Ceiling");
 
 	/* ゴール時プレイヤーエフェクト生成 */
 	m_PGoalEffect = Instance<PlayerGoalEffect>("PGoalEffect");
@@ -35,6 +34,10 @@ bool GamePlay::Stage2Scene::Start()
 
 	/*  ゴールインスタンス生成  */
 	m_Goal = Instance<Goal>("Goal");
+
+	// ゲーム画面UI初期化
+	m_PlayModeUI = Instance<PlayModeUI>("PlayModeUI");
+	m_waku = Instance<waku>("waku");
 
 	/* リザルト初期化 */
 	m_ResultBack = Instance<Result>("ResultBack");
@@ -180,6 +183,10 @@ bool GamePlay::Stage2Scene::Render()
 	/****	画面エフェクト	****/
 	//m_Fade->Render();
 	ObjectRender<ScreenFx>("SFX");
+
+	// ゲーム画面UI
+	ObjectRender<PlayModeUI>("PlayModeUI");
+	ObjectRender<waku>("waku");
 
 	if (Scene_State == 2) {
 		/*** リザルト ***/

@@ -1,5 +1,6 @@
 #pragma once
 #include "ydmEngine.h"
+#include "MainCamera.h"
 using Create::Actor;
 using GameEngine::Input;
 
@@ -10,5 +11,7 @@ public:
 	bool Start() override;
 	bool Update() override;
 
+	/*	オブジェクト	*/
+	MainCamera*		m_MainCamera;
 };
 

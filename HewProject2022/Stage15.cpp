@@ -35,6 +35,10 @@ bool GamePlay::Stage15Scene::Start()
 	/*  ゴールインスタンス生成  */
 	m_Goal = Instance<Goal>("Goal");
 
+	// ゲーム画面UI初期化
+	m_PlayModeUI = Instance<PlayModeUI>("PlayModeUI");
+	m_waku = Instance<waku>("waku");
+
 	/* Pause初期化 */
 	m_Pause = Instance<Pause>("Pause");
 	m_Pause->Sprite("ポーズ");
@@ -195,6 +199,9 @@ bool GamePlay::Stage15Scene::Render()
 	//m_Fade->Render();
 	ObjectRender<ScreenFx>("SFX");
 
+	// ゲーム画面UI
+	ObjectRender<PlayModeUI>("PlayModeUI");
+	ObjectRender<waku>("waku");
 
 	/*** リザルト ***/
 	ObjectRender<Result>("ResultBack");

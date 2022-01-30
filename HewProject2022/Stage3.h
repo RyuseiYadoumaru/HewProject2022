@@ -24,6 +24,9 @@
 #include "Tutorial_X.h"
 #include "Tutorial_Y.h"
 
+#include "PlayModeUI.h"
+#include "waku.h"
+
 using Create::Actor;
 using GameEngine::Input;
 
@@ -63,6 +66,10 @@ namespace GamePlay
 		/* リザルト */
 		Result* m_ResultCursor;
 		Result* m_ResultBack;
+
+		// ゲーム画面UI
+		PlayModeUI* m_PlayModeUI;
+		waku* m_waku;
 
 		/* チュートリアル */
 		MoveTutorial* m_MoveTutorial;

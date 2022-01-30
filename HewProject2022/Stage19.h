@@ -15,6 +15,9 @@
 #include "Shelf2.h"
 #include"PlayerGoalEffect.h"
 
+#include "PlayModeUI.h"
+#include "waku.h"
+
 using Create::Actor;
 using GameEngine::Input;
 
@@ -56,6 +59,10 @@ namespace GamePlay
 		/*	エフェクト	*/
 		Fade* m_Fade;
 		ScreenFx* m_ScreenEffect;
+
+		// ゲーム画面UI
+		PlayModeUI* m_PlayModeUI;
+		waku* m_waku;
 
 	public:
 		bool Start() override;

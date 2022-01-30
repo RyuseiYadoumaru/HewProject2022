@@ -146,20 +146,6 @@ Scene::STATE GamePlay::Stage1Scene::Update()
 
 	}
 
-	// ゲーム画面UI切り替え
-	if (m_MainCamera->m_CameraMode == false)
-	{
-		m_PlayModeUI->Active = true;
-		m_waku->Active = false;
-		m_ScreenEffect->Active = true;
-	}
-	else
-	{
-		m_PlayModeUI->Active = false;
-		m_waku->Active = true;
-		m_ScreenEffect->Active = false;
-	}
-
 
 
 	/****	システム更新	****/

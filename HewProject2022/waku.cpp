@@ -15,11 +15,19 @@ bool waku::Start()
 	/*	À•W	*/
 	transform->Position.Set(1920.0f / 2, 1080.0f / 2, 0.0f);
 
-	Active = true;
 	return true;
 }
 
 bool waku::Update()
 {
+	if (m_MainCamera->m_CameraMode == false)
+	{
+		Active = false;
+	}
+	else
+	{
+		Active = true;
+	}
+
 	return true;
 }

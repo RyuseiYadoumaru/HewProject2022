@@ -101,7 +101,7 @@ Scene::STATE GamePlay::Stage11Scene::Update()
 			Scene_State = 1;
 		}
 
-		
+
 		break;
 	case 1://ポーズ画面
 	/****   ポーズ中処理   ****/
@@ -162,6 +162,7 @@ bool GamePlay::Stage11Scene::Render()
 
 	/****	天井	****/
 	ObjectRender<Ceiling>("Ceiling");
+
 
 	/****	オブジェクト描画	****/
 	ObjectRender<Rose>("RoseStart");

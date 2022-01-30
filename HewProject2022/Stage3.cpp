@@ -5,7 +5,7 @@ using namespace Create;
 bool GamePlay::Stage3Scene::Start()
 {
 	/*	インスタンス	*/
-	m_Map = Instance<Map>("stage1-3");
+	m_Map = Instance<Map>(STAGE_1_3);
 	m_Player = Instance<Player>("Player");
 	m_MainCamera = Instance<MainCamera>("MainCamera");
 	m_CuhsionStart = Instance<Cuhsion>("CuhsionStart");
@@ -175,7 +175,7 @@ bool GamePlay::Stage3Scene::Render()
 	ObjectRender<Cuhsion>("CuhsionStart");
 	ObjectRender<Sofa>("SofaEnd");
 
-	ObjectRender<Map>("stage1-3");
+	ObjectRender<Map>(STAGE_1_3);
 	ObjectRender<Player>("Player");
 
 	//三木原追加 チュートリアル描画

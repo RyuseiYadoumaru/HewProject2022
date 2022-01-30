@@ -2,6 +2,7 @@
 #include "ydmEngine.h"
 #include "UI_Star.h"
 #include "UI_StarList.h"
+#include "MainCamera.h"
 
 using Create::Actor;
 

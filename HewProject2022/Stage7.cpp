@@ -163,13 +163,13 @@ bool GamePlay::Stage7Scene::Render()
 	/****	天井	****/
 	ObjectRender<Ceiling>("Ceiling");
 
-	/*** ゴール描画 ***/
-	ObjectRender<Goal>("Goal");
-	ObjectRender<PlayerGoalEffect>("PGoalEffect");
-
 	/****	オブジェクト描画	****/
 	ObjectRender<Tableware>("TablewareStart");
 	ObjectRender<Shelf>("ShelfEnd");
+
+	/*** ゴール描画 ***/
+	ObjectRender<Goal>("Goal");
+	ObjectRender<PlayerGoalEffect>("PGoalEffect");
 
 	ObjectRender<Map>(STAGE_2_2);
 	ObjectRender<Player>("Player");

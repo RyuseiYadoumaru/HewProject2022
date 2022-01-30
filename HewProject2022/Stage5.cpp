@@ -15,7 +15,7 @@ bool GamePlay::Stage5Scene::Start()
 	m_DeskEnd = Instance<Desk>("DeskEnd");
 	m_Fade = Instance<Fade>("Black");
 	m_ScreenEffect = Instance<ScreenFx>("SFX");
-	
+
 	m_BackGround = Instance<BackGround>("Wall");
 	m_BackGround->Sprite("Wall");
 	m_LayerBack = Instance<LayerBack>("LayerBack");
@@ -45,6 +45,10 @@ bool GamePlay::Stage5Scene::Start()
 	m_ResultCursor->NowScene = "Stage5";
 
 	m_Button->NowScene = m_ResultCursor->NowScene;
+	/*	天井初期化	*/
+	m_Ceiling = Instance<Ceiling>("Ceiling");
+	m_Ceiling->Sprite("ceiling");
+
 
 
 	/*	初期化	*/
@@ -181,7 +185,7 @@ bool GamePlay::Stage5Scene::Render()
 	/****	画面エフェクト	****/
 	//m_Fade->Render();
 	ObjectRender<ScreenFx>("SFX");
-	
+
 
 	/*** リザルト ***/
 	ObjectRender<Result>("ResultBack");

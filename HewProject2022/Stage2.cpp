@@ -18,6 +18,8 @@ bool GamePlay::Stage2Scene::Start()
 	m_LayerBack->Sprite("World1_obj1-2");
 	m_GrayBack = Instance<GrayBack>("GrayBack");
 	m_GrayBack->Sprite("Grey1-2");
+	/****	天井	****/
+	ObjectRender<Ceiling>("Ceiling");
 
 
 	/* ゴール時プレイヤーエフェクト生成 */
@@ -172,6 +174,8 @@ bool GamePlay::Stage2Scene::Render()
 	//m_Player->Debug();
 	//m_Map->Debug();
 	//m_TableStart->Debug();
+	/****	天井	****/
+	ObjectRender<Ceiling>("Ceiling");
 
 	/****	画面エフェクト	****/
 	//m_Fade->Render();

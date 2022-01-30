@@ -12,7 +12,7 @@ bool GamePlay::Stage4Scene::Start()
 	m_DeskEnd = Instance<Desk>("DeskEnd");
 	m_Fade = Instance<Fade>("Black");
 	m_ScreenEffect = Instance<ScreenFx>("SFX");
-	
+
 	m_BackGround = Instance<BackGround>("Wall");
 	m_BackGround->Sprite("Wall");
 	m_LayerBack = Instance<LayerBack>("LayerBack");
@@ -42,6 +42,10 @@ bool GamePlay::Stage4Scene::Start()
 	m_ResultCursor->NowScene = "Stage4";
 
 	m_Button->NowScene = m_ResultCursor->NowScene;
+
+	/*	天井初期化	*/
+	m_Ceiling = Instance<Ceiling>("Ceiling");
+	m_Ceiling->Sprite("ceiling");
 
 	// BGM再生
 	Sound::Sound_Play(SOUND_LABEL_WORLD1_GAMEBGM);
@@ -180,7 +184,7 @@ bool GamePlay::Stage4Scene::Render()
 	/****	画面エフェクト	****/
 	//m_Fade->Render();
 	ObjectRender<ScreenFx>("SFX");
-	
+
 
 	/*** リザルト ***/
 	ObjectRender<Result>("ResultBack");

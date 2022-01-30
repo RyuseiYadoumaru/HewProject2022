@@ -93,7 +93,6 @@ Scene::STATE GamePlay::Stage1Scene::Update()
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_SofaEnd->GetComponent<BoxCollider2D>());
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_BigBook->GetComponent<BoxCollider2D>());
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_MiniBook->GetComponent<BoxCollider2D>());
-		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_Ceiling->GetComponent<BoxCollider2D>());
 
 		/***  ƒS[ƒ‹”»’è—p  ***/
 		m_Goal->GetComponent<BoxCollider2D>()->HitCheckBox(*m_Player->GetComponent<BoxCollider2D>());

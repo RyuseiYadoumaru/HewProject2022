@@ -3,6 +3,7 @@
 #include "Map.h"
 #include "BlockParticleManager.h"
 #include "Result.h"
+#include "Ceiling.h"
 
 Player::Player(string in_Name) :Character(in_Name)
 {
@@ -97,6 +98,10 @@ bool Player::Update()
 {
 	/*	座標保存	*/
 	m_SavePosition = transform->Position;
+
+	/*	天井当たり判定	*/
+	Ceiling* ceiling = Create::Scene::GetGameObject<Ceiling>("Ceiling");
+	GetComponent<BoxCollider2D>()->HitCheckBox(*ceiling->GetComponent<BoxCollider2D>());
 
 	/*	マップ当たり判定	*/
 	Map::HitCheckMap(*this, Map::CHECK::OBJECT_RANGE);

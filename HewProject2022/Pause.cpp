@@ -114,13 +114,13 @@ void Pause::ChangeSelectScene()
 		GameEngine::SceneManager::LoadScene("World1StageSelectScene");//ワールド1ステージセレクトを読み込み
 	}
 	else if (this->NowScene == "Stage6" || this->NowScene == "Stage7" || this->NowScene == "Stage8" || this->NowScene == "Stage9" || this->NowScene == "Stage10") {
-		GameEngine::SceneManager::LoadScene("World12StageSelectScene");//ワールド2ステージセレクトを読み込み
+		GameEngine::SceneManager::LoadScene("World2StageSelectScene");//ワールド2ステージセレクトを読み込み
 	}
 	else if (this->NowScene == "Stage11" || this->NowScene == "Stage12" || this->NowScene == "Stage13" || this->NowScene == "Stage14" || this->NowScene == "Stage15") {
 		GameEngine::SceneManager::LoadScene("World3StageSelectScene");//ワールド3ステージセレクトを読み込み
 	}
 	else if (this->NowScene == "Stage16" || this->NowScene == "Stage17" || this->NowScene == "Stage18" || this->NowScene == "Stage19" || this->NowScene == "Stage20") {
-		GameEngine::SceneManager::LoadScene("World14StageSelectScene");//ワールド4ステージセレクトを読み込み
+		GameEngine::SceneManager::LoadScene("World4StageSelectScene");//ワールド4ステージセレクトを読み込み
 	}
 	else if (this->NowScene == "Stage21" || this->NowScene == "Stage22" || this->NowScene == "Stage23" || this->NowScene == "Stage24" || this->NowScene == "Stage25") {
 		GameEngine::SceneManager::LoadScene("World5StageSelectScene");//ワールド5ステージセレクトを読み込み

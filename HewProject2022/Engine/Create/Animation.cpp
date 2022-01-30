@@ -64,7 +64,7 @@ int  Create::Animation::Play(std::string AnimName)
 	}
 
 	// デルタタイムを取得し加算
-	m_time += GameEngine::GameTimer::deltaTime();
+	m_time += GameEngine::GameTimer::fixedDeltaTime();
 
 	// アニメーションループ
 	if (NowTable[m_AnimationCounter + 1] == ANIMATION_FINISH)

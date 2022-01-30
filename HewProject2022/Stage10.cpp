@@ -23,6 +23,10 @@ bool GamePlay::Stage10Scene::Start()
 	/* ゴール時プレイヤーエフェクト生成 */
 	m_PGoalEffect = Instance<PlayerGoalEffect>("PGoalEffect");
 
+	/* Pause初期化 */
+	m_Pause = Instance<Pause>("Pause");
+	m_Pause->Sprite("ポーズ");
+
 	m_Button = Instance<Pause>("Button");
 	m_Button->Sprite("button");
 
@@ -77,11 +81,13 @@ Scene::STATE GamePlay::Stage10Scene::Update()
 		/***  ゴール判定用  ***/
 		m_Goal->GetComponent<BoxCollider2D>()->HitCheckBox(*m_Player->GetComponent<BoxCollider2D>());
 		//当たったらゴール
-		for (auto name : m_Goal->GetComponent<BoxCollider2D>()->GetHitObject()) {
-			if (name == m_Player->ToString()) {
-				Scene_State = 2;//リザルト用分岐に移動
-				/*m_ResultBack->Result_On();
-				m_ResultCursor->Result_On();*/
+		for (auto name : m_Goal->GetComponent<BoxCollider2D>()->GetHitObject())
+		{
+			if (name == m_Player->ToString())
+			{
+				if (m_Player->m_OnGround == true) {
+					Scene_State = 2;//リザルト用分岐に移動
+				}
 			}
 		}
 

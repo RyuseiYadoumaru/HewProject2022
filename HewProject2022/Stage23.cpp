@@ -48,7 +48,7 @@ bool GamePlay::Stage23Scene::Start()
 	m_ResultBack->ResultBack_init();
 	m_ResultCursor = Instance<Result>("ResultCursor");
 	m_ResultCursor->ResultCursor_Init();
-	m_ResultCursor->NowScene = "Stage22";
+	m_ResultCursor->NowScene = "Stage23";
 
 	m_Button->NowScene = m_ResultCursor->NowScene;
 
@@ -96,11 +96,13 @@ Scene::STATE GamePlay::Stage23Scene::Update()
 		ObjectUpdate();
 
 		//当たったらゴール
-		for (auto name : m_Goal->GetComponent<BoxCollider2D>()->GetHitObject()) {
-			if (name == m_Player->ToString()) {
-				Scene_State = 2;//リザルト用分岐に移動
-				/*m_ResultBack->Result_On();
-				m_ResultCursor->Result_On();*/
+		for (auto name : m_Goal->GetComponent<BoxCollider2D>()->GetHitObject())
+		{
+			if (name == m_Player->ToString())
+			{
+				if (m_Player->m_OnGround == true) {
+					Scene_State = 2;//リザルト用分岐に移動
+				}
 			}
 		}
 

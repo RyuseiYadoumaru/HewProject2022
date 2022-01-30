@@ -91,11 +91,13 @@ Scene::STATE GamePlay::Stage21Scene::Update()
 		/***  ゴール判定用  ***/
 		m_Goal->GetComponent<BoxCollider2D>()->HitCheckBox(*m_Player->GetComponent<BoxCollider2D>());
 		//当たったらゴール
-		for (auto name : m_Goal->GetComponent<BoxCollider2D>()->GetHitObject()) {
-			if (name == m_Player->ToString()) {
-				Scene_State = 2;//リザルト用分岐に移動
-				/*m_ResultBack->Result_On();
-				m_ResultCursor->Result_On();*/
+		for (auto name : m_Goal->GetComponent<BoxCollider2D>()->GetHitObject())
+		{
+			if (name == m_Player->ToString())
+			{
+				if (m_Player->m_OnGround == true) {
+					Scene_State = 2;//リザルト用分岐に移動
+				}
 			}
 		}
 
@@ -107,9 +109,7 @@ Scene::STATE GamePlay::Stage21Scene::Update()
 			Scene_State = 1;
 		}
 
-		/****	システム更新	****/
-		m_Map->SystemUpdate();
-		SystemUpdate();
+		
 		break;
 	case 1://ポーズ画面
 	/****   ポーズ中処理   ****/
@@ -134,6 +134,9 @@ Scene::STATE GamePlay::Stage21Scene::Update()
 		}
 		break;
 	}
+	/****	システム更新	****/
+	m_Map->SystemUpdate();
+	SystemUpdate();
 	return PLAY;
 }
 

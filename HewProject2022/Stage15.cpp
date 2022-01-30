@@ -91,11 +91,13 @@ Scene::STATE GamePlay::Stage15Scene::Update()
 		/***  ゴール判定用  ***/
 		m_Goal->GetComponent<BoxCollider2D>()->HitCheckBox(*m_Player->GetComponent<BoxCollider2D>());
 		//当たったらゴール
-		for (auto name : m_Goal->GetComponent<BoxCollider2D>()->GetHitObject()) {
+		for (auto name : m_Goal->GetComponent<BoxCollider2D>()->GetHitObject())
+		{
 			if (name == m_Player->ToString())
 			{
-				Scene_State = 2;//リザルト用分岐に移動
-
+				if (m_Player->m_OnGround == true) {
+					Scene_State = 2;//リザルト用分岐に移動
+				}
 			}
 		}
 
@@ -106,9 +108,7 @@ Scene::STATE GamePlay::Stage15Scene::Update()
 			Scene_State = 1;
 		}
 
-		/****	システム更新	****/
-		m_Map->SystemUpdate();
-		SystemUpdate();
+		
 		break;
 	case 1://ポーズ画面
 	/****   ポーズ中処理   ****/
@@ -133,6 +133,9 @@ Scene::STATE GamePlay::Stage15Scene::Update()
 		}
 		break;
 	}
+	/****	システム更新	****/
+	m_Map->SystemUpdate();
+	SystemUpdate();
 	return PLAY;
 }
 
@@ -167,13 +170,15 @@ bool GamePlay::Stage15Scene::Render()
 	/****	天井	****/
 	ObjectRender<Ceiling>("Ceiling");
 
-	/*** ゴール描画 ***/
-	ObjectRender<Goal>("Goal");
-	ObjectRender<PlayerGoalEffect>("PGoalEffect");
+	
 
 	/****	オブジェクト描画	****/
 	ObjectRender<Tree>("TreeStart");
 	ObjectRender<Plants>("PlantsEnd");
+
+	/*** ゴール描画 ***/
+	ObjectRender<Goal>("Goal");
+	ObjectRender<PlayerGoalEffect>("PGoalEffect");
 
 	ObjectRender<Map>("stage3-5");
 	ObjectRender<Player>("Player");

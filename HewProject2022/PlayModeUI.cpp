@@ -40,9 +40,11 @@ bool PlayModeUI::Update()
 
 bool PlayModeUI::Render()
 {
-	m_StarList->Render();
-	m_SpriteRenderer->Render();
-
+	if (Active == true)
+	{
+		m_StarList->Render();
+		m_SpriteRenderer->Render();
+	}
 	return true;
 }
 

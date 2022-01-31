@@ -98,7 +98,7 @@ bool GameEngine::SpriteRenderer::Init()
 	);
 	if (sts == false)
 	{
-		Log::LogError("頂点バッファの生成に失敗しました");
+		//Log::LogError("頂点バッファの生成に失敗しました");
 		return false;
 	}
 
@@ -171,7 +171,7 @@ bool GameEngine::SpriteRenderer::Render()
 	sts = TransformMtx->SetTransformMatrix(TransformMatrix::TYPE::WORLD, *WorldMatrix);
 	if (sts == false)
 	{
-		Log::LogError("ワールド座標行列のセットに失敗しました。");
+		//Log::LogError("ワールド座標行列のセットに失敗しました。");
 		return false;
 	}
 

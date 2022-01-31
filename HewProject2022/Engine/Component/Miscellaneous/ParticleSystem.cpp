@@ -23,7 +23,6 @@ bool GameEngine::ParticleSystem::Init(Create::Particle* in_Particle = nullptr)
 
 	if (in_Particle == nullptr)
 	{
-		Log::LogError("パーティクルデータがありません");
 		return false;
 	}
 

@@ -261,8 +261,6 @@ bool GameEngine::BoxCollider2D::GroundCheck(float in_Gravity)
 		/*	Õ“Ë”»’è	*/
 		if (posY > CheckPosY)
 		{
-
-			printf("’n–Ê’…’n\n");
 			return true;
 		}
 

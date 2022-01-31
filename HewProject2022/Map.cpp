@@ -201,11 +201,11 @@ bool Map::Render()
 /****	デバッグ処理	****/
 void Map::Debug()
 {
-	/*	タイルデバッグ	*/
-	for (auto List : m_TileColumnList)
-	{
-		List.Debug();
-	}
+	///*	タイルデバッグ	*/
+	//for (auto List : m_TileColumnList)
+	//{
+	//	List.Debug();
+	//}
 }
 
 
@@ -225,8 +225,6 @@ void Map::SystemUpdate()
 /****	マップ当たり判定	****/
 bool Map::HitCheckMap(GameObject& in_GameObject, CHECK in_Check)
 {
-	int debug = 0;
-
 	/*	ヒットチェックオブジェクト	*/
 	BoxCollider2D* CheckObject = in_GameObject.GetComponent<BoxCollider2D>();
 	Create::Camera* camera = Create::Scene::GetCamera();
@@ -239,7 +237,6 @@ bool Map::HitCheckMap(GameObject& in_GameObject, CHECK in_Check)
 		for (auto& NowTile : m_TileList)
 		{
 			BoxCollider2D* TileCol = NowTile->GetComponent<BoxCollider2D>();
-			debug++;
 			CheckObject->HitCheckBox(*TileCol);
 		}
 	}
@@ -252,7 +249,6 @@ bool Map::HitCheckMap(GameObject& in_GameObject, CHECK in_Check)
 			if (NowTile->transform->Position.x >= camera->GetLeft() && NowTile->transform->Position.x <= camera->GetRight() &&
 				NowTile->transform->Position.y >= camera->GetTop() && NowTile->transform->Position.y <= camera->GetButtom())
 			{
-				debug++;
 
 				BoxCollider2D* TileCol = NowTile->GetComponent<BoxCollider2D>();
 				if (NowTile->tag != TagList::STAR) {
@@ -274,8 +270,6 @@ bool Map::HitCheckMap(GameObject& in_GameObject, CHECK in_Check)
 			if (NowTile->transform->Position.x >= camera->GetLeft() && NowTile->transform->Position.x <= camera->GetRight() &&
 				NowTile->transform->Position.y >= camera->GetTop() && NowTile->transform->Position.y <= camera->GetButtom())
 			{
-				debug++;
-
 				BoxCollider2D* TileCol = NowTile->GetComponent<BoxCollider2D>();
 				if (NowTile->tag != TagList::STAR) {
 					CheckObject->HitCheckBox(*TileCol);
@@ -300,8 +294,6 @@ bool Map::HitCheckMap(GameObject& in_GameObject, CHECK in_Check)
 			if (NowTile->transform->Position.x >= left && NowTile->transform->Position.x <= right &&
 				NowTile->transform->Position.y >= top && NowTile->transform->Position.y <= buttom)
 			{
-				debug++;
-
 				BoxCollider2D* TileCol = NowTile->GetComponent<BoxCollider2D>();
 				if (NowTile->tag != TagList::STAR) {
 					CheckObject->HitCheckBox(*TileCol);

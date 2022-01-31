@@ -63,8 +63,8 @@ bool DataArray::Init()
 	/****	vsShaderData	****/
 	std::vector<std::string> vsShaderNameList;
 
-	vsShaderNameList = { "vs_2DSprite.hlsl", "vs_Debug.hlsl", "vs_Ui.hlsl" };
-	//vsShaderNameList = { "vs_2DSprite.cso", "vs_Debug.cso", "vs_Ui.cso" };
+	//vsShaderNameList = { "vs_2DSprite.hlsl", "vs_Debug.hlsl", "vs_Ui.hlsl" };
+	vsShaderNameList = { "vs_2DSprite.cso", "vs_Debug.cso", "vs_Ui.cso" };
 	for (auto Now : vsShaderNameList)
 	{
 		std::string vsShaderName = FileSystem::GetFileName_NotExt(Now.c_str());
@@ -76,8 +76,8 @@ bool DataArray::Init()
 	/****	psShaderData	****/
 	std::vector<std::string> psShaderNameList;
 
-	psShaderNameList = { "ps_2DSprite.hlsl", "ps_Debug.hlsl" };
-	//psShaderNameList = { "ps_2DSprite.cso", "ps_Debug.cso" };
+	//psShaderNameList = { "ps_2DSprite.hlsl", "ps_Debug.hlsl" };
+	psShaderNameList = { "ps_2DSprite.cso", "ps_Debug.cso" };
 	for (auto Now : psShaderNameList)
 	{
 		std::string psShaderName = FileSystem::GetFileName_NotExt(Now.c_str());

@@ -56,7 +56,6 @@ bool SystemTimer::SystemWait(const float FPS)
 	//ˆ—‘Ò‚¿
 	if (m_WaitTime > 0)
 	{
-		//printf("‘Ò‚¿ŠÔF%f\n", m_WaitTime);
 		Sleep((DWORD)m_WaitTime);
 	}
 	else

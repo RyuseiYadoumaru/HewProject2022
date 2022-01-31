@@ -456,8 +456,13 @@ void Player::MoveMap()
 		if (transform->Position.x < MAP_START_POSX || transform->Position.x > MAP_END_POSX &&
 			m_LandTile->GetLandTile() == LandGround)
 		{
+
 			if (Map::m_OnReset == false)
 			{
+				if (transform->Position.x > MAP_END_POSX)
+				{
+					Map::ResetFront();
+				}
 				Map::m_OnReset = true;
 			}
 		}

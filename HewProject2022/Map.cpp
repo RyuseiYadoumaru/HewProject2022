@@ -86,6 +86,25 @@ void Map::AllTileReset()
 
 }
 
+void Map::ResetFront()
+{
+	int cnt = 0;
+	for (auto& Column : m_TileColumnList)
+	{
+		if (cnt >= 40) break;
+		if (Column.mp_TileList.empty() == false)
+		{
+			for (auto& tile : Column.mp_TileList)
+			{
+				tile->transform->Position.y = tile->GetStartPosition().y;
+				BlockParticleManager::DeleteMoveEffect(tile->GetId().x);
+			}
+		}
+		cnt++;
+	}
+
+}
+
 //-----------------------------------------------------------------------------
 // Public Function
 //-----------------------------------------------------------------------------

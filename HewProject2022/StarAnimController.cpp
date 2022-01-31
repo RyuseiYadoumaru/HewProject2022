@@ -56,8 +56,7 @@ void StarAnimController::Update()
 
 void StarAnim::Init()
 {
-	//const float EF_KeyFrame = 1200.0f / 14.0f;
-	const float EF_KeyFrame = 100.0f;
+	const float EF_KeyFrame = 50.0f;
 	/* NONE */
 	::AnimationTable set_None;
 	set_None.SetKind(KIND::ANIMATION_1, KIND::ANIMATION_1, ANIMATION_FINISH);

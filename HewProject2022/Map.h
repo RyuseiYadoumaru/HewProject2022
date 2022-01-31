@@ -8,6 +8,7 @@
 #include"ChangeTile.h"
 #include "StarTile.h"
 
+
 using Create::GameObject;
 
 class Map : public GameObject
@@ -16,6 +17,7 @@ public:
 	static bool SearchMoveObjectName(string in_SearchName);
 	static bool SearchMoveObjectID(int in_ID);
 	static void AllTileReset();			//タイルリセット
+	static void ResetFront();			//前のほうリセット
 	static void AddMoveManager(LandTile* in_LandTile);
 
 public:

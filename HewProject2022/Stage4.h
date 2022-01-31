@@ -21,6 +21,9 @@
 #include "PlayModeUI.h"
 #include "waku.h"
 
+#include"Fireworks.h"
+#include"Star.h"
+
 using Create::Actor;
 using GameEngine::Input;
 
@@ -60,8 +63,11 @@ namespace GamePlay
 		Pause* m_Button;
 
 		/* ƒŠƒUƒ‹ƒg */
-		Result* m_ResultCursor;
+		Result* m_ResultFront;
 		Result* m_ResultBack;
+		Result* m_ResultCursor;
+		Fireworks* m_Fireworks;
+		Star* m_Star;
 
 		// ƒQ[ƒ€‰æ–ÊUI
 		PlayModeUI* m_PlayModeUI;

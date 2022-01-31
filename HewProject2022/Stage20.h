@@ -16,6 +16,9 @@
 #include "PlayModeUI.h"
 #include "waku.h"
 
+#include"Fireworks.h"
+#include"Star.h"
+
 using Create::Actor;
 using GameEngine::Input;
 
@@ -54,8 +57,11 @@ namespace GamePlay
 		int Scene_State = 0;//Pause処理制御用
 
 		/* リザルト */
-		Result* m_ResultCursor;
+		Result* m_ResultFront;
 		Result* m_ResultBack;
+		Result* m_ResultCursor;
+		Fireworks* m_Fireworks;
+		Star* m_Star;
 
 		// ゲーム画面UI
 		PlayModeUI* m_PlayModeUI;

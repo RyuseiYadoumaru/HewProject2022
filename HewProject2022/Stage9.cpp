@@ -44,13 +44,19 @@ bool GamePlay::Stage9Scene::Start()
 	m_waku = Instance<waku>("waku");
 
 	/* リザルト初期化 */
+	m_ResultFront = Instance<Result>("ResultFront");
+	m_ResultFront->ResultFront_init();
+	m_ResultCursor = Instance<Result>("ResultCursor");	//リザルト中カーソルのインスタンス生成
+	m_ResultCursor->ResultCursor_Init();				//初期値セット
+	m_ResultCursor->NowScene = "Stage9";//現在のシーン設定
+	m_Button->NowScene = m_ResultCursor->NowScene;
+
 	m_ResultBack = Instance<Result>("ResultBack");
 	m_ResultBack->ResultBack_init();
-	m_ResultCursor = Instance<Result>("ResultCursor");
-	m_ResultCursor->ResultCursor_Init();
-	m_ResultCursor->NowScene = "Stage9";
 
-	m_Button->NowScene = m_ResultCursor->NowScene;
+	/* リザルトアニメーションインスタンス生成 */
+	m_Fireworks = Instance<Fireworks>("Fireworks");
+	m_Star = Instance<Star>("Star");
 
 	/*	初期化	*/
 	m_TablewareEnd->transform->Position.x += ROAD_DISTANCE;
@@ -121,6 +127,9 @@ Scene::STATE GamePlay::Stage9Scene::Update()
 		m_PGoalEffect->EF_Start();
 		m_PGoalEffect->transform->Position.Set(m_Player->transform->Position.x, m_Player->transform->Position.y, 0);
 		if (m_Player->GetGoal() == true) {//アニメーション終了でリザルト表示
+			m_Star->StarChecker(m_Player->m_GetStar);
+			m_Fireworks->Anim_Start();
+			m_ResultFront->Result_On();//リザルト画面のフラグ
 			m_ResultBack->Result_On();//リザルト画面のフラグ
 			m_ResultCursor->Result_On();
 			m_ResultCursor->ResultCursor_Move();//カーソルフラグ＆分岐
@@ -196,6 +205,9 @@ bool GamePlay::Stage9Scene::Render()
 
 	/*** リザルト ***/
 	ObjectRender<Result>("ResultBack");
+	ObjectRender<Fireworks>("Fireworks");
+	ObjectRender<Star>("Star");
+	ObjectRender<Result>("ResultFront");
 	ObjectRender<Result>("ResultCursor");
 
 	/*** フェード ***/

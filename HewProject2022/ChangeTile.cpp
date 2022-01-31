@@ -3,9 +3,6 @@
 
 bool ChangeTile::Start()
 {
-	/*	初期座標保存	*/
-	m_StartPosition = transform->Position;
-
 	/*	スプライト初期化	*/
 	m_SpriteRenderer->SetSize(TILE_WIDTH, TILE_HEIGHT);
 	m_SpriteRenderer->Init();
@@ -60,6 +57,10 @@ bool ChangeTile::Start()
 
 	//タイマーを0にする//
 	m_ChangeTimer = 0;
+
+	/*	初期座標保存	*/
+	m_StartPosition = transform->Position;
+
 
 	/*	タグ設定	*/
 	tag = ChangeColorBlock;

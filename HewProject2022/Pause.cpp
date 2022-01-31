@@ -50,13 +50,19 @@ bool Pause::PauseCursor_Move()
 	this->transform->Scale.Set(0.2f, 0.2f, 0.0f);//カーソル用にスケールの書き換え
 
 	if ((Input::GetControllerTrigger(XINPUT_GAMEPAD_DPAD_UP) == true || Input::GetKeyTrigger(VK_UP) == true) && Cursor_Position > 0) {
+		Sound::Sound_Play(SOUND_LAVEL_SELECT_SE);
+
 		Cursor_Position--;
 	}
 	else if ((Input::GetControllerTrigger(XINPUT_GAMEPAD_DPAD_DOWN) == true || Input::GetKeyTrigger(VK_DOWN) == true) && Cursor_Position < 2) {
+		Sound::Sound_Play(SOUND_LAVEL_SELECT_SE);
+
 		Cursor_Position++;
 	}
 	else if (Input::GetControllerLeftStick().y < -0.1) {
 		if (S_flg == false) {
+			Sound::Sound_Play(SOUND_LAVEL_SELECT_SE);
+
 			Cursor_Position--;
 			S_flg = true;
 		}
@@ -64,6 +70,8 @@ bool Pause::PauseCursor_Move()
 	}
 	else if (Input::GetControllerLeftStick().y > 0.1) {
 		if (S_flg == false) {
+			Sound::Sound_Play(SOUND_LAVEL_SELECT_SE);
+
 			Cursor_Position++;
 			S_flg = true;
 		}

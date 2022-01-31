@@ -108,6 +108,7 @@ bool ResetInfo::FixMove(float TargetPosY)
 {
 	/*	C³ˆ—	*/
 	float StandartPosY = mp_StandardTile->transform->Position.y;
+	cout << "Šî€À•WF" << StandartPosY << endl;
 	bool isFix = false;
 
 	/*	ã¸Žž’lC³	*/
@@ -126,8 +127,10 @@ bool ResetInfo::FixMove(float TargetPosY)
 	/*	C³ˆ—	*/
 	if (isFix == true)
 	{
+		cout << "C³Š®—¹\n";
 		m_isFin = true;
+		return true;
 	}
 
-	return isFix;
+	return false;
 }

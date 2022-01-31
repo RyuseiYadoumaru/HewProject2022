@@ -1,6 +1,6 @@
 #include "Star.h"
 
-Star::Star(string in_Name):Actor(in_Name)
+Star::Star(string in_Name) :Actor(in_Name)
 {
 
 }
@@ -11,8 +11,8 @@ bool Star::Start()
 	m_SpriteRenderer->Init();
 	Vertex("vs_Ui");
 	m_SpriteRenderer->SetSize(1920.0f, 1080.0f);
-	transform->Position.Set((1920.0f / 2.0f) + 50.0f, 1080.0f / 2.0f, 0.0f);
-	transform->Scale.Set(0.8f, 0.8f, 0.0f);
+	transform->Position.Set((1920.0f / 2.0f) + 100.0f, 1080.0f / 2.0f, 0.0f);
+	transform->Scale.Set(0.4f, 0.4f, 0.0f);
 
 	/*	アニメーションコンポーネント	*/
 	AddComponent<Animator>(&m_StarAnimController);
@@ -36,7 +36,7 @@ void Star::Anim_Start2()
 		is_Star = true;
 		m_StarAnimController.AnimState = StarAnimController::STAR_2;
 	}
-	
+
 }
 
 void Star::Anim_Start3()
@@ -45,7 +45,7 @@ void Star::Anim_Start3()
 		is_Star = true;
 		m_StarAnimController.AnimState = StarAnimController::STAR_3;
 	}
-	
+
 }
 
 void Star::StarChecker(int star)

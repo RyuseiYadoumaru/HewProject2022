@@ -19,11 +19,12 @@ bool Fireworks::Start()
 
 	/*	アニメーションコンポーネント	*/
 	AddComponent<Animator>(&m_FireworkController);
-
+	Active = false;
 	return true;
 }
 
 void Fireworks::Anim_Start()
 {
+	Active = true;
 	m_FireworkController.AnimState = FireworkController::EFFECT_S;
 }

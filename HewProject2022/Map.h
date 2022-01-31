@@ -6,7 +6,6 @@
 #include "MoveManager.h"
 #include "ResetManager.h"
 #include"ChangeTile.h"
-#include "PushTile.h"
 #include "StarTile.h"
 
 using Create::GameObject;

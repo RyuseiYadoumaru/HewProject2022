@@ -27,8 +27,8 @@ const uint32_t	Application::SCREEN_HEIGHT = 1080;
 
 const float		Application::FPS = 60.0f;
 
-bool			Application::isShowCursor = true;
-bool			Application::FullScreen = false;
+bool			Application::isShowCursor = false;
+bool			Application::FullScreen = true;
 
 
 //==============================================================================
@@ -67,12 +67,6 @@ bool Application::Init(HINSTANCE hInstance)
 {
 	//メモリリーク検出
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
-
-	// コンソールを割り当てる
-	AllocConsole();
-
-	// 標準出力の割り当て
-	freopen_s(&fp, "CON", "w", stdout);
 
 	//ランダム初期化
 	srand((unsigned int)time(NULL));
@@ -174,11 +168,6 @@ void Application::Uninit()
 	DirectXGraphics* DirectXGraphic = DirectXGraphics::Instance();
 	DirectXGraphic->Uninit();
 
-	/****	標準出力クローズ	****/
-	fclose(fp);
-
-	/****	コンソール解放	****/
-	::FreeConsole();
 }
 
 //==============================================================================

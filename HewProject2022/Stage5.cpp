@@ -79,10 +79,6 @@ bool GamePlay::Stage5Scene::Start()
 
 Scene::STATE GamePlay::Stage5Scene::Update()
 {
-	/*	フレームカウント	*/
-	static int cnt = 0;
-	cnt++;
-	cout << "\nフレーム" << cnt << endl;
 
 	switch (Scene_State) {
 	case 0:

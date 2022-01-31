@@ -153,20 +153,6 @@ bool MainCamera::Update()
 			transform->Position.y -= CAMERA_SPEEDY; // 上
 		}
 
-		/*	範囲内条件式	*/
-		// カメラが右に行き過ぎている時
-		if (m_object_distace.x > 500.0f) 	this->transform->Position.x = p_FocusObject->transform->Position.x + 500.0f;
-		// カメラが左に行き過ぎている時
-		if (m_object_distace.x < -500.0f) 	this->transform->Position.x = p_FocusObject->transform->Position.x - 500.0f;
-		// カメラが上に行き過ぎている時
-		if (m_object_distace.y < -350.0f) 	this->transform->Position.y = p_FocusObject->transform->Position.y - 350.0f;
-		// カメラが下に行き過ぎている時
-		if (m_object_distace.y > 300.0f) 	this->transform->Position.y = p_FocusObject->transform->Position.y + 300.0f;
-
-
-
-
-
 
 		/*	戻す処理	*/
 		if ((Input::GetControllerRightStick().x == 0.0f && Input::GetControllerRightStick().y == 0.0f) &&
@@ -254,6 +240,17 @@ bool MainCamera::Update()
 
 		// タイルの上でカメラの位置がプレイヤーが見えない範囲まで行くとプレイヤーが下に落ちるバグ？
 		// →プレイヤーが見えてる範囲でカメラを動かす
+
+				/*	範囲内条件式	*/
+		// カメラが右に行き過ぎている時
+		if (m_object_distace.x > 500.0f) 	this->transform->Position.x = p_FocusObject->transform->Position.x + 500.0f;
+		// カメラが左に行き過ぎている時
+		if (m_object_distace.x < -500.0f) 	this->transform->Position.x = p_FocusObject->transform->Position.x - 500.0f;
+		// カメラが上に行き過ぎている時
+		if (m_object_distace.y < -350.0f) 	this->transform->Position.y = p_FocusObject->transform->Position.y - 350.0f;
+		// カメラが下に行き過ぎている時
+		if (m_object_distace.y > 300.0f) 	this->transform->Position.y = p_FocusObject->transform->Position.y + 300.0f;
+
 
 		/* 画面外にカメラがいかないようにする処理 */
 		// 左端

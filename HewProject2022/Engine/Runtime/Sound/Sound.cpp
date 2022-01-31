@@ -30,7 +30,7 @@ PARAM g_param[SOUND_LABEL_MAX] =
 	{"assets/SoundData/SE/Ok_2.wav", false},		// 決定SE
 	{"assets/SoundData/SE/Cancel_1.wav", false},	// 戻るSE
 	{"assets/SoundData/SE/GetStar.wav", false},	// 星獲得SE
-	{"assets/SoundData/SE/Changeworld", false},	// ワールドセレクトSE
+	{"assets/SoundData/SE/Changeworld.wav", false},	// ワールドセレクトSE
 	{"assets/SoundData/SE/MoveStar.wav", false},	// 流れ星SE
 };
 

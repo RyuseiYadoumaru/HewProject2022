@@ -35,7 +35,6 @@ void ResetInfo::Start()
 	/*	エラーチェック	*/
 	if (mp_StandardTile == nullptr)
 	{
-		Log::LogError("基準タイルがありません");
 		return;
 	}
 
@@ -94,7 +93,6 @@ void ResetInfo::Move()
 	/*	移動量設定	*/
 	float VectorY = m_Speed * GameTimer::fixedDeltaTime();
 
-	cout << "リセット移動量：" << VectorY << endl;
 
 	/*	移動処理	*/
 	for (auto& Tile : mp_MoveColumn->mp_TileList)
@@ -111,7 +109,6 @@ bool ResetInfo::FixMove(float TargetPosY)
 {
 	/*	修正処理	*/
 	float StandartPosY = mp_StandardTile->transform->Position.y;
-	cout << "基準座標：" << StandartPosY << endl;
 	bool isFix = false;
 
 	/*	上昇時値修正	*/
@@ -130,7 +127,6 @@ bool ResetInfo::FixMove(float TargetPosY)
 	/*	修正処理	*/
 	if (isFix == true || fabs(StandartPosY - TargetPosY) <= 0.1f)
 	{
-		cout << "修正完了\n";
 		m_isFin = true;
 		return true;
 	}

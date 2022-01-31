@@ -82,7 +82,6 @@ void LandTile::SearchLandingTile()
 
 		m_isLandTile = false;
 		mp_LandingTile = LandGround;
-		cout << "着地してないよ\n";
 		return;
 	}
 	/*	前フレームのタイルを保存	*/
@@ -102,7 +101,6 @@ void LandTile::SearchLandingTile()
 			//エラーチェック
 			if (tmp == nullptr)
 			{
-				Log::LogError("タイルID探索処理に失敗");
 				return;
 			}
 

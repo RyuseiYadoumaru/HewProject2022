@@ -168,12 +168,6 @@ bool Player::Update()
 void Player::Debug()
 {
 
-	if (GetComponent<BoxCollider2D>()->GetisHit_leftBlock() == true) cout << "Player:左ヒット\n";
-	if (GetComponent<BoxCollider2D>()->GetisHit_rightBlock() == true) cout << "Player:右ヒット\n";
-	if (GetComponent<BoxCollider2D>()->GetisHit_overBlock() == true) cout << "Player:上ヒット\n";
-	if (GetComponent<BoxCollider2D>()->GetisHit_underBlock() == true) cout << "Player:下ヒット\n";
-	GetComponent<BoxCollider2D>()->Debug(0.0f, 0.0f, 1.0f);
-	m_LandTile->GetComponent<BoxCollider2D>()->Debug(1.0f, 0.0f);
 }
 
 /****	アクション処理	****/
@@ -532,12 +526,9 @@ void Player::AddGravity()
 {
 	if (m_jumpForce != 0.0f)
 	{
-		cout << "airFlg = true\n";
 		m_airFlg = true;	//ジャンプ力が加わったら
 	}
 	if (GetComponent<BoxCollider2D>()->GetisHit_underBlock() == true) {//着地したら
-		cout << "airFlg = false\n";
-		cout << "sita= true\n";
 		m_jumpForce = 0.0f;
 		m_airFlg = false;
 	}

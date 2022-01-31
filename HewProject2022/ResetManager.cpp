@@ -44,12 +44,10 @@ bool ResetManager::Init()
 
 bool ResetManager::Update()
 {
-	cout << "リセット中\n";
 
 	/*	リセット処理待ち	*/
 	if (m_Timer < m_ResetWaitTime)
 	{
-		cout << "リセット処理待ち\n";
 		//タイマー加算
 		m_Timer += GameTimer::deltaTime();
 		//リセット中はtrueを返す
@@ -65,7 +63,6 @@ bool ResetManager::Update()
 		//移動が終わった時
 		if (/*ResetColumn->m_isFin == true*/ret == true)
 		{
-			cout << "リセット列削除\n";
 			//リセット列を削除する
 			itr = Reset.m_List.erase(itr);
 		}
@@ -82,7 +79,6 @@ bool ResetManager::Update()
 		/*	全てのタイルを初期位置にする	*/
 		//最後に無理やり初期位置に戻す
 		Map::AllTileReset();
-		cout << "全部リセット\n";
 		//初期化処理
 		Reset.Clear();
 		m_Timer = 0.0f;

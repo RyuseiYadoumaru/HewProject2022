@@ -274,9 +274,7 @@ Scene::STATE GamePlay::World1StageSelectScene::Update()
 
 	}
 
-	std::cout << m_frameCnt << std::endl;
 	m_frameCnt++;
-
 	/****	システム更新	****/
 	SystemUpdate();
 	return PLAY;

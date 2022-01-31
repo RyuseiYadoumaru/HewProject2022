@@ -74,16 +74,10 @@ bool GamePlay::Stage9Scene::Start()
 
 Scene::STATE GamePlay::Stage9Scene::Update()
 {
-	/*	フレームカウント	*/
-	static int cnt = 0;
-	cnt++;
-	cout << "\nフレーム" << cnt << endl;
-
 	switch (Scene_State) {
 	case 0:
 
 		/****	当たり判定	****/
-
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_SinkStart->GetComponent<BoxCollider2D>());
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_TablewareEnd->GetComponent<BoxCollider2D>());
 

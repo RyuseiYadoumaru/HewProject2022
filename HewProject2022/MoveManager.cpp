@@ -129,7 +129,6 @@ bool MoveManager::Update()
 			if (isMagicFin == true || SetMagicParticle() == true)
 			{
 				//天井にぶつかるときの移動処理
-				cout << "天井にぶつかってるよ\n";
 				isFin = MoveResetBefore();
 			}
 			else
@@ -484,7 +483,6 @@ bool MoveManager::ResetBefore()
 		//移動が終わった時
 		if (/*ResetColumn->m_isFin == true*/ret == true)
 		{
-			cout << "リセット列削除\n";
 			for (auto& reset : ResetBeforeList.m_List)
 			{
 				reset->ResetBeforePosition();

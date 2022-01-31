@@ -139,12 +139,21 @@ bool MoveInfo::JudgeResetBeforePos()
 	if (m_isUp == false) return false;
 
 	/*	天井判定	*/
-	if ((mp_HeadTile->transform->Position.y + m_MoveValue) < 40.0f)
+	if ((mp_HeadTile->transform->Position.y + m_MoveValue) <= 0.0f)
 	{
 		return true;
 	}
 	//リセットする
 	return false;
+}
+
+void MoveInfo::SetMoveBeforePos()
+{
+	for (auto& tile : mp_MoveColumn->mp_TileList)
+	{
+		tile->SetBeforeMoveTile();
+	}
+
 }
 
 //-----------------------------------------------------------------------------

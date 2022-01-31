@@ -38,6 +38,10 @@ bool MoveManager::Init(LandTile* in_StandardTile)
 	NowFinBackMoveColumn = 0;
 	//移動するブロックがあるときはtrueで返す
 
+
+	/*	移動列bool初期化	*/
+	Front.isBack = false;
+	Back.isBack = true;
 	/*	基準タイル設定	*/
 	m_StandardTile = in_StandardTile;
 
@@ -112,6 +116,10 @@ bool MoveManager::Update()
 			if (isResetFin == false)
 			{
 				SetResetParticle();
+				for (auto& reset : ResetBeforeList.m_List)
+				{
+					reset->SetMoveBeforePos();
+				}
 				isResetFin = true;
 				//BlockParticleManager::CreateMagicEffect(m_StandardTile->GetLandTile(), EffectColor);
 
@@ -241,7 +249,7 @@ bool MoveManager::SetMoveList()
 	ResetBeforeList.m_List = Front.m_List;
 	if (ResetBeforeList.Empty() == false)
 	{
-		copy(ResetBeforeList.m_List.begin(), ResetBeforeList.m_List.end(), back_inserter(Back.m_List));
+		copy(Back.m_List.begin(), Back.m_List.end(), back_inserter(ResetBeforeList.m_List));
 	}
 	else
 	{
@@ -477,6 +485,10 @@ bool MoveManager::ResetBefore()
 		if (/*ResetColumn->m_isFin == true*/ret == true)
 		{
 			cout << "リセット列削除\n";
+			for (auto& reset : ResetBeforeList.m_List)
+			{
+				reset->ResetBeforePosition();
+			}
 			//リセット列を削除する
 			itr = ResetBeforeList.m_List.erase(itr);
 		}

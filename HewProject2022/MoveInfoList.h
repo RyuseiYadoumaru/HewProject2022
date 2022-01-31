@@ -15,5 +15,6 @@ public:
 
 public:
 	vector<MoveInfo*> m_List;
+	bool isBack = false;
 };
 

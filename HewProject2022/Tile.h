@@ -84,6 +84,8 @@ public:
 	void Debug() override;
 
 public:
+	void SetBeforeMoveTile() { m_BeforeMovePos = transform->Position; }
+	void ResetBeforeMoveTile() { transform->Position = m_BeforeMovePos; }
 	MAPOBJ GetKind() const;
 	void SetKind(MAPOBJ in_MapObj);
 	void SetColumn(float in_Column);
@@ -103,6 +105,7 @@ protected:
 	MAPOBJ m_Kind;				//種類
 	float m_MyColumn;			//所属列
 	Vector3 m_StartPosition;	//初期座標
+	Vector3 m_BeforeMovePos;		//移動前座標
 
 	float m_ReplacementTimer;   //色が変わるまでの時間
 

@@ -25,6 +25,8 @@ public:
 	void SetHeadTile(Tile* in_Tile) { mp_HeadTile = in_Tile; }
 	//三木原追加
 	float GetSpeed() { return m_Speed; };
+	//移動前座標保存
+	void SetMoveBeforePos();
 
 	//移動フラグ取得
 	constexpr bool GetPositionEqual() const { return m_isPositionEqual; }

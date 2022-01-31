@@ -46,7 +46,10 @@ bool MoveInfoList::MoveFront()
 	/*	ˆÚ“®‚ªI—¹‚µ‚½‚ç	*/
 	if (isFin == true)
 	{
-		MoveManager::NowFinFrontMoveColumn = m_List.front()->GetHeadTile()->GetMyColumn();
+		if (isBack == true)
+			MoveManager::NowFinBackMoveColumn = m_List.front()->GetHeadTile()->GetMyColumn();
+		else
+			MoveManager::NowFinFrontMoveColumn = m_List.front()->GetHeadTile()->GetMyColumn();
 		//æ“ª”z—ñ‚ğíœ‚·‚é
 		m_List.erase(m_List.begin());
 	}

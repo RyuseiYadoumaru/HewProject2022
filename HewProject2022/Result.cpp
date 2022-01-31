@@ -72,19 +72,26 @@ bool Result::ResultCursor_Move()
 	this->GetComponent<SpriteRenderer>()->Color.a = 1.0f;
 
 	if ((Input::GetControllerTrigger(XINPUT_GAMEPAD_DPAD_UP) == true || Input::GetKeyTrigger(VK_UP) == true) && Cursor_Position > 0) {
+		Sound::Sound_Play(SOUND_LAVEL_SELECT_SE);
 		Cursor_Position--;
 	}
 	else if ((Input::GetControllerTrigger(XINPUT_GAMEPAD_DPAD_DOWN) == true || Input::GetKeyTrigger(VK_DOWN) == true) && Cursor_Position < 2) {
+		Sound::Sound_Play(SOUND_LAVEL_SELECT_SE);
+
 		Cursor_Position++;
 	}
 	else if (Input::GetControllerLeftStick().y < -0.1) {
 		if (S_flg == false) {
+			Sound::Sound_Play(SOUND_LAVEL_SELECT_SE);
+
 			Cursor_Position--;
 			S_flg = true;
 		}
 	}
 	else if (Input::GetControllerLeftStick().y > 0.1) {
 		if (S_flg == false) {
+			Sound::Sound_Play(SOUND_LAVEL_SELECT_SE);
+
 			Cursor_Position++;
 			S_flg = true;
 		}
@@ -100,6 +107,7 @@ bool Result::ResultCursor_Move()
 	case 0:
 		this->transform->Position.Set(BASE_POSITION_X - 210, BASE_POSITION_Y - CURSOR_DISTANCE + 270, 0.0f);
 		if (Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true || Input::GetKeyTrigger(VK_RETURN) == true) {
+			Sound::Sound_Play(SOUND_LABEL_OK);
 			//Result_Checker = 1;//次のステージ
 			m_Fade->SetFadeStatus(m_Fade->FADE_OUT);//フェードアウト開始
 			m_SceneTransition = NEXT_SCENE;
@@ -109,6 +117,7 @@ bool Result::ResultCursor_Move()
 	case 1:
 		this->transform->Position.Set(BASE_POSITION_X - 210, BASE_POSITION_Y + 270, 0.0f);
 		if (Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true || Input::GetKeyTrigger(VK_RETURN) == true) {
+			Sound::Sound_Play(SOUND_LABEL_OK);
 			//Result_Checker = 2;
 			//m_Fade->SetFadeStatus(m_Fade->FADE_OUT);//フェードアウト開始
 			m_Fade->fadeStatus = m_Fade->FADE_OUT;
@@ -119,6 +128,7 @@ bool Result::ResultCursor_Move()
 	case 2:
 		this->transform->Position.Set(BASE_POSITION_X - 210, BASE_POSITION_Y + CURSOR_DISTANCE + 270, 0.0f);
 		if (Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true || Input::GetKeyTrigger(VK_RETURN) == true) {
+			Sound::Sound_Play(SOUND_LABEL_OK);
 			//Result_Checker = 3;//ステージセレクトに戻る
 			m_Fade->SetFadeStatus(m_Fade->FADE_OUT);//フェードアウト開始
 			m_SceneTransition = STAGE_SELECT;

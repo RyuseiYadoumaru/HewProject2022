@@ -93,6 +93,7 @@ Scene::STATE GamePlay::TitleScene::Update()
 				}
 				if (Input::GetControllerTrigger(XINPUT_GAMEPAD_B) == true || Input::GetKeyTrigger(VK_ESCAPE)) {//スタートボタンでゲーム終了ウインドウの表示
 					//ゲーム終了ウインドウを表示する
+					Sound::Sound_Play(SOUND_LABEL_BACK);
 					m_GameEnd->GetComponent<SpriteRenderer>()->Color.a = 1;
 					m_EndCursor->GetComponent<SpriteRenderer>()->Color.a = 1;
 					EndWin_flg = true;//ゲーム終了準備状態へ
@@ -104,6 +105,7 @@ Scene::STATE GamePlay::TitleScene::Update()
 						m_EndCursor->transform->Position.Set((1920.0f / 2.0f) - 120, (1080.0f / 2.0f) + 80, 0.0f);
 
 						if (Input::GetControllerLeftStick().y > 0.5 || Input::GetKeyTrigger(VK_DOWN) || Input::GetControllerTrigger(XINPUT_GAMEPAD_DPAD_DOWN) == true) {//スティックを下に倒したときの判定
+							Sound::Sound_Play(SOUND_LAVEL_SELECT_SE);
 							End_flg = true;//true=(ゲーム終了)
 						}
 
@@ -114,6 +116,7 @@ Scene::STATE GamePlay::TitleScene::Update()
 							End_flg = false;
 						}*/
 						if (Input::GetControllerLeftStick().y < -0.5 || Input::GetKeyTrigger(VK_UP) || Input::GetControllerTrigger(XINPUT_GAMEPAD_DPAD_UP) == true) {//スティックを上に倒したときの判定
+							Sound::Sound_Play(SOUND_LAVEL_SELECT_SE);
 							End_flg = false;//false=(そのまま)
 						}
 
@@ -135,6 +138,7 @@ Scene::STATE GamePlay::TitleScene::Update()
 					}
 					else if (Input::GetKeyTrigger(VK_ESCAPE))
 					{
+						Sound::Sound_Play(SOUND_LABEL_BACK);
 						m_GameEnd->GetComponent<SpriteRenderer>()->Color.a = 0;
 						m_EndCursor->GetComponent<SpriteRenderer>()->Color.a = 0;
 						EndWin_flg = false;//通常状態へ

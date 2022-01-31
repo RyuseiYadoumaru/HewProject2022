@@ -29,6 +29,8 @@ PARAM g_param[SOUND_LABEL_MAX] =
 	{"assets/SoundData/SE/Ok_1.wav", false},		// セレクトSE
 	{"assets/SoundData/SE/Ok_2.wav", false},		// 決定SE
 	{"assets/SoundData/SE/Cancel_1.wav", false},	// 戻るSE
+	{"assets/SoundData/SE/Cancel_1.wav", false},	// 星獲得SE
+	{"assets/SoundData/SE/Cancel_1.wav", false},	// ワールドセレクトSE
 };
 
 #ifdef _XBOX //Big-Endian

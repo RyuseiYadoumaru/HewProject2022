@@ -22,6 +22,8 @@ typedef enum
 	SOUND_LAVEL_SELECT_SE,		//選択SE
 	SOUND_LABEL_OK,				// 決定SE
 	SOUND_LABEL_BACK,			// 戻るSE
+	SOUND_LABEL_GETSTAR,		// 星獲得SE
+	SOUND_LABEL_SELECTWORLD,	// ワールドセレクトSE
 
 
 

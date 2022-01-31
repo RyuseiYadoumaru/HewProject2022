@@ -207,11 +207,13 @@ Scene::STATE GamePlay::World4StageSelectScene::Update()
 			|| Input::GetControllerTrigger(XINPUT_GAMEPAD_RIGHT_SHOULDER) == true) {
 			m_fadeflg = true;
 			m_nextWorldflg = true;
+			Sound::Sound_Play(SOUND_LABEL_SELECTWORLD);
 		}
 
 		if (Input::GetKeyTrigger(PK_A) == true
 			|| Input::GetControllerTrigger(XINPUT_GAMEPAD_LEFT_SHOULDER) == true) {
 			m_fadeflg = true;
+			Sound::Sound_Play(SOUND_LABEL_SELECTWORLD);
 		}
 
 		if (m_fadeflg == true && m_nextWorldflg == true) {
@@ -243,6 +245,7 @@ Scene::STATE GamePlay::World4StageSelectScene::Update()
 
 		if (Input::GetKeyTrigger(PK_ENTER) == true || Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true)//エンター押すと次のシーンへ移動
 		{
+			Sound::Sound_Play(SOUND_LABEL_OK);
 			switch (m_stageNumber)
 			{
 			case STAGE_01:

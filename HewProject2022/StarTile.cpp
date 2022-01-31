@@ -36,6 +36,7 @@ bool StarTile::Update()//ƒvƒŒƒCƒ„[‚ÆÕ“Ë‚µ‚½‚çŒ©‚¦‚È‚­‚È‚Á‚ÄAƒvƒŒƒCƒ„[‚Ìæ“¾‚
 			this->m_SpriteRenderer->Color.a = 0.0f;//‚Æ‚è‚ ‚¦‚¸Œ©‚¦‚È‚­‚·‚é
 			//this->Destroy();
 			m_Player->m_GetStar += 1;//¯‚Ìæ“¾”‰ÁZ
+			Sound::Sound_Play(SOUND_LABEL_GETSTAR);
 			m_GotFlg = true;
 		}
 	}

@@ -194,14 +194,14 @@ bool GamePlay::Stage23Scene::Render()
 	ObjectRender<House>("HouseStart");
 
 	ObjectRender<Map>(STAGE_5_3);
+	/*** ゴール描画 ***/
+	ObjectRender<Goal>("Goal");
+	ObjectRender<PlayerGoalEffect>("PGoalEffect");
 	ObjectRender<Player>("Player");
 
 	/****	前装飾品	****/
 	ObjectRender<LayerFront>("LayerFront");
 
-	/*** ゴール描画 ***/
-	ObjectRender<Goal>("Goal");
-	ObjectRender<PlayerGoalEffect>("PGoalEffect");
 
 	/****	デバッグ	****/
 	/*m_HouseEnd->Debug();

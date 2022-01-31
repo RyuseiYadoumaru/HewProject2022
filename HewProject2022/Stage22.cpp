@@ -186,14 +186,16 @@ bool GamePlay::Stage22Scene::Render()
 	ObjectRender<House>("HouseEnd");
 
 	ObjectRender<Map>(STAGE_5_2);
-	ObjectRender<Player>("Player");
-
-	/****	前装飾品	****/
-	ObjectRender<LayerFront>("LayerFront");
 
 	/*** ゴール描画 ***/
 	ObjectRender<Goal>("Goal");
 	ObjectRender<PlayerGoalEffect>("PGoalEffect");
+	ObjectRender<Player>("Player");
+
+
+
+	/****	前装飾品	****/
+	ObjectRender<LayerFront>("LayerFront");
 
 	/****	デバッグ	****/
 /*	m_HouseEnd->Debug();

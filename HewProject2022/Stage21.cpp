@@ -182,15 +182,16 @@ bool GamePlay::Stage21Scene::Render()
 	/****	天井	****/
 	ObjectRender<Ceiling>("Ceiling");
 
-	/*** ゴール描画 ***/
-	ObjectRender<Goal>("Goal");
-	ObjectRender<PlayerGoalEffect>("PGoalEffect");
-
 	/****	オブジェクト描画	****/
 	ObjectRender<Storage>("StorageStart");
 	ObjectRender<World5_desk>("World5_deskEnd");
 
 	ObjectRender<Map>(STAGE_5_1);
+
+	/*** ゴール描画 ***/
+	ObjectRender<Goal>("Goal");
+	ObjectRender<PlayerGoalEffect>("PGoalEffect");
+
 	ObjectRender<Player>("Player");
 
 

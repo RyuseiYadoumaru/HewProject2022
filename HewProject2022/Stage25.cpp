@@ -187,14 +187,15 @@ bool GamePlay::Stage25Scene::Render()
 	ObjectRender<Toy>("ToyEnd");
 
 	ObjectRender<Map>(STAGE_5_5);
+
+	/*** ゴール描画 ***/
+	ObjectRender<Goal>("Goal");
+	ObjectRender<PlayerGoalEffect>("PGoalEffect");
 	ObjectRender<Player>("Player");
 
 	/****	前装飾品	****/
 	ObjectRender<LayerFront>("LayerFront");
 
-	/*** ゴール描画 ***/
-	ObjectRender<Goal>("Goal");
-	ObjectRender<PlayerGoalEffect>("PGoalEffect");
 
 	/****	デバッグ	****/
 	//m_ToyEnd->Debug();

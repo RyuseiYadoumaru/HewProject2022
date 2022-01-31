@@ -2,13 +2,6 @@
 
 void SelectAnim::Init()
 {
-	/*	セレクト移動チュートリアル	*/
-	/*::AnimationTable set_SelectTutorial;
-	set_SelectTutorial.SetKind(KIND::MOVE_1, KIND::MOVE_1, KIND::MOVE_1, KIND::MOVE_2, KIND::MOVE_2, KIND::MOVE_2, ANIMATION_FINISH);
-	set_SelectTutorial.SetFrame(TUTORIAL_ANIM::ANIM_1, TUTORIAL_ANIM::ANIM_2, TUTORIAL_ANIM::ANIM_3, TUTORIAL_ANIM::ANIM_1, TUTORIAL_ANIM::ANIM_2, TUTORIAL_ANIM::ANIM_3, ANIMATION_FINISH);
-	set_SelectTutorial.SetKey(0.0f, 300.0f, 600.0f, 900.0f, 1200.0f, 1500.0f);
-	AnimationTableList.insert(std::make_pair("SelectTutorial", set_SelectTutorial));*/
-
 	/*	アイドル状態	*/
 	::AnimationTable set_SelectTutorial_Idle;
 	set_SelectTutorial_Idle.SetKind(KIND::MOVE_1, KIND::MOVE_1, KIND::MOVE_1, KIND::MOVE_1, KIND::MOVE_1, KIND::MOVE_1, ANIMATION_FINISH);

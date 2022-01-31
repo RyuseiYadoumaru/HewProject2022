@@ -1,5 +1,6 @@
 #include "Result.h"
 #include "Fade.h"
+#include "Player.h"
 
 #define CURSOR_DISTANCE 130.0f			//ƒJ[ƒ\ƒ‹‚ÌˆÚ“®ŠÔŠu
 #define BASE_POSITION_X 1920.0f/2.0f
@@ -24,6 +25,8 @@ bool Result::Start()
 	m_SceneTransition = NONE;
 
 	S_flg = false;
+
+	m_ShootingStarSE = false;
 
 	return true;
 }
@@ -61,6 +64,13 @@ void Result::ResultCursor_Init()
 
 bool Result::Result_On()
 {
+	Player* m_Player = Create::Scene::GetGameObject<Player>("Player");
+
+	if (m_ShootingStarSE == false && m_Player->m_GetStar != 0) {//—¬‚ê¯SE
+		Sound::Sound_Play(SOUND_LABEL_SHOOTINGSTAR);
+		m_ShootingStarSE = true;
+	}
+
 	this->GetComponent<SpriteRenderer>()->Color.a = 1;
 	return true;
 }

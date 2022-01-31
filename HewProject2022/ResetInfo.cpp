@@ -41,6 +41,7 @@ void ResetInfo::Start()
 
 	/*	移動量設定	*/
 	//現在基準タイル座標
+
 	m_MoveValue = mp_StandardTile->GetStartPosition().y - mp_StandardTile->transform->Position.y;
 
 	/*	スピード設定	*/
@@ -48,7 +49,7 @@ void ResetInfo::Start()
 
 	/*	上昇フラグ設定	*/
 	//上昇
-	if (m_MoveValue < 0) m_isUp = true;
+	if (m_MoveValue <= 0) m_isUp = true;
 	//下降
 	else if (m_MoveValue > 0) m_isUp = false;
 
@@ -93,6 +94,8 @@ void ResetInfo::Move()
 	/*	移動量設定	*/
 	float VectorY = m_Speed * GameTimer::fixedDeltaTime();
 
+	cout << "リセット移動量：" << VectorY << endl;
+
 	/*	移動処理	*/
 	for (auto& Tile : mp_MoveColumn->mp_TileList)
 	{
@@ -125,7 +128,7 @@ bool ResetInfo::FixMove(float TargetPosY)
 	}
 
 	/*	修正処理	*/
-	if (isFix == true)
+	if (isFix == true || fabs(StandartPosY - TargetPosY) <= 0.1f)
 	{
 		cout << "修正完了\n";
 		m_isFin = true;

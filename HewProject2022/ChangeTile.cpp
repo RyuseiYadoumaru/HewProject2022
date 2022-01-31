@@ -60,7 +60,7 @@ bool ChangeTile::Start()
 
 	/*	初期座標保存	*/
 	m_StartPosition = transform->Position;
-
+	m_SavePosition = transform->Position;
 
 	/*	タグ設定	*/
 	tag = ChangeColorBlock;
@@ -70,6 +70,9 @@ bool ChangeTile::Start()
 
 bool ChangeTile::Update()
 {
+
+	/*	座標を保存する	*/
+	m_SavePosition = transform->Position;
 
 
 	if (m_ChangeTimer >= CHANGE_TIME) {//3秒で入れ替える
@@ -108,10 +111,6 @@ bool ChangeTile::Update()
 	if (Map::m_MoveManager.empty() == true) {
 		m_ChangeTimer += GameTimer::deltaTime();
 	}
-
-
-	/*	座標を保存する	*/
-	m_SavePosition = transform->Position;
 
 	return true;
 }

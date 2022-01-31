@@ -175,17 +175,18 @@ bool GamePlay::Stage10Scene::Render()
 	/****	天井	****/
 	ObjectRender<Ceiling>("Ceiling");
 
-	/*** ゴール描画 ***/
-	ObjectRender<Goal>("Goal");
-	ObjectRender<PlayerGoalEffect>("PGoalEffect");
 
 	/****	オブジェクト描画	****/
 	ObjectRender<Tableware>("TablewareStart");
 	ObjectRender<Shelf>("ShelfEnd");
 
 	ObjectRender<Map>(STAGE_2_5);
-	ObjectRender<Player>("Player");
 
+	/*** ゴール描画 ***/
+	ObjectRender<Goal>("Goal");
+	ObjectRender<PlayerGoalEffect>("PGoalEffect");
+
+	ObjectRender<Player>("Player");
 	/****	デバッグ	****/
 	//m_ShelfEnd->Debug();
 	//m_TablewareStart->Debug();

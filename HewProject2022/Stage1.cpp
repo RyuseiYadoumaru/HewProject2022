@@ -68,7 +68,7 @@ bool GamePlay::Stage1Scene::Start()
 	m_Fireworks = Instance<Fireworks>("Fireworks");
 	m_Star = Instance<Star>("Star");
 
-	
+
 	/*	初期化	*/
 	m_Player->transform->Position.y += 450.0f;
 	m_SofaEnd->transform->Position.x += ROAD_DISTANCE;
@@ -105,9 +105,7 @@ Scene::STATE GamePlay::Stage1Scene::Update()
 		m_Goal->GetComponent<BoxCollider2D>()->HitCheckBox(*m_Player->GetComponent<BoxCollider2D>());
 
 		/****	オブジェクト更新	****/
-		cout << "PlayerPositionY:" << m_Player->transform->Position.y << endl;
 		ObjectUpdate();
-		cout << "PlayerPositionY:" << m_Player->transform->Position.y << endl;
 
 		//当たったらゴール
 		for (auto name : m_Goal->GetComponent<BoxCollider2D>()->GetHitObject())
@@ -222,7 +220,7 @@ bool GamePlay::Stage1Scene::Render()
 	//m_Player->Debug();
 	//m_Map->Debug();
 	//m_TableStart->Debug();
-	m_MainCamera->Debug();
+	//m_MainCamera->Debug();
 	/****	画面エフェクト	****/
 	//m_Fade->Render();
 	ObjectRender<ScreenFx>("SFX");
@@ -231,7 +229,7 @@ bool GamePlay::Stage1Scene::Render()
 	ObjectRender<PlayModeUI>("PlayModeUI");
 	ObjectRender<waku>("waku");
 
-	
+
 	/*** リザルト ***/
 	ObjectRender<Result>("ResultBack");
 	ObjectRender<Fireworks>("Fireworks");
@@ -239,8 +237,8 @@ bool GamePlay::Stage1Scene::Render()
 	ObjectRender<Result>("ResultFront");
 	ObjectRender<Result>("ResultCursor");
 
-	
-	
+
+
 	/*** フェード ***/
 	m_Fade->Render();
 

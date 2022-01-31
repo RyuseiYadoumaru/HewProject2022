@@ -11,8 +11,9 @@ bool PlayerGoalEffect::Start()
 	float PosX = MAPSIZE_WIDTH - 1000.0f;
 	float PosY = MAPSIZE_HEIGHT / 2.0f;
 	transform->Position.Set(0, 0, 0.0f);
+	m_SpriteRenderer->SetSize(1920.0f, 1080.0f);
 	//GetComponent<SpriteRenderer>()->Color.a = 0;
-	transform->Scale.Set(0.4f, 1.7f, 0.0f);
+	transform->Scale.Set(0.1f, 1.2f, 0.0f);
 
 	/*	ボックスコライダコンポーネント	*/
 	AddComponent<GameEngine::BoxCollider2D>(m_SpriteRenderer->GetSize());

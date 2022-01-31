@@ -84,25 +84,16 @@ Scene::STATE GamePlay::Stage18Scene::Update()
 	cout << "\nフレーム" << cnt << endl;
 	switch (Scene_State) {
 	case 0:
-		if (((m_Player->m_LandTile->GetisLandTile() == false) ||
-			(Input::GetControllerTrigger(XINPUT_GAMEPAD_X)) || Input::GetKeyTrigger(PK_R)) &&
-			(m_Map->m_OnReset == false))
-		{
-			//リセット発動
-			m_Map->m_OnReset = true;
-		}
-
-		/****	オブジェクト更新	****/
-		ObjectUpdate();
 
 		/****	当たり判定	****/
-
-
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_BookShelfStart->GetComponent<BoxCollider2D>());
 		m_Player->GetComponent<BoxCollider2D>()->HitCheckBox(*m_PictureFrameEnd->GetComponent<BoxCollider2D>());
 
 		/***  ゴール判定用  ***/
 		m_Goal->GetComponent<BoxCollider2D>()->HitCheckBox(*m_Player->GetComponent<BoxCollider2D>());
+
+		/****	オブジェクト更新	****/
+		ObjectUpdate();
 
 
 		//当たったらゴール
@@ -115,7 +106,6 @@ Scene::STATE GamePlay::Stage18Scene::Update()
 				}
 			}
 		}
-
 
 
 		/* Pause処理　ON */
@@ -153,6 +143,7 @@ Scene::STATE GamePlay::Stage18Scene::Update()
 		break;
 	}
 	/****	システム更新	****/
+	m_Map->SystemUpdate();
 	SystemUpdate();
 	return PLAY;
 

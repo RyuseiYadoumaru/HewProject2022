@@ -68,6 +68,8 @@ Scene::STATE GamePlay::World5StageSelectScene::Update()
 				if (m_frameCnt >= 20) {
 					m_sceneRightMoveflg = true;
 					m_frameCnt = 0;
+					Sound::Sound_Play(SOUND_LAVEL_SELECT_SE);
+
 				}
 			}
 
@@ -82,6 +84,8 @@ Scene::STATE GamePlay::World5StageSelectScene::Update()
 				if (m_frameCnt >= 20) {
 					m_sceneRightMoveflg = true;
 					m_frameCnt = 0;
+					Sound::Sound_Play(SOUND_LAVEL_SELECT_SE);
+
 				}
 			}
 
@@ -90,6 +94,8 @@ Scene::STATE GamePlay::World5StageSelectScene::Update()
 				if (m_frameCnt >= 20) {
 					m_sceneLeftMoveflg = true;
 					m_frameCnt = 0;
+					Sound::Sound_Play(SOUND_LAVEL_SELECT_SE);
+
 				}
 			}
 			break;
@@ -99,6 +105,8 @@ Scene::STATE GamePlay::World5StageSelectScene::Update()
 				if (m_frameCnt >= 20) {
 					m_sceneRightMoveflg = true;
 					m_frameCnt = 0;
+					Sound::Sound_Play(SOUND_LAVEL_SELECT_SE);
+
 				}
 			}
 
@@ -107,6 +115,8 @@ Scene::STATE GamePlay::World5StageSelectScene::Update()
 				if (m_frameCnt >= 20) {
 					m_sceneLeftMoveflg = true;
 					m_frameCnt = 0;
+					Sound::Sound_Play(SOUND_LAVEL_SELECT_SE);
+
 				}
 			}
 			break;
@@ -116,6 +126,8 @@ Scene::STATE GamePlay::World5StageSelectScene::Update()
 				if (m_frameCnt >= 20) {
 					m_sceneRightMoveflg = true;
 					m_frameCnt = 0;
+					Sound::Sound_Play(SOUND_LAVEL_SELECT_SE);
+
 				}
 			}
 
@@ -124,6 +136,8 @@ Scene::STATE GamePlay::World5StageSelectScene::Update()
 				if (m_frameCnt >= 20) {
 					m_sceneLeftMoveflg = true;
 					m_frameCnt = 0;
+					Sound::Sound_Play(SOUND_LAVEL_SELECT_SE);
+
 				}
 			}
 			break;
@@ -137,6 +151,8 @@ Scene::STATE GamePlay::World5StageSelectScene::Update()
 				if (m_frameCnt >= 20) {
 					m_sceneLeftMoveflg = true;
 					m_frameCnt = 0;
+					Sound::Sound_Play(SOUND_LAVEL_SELECT_SE);
+
 				}
 			}
 			break;

@@ -143,7 +143,8 @@ bool Player::Update()
 
 	/*	重力追加	*/
 	//キャラクターは重力の影響を受ける
-	AddGravity();
+	if (m_MainCamera->m_CameraMode == false)
+		AddGravity();
 
 	/*	アニメーション修正処理	*/
 	FixAnimation();

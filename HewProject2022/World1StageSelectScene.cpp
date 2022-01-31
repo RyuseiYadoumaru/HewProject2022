@@ -75,11 +75,14 @@ Scene::STATE GamePlay::World1StageSelectScene::Update()
 				if (m_frameCnt >= 20) {
 					m_sceneRightMoveflg = true;
 					m_frameCnt = 0;
+					Sound::Sound_Play(SOUND_LAVEL_SELECT_SE);
+
 				}
 			}
 
 			if (Input::GetKeyTrigger(VK_LEFT) == true
 				|| Input::GetControllerLeftStick().x < 0.0f) {
+
 			}
 			break;
 
@@ -89,6 +92,8 @@ Scene::STATE GamePlay::World1StageSelectScene::Update()
 				if (m_frameCnt >= 20) {
 					m_sceneRightMoveflg = true;
 					m_frameCnt = 0;
+					Sound::Sound_Play(SOUND_LAVEL_SELECT_SE);
+
 				}
 			}
 
@@ -97,6 +102,8 @@ Scene::STATE GamePlay::World1StageSelectScene::Update()
 				if (m_frameCnt >= 20) {
 					m_sceneLeftMoveflg = true;
 					m_frameCnt = 0;
+					Sound::Sound_Play(SOUND_LAVEL_SELECT_SE);
+
 				}
 			}
 			break;
@@ -106,6 +113,8 @@ Scene::STATE GamePlay::World1StageSelectScene::Update()
 				if (m_frameCnt >= 20) {
 					m_sceneRightMoveflg = true;
 					m_frameCnt = 0;
+					Sound::Sound_Play(SOUND_LAVEL_SELECT_SE);
+
 				}
 			}
 
@@ -114,6 +123,8 @@ Scene::STATE GamePlay::World1StageSelectScene::Update()
 				if (m_frameCnt >= 20) {
 					m_sceneLeftMoveflg = true;
 					m_frameCnt = 0;
+					Sound::Sound_Play(SOUND_LAVEL_SELECT_SE);
+
 				}
 			}
 			break;
@@ -123,6 +134,8 @@ Scene::STATE GamePlay::World1StageSelectScene::Update()
 				if (m_frameCnt >= 20) {
 					m_sceneRightMoveflg = true;
 					m_frameCnt = 0;
+					Sound::Sound_Play(SOUND_LAVEL_SELECT_SE);
+
 				}
 			}
 
@@ -131,6 +144,8 @@ Scene::STATE GamePlay::World1StageSelectScene::Update()
 				if (m_frameCnt >= 20) {
 					m_sceneLeftMoveflg = true;
 					m_frameCnt = 0;
+					Sound::Sound_Play(SOUND_LAVEL_SELECT_SE);
+
 				}
 			}
 			break;
@@ -144,6 +159,8 @@ Scene::STATE GamePlay::World1StageSelectScene::Update()
 				if (m_frameCnt >= 20) {
 					m_sceneLeftMoveflg = true;
 					m_frameCnt = 0;
+					Sound::Sound_Play(SOUND_LAVEL_SELECT_SE);
+
 				}
 			}
 			break;

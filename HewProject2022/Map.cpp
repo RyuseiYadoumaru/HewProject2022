@@ -23,7 +23,6 @@ bool Map::SearchMoveObjectName(string in_SearchName)
 			/*	移動リストオブジェクトチェック	*/
 			if (NowMove->GetLandObjectName() == in_SearchName)
 			{
-				cout << NowMove->GetLandObjectName() << "がガチャてます\n";
 				//探索オブジェクトあり
 				return true;
 			}
@@ -45,7 +44,6 @@ bool Map::SearchMoveObjectID(int in_ID)
 			/*	移動リストオブジェクトチェック	*/
 			if (NowMove->GetLandObjectID() == in_ID)
 			{
-				cout << NowMove->GetLandObjectName() << "がガチャてます\n";
 				//探索オブジェクトあり
 				return true;
 			}
@@ -312,8 +310,6 @@ bool Map::HitCheckMap(GameObject& in_GameObject, CHECK in_Check)
 		}
 	}
 
-
-	cout << "当たり判定の参照回数：" << debug << endl;
 	return true;
 }
 
@@ -365,14 +361,12 @@ void Map::MoveReset()
 	/*	リセット処理不可能	*/
 	if (m_isReset == false)
 	{
-		cout << "リセットしない\n";
 		//trueの時にブロックが移動しているのでリセットすることができる
 		m_OnReset = false;
 		m_isResetStart = false;
 		m_isReset = false;
 		return;
 	}
-	cout << "列リセット\n";
 
 
 	//一回目の時は初期化を行う
@@ -381,11 +375,9 @@ void Map::MoveReset()
 		/*	リセット初期化	*/
 		m_isResetStart = true;
 		bool ret = m_ResetManager.Init();
-		cout << "リセット初期化完了\n";
 		/*	リセット処理	*/
 		if (ret == false)
 		{
-			cout << "リセット列なし\n";
 			m_isReset = false;
 			m_OnReset = false;
 			m_isResetStart = false;
@@ -679,14 +671,12 @@ void Map::AddMoveManager(LandTile* in_LandTile)
 			if (NowMove->GetLandObjectID() == in_LandTile->GetOwnerID())
 			{
 				//リストに同じオブジェクトがあれば保存しない
-				cout << "同じオブジェクトが移動リストにありました！\n";
 				return;
 			}
 		}
 	}
 
 	/*	タイル保存	*/
-	cout << "タイル保存\n";
 	m_MoveManager.push_back(make_shared<MoveManager>());	//待機列に移動列を入れる
 	/*	移動情報初期化処理	*/
 	if (m_MoveManager.back()->Init(in_LandTile) == false)

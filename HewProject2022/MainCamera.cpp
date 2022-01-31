@@ -284,8 +284,6 @@ bool MainCamera::Update()
 
 void MainCamera::Debug()
 {
-	cout << Input::GetControllerRightStick().x << endl;
-	cout << Input::GetControllerRightStick().y << endl;
 }
 
 

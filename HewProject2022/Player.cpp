@@ -446,9 +446,11 @@ void Player::MoveMap()
 	if (m_airFlg != true)
 	{
 		/*	リセットのボタンを押したとき	*/
+
 		if ((Input::GetControllerTrigger(XINPUT_GAMEPAD_Y)) || (Input::GetKeyTrigger(PK_R)))
 		{
-			if (Map::m_OnReset == false)
+			if (Map::m_OnReset == false &&
+				(Map::NowStageName != STAGE_1_1 && Map::NowStageName != STAGE_1_2))
 			{
 				Map::m_OnReset = true;
 			}
@@ -528,7 +530,6 @@ void Player::MoveMap()
 /****	重力加算	****/
 void Player::AddGravity()
 {
-	//if (issaveColUnder == false) cout << "save = False\n";
 	if (m_jumpForce != 0.0f)
 	{
 		cout << "airFlg = true\n";

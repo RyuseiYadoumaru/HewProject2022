@@ -10,6 +10,7 @@ vector<TileColumn>				Map::m_TileColumnList;	//1列タイルリスト
 vector<Tile*>					Map::m_TileList;		//全てのタイルリスト
 bool							Map::m_OnReset = false;	//リセットフラグ
 bool							Map::m_isResetStart = false;
+NAME							Map::NowStageName = "noname";
 
 /****	動いているオブジェクト探索	****/
 bool Map::SearchMoveObjectName(string in_SearchName)
@@ -128,7 +129,7 @@ bool Map::Start()
 {
 	/*	マップ初期化	*/
 	transform->Position.Set(3640.0f, 840.0f, 0.0f);
-
+	NowStageName = m_MapDataName;
 	/*	マップロード	*/
 	m_Mapdata.Load(m_MapDataName);
 
@@ -656,10 +657,11 @@ void Map::MoveUpdate()
 			m_MoveManager.front().reset();
 			m_MoveManager.front() = nullptr;
 			m_MoveManager.erase(m_MoveManager.begin());
-			Input::LeftVibrationStop();
-			Input::RightVibrationStop();
 			//移動が完了したためリセットフラグを立てる
 			m_isReset = true;	//trueの時にリセット可能
+			Input::LeftVibrationStop();
+			Input::RightVibrationStop();
+
 		}
 	}
 }

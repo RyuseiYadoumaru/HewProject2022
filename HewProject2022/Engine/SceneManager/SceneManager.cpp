@@ -150,6 +150,9 @@ bool GameEngine::SceneManager::SetUp()
 
 	/****	ƒV[ƒ“ó‘Ô•ÏX	****/
 	scene->SetState(Create::Scene::PLAY);
+	Input::LeftVibrationStop();
+	Input::RightVibrationStop();
+
 
 	return true;
 }

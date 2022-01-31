@@ -106,8 +106,6 @@ private:
 private:
 	TIME m_ActionTimer;
 	static constexpr TIME StartWaitTime = 1000.0f;	//Å‰‚Ì‘Ò‹@ŠÔ
-
-
 private:
 	PlayerAnimController m_PlayerAnimController;
 

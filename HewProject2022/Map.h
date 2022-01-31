@@ -40,6 +40,7 @@ public:
 
 	static bool m_OnReset;
 	static bool m_isResetStart;	//リセットスタート
+	static NAME NowStageName;
 public:
 	Map();
 	Map(std::string in_MapDataName);

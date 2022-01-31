@@ -31,7 +31,7 @@
 #define STAGE_1_4 ("stage1-4")
 #define STAGE_1_5 ("stage1-5")
 #define STAGE_2_1 ("stage2-1")
-#define STAGE_2_2 ("stage2-2")
+#define STAGE_2_2 ("stage2-2_ydm")
 #define STAGE_2_3 ("stage2-3")
 #define STAGE_2_4 ("Nostage")
 #define STAGE_2_5 ("Nostage")

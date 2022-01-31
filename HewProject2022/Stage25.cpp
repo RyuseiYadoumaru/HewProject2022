@@ -48,7 +48,7 @@ bool GamePlay::Stage25Scene::Start()
 
 	/* リザルト初期化 */
 	m_ResultFront = Instance<Result>("ResultFront");
-	m_ResultFront->ResultFront_init();
+	m_ResultFront->ResultFront_init_GameEnd();
 	m_ResultCursor = Instance<Result>("ResultCursor");	//リザルト中カーソルのインスタンス生成
 	m_ResultCursor->ResultCursor_Init();				//初期値セット
 	m_ResultCursor->NowScene = "Stage25";//現在のシーン設定

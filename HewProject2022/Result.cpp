@@ -14,7 +14,7 @@ bool Result::Start()
 	m_SpriteRenderer->Init();
 	//Result_Checker = 0;
 	//Cursor_Position = 0;
-	
+
 
 	this->Vertex("vs_Ui");
 	this->transform->Position.Set(BASE_POSITION_X, BASE_POSITION_Y, 0);
@@ -38,7 +38,7 @@ void Result::ResultFront_init()
 
 void Result::ResultFront_init_GameEnd()
 {
-	this->Sprite("result_S25");
+	this->Sprite("ResultFrontEnd");
 	this->GetComponent<SpriteRenderer>()->Color.a = 0;
 	this->transform->Scale.Set(1.5f, 1.5f, 0);//ƒXƒP[ƒ‹‚Ì‘‚«Š·‚¦
 	//this, transform->Position.y += 150;

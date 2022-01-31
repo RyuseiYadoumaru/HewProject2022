@@ -19,7 +19,7 @@ PARAM g_param[SOUND_LABEL_MAX] =
 	{"assets/SoundData/BGM/world4_1.wav", true},	// ワールド4BGM
 	{"assets/SoundData/BGM/world5_1.wav", true},	// ワールド5BGM
 
-	{"assets/SoundData/SE/Goal_2.wav", false},		// ゴールジングル
+	{"assets/SoundData/SE/Goal_3.wav", false},		// ゴールジングル
 
 	/*	SE	*/
 	{"assets/SoundData/SE/onGround.wav", false},	// 着地SE
@@ -29,9 +29,9 @@ PARAM g_param[SOUND_LABEL_MAX] =
 	{"assets/SoundData/SE/Ok_1.wav", false},		// セレクトSE
 	{"assets/SoundData/SE/Ok_2.wav", false},		// 決定SE
 	{"assets/SoundData/SE/Cancel_1.wav", false},	// 戻るSE
-	{"assets/SoundData/SE/Cancel_1.wav", false},	// 星獲得SE
-	{"assets/SoundData/SE/Cancel_1.wav", false},	// ワールドセレクトSE
-	{"assets/SoundData/SE/Cancel_1.wav", false},	// 流れ星SE
+	{"assets/SoundData/SE/GetStar.wav", false},	// 星獲得SE
+	{"assets/SoundData/SE/Changeworld", false},	// ワールドセレクトSE
+	{"assets/SoundData/SE/MoveStar.wav", false},	// 流れ星SE
 };
 
 #ifdef _XBOX //Big-Endian

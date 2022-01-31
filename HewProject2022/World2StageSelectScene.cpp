@@ -55,6 +55,12 @@ Scene::STATE GamePlay::World2StageSelectScene::Update()
 	}
 	if (m_fadeIn->m_FadeFlg == false) {//遷移アニメーション(ホワイトアウト)が終了するまで操作できない
 
+		/*	タイトルに戻る	*/
+		if (Input::GetControllerTrigger(XInput::Buttom::B) == true || Input::GetKeyTrigger(PK_BS) == true)
+		{
+			SceneManager::LoadScene("TitleScene");
+		}
+
 		switch (m_stageNumber) {
 		case STAGE_01:
 			if (Input::GetKeyTrigger(VK_RIGHT) == true

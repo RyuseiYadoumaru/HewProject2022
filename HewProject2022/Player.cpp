@@ -226,7 +226,6 @@ void Player::Action()
 				Jump();
 			}
 		}
-
 	}
 }
 

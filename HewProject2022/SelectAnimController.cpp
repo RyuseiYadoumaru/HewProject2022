@@ -16,7 +16,7 @@ void SelectAnimController::Update()
 	{
 	case IDLE:
 		Anim->Play("SelectTutorial_Idle");
-		std::cout << "debug" << std::endl;
+		std::cout << "      IDLE" << std::endl;
 		break;
 
 	case RIGHT:

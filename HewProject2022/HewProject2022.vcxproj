@@ -240,7 +240,6 @@
     <ClCompile Include="StarAnimController.cpp" />
     <ClCompile Include="UI_Star.cpp" />
     <ClCompile Include="PushAny.cpp" />
-    <ClCompile Include="PushTile.cpp" />
     <ClCompile Include="ResetInfo.cpp" />
     <ClCompile Include="ResetInfoList.cpp" />
     <ClCompile Include="ResetManager.cpp" />
@@ -416,7 +415,6 @@
     <ClInclude Include="StarAnimController.h" />
     <ClInclude Include="UI_Star.h" />
     <ClInclude Include="PushAny.h" />
-    <ClInclude Include="PushTile.h" />
     <ClInclude Include="ResetInfo.h" />
     <ClInclude Include="ResetInfoList.h" />
     <ClInclude Include="ResetManager.h" />

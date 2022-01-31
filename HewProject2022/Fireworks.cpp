@@ -19,7 +19,6 @@ bool Fireworks::Start()
 
 	/*	アニメーションコンポーネント	*/
 	AddComponent<Animator>(&m_FireworkController);
-
 	Active = false;
 	return true;
 }

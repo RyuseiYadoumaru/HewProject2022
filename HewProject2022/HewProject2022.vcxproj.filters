@@ -325,9 +325,6 @@
     <Filter Include="TOYALINE\Object\Actor\Map\Tile\ChangeTile">
       <UniqueIdentifier>{d99aca7f-b9e6-4efb-be83-5dd45468d479}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TOYALINE\Object\Actor\Map\Tile\PushTile">
-      <UniqueIdentifier>{8ed57ca1-c63d-4945-8241-902e36ea6972}</UniqueIdentifier>
-    </Filter>
     <Filter Include="TOYALINE\Object\Actor\Map\Star">
       <UniqueIdentifier>{bcd47710-36b8-4e99-a9dc-53b3f9c62e73}</UniqueIdentifier>
     </Filter>
@@ -755,9 +752,6 @@
     </ClCompile>
     <ClCompile Include="ChangeTileAnimController.cpp">
       <Filter>TOYALINE\Object\Actor\Map\Tile\ChangeTile</Filter>
-    </ClCompile>
-    <ClCompile Include="PushTile.cpp">
-      <Filter>TOYALINE\Object\Actor\Map\Tile\PushTile</Filter>
     </ClCompile>
     <ClCompile Include="GoalAnimController.cpp">
       <Filter>TOYALINE\Object\Goal\GoalAnim</Filter>
@@ -1270,9 +1264,6 @@
     </ClInclude>
     <ClInclude Include="ChangeTileAnimController.h">
       <Filter>TOYALINE\Object\Actor\Map\Tile\ChangeTile</Filter>
-    </ClInclude>
-    <ClInclude Include="PushTile.h">
-      <Filter>TOYALINE\Object\Actor\Map\Tile\PushTile</Filter>
     </ClInclude>
     <ClInclude Include="GoalAnimController.h">
       <Filter>TOYALINE\Object\Goal\GoalAnim</Filter>

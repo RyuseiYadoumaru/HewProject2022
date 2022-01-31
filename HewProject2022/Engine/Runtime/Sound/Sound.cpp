@@ -19,12 +19,15 @@ PARAM g_param[SOUND_LABEL_MAX] =
 	{"assets/SoundData/BGM/world4_1.wav", true},	// ワールド4BGM
 	{"assets/SoundData/BGM/world5_1.wav", true},	// ワールド5BGM
 
+	{"assets/SoundData/SE/Goal_2.wav", false},		// ゴールジングル
+
 	/*	SE	*/
 	{"assets/SoundData/SE/onGround.wav", false},	// 着地SE
 	{"assets/SoundData/SE/MagicBlock.wav", false},	// 魔法SE
 	{"assets/SoundData/SE/MoveBlock.wav", false},	// 移動SE
 	{"assets/SoundData/SE/ResetBlock.wav", false},	// リセットSE
-	{"assets/SoundData/SE/Ok_2.wav", false},	// 決定SE
+	{"assets/SoundData/SE/Ok_1.wav", false},		// セレクトSE
+	{"assets/SoundData/SE/Ok_2.wav", false},		// 決定SE
 	{"assets/SoundData/SE/Cancel_1.wav", false},	// 戻るSE
 };
 

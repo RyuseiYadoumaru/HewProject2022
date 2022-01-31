@@ -155,6 +155,12 @@ bool Player::Update()
 		PlayerDeath();
 	}
 
+	/*	ÉSÅ[ÉãÉtÉâÉO	*/
+	if (m_isGoal == true)
+	{
+		Sound::Sound_Play(SOUND_LABEL__GOAL);
+	}
+
 	return true;
 }
 
@@ -266,6 +272,7 @@ void Player::Goal(float Goal_x)
 		}
 	}
 	if (m_isGoal == false) {
+		Sound::Sound_Play(SOUND_LABEL__GOAL);
 		m_PlayerAnimController.AnimState = PlayerAnimController::PLAYER_ROTATESTART;
 		m_isGoal = true;
 

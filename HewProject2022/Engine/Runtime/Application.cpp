@@ -69,10 +69,10 @@ bool Application::Init(HINSTANCE hInstance)
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
 	// コンソールを割り当てる
-	AllocConsole();
+	//AllocConsole();
 
 	// 標準出力の割り当て
-	freopen_s(&fp, "CON", "w", stdout);
+	//freopen_s(&fp, "CON", "w", stdout);
 
 	//ランダム初期化
 	srand((unsigned int)time(NULL));
@@ -149,7 +149,7 @@ bool Application::MainLoop()
 	{
 		engine->Update();
 		systemtimer->SystemWait(FPS);
-		log->FPSWindowText(m_hWnd, systemtimer->GetNowFPS());
+		//log->FPSWindowText(m_hWnd, systemtimer->GetNowFPS());
 
 	}
 	return true;

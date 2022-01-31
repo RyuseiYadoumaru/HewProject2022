@@ -325,7 +325,7 @@ bool Map::CheckLandTile(LandTile& in_LandTile)
 		in_LandTile.GetSaveLandTile()->tag != TagList::ColorBlock &&
 		in_LandTile.GetSaveLandTile()->tag != TagList::ChangeColorBlock)
 	{
-		if (in_LandTile.GetLandTile()->GetKind() == in_LandTile.GetSaveLandTile()->GetKind() &&
+		if (in_LandTile.GetLandTile() == in_LandTile.GetSaveLandTile() &&
 			in_LandTile.GetLandTile()->transform->Position.y == in_LandTile.GetSaveLandTile()->transform->Position.y)
 		{
 			//同じ種類のオブジェクトかつY座標が同じときは
@@ -637,6 +637,8 @@ void Map::MoveUpdate()
 			m_MoveManager.front().reset();
 			m_MoveManager.front() = nullptr;
 			m_MoveManager.erase(m_MoveManager.begin());
+			Input::LeftVibrationStop();
+			Input::RightVibrationStop();
 			//移動が完了したためリセットフラグを立てる
 			m_isReset = true;	//trueの時にリセット可能
 		}

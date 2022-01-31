@@ -62,7 +62,6 @@ bool ResetManager::Update()
 	for (auto& ResetColumn : Reset.m_List)
 	{
 		bool ret = ResetColumn->Tick();
-
 		//ˆÚ“®‚ªI‚í‚Á‚½
 		if (/*ResetColumn->m_isFin == true*/ret == true)
 		{

@@ -2,7 +2,11 @@
 #include "Player.h"
 
 #define MOVE_SPEED 20
-#define CAMERA_SPEED (10.0f)
+#define CAMERA_SPEEDX (8.0f)
+#define CAMERA_SPEEDY (6.0f)
+#define CAMERA_BACK (8.0f)
+#define STICK_DEADZONE (1.0f)
+
 
 bool MainCamera::m_CameraMode = false;
 
@@ -126,27 +130,27 @@ bool MainCamera::Update()
 
 
 		// カメラ動かす処理(コントローラー）
-		if ((Input::GetControllerRightStick().x == 1.0f || Input::GetKeyPress(PK_RIGHT)) == true
+		if ((Input::GetControllerRightStick().x >= STICK_DEADZONE || Input::GetKeyPress(PK_RIGHT)) == true
 			&& m_object_distace.x < 500.0f)
 		{
-			transform->Position.x += CAMERA_SPEED; // 右
+			transform->Position.x += CAMERA_SPEEDX; // 右
 		}
-		if ((Input::GetControllerRightStick().x <= (-1.0f) || Input::GetKeyPress(PK_LEFT)) == true
+		if ((Input::GetControllerRightStick().x <= -STICK_DEADZONE || Input::GetKeyPress(PK_LEFT)) == true
 			&& m_object_distace.x > -500.0f)
 		{
-			transform->Position.x -= CAMERA_SPEED; // 左 
+			transform->Position.x -= CAMERA_SPEEDX; // 左 
 		}
 
-		if ((Input::GetControllerRightStick().y >= 1.0f || Input::GetKeyPress(PK_DOWN)) == true
+		if ((Input::GetControllerRightStick().y >= STICK_DEADZONE || Input::GetKeyPress(PK_DOWN)) == true
 			&& m_object_distace.y < 300.0f)
 		{
-			transform->Position.y += CAMERA_SPEED; // 下
+			transform->Position.y += CAMERA_SPEEDY; // 下
 		}
 
-		if ((Input::GetControllerRightStick().y == (-1.0f) || Input::GetKeyPress(PK_UP)) == true
+		if ((Input::GetControllerRightStick().y <= -STICK_DEADZONE || Input::GetKeyPress(PK_UP)) == true
 			&& m_object_distace.y > -350.0f)
 		{
-			transform->Position.y -= CAMERA_SPEED; // 上
+			transform->Position.y -= CAMERA_SPEEDY; // 上
 		}
 
 		/*	戻す処理	*/
@@ -160,24 +164,24 @@ bool MainCamera::Update()
 			{
 				if (transform->Position.x > fabs(m_Save.x))
 				{
-					transform->Position.x -= CAMERA_SPEED;
+					transform->Position.x -= CAMERA_BACK;
 				}
 
 				if (transform->Position.x < fabs(m_Save.x))
 				{
-					transform->Position.x += CAMERA_SPEED;
+					transform->Position.x += CAMERA_BACK;
 				}
 			}
 			else // それ以外
 			{
 				if (transform->Position.x > p_FocusObject->transform->Position.x)
 				{
-					transform->Position.x -= CAMERA_SPEED;
+					transform->Position.x -= CAMERA_BACK;
 				}
 
 				if (transform->Position.x < p_FocusObject->transform->Position.x)
 				{
-					transform->Position.x += CAMERA_SPEED;
+					transform->Position.x += CAMERA_BACK;
 				}
 			}
 
@@ -185,12 +189,12 @@ bool MainCamera::Update()
 			{
 				if (transform->Position.y > fabs(m_Save.y))
 				{
-					transform->Position.y -= CAMERA_SPEED;
+					transform->Position.y -= CAMERA_BACK;
 				}
 
 				if (transform->Position.y < fabs(m_Save.y))
 				{
-					transform->Position.y += CAMERA_SPEED;
+					transform->Position.y += CAMERA_BACK;
 				}
 			}
 			else
@@ -198,12 +202,12 @@ bool MainCamera::Update()
 
 				if (transform->Position.y > p_FocusObject->transform->Position.y - fabs(m_Save.y))
 				{
-					transform->Position.y -= CAMERA_SPEED;
+					transform->Position.y -= CAMERA_BACK;
 				}
 
 				if (transform->Position.y < p_FocusObject->transform->Position.y - fabs(m_Save.y))
 				{
-					transform->Position.y += CAMERA_SPEED;
+					transform->Position.y += CAMERA_BACK;
 				}
 			}
 

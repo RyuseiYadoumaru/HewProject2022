@@ -38,10 +38,12 @@ bool Tutorial_Y::Update()
 
 	if (m_Result->NowScene == "Stage3") {//ここはステージ３でしか入らないようにしたい
 
-		//手前らへんにプレイヤーが到着したら、
-		if ((transform->Position.x - m_Player->GetTransform().Position.x) <= 200) {
+
+		//揃えたら見えるようになる
+		if ((Input::GetKeyTrigger(PK_Q) == true || Input::GetControllerTrigger(XINPUT_GAMEPAD_X) == true) && m_Player->m_LandTile->GetLandTile() != LandGround) {
 			m_Start_Y_TutorialFlg = true;
 		}
+
 		if (m_Start_Y_TutorialFlg == true && m_PerfectLook_Y_TutorialFlg == false) {//徐々に見えるようになる。
 			m_SpriteRenderer->Color.a += 0.03f;
 			if (m_SpriteRenderer->Color.a >= 1.0) {

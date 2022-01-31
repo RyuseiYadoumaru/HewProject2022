@@ -2,7 +2,7 @@
 #include"ydmEngine.h"
 #include"Tutorial_XYAnimController.h"
 
-#define Y_TUTORIAL_X (1400.0f)
+#define Y_TUTORIAL_X (2110.0f)
 #define Y_TUTORIAL_Y (730.0f)
 #define Y_TUTORIAL_Z (0.0f)
 

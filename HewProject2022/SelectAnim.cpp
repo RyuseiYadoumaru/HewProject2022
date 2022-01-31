@@ -20,14 +20,14 @@ void SelectAnim::Init()
 	::AnimationTable set_SelectTutorial_Right;
 	set_SelectTutorial_Right.SetKind(KIND::MOVE_1, KIND::MOVE_1, KIND::MOVE_1, KIND::MOVE_1, KIND::MOVE_1, KIND::MOVE_1, ANIMATION_FINISH);
 	set_SelectTutorial_Right.SetFrame(TUTORIAL_ANIM::ANIM_1, TUTORIAL_ANIM::ANIM_1, TUTORIAL_ANIM::ANIM_2, TUTORIAL_ANIM::ANIM_2, TUTORIAL_ANIM::ANIM_3, TUTORIAL_ANIM::ANIM_3, ANIMATION_FINISH);
-	set_SelectTutorial_Right.m_Key = { 0.0f, 100.0f, 200.0f, 300.0f, 400.0f, 500.0f };
+	set_SelectTutorial_Right.m_Key = { 0.0f, 50.0f, 100.0f, 150.0f, 200.0f, 250.0f };
 	AnimationTableList.insert(std::make_pair("SelectTutorial_Right", set_SelectTutorial_Right));
 
 	/*	ç∂Ç…ëÄçÏèÛë‘	*/
 	::AnimationTable set_SelectTutorial_Left;
 	set_SelectTutorial_Left.SetKind(KIND::MOVE_2, KIND::MOVE_2, KIND::MOVE_2, KIND::MOVE_2, KIND::MOVE_2, KIND::MOVE_2, ANIMATION_FINISH);
 	set_SelectTutorial_Left.SetFrame(TUTORIAL_ANIM::ANIM_1, TUTORIAL_ANIM::ANIM_1, TUTORIAL_ANIM::ANIM_2, TUTORIAL_ANIM::ANIM_2, TUTORIAL_ANIM::ANIM_3, TUTORIAL_ANIM::ANIM_3, ANIMATION_FINISH);
-	set_SelectTutorial_Left.m_Key = { 0.0f, 100.0f, 200.0f, 300.0f, 400.0f, 500.0f };
+	set_SelectTutorial_Left.m_Key = { 0.0f, 50.0f, 100.0f, 150.0f, 200.0f, 250.0f };
 	AnimationTableList.insert(std::make_pair("SelectTutorial_Left", set_SelectTutorial_Left));
 
 	/*	âEÇ…ç≈ëÂ	*/

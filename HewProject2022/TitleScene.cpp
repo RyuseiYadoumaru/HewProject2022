@@ -17,8 +17,9 @@ bool GamePlay::TitleScene::Start()
 
 	/**** タイトル・チームロゴ初期化 ****/
 	m_Title = Instance<Title>("TitleText");
-	m_Title->Sprite("TitleLogo");
-	m_Title->transform->Position.y -= 120;
+	m_Title->Sprite("TitleLogo_1");
+	m_Title->transform->Position.y += 40;
+	m_Title->SetSize(1920.0f, 1080.0f);
 
 	m_TeamLogo = Instance<Title>("TeamLogo");
 	m_TeamLogo->Sprite("TeamLogo");

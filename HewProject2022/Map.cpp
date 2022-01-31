@@ -325,7 +325,7 @@ bool Map::CheckLandTile(LandTile& in_LandTile)
 		in_LandTile.GetSaveLandTile()->tag != TagList::ColorBlock &&
 		in_LandTile.GetSaveLandTile()->tag != TagList::ChangeColorBlock)
 	{
-		if (in_LandTile.GetLandTile()->GetKind() == in_LandTile.GetSaveLandTile()->GetKind() &&
+		if (in_LandTile.GetLandTile() == in_LandTile.GetSaveLandTile() &&
 			in_LandTile.GetLandTile()->transform->Position.y == in_LandTile.GetSaveLandTile()->transform->Position.y)
 		{
 			//同じ種類のオブジェクトかつY座標が同じときは

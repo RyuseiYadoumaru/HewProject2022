@@ -53,207 +53,210 @@ Scene::STATE GamePlay::World3StageSelectScene::Update()
 		m_inputflg = true;
 	}
 
-	switch (m_stageNumber) {
-	case STAGE_01:
-		if (Input::GetKeyTrigger(VK_RIGHT) == true
-			|| Input::GetControllerLeftStick().x > 0.0f) {//左右キーで矢印キー画像移動
-			if (m_frameCnt >= 20) {
-				m_sceneRightMoveflg = true;
-				m_frameCnt = 0;
-			}
-		}
+	if (m_fadeIn->m_FadeFlg == false) {//遷移アニメーション(ホワイトアウト)が終了するまで操作できない
 
-		if (Input::GetKeyTrigger(VK_LEFT) == true
-			|| Input::GetControllerLeftStick().x < 0.0f) {
-		}
-		break;
-
-	case STAGE_02:
-		if (Input::GetKeyTrigger(VK_RIGHT) == true
-			|| Input::GetControllerLeftStick().x > 0.0f) {//左右キーで矢印キー画像移動
-			if (m_frameCnt >= 20) {
-				m_sceneRightMoveflg = true;
-				m_frameCnt = 0;
-			}
-		}
-
-		if (Input::GetKeyTrigger(VK_LEFT) == true
-			|| Input::GetControllerLeftStick().x < 0.0f) {
-			if (m_frameCnt >= 20) {
-				m_sceneLeftMoveflg = true;
-				m_frameCnt = 0;
-			}
-		}
-		break;
-	case STAGE_03:
-		if (Input::GetKeyTrigger(VK_RIGHT) == true
-			|| Input::GetControllerLeftStick().x > 0.0f) {//左右キーで矢印キー画像移動
-			if (m_frameCnt >= 20) {
-				m_sceneRightMoveflg = true;
-				m_frameCnt = 0;
-			}
-		}
-
-		if (Input::GetKeyTrigger(VK_LEFT) == true
-			|| Input::GetControllerLeftStick().x < 0.0f) {
-			if (m_frameCnt >= 20) {
-				m_sceneLeftMoveflg = true;
-				m_frameCnt = 0;
-			}
-		}
-		break;
-	case STAGE_04:
-		if (Input::GetKeyTrigger(VK_RIGHT) == true
-			|| Input::GetControllerLeftStick().x > 0.0f) {//左右キーで矢印キー画像移動
-			if (m_frameCnt >= 20) {
-				m_sceneRightMoveflg = true;
-				m_frameCnt = 0;
-			}
-		}
-
-		if (Input::GetKeyTrigger(VK_LEFT) == true
-			|| Input::GetControllerLeftStick().x < 0.0f) {
-			if (m_frameCnt >= 20) {
-				m_sceneLeftMoveflg = true;
-				m_frameCnt = 0;
-			}
-		}
-		break;
-	case STAGE_05:
-		if (Input::GetKeyTrigger(VK_RIGHT) == true
-			|| Input::GetControllerLeftStick().x > 0.0f) {//左右キーで矢印キー画像移動
-		}
-
-		if (Input::GetKeyTrigger(VK_LEFT) == true
-			|| Input::GetControllerLeftStick().x < 0.0f) {
-			if (m_frameCnt >= 20) {
-				m_sceneLeftMoveflg = true;
-				m_frameCnt = 0;
-			}
-		}
-		break;
-	}
-
-	//右シーン遷移
-	if (m_stageNumber == STAGE_01 && m_sceneRightMoveflg == true) {
-		RightMove(STAGE_01);
-		/*world2へ遷移*/
-		if (camera->transform->Position.x == 3355.0f) {
-			m_stageNumber = STAGE_02;
-		}
-	}
-	else if (m_stageNumber == STAGE_02 && m_sceneRightMoveflg == true) {
-		RightMove(STAGE_02);
-		/*world3へ遷移*/
-		if (camera->transform->Position.x == 6710.0f) {
-			m_stageNumber = STAGE_03;
-		}
-	}
-	else if (m_stageNumber == STAGE_03 && m_sceneRightMoveflg == true) {
-		RightMove(STAGE_03);
-		//world4へ遷移
-		if (camera->transform->Position.x == 10065.0f) {
-			m_stageNumber = STAGE_04;
-		}
-	}
-	else if (m_stageNumber == STAGE_04 && m_sceneRightMoveflg == true) {
-		RightMove(STAGE_04);
-		//world5へ遷移
-		if (camera->transform->Position.x == 13420.0f) {
-			m_stageNumber = STAGE_05;
-		}
-	}
-
-	//左シーン遷移
-	if (m_stageNumber == STAGE_02 && m_sceneLeftMoveflg == true) {
-		LeftMove(STAGE_02);
-		//world1へ遷移
-		if (camera->transform->Position.x == 0.0f) {
-			m_stageNumber = STAGE_01;
-		}
-	}
-	else if (m_stageNumber == STAGE_03 && m_sceneLeftMoveflg == true) {
-		LeftMove(STAGE_03);
-		//world2へ遷移
-		if (camera->transform->Position.x == 3355.0f) {
-			m_stageNumber = STAGE_02;
-		}
-	}
-	else if (m_stageNumber == STAGE_04 && m_sceneLeftMoveflg == true) {
-		LeftMove(STAGE_04);
-		//world3へ遷移
-		if (camera->transform->Position.x == 6710.0f) {
-			m_stageNumber = STAGE_03;
-		}
-	}
-	else if (m_stageNumber == STAGE_05 && m_sceneLeftMoveflg == true) {
-		LeftMove(STAGE_05);
-		//world4へ移動
-		if (camera->transform->Position.x == 10065.0f) {
-			m_stageNumber = STAGE_04;
-		}
-	}
-
-	//LB.RBでワールド移動
-	if (Input::GetKeyTrigger(PK_D) == true
-		|| Input::GetControllerTrigger(XINPUT_GAMEPAD_RIGHT_SHOULDER) == true) {
-		m_fadeflg = true;
-		m_nextWorldflg = true;
-	}
-
-	if (Input::GetKeyTrigger(PK_A) == true
-		|| Input::GetControllerTrigger(XINPUT_GAMEPAD_LEFT_SHOULDER) == true) {
-		m_fadeflg = true;
-	}
-
-	if (m_fadeflg == true && m_nextWorldflg == true) {
-		if (m_fadeOut->GetComponent<SpriteRenderer>()->Color.a < 1.0f) {
-			m_fadeOut->GetComponent<SpriteRenderer>()->Color.a += 0.03;
-		}
-		if (m_fadeOut->GetComponent<SpriteRenderer>()->Color.a >= 1.0f) {
-			m_fadeOut->GetComponent<SpriteRenderer>()->Color.a = 1.0f;
-			m_fadeflg = false;
-			m_nextWorldflg = false;
-			GameEngine::SceneManager::LoadScene("World4StageSelectScene");
-		}
-	}
-	else if (m_fadeflg == true && m_nextWorldflg == false) {
-		if (m_fadeOut->GetComponent<SpriteRenderer>()->Color.a < 1.0f) {
-			m_fadeOut->GetComponent<SpriteRenderer>()->Color.a += 0.03;
-		}
-		if (m_fadeOut->GetComponent<SpriteRenderer>()->Color.a >= 1.0f) {
-			m_fadeOut->GetComponent<SpriteRenderer>()->Color.a = 1.0f;
-			m_fadeflg = false;
-			GameEngine::SceneManager::LoadScene("World2StageSelectScene");
-		}
-	}
-
-	if (Input::GetKeyTrigger(VK_SPACE) == true
-		|| Input::GetControllerTrigger(XINPUT_GAMEPAD_B) == true) {
-		GameEngine::SceneManager::LoadScene("TitleScene");
-	}
-
-	if (Input::GetKeyTrigger(PK_ENTER) == true || Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true)//エンター押すと次のシーンへ移動
-	{
-		switch (m_stageNumber)
-		{
+		switch (m_stageNumber) {
 		case STAGE_01:
-			if (m_inputflg == true) {
-				GameEngine::SceneManager::LoadScene("Stage11");
+			if (Input::GetKeyTrigger(VK_RIGHT) == true
+				|| Input::GetControllerLeftStick().x > 0.0f) {//左右キーで矢印キー画像移動
+				if (m_frameCnt >= 20) {
+					m_sceneRightMoveflg = true;
+					m_frameCnt = 0;
+				}
+			}
+
+			if (Input::GetKeyTrigger(VK_LEFT) == true
+				|| Input::GetControllerLeftStick().x < 0.0f) {
 			}
 			break;
+
 		case STAGE_02:
-			GameEngine::SceneManager::LoadScene("Stage12");
+			if (Input::GetKeyTrigger(VK_RIGHT) == true
+				|| Input::GetControllerLeftStick().x > 0.0f) {//左右キーで矢印キー画像移動
+				if (m_frameCnt >= 20) {
+					m_sceneRightMoveflg = true;
+					m_frameCnt = 0;
+				}
+			}
+
+			if (Input::GetKeyTrigger(VK_LEFT) == true
+				|| Input::GetControllerLeftStick().x < 0.0f) {
+				if (m_frameCnt >= 20) {
+					m_sceneLeftMoveflg = true;
+					m_frameCnt = 0;
+				}
+			}
 			break;
 		case STAGE_03:
-			GameEngine::SceneManager::LoadScene("Stage13");
+			if (Input::GetKeyTrigger(VK_RIGHT) == true
+				|| Input::GetControllerLeftStick().x > 0.0f) {//左右キーで矢印キー画像移動
+				if (m_frameCnt >= 20) {
+					m_sceneRightMoveflg = true;
+					m_frameCnt = 0;
+				}
+			}
+
+			if (Input::GetKeyTrigger(VK_LEFT) == true
+				|| Input::GetControllerLeftStick().x < 0.0f) {
+				if (m_frameCnt >= 20) {
+					m_sceneLeftMoveflg = true;
+					m_frameCnt = 0;
+				}
+			}
 			break;
 		case STAGE_04:
-			GameEngine::SceneManager::LoadScene("Stage14");
+			if (Input::GetKeyTrigger(VK_RIGHT) == true
+				|| Input::GetControllerLeftStick().x > 0.0f) {//左右キーで矢印キー画像移動
+				if (m_frameCnt >= 20) {
+					m_sceneRightMoveflg = true;
+					m_frameCnt = 0;
+				}
+			}
+
+			if (Input::GetKeyTrigger(VK_LEFT) == true
+				|| Input::GetControllerLeftStick().x < 0.0f) {
+				if (m_frameCnt >= 20) {
+					m_sceneLeftMoveflg = true;
+					m_frameCnt = 0;
+				}
+			}
 			break;
 		case STAGE_05:
-			GameEngine::SceneManager::LoadScene("Stage15");
+			if (Input::GetKeyTrigger(VK_RIGHT) == true
+				|| Input::GetControllerLeftStick().x > 0.0f) {//左右キーで矢印キー画像移動
+			}
+
+			if (Input::GetKeyTrigger(VK_LEFT) == true
+				|| Input::GetControllerLeftStick().x < 0.0f) {
+				if (m_frameCnt >= 20) {
+					m_sceneLeftMoveflg = true;
+					m_frameCnt = 0;
+				}
+			}
 			break;
+		}
+
+		//右シーン遷移
+		if (m_stageNumber == STAGE_01 && m_sceneRightMoveflg == true) {
+			RightMove(STAGE_01);
+			/*world2へ遷移*/
+			if (camera->transform->Position.x == 3355.0f) {
+				m_stageNumber = STAGE_02;
+			}
+		}
+		else if (m_stageNumber == STAGE_02 && m_sceneRightMoveflg == true) {
+			RightMove(STAGE_02);
+			/*world3へ遷移*/
+			if (camera->transform->Position.x == 6710.0f) {
+				m_stageNumber = STAGE_03;
+			}
+		}
+		else if (m_stageNumber == STAGE_03 && m_sceneRightMoveflg == true) {
+			RightMove(STAGE_03);
+			//world4へ遷移
+			if (camera->transform->Position.x == 10065.0f) {
+				m_stageNumber = STAGE_04;
+			}
+		}
+		else if (m_stageNumber == STAGE_04 && m_sceneRightMoveflg == true) {
+			RightMove(STAGE_04);
+			//world5へ遷移
+			if (camera->transform->Position.x == 13420.0f) {
+				m_stageNumber = STAGE_05;
+			}
+		}
+
+		//左シーン遷移
+		if (m_stageNumber == STAGE_02 && m_sceneLeftMoveflg == true) {
+			LeftMove(STAGE_02);
+			//world1へ遷移
+			if (camera->transform->Position.x == 0.0f) {
+				m_stageNumber = STAGE_01;
+			}
+		}
+		else if (m_stageNumber == STAGE_03 && m_sceneLeftMoveflg == true) {
+			LeftMove(STAGE_03);
+			//world2へ遷移
+			if (camera->transform->Position.x == 3355.0f) {
+				m_stageNumber = STAGE_02;
+			}
+		}
+		else if (m_stageNumber == STAGE_04 && m_sceneLeftMoveflg == true) {
+			LeftMove(STAGE_04);
+			//world3へ遷移
+			if (camera->transform->Position.x == 6710.0f) {
+				m_stageNumber = STAGE_03;
+			}
+		}
+		else if (m_stageNumber == STAGE_05 && m_sceneLeftMoveflg == true) {
+			LeftMove(STAGE_05);
+			//world4へ移動
+			if (camera->transform->Position.x == 10065.0f) {
+				m_stageNumber = STAGE_04;
+			}
+		}
+
+		//LB.RBでワールド移動
+		if (Input::GetKeyTrigger(PK_D) == true
+			|| Input::GetControllerTrigger(XINPUT_GAMEPAD_RIGHT_SHOULDER) == true) {
+			m_fadeflg = true;
+			m_nextWorldflg = true;
+		}
+
+		if (Input::GetKeyTrigger(PK_A) == true
+			|| Input::GetControllerTrigger(XINPUT_GAMEPAD_LEFT_SHOULDER) == true) {
+			m_fadeflg = true;
+		}
+
+		if (m_fadeflg == true && m_nextWorldflg == true) {
+			if (m_fadeOut->GetComponent<SpriteRenderer>()->Color.a < 1.0f) {
+				m_fadeOut->GetComponent<SpriteRenderer>()->Color.a += 0.03;
+			}
+			if (m_fadeOut->GetComponent<SpriteRenderer>()->Color.a >= 1.0f) {
+				m_fadeOut->GetComponent<SpriteRenderer>()->Color.a = 1.0f;
+				m_fadeflg = false;
+				m_nextWorldflg = false;
+				GameEngine::SceneManager::LoadScene("World4StageSelectScene");
+			}
+		}
+		else if (m_fadeflg == true && m_nextWorldflg == false) {
+			if (m_fadeOut->GetComponent<SpriteRenderer>()->Color.a < 1.0f) {
+				m_fadeOut->GetComponent<SpriteRenderer>()->Color.a += 0.03;
+			}
+			if (m_fadeOut->GetComponent<SpriteRenderer>()->Color.a >= 1.0f) {
+				m_fadeOut->GetComponent<SpriteRenderer>()->Color.a = 1.0f;
+				m_fadeflg = false;
+				GameEngine::SceneManager::LoadScene("World2StageSelectScene");
+			}
+		}
+
+		if (Input::GetKeyTrigger(VK_SPACE) == true
+			|| Input::GetControllerTrigger(XINPUT_GAMEPAD_B) == true) {
+			GameEngine::SceneManager::LoadScene("TitleScene");
+		}
+
+		if (Input::GetKeyTrigger(PK_ENTER) == true || Input::GetControllerTrigger(XINPUT_GAMEPAD_A) == true)//エンター押すと次のシーンへ移動
+		{
+			switch (m_stageNumber)
+			{
+			case STAGE_01:
+				if (m_inputflg == true) {
+					GameEngine::SceneManager::LoadScene("Stage11");
+				}
+				break;
+			case STAGE_02:
+				GameEngine::SceneManager::LoadScene("Stage12");
+				break;
+			case STAGE_03:
+				GameEngine::SceneManager::LoadScene("Stage13");
+				break;
+			case STAGE_04:
+				GameEngine::SceneManager::LoadScene("Stage14");
+				break;
+			case STAGE_05:
+				GameEngine::SceneManager::LoadScene("Stage15");
+				break;
+			}
 		}
 	}
 

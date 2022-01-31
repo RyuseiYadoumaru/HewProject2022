@@ -27,58 +27,58 @@ bool Fade::Start()
 bool Fade::Update()
 {
 	//ステートマシン
-	if (GameTimer::ErrorFPS() == false) {
+	//if (GameTimer::ErrorFPS() == false) {
 
-		switch (fadeStatus)
-		{
-		case Fade::FADE_NO://リザルトからシーン遷移可能
-			//ここではプレイヤーを操作できる
-			m_FadeFlg = false;//プレイヤー操作可能 
-			break;
+	switch (fadeStatus)
+	{
+	case Fade::FADE_NO://リザルトからシーン遷移可能
+		//ここではプレイヤーを操作できる
+		m_FadeFlg = false;//プレイヤー操作可能 
+		break;
 
-		case Fade::FADE_IN:
-			m_FadeFlg = true;//プレイヤー操作不可能 
-			//this->m_SpriteRenderer->Color.Set(1.0f, 1.0f, 1.0f, 1.0f);//色を真っ黒にする
-			m_SpriteRenderer->Color.a -= fadeSpeed;
-			if (m_SpriteRenderer->Color.a < 0.0f) {
-				fadeStatus = FADE_NO; // フェードなし
-				m_SpriteRenderer->Color.a = 0.0f;
-			}
-			break;
-		case Fade::FADE_OUT://リザルトからシーン遷移不可能
-			m_FadeFlg = true;//プレイヤー操作不可能
-			//this->m_SpriteRenderer->Color.Set(1.0f, 1.0f, 1.0f, 0.0f);//色を真っ黒にし、透明にする
-			m_SpriteRenderer->Color.a += fadeSpeed;
-			if (m_SpriteRenderer->Color.a > 1.0f) {
-				fadeStatus = FADE_NO; // フェードなし
-				m_SpriteRenderer->Color.a = 1.0f;
-			}
-
-		case Fade::FADE_WHITE_IN:
-			m_FadeFlg = true;//プレイヤー操作不可能
-			//this->m_SpriteRenderer->Color.Set(0.1f, 0.1f, 0.1f, 0.0f);//色を真っ白にする
-			m_SpriteRenderer->Color.a -= m_WhiteFadeSpeed;//白くする
-			if (m_SpriteRenderer->Color.a > 1.0f) {//真っ白になったら
-				fadeStatus = FADE_NO; // フェードなし
-				m_SpriteRenderer->Color.a = 0.0f;
-			}
-			break;
-		case Fade::FADE_WHITE_OUT:
-			m_FadeFlg = true;//プレイヤー操作不可能
-			//this->m_SpriteRenderer->Color.Set(0.1f, 0.1f, 0.1f, 0.0f);//色を白っぽくし、透明にする
-			m_SpriteRenderer->Color.a += m_WhiteFadeSpeed;//白くする
-			if (m_SpriteRenderer->Color.a > 1.0f) {//真っ白になったら
-				fadeStatus = FADE_NO; // フェードなし
-				m_SpriteRenderer->Color.a = 1.0f;
-			}
-			break;
+	case Fade::FADE_IN:
+		m_FadeFlg = true;//プレイヤー操作不可能 
+		//this->m_SpriteRenderer->Color.Set(1.0f, 1.0f, 1.0f, 1.0f);//色を真っ黒にする
+		m_SpriteRenderer->Color.a -= fadeSpeed;
+		if (m_SpriteRenderer->Color.a < 0.0f) {
+			fadeStatus = FADE_NO; // フェードなし
+			m_SpriteRenderer->Color.a = 0.0f;
+		}
+		break;
+	case Fade::FADE_OUT://リザルトからシーン遷移不可能
+		m_FadeFlg = true;//プレイヤー操作不可能
+		//this->m_SpriteRenderer->Color.Set(1.0f, 1.0f, 1.0f, 0.0f);//色を真っ黒にし、透明にする
+		m_SpriteRenderer->Color.a += fadeSpeed;
+		if (m_SpriteRenderer->Color.a > 1.0f) {
+			fadeStatus = FADE_NO; // フェードなし
+			m_SpriteRenderer->Color.a = 1.0f;
 		}
 
+	case Fade::FADE_WHITE_IN:
+		m_FadeFlg = true;//プレイヤー操作不可能
+		//this->m_SpriteRenderer->Color.Set(0.1f, 0.1f, 0.1f, 0.0f);//色を真っ白にする
+		m_SpriteRenderer->Color.a -= m_WhiteFadeSpeed;//白くする
+		if (m_SpriteRenderer->Color.a > 1.0f) {//真っ白になったら
+			fadeStatus = FADE_NO; // フェードなし
+			m_SpriteRenderer->Color.a = 0.0f;
+		}
+		break;
+	case Fade::FADE_WHITE_OUT:
+		m_FadeFlg = true;//プレイヤー操作不可能
+		//this->m_SpriteRenderer->Color.Set(0.1f, 0.1f, 0.1f, 0.0f);//色を白っぽくし、透明にする
+		m_SpriteRenderer->Color.a += m_WhiteFadeSpeed;//白くする
+		if (m_SpriteRenderer->Color.a > 1.0f) {//真っ白になったら
+			fadeStatus = FADE_NO; // フェードなし
+			m_SpriteRenderer->Color.a = 1.0f;
+		}
+		break;
 	}
 
-	if (GameTimer::ErrorFPS() == true) {//FPSが安定していない間は
-		m_FadeFlg = true;//プレイヤー操作不可能
-	}
+	//}
+
+	//if (GameTimer::ErrorFPS() == true) {//FPSが安定していない間は
+	//	m_FadeFlg = true;//プレイヤー操作不可能
+	//}
 
 	return true;
 }

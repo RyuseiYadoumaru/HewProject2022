@@ -31,7 +31,7 @@ bool SceneTransition::Update()
 {
 	//アニメーションがノイズに変わったら
 	if (m_SceneTransitionAnimController.AnimState == m_SceneTransitionAnimController.SCENE_NOISE_OFF) {
-		m_SpriteRenderer->Color.a -= 0.005f;//徐々に透過していく
+		m_SpriteRenderer->Color.a -= 0.01f;//徐々に透過していく
 		if (m_SpriteRenderer->Color.a <= 0.0f) {
 			m_SpriteRenderer->Color.a = 0.0f;//完全に透過したら
 			m_KeyOperation = true;//操作可能にする

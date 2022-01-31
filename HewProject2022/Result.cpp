@@ -162,10 +162,6 @@ bool Result::ResultCursor_Move()
 		}
 	}
 	this->transform->Update();
-
-	if (Input::GetControllerPress(XINPUT_GAMEPAD_START) == true && Input::GetControllerPress(XINPUT_GAMEPAD_BACK) == true) {
-		GameEngine::SceneManager::LoadScene("TitleScene");
-	}
 	return true;
 }
 

@@ -88,6 +88,7 @@ bool MoveManager::Update()
 			{
 				//‘Ò‹@ŽžŠÔ•ª‚Ü‚Â
 				isFin = Move();
+				Input::Vibration(6000.0f);
 			}
 
 			else

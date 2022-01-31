@@ -637,6 +637,8 @@ void Map::MoveUpdate()
 			m_MoveManager.front().reset();
 			m_MoveManager.front() = nullptr;
 			m_MoveManager.erase(m_MoveManager.begin());
+			Input::LeftVibrationStop();
+			Input::RightVibrationStop();
 			//移動が完了したためリセットフラグを立てる
 			m_isReset = true;	//trueの時にリセット可能
 		}

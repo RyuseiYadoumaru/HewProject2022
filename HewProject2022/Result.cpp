@@ -25,6 +25,8 @@ bool Result::Start()
 
 	S_flg = false;
 
+	m_ShootingStarSE = false;
+
 	return true;
 }
 
@@ -61,6 +63,11 @@ void Result::ResultCursor_Init()
 
 bool Result::Result_On()
 {
+	if (m_ShootingStarSE == false) {//—¬‚ê¯SE
+		Sound::Sound_Play(SOUND_LABEL_SHOOTINGSTAR);
+		m_ShootingStarSE = true;
+	}
+
 	this->GetComponent<SpriteRenderer>()->Color.a = 1;
 	return true;
 }

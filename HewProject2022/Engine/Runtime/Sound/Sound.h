@@ -24,6 +24,7 @@ typedef enum
 	SOUND_LABEL_BACK,			// 戻るSE
 	SOUND_LABEL_GETSTAR,		// 星獲得SE
 	SOUND_LABEL_SELECTWORLD,	// ワールドセレクトSE
+	SOUND_LABEL_SHOOTINGSTAR,	// 流れ星SE
 
 
 

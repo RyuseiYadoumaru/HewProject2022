@@ -33,5 +33,6 @@ public:
 	SceneTransition m_SceneTransition;
 
 	bool S_flg;
+	bool m_ShootingStarSE;
 };
 

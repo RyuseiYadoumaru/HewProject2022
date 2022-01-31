@@ -27,7 +27,6 @@ void Star::Anim_Start1()
 		is_Star = true;
 		m_StarAnimController.AnimState = StarAnimController::STAR_1;
 	}
-
 }
 
 void Star::Anim_Start2()
@@ -36,7 +35,6 @@ void Star::Anim_Start2()
 		is_Star = true;
 		m_StarAnimController.AnimState = StarAnimController::STAR_2;
 	}
-
 }
 
 void Star::Anim_Start3()
@@ -45,7 +43,6 @@ void Star::Anim_Start3()
 		is_Star = true;
 		m_StarAnimController.AnimState = StarAnimController::STAR_3;
 	}
-
 }
 
 void Star::StarChecker(int star)

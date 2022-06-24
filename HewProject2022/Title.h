@@ -18,5 +18,9 @@ public:
 
 	bool GetLogo_sw();
 
+private:
+	float nowTime;
+	constexpr static float fadeTime = 2000.0f;
+
 };
 

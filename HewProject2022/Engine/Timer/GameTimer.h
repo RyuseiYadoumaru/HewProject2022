@@ -15,6 +15,7 @@ namespace GameEngine
 		GameTimer();
 		static GameTimer* Instance();
 
+		static void Init();
 		static void Update();
 		static TIME deltaTime();
 		static TIME fixedDeltaTime();

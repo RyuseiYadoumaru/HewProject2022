@@ -39,6 +39,19 @@ GameTimer* GameTimer::Instance()
 	return &Instance;
 }
 
+//==============================================================================
+//!	@fn		Init
+//!	@brief	ゲームタイマー初期化
+//!	@retval	
+//==============================================================================
+void GameEngine::GameTimer::Init()
+{
+	//現在の時間を取得
+	m_CurrenTime = (TIME)timeGetTime();
+	m_OldTime = m_CurrenTime;
+	//ゲーム全体のフレームカウント
+	m_TotalFrameCnt = 0;
+}
 
 //==============================================================================
 //!	@fn		Update

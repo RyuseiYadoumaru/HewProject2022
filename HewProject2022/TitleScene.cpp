@@ -38,10 +38,11 @@ bool GamePlay::TitleScene::Start()
 	m_GameEnd->transform->Scale.Set(1.5f, 1.5f, 0.0f);
 
 	m_EndCursor = Instance<Actor>("EndCursor");
-	m_EndCursor->Sprite("button");
+	m_EndCursor->Sprite("button_2");
 	m_EndCursor->GetComponent<SpriteRenderer>()->Color.a = 0;
 	m_EndCursor->Vertex("vs_Ui");
-	m_EndCursor->transform->Position.Set(1920.0f / 2.0f, 1080.0f / 2.0f, 0.0f);
+	m_EndCursor->transform->Scale.Set(0.2f, 0.2f, 0.2f);
+	m_EndCursor->transform->Position.Set(1920.0f / 2.0f - 100.0f, 1080.0f / 2.0f, 0.0f);
 
 
 	/*	ƒJƒƒ‰İ’è	*/

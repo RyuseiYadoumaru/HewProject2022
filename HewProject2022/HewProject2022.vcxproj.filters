@@ -136,104 +136,14 @@
     <Filter Include="TOYALINE">
       <UniqueIdentifier>{3525c8a5-19b8-42d6-ad04-d339c4edfdc7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TOYALINE\Object">
-      <UniqueIdentifier>{c2238518-3581-4c84-9bac-f458ee20fdfb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\Object\UI">
-      <UniqueIdentifier>{ac2d9210-c109-426f-ad71-88bfd5c8b8d6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\Object\Actor">
-      <UniqueIdentifier>{f43e45ea-29b6-434e-a5c3-4f8d5aaed72f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\Object\Actor\Map">
-      <UniqueIdentifier>{e70e4044-d341-4464-b76b-0ffc0295cc6c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\Object\Actor\Map\Tile">
-      <UniqueIdentifier>{d62cc4da-0f9d-473a-9721-3395f3c1c132}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\Object\Camera">
-      <UniqueIdentifier>{238be73b-fc97-4214-9e80-799002123215}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\Object\Camera\MainCamera">
-      <UniqueIdentifier>{30c144ae-9517-4642-8275-8af5af26ba9e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\World1">
-      <UniqueIdentifier>{0d31dff2-2c2b-484b-9d86-e8845217cf98}</UniqueIdentifier>
-    </Filter>
     <Filter Include="TOYALINE\Script">
       <UniqueIdentifier>{ab90ee41-d302-4a34-8c33-4b2f9ac76e57}</UniqueIdentifier>
     </Filter>
     <Filter Include="TOYALINE\Script\LandTile">
       <UniqueIdentifier>{d5f467eb-ca50-48e2-a283-9e9eff81e521}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TOYALINE\Object\Player">
-      <UniqueIdentifier>{ee96fa9b-fe48-4196-9909-0b09c22a3ad4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\Object\Player\Animation">
-      <UniqueIdentifier>{f3a4d433-624b-4765-8f0b-5eede4cf2672}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\World1\Scene">
-      <UniqueIdentifier>{c831829e-2dd1-457c-976d-36a6338d4b89}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\World2">
-      <UniqueIdentifier>{969bb4e7-6325-40b8-8ead-ac2684ec6288}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\World2\Scene">
-      <UniqueIdentifier>{c58eab8a-34a7-4bca-bc93-1201900e73f4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\World3">
-      <UniqueIdentifier>{31aa29ad-0e1f-4d44-b772-23ddf99606f2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\World3\Scene">
-      <UniqueIdentifier>{0a1d7490-0f77-4517-9740-5187f13ad396}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\World4">
-      <UniqueIdentifier>{6e493f1a-c24d-4a80-b240-ff7289ceadbf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\World4\Scene">
-      <UniqueIdentifier>{478efb96-d714-4ff5-bf1c-8511f903bc5c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\World5">
-      <UniqueIdentifier>{b4767890-2839-4395-a866-1f06425dc453}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\World5\Scene">
-      <UniqueIdentifier>{6068bf4b-1259-4355-9c3a-5bbb0f1c62c0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\StageSelect">
-      <UniqueIdentifier>{999dd4e8-5d73-4e1f-9435-8db426486776}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\TitleScene">
-      <UniqueIdentifier>{0b0598a4-11af-4528-8b39-fc3ba654aa92}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\Result">
-      <UniqueIdentifier>{957429cc-c006-41b0-b835-9abdbd27da6d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\World1\Road">
-      <UniqueIdentifier>{9fc73a66-2316-402b-8b8d-04bc5f0d52eb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\World1\Road\Table">
-      <UniqueIdentifier>{2b30a6cd-1a75-4c44-9e4a-3c0d34aee8ac}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\World1\Road\Chair">
-      <UniqueIdentifier>{0cf82172-424c-45b1-81c4-6db6cffb772f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Engine\Timer">
       <UniqueIdentifier>{33af864f-6e20-46f2-b4d9-94ca2b1c7123}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\World1\Road\Cuhsion">
-      <UniqueIdentifier>{eca3da19-be6d-482a-be85-78f697d30c1d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\BackGround">
-      <UniqueIdentifier>{84c32d85-3d8d-42a4-a32c-6aa3ddb9d8cc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\World1\Road\Desk">
-      <UniqueIdentifier>{83035070-34af-490e-999f-96b30a2310c0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\World1\Road\Table\Book">
-      <UniqueIdentifier>{a0e85aec-6ce6-4333-a251-9dd726469670}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\World1\Road\Sofa">
-      <UniqueIdentifier>{86838911-eb71-437a-844c-c73151825103}</UniqueIdentifier>
     </Filter>
     <Filter Include="TOYALINE\Script\ResetInfo">
       <UniqueIdentifier>{97939eee-2a2c-4389-88cf-0f0310858519}</UniqueIdentifier>
@@ -241,113 +151,224 @@
     <Filter Include="TOYALINE\Script\MoveInfo">
       <UniqueIdentifier>{1a41ca03-54c2-4fcb-923d-44ece04fbd21}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TOYALINE\World2\Road">
-      <UniqueIdentifier>{ec5e07e2-c79b-45c7-bf11-ebf5b9f5f2bb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\World2\Road\Sink">
-      <UniqueIdentifier>{609c5c05-1289-4117-82ab-778ca397a094}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\World2\Road\Tablewere">
-      <UniqueIdentifier>{8eda23fb-c48f-4766-a509-2235836b09be}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\World2\Road\Shelf">
-      <UniqueIdentifier>{3c6587b1-048c-482a-a2d2-a941e5f90450}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\World3\Road">
-      <UniqueIdentifier>{f6ce412c-b398-4293-96f7-44e4a57c1f85}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\World3\Road\Plants">
-      <UniqueIdentifier>{14a1c3b7-3039-4208-b452-bb2ca397079f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\World3\Road\Rose">
-      <UniqueIdentifier>{1c09e885-b3e5-4685-9310-6db8d2a4517e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\World3\Road\Tree">
-      <UniqueIdentifier>{73fca9b0-dcdd-40c7-bb7e-176a965d6734}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\World5\Road">
-      <UniqueIdentifier>{bc12f1b6-ac23-4259-83ab-43114e7e8b9d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\World5\Road\House">
-      <UniqueIdentifier>{34df20fc-b36c-4273-b3a6-021708b825dd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\World5\Road\Storage">
-      <UniqueIdentifier>{84eee0bf-a3c6-4b58-a65e-d3f130fdb842}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\World5\Road\Toy">
-      <UniqueIdentifier>{1c799b6c-cf60-484f-ade2-c7d7fe7fdb4b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\World5\Road\World5_desk">
-      <UniqueIdentifier>{91baed32-1210-4081-8e9f-f867e487f9f7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\Object\Actor\Ceiling">
-      <UniqueIdentifier>{cb30f131-90d9-49fe-bf33-0431081dcc1d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\Particle">
-      <UniqueIdentifier>{89604b1d-2f21-4c36-a246-bc76bc818047}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TOYALINE\Particle\BlockParticle">
-      <UniqueIdentifier>{82af80f6-6040-4744-bea2-57e5f37b73f5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="TOYALINE\ScreemEffect">
       <UniqueIdentifier>{a6c080f1-160a-4cab-8e38-b1c9f7bed139}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TOYALINE\Object\Actor\Map\MoveTile">
-      <UniqueIdentifier>{3291f334-c6f2-44fa-81ca-93a7a2bf5c92}</UniqueIdentifier>
+    <Filter Include="TOYALINE\Scenes">
+      <UniqueIdentifier>{9e0759a2-1c37-4f2d-bae5-7ba77eec9bd0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TOYALINE\Object\Actor\Map\ResetTile">
-      <UniqueIdentifier>{85ab4705-2a1d-4166-8014-2742ae4c4afb}</UniqueIdentifier>
+    <Filter Include="TOYALINE\Scenes\World1">
+      <UniqueIdentifier>{0d31dff2-2c2b-484b-9d86-e8845217cf98}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TOYALINE\Particle\BlockParticle\Magic">
-      <UniqueIdentifier>{f9b9e33f-e0e2-40bb-b7b5-189c5aa3afe3}</UniqueIdentifier>
+    <Filter Include="TOYALINE\Scenes\World2">
+      <UniqueIdentifier>{969bb4e7-6325-40b8-8ead-ac2684ec6288}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TOYALINE\Particle\BlockParticle\Move">
-      <UniqueIdentifier>{89505073-af30-422e-acb0-78863e5a9c7a}</UniqueIdentifier>
+    <Filter Include="TOYALINE\Scenes\World3">
+      <UniqueIdentifier>{31aa29ad-0e1f-4d44-b772-23ddf99606f2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TOYALINE\Particle\BlockParticle\Reset">
-      <UniqueIdentifier>{f0bc3046-3654-4c33-9c6a-3f29698d6bc0}</UniqueIdentifier>
+    <Filter Include="TOYALINE\Scenes\World4">
+      <UniqueIdentifier>{6e493f1a-c24d-4a80-b240-ff7289ceadbf}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TOYALINE\Object\Actor\Map\ParticleManager">
-      <UniqueIdentifier>{ab75ef4c-9106-40fc-8244-578ada0dbdf3}</UniqueIdentifier>
+    <Filter Include="TOYALINE\Scenes\World5">
+      <UniqueIdentifier>{b4767890-2839-4395-a866-1f06425dc453}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TOYALINE\World4\Road">
-      <UniqueIdentifier>{6a93b807-516f-4c10-8f45-d608f68419fe}</UniqueIdentifier>
+    <Filter Include="TOYALINE\Objects">
+      <UniqueIdentifier>{c2238518-3581-4c84-9bac-f458ee20fdfb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TOYALINE\Tutorial">
-      <UniqueIdentifier>{ae261378-f3ef-4296-bdea-f66fb0b445cf}</UniqueIdentifier>
+    <Filter Include="TOYALINE\Objects\Actor">
+      <UniqueIdentifier>{f43e45ea-29b6-434e-a5c3-4f8d5aaed72f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TOYALINE\Object\Goal">
-      <UniqueIdentifier>{a4453fb2-428a-42a1-b13c-df02b2ee9127}</UniqueIdentifier>
+    <Filter Include="TOYALINE\Objects\Actor\Map">
+      <UniqueIdentifier>{e70e4044-d341-4464-b76b-0ffc0295cc6c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TOYALINE\Tutorial\JumpTutorial">
-      <UniqueIdentifier>{b9b3ba57-3994-4053-a02e-87c7261e8235}</UniqueIdentifier>
+    <Filter Include="TOYALINE\Objects\Actor\Map\Tile">
+      <UniqueIdentifier>{d62cc4da-0f9d-473a-9721-3395f3c1c132}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TOYALINE\Object\Actor\Map\Tile\ChangeTile">
+    <Filter Include="TOYALINE\Objects\Actor\Map\Tile\ChangeTile">
       <UniqueIdentifier>{d99aca7f-b9e6-4efb-be83-5dd45468d479}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TOYALINE\Object\Actor\Map\Star">
+    <Filter Include="TOYALINE\Objects\Actor\Map\MoveTile">
+      <UniqueIdentifier>{3291f334-c6f2-44fa-81ca-93a7a2bf5c92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Objects\Actor\Map\ResetTile">
+      <UniqueIdentifier>{85ab4705-2a1d-4166-8014-2742ae4c4afb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Objects\Actor\Map\ParticleManager">
+      <UniqueIdentifier>{ab75ef4c-9106-40fc-8244-578ada0dbdf3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Objects\Actor\Map\Star">
       <UniqueIdentifier>{bcd47710-36b8-4e99-a9dc-53b3f9c62e73}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TOYALINE\StageSelect\SelectAnimation">
-      <UniqueIdentifier>{02602386-5265-4ebb-bb6b-182f83f4bf38}</UniqueIdentifier>
+    <Filter Include="TOYALINE\Objects\Actor\Ceiling">
+      <UniqueIdentifier>{cb30f131-90d9-49fe-bf33-0431081dcc1d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TOYALINE\World3\Road\BlueRose">
+    <Filter Include="TOYALINE\Objects\Camera">
+      <UniqueIdentifier>{238be73b-fc97-4214-9e80-799002123215}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Objects\Camera\MainCamera">
+      <UniqueIdentifier>{30c144ae-9517-4642-8275-8af5af26ba9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Objects\Actor\World1_Road">
+      <UniqueIdentifier>{9fc73a66-2316-402b-8b8d-04bc5f0d52eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Objects\Actor\World1_Road\Table">
+      <UniqueIdentifier>{2b30a6cd-1a75-4c44-9e4a-3c0d34aee8ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Objects\Actor\World1_Road\Table\Book">
+      <UniqueIdentifier>{a0e85aec-6ce6-4333-a251-9dd726469670}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Objects\Actor\World1_Road\Chair">
+      <UniqueIdentifier>{0cf82172-424c-45b1-81c4-6db6cffb772f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Objects\Actor\World1_Road\Cuhsion">
+      <UniqueIdentifier>{eca3da19-be6d-482a-be85-78f697d30c1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Objects\Actor\World1_Road\Desk">
+      <UniqueIdentifier>{83035070-34af-490e-999f-96b30a2310c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Objects\Actor\World1_Road\Sofa">
+      <UniqueIdentifier>{86838911-eb71-437a-844c-c73151825103}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Objects\Actor\World2_Road">
+      <UniqueIdentifier>{ec5e07e2-c79b-45c7-bf11-ebf5b9f5f2bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Objects\Actor\World2_Road\Sink">
+      <UniqueIdentifier>{609c5c05-1289-4117-82ab-778ca397a094}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Objects\Actor\World2_Road\Tablewere">
+      <UniqueIdentifier>{8eda23fb-c48f-4766-a509-2235836b09be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Objects\Actor\World2_Road\Shelf">
+      <UniqueIdentifier>{3c6587b1-048c-482a-a2d2-a941e5f90450}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Objects\Actor\World3_Road">
+      <UniqueIdentifier>{f6ce412c-b398-4293-96f7-44e4a57c1f85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Objects\Actor\World3_Road\Plants">
+      <UniqueIdentifier>{14a1c3b7-3039-4208-b452-bb2ca397079f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Objects\Actor\World3_Road\Rose">
+      <UniqueIdentifier>{1c09e885-b3e5-4685-9310-6db8d2a4517e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Objects\Actor\World3_Road\Tree">
+      <UniqueIdentifier>{73fca9b0-dcdd-40c7-bb7e-176a965d6734}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Objects\Actor\World3_Road\BlueRose">
       <UniqueIdentifier>{bd44e86e-50d8-4c98-b787-993d7e25aed8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TOYALINE\Tutorial\TutorialAnim">
+    <Filter Include="TOYALINE\Objects\Actor\World4_Road">
+      <UniqueIdentifier>{6a93b807-516f-4c10-8f45-d608f68419fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Objects\Actor\World5_Road">
+      <UniqueIdentifier>{bc12f1b6-ac23-4259-83ab-43114e7e8b9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Objects\Actor\World5_Road\House">
+      <UniqueIdentifier>{34df20fc-b36c-4273-b3a6-021708b825dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Objects\Actor\World5_Road\Storage">
+      <UniqueIdentifier>{84eee0bf-a3c6-4b58-a65e-d3f130fdb842}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Objects\Actor\World5_Road\Toy">
+      <UniqueIdentifier>{1c799b6c-cf60-484f-ade2-c7d7fe7fdb4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Objects\Actor\World5_Road\World5_desk">
+      <UniqueIdentifier>{91baed32-1210-4081-8e9f-f867e487f9f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Objects\BackGround">
+      <UniqueIdentifier>{84c32d85-3d8d-42a4-a32c-6aa3ddb9d8cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Script\Result">
+      <UniqueIdentifier>{957429cc-c006-41b0-b835-9abdbd27da6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Scenes\Select">
+      <UniqueIdentifier>{386be667-75bc-4dfc-aad6-2d198f09cd26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Scenes\Title">
+      <UniqueIdentifier>{0b0598a4-11af-4528-8b39-fc3ba654aa92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Effects">
+      <UniqueIdentifier>{89604b1d-2f21-4c36-a246-bc76bc818047}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Effects\BlockParticle">
+      <UniqueIdentifier>{82af80f6-6040-4744-bea2-57e5f37b73f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Effects\BlockParticle\Magic">
+      <UniqueIdentifier>{f9b9e33f-e0e2-40bb-b7b5-189c5aa3afe3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Effects\BlockParticle\Move">
+      <UniqueIdentifier>{89505073-af30-422e-acb0-78863e5a9c7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Effects\BlockParticle\Reset">
+      <UniqueIdentifier>{f0bc3046-3654-4c33-9c6a-3f29698d6bc0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\SceneTransition">
+      <UniqueIdentifier>{9c2c9858-c179-4990-8fd7-c48104310acf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Animation">
+      <UniqueIdentifier>{ca6c5075-66b6-4f18-a448-a6e7cab2302c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Animation\SelectAnimation">
+      <UniqueIdentifier>{02602386-5265-4ebb-bb6b-182f83f4bf38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Effects\TutorialEffect">
+      <UniqueIdentifier>{e289e007-2600-4adc-a14c-98b71816405c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Animation\Tutorial">
+      <UniqueIdentifier>{ae261378-f3ef-4296-bdea-f66fb0b445cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Animation\Tutorial\JumpTutorial">
+      <UniqueIdentifier>{b9b3ba57-3994-4053-a02e-87c7261e8235}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Animation\Tutorial\TutorialAnim">
       <UniqueIdentifier>{589a423d-c32c-4593-bcca-8e4caba4a58b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TOYALINE\Tutorial\XTutorial">
+    <Filter Include="TOYALINE\Animation\Tutorial\XTutorial">
       <UniqueIdentifier>{05ad5bd5-585f-44a5-85e5-cbf3777e9e07}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TOYALINE\Tutorial\MoveTutorial">
+    <Filter Include="TOYALINE\Animation\Tutorial\MoveTutorial">
       <UniqueIdentifier>{3813920d-4368-4255-85f5-ff6941c0c966}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TOYALINE\Tutorial\YTutorial">
+    <Filter Include="TOYALINE\Animation\Tutorial\YTutorial">
       <UniqueIdentifier>{7a7c2b62-21f1-4a8f-b28e-fc562a66e74f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TOYALINE\Object\Goal\GoalAnim">
+    <Filter Include="TOYALINE\Objects\Character">
+      <UniqueIdentifier>{520c83aa-b7fa-4cc7-a367-2fbefa76f565}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Objects\Character\Player">
+      <UniqueIdentifier>{ee96fa9b-fe48-4196-9909-0b09c22a3ad4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Objects\Character\Player\Animation">
+      <UniqueIdentifier>{f3a4d433-624b-4765-8f0b-5eede4cf2672}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Animation\Result">
+      <UniqueIdentifier>{2635cb12-c156-4bbf-8d8b-f3aac1fbe516}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Objects\Actor\Fireworks">
+      <UniqueIdentifier>{984c77b9-7f67-40ba-a0fa-3209543ae2ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Objects\Actor\Star">
+      <UniqueIdentifier>{31325c0f-da59-4582-9bd4-18425e3a160b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Animation\StarUI">
+      <UniqueIdentifier>{279c6aaa-9e28-4e53-bd73-52b22b4a9884}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\DataList">
+      <UniqueIdentifier>{999dd4e8-5d73-4e1f-9435-8db426486776}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\SceneTransition\DefaultFade">
+      <UniqueIdentifier>{ba7402b6-d957-4730-89b8-a13db122bbe0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\SceneTransition\SelectFade">
+      <UniqueIdentifier>{9e172c1a-5190-424e-9885-ff1f7cbd3b5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Animation\GoalAnim">
       <UniqueIdentifier>{f61dd4cd-ad7f-468d-83de-64b22e98668f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Objects\Actor\Goal">
+      <UniqueIdentifier>{a4453fb2-428a-42a1-b13c-df02b2ee9127}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TOYALINE\Objects\Actor\UI">
+      <UniqueIdentifier>{ac2d9210-c109-426f-ad71-88bfd5c8b8d6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -445,13 +466,13 @@
       <Filter>Game\GameObject\private</Filter>
     </ClCompile>
     <ClCompile Include="Map.cpp">
-      <Filter>TOYALINE\Object\Actor\Map</Filter>
+      <Filter>TOYALINE\Objects\Actor\Map</Filter>
     </ClCompile>
     <ClCompile Include="BackGround.cpp">
-      <Filter>TOYALINE\BackGround</Filter>
+      <Filter>TOYALINE\Objects\BackGround</Filter>
     </ClCompile>
     <ClCompile Include="MainCamera.cpp">
-      <Filter>TOYALINE\Object\Camera\MainCamera</Filter>
+      <Filter>TOYALINE\Objects\Camera\MainCamera</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Component\SpriteRenderer.cpp">
       <Filter>Engine\Component\Private\Renderer</Filter>
@@ -469,7 +490,7 @@
       <Filter>Engine\Runtime\Core\Data\MapData</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>TOYALINE\Object\Player</Filter>
+      <Filter>TOYALINE\Objects\Character\Player</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Math\Vector.cpp">
       <Filter>Engine\Math\Private</Filter>
@@ -478,10 +499,10 @@
       <Filter>TOYALINE\Script\LandTile</Filter>
     </ClCompile>
     <ClCompile Include="Tile.cpp">
-      <Filter>TOYALINE\Object\Actor\Map\Tile</Filter>
+      <Filter>TOYALINE\Objects\Actor\Map\Tile</Filter>
     </ClCompile>
     <ClCompile Include="TileColumn.cpp">
-      <Filter>TOYALINE\Object\Actor\Map\Tile</Filter>
+      <Filter>TOYALINE\Objects\Actor\Map\Tile</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Create\AnimationController.cpp">
       <Filter>Engine\Create\Private</Filter>
@@ -493,112 +514,22 @@
       <Filter>Engine\Component\Private\Miscellaneous</Filter>
     </ClCompile>
     <ClCompile Include="PlayerAnim.cpp">
-      <Filter>TOYALINE\Object\Player\Animation</Filter>
+      <Filter>TOYALINE\Objects\Character\Player\Animation</Filter>
     </ClCompile>
     <ClCompile Include="PlayerAnimController.cpp">
-      <Filter>TOYALINE\Object\Player\Animation</Filter>
-    </ClCompile>
-    <ClCompile Include="World1StageSelectScene.cpp">
-      <Filter>TOYALINE\StageSelect</Filter>
-    </ClCompile>
-    <ClCompile Include="World2StageSelectScene.cpp">
-      <Filter>TOYALINE\StageSelect</Filter>
-    </ClCompile>
-    <ClCompile Include="World3StageSelectScene.cpp">
-      <Filter>TOYALINE\StageSelect</Filter>
-    </ClCompile>
-    <ClCompile Include="World4StageSelectScene.cpp">
-      <Filter>TOYALINE\StageSelect</Filter>
-    </ClCompile>
-    <ClCompile Include="World5StageSelectScene.cpp">
-      <Filter>TOYALINE\StageSelect</Filter>
+      <Filter>TOYALINE\Objects\Character\Player\Animation</Filter>
     </ClCompile>
     <ClCompile Include="TitleScene.cpp">
-      <Filter>TOYALINE\TitleScene</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage1.cpp">
-      <Filter>TOYALINE\World1\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage2.cpp">
-      <Filter>TOYALINE\World1\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage3.cpp">
-      <Filter>TOYALINE\World1\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage4.cpp">
-      <Filter>TOYALINE\World1\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage5.cpp">
-      <Filter>TOYALINE\World1\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage6.cpp">
-      <Filter>TOYALINE\World2\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage7.cpp">
-      <Filter>TOYALINE\World2\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage8.cpp">
-      <Filter>TOYALINE\World2\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage9.cpp">
-      <Filter>TOYALINE\World2\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage10.cpp">
-      <Filter>TOYALINE\World2\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage11.cpp">
-      <Filter>TOYALINE\World3\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage12.cpp">
-      <Filter>TOYALINE\World3\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage13.cpp">
-      <Filter>TOYALINE\World3\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage14.cpp">
-      <Filter>TOYALINE\World3\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage15.cpp">
-      <Filter>TOYALINE\World3\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage16.cpp">
-      <Filter>TOYALINE\World4\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage17.cpp">
-      <Filter>TOYALINE\World4\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage18.cpp">
-      <Filter>TOYALINE\World4\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage19.cpp">
-      <Filter>TOYALINE\World4\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage20.cpp">
-      <Filter>TOYALINE\World4\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage21.cpp">
-      <Filter>TOYALINE\World5\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage22.cpp">
-      <Filter>TOYALINE\World5\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage23.cpp">
-      <Filter>TOYALINE\World5\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage24.cpp">
-      <Filter>TOYALINE\World5\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Stage25.cpp">
-      <Filter>TOYALINE\World5\Scene</Filter>
+      <Filter>TOYALINE\Scenes\Title</Filter>
     </ClCompile>
     <ClCompile Include="Table.cpp">
-      <Filter>TOYALINE\World1\Road\Table</Filter>
+      <Filter>TOYALINE\Objects\Actor\World1_Road\Table</Filter>
     </ClCompile>
     <ClCompile Include="Cuhsion.cpp">
-      <Filter>TOYALINE\World1\Road\Cuhsion</Filter>
+      <Filter>TOYALINE\Objects\Actor\World1_Road\Cuhsion</Filter>
     </ClCompile>
     <ClCompile Include="Chair.cpp">
-      <Filter>TOYALINE\World1\Road\Chair</Filter>
+      <Filter>TOYALINE\Objects\Actor\World1_Road\Chair</Filter>
     </ClCompile>
     <ClCompile Include="MoveInfo.cpp">
       <Filter>TOYALINE\Script\MoveInfo</Filter>
@@ -616,49 +547,49 @@
       <Filter>Engine\Timer</Filter>
     </ClCompile>
     <ClCompile Include="BigBook.cpp">
-      <Filter>TOYALINE\World1\Road\Table\Book</Filter>
+      <Filter>TOYALINE\Objects\Actor\World1_Road\Table\Book</Filter>
     </ClCompile>
     <ClCompile Include="MiniBook.cpp">
-      <Filter>TOYALINE\World1\Road\Table\Book</Filter>
+      <Filter>TOYALINE\Objects\Actor\World1_Road\Table\Book</Filter>
     </ClCompile>
     <ClCompile Include="Desk.cpp">
-      <Filter>TOYALINE\World1\Road\Desk</Filter>
+      <Filter>TOYALINE\Objects\Actor\World1_Road\Desk</Filter>
     </ClCompile>
     <ClCompile Include="Sofa.cpp">
-      <Filter>TOYALINE\World1\Road\Sofa</Filter>
+      <Filter>TOYALINE\Objects\Actor\World1_Road\Sofa</Filter>
     </ClCompile>
     <ClCompile Include="Ceiling.cpp">
-      <Filter>TOYALINE\Object\Actor\Ceiling</Filter>
+      <Filter>TOYALINE\Objects\Actor\Ceiling</Filter>
     </ClCompile>
     <ClCompile Include="Sink.cpp">
-      <Filter>TOYALINE\World2\Road\Sink</Filter>
+      <Filter>TOYALINE\Objects\Actor\World2_Road\Sink</Filter>
     </ClCompile>
     <ClCompile Include="Tableware.cpp">
-      <Filter>TOYALINE\World2\Road\Tablewere</Filter>
+      <Filter>TOYALINE\Objects\Actor\World2_Road\Tablewere</Filter>
     </ClCompile>
     <ClCompile Include="Shelf.cpp">
-      <Filter>TOYALINE\World2\Road\Shelf</Filter>
+      <Filter>TOYALINE\Objects\Actor\World2_Road\Shelf</Filter>
     </ClCompile>
     <ClCompile Include="Plants.cpp">
-      <Filter>TOYALINE\World3\Road\Plants</Filter>
+      <Filter>TOYALINE\Objects\Actor\World3_Road\Plants</Filter>
     </ClCompile>
     <ClCompile Include="Rose.cpp">
-      <Filter>TOYALINE\World3\Road\Rose</Filter>
+      <Filter>TOYALINE\Objects\Actor\World3_Road\Rose</Filter>
     </ClCompile>
     <ClCompile Include="Tree.cpp">
-      <Filter>TOYALINE\World3\Road\Tree</Filter>
+      <Filter>TOYALINE\Objects\Actor\World3_Road\Tree</Filter>
     </ClCompile>
     <ClCompile Include="House.cpp">
-      <Filter>TOYALINE\World5\Road\House</Filter>
+      <Filter>TOYALINE\Objects\Actor\World5_Road\House</Filter>
     </ClCompile>
     <ClCompile Include="World5_desk.cpp">
-      <Filter>TOYALINE\World5\Road\World5_desk</Filter>
+      <Filter>TOYALINE\Objects\Actor\World5_Road\World5_desk</Filter>
     </ClCompile>
     <ClCompile Include="Toy.cpp">
-      <Filter>TOYALINE\World5\Road\Toy</Filter>
+      <Filter>TOYALINE\Objects\Actor\World5_Road\Toy</Filter>
     </ClCompile>
     <ClCompile Include="Storage.cpp">
-      <Filter>TOYALINE\World5\Road\Storage</Filter>
+      <Filter>TOYALINE\Objects\Actor\World5_Road\Storage</Filter>
     </ClCompile>
     <ClCompile Include="Game\GameObject\Effect.cpp">
       <Filter>Game\GameObject\private</Filter>
@@ -670,161 +601,263 @@
       <Filter>Engine\Component\Private\Miscellaneous</Filter>
     </ClCompile>
     <ClCompile Include="MoveManager.cpp">
-      <Filter>TOYALINE\Object\Actor\Map\MoveTile</Filter>
+      <Filter>TOYALINE\Objects\Actor\Map\MoveTile</Filter>
     </ClCompile>
     <ClCompile Include="ResetManager.cpp">
-      <Filter>TOYALINE\Object\Actor\Map\ResetTile</Filter>
+      <Filter>TOYALINE\Objects\Actor\Map\ResetTile</Filter>
     </ClCompile>
     <ClCompile Include="BlockMagicParticle.cpp">
-      <Filter>TOYALINE\Particle\BlockParticle\Magic</Filter>
+      <Filter>TOYALINE\Effects\BlockParticle\Magic</Filter>
     </ClCompile>
     <ClCompile Include="BlockMoveParticle.cpp">
-      <Filter>TOYALINE\Particle\BlockParticle\Move</Filter>
+      <Filter>TOYALINE\Effects\BlockParticle\Move</Filter>
     </ClCompile>
     <ClCompile Include="BlockResetParticle.cpp">
-      <Filter>TOYALINE\Particle\BlockParticle\Reset</Filter>
+      <Filter>TOYALINE\Effects\BlockParticle\Reset</Filter>
     </ClCompile>
     <ClCompile Include="BlockMoveEffect.cpp">
-      <Filter>TOYALINE\Particle\BlockParticle\Move</Filter>
+      <Filter>TOYALINE\Effects\BlockParticle\Move</Filter>
     </ClCompile>
     <ClCompile Include="BlockMagicEffect.cpp">
-      <Filter>TOYALINE\Particle\BlockParticle\Magic</Filter>
+      <Filter>TOYALINE\Effects\BlockParticle\Magic</Filter>
     </ClCompile>
     <ClCompile Include="BlockResetEffect.cpp">
-      <Filter>TOYALINE\Particle\BlockParticle\Reset</Filter>
+      <Filter>TOYALINE\Effects\BlockParticle\Reset</Filter>
     </ClCompile>
     <ClCompile Include="BlockParticleManager.cpp">
-      <Filter>TOYALINE\Object\Actor\Map\ParticleManager</Filter>
+      <Filter>TOYALINE\Objects\Actor\Map\ParticleManager</Filter>
     </ClCompile>
     <ClCompile Include="BookShelf.cpp">
-      <Filter>TOYALINE\World4\Road</Filter>
+      <Filter>TOYALINE\Objects\Actor\World4_Road</Filter>
     </ClCompile>
     <ClCompile Include="PictureFrame.cpp">
-      <Filter>TOYALINE\World4\Road</Filter>
+      <Filter>TOYALINE\Objects\Actor\World4_Road</Filter>
     </ClCompile>
     <ClCompile Include="Umbrella.cpp">
-      <Filter>TOYALINE\World4\Road</Filter>
+      <Filter>TOYALINE\Objects\Actor\World4_Road</Filter>
     </ClCompile>
     <ClCompile Include="Shelf2.cpp">
-      <Filter>TOYALINE\World4\Road</Filter>
-    </ClCompile>
-    <ClCompile Include="TutorialEffect.cpp">
-      <Filter>TOYALINE\Tutorial</Filter>
+      <Filter>TOYALINE\Objects\Actor\World4_Road</Filter>
     </ClCompile>
     <ClCompile Include="Result.cpp">
-      <Filter>TOYALINE\Result</Filter>
-    </ClCompile>
-    <ClCompile Include="Fade.cpp">
-      <Filter>TOYALINE\ScreemEffect</Filter>
+      <Filter>TOYALINE\Script\Result</Filter>
     </ClCompile>
     <ClCompile Include="Goal.cpp">
-      <Filter>TOYALINE\Object\Goal</Filter>
+      <Filter>TOYALINE\Objects\Actor\Goal</Filter>
     </ClCompile>
     <ClCompile Include="ScreenFx.cpp">
       <Filter>TOYALINE\ScreemEffect</Filter>
     </ClCompile>
     <ClCompile Include="Pause.cpp">
-      <Filter>TOYALINE\Object\UI</Filter>
+      <Filter>TOYALINE\Objects\Actor\UI</Filter>
     </ClCompile>
     <ClCompile Include="PushAny.cpp">
-      <Filter>TOYALINE\Object\UI</Filter>
+      <Filter>TOYALINE\Objects\Actor\UI</Filter>
     </ClCompile>
     <ClCompile Include="Title.cpp">
-      <Filter>TOYALINE\Object\UI</Filter>
+      <Filter>TOYALINE\Objects\Actor\UI</Filter>
     </ClCompile>
     <ClCompile Include="JumpTutorial.cpp">
-      <Filter>TOYALINE\Tutorial\JumpTutorial</Filter>
+      <Filter>TOYALINE\Animation\Tutorial\JumpTutorial</Filter>
     </ClCompile>
     <ClCompile Include="MoveTutorial.cpp">
-      <Filter>TOYALINE\Tutorial\MoveTutorial</Filter>
+      <Filter>TOYALINE\Animation\Tutorial\MoveTutorial</Filter>
     </ClCompile>
     <ClCompile Include="JumpTutorialAnim.cpp">
-      <Filter>TOYALINE\Tutorial\JumpTutorial</Filter>
+      <Filter>TOYALINE\Animation\Tutorial\JumpTutorial</Filter>
     </ClCompile>
     <ClCompile Include="JumpTutorialAnimController.cpp">
-      <Filter>TOYALINE\Tutorial\JumpTutorial</Filter>
+      <Filter>TOYALINE\Animation\Tutorial\JumpTutorial</Filter>
     </ClCompile>
     <ClCompile Include="ChangeTile.cpp">
-      <Filter>TOYALINE\Object\Actor\Map\Tile\ChangeTile</Filter>
+      <Filter>TOYALINE\Objects\Actor\Map\Tile\ChangeTile</Filter>
     </ClCompile>
     <ClCompile Include="ChangeTileAnim.cpp">
-      <Filter>TOYALINE\Object\Actor\Map\Tile\ChangeTile</Filter>
+      <Filter>TOYALINE\Objects\Actor\Map\Tile\ChangeTile</Filter>
     </ClCompile>
     <ClCompile Include="ChangeTileAnimController.cpp">
-      <Filter>TOYALINE\Object\Actor\Map\Tile\ChangeTile</Filter>
+      <Filter>TOYALINE\Objects\Actor\Map\Tile\ChangeTile</Filter>
     </ClCompile>
     <ClCompile Include="GoalAnimController.cpp">
-      <Filter>TOYALINE\Object\Goal\GoalAnim</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneTransition.cpp">
-      <Filter>TOYALINE\ScreemEffect</Filter>
+      <Filter>TOYALINE\Animation\GoalAnim</Filter>
     </ClCompile>
     <ClCompile Include="PlayerEffectController.cpp">
-      <Filter>TOYALINE\Object\Player\Animation</Filter>
+      <Filter>TOYALINE\Objects\Character\Player\Animation</Filter>
     </ClCompile>
     <ClCompile Include="PlayerGoalEffect.cpp">
-      <Filter>TOYALINE\Object\Player\Animation</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneTransitionAnim.cpp">
-      <Filter>TOYALINE\ScreemEffect</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneTransitionAnimController.cpp">
-      <Filter>TOYALINE\ScreemEffect</Filter>
+      <Filter>TOYALINE\Objects\Character\Player\Animation</Filter>
     </ClCompile>
     <ClCompile Include="StarTile.cpp">
-      <Filter>TOYALINE\Object\Actor\Map\Star</Filter>
-    </ClCompile>
-    <ClCompile Include="SelectFade.cpp">
-      <Filter>TOYALINE\StageSelect</Filter>
-    </ClCompile>
-    <ClCompile Include="SelectAnim.cpp">
-      <Filter>TOYALINE\StageSelect\SelectAnimation</Filter>
-    </ClCompile>
-    <ClCompile Include="SelectAnimController.cpp">
-      <Filter>TOYALINE\StageSelect\SelectAnimation</Filter>
-    </ClCompile>
-    <ClCompile Include="SelectTutorial.cpp">
-      <Filter>TOYALINE\StageSelect\SelectAnimation</Filter>
+      <Filter>TOYALINE\Objects\Actor\Map\Star</Filter>
     </ClCompile>
     <ClCompile Include="PlayModeUI.cpp">
-      <Filter>TOYALINE\Object\UI</Filter>
+      <Filter>TOYALINE\Objects\Actor\UI</Filter>
     </ClCompile>
     <ClCompile Include="waku.cpp">
-      <Filter>TOYALINE\Object\UI</Filter>
+      <Filter>TOYALINE\Objects\Actor\UI</Filter>
     </ClCompile>
     <ClCompile Include="BlueRose.cpp">
-      <Filter>TOYALINE\World3\Road\BlueRose</Filter>
+      <Filter>TOYALINE\Objects\Actor\World3_Road\BlueRose</Filter>
     </ClCompile>
     <ClCompile Include="TutorialAnimController.cpp">
-      <Filter>TOYALINE\Tutorial\TutorialAnim</Filter>
+      <Filter>TOYALINE\Animation\Tutorial\TutorialAnim</Filter>
     </ClCompile>
     <ClCompile Include="TutorialAnim.cpp">
-      <Filter>TOYALINE\Tutorial\TutorialAnim</Filter>
+      <Filter>TOYALINE\Animation\Tutorial\TutorialAnim</Filter>
     </ClCompile>
     <ClCompile Include="TutorialEffectAnim.cpp">
-      <Filter>TOYALINE\Tutorial\TutorialAnim</Filter>
+      <Filter>TOYALINE\Animation\Tutorial\TutorialAnim</Filter>
     </ClCompile>
     <ClCompile Include="TutorialEffectAnimController.cpp">
-      <Filter>TOYALINE\Tutorial\TutorialAnim</Filter>
+      <Filter>TOYALINE\Animation\Tutorial\TutorialAnim</Filter>
     </ClCompile>
     <ClCompile Include="Tutorial_X.cpp">
-      <Filter>TOYALINE\Tutorial\XTutorial</Filter>
+      <Filter>TOYALINE\Animation\Tutorial\XTutorial</Filter>
     </ClCompile>
     <ClCompile Include="Tutorial_XYAnim.cpp">
-      <Filter>TOYALINE\Tutorial\XTutorial</Filter>
+      <Filter>TOYALINE\Animation\Tutorial\XTutorial</Filter>
     </ClCompile>
     <ClCompile Include="Tutorial_XYAnimController.cpp">
-      <Filter>TOYALINE\Tutorial\XTutorial</Filter>
+      <Filter>TOYALINE\Animation\Tutorial\XTutorial</Filter>
     </ClCompile>
     <ClCompile Include="Tutorial_Y.cpp">
-      <Filter>TOYALINE\Tutorial\YTutorial</Filter>
+      <Filter>TOYALINE\Animation\Tutorial\YTutorial</Filter>
     </ClCompile>
-    <ClCompile Include="UI_Star.cpp" />
-    <ClCompile Include="UI_StarList.cpp" />
-    <ClCompile Include="FireworkController.cpp" />
-    <ClCompile Include="Fireworks.cpp" />
-    <ClCompile Include="StarAnimController.cpp" />
-    <ClCompile Include="Star.cpp" />
+    <ClCompile Include="Stage1.cpp">
+      <Filter>TOYALINE\Scenes\World1</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage2.cpp">
+      <Filter>TOYALINE\Scenes\World1</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage3.cpp">
+      <Filter>TOYALINE\Scenes\World1</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage4.cpp">
+      <Filter>TOYALINE\Scenes\World1</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage5.cpp">
+      <Filter>TOYALINE\Scenes\World1</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage6.cpp">
+      <Filter>TOYALINE\Scenes\World2</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage7.cpp">
+      <Filter>TOYALINE\Scenes\World2</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage8.cpp">
+      <Filter>TOYALINE\Scenes\World2</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage9.cpp">
+      <Filter>TOYALINE\Scenes\World2</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage10.cpp">
+      <Filter>TOYALINE\Scenes\World2</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage11.cpp">
+      <Filter>TOYALINE\Scenes\World3</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage12.cpp">
+      <Filter>TOYALINE\Scenes\World3</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage13.cpp">
+      <Filter>TOYALINE\Scenes\World3</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage14.cpp">
+      <Filter>TOYALINE\Scenes\World3</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage15.cpp">
+      <Filter>TOYALINE\Scenes\World3</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage16.cpp">
+      <Filter>TOYALINE\Scenes\World4</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage17.cpp">
+      <Filter>TOYALINE\Scenes\World4</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage18.cpp">
+      <Filter>TOYALINE\Scenes\World4</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage19.cpp">
+      <Filter>TOYALINE\Scenes\World4</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage20.cpp">
+      <Filter>TOYALINE\Scenes\World4</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage21.cpp">
+      <Filter>TOYALINE\Scenes\World5</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage22.cpp">
+      <Filter>TOYALINE\Scenes\World5</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage23.cpp">
+      <Filter>TOYALINE\Scenes\World5</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage24.cpp">
+      <Filter>TOYALINE\Scenes\World5</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage25.cpp">
+      <Filter>TOYALINE\Scenes\World5</Filter>
+    </ClCompile>
+    <ClCompile Include="World1StageSelectScene.cpp">
+      <Filter>TOYALINE\Scenes\Select</Filter>
+    </ClCompile>
+    <ClCompile Include="World2StageSelectScene.cpp">
+      <Filter>TOYALINE\Scenes\Select</Filter>
+    </ClCompile>
+    <ClCompile Include="World3StageSelectScene.cpp">
+      <Filter>TOYALINE\Scenes\Select</Filter>
+    </ClCompile>
+    <ClCompile Include="World4StageSelectScene.cpp">
+      <Filter>TOYALINE\Scenes\Select</Filter>
+    </ClCompile>
+    <ClCompile Include="World5StageSelectScene.cpp">
+      <Filter>TOYALINE\Scenes\Select</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectAnim.cpp">
+      <Filter>TOYALINE\Animation\SelectAnimation</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectAnimController.cpp">
+      <Filter>TOYALINE\Animation\SelectAnimation</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectTutorial.cpp">
+      <Filter>TOYALINE\Animation\SelectAnimation</Filter>
+    </ClCompile>
+    <ClCompile Include="TutorialEffect.cpp">
+      <Filter>TOYALINE\Effects\TutorialEffect</Filter>
+    </ClCompile>
+    <ClCompile Include="FireworkController.cpp">
+      <Filter>TOYALINE\Animation\Result</Filter>
+    </ClCompile>
+    <ClCompile Include="Fireworks.cpp">
+      <Filter>TOYALINE\Objects\Actor\Fireworks</Filter>
+    </ClCompile>
+    <ClCompile Include="Star.cpp">
+      <Filter>TOYALINE\Objects\Actor\Star</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Star.cpp">
+      <Filter>TOYALINE\Objects\Actor\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_StarList.cpp">
+      <Filter>TOYALINE\Objects\Actor\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="StarAnimController.cpp">
+      <Filter>TOYALINE\Animation\StarUI</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneTransition.cpp">
+      <Filter>TOYALINE\SceneTransition</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneTransitionAnim.cpp">
+      <Filter>TOYALINE\SceneTransition</Filter>
+    </ClCompile>
+    <ClCompile Include="Fade.cpp">
+      <Filter>TOYALINE\SceneTransition\DefaultFade</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectFade.cpp">
+      <Filter>TOYALINE\SceneTransition\SelectFade</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneTransitionAnimController.cpp">
+      <Filter>TOYALINE\SceneTransition</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Runtime\Application.h">
@@ -936,13 +969,13 @@
       <Filter>Game\GameObject\public</Filter>
     </ClInclude>
     <ClInclude Include="Map.h">
-      <Filter>TOYALINE\Object\Actor\Map</Filter>
+      <Filter>TOYALINE\Objects\Actor\Map</Filter>
     </ClInclude>
     <ClInclude Include="BackGround.h">
-      <Filter>TOYALINE\BackGround</Filter>
+      <Filter>TOYALINE\Objects\BackGround</Filter>
     </ClInclude>
     <ClInclude Include="MainCamera.h">
-      <Filter>TOYALINE\Object\Camera\MainCamera</Filter>
+      <Filter>TOYALINE\Objects\Camera\MainCamera</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Component\Component.h">
       <Filter>Engine\Component</Filter>
@@ -972,7 +1005,7 @@
       <Filter>Engine\Runtime\Core\Data\MapData</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>TOYALINE\Object\Player</Filter>
+      <Filter>TOYALINE\Objects\Character\Player</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Math\Vector.h">
       <Filter>Engine\Math\Public</Filter>
@@ -981,10 +1014,10 @@
       <Filter>TOYALINE\Script\LandTile</Filter>
     </ClInclude>
     <ClInclude Include="TileColumn.h">
-      <Filter>TOYALINE\Object\Actor\Map\Tile</Filter>
+      <Filter>TOYALINE\Objects\Actor\Map\Tile</Filter>
     </ClInclude>
     <ClInclude Include="Tile.h">
-      <Filter>TOYALINE\Object\Actor\Map\Tile</Filter>
+      <Filter>TOYALINE\Objects\Actor\Map\Tile</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Runtime\Core\TextureCoordinate.h">
       <Filter>Engine\Runtime\Core\Data\TexCoord</Filter>
@@ -999,115 +1032,25 @@
       <Filter>Engine\Component\Public\Miscellaneous</Filter>
     </ClInclude>
     <ClInclude Include="PlayerAnim.h">
-      <Filter>TOYALINE\Object\Player\Animation</Filter>
+      <Filter>TOYALINE\Objects\Character\Player\Animation</Filter>
     </ClInclude>
     <ClInclude Include="PlayerAnimController.h">
-      <Filter>TOYALINE\Object\Player\Animation</Filter>
-    </ClInclude>
-    <ClInclude Include="Stage1.h">
-      <Filter>TOYALINE\World1\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Stage5.h">
-      <Filter>TOYALINE\World1\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Stage4.h">
-      <Filter>TOYALINE\World1\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Stage3.h">
-      <Filter>TOYALINE\World1\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Stage2.h">
-      <Filter>TOYALINE\World1\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Stage6.h">
-      <Filter>TOYALINE\World2\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Stage7.h">
-      <Filter>TOYALINE\World2\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Stage8.h">
-      <Filter>TOYALINE\World2\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Stage9.h">
-      <Filter>TOYALINE\World2\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Stage10.h">
-      <Filter>TOYALINE\World2\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Stage11.h">
-      <Filter>TOYALINE\World3\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Stage12.h">
-      <Filter>TOYALINE\World3\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Stage13.h">
-      <Filter>TOYALINE\World3\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Stage14.h">
-      <Filter>TOYALINE\World3\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Stage15.h">
-      <Filter>TOYALINE\World3\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Stage16.h">
-      <Filter>TOYALINE\World4\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Stage17.h">
-      <Filter>TOYALINE\World4\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Stage18.h">
-      <Filter>TOYALINE\World4\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Stage19.h">
-      <Filter>TOYALINE\World4\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Stage20.h">
-      <Filter>TOYALINE\World4\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Stage21.h">
-      <Filter>TOYALINE\World5\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Stage22.h">
-      <Filter>TOYALINE\World5\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Stage23.h">
-      <Filter>TOYALINE\World5\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Stage24.h">
-      <Filter>TOYALINE\World5\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Stage25.h">
-      <Filter>TOYALINE\World5\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="World1StageSelectScene.h">
-      <Filter>TOYALINE\StageSelect</Filter>
-    </ClInclude>
-    <ClInclude Include="World2StageSelectScene.h">
-      <Filter>TOYALINE\StageSelect</Filter>
-    </ClInclude>
-    <ClInclude Include="World3StageSelectScene.h">
-      <Filter>TOYALINE\StageSelect</Filter>
-    </ClInclude>
-    <ClInclude Include="World4StageSelectScene.h">
-      <Filter>TOYALINE\StageSelect</Filter>
-    </ClInclude>
-    <ClInclude Include="World5StageSelectScene.h">
-      <Filter>TOYALINE\StageSelect</Filter>
+      <Filter>TOYALINE\Objects\Character\Player\Animation</Filter>
     </ClInclude>
     <ClInclude Include="StageList.h">
-      <Filter>TOYALINE\StageSelect</Filter>
+      <Filter>TOYALINE\DataList</Filter>
     </ClInclude>
     <ClInclude Include="TitleScene.h">
-      <Filter>TOYALINE\TitleScene</Filter>
+      <Filter>TOYALINE\Scenes\Title</Filter>
     </ClInclude>
     <ClInclude Include="Table.h">
-      <Filter>TOYALINE\World1\Road\Table</Filter>
+      <Filter>TOYALINE\Objects\Actor\World1_Road\Table</Filter>
     </ClInclude>
     <ClInclude Include="Cuhsion.h">
-      <Filter>TOYALINE\World1\Road\Cuhsion</Filter>
+      <Filter>TOYALINE\Objects\Actor\World1_Road\Cuhsion</Filter>
     </ClInclude>
     <ClInclude Include="Chair.h">
-      <Filter>TOYALINE\World1\Road\Chair</Filter>
+      <Filter>TOYALINE\Objects\Actor\World1_Road\Chair</Filter>
     </ClInclude>
     <ClInclude Include="MoveInfo.h">
       <Filter>TOYALINE\Script\MoveInfo</Filter>
@@ -1125,52 +1068,52 @@
       <Filter>Engine\Timer</Filter>
     </ClInclude>
     <ClInclude Include="BigBook.h">
-      <Filter>TOYALINE\World1\Road\Table\Book</Filter>
+      <Filter>TOYALINE\Objects\Actor\World1_Road\Table\Book</Filter>
     </ClInclude>
     <ClInclude Include="MiniBook.h">
-      <Filter>TOYALINE\World1\Road\Table\Book</Filter>
+      <Filter>TOYALINE\Objects\Actor\World1_Road\Table\Book</Filter>
     </ClInclude>
     <ClInclude Include="StageInfo.h">
       <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="Desk.h">
-      <Filter>TOYALINE\World1\Road\Desk</Filter>
+      <Filter>TOYALINE\Objects\Actor\World1_Road\Desk</Filter>
     </ClInclude>
     <ClInclude Include="Sofa.h">
-      <Filter>TOYALINE\World1\Road\Sofa</Filter>
+      <Filter>TOYALINE\Objects\Actor\World1_Road\Sofa</Filter>
     </ClInclude>
     <ClInclude Include="Ceiling.h">
-      <Filter>TOYALINE\Object\Actor\Ceiling</Filter>
+      <Filter>TOYALINE\Objects\Actor\Ceiling</Filter>
     </ClInclude>
     <ClInclude Include="Sink.h">
-      <Filter>TOYALINE\World2\Road\Sink</Filter>
+      <Filter>TOYALINE\Objects\Actor\World2_Road\Sink</Filter>
     </ClInclude>
     <ClInclude Include="Tableware.h">
-      <Filter>TOYALINE\World2\Road\Tablewere</Filter>
+      <Filter>TOYALINE\Objects\Actor\World2_Road\Tablewere</Filter>
     </ClInclude>
     <ClInclude Include="Shelf.h">
-      <Filter>TOYALINE\World2\Road\Shelf</Filter>
+      <Filter>TOYALINE\Objects\Actor\World2_Road\Shelf</Filter>
     </ClInclude>
     <ClInclude Include="Plants.h">
-      <Filter>TOYALINE\World3\Road\Plants</Filter>
+      <Filter>TOYALINE\Objects\Actor\World3_Road\Plants</Filter>
     </ClInclude>
     <ClInclude Include="Rose.h">
-      <Filter>TOYALINE\World3\Road\Rose</Filter>
+      <Filter>TOYALINE\Objects\Actor\World3_Road\Rose</Filter>
     </ClInclude>
     <ClInclude Include="Tree.h">
-      <Filter>TOYALINE\World3\Road\Tree</Filter>
+      <Filter>TOYALINE\Objects\Actor\World3_Road\Tree</Filter>
     </ClInclude>
     <ClInclude Include="House.h">
-      <Filter>TOYALINE\World5\Road\House</Filter>
+      <Filter>TOYALINE\Objects\Actor\World5_Road\House</Filter>
     </ClInclude>
     <ClInclude Include="World5_desk.h">
-      <Filter>TOYALINE\World5\Road\World5_desk</Filter>
+      <Filter>TOYALINE\Objects\Actor\World5_Road\World5_desk</Filter>
     </ClInclude>
     <ClInclude Include="Toy.h">
-      <Filter>TOYALINE\World5\Road\Toy</Filter>
+      <Filter>TOYALINE\Objects\Actor\World5_Road\Toy</Filter>
     </ClInclude>
     <ClInclude Include="Storage.h">
-      <Filter>TOYALINE\World5\Road\Storage</Filter>
+      <Filter>TOYALINE\Objects\Actor\World5_Road\Storage</Filter>
     </ClInclude>
     <ClInclude Include="Game\GameObject\Effect.h">
       <Filter>Game\GameObject\public</Filter>
@@ -1182,161 +1125,263 @@
       <Filter>Engine\Component\Public\Miscellaneous</Filter>
     </ClInclude>
     <ClInclude Include="BlockEffectInfo.h">
-      <Filter>TOYALINE\Particle\BlockParticle</Filter>
+      <Filter>TOYALINE\Effects\BlockParticle</Filter>
     </ClInclude>
     <ClInclude Include="MoveManager.h">
-      <Filter>TOYALINE\Object\Actor\Map\MoveTile</Filter>
+      <Filter>TOYALINE\Objects\Actor\Map\MoveTile</Filter>
     </ClInclude>
     <ClInclude Include="ResetManager.h">
-      <Filter>TOYALINE\Object\Actor\Map\ResetTile</Filter>
+      <Filter>TOYALINE\Objects\Actor\Map\ResetTile</Filter>
     </ClInclude>
     <ClInclude Include="BlockMagicParticle.h">
-      <Filter>TOYALINE\Particle\BlockParticle\Magic</Filter>
+      <Filter>TOYALINE\Effects\BlockParticle\Magic</Filter>
     </ClInclude>
     <ClInclude Include="BlockMoveParticle.h">
-      <Filter>TOYALINE\Particle\BlockParticle\Move</Filter>
+      <Filter>TOYALINE\Effects\BlockParticle\Move</Filter>
     </ClInclude>
     <ClInclude Include="BlockResetParticle.h">
-      <Filter>TOYALINE\Particle\BlockParticle\Reset</Filter>
+      <Filter>TOYALINE\Effects\BlockParticle\Reset</Filter>
     </ClInclude>
     <ClInclude Include="BlockMoveEffect.h">
-      <Filter>TOYALINE\Particle\BlockParticle\Move</Filter>
+      <Filter>TOYALINE\Effects\BlockParticle\Move</Filter>
     </ClInclude>
     <ClInclude Include="BlockMagicEffect.h">
-      <Filter>TOYALINE\Particle\BlockParticle\Magic</Filter>
+      <Filter>TOYALINE\Effects\BlockParticle\Magic</Filter>
     </ClInclude>
     <ClInclude Include="BlockResetEffect.h">
-      <Filter>TOYALINE\Particle\BlockParticle\Reset</Filter>
+      <Filter>TOYALINE\Effects\BlockParticle\Reset</Filter>
     </ClInclude>
     <ClInclude Include="BlockParticleManager.h">
-      <Filter>TOYALINE\Object\Actor\Map\ParticleManager</Filter>
+      <Filter>TOYALINE\Objects\Actor\Map\ParticleManager</Filter>
     </ClInclude>
     <ClInclude Include="BookShelf.h">
-      <Filter>TOYALINE\World4\Road</Filter>
+      <Filter>TOYALINE\Objects\Actor\World4_Road</Filter>
     </ClInclude>
     <ClInclude Include="PictureFrame.h">
-      <Filter>TOYALINE\World4\Road</Filter>
+      <Filter>TOYALINE\Objects\Actor\World4_Road</Filter>
     </ClInclude>
     <ClInclude Include="Umbrella.h">
-      <Filter>TOYALINE\World4\Road</Filter>
+      <Filter>TOYALINE\Objects\Actor\World4_Road</Filter>
     </ClInclude>
     <ClInclude Include="Shelf2.h">
-      <Filter>TOYALINE\World4\Road</Filter>
-    </ClInclude>
-    <ClInclude Include="TutorialEffect.h">
-      <Filter>TOYALINE\Tutorial</Filter>
+      <Filter>TOYALINE\Objects\Actor\World4_Road</Filter>
     </ClInclude>
     <ClInclude Include="Result.h">
-      <Filter>TOYALINE\Result</Filter>
-    </ClInclude>
-    <ClInclude Include="Fade.h">
-      <Filter>TOYALINE\ScreemEffect</Filter>
+      <Filter>TOYALINE\Script\Result</Filter>
     </ClInclude>
     <ClInclude Include="Goal.h">
-      <Filter>TOYALINE\Object\Goal</Filter>
+      <Filter>TOYALINE\Objects\Actor\Goal</Filter>
     </ClInclude>
     <ClInclude Include="ScreenFx.h">
       <Filter>TOYALINE\ScreemEffect</Filter>
     </ClInclude>
     <ClInclude Include="Pause.h">
-      <Filter>TOYALINE\Object\UI</Filter>
+      <Filter>TOYALINE\Objects\Actor\UI</Filter>
     </ClInclude>
     <ClInclude Include="PushAny.h">
-      <Filter>TOYALINE\Object\UI</Filter>
+      <Filter>TOYALINE\Objects\Actor\UI</Filter>
     </ClInclude>
     <ClInclude Include="Title.h">
-      <Filter>TOYALINE\Object\UI</Filter>
+      <Filter>TOYALINE\Objects\Actor\UI</Filter>
     </ClInclude>
     <ClInclude Include="JumpTutorial.h">
-      <Filter>TOYALINE\Tutorial\JumpTutorial</Filter>
+      <Filter>TOYALINE\Animation\Tutorial\JumpTutorial</Filter>
     </ClInclude>
     <ClInclude Include="JumpTutorialAnim.h">
-      <Filter>TOYALINE\Tutorial\JumpTutorial</Filter>
+      <Filter>TOYALINE\Animation\Tutorial\JumpTutorial</Filter>
     </ClInclude>
     <ClInclude Include="JumpTutorialAnimController.h">
-      <Filter>TOYALINE\Tutorial\JumpTutorial</Filter>
+      <Filter>TOYALINE\Animation\Tutorial\JumpTutorial</Filter>
     </ClInclude>
     <ClInclude Include="ChangeTile.h">
-      <Filter>TOYALINE\Object\Actor\Map\Tile\ChangeTile</Filter>
+      <Filter>TOYALINE\Objects\Actor\Map\Tile\ChangeTile</Filter>
     </ClInclude>
     <ClInclude Include="ChangeTileAnim.h">
-      <Filter>TOYALINE\Object\Actor\Map\Tile\ChangeTile</Filter>
+      <Filter>TOYALINE\Objects\Actor\Map\Tile\ChangeTile</Filter>
     </ClInclude>
     <ClInclude Include="ChangeTileAnimController.h">
-      <Filter>TOYALINE\Object\Actor\Map\Tile\ChangeTile</Filter>
+      <Filter>TOYALINE\Objects\Actor\Map\Tile\ChangeTile</Filter>
     </ClInclude>
     <ClInclude Include="GoalAnimController.h">
-      <Filter>TOYALINE\Object\Goal\GoalAnim</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneTransition.h">
-      <Filter>TOYALINE\ScreemEffect</Filter>
+      <Filter>TOYALINE\Animation\GoalAnim</Filter>
     </ClInclude>
     <ClInclude Include="PlayerEffectController.h">
-      <Filter>TOYALINE\Object\Player\Animation</Filter>
+      <Filter>TOYALINE\Objects\Character\Player\Animation</Filter>
     </ClInclude>
     <ClInclude Include="PlayerGoalEffect.h">
-      <Filter>TOYALINE\Object\Player\Animation</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneTransitionAnim.h">
-      <Filter>TOYALINE\ScreemEffect</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneTransitionAnimController.h">
-      <Filter>TOYALINE\ScreemEffect</Filter>
+      <Filter>TOYALINE\Objects\Character\Player\Animation</Filter>
     </ClInclude>
     <ClInclude Include="StarTile.h">
-      <Filter>TOYALINE\Object\Actor\Map\Star</Filter>
-    </ClInclude>
-    <ClInclude Include="SelectFade.h">
-      <Filter>TOYALINE\StageSelect</Filter>
-    </ClInclude>
-    <ClInclude Include="SelectAnim.h">
-      <Filter>TOYALINE\StageSelect\SelectAnimation</Filter>
-    </ClInclude>
-    <ClInclude Include="SelectAnimController.h">
-      <Filter>TOYALINE\StageSelect\SelectAnimation</Filter>
-    </ClInclude>
-    <ClInclude Include="SelectTutorial.h">
-      <Filter>TOYALINE\StageSelect\SelectAnimation</Filter>
+      <Filter>TOYALINE\Objects\Actor\Map\Star</Filter>
     </ClInclude>
     <ClInclude Include="PlayModeUI.h">
-      <Filter>TOYALINE\Object\UI</Filter>
+      <Filter>TOYALINE\Objects\Actor\UI</Filter>
     </ClInclude>
     <ClInclude Include="waku.h">
-      <Filter>TOYALINE\Object\UI</Filter>
+      <Filter>TOYALINE\Objects\Actor\UI</Filter>
     </ClInclude>
     <ClInclude Include="BlueRose.h">
-      <Filter>TOYALINE\World3\Road\BlueRose</Filter>
+      <Filter>TOYALINE\Objects\Actor\World3_Road\BlueRose</Filter>
     </ClInclude>
     <ClInclude Include="TutorialAnim.h">
-      <Filter>TOYALINE\Tutorial\TutorialAnim</Filter>
+      <Filter>TOYALINE\Animation\Tutorial\TutorialAnim</Filter>
     </ClInclude>
     <ClInclude Include="TutorialAnimController.h">
-      <Filter>TOYALINE\Tutorial\TutorialAnim</Filter>
+      <Filter>TOYALINE\Animation\Tutorial\TutorialAnim</Filter>
     </ClInclude>
     <ClInclude Include="TutorialEffectAnim.h">
-      <Filter>TOYALINE\Tutorial\TutorialAnim</Filter>
+      <Filter>TOYALINE\Animation\Tutorial\TutorialAnim</Filter>
     </ClInclude>
     <ClInclude Include="TutorialEffectAnimController.h">
-      <Filter>TOYALINE\Tutorial\TutorialAnim</Filter>
+      <Filter>TOYALINE\Animation\Tutorial\TutorialAnim</Filter>
     </ClInclude>
     <ClInclude Include="Tutorial_X.h">
-      <Filter>TOYALINE\Tutorial\XTutorial</Filter>
+      <Filter>TOYALINE\Animation\Tutorial\XTutorial</Filter>
     </ClInclude>
     <ClInclude Include="Tutorial_XYAnimController.h">
-      <Filter>TOYALINE\Tutorial\XTutorial</Filter>
+      <Filter>TOYALINE\Animation\Tutorial\XTutorial</Filter>
     </ClInclude>
     <ClInclude Include="Tutorial_XYAnim.h">
-      <Filter>TOYALINE\Tutorial\XTutorial</Filter>
+      <Filter>TOYALINE\Animation\Tutorial\XTutorial</Filter>
     </ClInclude>
     <ClInclude Include="Tutorial_Y.h">
-      <Filter>TOYALINE\Tutorial\YTutorial</Filter>
+      <Filter>TOYALINE\Animation\Tutorial\YTutorial</Filter>
     </ClInclude>
-    <ClInclude Include="UI_Star.h" />
-    <ClInclude Include="UI_StarList.h" />
-    <ClInclude Include="FireworkController.h" />
-    <ClInclude Include="Fireworks.h" />
-    <ClInclude Include="StarAnimController.h" />
-    <ClInclude Include="Star.h" />
+    <ClInclude Include="Stage1.h">
+      <Filter>TOYALINE\Scenes\World1</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage2.h">
+      <Filter>TOYALINE\Scenes\World1</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage3.h">
+      <Filter>TOYALINE\Scenes\World1</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage4.h">
+      <Filter>TOYALINE\Scenes\World1</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage5.h">
+      <Filter>TOYALINE\Scenes\World1</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage6.h">
+      <Filter>TOYALINE\Scenes\World2</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage7.h">
+      <Filter>TOYALINE\Scenes\World2</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage8.h">
+      <Filter>TOYALINE\Scenes\World2</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage9.h">
+      <Filter>TOYALINE\Scenes\World2</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage10.h">
+      <Filter>TOYALINE\Scenes\World2</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage11.h">
+      <Filter>TOYALINE\Scenes\World3</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage12.h">
+      <Filter>TOYALINE\Scenes\World3</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage13.h">
+      <Filter>TOYALINE\Scenes\World3</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage14.h">
+      <Filter>TOYALINE\Scenes\World3</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage15.h">
+      <Filter>TOYALINE\Scenes\World3</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage16.h">
+      <Filter>TOYALINE\Scenes\World4</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage17.h">
+      <Filter>TOYALINE\Scenes\World4</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage18.h">
+      <Filter>TOYALINE\Scenes\World4</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage19.h">
+      <Filter>TOYALINE\Scenes\World4</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage20.h">
+      <Filter>TOYALINE\Scenes\World4</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage21.h">
+      <Filter>TOYALINE\Scenes\World5</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage22.h">
+      <Filter>TOYALINE\Scenes\World5</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage23.h">
+      <Filter>TOYALINE\Scenes\World5</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage24.h">
+      <Filter>TOYALINE\Scenes\World5</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage25.h">
+      <Filter>TOYALINE\Scenes\World5</Filter>
+    </ClInclude>
+    <ClInclude Include="World1StageSelectScene.h">
+      <Filter>TOYALINE\Scenes\Select</Filter>
+    </ClInclude>
+    <ClInclude Include="World2StageSelectScene.h">
+      <Filter>TOYALINE\Scenes\Select</Filter>
+    </ClInclude>
+    <ClInclude Include="World3StageSelectScene.h">
+      <Filter>TOYALINE\Scenes\Select</Filter>
+    </ClInclude>
+    <ClInclude Include="World4StageSelectScene.h">
+      <Filter>TOYALINE\Scenes\Select</Filter>
+    </ClInclude>
+    <ClInclude Include="World5StageSelectScene.h">
+      <Filter>TOYALINE\Scenes\Select</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectAnim.h">
+      <Filter>TOYALINE\Animation\SelectAnimation</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectAnimController.h">
+      <Filter>TOYALINE\Animation\SelectAnimation</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectTutorial.h">
+      <Filter>TOYALINE\Animation\SelectAnimation</Filter>
+    </ClInclude>
+    <ClInclude Include="TutorialEffect.h">
+      <Filter>TOYALINE\Effects\TutorialEffect</Filter>
+    </ClInclude>
+    <ClInclude Include="FireworkController.h">
+      <Filter>TOYALINE\Animation\Result</Filter>
+    </ClInclude>
+    <ClInclude Include="Fireworks.h">
+      <Filter>TOYALINE\Objects\Actor\Fireworks</Filter>
+    </ClInclude>
+    <ClInclude Include="Star.h">
+      <Filter>TOYALINE\Objects\Actor\Star</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Star.h">
+      <Filter>TOYALINE\Objects\Actor\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_StarList.h">
+      <Filter>TOYALINE\Objects\Actor\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="StarAnimController.h">
+      <Filter>TOYALINE\Animation\StarUI</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneTransitionAnim.h">
+      <Filter>TOYALINE\SceneTransition</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneTransition.h">
+      <Filter>TOYALINE\SceneTransition</Filter>
+    </ClInclude>
+    <ClInclude Include="Fade.h">
+      <Filter>TOYALINE\SceneTransition\DefaultFade</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectFade.h">
+      <Filter>TOYALINE\SceneTransition\SelectFade</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneTransitionAnimController.h">
+      <Filter>TOYALINE\SceneTransition</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="README.txt">

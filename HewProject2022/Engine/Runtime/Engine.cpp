@@ -91,6 +91,9 @@ bool GameEngine::Engine::Init()
 		return false;
 	}
 
+	/****	ゲームタイマー初期化	****/
+	GameTimer::Init();
+
 	return true;
 }
 //==============================================================================

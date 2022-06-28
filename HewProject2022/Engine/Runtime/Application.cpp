@@ -143,7 +143,7 @@ bool Application::MainLoop()
 	{
 		engine->Update();
 		systemtimer->SystemWait(FPS);
-		log->FPSWindowText(m_hWnd, systemtimer->GetNowFPS());
+		//log->FPSWindowText(m_hWnd, systemtimer->GetNowFPS());
 
 	}
 	return true;
